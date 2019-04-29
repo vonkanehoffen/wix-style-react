@@ -1,25 +1,27 @@
 import * as React from 'react';
-import WixComponent, {WixComponentProps} from "../BaseComponents/WixComponent";
+import WixComponent, {WixComponentProps} from '../BaseComponents/WixComponent';
 
 export interface BreadcrumbsProps extends WixComponentProps {
   items: BreadcrumbsItem[];
-  onClick?: (BreadcrumbsItem) => any;
-  activeId?: string | number,
+  onClick?: (item: BreadcrumbsItem) => void;
+  activeId?: string | number;
   size?: BreadcrumbsSize;
   theme?: BreadcrumbsTheme;
 }
 
-export default class Breadcrumbs extends WixComponent<BreadcrumbsProps> {
-}
+export default class Breadcrumbs extends WixComponent<BreadcrumbsProps> {}
 
-export type BreadcrumbsItem = {
-  id: string | number,
+export interface BreadcrumbsItem {
+  id: string | number;
   value: React.ReactNode;
-  link?: string,
-  customElement?: any,
-  disabled?: boolean,
-};
+  link?: string;
+  customElement?: JSX.Element;
+  disabled?: boolean;
+}
 
 export type BreadcrumbsSize = 'medium' | 'large';
 
-export type BreadcrumbsTheme = 'onWhiteBackground' | 'onGrayBackground' | 'onDarkBackground';
+export type BreadcrumbsTheme =
+  | 'onWhiteBackground'
+  | 'onGrayBackground'
+  | 'onDarkBackground';
