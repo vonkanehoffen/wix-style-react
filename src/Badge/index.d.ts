@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {InjectedFocusableProps, IconElement} from '../common';
+import {InjectedFocusableProps, IconElement} from '..';
 
+// should be re-exported from wix-ui-backoffice once the library
+// exposes proper types
 export interface BadgeProps extends InjectedFocusableProps {
   type?: BadgeType;
   skin?: BadgeSkin;
@@ -9,7 +11,6 @@ export interface BadgeProps extends InjectedFocusableProps {
   suffixIcon?: IconElement;
   onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
   uppercase?: boolean;
-  dataHook?: string;
 }
 
 export default class Badge extends React.PureComponent<BadgeProps> {}
@@ -20,13 +21,11 @@ export type BadgeSkin =
   | 'danger'
   | 'success'
   | 'neutral'
-  | 'neutralLight'
   | 'warning'
-  | 'warningLight'
   | 'urgent'
   | 'neutralStandard'
   | 'neutralSuccess'
-  | 'neutralDanger'
+  | 'nutralDanger'
   | 'premium';
 
 export type BadgeType = 'solid' | 'outlined' | 'transparent';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Badge from '../../src/Badge';
 import {badgeTestkitFactory} from '../../testkit';
 import {badgeTestkitFactory as badgeEnzymeTestkitFactory} from '../../testkit/enzyme';
-import {mount} from 'enzyme';
+import {mount} from '../../node_modules/@types/enzyme';
 
 function testkits() {
   const vanilla = badgeTestkitFactory({
@@ -31,8 +31,8 @@ function BadgeWithAllProps() {
       size="medium"
       prefixIcon={<div />}
       suffixIcon={<div />}
-      onBlur={() => undefined}
-      onFocus={() => undefined}
+      focusableOnBlur={() => undefined}
+      focusableOnFocus={() => undefined}
       onClick={e => undefined}
       uppercase
     />

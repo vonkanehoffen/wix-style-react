@@ -9,12 +9,9 @@
 import {BaseUniDriver} from 'wix-ui-test-utils/base-driver';
 import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import {ReactWrapper} from 'enzyme';
-import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
+import {AvatarDriver} from '../src/Avatar/Avatar.driver';
+import {AccordionDriver} from '../src/Accordion/Accordion.uni.driver';
 import {BadgeDriver} from '../src/Badge/Badge.driver';
-import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
-import {BoxDriver} from '../src/Box/Box.uni.driver';
-import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
-import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -147,9 +144,9 @@ declare namespace EnzymeTestkit {
   export const radioButtonTestkitFactory: any;
   export const messageBoxMarketerialLayoutTestkitFactory: any;
   export const messageBoxFunctionalLayoutTestkitFactory: any;
-  export const cardSubheaderTestkitFactory: any;
-  export const tooltipTestkitFactory: EnzymeTestkitFactory<TooltipDriver>;
-  export const TooltipTestkit: EnzymeUniTestkitFactory<TooltipUniDriver>;
+  export const tooltipTestkitFactory: any;
+  export const TooltipTestkit: any;
+  export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>
 }
 
 export = EnzymeTestkit;
