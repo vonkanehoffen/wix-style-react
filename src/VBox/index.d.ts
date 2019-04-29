@@ -1,1 +1,1 @@
-export {VBox, VBoxProps} from 'wix-ui-backoffice/VBox';
+export default VBox;
