@@ -1,20 +1,18 @@
 import * as React from 'react';
-import { WixComponentProps } from '../BaseComponents/WixComponent';
 import {
-  AppendTo,
-  Placement,
-} from 'wix-ui-core/dist/src/components/popover/Popover.d';
+  WixComponentProps,
+} from '../BaseComponents/WixComponent';
+import { Placement } from 'wix-ui-core/popover';
 
 export interface TooltipNewProps {
   upgrade: true;
   dataHook?: string;
   content?: React.ReactNode;
-  disabled?: boolean;
   textAlign?: TooltipNewTextAlign;
   enterDelay?: number;
   exitDelay?: number;
-  moveBy?: { x?: number; y?: number };
-  appendTo?: AppendTo;
+  moveBy?: { x?: number, y?: number };
+  appendTo?: TooltipNewAppendTo;
   flip?: boolean;
   fixed?: boolean;
   maxWidth?: React.CSSProperties['maxWidth'];
@@ -62,34 +60,13 @@ export interface TooltipOldProps extends WixComponentProps {
   showArrow?: boolean;
 }
 
-export type TooltipProps = TooltipNewProps | TooltipOldProps;
+export default class Tooltip extends React.PureComponent<TooltipNewProps | TooltipOldProps> {}
 
-export default class Tooltip<
-  T extends TooltipProps
-> extends React.PureComponent<T> {
-  /** @deprecated use `upgrade` prop with `close` method */
-  hide: T extends { upgrade: true } ? never : (props?: TooltipProps) => void;
-  /** @deprecated use `upgrade` prop with `open` method */
-  show: T extends { upgrade: true } ? never : (props?: TooltipProps) => void;
-
-  close: T extends { upgrade: true } ? () => void : never;
-  open: T extends { upgrade: true } ? () => void : never;
-}
-
-export type TooltipNewAppendTo =
-  | 'window'
-  | 'scrollParent'
-  | 'viewport'
-  | 'parent';
+export type TooltipNewAppendTo = 'window' | 'scrollParent' | 'viewport' | 'parent';
 export type TooltipNewTextAlign = 'center' | 'start';
 export type TooltipNewSize = 'small' | 'medium';
 export type TooltipOldPlacement = 'top' | 'right' | 'bottom' | 'left';
-export type TooltipOldAlignment =
-  | 'top'
-  | 'right'
-  | 'bottom'
-  | 'left'
-  | 'center';
+export type TooltipOldAlignment = 'top' | 'right' | 'bottom' | 'left' | 'center';
 export type TooltipOldTheme = 'light' | 'dark' | 'error';
 export type TooltipOldShowTrigger =
   | 'custom'
