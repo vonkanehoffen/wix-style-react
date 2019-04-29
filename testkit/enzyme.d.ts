@@ -10,8 +10,8 @@ import {BaseUniDriver} from 'wix-ui-test-utils/base-driver';
 import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import {ReactWrapper} from 'enzyme';
 import {AvatarDriver} from '../src/Avatar/Avatar.driver';
-import {AccordionDriver} from '../src/Accordion/Accordion.uni.driver';
 import {BadgeDriver} from '../src/Badge/Badge.driver';
+import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -32,9 +32,7 @@ declare namespace EnzymeTestkit {
   export const autoCompleteTestkitFactory: any;
   export const autoCompleteCompositeTestkitFactory: any;
   export const avatarTestkitFactory: EnzymeUniTestkitFactory<AvatarDriver>;
-  export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>;
-  export const badgeSelectTestkitFactory: EnzymeTestkitFactory<BadgeSelectDriver>;
-  export const boxTestkitFactory: EnzymeUniTestkitFactory<BoxDriver>;
+  export const boxTestkitFactory: any;
   export const breadcrumbsTestkitFactory: any;
   export const buttonTestkitFactory: any;
   export const calendarTestkitFactory: any;
@@ -146,7 +144,8 @@ declare namespace EnzymeTestkit {
   export const messageBoxFunctionalLayoutTestkitFactory: any;
   export const tooltipTestkitFactory: any;
   export const TooltipTestkit: any;
-  export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>
+  export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>;
+  export const badgeSelectTestkitFactory: EnzymeTestkitFactory<BadgeSelectDriver>;
 }
 
 export = EnzymeTestkit;
