@@ -1,23 +1,49 @@
-export type TableToolbarProps = any;
-export const TableToolbar: any;
+import * as React from 'react';
+import { LabelProps } from '../Label';
 
-export type ToolbarProps = any;
-export const Toolbar: any;
+// Toolbar
+declare const Toolbar: React.SFC & {
+  ItemGroup: typeof ItemGroup;
+  Item: typeof Item;
+  Label: typeof Label;
+  Divider: typeof Divider;
+};
 
-export type ItemGroupProps = any;
-export const ItemGroup: any;
+declare interface ItemGroupProps {
+  position?: ItemGroupPosition;
+}
 
-export type ItemProps = any;
-export const Item: any;
+declare type ItemGroupPosition = 'start' | 'end';
 
-export type LabelProps = any;
-export const Label: any;
+declare const ItemGroup: React.SFC<ItemGroupProps>;
 
-export type DividerProps = any;
-export const Divider: any;
+declare interface ItemProps {
+  layout?: ItemLayout;
+}
 
-export type TitleProps = any;
-export const Title: any;
+declare type ItemLayout = 'button';
 
-export type SelectedCountProps = any;
-export const SelectedCount: any;
+declare const Item: React.SFC<ItemProps>;
+
+declare const Label: React.SFC<LabelProps>;
+
+declare const Divider: React.SFC;
+
+// TableToolbar
+declare interface TitleProps {
+  dataHook?: string;
+}
+
+declare const Title: React.SFC<TitleProps>;
+
+declare interface SelectedCountProps {
+  dataHook?: string;
+}
+
+declare const SelectedCount: React.SFC<SelectedCountProps>;
+
+export declare const TableToolbar: typeof Toolbar & {
+  SelectedCount: typeof SelectedCount;
+  Title: typeof Title;
+};
+
