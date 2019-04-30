@@ -1,1 +1,3 @@
-export type CounterBadgeDriver = any;
+export {
+  CounterBadgeDriver
+} from 'wix-ui-backoffice/dist/src/components/StylableCounterBadge/CounterBadge.driver';
