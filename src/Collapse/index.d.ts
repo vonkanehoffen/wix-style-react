@@ -1,4 +1,10 @@
-export type CollapseProps = any;
+import * as React from 'react';
 
-declare const Collapse: any;
+export interface CollapseProps {
+  open?: boolean;
+  dataHook?: string;
+}
+
+declare const Collapse: React.SFC<CollapseProps>;
+
 export default Collapse;
