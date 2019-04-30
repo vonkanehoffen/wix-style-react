@@ -1,4 +1,11 @@
-export type EndorseContentLayoutProps = any;
+import * as React from 'react';
 
-declare const EndorseContentLayout: any;
+export interface EndorseContentLayoutProps {
+  head?: React.ReactNode;
+  content?: React.ReactNode;
+  primaryCta?: React.ReactNode;
+  secondaryCta?: React.ReactNode;
+}
+
+declare const EndorseContentLayout: React.SFC<EndorseContentLayoutProps>;
 export default EndorseContentLayout;
