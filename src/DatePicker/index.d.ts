@@ -1,25 +1,22 @@
-import * as React from 'react';
-import {WixComponentProps} from "../BaseComponents/WixComponent";
-import {CalendarProps} from "../Calendar";
+import WixComponent, {WixComponentProps} from '../BaseComponents/WixComponent';
+import {CalendarProps, CalendarLocale} from '../Calendar';
 
-export interface DatePickerProps extends WixComponentProps, CalendarProps {
-  customInput?: React.ReactNode,
-  inputProps?: {},
-  dateFormat?: string | Function,
-  locale?: string | {distanceInWords?: {}, format?: {},}
-  disabled?: boolean,
-  inputDataHook?: string,
-  calendarDataHook?: string,
-  placeholderText?: string,
-  rtl?: boolean,
-  value?: {},
-  isOpen?: boolean,
-  initialOpen?: boolean,
-  error?: boolean,
-  errorMessage?: React.ReactNode,
-  width?: number | string,
-  zIndex?: number,
+export type DatePickerProps = CalendarProps & WixComponentProps & {
+  customInput?: React.ReactNode;
+  inputProps?: any; // todo: add once Input types are implemented
+  dateFormat?: string | ((date: Date) => string);
+  disabled?: boolean;
+  inputDataHook?: string;
+  calendarDataHook?: string;
+  placeholderText?: string;
+  rtl?: boolean;
+  value?: Date | string;
+  isOpen?: boolean;
+  initialOpen?: boolean;    
+  error?: boolean;
+  errorMessage?: React.ReactNode;
+  width?: number;
+  zIndex?: number;
 }
 
-export default class DatePicker extends React.PureComponent<DatePickerProps> {
-}
+export default class DatePicker extends WixComponent<DatePickerProps> {}
