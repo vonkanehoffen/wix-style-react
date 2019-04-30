@@ -1,22 +1,31 @@
 import * as React from 'react';
-import Content from "./Content";
-import Header from "./Header";
-import Subheader from "./Subheader";
-import Divider from "./Divider";
+import WixComponent, {WixComponentProps} from '../BaseComponents/WixComponent';
 
 export interface CardProps {
-  children?: React.ReactNode,
-  stretchVertically?: boolean,
-  hideOverflow?: boolean,
-  dataHook?: string,
-  className?: string
+  stretchVertically?: boolean;
+  hideOverflow?: boolean;
+  dataHook?: string;
+  children?: React.ReactNode
 }
 
-declare const Card: React.FunctionComponent<CardProps> & {
-  Content: typeof Content,
-  Header: typeof Header,
-  Divider: typeof Divider,
-  Subheader: typeof Subheader,
+declare const Card: {
+  (props: CardProps): JSX.Element | null;
+  Content: typeof Content;
+  Header: typeof Header;
+  Divider: typeof Divider;
 };
 
 export default Card;
+
+declare class Content extends React.Component {}
+
+declare class Header extends WixComponent<HeaderProps> {}
+
+declare const Divider: React.SFC;
+
+interface HeaderProps extends WixComponentProps {
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+  suffix?: React.ReactNode;
+  withoutDivider?: boolean;
+}

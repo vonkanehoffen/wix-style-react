@@ -1,19 +1,25 @@
 import * as React from 'react';
 import Card from '../../src/Card';
 
-function CardWithMandatoryProps() {
-  return <Card />;
-}
-
-function CardWithAllProps() {
+function CardPanelFooterWithMandatoryProps() {
   return (
     <Card
-      className="cls"
-      dataHook="hook"
-      hideOverflow
-      stretchVertically
+    />
+  );
+}
+
+function CardPanelFooterWithAllProps() {
+  return (
+    <Card
+    dataHook="hook"
+    hideOverflow
+    stretchVertically
     >
-        content..
+      <Card.Header title="title" dataHook="hook" subtitle="sub" suffix={<span/>} />
+      <Card.Divider />
+      <Card.Content>
+        asdassd
+      </Card.Content>
     </Card>
   );
 }
