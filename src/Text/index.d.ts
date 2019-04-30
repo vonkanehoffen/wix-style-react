@@ -1,10 +1,20 @@
-export type TextProps = any;
+import * as React from 'react';
+import { WrapperComponentProps } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip/withEllipsedTooltip';
 
-declare const Text: any;
+export interface TextProps extends WrapperComponentProps {
+  ellipsed?: boolean;
+  tagName?: string;
+  className?: string;
+  size?: TextSize;
+  secondary?: boolean;
+  skin?: TextSkin;
+  light?: boolean;
+  weight?: TextWeight;
+}
+
+export type TextSize = 'tiny' | 'small' | 'medium';
+export type TextSkin = 'standard' | 'error' | 'success' | 'premium' | 'disabled';
+export type TextWeight = 'thin' | 'normal' | 'bold';
+
+const Text: React.SFC<TextProps>;
 export default Text;
-
-export declare const SIZES: any;
-
-export declare const SKINS: any;
-
-export declare const WEIGHTS: any;
