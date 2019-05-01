@@ -1,4 +1,7 @@
-export type HighlighterProps = any;
+import WixComponent, {WixComponentProps} from "../BaseComponents/WixComponent";
 
-declare const Highlighter: any;
-export default Highlighter;
+export interface HighlighterProps extends WixComponentProps {
+  match?: string;
+}
+
+export default class Highlighter extends WixComponent<HighlighterProps> {}
