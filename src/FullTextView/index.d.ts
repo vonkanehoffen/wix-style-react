@@ -1,4 +1,7 @@
-export type FullTextViewProps = any;
+import * as React from 'react';
 
-declare const FullTextView: any;
-export default FullTextView;
+export interface FullTextViewProps {
+  maxWidth?: number | string;
+}
+
+export default class FullTextView extends React.Component<FullTextViewProps> {}
