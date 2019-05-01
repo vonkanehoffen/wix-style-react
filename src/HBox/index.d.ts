@@ -1,2 +1,1 @@
-export type HBoxProps = any;
-export const HBox: any;
+export {HBox, HBoxProps} from 'wix-ui-backoffice/HBox';
