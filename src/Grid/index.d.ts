@@ -1,20 +1,38 @@
-export type ContainerProps = any;
-export const Container: any;
+import * as React from 'react';
 
-export type RawContainerProps = any;
-export const RawContainer: any;
+export interface ContainerProps {
+  fluid?: boolean;
+  className?: string;
+  stretchVertically?: boolean;
+}
 
-export type ColumnsProps = any;
-export const Columns: any;
+export const Container: React.SFC<ContainerProps>;
+export const RawContainer: React.SFC<ContainerProps>;
 
-export type AutoAdjustedRowProps = any;
-export const AutoAdjustedRow: any;
+export interface RowProps {
+  className?: string;
+  rtl?: boolean;
+  stretchViewsVertically?: boolean;
+  dataHook?: string;
+}
 
-export type RowProps = any;
-export const Row: any;
+export class Row extends React.Component<RowProps> {}
+export type ColumnsProps = RowProps;
+export type Columns = Row
 
-export type AutoAdjustedColumnsProps = any;
-export const AutoAdjustedColumns: any;
+export interface ColProps {
+  className?: string;
+  span?: string | number;
+  rtl?: boolean;
+  xs?: string | number;
+  sm?: string | number;
+  md?: string | number;
+  lg?: string | number;
+  xl?: string | number;
+  dataHook?: string;
+}
 
-export type ColProps = any;
-export const Col: any;
+export class Col extends React.Component<ColProps> {}
+
+export class AutoAdjustedRow extends React.Component {}
+export type AutoAdjustedColumns = AutoAdjustedRow;
