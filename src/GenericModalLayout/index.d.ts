@@ -1,4 +1,10 @@
-export type GenericModalLayoutProps = any;
+import WixComponent, {WixComponentProps} from '../BaseComponents/WixComponent';
 
-declare const GenericModalLayout: any;
-export default GenericModalLayout;
+export interface GenericModalLayoutProps extends WixComponentProps {
+  header?: React.ReactNode;
+  content?: React.ReactNode;
+  footer?: React.ReactNode;
+  fullscreen?: boolean;
+}
+
+export default class GenericModalLayout extends WixComponent<GenericModalLayoutProps> {}
