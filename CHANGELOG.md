@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<RichTextInputArea/>` - support removing links by toggling the link button [#3323](https://github.com/wix/wix-style-react/pull/3323)
+- Infra - add type definitions - add Avatar types [#3332](https://github.com/wix/wix-style-react/pull/3332)
 
 ### Fixed
 
