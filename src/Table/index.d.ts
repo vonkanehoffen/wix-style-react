@@ -1,19 +1,76 @@
-export type TableProps = any;
-export const Table: any;
+import * as React from 'react';
+import { TableContent, TableEmptyState, TableTitleBar, TableToolbarContainer } from './components';
+import { TooltipProps } from '../Tooltip';
 
-export type BulkSelectionStateProps = any;
-export const BulkSelectionState: any;
+export interface TableProps {
+  dataHook?: string;
+  allowMultiDetailsExpansion?: boolean;
+  data?: any[];
+  columns: {
+    title: React.ReactNode;
+    render(rowData, rowNum): JSX.Element;
+    sortable?: boolean;
+    infoTooltipProps?: TooltipProps;
+    sortDescending?: boolean;
+    align?: 'start' | 'center' | 'end';
+  }[];
+  dynamicRowClass?(rowData: any, rowNum: number): string;
+  hasMore?: boolean;
+  hideHeader?: boolean;
+  id?: string;
+  infiniteScroll?: boolean;
+  itemsPerPage?: number;
+  loader?: React.ReactNode;
+  loadMore?(): void;
+  onRowClick?(rowData: any, rowNum: number): void;
+  onMouseEnterRow?(rowData: any, rowNum: number): void;
+  onMouseLeaveRow?(rowData: any, rowNum: number): void;
+  useWindow?: boolean;
+  scrollElement?: HTMLElement;
+  rowVerticalPadding?: 'medium' | 'large';
+  rowDetails?(rowData: any, rowNum: number): React.ReactNode;
+  rowDataHook?: string | ((rowData: any, rowNum: number) => string);
+  rowClass?: string;
+  showHeaderWhenEmpty?: boolean;
+  onSelectionChanged?(selectedIds: string[] | number[], change?: SelectionChange): void;
+  showSelection?: boolean;
+  selectedIds?: string[] | number[];
+  selectionDisabled?: boolean;
+  width?: string;
+  withWrapper?: boolean;
+}
 
-export type TableToolbarContainerProps = any;
-export const TableToolbarContainer: any;
+export class Table extends React.Component<TableProps> {
+  static ToolbarContainer: typeof TableToolbarContainer;
+  static Titlebar: typeof TableTitleBar;
+  static Content: typeof TableContent;
+  static EmptyState: typeof TableEmptyState;
+}
 
-export type TableTitleBarProps = any;
-export const TableTitleBar: any;
+export default Table;
 
-export type TableContentProps = any;
-export const TableContent: any;
+export declare type SelectionChange = SelectionChangeAll
+  | SelectionChangeNone
+  | SelectionChangeToggle;
 
-export type TableEmptyStateProps = any;
-export const TableEmptyState: any;
+export declare type SelectionChangeAll = {type: ChangeType.ALL};
+export declare type SelectionChangeNone = {type: ChangeType.NONE};
+export declare type SelectionChangeToggle = {
+  type: ChangeType.SINGLE_TOGGLE;
+  id: string | number;
+  value: boolean;
+};
 
-export declare const SelectionContextPropTypes: any;
+export declare enum ChangeType {
+  ALL = 'ALL',
+  NONE = 'NONE',
+  SINGLE_TOGGLE = 'SINGLE_TOGGLE',
+}
+
+export * from './components';
+
+export declare enum BulkSelectionState {
+  ALL = 'ALL',
+  NONE = 'NONE',
+  SOME = 'SOME',
+}

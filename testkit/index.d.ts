@@ -44,17 +44,19 @@ import {InputAreaDriver} from '../src/InputArea/InputArea.driver';
 import {InputWithOptionsDriver} from '../src/InputWithOptions/InputWithOptions.driver';
 import {LinearProgressBarDriver} from '../src/LinearProgressBar/LinearProgressBar.driver';
 import {LoaderDriver} from '../src/Loader/Loader.driver';
+import {DataTableDriver} from '../src/DataTable/DataTable.driver';
+import {TableDriver} from '../src/Table/Table.driver';
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
-    params: VanillaTeskitParams
+    params: VanillaTestkitParams
   ) => T;
 
   type VanillaUniTestkitFactory<T extends BaseUniDriver> = (
-    params: VanillaTeskitParams
+    params: VanillaTestkitParams
   ) => T;
 
-  interface VanillaTeskitParams {
+  interface VanillaTestkitParams {
     wrapper: HTMLElement;
     dataHook: string;
   }
@@ -74,6 +76,7 @@ declare namespace VanillaTestkit {
   export const closeButtonTestkitFactory: VanillaUniTestkitFactory<CloseButtonDriver>;
   export const colorPickerTestkitFactory: VanillaTestkitFactory<ColorPickerDriver>;
   export const counterBadgeTestkitFactory: VanillaTestkitFactory<CounterBadgeDriver>;
+  export const dataTableTestkitFactory: VanillaTestkitFactory<DataTableDriver>;
   export const datePickerTestkitFactory: VanillaTestkitFactory<DatePickerDriver>;
   export const dropdownBaseTestkitFactory: VanillaUniTestkitFactory<DropdownBaseDriver>;
   export const dropdownLayoutTestkitFactory: VanillaTestkitFactory<DropdownLayoutDriver>;
@@ -95,6 +98,7 @@ declare namespace VanillaTestkit {
   export const linearProgressBarTestkitFactory: VanillaTestkitFactory<LinearProgressBarDriver>;
   export const loaderTestkitFactory: VanillaTestkitFactory<LoaderDriver>;
 
+  export const tableTestkitFactory: VanillaTestkitFactory<TableDriver>;
   export const tableActionCellTestkitFactory: VanillaTestkitFactory<TableActionCellDriver>;
   export const tabsTestkitFactory: VanillaTestkitFactory<TabsDriver>;
   export const tagTestkitFactory: VanillaTestkitFactory<TagDriver>;
