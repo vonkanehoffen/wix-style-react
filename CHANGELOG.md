@@ -15,10 +15,9 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
-## Next
-
+## 6.17.1 - 2019-05-02
 ### Fixed
-
+- downgrade internally dependency jscodeshift, which uses babel@6, for compatibility [51dd840e](https://github.com/wix/wix-style-react/commit/51dd840e46c58f6d5f80e8275a93f208ce0f8fe6)
 - `<Input/>` - fix prop validation warning when providing updateControlledOnClear [#3341](https://github.com/wix/wix-style-react/pull/3341)
 - Infra: Remove empty typescript declarations [#3341](https://github.com/wix/wix-style-react/pull/3341)
 
