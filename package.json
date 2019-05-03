@@ -39,7 +39,7 @@
     "test:types": "tsc --noEmit -p tsconfig.declarations.json",
     "copy-public-styles": "cp src/*.scss .",
     "prebuild": "npm run generate-testkit-exports",
-    "build": "npm run lint && npm run proxy-wix-ui-icons && npm run generate-test-component && npm run transpile && npm run storybook:build",
+    "build": "npm run lint && npm run proxy-wix-ui-icons && npm run transpile && npm run storybook:build",
     "prepublishOnly": "npm run bundle",
     "bundle": "webpack --config ./node_modules/yoshi/config/webpack.config.client.js --debug --display-error-details --progress",
     "transpile": "node ./scripts/transpile.js",
@@ -54,8 +54,9 @@
     "export-components": "import-path --path src --dts",
     "lint": "yoshi lint --fix",
     "proxy-wix-ui-icons": "node scripts/proxy-wix-ui-icons",
-    "generate": "./scripts/generate-component/bin/generate-component.js",
-    "generate-test-component": "./scripts/generate-component/bin/generate-test-component.js",
+    "generate": "wuf generate",
+    "postgenerate": "npm run generate-testkit-exports",
+    "generate-test-component": "wuf generate --component-name GeneratedTestComponent",
     "generate-testkit-exports": "node scripts/generate-testkit-exports",
     "generate-autodocs-registry": "node scripts/generate-autodocs-registry",
     "eyes-storybook-debug": "start-storybook -c ./.storybook-test -p 6007",
@@ -153,6 +154,7 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "wix-storybook-utils": "^3.0.0",
+    "wix-ui-framework": "^1.2.0",
     "yoshi": "^4.1.1",
     "yoshi-config": "^4.1.0-alpha.1",
     "yoshi-helpers": "^4.1.0-alpha.1",
@@ -233,7 +235,7 @@
       "<rootDir>/dist/",
       "<rootDir>/node_modules/",
       "<rootDir>/test-runtime/",
-      "<rootDir>/scripts/generate-component/templates/"
+      "<rootDir>/generator"
     ]
   },
   "eslintConfig": {
