@@ -154,7 +154,7 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "wix-storybook-utils": "^3.0.0",
-    "wix-ui-framework": "^1.2.0",
+    "wix-ui-framework": "^1.2.1",
     "yoshi": "^4.1.1",
     "yoshi-config": "^4.1.0-alpha.1",
     "yoshi-helpers": "^4.1.0-alpha.1",
