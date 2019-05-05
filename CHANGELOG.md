@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Docs
 - `<RichTextInputArea/>` - change RichTextArea docs to use the new component [#3352](https://github.com/wix/wix-style-react/pull/3352)
+- Infra - remove .d.ts files from root when unnecessary in import-path [fix](https://github.com/wix/import-path/pull/8)
 
 ## 6.17.1 - 2019-05-02
 ### Fixed
