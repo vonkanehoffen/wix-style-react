@@ -20,7 +20,7 @@ require('../src/Card/docs'); // 2.2 Card Layout
 // 3. Inputs
 require('./TextInput/index.story'); // 3.1. Text Input
 require('./TextArea/index.story'); // 3.2 Text Area
-require('../src/RichTextArea/docs/index.story'); // 3.2b + RichTextArea
+require('./RichTextArea/index.story'); // 3.3 Rich Text Area
 require('./NumberInput/index.story'); // 3.4 NumberInput
 require('../src/ColorInput/docs/index.story'); // 3.11 ColorInput
 require('./MultiSelect/index.story'); // 3.12 Tags
@@ -109,7 +109,7 @@ require('../src/PopoverMenu/docs/index.story');
 require('../src/Proportion/docs/index.story');
 require('../src/RadioGroup/docs/index.story');
 require('../src/Range/docs');
-require('../src/RichTextArea/docs/api.story');
+require('../src/RichTextInputArea/docs/index.story');
 require('../src/Search/docs/index.story');
 require('../src/SectionHelper/docs/index.story');
 require('../src/SideMenu/docs');
@@ -179,6 +179,5 @@ require('./FieldWithSelectionComposite');
 require('../src/GeneratedTestComponent/docs/index.story');
 require('../src/GeneratedTestComponent/test/GeneratedTestComponentStories');
 
-require('../src/RichTextInputArea/docs/index.story');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
