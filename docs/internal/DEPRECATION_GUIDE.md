@@ -32,7 +32,7 @@ Then, in the component constructor, you should call the `deprecationLog` while p
 message regarding the deprecation of the component, explaining the required next steps:
 
 ```jsx
-import deprecationLog '../utils/deprecationLog';
+import deprecationLog from '../utils/deprecationLog';
 
 // ...
 
