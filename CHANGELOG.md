@@ -14,9 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.17.2 - 2019-05-03
 ### Docs
 - `<RichTextInputArea/>` - change RichTextArea docs to use the new component [#3352](https://github.com/wix/wix-style-react/pull/3352)
+
+### Fixed
 - Infra - remove .d.ts files from root when unnecessary in import-path [fix](https://github.com/wix/import-path/pull/8)
 
 ## 6.17.1 - 2019-05-02
