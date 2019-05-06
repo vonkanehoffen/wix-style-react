@@ -74,7 +74,7 @@ Then, use the `deprecationLog` inside the component when the deprecated propType
 add the backward compatibility:
 
 ```jsx
-import deprecationLog '../utils/deprecationLog';
+import deprecationLog from '../utils/deprecationLog';
 
 // ...
 
