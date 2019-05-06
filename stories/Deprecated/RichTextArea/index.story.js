@@ -7,9 +7,9 @@ import {
   playground,
   testkit,
 } from 'wix-storybook-utils/Sections';
-import RichTextArea from '..';
+import RichTextArea from '../../../src/RichTextArea';
 
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import { baseScope } from '../../utils/LiveCodeExample';
 import { storySettings } from './storySettings';
 import * as examples from './examples';
 
@@ -20,10 +20,10 @@ const code = config =>
   });
 
 export default {
-  category: storySettings.apiCategory,
+  category: storySettings.category,
   storyName: storySettings.storyName,
   component: RichTextArea,
-  componentPath: '..',
+  componentPath: '../../../src/RichTextArea',
 
   componentProps: setProps => ({
     value: '',

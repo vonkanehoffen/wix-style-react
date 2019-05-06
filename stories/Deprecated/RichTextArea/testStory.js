@@ -4,12 +4,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import RichTextArea from 'wix-style-react/RichTextArea';
 
-import { getTestStoryKind } from '../../../stories/storiesHierarchy';
+import { getTestStoryKind } from '../../storiesHierarchy';
 import { storySettings, testStories } from './storySettings';
 
 const kind = getTestStoryKind({
   storyName: storySettings.storyName,
-  category: storySettings.indexCategory,
+  category: storySettings.category,
 });
 
 const TestContainer = ({ children }) => (

@@ -166,7 +166,6 @@ require('../src/StatsWidget/docs/testStory'); // 2.7 StatsWidget
 require('../src/SegmentedToggle/docs/testStory'); // 4.5 SegmentedToggle
 require('../src/FloatingNotification/docs/FloatingNotificationTestStory'); // 8.2 FloatingNotification
 require('../src/FormField/docs/testStory');
-require('../src/RichTextArea/docs/testStory');
 require('../src/DropdownLayout/docs/testStory');
 require('../src/InputWithOptions/docs/testStory');
 require('../src/ColorInput/docs/testStory');
@@ -174,6 +173,8 @@ require('../src/DateInput/test/testStories');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
+require('./Deprecated/RichTextArea/index.story');
+require('./Deprecated/RichTextArea/testStory');
 
 // The generated test component
 require('../src/GeneratedTestComponent/docs/index.story');

@@ -22,7 +22,7 @@ export const addItemTestkitFactory = protractorTestkitFactoryCreator(
   addItemDriverFactory,
 );
 
-import richTextAreaDriverFactory from '../src/RichTextArea/RichTextArea.protractor.driver';
+import richTextAreaDriverFactory from '../src/Deprecated/RichTextArea/RichTextArea.protractor.driver';
 
 export const richTextAreaTestkitFactory = protractorTestkitFactoryCreator(
   richTextAreaDriverFactory,

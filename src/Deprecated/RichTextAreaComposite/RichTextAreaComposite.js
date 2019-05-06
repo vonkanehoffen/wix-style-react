@@ -1,9 +1,9 @@
 import React from 'react';
-import * as Composite from '../Composite';
-import RichTextArea from '../RichTextArea';
-import Label from '../Label';
-import InputAreaWithLabelComposite from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite';
-import deprecationLog from '../utils/deprecationLog';
+import * as Composite from '../../Composite';
+import RichTextArea from '../RichTextArea/RichTextArea';
+import Label from '../../Label';
+import InputAreaWithLabelComposite from '../../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite';
+import deprecationLog from '../../utils/deprecationLog';
 
 const RichTextAreaComposite = ({ children, ...props }) => {
   deprecationLog(

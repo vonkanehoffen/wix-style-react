@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormField from '../FormField';
-import Button from '../Button';
-import X from '../new-icons/X';
-import Check from '../new-icons/Check';
-import Input from '../Input';
+import FormField from '../../FormField';
+import Button from '../../Button';
+import X from '../../new-icons/X';
+import Check from '../../new-icons/Check';
+import Input from '../../Input';
 import styles from './RichTextAreaLinkForm.scss';
 
 class RichTextAreaLinkForm extends Component {

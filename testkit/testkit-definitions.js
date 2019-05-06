@@ -92,6 +92,13 @@ module.exports = {
 
   RichTextArea: {
     beforeAllHook: () => (window.getSelection = () => ({})),
+    testkitPath: '../src/Deprecated/RichTextArea/RichTextArea.driver',
+  },
+
+  RichTextAreaComposite: {
+    beforeAllHook: () => (window.getSelection = () => ({})),
+    testkitPath:
+      '../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver',
   },
 
   Avatar: { unidriver: true },

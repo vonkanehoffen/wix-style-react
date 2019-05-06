@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Tooltip from '../Tooltip';
-import TextAreaBold from '../new-icons/system/TextAreaBold';
-import TextAreaItalic from '../new-icons/system/TextAreaItalic';
-import TextAreaUnderline from '../new-icons/system/TextAreaUnderline';
-import TextAreaBulletList from '../new-icons/system/TextAreaBulletList';
-import TextAreaNumberedList from '../new-icons/system/TextAreaNumberedList';
-import TextAreaLink from '../new-icons/system/TextAreaLink';
-import TextAreaImage from '../new-icons/system/TextAreaImage';
+import Tooltip from '../../Tooltip';
+import TextAreaBold from '../../new-icons/system/TextAreaBold';
+import TextAreaItalic from '../../new-icons/system/TextAreaItalic';
+import TextAreaUnderline from '../../new-icons/system/TextAreaUnderline';
+import TextAreaBulletList from '../../new-icons/system/TextAreaBulletList';
+import TextAreaNumberedList from '../../new-icons/system/TextAreaNumberedList';
+import TextAreaLink from '../../new-icons/system/TextAreaLink';
+import TextAreaImage from '../../new-icons/system/TextAreaImage';
 import styles from './RichTextAreaButton.scss';
-import { withFocusable, focusableStates } from '../common/Focusable';
+import { withFocusable, focusableStates } from '../../common/Focusable';
 
 const buttons = {
   bold: {

@@ -1,9 +1,8 @@
-import { Category } from '../../../stories/storiesHierarchy';
+import { Category } from '../../storiesHierarchy';
 
 export const storySettings = {
   storyName: 'Rich Text Area',
-  indexCategory: Category.INPUTS,
-  apiCategory: Category.COMPONENTS,
+  category: Category.DEPRECATED,
   dataHook: 'story-richtextarea',
 };
 

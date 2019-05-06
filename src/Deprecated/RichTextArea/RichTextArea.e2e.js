@@ -1,10 +1,13 @@
 import eyes from 'eyes.it';
-import { richTextAreaTestkitFactory } from '../../testkit/protractor';
+import { richTextAreaTestkitFactory } from '../../../testkit/protractor';
 import { waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
-import { storySettings, testStories } from './docs/storySettings';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
+import {
+  storySettings,
+  testStories,
+} from '../../../stories/Deprecated/RichTextArea/storySettings';
 import { BUTTON_TYPES } from './RichTextArea.protractor.driver';
-import { flattenInternalDriver } from '../../test/utils/private-drivers';
+import { flattenInternalDriver } from '../../../test/utils/private-drivers';
 
 const EDITOR_TAB_ORDINAL = 7;
 
@@ -26,7 +29,7 @@ describe('RichTextArea', () => {
 
   const navigateToTestUrl = async testName => {
     const testStoryUrl = createTestStoryUrl({
-      category: storySettings.indexCategory,
+      category: storySettings.category,
       storyName: storySettings.storyName,
       dataHook: storySettings.dataHook,
       testName,

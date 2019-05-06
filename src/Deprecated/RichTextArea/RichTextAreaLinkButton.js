@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from '../Tooltip';
+import Tooltip from '../../Tooltip';
 import RichTextAreaLinkForm from './RichTextAreaLinkForm';
 import RichTextAreaButton from './RichTextAreaButton';
 
