@@ -23,6 +23,8 @@ Types of changes:
 
 - `<FormField/>` - migrated infoicon's tooltip to next generation tooltip. [#3312)](https://github.com/wix/wix-style-react/pull/3312)
 
+- `<AddItem/>` - migrated tooltip to next generation, improved documentation, added unidriver [#3326](https://github.com/wix/wix-style-react/pull/3326)
+
 ## 6.17.3 - 2019-05-03
 ### Fixed
 - `<NestableList/>` - Fix bad import of PropTypes [#3359](https://github.com/wix/wix-style-react/pull/3359)
