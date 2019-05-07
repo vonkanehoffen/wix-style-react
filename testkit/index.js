@@ -142,3 +142,4 @@ export const fieldWithSelectionCompositeTestkitFactory = testkitFactoryCreator(l
 export const radioButtonTestkitFactory = testkitFactoryCreator(load(require('../src/RadioGroup/RadioButton/RadioButton.driver')));
 export const messageBoxMarketerialLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver')));
 export const messageBoxFunctionalLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.driver')));
+export const cardSubheaderTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Card/Subheader/Subheader.uni.driver')));

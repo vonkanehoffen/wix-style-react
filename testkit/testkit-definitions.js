@@ -267,4 +267,10 @@ module.exports = {
     unidriver: true,
     testkitPath: '../src/ErrorIndicator/ErrorIndicator.uni.driver',
   },
+
+  CardSubheader: {
+    unidriver: true,
+    skipSanityTest: true,
+    testkitPath: '../src/Card/Subheader/Subheader.uni.driver',
+  },
 };
