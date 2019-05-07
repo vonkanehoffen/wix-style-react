@@ -15,8 +15,13 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
 ### Deprecated
 - `<RichTextArea />` - deprecated component, you should use `<RichTextInputArea/>` instead [#3354](https://github.com/wix/wix-style-react/pull/3354)
+
+## Changed ##
+
+- `<FormField/>` - migrated infoicon's tooltip to next generation tooltip. [#3312)](https://github.com/wix/wix-style-react/pull/3312)
 
 ## 6.17.3 - 2019-05-03
 ### Fixed
