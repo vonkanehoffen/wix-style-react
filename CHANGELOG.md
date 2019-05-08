@@ -16,14 +16,24 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Table/>` - add selected row indication [#3353](https://github.com/wix/wix-style-react/pull/3353)
+- `<Card/>` - add `<Card.Subheader/>` component [#3293](https://github.com/wix/wix-style-react/pull/3293)
+
 ### Deprecated
 - `<RichTextArea />` - deprecated component, you should use `<RichTextInputArea/>` instead [#3354](https://github.com/wix/wix-style-react/pull/3354)
 
-## Changed ##
+### Changed
 
-- `<FormField/>` - migrated infoicon's tooltip to next generation tooltip. [#3312)](https://github.com/wix/wix-style-react/pull/3312)
-
+- `<FormField/>` - migrated infoicon's tooltip to next generation tooltip. [#3312](https://github.com/wix/wix-style-react/pull/3312)
 - `<AddItem/>` - migrated tooltip to next generation, improved documentation, added unidriver [#3326](https://github.com/wix/wix-style-react/pull/3326)
+- `<Badge/>` - migrate from `wix-ui-backoffice` [#3362](https://github.com/wix/wix-style-react/pull/3362)
+
+### Fixed
+- `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
+
+### Docs
+- `<Table/>` document 'onSortClick' function [#3364](https://github.com/wix/wix-style-react/pull/3364)
 
 ## 6.17.3 - 2019-05-03
 ### Fixed
