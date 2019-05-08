@@ -29,6 +29,7 @@ Types of changes:
 - `<AddItem/>` - migrated tooltip to next generation, improved documentation, added unidriver [#3326](https://github.com/wix/wix-style-react/pull/3326)
 - `<Badge/>` - migrate from `wix-ui-backoffice` [#3362](https://github.com/wix/wix-style-react/pull/3362)
 - `<ImageViewer/>` - migreate tooltip & button to next generation. [#3375](https://github.com/wix/wix-style-react/pull/3375)
+- `<Loader/>` - migrate tooltip. [#3376](https://github.com/wix/wix-style-react/pull/3376)
 
 ### Fixed
 - `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
