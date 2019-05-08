@@ -26,6 +26,7 @@ class TooltipHOC extends Component {
         fixed={tooltipFixed}
         content={tooltipContent}
         appendTo={tooltipAppendTo}
+        timeout={0}
         {...tooltipProps}
         {...style('tooltip', {}, this.props)}
         upgrade
