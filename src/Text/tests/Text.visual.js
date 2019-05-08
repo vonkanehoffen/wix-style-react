@@ -11,28 +11,32 @@ storiesOf('Text', module)
   ))
   .add('styles', () => (
     <div style={{ backgroundColor: '#f0f4f7' }}>
-      {Object.keys(WEIGHTS).map(weight =>
-        Object.keys(SIZES).map(size =>
-          Object.keys(SKINS).map(skin =>
-            [false, true].map(light =>
-              [false, true].map(secondary => (
-                <span style={{ margin: '12px' }}>
-                  <Text
-                    key={`${weight} ${size} ${skin} ${light} ${secondary}`}
-                    size={size}
-                    weight={weight}
-                    skin={skin}
-                    light={light}
-                    secondary={secondary}
-                  >
-                    Some Text
-                  </Text>
-                </span>
-              )),
-            ),
-          ),
-        ),
-      )}
+      {Object.keys(WEIGHTS).map(weight => (
+        <p>
+          {Object.keys(SIZES).map(size => (
+            <p>
+              {Object.keys(SKINS).map(skin =>
+                [false, true].map(light =>
+                  [false, true].map(secondary => (
+                    <span style={{ margin: '12px' }}>
+                      <Text
+                        key={`${weight} ${size} ${skin} ${light} ${secondary}`}
+                        size={size}
+                        weight={weight}
+                        skin={skin}
+                        light={light}
+                        secondary={secondary}
+                      >
+                        Some Text
+                      </Text>
+                    </span>
+                  )),
+                ),
+              )}
+            </p>
+          ))}
+        </p>
+      ))}
     </div>
   ));
 
