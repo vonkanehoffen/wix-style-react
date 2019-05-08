@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import Text from 'wix-style-react/Text';
 import s from './styles.scss';
 
-export default () => (
+render(
   <div>
     <h3>Thin Text</h3>
     <ul className={s.root}>
@@ -456,5 +457,5 @@ export default () => (
         </span>
       </li>
     </ul>
-  </div>
+  </div>,
 );

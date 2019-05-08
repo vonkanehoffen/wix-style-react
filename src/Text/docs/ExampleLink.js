@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import Text from 'wix-style-react/Text';
 
-export default () => (
+render(
   <Text dataHook="storybook-text-link">
     Text component applies link styles to anchor elements that are{' '}
     <a
@@ -19,5 +20,5 @@ export default () => (
       </a>
     </span>{' '}
     are not styled (what you see is the default browser styles)
-  </Text>
+  </Text>,
 );

@@ -1,4 +1,5 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import Text from 'wix-style-react/Text';
 
-export default () => <Text>{'First line\nSecond line'}</Text>;
+render(<Text>{'First line\nSecond line'}</Text>);
