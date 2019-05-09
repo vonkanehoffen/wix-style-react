@@ -31,6 +31,7 @@ Types of changes:
 - `<ImageViewer/>` - migreate tooltip & button to next generation. [#3375](https://github.com/wix/wix-style-react/pull/3375)
 - `<Loader/>` - migrate tooltip. [#3376](https://github.com/wix/wix-style-react/pull/3376)
 - `<ErrorIndicator/>` - migrate Tooltip [#3380](https://github.com/wix/wix-style-react/pull/3380)
+- `<EditableRow/>` - mgirate Tooltip, TextLink, Button [#3379](https://github.com/wix/wix-style-react/pull/3379)
 
 ### Fixed
 - `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
