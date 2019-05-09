@@ -33,6 +33,7 @@ Types of changes:
 - `<ErrorIndicator/>` - migrate Tooltip [#3380](https://github.com/wix/wix-style-react/pull/3380)
 - `<EditableRow/>` - migrate Tooltip, TextLink, Button [#3379](https://github.com/wix/wix-style-react/pull/3379)
 - `<FieldLabelAttributes/>` - migrate Tooltip [#3381](https://github.com/wix/wix-style-react/pull/3381)
+- `<Button/>` - migrate e2e tests to .visual [#3383](https://github.com/wix/wix-style-react/pull/3383)
 
 ### Fixed
 - `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
