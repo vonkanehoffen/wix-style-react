@@ -1,6 +1,6 @@
 import { baseUniDriverFactory } from '../../../test/utils/unidriver';
 import { testkit as inputDriverFactory } from '../../Input/Input.uni.driver';
-import { buttonDriverFactory } from '../../Button/Button.uni.driver';
+import { iconButtonDriverFactory } from '../../IconButton/IconButton.uni.driver';
 
 export const editableRowUniDriverFactory = base => {
   const input = base.$('[data-hook="edit-row-input"]');
@@ -8,8 +8,8 @@ export const editableRowUniDriverFactory = base => {
   const cancelBtn = base.$('[data-hook="edit-row-cancel-button"]');
 
   const inputDriver = inputDriverFactory(input);
-  const approveBtnDriver = buttonDriverFactory(approveBtn);
-  const cancelBtnDriver = buttonDriverFactory(cancelBtn);
+  const approveBtnDriver = iconButtonDriverFactory(approveBtn);
+  const cancelBtnDriver = iconButtonDriverFactory(cancelBtn);
 
   return {
     ...baseUniDriverFactory(base),

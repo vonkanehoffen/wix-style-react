@@ -1,5 +1,4 @@
 import React from 'react';
-import sinon from 'sinon';
 import editableRowDriverFactory from './EditableRow.driver';
 import {
   createRendererWithDriver,
@@ -10,24 +9,10 @@ import EditableRow from './EditableRow';
 import { editableRowUniDriverFactory } from './EditableRow.uni.driver';
 
 describe('EditableRow', () => {
-  let props;
-
-  beforeEach(() => {
-    props = {};
-  });
-
   describe('[sync]', () => {
-    const render = createRendererWithDriver(editableRowDriverFactory);
-    runTests(render);
-
-    // TODO move this to runTests() once button is upgraded to ButtonNext (otherwise it fails)
-    it('should toggle accept button disabled state according to input presence', async () => {
-      const { driver } = render(<EditableRow {...props} />);
-      expect(await driver.isApproveDisabled()).toBe(true);
-      await driver.setText('new option');
-      expect(await driver.isApproveDisabled()).toBe(false);
-    });
+    runTests(createRendererWithDriver(editableRowDriverFactory));
   });
+
   describe('[async]', () => {
     runTests(createRendererWithUniDriver(editableRowUniDriverFactory));
   });
@@ -35,49 +20,55 @@ describe('EditableRow', () => {
     afterEach(() => cleanup());
 
     it('should focus on input when mounted', async () => {
-      const { driver } = render(<EditableRow {...props} />);
+      const { driver } = render(<EditableRow />);
       expect(await driver.isInputFocused()).toEqual(true);
+    });
+
+    it('should toggle accept button disabled state according to input presence', async () => {
+      const { driver } = render(<EditableRow />);
+      expect(await driver.isApproveDisabled()).toBe(true);
+      await driver.setText('new option');
+      expect(await driver.isApproveDisabled()).toBe(false);
     });
 
     it('should set input text from props', async () => {
       const text = 'new option';
-      props.newOption = text;
-      const { driver } = render(<EditableRow {...props} />);
+      const { driver } = render(<EditableRow newOption={text} />);
       expect(await driver.getText()).toEqual(text);
     });
 
     it('should trigger onApprove callback when approve button is clicked', async () => {
-      props.onApprove = sinon.spy();
-      const { driver } = render(<EditableRow {...props} />);
+      const onApprove = jest.fn();
+      const { driver } = render(<EditableRow onApprove={onApprove} />);
       const text = 'new option';
       await driver.setText(text);
       await driver.clickApprove();
-      expect(props.onApprove.calledOnce).toBe(true);
-      expect(props.onApprove.calledWith(text)).toBe(true);
+      expect(onApprove).toHaveBeenCalled();
+      expect(onApprove.mock.calls[0][0]).toBe(text);
     });
 
     it('should trigger onApprove callback when enter key is pressed', async () => {
-      props.onApprove = sinon.spy();
-      const { driver } = render(<EditableRow {...props} />);
+      const onApprove = jest.fn();
+      const { driver } = render(<EditableRow onApprove={onApprove} />);
       const text = 'new option';
       await driver.setText(text);
       await driver.keyDown(13); //enter
-      expect(props.onApprove.calledOnce).toBe(true);
-      expect(props.onApprove.calledWith(text)).toBe(true);
+      expect(onApprove).toHaveBeenCalled();
+      expect(onApprove.mock.calls[0][0]).toBe(text);
     });
 
     it('should trigger onCancel callback when cancel button is clicked', async () => {
-      props.onCancel = sinon.spy();
-      const { driver } = render(<EditableRow {...props} />);
+      const onCancel = jest.fn();
+      const { driver } = render(<EditableRow onCancel={onCancel} />);
       await driver.clickCancel();
-      expect(props.onCancel.calledOnce).toBe(true);
+      expect(onCancel).toHaveBeenCalled();
     });
 
     it('should trigger onCancel callback when escape key is pressed', async () => {
-      props.onCancel = sinon.spy();
-      const { driver } = render(<EditableRow {...props} />);
+      const onCancel = jest.fn();
+      const { driver } = render(<EditableRow onCancel={onCancel} />);
       await driver.keyDown(27); //esc
-      expect(props.onCancel.calledOnce).toBe(true);
+      expect(onCancel).toHaveBeenCalled();
     });
   }
 });
