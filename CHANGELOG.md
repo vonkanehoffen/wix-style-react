@@ -30,7 +30,7 @@ Types of changes:
 - `<Badge/>` - migrate from `wix-ui-backoffice` [#3362](https://github.com/wix/wix-style-react/pull/3362)
 - `<ImageViewer/>` - migreate tooltip & button to next generation. [#3375](https://github.com/wix/wix-style-react/pull/3375)
 - `<Loader/>` - migrate tooltip. [#3376](https://github.com/wix/wix-style-react/pull/3376)
-- `<ErrorImdicator/>` - migrate Tooltip [#3380](https://github.com/wix/wix-style-react/pull/3380)
+- `<ErrorIndicator/>` - migrate Tooltip [#3380](https://github.com/wix/wix-style-react/pull/3380)
 
 ### Fixed
 - `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
