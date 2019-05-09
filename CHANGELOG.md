@@ -28,10 +28,11 @@ Types of changes:
 - `<FormField/>` - migrated infoicon's tooltip to next generation tooltip. [#3312](https://github.com/wix/wix-style-react/pull/3312)
 - `<AddItem/>` - migrated tooltip to next generation, improved documentation, added unidriver [#3326](https://github.com/wix/wix-style-react/pull/3326)
 - `<Badge/>` - migrate from `wix-ui-backoffice` [#3362](https://github.com/wix/wix-style-react/pull/3362)
-- `<ImageViewer/>` - migreate tooltip & button to next generation. [#3375](https://github.com/wix/wix-style-react/pull/3375)
-- `<Loader/>` - migrate tooltip. [#3376](https://github.com/wix/wix-style-react/pull/3376)
+- `<ImageViewer/>` - migreate Tooltip & Button [#3375](https://github.com/wix/wix-style-react/pull/3375)
+- `<Loader/>` - migrate Tooltip. [#3376](https://github.com/wix/wix-style-react/pull/3376)
 - `<ErrorIndicator/>` - migrate Tooltip [#3380](https://github.com/wix/wix-style-react/pull/3380)
-- `<EditableRow/>` - mgirate Tooltip, TextLink, Button [#3379](https://github.com/wix/wix-style-react/pull/3379)
+- `<EditableRow/>` - migrate Tooltip, TextLink, Button [#3379](https://github.com/wix/wix-style-react/pull/3379)
+- `<FieldLabelAttributes/>` - migrate Tooltip [#3381](https://github.com/wix/wix-style-react/pull/3381)
 
 ### Fixed
 - `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
