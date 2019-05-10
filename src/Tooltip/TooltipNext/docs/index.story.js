@@ -148,6 +148,23 @@ export default {
             }),
           ]),
 
+          title('Accessibility'),
+
+          columns([
+            liveCode({
+              title: 'Focus behaviour',
+              subtitle:
+                'The tooltip content appears on keyboard focus for native focusable html elements like: <button> or <input> or any focusable wix-style-react component.',
+              source: examples.focus,
+            }),
+            liveCode({
+              title: 'ARIA guidelines',
+              subtitle:
+                'The tooltip content is bound to tooltip trigger element by aria-describeby prop. VoiceOver users will get tooltips content information as soon as target element is focused.',
+              source: examples.a11y,
+            }),
+          ]),
+
           title('Attachement to DOM'),
 
           columns([

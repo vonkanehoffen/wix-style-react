@@ -157,3 +157,25 @@ class TooltipFixed extends React.Component {
   }
 }
 `;
+
+export const focus = `
+<Layout cols={2} justifyItems="center" alignItems="center">
+  <Tooltip upgrade content="i am tooltip">
+    <button>native</button>
+  </Tooltip>
+  <Tooltip upgrade content="i am tooltip">
+    <TextButton>TextButton</TextButton>
+  </Tooltip>
+</Layout>
+`;
+
+export const a11y = `
+<Layout cols={2} justifyItems="center" alignItems="center">
+<Tooltip upgrade content="i am tooltip" aria-describedby="tooltip:1">
+  <TextButton>tooltip:1</TextButton>
+</Tooltip>
+<Tooltip upgrade content="i am tooltip" aria-describedby="tooltip:2">
+  <TextButton>tooltip:2</TextButton>
+</Tooltip>
+</Layout>
+`;
