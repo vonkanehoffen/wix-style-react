@@ -123,39 +123,6 @@ export default {
 
           divider(),
 
-          title('Examples'),
-
-          ...[
-            {
-              title: 'Plain Example',
-              text: 'Plain example of how to use tooltip.',
-              source: examples.basic,
-            },
-            {
-              title: 'Placement',
-              text:
-                'Tooltips have four standard placements available: `top`, `right`, `bottom`, and `left`. Each standard position center-aligns itself along the appropriate axis and appears outside the target element.',
-              source: examples.placements,
-            },
-            {
-              title: 'Delay',
-              text:
-                'Time in milliseconds to wait before showing or hiding the tooltip. Controlled by props `enterDelay` or `exitDelay`.',
-              source: examples.delay,
-            },
-            {
-              title: 'Size',
-              text: 'Tooltip supports two sizes: `small` and `medium`.',
-              source: examples.size,
-            },
-            {
-              title: 'Disabled Elements',
-              text:
-                'By default disabled elements like `<button>` do not trigger user interactions so a Tooltip will not activate on normal events like hover. To accommodate disabled elements, add a simple wrapper element like a `span`.',
-              source: examples.disabled,
-            },
-          ].map(example),
-
           title('Floating Behaviour'),
 
           columns([

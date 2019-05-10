@@ -37,7 +37,7 @@ require('../src/TextButton/docs/index.story'); // 5.3 Text Button
 require('../src/CloseButton/docs/index.story'); // 5.4 Close Button
 
 // 7. Tooltips
-require('../src/Tooltip/TooltipNext/docs/index.story'); // 7.1 Tooltip
+require('./Tooltip/index.story'); // 7.1 Tooltip
 
 // 8. Notification Bars
 require('../src/Notification/docs/index.story');
@@ -127,7 +127,7 @@ require('../src/Text/docs/index.story');
 require('../src/Thumbnail/docs/index.story');
 require('../src/TimeInput/docs/index.story');
 require('../src/ToggleSwitch/docs/index.story');
-require('../src/Tooltip/docs/Composite/CompositeStory');
+require('../src/Tooltip/TooltipNext/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');

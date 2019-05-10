@@ -43,6 +43,8 @@ class Tooltip extends React.PureComponent {
     placement: PropTypes.string,
     /** sets size of the tooltip */
     size: PropTypes.oneOf(['small', 'medium']),
+    /** establishes a relationship between tooltip element and tooltip content for a11y purposes */
+    'aria-describedby': PropTypes.string,
     /** tooltips content zindex */
     zIndex: PropTypes.number,
   };
