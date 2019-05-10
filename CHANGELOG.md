@@ -40,7 +40,8 @@ Types of changes:
 
 ### Docs
 - `<Table/>` document 'onSortClick' function [#3364](https://github.com/wix/wix-style-react/pull/3364)
-- `<Tooltip/>` - split documentation to UX and API parts. [#3364](https://github.com/wix/wix-style-react/pull/3384)
+- `<Tooltip/>` - split documentation to UX and API parts [#3364](https://github.com/wix/wix-style-react/pull/3384)
+- `<Tooltip/>` - docs API - add a11y examples [#3385](https://github.com/wix/wix-style-react/pull/3385)
 
 ## 6.17.3 - 2019-05-03
 ### Fixed
