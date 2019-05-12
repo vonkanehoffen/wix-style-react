@@ -13,12 +13,12 @@ export type Omit<T, K extends keyof T> = T extends any
 
 export {default as AddItem} from './AddItem';
 export {default as Avatar, AvatarProps} from './Avatar';
-export {default as Button} from './Button';
+export {default as Button, ButtonProps} from './Button';
 export {default as Input} from './Input';
 export {default as InputArea} from './InputArea';
 export {default as InputWithOptions} from './InputWithOptions';
 export {default as Checkbox} from './Checkbox';
-export {default as ToggleSwitch} from './ToggleSwitch';
+export {default as ToggleSwitch, ToggleSwitchProps} from './ToggleSwitch';
 export {default as Modal} from './Modal';
 export {default as ModalSelectorLayout} from './ModalSelectorLayout';
 export {
@@ -40,8 +40,8 @@ export {default as MultiSelect} from './MultiSelect';
 export {default as MultiSelectCheckbox} from './MultiSelectCheckbox';
 export {default as Loader} from './Loader';
 export {default as DatePicker} from './DatePicker';
-export {default as Calendar} from './Calendar';
-export {default as TimeInput} from './TimeInput';
+export {default as Calendar, CalendarProps} from './Calendar';
+export {default as TimeInput, TimeInputProps} from './TimeInput';
 export {default as Tooltip, TooltipProps} from './Tooltip';
 export {default as Page} from './Page';
 export {default as SectionHelper} from './SectionHelper';
@@ -61,7 +61,7 @@ export {default as Text} from './Text';
 export {default as Range} from './Range';
 export {default as EndorseContentLayout} from './EndorseContentLayout';
 export {default as Notification} from './Notification';
-export {default as Breadcrumbs} from './Breadcrumbs';
+export {default as Breadcrumbs, BreadcrumbsProps} from './Breadcrumbs';
 export {default as ImageViewer} from './ImageViewer';
 export {default as PopoverMenu} from './PopoverMenu';
 export {default as FullTextView} from './FullTextView';

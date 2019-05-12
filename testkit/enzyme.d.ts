@@ -6,6 +6,11 @@ import {BadgeDriver} from '../src/Badge/Badge.driver';
 import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.uni.driver';
+import {BreadcrumbsDriver} from '../src/Breadcrumbs/Breadcrumbs.uni.driver';
+import {ToggleSwitchDriver} from '../src/ToggleSwitch/ToggleSwitch.driver';
+import {TimeInputDriver} from '../src/TimeInput/TimeInput.uni.driver';
+import {ButtonDriver} from '../src/Button/Button.uni.driver';
+import {CalendarDriver} from '../src/Calendar/Calendar.uni.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -31,9 +36,9 @@ declare namespace EnzymeTestkit {
     BadgeSelectDriver
   >;
   export const boxTestkitFactory: EnzymeUniTestkitFactory<BoxDriver>;
-  export const breadcrumbsTestkitFactory: any;
-  export const buttonTestkitFactory: any;
-  export const calendarTestkitFactory: any;
+  export const breadcrumbsTestkitFactory: EnzymeUniTestkitFactory<BreadcrumbsDriver>;
+  export const buttonTestkitFactory: EnzymeUniTestkitFactory<ButtonDriver>;
+  export const calendarTestkitFactory: EnzymeUniTestkitFactory<CalendarDriver>;
   export const calendarPanelTestkitFactory: any;
   export const calendarPanelFooterTestkitFactory: any;
   export const cardGalleryItemTestkitFactory: any;
@@ -109,8 +114,8 @@ declare namespace EnzymeTestkit {
   export const textTestkitFactory: any;
   export const textButtonTestkitFactory: any;
   export const thumbnailTestkitFactory: any;
-  export const timeInputTestkitFactory: any;
-  export const toggleSwitchTestkitFactory: any;
+  export const timeInputTestkitFactory: EnzymeUniTestkitFactory<TimeInputDriver>;
+  export const toggleSwitchTestkitFactory: EnzymeTestkitFactory<ToggleSwitchDriver>;
   export const headerTestkitFactory: any;
   export const draggableTestkitFactory: any;
   export const editableRowTestkitFactory: any;

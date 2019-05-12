@@ -1,6 +1,11 @@
 import {BaseUniDriver} from 'wix-ui-test-utils/base-driver';
 import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import {AvatarDriver} from '../src/Avatar/Avatar.driver';
+import {BreadcrumbsDriver} from '../src/Breadcrumbs/Breadcrumbs.uni.driver';
+import {ToggleSwitchDriver} from '../src/ToggleSwitch/ToggleSwitch.driver';
+import {TimeInputDriver} from '../src/TimeInput/TimeInput.uni.driver';
+import {ButtonDriver} from '../src/Button/Button.uni.driver';
+import {CalendarDriver} from '../src/Calendar/Calendar.uni.driver';
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
@@ -24,9 +29,9 @@ declare namespace VanillaTestkit {
   export const badgeTestkitFactory: any;
   export const badgeSelectTestkitFactory: any;
   export const boxTestkitFactory: any;
-  export const breadcrumbsTestkitFactory: any;
-  export const buttonTestkitFactory: any;
-  export const calendarTestkitFactory: any;
+  export const breadcrumbsTestkitFactory: VanillaUniTestkitFactory<BreadcrumbsDriver>;
+  export const buttonTestkitFactory: VanillaUniTestkitFactory<ButtonDriver>;
+  export const calendarTestkitFactory: VanillaUniTestkitFactory<CalendarDriver>;
   export const calendarPanelTestkitFactory: any;
   export const calendarPanelFooterTestkitFactory: any;
   export const cardGalleryItemTestkitFactory: any;
@@ -102,8 +107,8 @@ declare namespace VanillaTestkit {
   export const textTestkitFactory: any;
   export const textButtonTestkitFactory: any;
   export const thumbnailTestkitFactory: any;
-  export const timeInputTestkitFactory: any;
-  export const toggleSwitchTestkitFactory: any;
+  export const timeInputTestkitFactory: VanillaUniTestkitFactory<TimeInputDriver>;
+  export const toggleSwitchTestkitFactory: VanillaTestkitFactory<ToggleSwitchDriver>;
   export const headerTestkitFactory: any;
   export const draggableTestkitFactory: any;
   export const editableRowTestkitFactory: any;
