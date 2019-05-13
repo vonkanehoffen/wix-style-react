@@ -14,14 +14,22 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 6.18.1 - 2019-05-13
+
+### Fixed
+
+- `<Tooltip>`, `<Box>`, `<BadgeSelect>`, `<Badge>` - added multiple tests for types [#3391](https://github.com/wix/wix-style-react/pull/3391)
+
 ## 6.18.0 - 2019-05-13
 
 ### Added
+
 - `<Table/>` - add selected row indication [#3353](https://github.com/wix/wix-style-react/pull/3353)
 - `<Card/>` - add `<Card.Subheader/>` component [#3293](https://github.com/wix/wix-style-react/pull/3293)
 - Infra: add type definitions for Badge, BadgeSelect, Box, Tooltip and VBox [#3349](https://github.com/wix/wix-style-react/pull/3349)
 
 ### Deprecated
+
 - `<RichTextArea />` - deprecated component, you should use `<RichTextInputArea/>` instead [#3354](https://github.com/wix/wix-style-react/pull/3354)
 
 ### Changed
@@ -38,27 +46,36 @@ Types of changes:
 - `<NestableList/>` - internal refactors [#3358](https://github.com/wix/wix-style-react/pull/3358)
 
 ### Fixed
+
 - `<Input/>` - make noBorderRadius work on round input [#3357](https://github.com/wix/wix-style-react/pull/3357)
 - `<Dropdown/>` - use more robust compare of prev options to current. [#3388](https://github.com/wix/wix-style-react/pull/3388)
 
 ### Docs
+
 - `<Table/>` document 'onSortClick' function [#3364](https://github.com/wix/wix-style-react/pull/3364)
 - `<Tooltip/>` - split documentation to UX and API parts [#3364](https://github.com/wix/wix-style-react/pull/3384)
 - `<Tooltip/>` - docs API - add a11y examples [#3385](https://github.com/wix/wix-style-react/pull/3385)
 
 ## 6.17.3 - 2019-05-03
+
 ### Fixed
+
 - `<NestableList/>` - Fix bad import of PropTypes [#3359](https://github.com/wix/wix-style-react/pull/3359)
 
 ## 6.17.2 - 2019-05-03
+
 ### Docs
+
 - `<RichTextInputArea/>` - change RichTextArea docs to use the new component [#3352](https://github.com/wix/wix-style-react/pull/3352)
 
 ### Fixed
+
 - Infra - remove .d.ts files from root when unnecessary in import-path [fix](https://github.com/wix/import-path/pull/8)
 
 ## 6.17.1 - 2019-05-02
+
 ### Fixed
+
 - downgrade internally dependency jscodeshift, which uses babel@6, for compatibility [51dd840e](https://github.com/wix/wix-style-react/commit/51dd840e46c58f6d5f80e8275a93f208ce0f8fe6)
 - `<Input/>` - fix prop validation warning when providing updateControlledOnClear [#3341](https://github.com/wix/wix-style-react/pull/3341)
 - Infra: Remove empty typescript declarations [#3341](https://github.com/wix/wix-style-react/pull/3341)
@@ -66,6 +83,7 @@ Types of changes:
 ## 6.17.0 - 2019-05-02
 
 ### Added
+
 - `<RichTextInputArea/>` - support removing links by toggling the link button [#3323](https://github.com/wix/wix-style-react/pull/3323)
 - Infra - add type definitions - add Avatar types [#3332](https://github.com/wix/wix-style-react/pull/3332)
 - `<RichTextInputArea/>` - add scrollBehavior polyfill [#3342](https://github.com/wix/wix-style-react/pull/3342)
@@ -88,7 +106,6 @@ Types of changes:
 
 - `<Tooltip/>` - fix broken upgrade prop for puppeteer & protractor testkits. [#3296](https://github.com/wix/wix-style-react/pull/3296)
 
-
 ## 6.16.0
 
 ### Added
@@ -109,7 +126,7 @@ Types of changes:
 
 - `<Tooltip/>` - make testkit upgrade toggle more specific[#3294](https://github.com/wix/wix-style-react/pull/3294)
 
-## 6.15.0 - 2019-04-21 
+## 6.15.0 - 2019-04-21
 
 ### Added
 
