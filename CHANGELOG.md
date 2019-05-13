@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<Table/>` - add selected row indication [#3353](https://github.com/wix/wix-style-react/pull/3353)
 - `<Card/>` - add `<Card.Subheader/>` component [#3293](https://github.com/wix/wix-style-react/pull/3293)
+- Infra: add type definitions for Badge, BadgeSelect, Box, Tooltip and VBox [#3349](https://github.com/wix/wix-style-react/pull/3349)
 
 ### Deprecated
 - `<RichTextArea />` - deprecated component, you should use `<RichTextInputArea/>` instead [#3354](https://github.com/wix/wix-style-react/pull/3354)
