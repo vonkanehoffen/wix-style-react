@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+
+- `<Dropdown/>` - use more robust compare of prev options to current. [#3388](https://github.com/wix/wix-style-react/pull/3388)
+
 ## 6.18.0 - 2019-05-13
 
 ### Added
