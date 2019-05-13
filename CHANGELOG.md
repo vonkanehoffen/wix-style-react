@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.18.0 - 2019-05-13
 
 ### Added
 - `<Table/>` - add selected row indication [#3353](https://github.com/wix/wix-style-react/pull/3353)
@@ -29,7 +29,7 @@ Types of changes:
 - `<FormField/>` - migrated infoicon's tooltip to next generation tooltip. [#3312](https://github.com/wix/wix-style-react/pull/3312)
 - `<AddItem/>` - migrated tooltip to next generation, improved documentation, added unidriver [#3326](https://github.com/wix/wix-style-react/pull/3326)
 - `<Badge/>` - migrate from `wix-ui-backoffice` [#3362](https://github.com/wix/wix-style-react/pull/3362)
-- `<ImageViewer/>` - migreate Tooltip & Button [#3375](https://github.com/wix/wix-style-react/pull/3375)
+- `<ImageViewer/>` - migrate Tooltip & Button [#3375](https://github.com/wix/wix-style-react/pull/3375)
 - `<Loader/>` - migrate Tooltip. [#3376](https://github.com/wix/wix-style-react/pull/3376)
 - `<ErrorIndicator/>` - migrate Tooltip [#3380](https://github.com/wix/wix-style-react/pull/3380)
 - `<EditableRow/>` - migrate Tooltip, TextLink, Button [#3379](https://github.com/wix/wix-style-react/pull/3379)
