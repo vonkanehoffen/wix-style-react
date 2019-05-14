@@ -14,6 +14,13 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+
+- `<Badge/>` - Add missing strings to BadgeSkin type [#3395](https://github.com/wix/wix-style-react/pull/3395)
+- `<Box/>` - Add missing classname to typings [#3396](https://github.com/wix/wix-style-react/pull/3396)
+
 ## 6.18.1 - 2019-05-13
 
 ### Fixed
