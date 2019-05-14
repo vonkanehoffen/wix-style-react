@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 
+- `<DataTable/>` - Driver - fix exists() function [#3367](https://github.com/wix/wix-style-react/pull/3367)
 - `<Badge/>` - Add missing strings to BadgeSkin type [#3395](https://github.com/wix/wix-style-react/pull/3395)
 - `<Box/>` - Add missing classname to typings [#3396](https://github.com/wix/wix-style-react/pull/3396)
 
