@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## next
+### Fixed
+- `<NestableList/>` - revert to use `ComponentWillReceiveProps` for compatibility [#3392](https://github.com/wix/wix-style-react/pull/3392)
+
 ## 6.18.3 - 2019-08-14
 
 ### Fixed
