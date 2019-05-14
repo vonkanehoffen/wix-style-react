@@ -151,7 +151,7 @@ Box.propTypes = {
   /** Any element to be rendered inside */
   children: PropTypes.node.isRequired,
   /** Define styles through a classname */
-  classname: PropTypes.string,
+  className: PropTypes.string,
   /** Defines if the box behaves as an inline element */
   inline: PropTypes.bool,
   /** Defines how the children are ordered (horizontally or vertically) */
