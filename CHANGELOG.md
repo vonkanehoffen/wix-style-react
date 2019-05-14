@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 6.18.3 - 2019-08-14
+
+### Fixed
+
+- `<Badge>` - missing dataHook type in types. [#3398](https://github.com/wix/wix-style-react/pull/3398)
+
 ## 6.18.2 - 2019-08-14
 
 ### Fixed
