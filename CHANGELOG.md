@@ -17,14 +17,19 @@ Types of changes:
 ## Next
 
 ### Added
-- GoogleMapClient - add session to place details api [#3400]((https://github.com/wix/wix-style-react/pull/3400)
+- GoogleMapClient - add session to place details api [#3400](https://github.com/wix/wix-style-react/pull/3400)
 - `<Tooltip/>` -  add disabled prop to disable tooltips trigger behaviour [#3410](https://github.com/wix/wix-style-react/pull/3410)
 - `<Search/>` - add `debounceMs` prop for debouncing onChange calls [#3343](https://github.com/wix/wix-style-react/pull/3343)
 - `<ModalSelectorLayout/>` - add `debounceSearchMs` prop for debouncing search input onChange calls [#3343](https://github.com/wix/wix-style-react/pull/3343)
+- Infra: Add a puppeteer testkit bundle [#3394](https://github.com/wix/wix-style-react/pull/3394)
+- `<Table/>` - support row highlighting [#3356](https://github.com/wix/wix-style-react/pull/3356)
 
 ### Fixed
 
 - `<Text/>` - fix classname clash when given through prop [3378](https://github.com/wix/wix-style-react/pull/3378)
+- `<Card.Subheader/>` - add dataHook [#3408](https://github.com/wix/wix-style-react/pull/3408)
+- `<Badge/>` - fix skin typescript declarations typo [#3412](https://github.com/wix/wix-style-react/pull/3412)
+- `<Avatar/>` - fix typescript declarations [#3413](https://github.com/wix/wix-style-react/pull/3413)
 
 ## 6.18.4 - 2019-08-15
 
