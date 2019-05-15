@@ -14,8 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## next
+## 6.18.4 - 2019-08-15
+
 ### Fixed
+
 - `<NestableList/>` - revert to use `ComponentWillReceiveProps` for compatibility [#3392](https://github.com/wix/wix-style-react/pull/3392)
 - `<Tooltip/>` - fix a mistake where tooltipTestkitFactory exported unidriver types instead of legacy ones. [#3402](https://github.com/wix/wix-style-react/pull/3402)
 - `<ImageViewer/>` - fix testkit methods that uses native click() [#3406](https://github.com/wix/wix-style-react/pull/3406)
