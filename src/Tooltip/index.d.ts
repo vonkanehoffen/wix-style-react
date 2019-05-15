@@ -8,6 +8,7 @@ export interface TooltipNewProps {
   upgrade: true;
   dataHook?: string;
   content?: React.ReactNode;
+  disabled?: boolean;
   textAlign?: TooltipNewTextAlign;
   enterDelay?: number;
   exitDelay?: number;
