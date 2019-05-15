@@ -15,8 +15,13 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
 ### Added
 - GoogleMapClient - add session to place details api [#3400]((https://github.com/wix/wix-style-react/pull/3400)
+
+### Fixed
+
+- `<Text/>` - fix classname clash when given through prop [3378](https://github.com/wix/wix-style-react/pull/3378)
 
 ## 6.18.4 - 2019-08-15
 
