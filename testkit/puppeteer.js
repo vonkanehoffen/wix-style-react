@@ -206,6 +206,12 @@ export const errorIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(
   errorIndicatorDriverFactory,
 );
 
+import { ListItemActionDriverFactory } from '../src/ListItemAction/ListItemAction.uni.driver';
+
+export const ListItemActionTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  ListItemActionDriverFactory,
+);
+
 import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.driver';
 
 export const subheaderTestkitFactory = puppeteerUniTestkitFactoryCreator(

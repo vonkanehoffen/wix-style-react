@@ -359,7 +359,7 @@ class DropdownLayout extends WixComponent {
         data-hook={dataHook}
       >
         {typeof option.value === 'function'
-          ? option.value({ selected })
+          ? option.value({ selected, hovered, disabled })
           : option.value}
       </div>
     );
