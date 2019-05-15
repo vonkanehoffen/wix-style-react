@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - GoogleMapClient - add session to place details api [#3400]((https://github.com/wix/wix-style-react/pull/3400)
+- `<Tooltip/>` -  add disabled prop to disable tooltips trigger behaviour [#3410](https://github.com/wix/wix-style-react/pull/3410)
 
 ### Fixed
 
