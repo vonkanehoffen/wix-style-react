@@ -21,6 +21,7 @@ Types of changes:
 
 ### Changed
 - `<Carousel/>` - refactor the component to use react-slick [#3415](https://github.com/wix/wix-style-react/pull/3415)
+- `<Carousel/>` - migrate e2e test to visual [#3425](https://github.com/wix/wix-style-react/pull/3425)
 
 ## 6.19.0 - 2019-05-16
 
