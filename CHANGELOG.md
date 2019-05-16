@@ -14,11 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.19.0 - 2019-05-16
 
 ### Added
+
 - GoogleMapClient - add session to place details api [#3400](https://github.com/wix/wix-style-react/pull/3400)
-- `<Tooltip/>` -  add disabled prop to disable tooltips trigger behaviour [#3410](https://github.com/wix/wix-style-react/pull/3410)
+- `<Tooltip/>` - add disabled prop to disable tooltips trigger behaviour [#3410](https://github.com/wix/wix-style-react/pull/3410)
 - `<Search/>` - add `debounceMs` prop for debouncing onChange calls [#3343](https://github.com/wix/wix-style-react/pull/3343)
 - `<ModalSelectorLayout/>` - add `debounceSearchMs` prop for debouncing search input onChange calls [#3343](https://github.com/wix/wix-style-react/pull/3343)
 - Infra: Add a puppeteer testkit bundle [#3394](https://github.com/wix/wix-style-react/pull/3394)
@@ -32,7 +33,7 @@ Types of changes:
 - `<Badge/>` - fix skin typescript declarations typo [#3412](https://github.com/wix/wix-style-react/pull/3412)
 - `<Avatar/>` - fix typescript declarations [#3413](https://github.com/wix/wix-style-react/pull/3413)
 
-## 6.18.4 - 2019-08-15
+## 6.18.4 - 2019-05-15
 
 ### Fixed
 
@@ -40,13 +41,13 @@ Types of changes:
 - `<Tooltip/>` - fix a mistake where tooltipTestkitFactory exported unidriver types instead of legacy ones. [#3402](https://github.com/wix/wix-style-react/pull/3402)
 - `<ImageViewer/>` - fix testkit methods that uses native click() [#3406](https://github.com/wix/wix-style-react/pull/3406)
 
-## 6.18.3 - 2019-08-14
+## 6.18.3 - 2019-05-14
 
 ### Fixed
 
 - `<Badge>` - missing dataHook type in types. [#3398](https://github.com/wix/wix-style-react/pull/3398)
 
-## 6.18.2 - 2019-08-14
+## 6.18.2 - 2019-05-14
 
 ### Fixed
 
