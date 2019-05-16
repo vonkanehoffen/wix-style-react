@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<Box/>` - add CSS properties to typescript declarations [#3419](https://github.com/wix/wix-style-react/pull/3419)
 
+### Changed
+- `<Carousel/>` - refactor the component to use react-slick [#3415](https://github.com/wix/wix-style-react/pull/3415)
+
 ## 6.19.0 - 2019-05-16
 
 ### Added
