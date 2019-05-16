@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+- `<Box/>` - add CSS properties to typescript declarations [#3419](https://github.com/wix/wix-style-react/pull/3419)
+
 ## 6.19.0 - 2019-05-16
 
 ### Added
