@@ -1,4 +1,16 @@
-export const autoplay = `
+import React from 'react';
+import { Hint } from 'wix-style-react/new-icons';
+
+import Box from '../../Box';
+
+export const InfoChild = ({ text }) => (
+  <Box minHeight="30px" verticalAlign="middle" fontSize="18px">
+    <Hint size="54px" color="#89cff8" />
+    <Box marginLeft={2}>{text}</Box>
+  </Box>
+);
+
+export const autoplayExample = `
 <Carousel
   autoplay
   images={[

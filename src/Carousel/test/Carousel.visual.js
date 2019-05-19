@@ -26,6 +26,16 @@ const tests = [
           ],
         },
       },
+      {
+        it: 'Display custom nodes',
+        props: {
+          children: [
+            <span>First</span>,
+            <span>Second</span>,
+            <span>Third</span>,
+          ],
+        },
+      },
     ],
   },
 ];

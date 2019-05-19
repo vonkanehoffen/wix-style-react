@@ -21,6 +21,24 @@ describe('Carousel', () => {
     expect(driver.exists()).toBeTruthy();
   });
 
+  it('should not render the images when child nodes are supplied', () => {
+    const childText = 'An inner child';
+    const driver = createDriver(
+      <Carousel images={[{ src: 'image1.jpg' }, { src: 'image2.jpg' }]}>
+        <div>{childText}</div>
+        <div>{childText}</div>
+        <div>{childText}</div>
+      </Carousel>,
+    );
+
+    const renderedImages = driver.getImages();
+    const renderedChildren = driver.getChildren();
+
+    expect(renderedImages.length).toBe(0);
+    expect(renderedChildren.length).toBe(3);
+    expect(renderedChildren[0].textContent).toBe(childText);
+  });
+
   describe('loader', () => {
     it('should show only the loader when loading', () => {
       const driver = createDriver(

@@ -33,7 +33,9 @@ class Carousel extends React.Component {
     /** Applied as data-hook HTML attribute that can be used in the tests */
     dataHook: PropTypes.string,
     /** Array of strings where each string is a src of an image (in \<img src="your_src" /\>) */
-    images: PropTypes.array.isRequired,
+    images: PropTypes.array,
+    /** Any element to render inside */
+    children: PropTypes.node,
     /** Images loop endlessly */
     infinite: PropTypes.bool,
     /** Auto-playing of images */
@@ -58,12 +60,16 @@ class Carousel extends React.Component {
   }
 
   render() {
-    const { dataHook, images } = this.props;
+    const { dataHook, images, children } = this.props;
     const { sliderSettings } = this.state;
+    const hasImages = !children && images.length > 0;
 
     return (
       <div data-hook={dataHook} className={styles.root}>
-        <Slider {...sliderSettings}>{this._renderImages(images)}</Slider>
+        <Slider {...sliderSettings}>
+          {children}
+          {hasImages && this._renderImages(images)}
+        </Slider>
       </div>
     );
   }

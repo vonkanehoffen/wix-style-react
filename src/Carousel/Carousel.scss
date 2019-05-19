@@ -2,7 +2,7 @@
 
 $arrowSize: 36px;
 $horizontalSpacingSize: 50px;
-$verticalSpacingSize: 6px;
+$verticalSpacingSize: 7px;
 
 .root {
   &[data-is-loading="true"] {
@@ -11,6 +11,7 @@ $verticalSpacingSize: 6px;
 
   :global(.slick-list) {
     width: calc(100% - #{2 * $arrowSize} - #{$horizontalSpacingSize});
+    min-height: $arrowSize;
     margin: auto;
   }
 

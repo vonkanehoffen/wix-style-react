@@ -13,7 +13,7 @@ import {
 import Carousel from '..';
 import { storySettings } from './storySettings';
 import testkitReadme from './README.TESTKIT.md';
-import * as examples from './examples';
+import { autoplayExample, InfoChild } from './examples';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 
 const code = config =>
@@ -41,6 +41,18 @@ const imagesExamples = [
     label: 'Three images',
   },
 ];
+
+const childrenExamples = [
+  {
+    value: [
+      <InfoChild text="This is the first information text" />,
+      <InfoChild text="This is the second information text" />,
+      <InfoChild text="This is the third information text" />,
+    ],
+    label: 'Three nodes',
+  },
+];
+
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
@@ -57,6 +69,7 @@ export default {
 
   exampleProps: {
     images: imagesExamples,
+    children: childrenExamples,
   },
 
   sections: [
@@ -69,7 +82,7 @@ export default {
 
         title('Examples'),
 
-        ...[{ title: 'Autoplay', source: examples.autoplay }].map(code),
+        ...[{ title: 'Autoplay', source: autoplayExample }].map(code),
       ],
     }),
 
