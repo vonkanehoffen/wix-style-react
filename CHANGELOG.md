@@ -20,11 +20,17 @@ Types of changes:
 - `<Box/>` - add CSS properties to typescript declarations [#3419](https://github.com/wix/wix-style-react/pull/3419)
 - `<CardGalleryItem/>` - add badge to card gallery item [#3424](https://github.com/wix/wix-style-react/pull/3424)
 - `<Carousel/>` - add `children` prop [#3430](https://github.com/wix/wix-style-react/pull/3430)
+- `<SocialPreview/>` - add ellipsis property to text components [#3309](https://github.com/wix/wix-style-react/pull/3309)
 
 ### Changed
 - `<Carousel/>` - refactor the component to use react-slick [#3415](https://github.com/wix/wix-style-react/pull/3415)
 - `<Carousel/>` - migrate e2e test to visual [#3425](https://github.com/wix/wix-style-react/pull/3425)
 - `<Carousel/>` - improve indicator visual design [#3429](https://github.com/wix/wix-style-react/pull/3429)
+- `<CircularProgressBar/>` - migrate from wix-ui-backoffice [#3405](https://github.com/wix/wix-style-react/pull/3405)
+
+### Fixed
+- `<Tooltip/>` - Add instance methods to .d.ts [#3423](https://github.com/wix/wix-style-react/pull/3423)
+
 
 ## 6.19.0 - 2019-05-16
 
