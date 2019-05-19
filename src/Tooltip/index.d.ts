@@ -63,7 +63,15 @@ export interface TooltipOldProps extends WixComponentProps {
 
 export type TooltipProps = TooltipNewProps | TooltipOldProps;
 
-export default class Tooltip extends React.PureComponent<TooltipProps> {}
+export default class Tooltip<T extends TooltipProps> extends React.PureComponent<T> {
+  /** @deprecated use `upgrade` prop with `close` method */
+  hide: T extends { upgrade: false } ?  (props?: TooltipProps) => void : never ;
+  /** @deprecated use `upgrade` prop with `open` method */
+  show: T extends { upgrade: false } ?  (props?: TooltipProps) => void : never;
+
+  close: T extends { upgrade: true } ? () => void : never;
+  open: T extends { upgrade: true } ? () => void : never;
+}
 
 export type TooltipNewAppendTo = 'window' | 'scrollParent' | 'viewport' | 'parent';
 export type TooltipNewTextAlign = 'center' | 'start';

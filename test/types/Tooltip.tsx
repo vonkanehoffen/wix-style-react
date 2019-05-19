@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Tooltip from '../../src/Tooltip';
+import Tooltip, { TooltipOldProps, TooltipNewProps } from '../../src/Tooltip';
 import { tooltipTestkitFactory, TooltipTestkit } from '../../testkit';
 import {
   tooltipTestkitFactory as tooltipEnzymeTestkitFactory,
@@ -35,6 +35,20 @@ async function testkits() {
   });
 
   enzymeUni.tooltipExists().then(exists => exists.valueOf());
+}
+
+function TooltipOldInstanceMethods() {
+  const wrapper = mount(<Tooltip upgrade content="Content"/>);
+  const tooltip: Tooltip<TooltipOldProps> = wrapper.instance();
+  tooltip.hide();
+  tooltip.show();
+}
+
+function TooltipNewInstanceMethods() {
+  const wrapper = mount(<Tooltip upgrade content="Content"/>);
+  const tooltip: Tooltip<TooltipNewProps> = wrapper.instance();
+  tooltip.open();
+  tooltip.close();
 }
 
 function TooltipNewContentWithMandatoryProps() {
