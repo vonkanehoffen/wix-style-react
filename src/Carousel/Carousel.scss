@@ -1,7 +1,8 @@
 @import '../colors.scss';
 
 $arrowSize: 36px;
-$spacingSize: 50px;
+$horizontalSpacingSize: 50px;
+$verticalSpacingSize: 6px;
 
 .root {
   &[data-is-loading="true"] {
@@ -9,12 +10,12 @@ $spacingSize: 50px;
   }
 
   :global(.slick-list) {
-    width: calc(100% - #{2 * $arrowSize} - #{$spacingSize});
+    width: calc(100% - #{2 * $arrowSize} - #{$horizontalSpacingSize});
     margin: auto;
   }
 
   :global(.slick-arrow) {
-    top: calc(50% - #{$arrowSize});
+    top: calc(50% - #{$arrowSize} + #{$verticalSpacingSize});
     transform: none;
 
     // Hides default slick buttons
