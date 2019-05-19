@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import Hover from './Hover';
 import Card from '../Card';
-import Badge from '../Badge';
 import Button from '../Button';
 import TextButton from '../TextButton';
 import Text from '../Text';
@@ -17,6 +16,9 @@ import animationStyles from './CardGalleryItemAnimation.scss';
 class CardGalleryItem extends React.Component {
   static displayName = 'CardGalleryItem';
   static propTypes = {
+    /** Card badge */
+    badge: PropTypes.node,
+
     /** Card title */
     title: PropTypes.node,
 
@@ -58,18 +60,10 @@ class CardGalleryItem extends React.Component {
     },
   };
 
-  _renderBadge(text) {
+  _renderBadge(badge) {
     return (
-      <div className={styles.badgeWrapper}>
-        <Badge
-          size="medium"
-          skin="standard"
-          type="solid"
-          uppercase
-          data-hook={'badge'}
-        >
-          {text}
-        </Badge>
+      <div className={styles.badgeWrapper} data-hook="badge">
+        {badge}
       </div>
     );
   }

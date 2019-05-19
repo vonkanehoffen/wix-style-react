@@ -1,5 +1,6 @@
 import React from 'react';
 import CardGalleryItem from '..';
+import Badge from '../../Badge';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
 import cardGalleryItemDriverFactory from '../CardGalleryItem.uni.driver';
 import ReactTestUtils from 'react-dom/test-utils';
@@ -33,13 +34,18 @@ describe('CardGalleryItem', () => {
   it('should not render badge by default', async () => {
     const driver = createDriver(<CardGalleryItem />);
 
-    expect(await driver.getBadgeText()).toBeNull();
+    expect(await driver.getBadge()).toBeNull();
   });
 
   it('should render badge', async () => {
-    const driver = createDriver(<CardGalleryItem badge={'new item'} />);
+    const badge = (
+      <Badge size="medium" skin="standard" type="solid" uppercase>
+        sale
+      </Badge>
+    );
+    const driver = createDriver(<CardGalleryItem badge={badge} />);
 
-    expect(await driver.getBadgeText()).toEqual('new item');
+    expect((await driver.getBadge()).textContent).toEqual('sale');
   });
 
   it('should set background image', async () => {

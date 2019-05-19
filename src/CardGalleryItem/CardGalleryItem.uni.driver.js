@@ -1,4 +1,5 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
+import { ReactBase } from '../../test/utils/unidriver';
 
 const getTitle = base => base.$('[data-hook="title"]');
 const getBadge = base => base.$('[data-hook="badge"]');
@@ -9,8 +10,10 @@ const getHoverComponent = base => base.$('[data-hook="hover-component"]');
 const cardGalleryItemDriverFactory = base => ({
   ...baseUniDriverFactory(base),
   getTitle: () => getTitle(base).text(),
-  getBadgeText: async () =>
-    (await getBadge(base).exists()) ? getBadge(base).text() : null,
+  getBadge: async () =>
+    (await getBadge(base).exists())
+      ? ReactBase(getBadge(base)).prop('firstChild')
+      : null, // eslint-disable-line no-restricted-properties
   getSubtitle: () => base.$('[data-hook="subtitle"]').text(),
   getBackgroundImageUrl: async () => {
     const style = await base.$('[data-hook="background-image"]').attr('style');
