@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<Box/>` - add CSS properties to typescript declarations [#3419](https://github.com/wix/wix-style-react/pull/3419)
 - `<CardGalleryItem/>` - add badge to card gallery item [#3424](https://github.com/wix/wix-style-react/pull/3424)
+- `<Carousel/>` - add `children` prop [#3430](https://github.com/wix/wix-style-react/pull/3430)
 
 ### Changed
 - `<Carousel/>` - refactor the component to use react-slick [#3415](https://github.com/wix/wix-style-react/pull/3415)
