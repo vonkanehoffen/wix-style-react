@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Box/>` - add CSS properties to typescript declarations [#3419](https://github.com/wix/wix-style-react/pull/3419)
+- `<NestableList/>` - add `onDragStart` and `onDragEnd` callbacks [#3414](https://github.com/wix/wix-style-react/pull/3414)
 - `<CardGalleryItem/>` - add badge to card gallery item [#3424](https://github.com/wix/wix-style-react/pull/3424)
 - `<Carousel/>` - add `children` prop [#3430](https://github.com/wix/wix-style-react/pull/3430)
 - `<SocialPreview/>` - add ellipsis property to text components [#3309](https://github.com/wix/wix-style-react/pull/3309)
