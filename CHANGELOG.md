@@ -16,7 +16,10 @@ Types of changes:
 
 ### Next
 ### Fixed
-- `<Search/>` - fix `getDerivedStateFromProps` warning [#3409](https://github.com/wix/wix-style-react/pull/3409)
+- `<Search/>` - fix `getDerivedStateFromProps` warning [#3343](https://github.com/wix/wix-style-react/pull/3343)
+
+### Added
+- `<DropdownLayout/>` - add `markedOption` prop [#3409](https://github.com/wix/wix-style-react/pull/3409)
 
 ## 6.20.0 - 2019-05-20
 
