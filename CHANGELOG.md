@@ -16,9 +16,6 @@ Types of changes:
 
 ### Next
 
-### Changed
-- `<CardGalleryItem/>` - title and subtitle are not mandatory [#3411](https://github.com/wix/wix-style-react/pull/3411)
-
 ## 6.20.0 - 2019-05-20
 
 ### Added
@@ -29,6 +26,7 @@ Types of changes:
 - `<SocialPreview/>` - add ellipsis property to text components [#3309](https://github.com/wix/wix-style-react/pull/3309)
 
 ### Changed
+- `<CardGalleryItem/>` - title and subtitle are not mandatory [#3411](https://github.com/wix/wix-style-react/pull/3411)
 - `<Carousel/>` - refactor the component to use react-slick [#3415](https://github.com/wix/wix-style-react/pull/3415)
 - `<Carousel/>` - migrate e2e test to visual [#3425](https://github.com/wix/wix-style-react/pull/3425)
 - `<Carousel/>` - improve indicator visual design [#3429](https://github.com/wix/wix-style-react/pull/3429)
