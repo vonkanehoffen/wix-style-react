@@ -33,7 +33,7 @@ Types of changes:
 - `<CircularProgressBar/>` - migrate from wix-ui-backoffice [#3405](https://github.com/wix/wix-style-react/pull/3405)
 
 ### Fixed
-- `<Tooltip/>` - Add instance methods to .d.ts [#3423](https://github.com/wix/wix-style-react/pull/3423)
+- `<Tooltip/>` - Add instance methods to .d.ts [#3423](https://github.com/wix/wix-style-react/pull/3423) [#3436](https://github.com/wix/wix-style-react/pull/3436)
 
 
 ## 6.19.0 - 2019-05-16
