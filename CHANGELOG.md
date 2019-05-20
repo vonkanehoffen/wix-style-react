@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ### Next
+### Fixed
+- `<Search/>` - fix `getDerivedStateFromProps` warning [#3409](https://github.com/wix/wix-style-react/pull/3409)
 
 ## 6.20.0 - 2019-05-20
 
