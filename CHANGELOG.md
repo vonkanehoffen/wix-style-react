@@ -14,16 +14,21 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-### Next
-### Fixed
-- `<Search/>` - fix `getDerivedStateFromProps` warning [#3343](https://github.com/wix/wix-style-react/pull/3343)
+## 6.21.0 - 2019-05-20
 
 ### Added
+
 - `<DropdownLayout/>` - add `markedOption` prop [#3409](https://github.com/wix/wix-style-react/pull/3409)
+
+### Fixed
+
+- `<Search/>` - fix `getDerivedStateFromProps` warning [#3343](https://github.com/wix/wix-style-react/pull/3343)
+- Storybook: fix broken components [#3440](https://github.com/wix/wix-style-react/pull/3440)
 
 ## 6.20.0 - 2019-05-20
 
 ### Added
+
 - `<Box/>` - add CSS properties to typescript declarations [#3419](https://github.com/wix/wix-style-react/pull/3419)
 - `<NestableList/>` - add `onDragStart` and `onDragEnd` callbacks [#3414](https://github.com/wix/wix-style-react/pull/3414)
 - `<CardGalleryItem/>` - add badge to card gallery item [#3424](https://github.com/wix/wix-style-react/pull/3424)
@@ -31,6 +36,7 @@ Types of changes:
 - `<SocialPreview/>` - add ellipsis property to text components [#3309](https://github.com/wix/wix-style-react/pull/3309)
 
 ### Changed
+
 - `<CardGalleryItem/>` - title and subtitle are not mandatory [#3411](https://github.com/wix/wix-style-react/pull/3411)
 - `<Carousel/>` - refactor the component to use react-slick [#3415](https://github.com/wix/wix-style-react/pull/3415)
 - `<Carousel/>` - migrate e2e test to visual [#3425](https://github.com/wix/wix-style-react/pull/3425)
@@ -38,8 +44,8 @@ Types of changes:
 - `<CircularProgressBar/>` - migrate from wix-ui-backoffice [#3405](https://github.com/wix/wix-style-react/pull/3405)
 
 ### Fixed
-- `<Tooltip/>` - Add instance methods to .d.ts [#3423](https://github.com/wix/wix-style-react/pull/3423) [#3436](https://github.com/wix/wix-style-react/pull/3436)
 
+- `<Tooltip/>` - Add instance methods to .d.ts [#3423](https://github.com/wix/wix-style-react/pull/3423) [#3436](https://github.com/wix/wix-style-react/pull/3436)
 
 ## 6.19.0 - 2019-05-16
 
