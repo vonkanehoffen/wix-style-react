@@ -20,7 +20,7 @@ const tests = [
     describe: 'basic',
     its: [
       {
-        it: 'badge - none',
+        it: 'without badge',
         props: {
           title: 'Card Title',
           subtitle: 'Card subtitle',
@@ -40,7 +40,87 @@ const tests = [
         },
       },
       {
-        it: 'badge',
+        it: 'with badge',
+        props: {
+          title: 'Card Title',
+          badge: badge,
+          subtitle: 'Card subtitle',
+          primaryActionProps: {
+            label: 'Button',
+            onClick: () => {
+              alert('Primary action clicked');
+            },
+          },
+          secondaryActionProps: {
+            label: 'Text link',
+            onClick: () => {
+              alert('Secondary action clicked');
+            },
+          },
+          backgroundImageUrl,
+        },
+      },
+      {
+        it: 'without titles',
+        props: {
+          primaryActionProps: {
+            label: 'Button',
+            onClick: () => {
+              alert('Primary action clicked');
+            },
+          },
+          secondaryActionProps: {
+            label: 'Text link',
+            onClick: () => {
+              alert('Secondary action clicked');
+            },
+          },
+          backgroundImageUrl,
+        },
+      },
+      {
+        it: 'with titles',
+        props: {
+          title: 'Card Title',
+          badge: badge,
+          subtitle: 'Card subtitle',
+          primaryActionProps: {
+            label: 'Button',
+            onClick: () => {
+              alert('Primary action clicked');
+            },
+          },
+          secondaryActionProps: {
+            label: 'Text link',
+            onClick: () => {
+              alert('Secondary action clicked');
+            },
+          },
+          backgroundImageUrl,
+        },
+      },
+      {
+        it: 'without subtitle',
+        props: {
+          title: 'Card Title',
+          badge: badge,
+          primaryActionProps: {
+            label: 'Button',
+            onClick: () => {
+              alert('Primary action clicked');
+            },
+          },
+          secondaryActionProps: {
+            label: 'Text link',
+            onClick: () => {
+              alert('Secondary action clicked');
+            },
+          },
+          backgroundImageUrl,
+        },
+      },
+      {
+        it: 'with subtitle',
         props: {
           title: 'Card Title',
           badge: badge,
