@@ -38,15 +38,15 @@ async function testkits() {
 }
 
 function TooltipOldInstanceMethods() {
-  const wrapper = mount(<Tooltip upgrade content="Content"/>);
-  const tooltip: Tooltip<TooltipOldProps> = wrapper.instance();
+  const wrapper = mount<Tooltip<TooltipOldProps>>(<Tooltip upgrade content="Content"/>);
+  const tooltip = wrapper.instance();
   tooltip.hide();
   tooltip.show();
 }
 
 function TooltipNewInstanceMethods() {
-  const wrapper = mount(<Tooltip upgrade content="Content"/>);
-  const tooltip: Tooltip<TooltipNewProps> = wrapper.instance();
+  const wrapper = mount<Tooltip<TooltipNewProps>>(<Tooltip upgrade content="Content"/>);
+  const tooltip = wrapper.instance();
   tooltip.open();
   tooltip.close();
 }

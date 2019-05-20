@@ -65,9 +65,9 @@ export type TooltipProps = TooltipNewProps | TooltipOldProps;
 
 export default class Tooltip<T extends TooltipProps> extends React.PureComponent<T> {
   /** @deprecated use `upgrade` prop with `close` method */
-  hide: T extends { upgrade: false } ?  (props?: TooltipProps) => void : never ;
+  hide: T extends { upgrade: true } ?  never : (props?: TooltipProps) => void;
   /** @deprecated use `upgrade` prop with `open` method */
-  show: T extends { upgrade: false } ?  (props?: TooltipProps) => void : never;
+  show: T extends { upgrade: true } ?  never: (props?: TooltipProps) => void;
 
   close: T extends { upgrade: true } ? () => void : never;
   open: T extends { upgrade: true } ? () => void : never;
