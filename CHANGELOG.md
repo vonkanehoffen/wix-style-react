@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+- `<MultiSelect/>` - fix padding between `<Tag/>` components. [#3434](https://github.com/wix/wix-style-react/pull/3434)
+
 ### Added
 
 - `<Carousel/>` - add `buttonSkin` prop [#3444](https://github.com/wix/wix-style-react/pull/3444)
