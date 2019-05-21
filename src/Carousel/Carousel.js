@@ -36,6 +36,8 @@ class Carousel extends React.Component {
     images: PropTypes.array,
     /** Any element to render inside */
     children: PropTypes.node,
+    /** Sets the skin of the arrow buttons */
+    buttonSkin: PropTypes.oneOf(['standard', 'inverted']),
     /** Images loop endlessly */
     infinite: PropTypes.bool,
     /** Auto-playing of images */
@@ -48,6 +50,7 @@ class Carousel extends React.Component {
     infinite: true,
     initialSlideIndex: 0,
     images: [],
+    buttonSkin: 'standard',
   };
 
   constructor(props) {
@@ -74,7 +77,12 @@ class Carousel extends React.Component {
     );
   }
 
-  _resolveSliderSettings = ({ infinite, autoplay, initialSlideIndex }) => {
+  _resolveSliderSettings = ({
+    infinite,
+    autoplay,
+    buttonSkin,
+    initialSlideIndex,
+  }) => {
     return {
       infinite,
       autoplay,
@@ -87,12 +95,14 @@ class Carousel extends React.Component {
       nextArrow: (
         <WrappedSliderArrow
           dataHook={dataHooks.nextButton}
+          buttonSkin={buttonSkin}
           icon={<ChevronRightLarge />}
         />
       ),
       prevArrow: (
         <WrappedSliderArrow
           dataHook={dataHooks.prevButton}
+          buttonSkin={buttonSkin}
           icon={<ChevronLeftLarge />}
         />
       ),

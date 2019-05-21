@@ -6,13 +6,13 @@ import IconButton from '../../IconButton/IconButton';
 const SliderArrow = ({
   dataHook,
   arrowSize = 'medium',
-  arrowSkin = 'standard',
+  buttonSkin,
   icon,
   ...remainingProps
 }) => {
   return (
     <div {...remainingProps} data-hook={dataHook}>
-      <IconButton skin={arrowSkin} size={arrowSize} priority="secondary">
+      <IconButton skin={buttonSkin} size={arrowSize} priority="secondary">
         {icon}
       </IconButton>
     </div>

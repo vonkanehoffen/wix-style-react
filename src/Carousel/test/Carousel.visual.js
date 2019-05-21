@@ -3,6 +3,21 @@ import { storiesOf } from '@storybook/react';
 
 import Carousel from '..';
 
+const sampleImages = [
+  {
+    src:
+      'https://a-static.besthdwallpaper.com/garfield-wallpaper-2800x2100-815_28.jpg',
+  },
+  {
+    src:
+      'https://m.media-amazon.com/images/M/MV5BZGMwOGIwZjUtOWQ1OS00YWRjLWJmZGMtN2Y1OWQ3ZDYwYTM3XkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_.jpg',
+  },
+  {
+    src:
+      'https://a-static.besthdwallpaper.com/cartoons-garfield-wallpaper-1440x1080-6773_22.jpg',
+  },
+];
+
 const tests = [
   {
     describe: 'Basic',
@@ -10,20 +25,7 @@ const tests = [
       {
         it: 'Display images',
         props: {
-          images: [
-            {
-              src:
-                'https://a-static.besthdwallpaper.com/garfield-wallpaper-2800x2100-815_28.jpg',
-            },
-            {
-              src:
-                'https://m.media-amazon.com/images/M/MV5BZGMwOGIwZjUtOWQ1OS00YWRjLWJmZGMtN2Y1OWQ3ZDYwYTM3XkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_.jpg',
-            },
-            {
-              src:
-                'https://a-static.besthdwallpaper.com/cartoons-garfield-wallpaper-1440x1080-6773_22.jpg',
-            },
-          ],
+          images: sampleImages,
         },
       },
       {
@@ -34,6 +36,18 @@ const tests = [
             <span>Second</span>,
             <span>Third</span>,
           ],
+        },
+      },
+    ],
+  },
+  {
+    describe: 'Button Skin',
+    its: [
+      {
+        it: 'Display inverted buttons',
+        props: {
+          images: sampleImages,
+          buttonSkin: 'inverted',
         },
       },
     ],

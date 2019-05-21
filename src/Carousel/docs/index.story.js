@@ -13,7 +13,7 @@ import {
 import Carousel from '..';
 import { storySettings } from './storySettings';
 import testkitReadme from './README.TESTKIT.md';
-import { autoplayExample, InfoChild } from './examples';
+import { InfoChild, buttonSkinExample, autoplayExample } from './examples';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 
 const code = config =>
@@ -82,7 +82,10 @@ export default {
 
         title('Examples'),
 
-        ...[{ title: 'Autoplay', source: autoplayExample }].map(code),
+        ...[
+          { title: 'Button Skin', source: buttonSkinExample },
+          { title: 'Autoplay', source: autoplayExample },
+        ].map(code),
       ],
     }),
 
