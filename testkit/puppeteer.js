@@ -66,6 +66,18 @@ export const proportionTestkitFactory = puppeteerUniTestkitFactoryCreator(
   proportionDriverFactory,
 );
 
+import { linearProgressBarDriverFactory } from '../src/LinearProgressBar/LinearProgressBar.uni.driver';
+
+export const linearProgressBarTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  linearProgressBarDriverFactory,
+);
+
+import { circularProgressBarDriverFactory } from '../src/CircularProgressBar/CircularProgressBar.uni.driver';
+
+export const circularProgressBarTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  circularProgressBarDriverFactory,
+);
+
 /*
  * Component generator test component
  */
