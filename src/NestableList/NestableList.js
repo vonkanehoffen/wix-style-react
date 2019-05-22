@@ -115,6 +115,7 @@ class NestableList extends WixComponent {
       useDragHandle,
       maxDepth,
       threshold,
+      theme,
     } = this.props;
 
     return (
@@ -139,12 +140,14 @@ class NestableList extends WixComponent {
               childrenStyle={childrenStyle}
               isRenderDraggingChildren={isRenderDraggingChildren}
               topLevel
+              theme={theme}
             />
             <CustomDragLayer
               isRenderDraggingChildren={isRenderDraggingChildren}
               renderItem={renderItem}
               childrenProperty={childrenProperty}
               childrenStyle={childrenStyle}
+              theme={theme}
             />
           </div>
         </NestableListContext.Provider>
