@@ -23,6 +23,10 @@ Types of changes:
 
 - `<Carousel/>` - add `buttonSkin` prop [#3444](https://github.com/wix/wix-style-react/pull/3444)
 
+### Fixed
+
+- `<Carousel/>` - fix missing `matchMedia` polyfill [#3447](https://github.com/wix/wix-style-react/pull/3447)
+
 ## 6.21.0 - 2019-05-20
 
 ### Added
