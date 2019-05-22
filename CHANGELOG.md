@@ -16,15 +16,14 @@ Types of changes:
 
 ## Next
 
-- `<MultiSelect/>` - fix padding between `<Tag/>` components. [#3434](https://github.com/wix/wix-style-react/pull/3434)
-- `<CirucularProgressBar/>` - add puppeteer driver [#3439](3439)
-
 ### Added
 
 - `<Carousel/>` - add `buttonSkin` prop [#3444](https://github.com/wix/wix-style-react/pull/3444)
+- `<CirucularProgressBar/>` - add puppeteer driver [#3439](https://github.com/wix/wix-style-react/pull/3439)
 
 ### Fixed
 
+- `<MultiSelect/>` - fix padding between `<Tag/>` components [#3434](https://github.com/wix/wix-style-react/pull/3434)
 - `<Carousel/>` - fix missing `matchMedia` polyfill [#3447](https://github.com/wix/wix-style-react/pull/3447)
 
 ## 6.21.0 - 2019-05-20
