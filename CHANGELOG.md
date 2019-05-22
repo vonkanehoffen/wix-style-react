@@ -26,6 +26,10 @@ Types of changes:
 - `<MultiSelect/>` - fix padding between `<Tag/>` components [#3434](https://github.com/wix/wix-style-react/pull/3434)
 - `<Carousel/>` - fix missing `matchMedia` polyfill [#3447](https://github.com/wix/wix-style-react/pull/3447)
 
+### Changed
+
+- `<NestableList/>` - add `theme`, `onDragStart` & `onDragEnd` props [#3446](https://github.com/wix/wix-style-react/pull/3446)
+
 ## 6.21.0 - 2019-05-20
 
 ### Added
