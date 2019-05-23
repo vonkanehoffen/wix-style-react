@@ -14,10 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.22.0 - 2019-05-23
 
 ### Added
 
+- `<CardGalleryItem/>` - add `settingsMenu` prop [#3437](https://github.com/wix/wix-style-react/pull/3437)
 - `<Carousel/>` - add `buttonSkin` prop [#3444](https://github.com/wix/wix-style-react/pull/3444)
 - `<CirucularProgressBar/>` - add puppeteer driver [#3439](https://github.com/wix/wix-style-react/pull/3439)
 - `<Input/>` - add `warning` status [#3449](https://github.com/wix/wix-style-react/pull/3449)
