@@ -16,13 +16,12 @@ Types of changes:
 
 ## Next
 
-- `<Input/>` - add `warning` status [#3449](https://github.com/wix/wix-style-react/pull/3449)
-- `<Propotion/>`- add getAspectRatio function to testkit [#3451](https://github.com/wix/wix-style-react/pull/3451)
-
 ### Added
 
 - `<Carousel/>` - add `buttonSkin` prop [#3444](https://github.com/wix/wix-style-react/pull/3444)
 - `<CirucularProgressBar/>` - add puppeteer driver [#3439](https://github.com/wix/wix-style-react/pull/3439)
+- `<Input/>` - add `warning` status [#3449](https://github.com/wix/wix-style-react/pull/3449)
+- `<Propotion/>`- add getAspectRatio function to testkit [#3451](https://github.com/wix/wix-style-react/pull/3451)
 
 ### Fixed
 
