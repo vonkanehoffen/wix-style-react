@@ -25,6 +25,7 @@ Types of changes:
 
 - `<MultiSelect/>` - fix padding between `<Tag/>` components [#3434](https://github.com/wix/wix-style-react/pull/3434)
 - `<Carousel/>` - fix missing `matchMedia` polyfill [#3447](https://github.com/wix/wix-style-react/pull/3447)
+- `<Search/>` - fix non working input in React 16 [#3454](https://github.com/wix/wix-style-react/pull/3454)
 
 ### Changed
 
