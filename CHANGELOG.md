@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+- `<Input/>` - add `warning` status [#3449](https://github.com/wix/wix-style-react/pull/3449)
+
 ### Added
 
 - `<Carousel/>` - add `buttonSkin` prop [#3444](https://github.com/wix/wix-style-react/pull/3444)
