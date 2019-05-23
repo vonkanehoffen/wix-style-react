@@ -34,6 +34,20 @@ export const error = `
 </Layout>
 `;
 
+export const warning = `
+<Layout>
+  <Cell>
+    <Input status="warning"/>
+  </Cell>
+  <Cell>
+    <Input status="warning" forceHover />
+  </Cell>
+  <Cell>
+    <Input status="warning" forceFocus />
+  </Cell>
+</Layout>
+`;
+
 export const loader = `
 <Layout>
   <Cell>
