@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Docs
+
+- `<Slider/>` - split UX & APi stories, update examples description [#3100](https://github.com/wix/wix-style-react/pull/3100)
+
 ## 6.22.0 - 2019-05-23
 
 ### Added
