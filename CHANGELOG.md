@@ -20,7 +20,7 @@ Types of changes:
 
 - `<Slider/>` - split UX & APi stories, update examples description [#3100](https://github.com/wix/wix-style-react/pull/3100)
 - `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
-- `<Button/>` - [#3470](https://github.com/wix/wix-style-react/pull/3470)
+- `<Button/>` - fix testkit tab [#3470](https://github.com/wix/wix-style-react/pull/3470)
 
 ## 6.22.0 - 2019-05-23
 
