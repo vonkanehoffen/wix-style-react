@@ -94,13 +94,13 @@ export default {
       {
         title: 'Range Value',
         text: 'Slider supports selection of 2 or more values as well.',
-        source: examples.plainSliderMarks,
+        source: examples.rangeSlider,
       },
       {
         title: 'Scale Marks',
         text:
           'It is supported to display marks under the slider to indicate the available of values.',
-        source: examples.rangeSlider,
+        source: examples.plainSliderMarks,
       },
       {
         title: 'Label Position',
