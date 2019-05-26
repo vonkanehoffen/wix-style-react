@@ -24,6 +24,7 @@ Types of changes:
 ### Changed
 - listItemActionBuilder - add dataHook [#3432](https://github.com/wix/wix-style-react/pull/3432)
 - `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
+- `<Tooltip/>` - add functionality appendTo: by predicate & documentation [#3472](https://github.com/wix/wix-style-react/pull/3472)
 
 ## 6.22.0 - 2019-05-23
 
