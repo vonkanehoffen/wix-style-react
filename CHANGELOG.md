@@ -19,8 +19,11 @@ Types of changes:
 ### Docs
 
 - `<Slider/>` - split UX & APi stories, update examples description [#3100](https://github.com/wix/wix-style-react/pull/3100)
-- `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
 - `<Button/>` - fix testkit tab [#3470](https://github.com/wix/wix-style-react/pull/3470)
+
+### Changed
+- listItemActionBuilder - add dataHook [#3432](https://github.com/wix/wix-style-react/pull/3432)
+- `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
 
 ## 6.22.0 - 2019-05-23
 
