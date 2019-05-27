@@ -38,3 +38,6 @@ autodocs-registry
 # applitools private config
 !applitools.config.js
 applitools.private.config.js
+
+# uxpin tmp dir
+.uxpin-merge
