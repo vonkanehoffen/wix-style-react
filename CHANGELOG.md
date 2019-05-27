@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - UX Foundation (stylable) - stylesheets for colors, gradients, shadows etc. [#3461](https://github.com/wix/wix-style-react/pull/3461)
+- `<Swatches/>` - new component. [#3464](https://github.com/wix/wix-style-react/pull/3464)
 
 ### Docs
 
