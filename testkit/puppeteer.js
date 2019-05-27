@@ -229,3 +229,9 @@ import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.
 export const subheaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
+
+import { swatchesDriverFactory } from '../src/Swatches/Swatches.uni.driver';
+
+export const swatchesTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  swatchesDriverFactory,
+);

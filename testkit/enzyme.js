@@ -63,6 +63,7 @@ export const circularProgressBarTestkitFactory = enzymeTestkitFactoryCreator(loa
 export const closeButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/CloseButton/CloseButton.uni.driver')));
 export const colorInputTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/ColorInput/ColorInput.uni.driver')));
 export const colorPickerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/ColorPicker/ColorPicker.driver')));
+export const swatchesTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
 export const contactItemBuilderTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.driver')));
 export const counterBadgeTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.driver')));
 export const dataTableTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/DataTable/DataTable.driver')));

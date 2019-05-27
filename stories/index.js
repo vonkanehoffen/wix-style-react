@@ -121,6 +121,7 @@ require('../src/SideMenu/docs/SideMenu');
 require('../src/Skeleton/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
 require('../src/StatsWidget/docs/index.story');
+require('../src/Swatches/docs/index.story');
 require('../src/Table/docs/index.story');
 require('../src/TableActionCell/docs/index.story');
 require('../src/TableToolbar/docs/ToolbarStory');

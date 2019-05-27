@@ -511,3 +511,9 @@ import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.
 export const subheaderTestkitFactory = protractorUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
+
+import { swatchesDriverFactory } from '../src/Swatches/Swatches.uni.driver';
+
+export const swatchesTestkitFactory = protractorUniTestkitFactoryCreator(
+  swatchesDriverFactory,
+);

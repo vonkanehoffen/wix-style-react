@@ -65,6 +65,7 @@ export const circularProgressBarTestkitFactory = testkitFactoryCreator(load(requ
 export const closeButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/CloseButton/CloseButton.uni.driver')));
 export const colorInputTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ColorInput/ColorInput.uni.driver')));
 export const colorPickerTestkitFactory = testkitFactoryCreator(load(require('../src/ColorPicker/ColorPicker.driver')));
+export const swatchesTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
 export const contactItemBuilderTestkitFactory = testkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.driver')));
 export const counterBadgeTestkitFactory = testkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.driver')));
 export const dataTableTestkitFactory = testkitFactoryCreator(load(require('../src/DataTable/DataTable.driver')));
