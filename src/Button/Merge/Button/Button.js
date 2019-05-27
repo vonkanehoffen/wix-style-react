@@ -51,4 +51,10 @@ Button.propTypes = {
   dataHook: string,
 };
 
+Button.defaultProps = {
+  skin: 'standard',
+  priority: 'primary',
+  size: 'medium',
+};
+
 export default Button;

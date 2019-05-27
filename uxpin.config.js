@@ -7,6 +7,7 @@ module.exports = {
           'src/Button/Button.js',
           // 'src/Button/Merge/Button/Button.js',
           'src/Calendar/Calendar.js',
+          // 'src/Calendar/Merge/Calendar/Calendar.js',
         ],
       },
     ],
