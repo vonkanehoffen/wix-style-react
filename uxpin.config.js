@@ -3,7 +3,11 @@ module.exports = {
     categories: [
       {
         name: 'General',
-        include: ['src/Button/Button.js', 'src/Calendar/Calendar.js'],
+        include: [
+          'src/Button/Button.js',
+          // 'src/Button/Merge/Button/Button.js',
+          'src/Calendar/Calendar.js',
+        ],
       },
     ],
   },
