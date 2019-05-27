@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- UX Foundation (stylable) - stylesheets for colors, gradients, shadows etc. [#3461](https://github.com/wix/wix-style-react/pull/3461)
+
 ### Docs
 
 - `<Slider/>` - split UX & APi stories, update examples description [#3100](https://github.com/wix/wix-style-react/pull/3100)
