@@ -9,6 +9,7 @@ module.exports = {
           'src/Calendar/Calendar.js',
           // 'src/Calendar/Merge/Calendar/Calendar.js',
           'src/Tooltip/TooltipNext/Tooltip.js',
+          'src/Dropdown/Merge/Dropdown/Dropdown.js'
         ],
       },
     ],
