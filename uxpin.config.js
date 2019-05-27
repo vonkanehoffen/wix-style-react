@@ -7,9 +7,10 @@ module.exports = {
           'src/Button/Button.js',
           // 'src/Button/Merge/Button/Button.js',
           'src/Calendar/Calendar.js',
+          'src/Tooltip/TooltipNext/Tooltip.js',
         ],
       },
     ],
   },
-  name: 'New Design System',
+  name: 'WSR Design System',
 };
