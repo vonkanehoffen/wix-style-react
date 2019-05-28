@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+require('webpack');
 const StylableWebpackPlugin = require('@stylable/webpack-plugin');
 
 module.exports = {
@@ -20,7 +20,6 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         loaders: [
           'style-loader',
           'css-loader?modules&importLoaders=1&camelCase&localIdentName=[name]__[local]___[hash:base64:5]',

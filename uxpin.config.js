@@ -11,10 +11,11 @@ module.exports = {
           'src/Tooltip/TooltipNext/Tooltip.js',
           'src/Dropdown/Merge/Dropdown/Dropdown.js',
           'src/Layout/Merge/Cell.js',
-          'src/Layout/Merge/Layout.js'
-        ]
-      }
-    ]
+          'src/Layout/Merge/Layout.js',
+          'src/CardGalleryItem/CardGalleryItem.js',
+        ],
+      },
+    ],
   },
-  name: 'WSR Design System'
+  name: 'WSR Design System',
 };
