@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.23.0 - 2019-05-28
 
 ### Added
 
@@ -27,6 +27,7 @@ Types of changes:
 - `<Button/>` - fix testkit tab [#3470](https://github.com/wix/wix-style-react/pull/3470)
 
 ### Changed
+
 - listItemActionBuilder - add dataHook [#3432](https://github.com/wix/wix-style-react/pull/3432)
 - `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
 - `<Tooltip/>` - add functionality appendTo: by predicate & documentation [#3472](https://github.com/wix/wix-style-react/pull/3472)
