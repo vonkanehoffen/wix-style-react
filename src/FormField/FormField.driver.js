@@ -28,6 +28,7 @@ const formFieldDriver = ({ element }) => {
       }
       return false;
     },
+    hasTooltip: () => tooltipTestkit.exists(),
     getInfoContent: () => {
       tooltipTestkit.mouseEnter();
       return tooltipTestkit.getContentElement().textContent;

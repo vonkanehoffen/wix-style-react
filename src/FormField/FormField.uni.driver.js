@@ -35,6 +35,13 @@ export const formFieldUniDriverFactory = base => {
       }
       return false;
     },
+    hasTooltip: async () => {
+      const testkit = tooltipDriverFactory(
+        base.$('[data-hook*="formfield-infotooltip"]'),
+        reactUniDriver(document.body),
+      );
+      return await testkit.exists();
+    },
     getInfoContent: async () => {
       const testkit = tooltipDriverFactory(
         base.$('[data-hook*="formfield-infotooltip"]'),

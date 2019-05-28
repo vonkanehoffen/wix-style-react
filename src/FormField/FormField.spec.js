@@ -110,6 +110,16 @@ describe('FormField', () => {
           const { driver } = render(renderFormField(props));
           expect(await driver.getInfoContent()).toBe(infoContent);
         });
+
+        it('should report that tooltip exists', async () => {
+          const { driver } = render(renderFormField(props));
+          expect(await driver.hasTooltip()).toBe(true);
+        });
+
+        it('should not have tooltip without `infoContent` value', async () => {
+          const { driver } = render(renderFormField({ label: props.label }));
+          expect(await driver.hasTooltip()).toBe(false);
+        });
       });
     });
 
