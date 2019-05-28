@@ -9,10 +9,12 @@ module.exports = {
           'src/Calendar/Calendar.js',
           // 'src/Calendar/Merge/Calendar/Calendar.js',
           'src/Tooltip/TooltipNext/Tooltip.js',
-          'src/Dropdown/Merge/Dropdown/Dropdown.js'
-        ],
-      },
-    ],
+          'src/Dropdown/Merge/Dropdown/Dropdown.js',
+          'src/Layout/Merge/Cell.js',
+          'src/Layout/Merge/Layout.js'
+        ]
+      }
+    ]
   },
-  name: 'WSR Design System',
+  name: 'WSR Design System'
 };
