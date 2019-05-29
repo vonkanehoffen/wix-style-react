@@ -10,6 +10,7 @@ module.exports = {
           'src/Calendar/Calendar.js',
           'src/CardGalleryItem/CardGalleryItem.js',
           'src/Dropdown/Merge/Dropdown/Dropdown.js',
+          'src/Heading/Merge/Heading.js',
           'src/Layout/Merge/Cell.js',
           'src/Layout/Merge/Layout.js',
           'src/Tooltip/TooltipNext/Tooltip.js',
