@@ -1,13 +1,20 @@
 const path = require('path');
-const webpack = require('webpack');
+require('webpack');
 const StylableWebpackPlugin = require('@stylable/webpack-plugin');
+const { getStyleLoaders } = require('yoshi/config/webpack.config');
+
+const styleLoaders = getStyleLoaders({
+  embedCss: true,
+  isDebug: true,
+  separateCss: false,
+  hmr: false,
+  tpaStyle: false,
+});
 
 module.exports = {
-  entry: path.join(__dirname, './puppeteer.js'),
   output: {
     libraryTarget: 'commonjs',
     path: path.resolve('./dist/testkit'),
-    filename: 'puppeteer-testkit-bundle.js',
   },
   module: {
     rules: [
@@ -18,15 +25,7 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&importLoaders=1&camelCase&localIdentName=[name]__[local]___[hash:base64:5]',
-          'sass-loader',
-        ],
-      },
+      ...styleLoaders,
     ],
   },
   plugins: [new StylableWebpackPlugin()],
