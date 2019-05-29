@@ -19,6 +19,7 @@ Cell.propTypes = {
 
 Cell.defaultProps = {
   span: 12,
+  children: 'Cell contents',
 };
 
 export default Cell;

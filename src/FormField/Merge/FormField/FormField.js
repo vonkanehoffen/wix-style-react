@@ -67,6 +67,7 @@ FormField.defaultProps = {
   required: false,
   stretchContent: true,
   labelPlacement: labelPlacements.top,
+  label: 'Some label',
 };
 
 export default FormField;
