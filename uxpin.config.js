@@ -12,6 +12,7 @@ module.exports = {
           'src/Dropdown/Merge/Dropdown/Dropdown.js',
           'src/FormField/FormField.js',
           'src/Heading/Merge/Heading.js',
+          'src/Input/Input.js',
           'src/Layout/Merge/Cell.js',
           'src/Layout/Merge/Layout.js',
           'src/Text/Merge/Text.js',
