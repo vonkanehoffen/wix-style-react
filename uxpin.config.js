@@ -13,6 +13,7 @@ module.exports = {
           'src/Heading/Merge/Heading.js',
           'src/Layout/Merge/Cell.js',
           'src/Layout/Merge/Layout.js',
+          'src/Text/Merge/Text.js',
           'src/Tooltip/TooltipNext/Tooltip.js',
           // 'src/Button/Merge/Button/Button.js',
           // 'src/Calendar/Merge/Calendar/Calendar.js',
