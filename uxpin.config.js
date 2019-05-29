@@ -4,6 +4,7 @@ module.exports = {
       {
         name: 'General',
         include: [
+          'src/AddItem/AddItem.js',
           'src/Badge/Badge.js',
           'src/Button/Button.js',
           'src/Calendar/Calendar.js',
