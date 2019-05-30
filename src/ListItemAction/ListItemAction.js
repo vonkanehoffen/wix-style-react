@@ -103,6 +103,7 @@ export const listItemActionBuilder = ({
   prefixIcon,
   onClick,
   id,
+  paddingSize,
   disabled,
   skin,
   size,
@@ -120,6 +121,7 @@ export const listItemActionBuilder = ({
       prefixIcon={prefixIcon}
       skin={skin}
       size={size}
+      paddingSize={paddingSize}
     />
   ),
 });
