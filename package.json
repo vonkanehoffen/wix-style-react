@@ -63,7 +63,8 @@
     "generate-autodocs-registry": "node scripts/generate-autodocs-registry",
     "eyes-storybook-debug": "start-storybook -c ./.storybook-test -p 6007",
     "make-async-spec": "npx jscodeshift -t scripts/unidriver-migration/src/make-async/make-async.js",
-    "uxpin": "node ./uxpin && npm run proxy-wix-ui-icons && uxpin-merge --webpack-config ./uxpin/webpack.config.js --config ./dist/uxpin/uxpin.config.js"
+    "uxpin": "npm run proxy-wix-ui-icons && uxpin-merge --webpack-config ./uxpin/webpack.config.js",
+    "uxpin-generate": "node ./uxpin"
   },
   "yoshi": {
     "entry": {
