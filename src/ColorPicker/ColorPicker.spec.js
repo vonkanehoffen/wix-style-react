@@ -152,6 +152,43 @@ describe('ColorPicker', () => {
     });
   }
 
+  describe('preset', () => {
+    const preset = ['red', 'green', 'blue'];
+    const render = createRendererWithUniDriver(colorPickerUniDriverFactory);
+
+    it('should render given colors as swatches', async () => {
+      const onChange = jest.fn();
+      const onCancel = jest.fn();
+      const onConfirm = jest.fn();
+      const value = '#00FF00';
+      const { driver } = render(
+        <ColorPicker {...{ value, onChange, onCancel, onConfirm, preset }} />,
+      );
+      expect(await (await driver.swatchesDriver()).getSwatchCount()).toBe(3);
+    });
+    it('should call onChange when clicked', async () => {
+      const onChange = jest.fn();
+      const onCancel = jest.fn();
+      const onConfirm = jest.fn();
+      const value = '#00FF00';
+      const { driver } = render(
+        <ColorPicker
+          {...{
+            value,
+            onChange,
+            onCancel,
+            onConfirm,
+            preset,
+          }}
+        />,
+      );
+      const swatch = await (await driver.swatchesDriver()).getSwatch(0);
+      await swatch.click();
+      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(onChange).toHaveBeenCalledWith(color(preset[0]));
+    });
+  });
+
   //private driver test only
   it('should update the color after clicking Enter', async () => {
     const render = createRendererWithDriver(colorPickerDriverFactory);
