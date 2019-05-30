@@ -1,4 +1,9 @@
-const components = require('./getSupportedComponents');
+const {
+  supportedComponents,
+  defaultPropsOverrides,
+  propTypesOverrides,
+  componentDependencies,
+} = require('./getSupportedComponents');
 const metadataParser = require('react-autodocs-utils/src/metadata-parser');
 const mapValues = require('lodash/fp/mapValues');
 const pickBy = require('lodash/fp/pickBy');
@@ -20,15 +25,15 @@ const basicPropTypes = {
 
 const getComponentsWithMetadata = () =>
   Promise.all(
-    Object.entries(components).map(
-      ([name, [path, propTypeReplaces, defaultPropReplaces]]) =>
-        metadataParser(path).then(metadata => ({
-          defaultPropReplaces,
-          metadata,
-          name,
-          path,
-          propTypeReplaces,
-        })),
+    Object.entries(supportedComponents).map(([name, path]) =>
+      metadataParser(path).then(metadata => ({
+        metadata,
+        name,
+        path,
+        propTypesReplaces: propTypesOverrides[name],
+        defaultPropsReplaces: defaultPropsOverrides[name],
+        imports: componentDependencies[name],
+      })),
     ),
   );
 
@@ -73,14 +78,22 @@ const metadataToDefaultProps = compose(
 const extractPropsMetadata = async () => {
   const componentsWithMetadata = await getComponentsWithMetadata();
   const componentsWithProps = componentsWithMetadata.map(
-    ({ name, path, metadata, propTypeReplaces, defaultPropReplaces }) => ({
+    ({
       name,
       path,
-      propTypes: replace(metadataToPropTypes(metadata), propTypeReplaces),
+      metadata,
+      propTypesReplaces,
+      defaultPropsReplaces,
+      imports,
+    }) => ({
+      name,
+      path,
+      propTypes: replace(metadataToPropTypes(metadata), propTypesReplaces),
       defaultProps: replace(
         metadataToDefaultProps(metadata),
-        defaultPropReplaces,
+        defaultPropsReplaces,
       ),
+      imports,
     }),
   );
   return componentsWithProps;

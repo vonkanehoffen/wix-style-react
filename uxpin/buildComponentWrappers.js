@@ -18,11 +18,13 @@ async function buildComponentWrappers(metadata) {
   );
 }
 
-function buildComponentFile({ name, path, propTypes, defaultProps }) {
+function buildComponentFile({ name, path, propTypes, defaultProps, imports }) {
   return `import React from 'react';
 import PropTypes from 'prop-types';
 
 import ${name}M from '../../../${path}';
+
+${buildImports(imports)}
 
 function ${name}(props) {
   return <${name}M {...props}>{props.children}</${name}M>;
@@ -45,6 +47,12 @@ function buildProps(props) {
     return `${acc}'${curr}': ${props[curr]},
   `;
   }, '');
+}
+
+function buildImports(imports) {
+  return Object.entries(imports || {})
+    .map(([name, path]) => `import ${name} from '../../../${path}';`)
+    .join('\n');
 }
 
 module.exports = buildComponentWrappers;
