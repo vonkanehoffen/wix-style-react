@@ -20,8 +20,15 @@ const basicPropTypes = {
 
 const getComponentsWithMetadata = () =>
   Promise.all(
-    Object.entries(components).map(([name, path]) =>
-      metadataParser(path).then(metadata => ({ name, path, metadata })),
+    Object.entries(components).map(
+      ([name, [path, propTypeReplaces, defaultPropReplaces]]) =>
+        metadataParser(path).then(metadata => ({
+          defaultPropReplaces,
+          metadata,
+          name,
+          path,
+          propTypeReplaces,
+        })),
     ),
   );
 
@@ -62,14 +69,23 @@ const metadataToDefaultProps = compose(
 const extractPropsMetadata = async () => {
   const componentsWithMetadata = await getComponentsWithMetadata();
   const componentsWithProps = componentsWithMetadata.map(
-    ({ name, path, metadata }) => ({
+    ({ name, path, metadata, propTypeReplaces, defaultPropReplaces }) => ({
       name,
       path,
-      propTypes: metadataToPropTypes(metadata),
-      defaultProps: metadataToDefaultProps(metadata),
+      propTypes: replace(metadataToPropTypes(metadata), propTypeReplaces),
+      defaultProps: replace(
+        metadataToDefaultProps(metadata),
+        defaultPropReplaces,
+      ),
     }),
   );
   return componentsWithProps;
 };
+
+function replace(originalProps, replaceProps = {}) {
+  return Object.keys(originalProps).reduce((acc, curr) => {
+    return { ...acc, [curr]: replaceProps[curr] || originalProps[curr] };
+  }, {});
+}
 
 module.exports = extractPropsMetadata;
