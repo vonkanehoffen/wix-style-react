@@ -86,6 +86,28 @@ describe('Carousel', () => {
         expect(driver.getCurrentImageIndex()).toBe(0);
       }, 0);
     });
+
+    it('should trigger beforeChange and afterChange when switching to the next image', () => {
+      const afterChange = jest.fn();
+      const beforeChange = jest.fn();
+      const driver = createDriver(
+        <Carousel
+          images={[
+            { src: 'image1.jpg' },
+            { src: 'image2.jpg' },
+            { src: 'image3.jpg' },
+          ]}
+          beforeChange={beforeChange}
+          afterChange={afterChange}
+        />,
+      );
+      driver.clickNext();
+
+      setTimeout(() => {
+        expect(beforeChange).toHaveBeenCalled();
+        expect(afterChange).toHaveBeenCalled();
+      }, 0);
+    });
   });
 
   describe('infinite functionality', () => {

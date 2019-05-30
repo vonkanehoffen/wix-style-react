@@ -46,6 +46,10 @@ class Carousel extends React.Component {
     autoplay: PropTypes.bool,
     /** An index of the slide to start on */
     initialSlideIndex: PropTypes.number,
+    /** Index change callback. `index => ...` */
+    afterChange: PropTypes.func,
+    /** Index change callback. `(oldIndex, newIndex) => ...` */
+    beforeChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -57,7 +61,6 @@ class Carousel extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       sliderSettings: this._resolveSliderSettings(props),
       loadedImageCount: 0,
@@ -84,6 +87,8 @@ class Carousel extends React.Component {
     autoplay,
     buttonSkin,
     initialSlideIndex,
+    afterChange,
+    beforeChange,
   }) => {
     return {
       infinite,
@@ -94,6 +99,8 @@ class Carousel extends React.Component {
       dots: true,
       slidesToShow: 1,
       slidesToScroll: 1,
+      afterChange,
+      beforeChange,
       nextArrow: (
         <WrappedSliderArrow
           dataHook={dataHooks.nextButton}

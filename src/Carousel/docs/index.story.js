@@ -50,7 +50,6 @@ const childrenExamples = [
     label: 'Three nodes',
   },
 ];
-
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
