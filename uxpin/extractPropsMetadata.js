@@ -32,8 +32,12 @@ const getComponentsWithMetadata = () =>
     ),
   );
 
-const toPropType = ({ name, value }) => {
+const toPropType = metadataType => {
   const withPrefix = propType => 'PropTypes.' + propType;
+  if (!metadataType) {
+    return withPrefix(basicPropTypes.any);
+  }
+  const { name, value } = metadataType;
   const arrayToString = array => `[${array.join(', ')}]`;
 
   if (basicPropTypes[name]) {
