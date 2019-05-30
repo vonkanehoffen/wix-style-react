@@ -18,6 +18,8 @@ Types of changes:
 
 ### Added
 
+- `listItemActionBuilder` - add missing paddingSize prop [#3491](https://github.com/wix/wix-style-react/pull/3491)
+- `<ListItemAction/>` - add missing paddingSize prop. [#3489](https://github.com/wix/wix-style-react/pull/3489)
 - `<Carousel/>` - expose afterChange and beforeChange handlers [#3487](https://github.com/wix/wix-style-react/pull/3487)
 
 ## 6.23.0 - 2019-05-28
@@ -34,11 +36,9 @@ Types of changes:
 
 ### Changed
 
-- listItemActionBuilder - add dataHook [#3432](https://github.com/wix/wix-style-react/pull/3432)
-- listItemActionBuilder - add missing paddingSize prop [#3491](https://github.com/wix/wix-style-react/pull/3491)
+- `listItemActionBuilder` - add dataHook [#3432](https://github.com/wix/wix-style-react/pull/3432)
 - `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
 - `<Tooltip/>` - add functionality appendTo: by predicate & documentation [#3472](https://github.com/wix/wix-style-react/pull/3472)
-- `<ListItemAction/>` - add missing paddingSize prop. [#3489](https://github.com/wix/wix-style-react/pull/3489)
 
 ## 6.22.0 - 2019-05-23
 
