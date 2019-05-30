@@ -24,6 +24,10 @@ Types of changes:
 - `<DropdownBase/>` - add missing props zIndex, moveBy [#3492](https://github.com/wix/wix-style-react/pull/3492)
 - `<ColorInput/>` - add `preset` & `showClear` props [#3486](https://github.com/wix/wix-style-react/pull/3486)
 
+### Changed
+
+- `<ColorInput/>` - remove default value for placeholder [#3474](https://github.com/wix/wix-style-react/pull/3474)
+
 ## 6.23.0 - 2019-05-28
 
 ### Added
