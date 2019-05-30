@@ -85,6 +85,12 @@ class DropdownBase extends React.PureComponent {
       PropTypes.string,
       PropTypes.number,
     ]),
+
+    /** Dropdown content z-index */
+    zIndex: PropTypes.number,
+
+    /** moves dropdown content relative to the parent by x or y */
+    moveBy: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
   };
 
   static defaultProps = {
@@ -281,6 +287,8 @@ class DropdownBase extends React.PureComponent {
       placement,
       appendTo,
       showArrow,
+      zIndex,
+      moveBy,
       options,
       minWidth,
       maxWidth,
@@ -295,6 +303,8 @@ class DropdownBase extends React.PureComponent {
         placement={placement}
         appendTo={appendTo}
         showArrow={showArrow}
+        zIndex={zIndex}
+        moveBy={moveBy}
         onKeyDown={this._handleKeyDown}
         onMouseEnter={this._handlePopoverMouseEnter}
         onMouseLeave={this._handlePopoverMouseLeave}
