@@ -100,9 +100,7 @@ const extractPropsMetadata = async () => {
 };
 
 function replace(originalProps, replaceProps = {}) {
-  return Object.keys(originalProps).reduce((acc, curr) => {
-    return { ...acc, [curr]: replaceProps[curr] || originalProps[curr] };
-  }, {});
+  return Object.assign({}, originalProps, replaceProps);
 }
 
 module.exports = extractPropsMetadata;
