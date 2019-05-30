@@ -24,7 +24,6 @@ autodocs-registry
 /*.js
 /*.d.ts
 !babel.config.js
-!uxpin.config.js
 
 /*.scss
 !wallaby.js
