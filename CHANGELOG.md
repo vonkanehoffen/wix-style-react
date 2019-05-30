@@ -22,6 +22,7 @@ Types of changes:
 - `<ListItemAction/>` - add missing paddingSize prop. [#3489](https://github.com/wix/wix-style-react/pull/3489)
 - `<Carousel/>` - expose afterChange and beforeChange handlers [#3487](https://github.com/wix/wix-style-react/pull/3487)
 - `<DropdownBase/>` - add missing props zIndex, moveBy [#3492](https://github.com/wix/wix-style-react/pull/3492)
+- `<ColorInput/>` - add `preset` & `showClear` props [#3486](https://github.com/wix/wix-style-react/pull/3486)
 
 ## 6.23.0 - 2019-05-28
 
