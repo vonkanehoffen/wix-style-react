@@ -4,6 +4,11 @@ import styles from './ListItemAction.st.css';
 import Text from '../Text';
 import Box from '../Box';
 
+const textSizeToPaddingMap = {
+  small: { medium: '12px', small: '6px' },
+  medium: { medium: '9px', small: '3px' },
+};
+
 /** ListItemAction */
 export class ListItemAction extends React.PureComponent {
   static displayName = 'ListItemAction';
@@ -16,6 +21,9 @@ export class ListItemAction extends React.PureComponent {
 
     /** Text Size (small, medium) */
     size: PropTypes.oneOf(['small', 'medium']),
+
+    /** Padding size (small, medium) */
+    paddingSize: PropTypes.oneOf(['small', 'medium']),
 
     /** Prefix Icon */
     prefixIcon: PropTypes.node,
@@ -30,22 +38,48 @@ export class ListItemAction extends React.PureComponent {
     onClick: PropTypes.func,
   };
 
+  _renderText = () => {
+    const { title, size } = this.props;
+    return (
+      <Text
+        className={styles.text}
+        weight="normal"
+        size={size}
+        dataHook="list-item-action-title"
+      >
+        {title}
+      </Text>
+    );
+  };
+
+  _renderPrefix = () => {
+    const { prefixIcon, size } = this.props;
+    return (
+      <Box className={styles.icon} dataHook="list-item-action-prefix-icon">
+        {React.cloneElement(prefixIcon, {
+          size: size === 'medium' ? 24 : 18,
+        })}
+      </Box>
+    );
+  };
+
   static defaultProps = {
     skin: 'standard',
     size: 'medium',
+    paddingSize: 'medium',
   };
 
   render() {
     const {
       dataHook,
       size,
+      paddingSize,
       disabled,
       skin,
       prefixIcon,
       onClick,
-      title,
     } = this.props;
-    const paddingTopBottom = size === 'small' ? '6px' : '9px';
+    const padding = textSizeToPaddingMap[size][paddingSize];
     return (
       <div
         {...styles('root', { skin, disabled }, this.props)}
@@ -54,26 +88,10 @@ export class ListItemAction extends React.PureComponent {
       >
         <Box
           className={styles.wrapper}
-          padding={`${paddingTopBottom} 24px ${paddingTopBottom} 18px`}
+          padding={`${padding} 24px ${padding} 18px`}
         >
-          {prefixIcon && (
-            <Box
-              className={styles.icon}
-              dataHook={'list-item-action-prefix-icon'}
-            >
-              {React.cloneElement(prefixIcon, {
-                size: size === 'medium' ? 24 : 18,
-              })}
-            </Box>
-          )}
-          <Text
-            className={styles.text}
-            weight="normal"
-            size={size}
-            dataHook="list-item-action-title"
-          >
-            {title}
-          </Text>
+          {prefixIcon && this._renderPrefix()}
+          {this._renderText()}
         </Box>
       </div>
     );
