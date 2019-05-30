@@ -29,6 +29,7 @@ Types of changes:
 ### Changed
 
 - listItemActionBuilder - add dataHook [#3432](https://github.com/wix/wix-style-react/pull/3432)
+- listItemActionBuilder - add missing paddingSize prop [#3491](https://github.com/wix/wix-style-react/pull/3491)
 - `<SegmentedToggle/>` - split UX & API & Migrate Tooltip [#3469](https://github.com/wix/wix-style-react/pull/3469)
 - `<Tooltip/>` - add functionality appendTo: by predicate & documentation [#3472](https://github.com/wix/wix-style-react/pull/3472)
 - `<ListItemAction/>` - add missing paddingSize prop. [#3489](https://github.com/wix/wix-style-react/pull/3489)
