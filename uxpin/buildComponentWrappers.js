@@ -11,9 +11,16 @@ async function buildComponentWrappers(metadata) {
   return await Promise.all(
     metadata.map(componentDescriptor => {
       const { name } = componentDescriptor;
-      const componentFile = `${targetDir}/${name}.js`;
+      const componentDir = `${targetDir}/${name}`;
+      const componentFile = `${componentDir}/${name}.js`;
       const fileContents = buildComponentFile(componentDescriptor);
-      return writeFile(componentFile, fileContents).then(() => componentFile);
+      return mkdir(componentDir, { recursive: true })
+        .then(() => writeFile(componentFile, fileContents))
+        .then(() => {
+          const presetDir = `${componentDir}/presets/`;
+          return mkdir(presetDir);
+        })
+        .then(() => componentFile);
     }),
   );
 }
