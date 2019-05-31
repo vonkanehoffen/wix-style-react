@@ -35,6 +35,8 @@ export default {
     colors: colors3,
   }),
 
+  hiddenProps: ['size'],
+
   exampleProps: {
     // Put here presets of props, for more info:
     // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
@@ -103,25 +105,6 @@ export default {
 
           columns([
             description({
-              title: 'Sizes',
-              text:
-                'Swatches support two sizes - `small` and `medium`. Pass one to `size` prop. `small` is default.',
-            }),
-
-            code({
-              compact: true,
-              source: `
-                <div>
-                  <Swatches size='small' colors={['turquoise', '#fff', 'magenta']}/>
-                  <br />
-                  <Swatches size='medium' colors={['turquoise', '#fff', 'magenta']}/>
-                </div>
-              `,
-            }),
-          ]),
-
-          columns([
-            description({
               title: 'Grid',
               text:
                 'Swatches uses `grid` layout with pre-defined `12px` gap. Takes all available space. Here the container is `100px` width.',
@@ -146,7 +129,6 @@ export default {
                   return (
                     <Swatches
                       showClear
-                      size='medium'
                       selected={this.state.color}
                       onClick={color => this.setState({color})}
                       colors={['red', 'cyan', '#f9f9f9']} />
