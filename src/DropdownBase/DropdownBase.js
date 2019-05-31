@@ -91,6 +91,18 @@ class DropdownBase extends React.PureComponent {
 
     /** moves dropdown content relative to the parent by x or y */
     moveBy: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
+
+    /**
+     * Whether to enable the flip behaviour. This behaviour is used to flip the `<Popover/>`'s placement
+     * when it starts to overlap the target element (`<Popover.Element/>`).
+     */
+    flip: PropTypes.bool,
+
+    /**
+     * Whether to enable the fixed behaviour. This behaviour is used to keep the `<Popover/>` at it's
+     * original placement even when it's being positioned outside the boundary.
+     */
+    fixed: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -292,6 +304,8 @@ class DropdownBase extends React.PureComponent {
       options,
       minWidth,
       maxWidth,
+      fixed,
+      flip,
     } = this.props;
 
     const { open, selectedId } = this.state;
@@ -309,6 +323,8 @@ class DropdownBase extends React.PureComponent {
         onMouseEnter={this._handlePopoverMouseEnter}
         onMouseLeave={this._handlePopoverMouseLeave}
         onClickOutside={this._handleClickOutside}
+        fixed={fixed}
+        flip={flip}
         {...style(
           'root',
           {
