@@ -27,6 +27,7 @@ Types of changes:
 ### Changed
 
 - `<ColorInput/>` - remove default value for placeholder [#3474](https://github.com/wix/wix-style-react/pull/3474)
+- `<ColorPicker/>` - use smaller size x & v buttons [#3499](https://github.com/wix/wix-style-react/pull/3499)
 
 ## 6.23.0 - 2019-05-28
 
