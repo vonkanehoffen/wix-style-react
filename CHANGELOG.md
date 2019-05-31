@@ -28,6 +28,7 @@ Types of changes:
 
 - `<ColorInput/>` - remove default value for placeholder [#3474](https://github.com/wix/wix-style-react/pull/3474)
 - `<ColorPicker/>` - use smaller size x & v buttons [#3499](https://github.com/wix/wix-style-react/pull/3499)
+- `<Swatches/>` - add tooltip for `showClear` buton and display `showClearMessage` content [#3477](https://github.com/wix/wix-style-react/pull/3477)
 
 ## 6.23.0 - 2019-05-28
 
