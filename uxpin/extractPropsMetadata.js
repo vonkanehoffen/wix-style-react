@@ -13,8 +13,8 @@ const get = require('lodash/fp/get');
 const basicPropTypes = {
   string: 'string',
   number: 'number',
-  bool: 'number',
-  object: 'number',
+  bool: 'bool',
+  object: 'object',
   node: 'node',
   any: 'any',
   func: 'func',
