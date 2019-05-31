@@ -1,8 +1,11 @@
 const fs = require('fs');
+const fsExtra = require('fs-extra');
 const util = require('util');
 
 const writeFile = util.promisify(fs.writeFile);
 const mkdir = util.promisify(fs.mkdir);
+const stat = util.promisify(fs.stat);
+const copy = util.promisify(fsExtra.copy);
 
 const targetDir = 'dist/uxpin/components';
 
@@ -14,11 +17,20 @@ async function buildComponentWrappers(metadata) {
       const componentDir = `${targetDir}/${name}`;
       const componentFile = `${componentDir}/${name}.js`;
       const fileContents = buildComponentFile(componentDescriptor);
+      const presetSrcDir = `uxpin/presets/${name}/`;
+      const presetDir = `${componentDir}/presets/`;
       return mkdir(componentDir, { recursive: true })
         .then(() => writeFile(componentFile, fileContents))
         .then(() => {
-          const presetDir = `${componentDir}/presets/`;
           return mkdir(presetDir);
+        })
+        .then(async () => {
+          try {
+            const result = await stat(presetSrcDir);
+            if (result) {
+              await copy(presetSrcDir, presetDir);
+            }
+          } catch {}
         })
         .then(() => componentFile);
     }),

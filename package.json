@@ -122,6 +122,7 @@
     "execa": "^1.0.0",
     "express": "^4.16.4",
     "eyes.it": "^2.0.0",
+    "fs-extra": "^8.0.1",
     "globby": "^8.0.1",
     "husky": "~0.14.0",
     "identity-obj-proxy": "^3.0.0",
