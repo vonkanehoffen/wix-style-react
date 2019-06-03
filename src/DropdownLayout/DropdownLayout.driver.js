@@ -27,13 +27,13 @@ const dropdownLayoutDriverFactory = ({ element }) => {
     classes: () => optionElements.className,
     clickAtOption: position =>
       doIfOptionExists(position, () =>
-        ReactTestUtils.Simulate.mouseDown(optionElementAt(position)),
+        ReactTestUtils.Simulate.click(optionElementAt(position)),
       ),
     clickAtOptionWithValue: value => {
       const option = values(optionElements.childNodes).find(
         _option => _option.innerHTML === value,
       );
-      option && ReactTestUtils.Simulate.mouseDown(option);
+      option && ReactTestUtils.Simulate.click(option);
     },
     exists: () => !!element,
     hasTheme: theme => isClassExists(element, styles[`theme-${theme}`]),
@@ -152,7 +152,7 @@ const createOptionDriver = option => ({
   isSelectedWithGlobalClassName: () =>
     isClassExists(option, 'wixstylereactSelected'),
   content: () => option.textContent,
-  click: () => ReactTestUtils.Simulate.mouseDown(option),
+  click: () => ReactTestUtils.Simulate.click(option),
   isDivider: () => isClassExists(option, styles.divider),
   isDisabled: () => isClassExists(option, styles.disabled),
 });
