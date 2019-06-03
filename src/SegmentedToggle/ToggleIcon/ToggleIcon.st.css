@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: F00, B20, B50, D55, D80, D10;
+  -st-named: F00, B10, B50, D55, D80, D10;
 }
 
 :import {
@@ -43,7 +43,8 @@
 
   /* Border & Spacing */
   background: transparent;
-  border: solid 2px transparent;
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 1px transparent;
   padding: 0 6px;
   border-radius: 6px;
   margin: 0;
@@ -66,14 +67,25 @@
 }
 /* Selected styles */ 
 
-.button:selected {
-  border-color: value(B20);
+.button:selected:not(:disabled) {
+  border: 1px solid value(B10);
+  box-shadow: 0 0 0 1px value(B10);
   z-index: 1000;
 }
 
+.button:selected:not(:disabled):focus-visible{
+  border: 1px solid value(B10);
+  box-shadow: 0 0 0 1px value(B10) , 0 0 0 4px value(F00);
+}
+
 .button:selected:disabled {
-  border-color: value(D55);
+  border: 1px solid value(D55);
+  box-shadow: 0 0 0 1px value(D55);
   cursor: not-allowed;
+}
+
+.button:selected:not(:hover){
+  background-color: value(D80);
 }
 
 /* Additional styles */ 
