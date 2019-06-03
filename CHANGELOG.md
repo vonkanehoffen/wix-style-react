@@ -29,6 +29,9 @@ Types of changes:
 - Infra: update `jscodeshift` (now doesn't use deprecated `nomnom` package [#3502](https://github.com/wix/wix-style-react/pull/3502)
 - Infra: update husky version [#3503](https://github.com/wix/wix-style-react/pull/3503)
 
+### Fixed
+- `<SegmentedToggle/>` - fix selected option border [#3505](https://github.com/wix/wix-style-react/pull/3505)
+
 ## 6.24.0 - 2019-05-30
 
 ### Added
