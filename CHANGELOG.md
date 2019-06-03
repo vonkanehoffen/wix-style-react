@@ -14,18 +14,17 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.25.0 - 2019-06-03
 
 ### Added
 - `<Carousel/>` - add disabled button in non-infinite mode [#3473](https://github.com/wix/wix-style-react/pull/3473)
 - `<DropdownBase/>` - add missing testkit method optionsCount [#3508](https://github.com/wix/wix-style-react/pull/3508)
 - `<FormField/>` - support ellipsis on top labelPlacement [#3506](https://github.com/wix/wix-style-react/pull/3506)
 - `<PopoverMenu/>` - component refactored under beta [#3485](https://github.com/wix/wix-style-react/pull/3485)
+- `<DropdownBase/>` - expose 'flip', 'fixed' params and pass it down to popover
 
 ### Changed
 - `<DropdownLayout>` - changed option `onMouseDown` to `onClick` [#3507](https://github.com/wix/wix-style-react/pull/3507)
-
-### Changed
 - Infra: replace `react-testing-library` with `@testing-library/react` [#3501](https://github.com/wix/wix-style-react/pull/3501)
 - Infra: update `jscodeshift` (now doesn't use deprecated `nomnom` package [#3502](https://github.com/wix/wix-style-react/pull/3502)
 - Infra: update husky version [#3503](https://github.com/wix/wix-style-react/pull/3503)
