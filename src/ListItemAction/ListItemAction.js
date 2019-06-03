@@ -4,7 +4,7 @@ import styles from './ListItemAction.st.css';
 import Text from '../Text';
 import Box from '../Box';
 
-const textSizeToPaddingMap = {
+export const textSizeToPaddingMap = {
   small: { medium: '12px', small: '6px' },
   medium: { medium: '9px', small: '3px' },
 };
