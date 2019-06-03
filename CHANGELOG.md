@@ -20,6 +20,7 @@ Types of changes:
 - `<Carousel/>` - add disabled button in non-infinite mode [#3473](https://github.com/wix/wix-style-react/pull/3473)
 - `<DropdownBase/>` - add missing testkit method optionsCount [#3508](https://github.com/wix/wix-style-react/pull/3508)
 - `<FormField/>` - support ellipsis on top labelPlacement [#3506](https://github.com/wix/wix-style-react/pull/3506)
+- `<PopoverMenu/>` - component refactored under beta [#3485](https://github.com/wix/wix-style-react/pull/3485)
 
 ### Changed
 - `<DropdownLayout>` - changed option `onMouseDown` to `onClick` [#3507](https://github.com/wix/wix-style-react/pull/3507)
