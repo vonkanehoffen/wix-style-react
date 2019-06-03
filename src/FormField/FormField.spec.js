@@ -240,9 +240,14 @@ describe('FormField', () => {
   describe('`id` prop', () => {
     const id = 'five';
 
-    it('should be added to label as `htmlFor` prop', () => {
+    it('should be added to label as `for` value', () => {
       const wrapper = mount(renderFormField({ id, label }));
-      expect(wrapper.find(Label).prop('for')).toEqual(id);
+      const forAttrValue = wrapper
+        .find('label')
+        .getDOMNode()
+        .getAttribute('for');
+
+      expect(forAttrValue).toEqual(id);
     });
   });
 });

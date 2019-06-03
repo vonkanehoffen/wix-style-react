@@ -142,12 +142,7 @@ class FormField extends React.Component {
           [styles.inlineWithCharCounter]: this._hasCharCounter(),
         })}
       >
-        <Label
-          appearance="T1"
-          children={label}
-          for={id}
-          data-hook="formfield-label"
-        />
+        {this._renderLabel({ trimLongText: false })}
         {required && asterisk}
         {this._renderInfoIcon()}
       </div>
@@ -159,6 +154,22 @@ class FormField extends React.Component {
     (labelPlacement === labelPlacements.left ||
       labelPlacement === labelPlacements.right);
 
+  _renderLabel = ({ trimLongText }) => {
+    const { label, labelSize, id } = this.props;
+
+    return (
+      <Text
+        size={labelSize}
+        htmlFor={id}
+        tagName={'label'}
+        data-hook="formfield-label"
+        ellipsis={trimLongText}
+        style={{ display: 'block' }}  // allows the label to center vertically
+      >
+        {label}
+      </Text>
+    );
+  };
   render() {
     const {
       label,
@@ -192,14 +203,7 @@ class FormField extends React.Component {
               [styles.minLabelHeight]: !children,
             })}
           >
-            <Label
-              appearance="T1"
-              size={labelSize}
-              children={label}
-              for={id}
-              data-hook="formfield-label"
-            />
-
+            {this._renderLabel({ trimLongText: true })}
             {required && asterisk}
             {this._renderInfoIcon()}
             {this._hasCharCounter() && charactersLeft(lengthLeft)}
