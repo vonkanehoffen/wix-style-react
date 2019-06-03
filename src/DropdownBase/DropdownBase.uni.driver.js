@@ -28,6 +28,9 @@ export const dropdownBaseDriverFactory = base => {
     /** Click outside of the component */
     clickOutside: () => ReactBase.clickDocument(),
 
+    /** Options count */
+    optionsCount: async () => createDropdownLayoutDriver().optionsLength(),
+
     mouseEnter: () => base.hover(),
     mouseLeave: () => reactBase.mouseLeave(),
   };
