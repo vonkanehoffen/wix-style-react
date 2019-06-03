@@ -14,7 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## next
+## Next
+
+## Added
+`<Carousel/>` - add disabled button in non-infinite mode [#3473](https://github.com/wix/wix-style-react/pull/3473)
 
 ## 6.24.0 - 2019-05-30
 
