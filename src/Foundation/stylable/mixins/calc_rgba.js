@@ -9,7 +9,19 @@ function hexToRgb(hex) {
     : null;
 }
 
+function parseAlpha(value) {
+  if (!value) {
+    return 1;
+  }
+
+  if (value > 1) {
+    return value / 100;
+  }
+
+  return value;
+}
+
 module.exports = function calc_rgba(color, transparency) {
   const rgb = hexToRgb(color);
-  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${transparency || 100}%)`;
+  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${parseAlpha(transparency)})`;
 };
