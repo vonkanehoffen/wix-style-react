@@ -124,6 +124,25 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'as',
+    its: [
+      {
+        it: 'div',
+        props: {
+          as: 'div',
+          prefixIcon: <Edit />,
+        },
+      },
+      {
+        it: 'button',
+        props: {
+          as: 'button',
+          prefixIcon: <Edit />,
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { oneOfType, func, object, string } from 'prop-types';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import styles from './ListItemAction.st.css';
 import Text from '../Text';
-import Box from '../Box';
 
 export const textSizeToPaddingMap = {
   small: { medium: '12px', small: '6px' },
@@ -10,10 +10,14 @@ export const textSizeToPaddingMap = {
 };
 
 /** ListItemAction */
-export class ListItemAction extends React.PureComponent {
+class ListItemActionComponent extends React.PureComponent {
   static displayName = 'ListItemAction';
 
   static propTypes = {
+    /** render as some other element */
+    as: oneOfType([func, object, string]),
+
+    /** Data attribute for testing purposes */
     dataHook: PropTypes.string,
 
     /** Item theme (standard, dark, destructive) */
@@ -54,16 +58,15 @@ export class ListItemAction extends React.PureComponent {
 
   _renderPrefix = () => {
     const { prefixIcon, size } = this.props;
-    return (
-      <Box className={styles.icon} dataHook="list-item-action-prefix-icon">
-        {React.cloneElement(prefixIcon, {
-          size: size === 'medium' ? 24 : 18,
-        })}
-      </Box>
-    );
+    return React.cloneElement(prefixIcon, {
+      size: size === 'medium' ? 24 : 18,
+      className: styles.prefixIcon,
+      'data-hook': 'list-item-action-prefix-icon',
+    });
   };
 
   static defaultProps = {
+    as: 'div',
     skin: 'standard',
     size: 'medium',
     paddingSize: 'medium',
@@ -78,25 +81,33 @@ export class ListItemAction extends React.PureComponent {
       skin,
       prefixIcon,
       onClick,
+      focusableOnFocus,
+      focusableOnBlur,
+      as: Component,
+      tabIndex,
+      ...rest
     } = this.props;
     const padding = textSizeToPaddingMap[size][paddingSize];
     return (
-      <div
+      <Component
+        {...rest}
         {...styles('root', { skin, disabled }, this.props)}
+        tabIndex={tabIndex}
+        onFocus={focusableOnFocus}
+        onBlur={focusableOnBlur}
+        type={Component === 'button' ? 'button' : undefined}
+        style={{ padding: `${padding} 24px ${padding} 18px` }}
         data-hook={dataHook}
         onClick={!disabled && onClick}
       >
-        <Box
-          className={styles.wrapper}
-          padding={`${padding} 24px ${padding} 18px`}
-        >
-          {prefixIcon && this._renderPrefix()}
-          {this._renderText()}
-        </Box>
-      </div>
+        {prefixIcon && this._renderPrefix()}
+        {this._renderText()}
+      </Component>
     );
   }
 }
+
+export const ListItemAction = withFocusable(ListItemActionComponent);
 
 export const listItemActionBuilder = ({
   title,
@@ -108,6 +119,8 @@ export const listItemActionBuilder = ({
   skin,
   size,
   dataHook,
+  as,
+  tabIndex,
 }) => ({
   id,
   disabled,
@@ -115,6 +128,8 @@ export const listItemActionBuilder = ({
   value: props => (
     <ListItemAction
       {...props}
+      tabIndex={tabIndex}
+      as={as}
       onClick={onClick}
       dataHook={dataHook}
       title={title}

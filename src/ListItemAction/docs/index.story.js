@@ -8,22 +8,31 @@ import {
   title,
   columns,
   divider,
-  code as baseCode,
+  code as baseLiveCode,
   playground,
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
-import ExampleRaw from '!raw-loader!./Example';
-import ExampleSkinRaw from '!raw-loader!./ExampleSkin';
-import ExampleSizeRaw from '!raw-loader!./ExampleSize';
-import ExamplePrefixIconRaw from '!raw-loader!./ExamplePrefixIcon';
+
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import * as examples from './examples';
 
 import { storySettings } from '../test/storySettings';
-import allComponents from '../../../stories/utils/allComponents';
 
 import ListItemAction from '..';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const liveCode = config =>
+  baseLiveCode({
+    previewProps: {
+      style: { backgroundColor: '#f0f4f7' },
+    },
+    compact: true,
+    components: baseScope,
+    ...config,
+  });
+
+const example = ({ source, ...rest }) =>
+  columns([description({ ...rest }), liveCode({ source })]);
 
 export default {
   category: storySettings.category,
@@ -43,7 +52,13 @@ export default {
 
   sections: [
     header({
-      component: <ListItemAction title="Click me!" />,
+      title: 'ListItemAction',
+      component: (
+        <div style={{ width: '200px' }}>
+          <ListItemAction as="button" title="Option 1" />
+          <ListItemAction as="button" title="Option 2" />
+        </div>
+      ),
     }),
 
     tabs([
@@ -54,13 +69,13 @@ export default {
             description({
               title: 'Description',
               text:
-                'An option builder for the `<DropdownLayout/>` component and its consumers.',
+                'ListItemAction is internal component which is used to build dropdown or menu like components. Usually this item should not be used by consumers, though custom options builder is exposed for usage with DropdownBase.',
             }),
           ]),
 
           columns([
             importExample(
-              "import listItemAction from 'wix-style-react/ListItemAction';",
+              "import {listItemActionBuilder} from 'wix-style-react/ListItemAction';",
             ),
           ]),
 
@@ -68,23 +83,39 @@ export default {
 
           title('Examples'),
 
-          code({
-            title: 'listItemActionBuilder',
-            description: 'Use the builder to integrate with DropdownLayout',
-            source: ExampleRaw,
-          }),
-          code({
-            title: 'Skin',
-            source: ExampleSkinRaw,
-          }),
-          code({
-            title: 'Size',
-            source: ExampleSizeRaw,
-          }),
-          code({
-            title: 'Prefix Icon',
-            source: ExamplePrefixIconRaw,
-          }),
+          ...[
+            {
+              title: 'Plain Example',
+              text: 'Using options builder to render a list of items.',
+              source: examples.simple,
+            },
+            {
+              title: 'Affix',
+              text: 'Supports prefix icons.',
+              source: examples.prefix,
+            },
+            {
+              title: 'Skin',
+              text:
+                'Supports three different skins: standard, dark & destructive',
+              source: examples.skin,
+            },
+            {
+              title: 'Size',
+              text: 'Supports two sizes: small and medium',
+              source: examples.size,
+            },
+            {
+              title: 'States',
+              text: 'Supports disabled state.',
+              source: examples.state,
+            },
+            {
+              title: 'Custom render element',
+              text: 'Supports rendering with custom html tag.',
+              source: examples.as,
+            },
+          ].map(example),
         ],
       }),
       ...[
