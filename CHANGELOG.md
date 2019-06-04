@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Changed
+
+- `<ListItemAction/> & listItemActionBuilder` - add props `as`, `tabIndex`. Support keyboard focusability. [#3519](https://github.com/wix/wix-style-react/pull/3519)
+
 ## 6.25.1 - 2019-06-04
 
 ### Changed
