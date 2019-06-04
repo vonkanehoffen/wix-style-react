@@ -14,13 +14,14 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.25.1 - 2019-06-04
 
 ### Changed
 - `<DataTable/>` - remove redundant checking of items by ref [#3457](https://github.com/wix/wix-style-react/pull/3457)
 
 ### Fixed
 - Foundation - fix stylable calcrgba mixin to use alpha channel values to 0.1 - 1 [#3516](https://github.com/wix/wix-style-react/pull/3516)
+- downgrade internal jscodeshift dependency, which uses babel@6, for compatibility [#3511](https://github.com/wix/wix-style-react/pull/3511)
 
 ## 6.25.0 - 2019-06-03
 
