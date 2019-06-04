@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<DataTable/>` - remove redundant checking of items by ref [#3457](https://github.com/wix/wix-style-react/pull/3457)
+
 ### Fixed
 - Foundation - fix stylable calcrgba mixin to use alpha channel values to 0.1 - 1 [#3516](https://github.com/wix/wix-style-react/pull/3516)
 
