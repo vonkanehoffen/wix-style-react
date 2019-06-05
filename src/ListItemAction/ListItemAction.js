@@ -4,11 +4,6 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC'
 import styles from './ListItemAction.st.css';
 import Text from '../Text';
 
-export const textSizeToPaddingMap = {
-  small: { medium: '12px', small: '6px' },
-  medium: { medium: '9px', small: '3px' },
-};
-
 /** ListItemAction */
 class ListItemActionComponent extends React.PureComponent {
   static displayName = 'ListItemAction';
@@ -25,9 +20,6 @@ class ListItemActionComponent extends React.PureComponent {
 
     /** Text Size (small, medium) */
     size: PropTypes.oneOf(['small', 'medium']),
-
-    /** Padding size (small, medium) */
-    paddingSize: PropTypes.oneOf(['small', 'medium']),
 
     /** Prefix Icon */
     prefixIcon: PropTypes.node,
@@ -69,14 +61,11 @@ class ListItemActionComponent extends React.PureComponent {
     as: 'div',
     skin: 'standard',
     size: 'medium',
-    paddingSize: 'medium',
   };
 
   render() {
     const {
       dataHook,
-      size,
-      paddingSize,
       disabled,
       skin,
       prefixIcon,
@@ -86,16 +75,17 @@ class ListItemActionComponent extends React.PureComponent {
       as: Component,
       tabIndex,
       onKeyDown,
+      ref,
     } = this.props;
-    const padding = textSizeToPaddingMap[size][paddingSize];
+
     return (
       <Component
         {...styles('root', { skin, disabled }, this.props)}
+        ref={ref}
         tabIndex={tabIndex}
         onFocus={focusableOnFocus}
         onBlur={focusableOnBlur}
         type={Component === 'button' ? 'button' : undefined}
-        style={{ padding: `${padding} 24px ${padding} 18px` }}
         data-hook={dataHook}
         onKeyDown={!disabled && onKeyDown}
         onClick={!disabled && onClick}
@@ -114,20 +104,21 @@ export const listItemActionBuilder = ({
   prefixIcon,
   onClick,
   id,
-  paddingSize,
   disabled,
   skin,
   size,
   dataHook,
   as,
   tabIndex,
+  ref: userRef,
 }) => ({
   id,
   disabled,
   overrideStyle: true,
-  value: props => (
+  value: ({ ref: dropdownRef, ...props }) => (
     <ListItemAction
       {...props}
+      ref={userRef ? userRef : dropdownRef}
       tabopIndex={tabIndex}
       as={as}
       onClick={onClick}
@@ -136,7 +127,6 @@ export const listItemActionBuilder = ({
       prefixIcon={prefixIcon}
       skin={skin}
       size={size}
-      paddingSize={paddingSize}
     />
   ),
 });
