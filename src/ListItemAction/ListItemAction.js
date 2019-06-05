@@ -58,7 +58,7 @@ class ListItemActionComponent extends React.PureComponent {
   };
 
   static defaultProps = {
-    as: 'div',
+    as: 'button',
     skin: 'standard',
     size: 'medium',
   };
@@ -75,13 +75,11 @@ class ListItemActionComponent extends React.PureComponent {
       as: Component,
       tabIndex,
       onKeyDown,
-      ref,
     } = this.props;
 
     return (
       <Component
         {...styles('root', { skin, disabled }, this.props)}
-        ref={ref}
         tabIndex={tabIndex}
         onFocus={focusableOnFocus}
         onBlur={focusableOnBlur}
@@ -119,7 +117,7 @@ export const listItemActionBuilder = ({
     <ListItemAction
       {...props}
       ref={userRef ? userRef : dropdownRef}
-      tabopIndex={tabIndex}
+      tabIndex={tabIndex}
       as={as}
       onClick={onClick}
       dataHook={dataHook}
