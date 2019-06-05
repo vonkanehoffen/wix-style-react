@@ -85,12 +85,11 @@ class ListItemActionComponent extends React.PureComponent {
       focusableOnBlur,
       as: Component,
       tabIndex,
-      ...rest
+      onKeyDown,
     } = this.props;
     const padding = textSizeToPaddingMap[size][paddingSize];
     return (
       <Component
-        {...rest}
         {...styles('root', { skin, disabled }, this.props)}
         tabIndex={tabIndex}
         onFocus={focusableOnFocus}
@@ -98,6 +97,7 @@ class ListItemActionComponent extends React.PureComponent {
         type={Component === 'button' ? 'button' : undefined}
         style={{ padding: `${padding} 24px ${padding} 18px` }}
         data-hook={dataHook}
+        onKeyDown={!disabled && onKeyDown}
         onClick={!disabled && onClick}
       >
         {prefixIcon && this._renderPrefix()}
@@ -128,7 +128,7 @@ export const listItemActionBuilder = ({
   value: props => (
     <ListItemAction
       {...props}
-      tabIndex={tabIndex}
+      tabopIndex={tabIndex}
       as={as}
       onClick={onClick}
       dataHook={dataHook}
