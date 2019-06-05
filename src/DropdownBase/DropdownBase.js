@@ -77,6 +77,9 @@ class DropdownBase extends React.PureComponent {
     /** The `id` of the selected option in the list */
     selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
+    /** Dropdown container tabindex value */
+    tabIndex: PropTypes.string,
+
     /**
      * The `id` of the **initial** selected option in the list, will be used when the selection
      * behaviour is being controlled
@@ -306,6 +309,7 @@ class DropdownBase extends React.PureComponent {
       maxWidth,
       fixed,
       flip,
+      tabIndex,
     } = this.props;
 
     const { open, selectedId } = this.state;
@@ -350,6 +354,7 @@ class DropdownBase extends React.PureComponent {
               options={options}
               onSelect={this._handleSelect}
               onClose={this._handleClose}
+              tabIndex={tabIndex}
               inContainer
               visible
             />
