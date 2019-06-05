@@ -23,6 +23,10 @@ Types of changes:
 - `<ListItemAction/>` - change focus style and add onKeyDown [#3525](https://github.com/wix/wix-style-react/pull/3525)
 - `<ListItemAction/>` - remove padding mapping and add prop `ref` [#3528](https://github.com/wix/wix-style-react/pull/3528)
 
+### Fixed
+
+- `<AddItem/>` - set type 'button' [#3527](https://github.com/wix/wix-style-react/pull/3527)
+
 ## 6.25.1 - 2019-06-04
 
 ### Changed
