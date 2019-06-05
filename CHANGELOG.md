@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Table/>` - add `deselectRowsByDefault` prop [#3526](https://github.com/wix/wix-style-react/pull/3526)
+
 ### Changed
 
 - `<ListItemAction/> & listItemActionBuilder` - add props `as`, `tabIndex`. Support keyboard focusability. [#3519](https://github.com/wix/wix-style-react/pull/3519)
