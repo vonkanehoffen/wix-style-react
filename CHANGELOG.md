@@ -26,6 +26,7 @@ Types of changes:
 ### Fixed
 
 - `<AddItem/>` - set type 'button' [#3527](https://github.com/wix/wix-style-react/pull/3527)
+- `<ListItemAction/>` - fix tabIndex typo, set default `as` prop to button [#3529](https://github.com/wix/wix-style-react/pull/3529)
 
 ## 6.25.1 - 2019-06-04
 
