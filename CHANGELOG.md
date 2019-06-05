@@ -21,6 +21,7 @@ Types of changes:
 - `<ListItemAction/> & listItemActionBuilder` - add props `as`, `tabIndex`. Support keyboard focusability. [#3519](https://github.com/wix/wix-style-react/pull/3519)
 - `<DropdownBase/>` - add tabindex to props list [#3523](https://github.com/wix/wix-style-react/pull/3523)
 - `<ListItemAction/>` - change focus style and add onKeyDown [#3525](https://github.com/wix/wix-style-react/pull/3525)
+- `<ListItemAction/>` - remove padding mapping and add prop `ref` [#3528](https://github.com/wix/wix-style-react/pull/3528)
 
 ## 6.25.1 - 2019-06-04
 
