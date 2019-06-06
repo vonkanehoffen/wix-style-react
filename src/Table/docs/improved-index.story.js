@@ -115,7 +115,8 @@ export default {
             },
             {
               title: 'Table with Toolbar',
-              description: 'A table with toolbar',
+              description:
+                'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there is no selected rows, and an actions toolbar when some rows are selected.',
               source: TableToolbarExampleRaw,
               compact: true,
             },
