@@ -1,7 +1,3 @@
-# Table component
-
-> Table with optional Header, BulkSelection Header and Footer
-
 ## Enzyme/ReactTestUtils TestKit API
 
 | method                         | arguments            | returned value | description                                                      |
@@ -44,14 +40,6 @@
 | getRowTextByIndex | number    | string         | get row index <number> text         |
 | element           | -         | element        | get the actual element              |
 | hoverRow          | (index)   | element        | Hover a specific row with the mouse |
-
-### Puppeteer
-
-| method           | arguments      | returned value | description                      |
-| ---------------- | -------------- | -------------- | -------------------------------- |
-| element          | -              | element        | returns the element              |
-| getCellTextValue | number, number | string         | get value of the cell            |
-| exists           | -              | boolean        | returns true if component exists |
 
 ## Usage Example
 
