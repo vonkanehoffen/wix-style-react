@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Sidebar from '..';
 
-storiesOf(`Sidebar/sanity`, module).add(it, () => (
+storiesOf('Sidebar', module).add('sanity', () => (
   <div style={{ height: '500px', color: 'white' }}>
     <Sidebar selectedKey={'item1'}>
       <Sidebar.PersistentHeader>
