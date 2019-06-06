@@ -69,8 +69,9 @@ class DropdownLayout extends WixComponent {
     }
   }
 
-  _markOption(index) {
-    const { options, onOptionMarked } = this.props;
+  _markOption(index, options) {
+    const { onOptionMarked } = this.props;
+    options = options || this.props.options;
 
     this.setState({ hovered: index });
     onOptionMarked && onOptionMarked(options[index] || null);
@@ -386,6 +387,7 @@ class DropdownLayout extends WixComponent {
             : props.markedOption;
         this._markOption(
           this.findIndex(props.options, item => item.id === idToMark),
+          props.options,
         );
       }
     }
