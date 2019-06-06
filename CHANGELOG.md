@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.26.0 - 2019-06-06
 
 ### Added
 - `<Table/>` - add `deselectRowsByDefault` prop [#3526](https://github.com/wix/wix-style-react/pull/3526)
