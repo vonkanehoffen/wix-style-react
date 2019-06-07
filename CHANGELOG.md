@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<IconButton/>`- adding`tiny` & `large` sizes [#3520](https://github.com/wix/wix-style-react/pull/3520)
 - `<Sidebar/>` - add new component [#3386](https://github.com/wix/wix-style-react/pull/3386)
+- `<DropdownBase/> & <DropdownLayout/>`- support overflow prop [#3541](https://github.com/wix/wix-style-react/pull/3541)
 
 ### Fixed
 - `<DropdownLayout/>` fix `onOptionMarked` not called on default marked option [#3535](https://github.com/wix/wix-style-react/pull/3535)
