@@ -244,6 +244,7 @@ class DropdownLayout extends WixComponent {
       withArrow,
       fixedFooter,
       inContainer,
+      overflow,
     } = this.props;
 
     const renderedOptions = options.map((option, idx) =>
@@ -272,6 +273,7 @@ class DropdownLayout extends WixComponent {
           data-hook="content-container"
           className={contentContainerClassName}
           style={{
+            overflow,
             maxHeight: this.props.maxHeightPixels + 'px',
             minWidth: this.props.minWidthPixels
               ? `${this.props.minWidthPixels}px`
@@ -281,7 +283,10 @@ class DropdownLayout extends WixComponent {
           {this._renderNode(fixedHeader)}
           <div
             className={styles.options}
-            style={{ maxHeight: this.props.maxHeightPixels - 35 + 'px' }}
+            style={{
+              maxHeight: this.props.maxHeightPixels - 35 + 'px',
+              overflow,
+            }}
             ref={_options => (this.options = _options)}
             data-hook="dropdown-layout-options"
           >
@@ -477,6 +482,8 @@ DropdownLayout.propTypes = {
   onSelect: PropTypes.func,
   /** Callback function called whenever an option becomes focused (hovered/active). Receives the relevant option object from the original props.options array. */
   onOptionMarked: PropTypes.func,
+  /** Set overflow of container */
+  overflow: PropTypes.string,
   visible: PropTypes.bool,
   /** Array of objects. Objects must have an Id and can can include value and node. If value is '-', a divider will be rendered instead (dividers do not require and id). */
   options: PropTypes.arrayOf(optionValidator),
@@ -520,6 +527,7 @@ DropdownLayout.defaultProps = {
   loadMore: null,
   hasMore: false,
   markedOption: false,
+  overflow: 'auto',
 };
 
 DropdownLayout.NONE_SELECTED_ID = NOT_HOVERED_INDEX;
