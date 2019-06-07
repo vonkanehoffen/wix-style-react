@@ -24,6 +24,9 @@ class ListItemActionComponent extends React.PureComponent {
     /** Prefix Icon */
     prefixIcon: PropTypes.node,
 
+    /** When present, it specifies that a button should automatically get focus when the page loads. */
+    autoFocus: PropTypes.bool,
+
     /** Title */
     title: PropTypes.string.isRequired,
 
@@ -75,12 +78,14 @@ class ListItemActionComponent extends React.PureComponent {
       as: Component,
       tabIndex,
       onKeyDown,
+      autoFocus,
     } = this.props;
 
     return (
       <Component
         {...styles('root', { skin, disabled }, this.props)}
         tabIndex={tabIndex}
+        autoFocus={autoFocus}
         onFocus={focusableOnFocus}
         onBlur={focusableOnBlur}
         type={Component === 'button' ? 'button' : undefined}
@@ -108,7 +113,7 @@ export const listItemActionBuilder = ({
   dataHook,
   as,
   tabIndex,
-  ref: userRef,
+  autoFocus,
 }) => ({
   id,
   disabled,
@@ -116,7 +121,7 @@ export const listItemActionBuilder = ({
   value: ({ ref: dropdownRef, ...props }) => (
     <ListItemAction
       {...props}
-      ref={userRef ? userRef : dropdownRef}
+      autoFocus={autoFocus}
       tabIndex={tabIndex}
       as={as}
       onClick={onClick}
