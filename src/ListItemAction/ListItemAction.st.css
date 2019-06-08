@@ -38,6 +38,7 @@
 
 .root:not(:disabled):focus-visible {
   background-color: value(B40);
+  box-shadow:inset 0 0 0 3px value(F00);
 }
 
 /** Skin standard */

@@ -114,6 +114,7 @@ export const listItemActionBuilder = ({
   as,
   tabIndex,
   autoFocus,
+  className,
 }) => ({
   id,
   disabled,
@@ -121,6 +122,7 @@ export const listItemActionBuilder = ({
   value: ({ ref: dropdownRef, ...props }) => (
     <ListItemAction
       {...props}
+      className={className}
       autoFocus={autoFocus}
       tabIndex={tabIndex}
       as={as}
