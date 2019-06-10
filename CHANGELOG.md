@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
-- `<InputArea/>` Driver - add support for uncontrolled components[#3495](https://github.com/wix/wix-style-react/pull/3495)
+- `<InputArea/>` Driver - add support for uncontrolled components [#3495](https://github.com/wix/wix-style-react/pull/3495)
 - `<PageHeader/>` Testkit - expose puppeteer testkit [#3536](https://github.com/wix/wix-style-react/pull/3536)
 - `<ListItemAction/>` - add classname prop for extensibility [#3543](https://github.com/wix/wix-style-react/pull/3543)
 - `<EmptyState/>` add image container className [#3530](https://github.com/wix/wix-style-react/pull/3530)
