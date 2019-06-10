@@ -22,6 +22,7 @@ Types of changes:
 
 ### Docs
 - `<Table/>` - explain compound components (appears under `WIP`) [#3538](https://github.com/wix/wix-style-react/pull/3538)
+- `<Table/>` - document missing props (appears under `WIP`) [#3546](https://github.com/wix/wix-style-react/pull/3546)
 
 ## 6.26.0 - 2019-06-06
 
