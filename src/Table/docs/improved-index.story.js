@@ -16,7 +16,8 @@ import { Table } from '..';
 import { storySettings } from './storySettings';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import { Category } from '../../../stories/storiesHierarchy';
-import apiReadme from './README.API.md';
+import compoundReadmeApi from './COMPOUND_README.API.md';
+import contextReadmeApi from './CONTEXT_README.API.md';
 import testkitReadme from './README.TESTKIT.md';
 
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
@@ -50,10 +51,12 @@ const columnsOption2 = [
 ];
 
 const componentExplanation = `
-It accepts the following optional children:
+Technically, the following optional children are accepted:
 
-1. \`<Table.Content/>\` - the actual content. You can render it anywhere inside the \`<Table/>\` (it's not necessarily need to be a direct child).
-2. \`<Table.ToolbarContainer>\` - a container for the toolbar. It's also a consumer of the Table's SelectionContext (React 16 context API), which means it expects to receive a single child as a function. That function receives the SelectionContext object as an argument. The recommended behavior is to display a \`<MainToolbar/>\` when there is no selected rows, and a \`<BulkActionsToolbar/>\` when any rows are selected.
+1. \`<Table.Content/>\` - the actual content
+2. \`<Table.ToolbarContainer/>\` - a container for the toolbar. It's also a consumer of the SelectionContext (see Context API)
+3. \`<Table.TitleBar/>\` -  the header of the table, which means, a row with the names of the columns. By default, \`<Table.Content/>\` is rendered with the header. It's mostly useful when setting \`titleBarVisible\` to false, so we can render the title bar independently
+4. \`<Table.EmptyState/>\` - a wrapper of the \`<EmptyState/>\` component for usage within the table
 `;
 
 export default {
@@ -95,7 +98,7 @@ export default {
           description({
             title: 'Description',
             text:
-              'Table is a component for displaying data in structure of rows and columns.',
+              'Table is a component for displaying data in structure of rows and columns. It might be included within `<Card/>` or `<Page/>` and supports a custom toolbar, sorting, infinite scrolling, virtualization and even more.',
           }),
 
           description(componentExplanation),
@@ -109,7 +112,7 @@ export default {
           ...[
             {
               title: 'Plain Example',
-              description: 'A basic table with data',
+              description: 'A basic table with data.',
               source: TableExampleRaw,
               compact: true,
             },
@@ -125,8 +128,13 @@ export default {
       }),
 
       ...[
+        { title: 'Table API', sections: [api()] },
+        {
+          title: 'Compound Components API',
+          sections: [description(compoundReadmeApi)],
+        },
+        { title: 'Context API', sections: [description(contextReadmeApi)] },
         { title: 'Playground', sections: [playground()] },
-        { title: 'API', sections: [api(), description(apiReadme)] },
         { title: 'Testkit', sections: [testkit(), description(testkitReadme)] },
       ].map(tab),
     ]),
