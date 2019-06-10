@@ -241,3 +241,9 @@ import { swatchesDriverFactory } from '../src/Swatches/Swatches.uni.driver';
 export const swatchesTestkitFactory = puppeteerUniTestkitFactoryCreator(
   swatchesDriverFactory,
 );
+
+import { pageHeaderUniDriverFactory } from '../src/PageHeader/PageHeader.uni.driver';
+
+export const pageHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  pageHeaderUniDriverFactory,
+);
