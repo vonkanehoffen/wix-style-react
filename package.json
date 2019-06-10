@@ -64,8 +64,11 @@
     "generate": "wuf generate",
     "postgenerate": "npm run generate-testkit-exports",
     "generate-test-component": "wuf generate --component-name GeneratedTestComponent",
-    "generate-testkit-exports": "node scripts/generate-testkit-exports",
+    "generate-testkit-exports": "npm run generate-components-list && npm run generate-vanilla-testkit-exports && npm run generate-enzyme-testkit-exports",
+    "generate-vanilla-testkit-exports": "wuf export-testkits --template .wuf/testkits/vanilla.template.js --factoryName testkitFactoryCreator --uniFactoryName uniTestkitFactoryCreator --output testkit/index.js",
+    "generate-enzyme-testkit-exports": "wuf export-testkits --template .wuf/testkits/enzyme.template.js --factoryName enzymeTestkitFactoryCreator --uniFactoryName enzymeUniTestkitFactoryCreator --output testkit/enzyme.js",
     "generate-autodocs-registry": "node scripts/generate-autodocs-registry",
+    "generate-components-list": "wuf update --components src --max-mismatch 1 --exclude Typography",
     "eyes-storybook-debug": "start-storybook -c ./.storybook-test -p 6007",
     "make-async-spec": "npx jscodeshift -t scripts/unidriver-migration/src/make-async/make-async.js"
   },
@@ -168,7 +171,7 @@
     "webpack": "~4.31.0",
     "webpack-cli": "^3.2.3",
     "wix-storybook-utils": "^3.0.0",
-    "wix-ui-framework": "^1.2.1",
+    "wix-ui-framework": "^2.1.0",
     "yoshi": "^4.1.1",
     "yoshi-config": "^4.1.0-alpha.1",
     "yoshi-helpers": "^4.1.0-alpha.1",
@@ -237,7 +240,7 @@
       ]
     },
     "ignore": [
-      "**/scripts/generate-component/**"
+      ".wuf/generator/templates/**"
     ]
   },
   "jest": {
@@ -254,7 +257,7 @@
       "<rootDir>/dist/",
       "<rootDir>/node_modules/",
       "<rootDir>/test-runtime/",
-      "<rootDir>/generator"
+      "<rootDir>/.wuf"
     ]
   },
   "eslintConfig": {
