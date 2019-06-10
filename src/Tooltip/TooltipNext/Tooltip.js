@@ -21,7 +21,7 @@ class Tooltip extends React.PureComponent {
     content: PropTypes.node,
     /** align tooltip content */
     textAlign: PropTypes.oneOf(['center', 'start']),
-    /** time in milliseconds to wait before showing the tooltip. Defaults to 200. */
+    /** time in milliseconds to wait before showing the tooltip */
     enterDelay: PropTypes.number,
     /**  time in milliseconds to wait before hiding the tooltip. Defaults to 0. */
     exitDelay: PropTypes.number,
