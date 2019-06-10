@@ -9,7 +9,15 @@ import Text from '../Text';
 /**
  * Representing a state of an empty page, section, table, etc.
  */
-const EmptyState = ({ theme, title, subtitle, image, children, dataHook }) => (
+const EmptyState = ({
+  theme,
+  title,
+  subtitle,
+  image,
+  classNames: classNamesProp,
+  children,
+  dataHook,
+}) => (
   <div
     className={classNames(styles.wrapper, styles[theme])}
     data-hook={dataHook}
@@ -17,7 +25,10 @@ const EmptyState = ({ theme, title, subtitle, image, children, dataHook }) => (
     <div className={styles.container}>
       {image && (
         <div
-          className={styles.imageContainer}
+          className={classNames(
+            styles.imageContainer,
+            (classNamesProp && classNamesProp.imageContainer) || '',
+          )}
           data-hook="empty-state-image-container"
         >
           {typeof image === 'string' ? (
@@ -80,6 +91,11 @@ EmptyState.propTypes = {
 
   /** The Empty State image, can be either a string representing the image URL, or a node to render instead */
   image: PropTypes.node,
+
+  /** The Empty State image bottom margin. If not specified, use the default padding defined in the css */
+  classNames: PropTypes.shape({
+    imageContainer: PropTypes.string,
+  }),
 
   /** Children to render below the subtitle, ideally an action of some type (Button or TextLink for instance) */
   children: PropTypes.node,

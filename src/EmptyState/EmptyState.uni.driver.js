@@ -34,6 +34,11 @@ export const emptyStateUniDriverFactory = base => {
     /** Returns the URL of the image element (if persist) */
     getImageUrl: () => ReactBase(getImageElement()).prop('src') || '',
 
+    getImageContainerClassName: async () => {
+      const classList = await ReactBase(getImageContainer()).getClassList();
+      return classList;
+    },
+
     /** Returns `true` if a node passed via the `image` prop exists */
     imageNodeExists: () => getImageNode().exists(),
 

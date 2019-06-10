@@ -37,6 +37,8 @@ const emptyStateDriverFactory = ({ element }) => {
     /** Returns the URL of the image element (if persist) */
     getImageUrl: () => getImageElement().src || '',
 
+    getImageContainerClassName: () => getImageContainer().className,
+
     /** Returns `true` if a node passed via the `image` prop exists */
     imageNodeExists: () => !!getImageNode(),
 

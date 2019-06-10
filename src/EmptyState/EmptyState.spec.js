@@ -72,5 +72,21 @@ describe('EmptyState', () => {
 
       expect(await driver.childrenContentExists()).toEqual(true);
     });
+
+    it('should render image container with specific class name', async () => {
+      const { driver } = render(
+        <EmptyState
+          {...defaultProps}
+          image="http://wix.com/some-image.png"
+          classNames={{
+            imageContainer: 'some-class-name',
+          }}
+        />,
+      );
+
+      expect(await driver.getImageContainerClassName()).toContain(
+        'some-class-name',
+      );
+    });
   }
 });
