@@ -55,7 +55,7 @@ Technically, the following optional children are accepted:
 
 1. \`<Table.Content/>\` - the actual content
 2. \`<Table.ToolbarContainer/>\` - a container for the toolbar. It's also a consumer of the SelectionContext (see Context API)
-3. \`<Table.TitleBar/>\` -  the header of the table, which means, a row with the names of the columns. By default, \`<Table.Content/>\` is rendered with the header. It's mostly useful when setting \`titleBarVisible\` to false, so we can render the title bar independently
+3. \`<Table.Titlebar/>\` -  the header of the table, which means, a row with the names of the columns. By default, \`<Table.Content/>\` is rendered with the header. It's mostly useful when setting \`titleBarVisible\` to false, so we can render the title bar independently
 4. \`<Table.EmptyState/>\` - a wrapper of the \`<EmptyState/>\` component for usage within the table
 `;
 

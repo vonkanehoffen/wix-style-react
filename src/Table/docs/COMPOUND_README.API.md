@@ -4,31 +4,23 @@ You can render `<Table.Content/>` anywhere inside a `<Table/>` (not necessarily 
 
 #### Props
 
-| propName        | propType | defaultValue | isRequired | description                                                                       |
-| --------------- | -------- | ------------ | ---------- | --------------------------------------------------------------------------------- |
-| titleBarVisible | boolean  | true         | false      | wether to display the column's title bar (`<thead>`) or not. (defaults to `true`) |
+| propName        | propType | defaultValue | isRequired | description                                                                     |
+| --------------- | -------- | ------------ | ---------- | ------------------------------------------------------------------------------- |
+| titleBarVisible | boolean  | true         | false      | Whether to display the title bar (the row with the names of the columns) or not |
 
 ### `<Table.ToolbarContainer/>`
 
 The `<ToolbarContainer/>` is a consumer of the Table's SelectionContext (React 16 context API). Which means it expects to receive a single child as a function. That function receives the following SelectionContext object as an argument.
 
-The recommended behavior is for the Table to display a Main-Toolbar when there is no selected rows, and a BulkActionsToolbar when any rows are selected.
+#### Props
 
-```js
-<Table.ToolbarContainer>
-  {
-    selectionContext =>
-      selectionContext.selectedCount === 0 ?
-        renderMainToolbar() :
-        renderBulkActionToolbar()
+| propName | propType | defaultValue | isRequired | description                 |
+| -------- | -------- | ------------ | ---------- | --------------------------- |
+| children | any      |              | false      | A container for the toolbar |
 
-  }
-<Table.ToolbarContainer>
-```
+### `<Table.Titlebar/>`
 
-### `<Table.TitleBar/>`
-
-The `<Table/>` title bar (or "header"). Can be useful when setting `titleBarVisible` to `true`, so
+The `<Table/>` title bar (or "header"). Can be useful when setting `titleBarVisible` to `false`, so
 you can render the title bar independently. See the "Table in a Page" example for example usage.
 
 ### `<Table.EmptyState/>`
