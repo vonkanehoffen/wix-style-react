@@ -21,6 +21,7 @@ Types of changes:
 - `<PageHeader/>` Testkit - expose puppeteer testkit [#3536](https://github.com/wix/wix-style-react/pull/3536)
 - `<ListItemAction/>` - add classname prop for extensibility [#3543](https://github.com/wix/wix-style-react/pull/3543)
 - `<EmptyState/>` add image container className [#3530](https://github.com/wix/wix-style-react/pull/3530)
+- `<TextButton/>`- add tiny styling [#3553](https://github.com/wix/wix-style-react/pull/3553) 
 
 ### Docs
 - `<Table/>` - explain compound components (appears under `WIP`) [#3538](https://github.com/wix/wix-style-react/pull/3538)
