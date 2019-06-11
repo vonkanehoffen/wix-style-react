@@ -60,7 +60,7 @@ Steps to fix it:
 3. a generated stylable css is now created in your statics - ```{your-app}/dist/statics/app.stylable.bundle.css```
 4. import that css in your index.ejs (like your normal app.css) is imported.
 
-```      <link rel="stylesheet" href="<%= clientTopology.staticsBaseUrl %>app.stylable.bundle<% if (!debug) { %>.min<% } %>.css" <% if(ignoreBuggyCss) {%>data-viewport-units-buggyfill="ignore"<% } %>">```
+```      <link rel="stylesheet" href="<%= clientTopology.staticsBaseUrl %>app.stylable.bundle">```
 
 
 
