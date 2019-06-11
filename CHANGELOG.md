@@ -18,13 +18,14 @@ Types of changes:
 
 ### Changed
 - `<ColorPicker/>`, `<ColorInput/>` - align with spec, support Swatches [#3544](https://github.com/wix/wix-style-react/pull/3544)
+- `<InputArea/>` - change test driver to support for uncontrolled components [#3495](https://github.com/wix/wix-style-react/pull/3495)
 
 ### Added
-- `<InputArea/>` Driver - add support for uncontrolled components [#3495](https://github.com/wix/wix-style-react/pull/3495)
 - `<PageHeader/>` Testkit - expose puppeteer testkit [#3536](https://github.com/wix/wix-style-react/pull/3536)
 - `<ListItemAction/>` - add classname prop for extensibility [#3543](https://github.com/wix/wix-style-react/pull/3543)
 - `<EmptyState/>` add image container className [#3530](https://github.com/wix/wix-style-react/pull/3530)
 - `<TextButton/>`- add tiny styling [#3553](https://github.com/wix/wix-style-react/pull/3553) 
+- `<SectionHelper/>` - add `fullWidth` to support unlimited width content [#3557](https://github.com/wix/wix-style-react/pull/3557)
 
 ### Docs
 - `<Table/>` - explain compound components (appears under `WIP`) [#3538](https://github.com/wix/wix-style-react/pull/3538)
