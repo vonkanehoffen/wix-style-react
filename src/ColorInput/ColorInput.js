@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool, string, func, oneOf, array } from 'prop-types';
+import { node, bool, string, func, oneOf, oneOfType } from 'prop-types';
 
 import { polyfill } from 'react-lifecycles-compat';
 
@@ -41,10 +41,6 @@ class ColorInput extends React.Component {
       'left',
       'left-start',
     ]),
-    /** Color string array to show as swatches */
-    preset: array,
-    /** Enable no color swatch in color picker */
-    showClear: bool,
     /** colorpicker popover calculation to a dom element */
     popoverAppendTo: oneOf(['window', 'scrollParent', 'viewport', 'parent']),
     /** input value */
@@ -55,6 +51,12 @@ class ColorInput extends React.Component {
     onCancel: func,
     /** returns either input's or colorpicker's changed value */
     onChange: func,
+    /** Children to render in <ColorPicker /> component */
+    colorPickerChildren: oneOfType([node, func]),
+    /** Callback called with color `hex` string when add color button pressed */
+    onAddColor: func,
+    /** Content to show in color picker add button tooltip */
+    addTooltipContent: node,
   };
 
   static defaultProps = {
@@ -104,8 +106,10 @@ class ColorInput extends React.Component {
       popoverPlacement,
       popoverAppendTo,
       disabled,
-      preset,
-      showClear,
+      colorPickerChildren,
+      onAddColor,
+      addTooltipContent,
+      placeholder,
     } = this.props;
     return (
       <ColorViewer
@@ -120,8 +124,10 @@ class ColorInput extends React.Component {
         onCancel={this.cancel}
         onConfirm={this.confirm}
         onClickOutside={this.confirm}
-        preset={preset}
-        showClear={showClear}
+        children={colorPickerChildren}
+        onAddColor={onAddColor}
+        addTooltipContent={addTooltipContent}
+        placeholder={placeholder}
       />
     );
   };

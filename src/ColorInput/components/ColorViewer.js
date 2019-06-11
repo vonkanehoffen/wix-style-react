@@ -7,7 +7,7 @@ import Color from 'color';
 
 export class ColorViewer extends React.Component {
   onChange = _color => {
-    const color = Color(_color);
+    const color = typeof _color === 'object' ? _color : Color(_color);
     this.props.onChange(color.alpha() === 0 ? '' : color.hex());
   };
 
@@ -23,8 +23,10 @@ export class ColorViewer extends React.Component {
       placement,
       appendTo,
       onClickOutside,
-      preset,
-      showClear,
+      children,
+      onAddColor,
+      addTooltipContent,
+      placeholder,
     } = this.props;
     return (
       <Popover
@@ -52,14 +54,18 @@ export class ColorViewer extends React.Component {
           <ColorPicker
             dataHook="colorinput-colorpicker"
             showConverter={false}
-            showInput={false}
+            showInput
             onCancel={onCancel}
-            showClear={showClear}
-            preset={preset}
             onChange={this.onChange}
             onConfirm={onConfirm}
             value={value}
-          />
+            onAdd={onAddColor}
+            allowEmpty
+            addTooltipContent={addTooltipContent}
+            emptyPlaceholder={placeholder}
+          >
+            {children}
+          </ColorPicker>
         </Popover.Content>
       </Popover>
     );

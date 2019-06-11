@@ -20,6 +20,7 @@ import { baseScope } from '../../../stories/utils/LiveCodeExample';
 
 import usage from './Usage.md';
 import * as examples from './examples';
+import Swatches from '../../../dist/es/src/Swatches/Swatches';
 
 const liveCode = config => baseLiveCode({ components: baseScope, ...config });
 
@@ -46,25 +47,28 @@ export default {
     popoverPlacement: 'bottom',
     popoverAppendTo: 'parent',
     disabled: false,
+    onAddColor: () => {},
+    addTooltipContent: 'Add Color',
   }),
 
   exampleProps: {
     errorMessage: '',
     size: ['small', 'medium', 'large'],
     popoverPlacement: placements,
-    preset: [
-      {
-        value: ['red', 'green', 'yellow', '#fff', 'rgb(0, 0, 0)'],
-        label: "['red', 'green', 'yellow', '#fff', 'rgb(0, 0, 0)']",
-      },
-    ],
-    showClear: false,
     popoverAppendTo: [
       { label: 'window', value: window },
       { label: 'scrollParent', value: 'scrollParent' },
       { label: 'viewport', value: 'viewport' },
       { label: 'parent', value: 'parent' },
       { label: 'null', value: null },
+    ],
+    colorPickerChildren: [
+      {
+        label: 'Swatches',
+        value: ({ changeColor }) => (
+          <Swatches colors={['red', 'green', 'blue']} onClick={changeColor} />
+        ),
+      },
     ],
   },
 

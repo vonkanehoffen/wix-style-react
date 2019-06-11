@@ -1,57 +1,66 @@
 import React from 'react';
-import color from 'color';
 import { object, func } from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
 
-import css from './ColorPickerConverter.scss';
+import css from './ColorPickerConverter.st.css';
+import ColorPickerConverterViewer from './ColorPickerConverterViewer';
+import { safeColor, getHsbOrEmpty } from './utils';
 
 export default class ColorPickerConverterHsb extends WixComponent {
   static propTypes = {
     current: object.isRequired,
     onChange: func.isRequired,
+    onAdd: func,
   };
 
   constructor(props) {
     super(props);
-    this.state = this.props.current
-      .hsl()
-      .round()
-      .object();
+    this.state = getHsbOrEmpty(props.current);
+  }
+
+  isInputsEmpty() {
+    const { h, s, l } = this.state;
+    return [h, s, l].every(value => value === '');
   }
 
   render() {
     return (
-      <div className={css.root}>
-        <div className={css.distribute}>
+      <div {...css('root', {}, this.props)}>
+        <div {...css('distribute', {}, this.props)}>
           <Input
             size="small"
             value={this.state.h}
             onChange={e => this.change('h', e)}
+            placeholder={'H'}
+            {...css('distributedItem', {}, this.props)}
           />
           <Input
             size="small"
             value={this.state.s}
             onChange={e => this.change('s', e)}
+            placeholder={'S'}
+            {...css('distributedItem', {}, this.props)}
           />
           <Input
             size="small"
             value={this.state.l}
             onChange={e => this.change('l', e)}
+            placeholder={'B'}
+            {...css('distributedItem', {}, this.props)}
           />
         </div>
+        <ColorPickerConverterViewer
+          {...this.props}
+          color={this.props.current}
+        />
       </div>
     );
   }
 
   componentWillReceiveProps(props) {
-    this.setState(
-      props.current
-        .hsl()
-        .round()
-        .object(),
-    );
+    this.setState(getHsbOrEmpty(props.current));
   }
 
   change(
@@ -61,18 +70,15 @@ export default class ColorPickerConverterHsb extends WixComponent {
     },
   ) {
     this.setState({ [part]: value }, () => {
-      const _color = safeColor(this.state);
-      if (_color) {
+      const { h, s, l } = this.state;
+      const isMissingData = [h, s, l].some(_value => _value === '');
+      const _color = safeColor(
+        isMissingData && this.props.allowEmpty ? '' : this.state,
+        this.props.allowEmpty,
+      );
+      if (!isMissingData || this.isInputsEmpty()) {
         this.props.onChange(_color);
       }
     });
-  }
-}
-
-function safeColor(input) {
-  try {
-    return color(input);
-  } catch (error) {
-    return null;
   }
 }

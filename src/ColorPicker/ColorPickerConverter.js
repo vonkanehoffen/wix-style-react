@@ -1,5 +1,5 @@
 import React from 'react';
-import { object, bool, func } from 'prop-types';
+import { object, bool, func, string } from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Tabs from '../Tabs';
@@ -24,6 +24,9 @@ export default class ColorPickerConverter extends WixComponent {
     showInput: bool.isRequired,
     onChange: func.isRequired,
     onEnter: func.isRequired,
+    onAdd: func,
+    allowEmpty: bool,
+    hexPlaceholder: string,
   };
 
   state = {
@@ -36,7 +39,14 @@ export default class ColorPickerConverter extends WixComponent {
   }
 
   render() {
-    const { current, showConverter, showInput } = this.props;
+    const {
+      current,
+      showConverter,
+      showInput,
+      addTooltipContent,
+      allowEmpty,
+      hexPlaceholder,
+    } = this.props;
     const dataHooks = {
       hex: 'color-picker-hex-input',
       rgb: 'color-picker-rgb-inputs',
@@ -50,10 +60,14 @@ export default class ColorPickerConverter extends WixComponent {
     if (!showConverter) {
       return (
         <ColorPickerConverterHex
+          placeholder={hexPlaceholder}
           dataHook={dataHooks.hex}
           current={current}
           onChange={this.props.onChange}
           onEnter={this.props.onEnter}
+          onAdd={this.props.onAdd}
+          addTooltipContent={addTooltipContent}
+          allowEmpty={allowEmpty}
         />
       );
     }
@@ -71,10 +85,14 @@ export default class ColorPickerConverter extends WixComponent {
         />
         {activeTab === HEX && (
           <ColorPickerConverterHex
+            placeholder={hexPlaceholder}
             dataHook={dataHooks.hex}
             current={current}
             onChange={this.props.onChange}
+            onAdd={this.props.onAdd}
             onEnter={this.props.onEnter}
+            addTooltipContent={addTooltipContent}
+            allowEmpty={allowEmpty}
           />
         )}
         {activeTab === RGB && (
@@ -82,6 +100,9 @@ export default class ColorPickerConverter extends WixComponent {
             dataHook={dataHooks.rgb}
             current={current}
             onChange={this.props.onChange}
+            onAdd={this.props.onAdd}
+            addTooltipContent={addTooltipContent}
+            allowEmpty={allowEmpty}
           />
         )}
         {activeTab === HSB && (
@@ -89,6 +110,9 @@ export default class ColorPickerConverter extends WixComponent {
             dataHook={dataHooks.hsb}
             current={current}
             onChange={this.props.onChange}
+            onAdd={this.props.onAdd}
+            addTooltipContent={addTooltipContent}
+            allowEmpty={allowEmpty}
           />
         )}
       </div>

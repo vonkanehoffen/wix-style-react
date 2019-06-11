@@ -1,5 +1,4 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
-import { swatchesDriverFactory } from '../Swatches/Swatches.uni.driver';
 
 export const colorPickerUniDriverFactory = base => {
   return {
@@ -20,8 +19,9 @@ export const colorPickerUniDriverFactory = base => {
       (await ReactBase(
         base.$('[data-hook="color-picker-history-previous"]'),
       ).getStyle()).background,
-    swatchesDriver: async () =>
-      swatchesDriverFactory(base.$('[data-hook="color-picker-swatches"]')),
+    clickAddColor: async () =>
+      base.$('[data-hook="color-picker-add-color"]').click(),
+    getChildren: async () => base.$('[data-hook="color-picker-children"]'),
 
     //private
     selectBlackColor: async () =>

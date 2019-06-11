@@ -1,6 +1,6 @@
 import React from 'react';
 import color from 'color';
-import { object, string, func, bool, oneOfType, node, array } from 'prop-types';
+import { object, string, func, bool, oneOfType, node } from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import ColorPickerHsb from './ColorPickerHsb';
@@ -10,7 +10,7 @@ import ColorPickerConverter from './ColorPickerConverter';
 import ColorPickerActions from './ColorPickerActions';
 
 import css from './ColorPicker.scss';
-import Swatches from '../Swatches/Swatches';
+import { safeColor, isTransparent } from './utils';
 
 const FALLBACK_COLOR = color('#86c6e5');
 
@@ -46,17 +46,27 @@ export default class ColorPicker extends WixComponent {
     /** Handle confirm button click */
     onConfirm: func.isRequired,
 
-    /** Children would be rendered above action buttons */
-    children: node,
+    /** Handle color add button click. If not passed plus icon is not visible. */
+    onAdd: func,
 
-    /** Color string array to show as swatches */
-    preset: array,
+    /** Children would be rendered above action buttons */
+    children: oneOfType([node, func]),
+
+    /** Content to show in add button tooltip. Doesn't appear if `onAdd` is not passed. */
+    addTooltipContent: node,
+
+    /** Allow to confirm when color is not selected. Returns color object with alpha equal to 0. */
+    allowEmpty: bool,
+
+    /** Placeholder to show in HEX input when `allowEmpty` is true */
+    emptyPlaceholder: string,
   };
 
   static defaultProps = {
     showHistory: false,
     showConverter: true,
     showInput: true,
+    allowEmpty: false,
   };
 
   constructor(props) {
@@ -66,7 +76,7 @@ export default class ColorPicker extends WixComponent {
     this.confirm = this.confirm.bind(this);
     this.cancel = this.cancel.bind(this);
 
-    const _color = safeColor(props.value) || FALLBACK_COLOR;
+    const _color = safeColor(props.value, props.allowEmpty) || FALLBACK_COLOR;
     this.state = { current: _color, previous: _color };
   }
 
@@ -77,11 +87,12 @@ export default class ColorPicker extends WixComponent {
       showConverter,
       children,
       value,
-      preset,
-      showClear,
+      onAdd,
+      addTooltipContent,
+      allowEmpty,
+      emptyPlaceholder,
     } = this.props;
     const { current, previous } = this.state;
-    const selectedSwatch = current.alpha() === 0 ? '' : current.hex();
 
     return (
       <div className={css.root}>
@@ -100,21 +111,18 @@ export default class ColorPicker extends WixComponent {
           current={current}
           onChange={this.change}
           onEnter={this.confirm}
+          onAdd={onAdd}
+          addTooltipContent={addTooltipContent}
+          allowEmpty={allowEmpty}
+          hexPlaceholder={emptyPlaceholder}
         />
-        {preset && (
-          <div className={css.children}>
-            <Swatches
-              colors={preset}
-              showClear={showClear}
-              onClick={this.onSwatchClick}
-              selected={selectedSwatch}
-              dataHook="color-picker-swatches"
-            />
+        {children && (
+          <div className={css.children} data-hook="color-picker-children">
+            {this._renderChildren()}
           </div>
         )}
-        {children && <div className={css.children}>{children}</div>}
         <ColorPickerActions
-          disabled={!showClear && value === ''}
+          disabled={!allowEmpty && value === ''}
           onConfirm={this.confirm}
           onCancel={this.cancel}
         />
@@ -122,17 +130,33 @@ export default class ColorPicker extends WixComponent {
     );
   }
 
+  _renderChildren = () => {
+    const { children } = this.props;
+    const childrenInterface = {
+      changeColor: _color => {
+        try {
+          const colorObject =
+            typeof _color === 'object' ? _color : color(_color);
+          this.change(colorObject);
+        } catch (err) {}
+      },
+    };
+    if (typeof children === 'function') {
+      return children(childrenInterface);
+    }
+    return children;
+  };
+
   componentWillReceiveProps(props) {
-    const _color = safeColor(props.value);
-    if (_color && !equal(_color, this.state.current)) {
+    const _color = safeColor(props.value, props.allowEmpty);
+    if (
+      _color &&
+      (!equal(_color, this.state.current) ||
+        isTransparent(_color) !== isTransparent(this.state.current))
+    ) {
       this.setState({ current: _color });
     }
   }
-
-  onSwatchClick = _color => {
-    const colorObject = _color ? color(_color) : color().alpha(0);
-    this.change(colorObject);
-  };
 
   change(_color) {
     this.setState({ current: _color }, () => {
@@ -152,12 +176,4 @@ export default class ColorPicker extends WixComponent {
 
 function equal(color1, color2) {
   return color1.hex() === color2.hex();
-}
-
-function safeColor(input) {
-  try {
-    return input ? color(input) : color().alpha(0);
-  } catch (error) {
-    return null;
-  }
 }

@@ -152,24 +152,13 @@ describe('ColorPicker', () => {
     });
   }
 
-  describe('preset', () => {
-    const preset = ['red', 'green', 'blue'];
+  describe('onAdd prop', () => {
     const render = createRendererWithUniDriver(colorPickerUniDriverFactory);
-
-    it('should render given colors as swatches', async () => {
+    it('should call callback with current color', async () => {
       const onChange = jest.fn();
       const onCancel = jest.fn();
       const onConfirm = jest.fn();
-      const value = '#00FF00';
-      const { driver } = render(
-        <ColorPicker {...{ value, onChange, onCancel, onConfirm, preset }} />,
-      );
-      expect(await (await driver.swatchesDriver()).getSwatchCount()).toBe(3);
-    });
-    it('should call onChange when clicked', async () => {
-      const onChange = jest.fn();
-      const onCancel = jest.fn();
-      const onConfirm = jest.fn();
+      const onAdd = jest.fn();
       const value = '#00FF00';
       const { driver } = render(
         <ColorPicker
@@ -178,14 +167,91 @@ describe('ColorPicker', () => {
             onChange,
             onCancel,
             onConfirm,
-            preset,
+            onAdd,
+            showHistory: true,
           }}
         />,
       );
-      const swatch = await (await driver.swatchesDriver()).getSwatch(0);
-      await swatch.click();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange).toHaveBeenCalledWith(color(preset[0]));
+      await driver.clickAddColor();
+
+      expect(onAdd).toHaveBeenCalledTimes(1);
+      expect(onAdd).toHaveBeenCalledWith(value);
+    });
+  });
+
+  describe('allowEmpty prop', () => {
+    const render = createRendererWithUniDriver(colorPickerUniDriverFactory);
+    it('should return color with alpha=0 if no color selected', async () => {
+      const onChange = jest.fn();
+      const onCancel = jest.fn();
+      const onConfirm = jest.fn();
+      const value = '';
+      const { driver } = render(
+        <ColorPicker
+          {...{
+            value,
+            onChange,
+            onCancel,
+            onConfirm,
+            allowEmpty: true,
+          }}
+        />,
+      );
+      await driver.confirm();
+
+      expect(onConfirm).toHaveBeenCalledTimes(1);
+      expect(onConfirm).toHaveBeenCalledWith(
+        expect.objectContaining({ valpha: 0 }),
+      );
+    });
+  });
+
+  describe('children prop', () => {
+    const render = createRendererWithUniDriver(colorPickerUniDriverFactory);
+    it('should render if node given', async () => {
+      const onChange = jest.fn();
+      const onCancel = jest.fn();
+      const onConfirm = jest.fn();
+      const value = '#000';
+      const children = 'text children';
+      const { driver } = render(
+        <ColorPicker
+          {...{
+            value,
+            onChange,
+            onCancel,
+            onConfirm,
+            children,
+          }}
+        />,
+      );
+
+      expect(await (await driver.getChildren()).text()).toBe(children);
+    });
+    it('should call given function if passed and inject changeColor', () => {
+      const onChange = jest.fn();
+      const onCancel = jest.fn();
+      const onConfirm = jest.fn();
+      const value = '#000';
+      const childrenFunction = jest.fn();
+      const children = changeColor => childrenFunction(changeColor);
+      const { driver } = render(
+        <ColorPicker
+          {...{
+            value,
+            onChange,
+            onCancel,
+            onConfirm,
+            children,
+          }}
+        />,
+      );
+      expect(childrenFunction).toHaveBeenCalledTimes(1);
+      expect(childrenFunction).toHaveBeenCalledWith(
+        expect.objectContaining({
+          changeColor: expect.anything(),
+        }),
+      );
     });
   });
 
