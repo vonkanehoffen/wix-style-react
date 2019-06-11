@@ -65,7 +65,11 @@ class SectionHelper extends WixComponent {
           </div>
         )}
 
-        <div className={styles.content}>
+        <div
+          className={classnames(styles.content, {
+            [styles.fullWidth]: this.props.fullWidth,
+          })}
+        >
           <Text size="small" light={this.props.appearance === experimentalDark}>
             {this.props.children}
           </Text>
@@ -114,6 +118,9 @@ SectionHelper.propTypes = {
 
   /** Children to render */
   children: PropTypes.node,
+
+  /** Set the content width to 100% */
+  fullWidth: PropTypes.bool,
 };
 
 SectionHelper.defaultProps = {

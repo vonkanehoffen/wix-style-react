@@ -18,6 +18,10 @@
   max-width: 540px;
 }
 
+.fullWidth.content {
+  max-width: none
+}
+
 .close {
   position: absolute;
   top: 50%;

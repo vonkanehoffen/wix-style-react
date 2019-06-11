@@ -37,6 +37,7 @@ export default {
     title: titleExamples[0].value,
     children: childrenExamples[0].value,
     showCloseButton: true,
+    fullWidth: false,
   },
 
   exampleProps: {
