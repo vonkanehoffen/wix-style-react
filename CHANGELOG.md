@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<ColorPicker/>`, `<ColorInput/>` - align with spec, support Swatches [#3544](https://github.com/wix/wix-style-react/pull/3544)
+
 ### Added
 - `<InputArea/>` Driver - add support for uncontrolled components [#3495](https://github.com/wix/wix-style-react/pull/3495)
 - `<PageHeader/>` Testkit - expose puppeteer testkit [#3536](https://github.com/wix/wix-style-react/pull/3536)
