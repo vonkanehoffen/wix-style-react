@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<Thumbnail/>` - add title below thumbnail [#3560](https://github.com/wix/wix-style-react/pull/3560)
 
+### Fixed
+- `<InputWithOptions/>` - prevent Enter key from triggering form submit [#3562](https://github.com/wix/wix-style-react/pull/3562)
+
 ## 6.27.0 - 2019-06-12
 
 ### Changed
