@@ -1,7 +1,8 @@
 import { isFocused } from 'wix-ui-test-utils/protractor';
+import { inputDataHookSelector } from './Input.private.protractor.driver';
 
 const inputDriverFactory = component => {
-  const input = component.$('[data-hook="wsr-input"]'),
+  const input = component.$(inputDataHookSelector),
     clearButton = component.$('[data-hook="input-clear-button"]');
 
   return {
