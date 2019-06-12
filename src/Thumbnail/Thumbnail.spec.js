@@ -79,7 +79,7 @@ describe('Thumbnail', () => {
       );
     });
 
-    it('should disable title, description and image', async () => {
+    it('should disable title (inside thumbnail wrapper), description and image', async () => {
       const driver = await createDriver(
         <Thumbnail
           title="title"
@@ -91,6 +91,30 @@ describe('Thumbnail', () => {
       expect(await driver.titleExists()).toEqual(false);
       expect(await driver.descriptionExists()).toEqual(false);
       expect(await driver.imageExists()).toEqual(false);
+    });
+
+    it('should display bottom title', async () => {
+      const driver = await createDriver(
+        <Thumbnail
+          title="title"
+          description="description"
+          image="image.jpg"
+          backgroundImage="john.jpg"
+        />,
+      );
+      expect(await driver.titleExists()).toEqual(false);
+      expect(await driver.descriptionExists()).toEqual(false);
+      expect(await driver.imageExists()).toEqual(false);
+      expect(await driver.bottomTitleExists()).toEqual(true);
+    });
+
+    it('should not display bottom title when no `backgroundImage` provided', async () => {
+      const driver = await createDriver(
+        <Thumbnail title="title" description="description" />,
+      );
+      expect(await driver.titleExists()).toEqual(true);
+      expect(await driver.descriptionExists()).toEqual(true);
+      expect(await driver.bottomTitleExists()).toEqual(false);
     });
   });
 

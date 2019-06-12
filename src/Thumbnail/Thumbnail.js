@@ -44,7 +44,7 @@ class Thumbnail extends React.PureComponent {
     /** Hide icon when thumbnail is selected */
     hideSelectedIcon: PropTypes.bool,
 
-    /** Overrides title, description and image properties */
+    /** Overrides description and image properties. Title is rendered below image thumbnail */
     backgroundImage: PropTypes.node,
 
     /** Callback function for onClick event */
@@ -61,6 +61,22 @@ class Thumbnail extends React.PureComponent {
     size: 'medium',
     selected: false,
     disabled: false,
+  };
+
+  _renderBottomTitle = () => {
+    const { size, title, selected, disabled } = this.props;
+
+    return (
+      <Text
+        {...styles('bottomTitle', { selected, disabled }, this.props)}
+        data-hook="thumbnail-bottom-title"
+        size={size}
+        tagName="div"
+        weight="thin"
+        ellipsis
+        children={title}
+      />
+    );
   };
 
   _renderBackgroundLayout = () =>
@@ -129,6 +145,7 @@ class Thumbnail extends React.PureComponent {
       size,
       selected,
       disabled,
+      title,
       backgroundImage,
       onClick,
       hideSelectedIcon,
@@ -139,25 +156,33 @@ class Thumbnail extends React.PureComponent {
     } = this.props;
 
     const hasBackground = !!backgroundImage;
+    const showBottomTitle = hasBackground && title;
 
     return (
       <div
-        style={{ width, height }}
-        {...styles(
-          'root',
-          { selected, disabled, size, hasBackground },
-          this.props,
-        )}
-        onFocus={focusableOnFocus}
-        onBlur={focusableOnBlur}
-        tabIndex={disabled ? null : 0}
-        data-hook={dataHook}
+        style={{ width }}
+        {...styles('root', { disabled }, this.props)}
         onClick={disabled ? null : onClick}
         onKeyDown={disabled ? null : this._onKeyDown}
+        data-hook={dataHook}
       >
-        {!hideSelectedIcon && selected && this._renderSelectedIcon()}
-        {hasBackground && this._renderBackgroundLayout()}
-        {!hasBackground && this._renderNoBackgroundLayout()}
+        <div
+          style={{ height }}
+          {...styles(
+            'thumbnail',
+            { selected, disabled, size, hasBackground },
+            this.props,
+          )}
+          onFocus={focusableOnFocus}
+          onBlur={focusableOnBlur}
+          tabIndex={disabled ? null : 0}
+          data-hook="thumbnail-wrapper"
+        >
+          {!hideSelectedIcon && selected && this._renderSelectedIcon()}
+          {hasBackground && this._renderBackgroundLayout()}
+          {!hasBackground && this._renderNoBackgroundLayout()}
+        </div>
+        {showBottomTitle ? this._renderBottomTitle() : null}
       </div>
     );
   }

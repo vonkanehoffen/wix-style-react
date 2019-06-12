@@ -11,6 +11,9 @@ export const thumbnailPrivateDriverFactory = base => {
     /** Does the title exist */
     titleExists: () => byHook('thumbnail-title').exists(),
 
+    /** Does bottom title exist */
+    bottomTitleExists: () => byHook('thumbnail-bottom-title').exists(),
+
     /** Does the description exist */
     descriptionExists: () => byHook('thumbnail-description').exists(),
 

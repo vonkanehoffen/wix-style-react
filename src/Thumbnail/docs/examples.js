@@ -29,6 +29,7 @@ export const selectedWithBackgroundImage = `<Thumbnail
   backgroundImage="${getImageUrl(270, 270)}"
   width={270}
   height={270}
+  title="Thumbnail Title"
   />`;
 
 export const listOfSmall = `<Layout gap="12px">

@@ -9,8 +9,9 @@ const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
 export const thumbnailDriverFactory = base => {
   const stylableUtil = new StylableUnidriverUtil(stylesheet);
   const byHook = hook => base.$(`[data-hook*="${hook}"]`);
-  const getStyle = async rule =>
-    (await base.attr('style')).match(new RegExp(`${rule}: (.*?);`))[1];
+  const getThumbnailWrapper = () => byHook('thumbnail-wrapper');
+  const getStyle = async (element, rule) =>
+    (await element.attr('style')).match(new RegExp(`${rule}: (.*?);`))[1];
 
   const titleDriver = async () =>
     textTestkitFactory({
@@ -34,13 +35,19 @@ export const thumbnailDriverFactory = base => {
 
     /** Is Thumbnail selected */
     isSelected: async () => {
-      const stylableState = await stylableUtil.getStyleState(base, 'selected');
+      const stylableState = await stylableUtil.getStyleState(
+        getThumbnailWrapper(),
+        'selected',
+      );
       return stylableState === 'true';
     },
 
     /** Is Thumbnail disabled */
     isDisabled: async () => {
-      const stylableState = await stylableUtil.getStyleState(base, 'disabled');
+      const stylableState = await stylableUtil.getStyleState(
+        getThumbnailWrapper(),
+        'disabled',
+      );
       return stylableState === 'true';
     },
 
@@ -48,9 +55,10 @@ export const thumbnailDriverFactory = base => {
     getImage: () => byHook('thumbnail-image'),
 
     /** Get thumbnail width, if it's set through `width` prop */
-    getWidth: async () => await getStyle('width'),
+    getWidth: async () => await getStyle(base, 'width'),
 
     /** Get thumbnail height, if it's set through `height` prop */
-    getHeight: async () => await getStyle('height'),
+    getHeight: async () =>
+      await getStyle(await getThumbnailWrapper(), 'height'),
   };
 };

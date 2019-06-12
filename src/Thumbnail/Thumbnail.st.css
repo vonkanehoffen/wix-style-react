@@ -12,11 +12,22 @@
   borderRadius: 6px;
 }
 
+
 .root {
+  -st-states: disabled;
+}
+
+.root:not(:disabled) {
+  cursor: pointer;
+}
+
+
+.thumbnail {
   -st-extends: Focusable;
   -st-states: selected, disabled, size(enum(tiny, small, medium)), hasBackground;
   position: relative;
   display: flex;
+  margin: 0 auto;
   padding: 18px;
   flex-direction: column;
   align-items: center;
@@ -27,16 +38,15 @@
   border: 0;
   border-radius: value(borderRadius);
   box-shadow: 0 0 0 1px value(B30) inset;
-  cursor: pointer;
   box-sizing: border-box;
   outline: none;
 }
 
-.root:hover {
+.thumbnail:hover {
   box-shadow: 0 0 0 1px value(B20) inset;
 }
 
-.root:focus-visible::before {
+.thumbnail:focus-visible::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -47,55 +57,55 @@
   content: ' ';
 }
 
-.root:size(tiny) {
+.thumbnail:size(tiny) {
   padding: 15px;
 }
 
-.root:selected {
+.thumbnail:selected {
   box-shadow: 0 0 0 2px value(B10) inset;
 }
 
-.root:selected:disabled {
+.thumbnail:selected:disabled {
   box-shadow: 0 0 0 2px value(D55) inset;
 }
 
-.root:disabled {
+.thumbnail:disabled {
   box-shadow: 0 0 0 1px value(D55) inset;
   cursor: default;
 }
 
-.root:disabled .image {
+.thumbnail:disabled .image {
   opacity: .42;
 }
 
-.root:disabled .selectedIcon {
+.thumbnail:disabled .selectedIcon {
   background: value(D55);
 }
 
-.root:disabled .title,
-.root:disabled .description {
+.thumbnail:disabled .title,
+.thumbnail:disabled .description {
   color: value(D55);
 }
 
-.root:hasBackground {
+.thumbnail:hasBackground {
   padding: 0;
   height: 100%;
   box-shadow: 0 0 0 1px value(B30);
 }
 
-.root:hasBackground:hover {
+.thumbnail:hasBackground:hover {
   box-shadow: 0 0 0 1px value(B20);
 }
 
-.root:hasBackground:selected {
+.thumbnail:hasBackground:selected {
   box-shadow: 0 0 0 2px value(B10);
 }
 
-.root:hasBackground:selected:disabled {
+.thumbnail:hasBackground:selected:disabled {
   box-shadow: 0 0 0 2px value(D55);
 }
 
-.root:hasBackground:disabled {
+.thumbnail:hasBackground:disabled {
   box-shadow: 0 0 0 1px value(D55);
 }
 
@@ -115,6 +125,21 @@
 
 .title {
   padding-bottom: 6px;
+}
+
+.bottomTitle {
+  -st-states: selected, disabled;
+  display: block;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.bottomTitle:selected {
+  color: value(B10);
+}
+
+.bottomTitle:disabled {
+  color: value(D55);
 }
 
 .image {
