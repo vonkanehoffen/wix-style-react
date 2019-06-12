@@ -14,7 +14,9 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## next
+
+## 6.27.0 - 2019-06-12
 
 ### Changed
 - `<ColorPicker/>`, `<ColorInput/>` - align with spec, support Swatches [#3544](https://github.com/wix/wix-style-react/pull/3544)
