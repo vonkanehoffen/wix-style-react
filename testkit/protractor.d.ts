@@ -68,11 +68,6 @@ export const iconButtonTestkitFactory: any;
 export const closeButtonTestkitFactory: any;
 export const colorPickerTestkitFactory: any;
 
-/*
- * Component generator test component
- */
-
-export const generatedTestComponentTestkitFactory: any;
 export const dropdownBaseTestkitFactory: any;
 export const boxTestkitFactory: any;
 export const buttonTestkitFactory: any;

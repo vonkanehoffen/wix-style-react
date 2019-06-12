@@ -54,7 +54,6 @@ declare namespace VanillaTestkit {
   export const floatingHelperTestkitFactory: any;
   export const floatingNotificationTestkitFactory: any;
   export const formFieldTestkitFactory: any;
-  export const generatedTestComponentTestkitFactory: any;
   export const genericModalLayoutTestkitFactory: any;
   export const googleAddressInputWithLabelTestkitFactory: any;
   export const googlePreviewTestkitFactory: any;

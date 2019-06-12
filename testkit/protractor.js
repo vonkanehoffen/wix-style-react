@@ -380,15 +380,6 @@ export const circularProgressBarTestkitFactory = protractorTestkitFactoryCreator
   circularProgressBarDriverFactory,
 );
 
-/*
- * Component generator test component
- */
-import { generatedTestComponentDriverFactory } from '../src/GeneratedTestComponent/GeneratedTestComponent.uni.driver';
-
-export const generatedTestComponentTestkitFactory = protractorUniTestkitFactoryCreator(
-  generatedTestComponentDriverFactory,
-);
-
 import { dropdownBaseDriverFactory } from '../src/DropdownBase/DropdownBase.uni.driver';
 
 export const dropdownBaseTestkitFactory = protractorUniTestkitFactoryCreator(

@@ -78,15 +78,6 @@ export const circularProgressBarTestkitFactory = puppeteerUniTestkitFactoryCreat
   circularProgressBarDriverFactory,
 );
 
-/*
- * Component generator test component
- */
-import { generatedTestComponentDriverFactory } from '../src/GeneratedTestComponent/GeneratedTestComponent.uni.driver';
-
-export const generatedTestComponentTestkitFactory = puppeteerUniTestkitFactoryCreator(
-  generatedTestComponentDriverFactory,
-);
-
 import { dropdownBaseDriverFactory } from '../src/DropdownBase/DropdownBase.uni.driver';
 
 export const dropdownBaseTestkitFactory = puppeteerUniTestkitFactoryCreator(

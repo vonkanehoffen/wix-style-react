@@ -192,13 +192,6 @@ module.exports = {
     testkitPath: "../src/Proportion/Proportion.uni.driver"
   },
 
-  GeneratedTestComponent: {
-    testkitPath:
-      "../src/GeneratedTestComponent/GeneratedTestComponent.uni.driver",
-    unidriver: true,
-    drivers: ["enzyme"]
-  },
-
   DropdownBase: {
     unidriver: true,
     testkitPath: "../src/DropdownBase/DropdownBase.uni.driver"

@@ -182,10 +182,6 @@ require('./FieldWithSelectionComposite');
 require('./Deprecated/RichTextArea/index.story');
 require('./Deprecated/RichTextArea/testStory');
 
-// The generated test component
-require('../src/GeneratedTestComponent/docs/index.story');
-require('../src/GeneratedTestComponent/test/GeneratedTestComponentStories');
-
 require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
 
