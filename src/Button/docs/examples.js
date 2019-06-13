@@ -17,6 +17,7 @@ export const primary = `
         <Box backgroundColor="B20" padding="3px"> 
           <Button skin="transparent">transparent</Button>
         </Box>
+        <Button skin="dark">dark</Button>
       </Layout>
     </Cell>
   </Layout>
