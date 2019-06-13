@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Thumbnail/>` - add title below thumbnail [#3560](https://github.com/wix/wix-style-react/pull/3560)
+- `<Button/>`- add primary dark theme [#3565](https://github.com/wix/wix-style-react/pull/3565)
 
 ### Changed
 - `<Table/>` - migrate to visual grid [#3559](https://github.com/wix/wix-style-react/pull/3559)
