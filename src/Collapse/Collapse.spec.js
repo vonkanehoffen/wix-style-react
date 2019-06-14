@@ -12,7 +12,7 @@ describe('Collapse', () => {
   describe('`open` prop', () => {
     it('should not render children when false', () => {
       const wrapper = mount(<Collapse open={false} children="hello" />);
-      expect(wrapper.children().text()).toEqual(null);
+      expect(wrapper.children().text()).toEqual('');
     });
   });
 

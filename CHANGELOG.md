@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 5.28.0 - 2019-06-14
+
+## Added
+
+- `<DropdownBase/>` - support `appendTo` prop [ee7ce8fa9](https://github.com/wix/wix-style-react/commit/ee7ce8fa9)
+
 ## 5.27.0 - 2019-02-07
 
 ## Added
