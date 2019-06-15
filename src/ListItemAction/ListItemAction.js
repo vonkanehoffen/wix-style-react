@@ -37,6 +37,12 @@ class ListItemActionComponent extends React.PureComponent {
     onClick: PropTypes.func,
   };
 
+  focus() {
+    if (this.innerComponentRef) {
+      this.innerComponentRef.focus();
+    }
+  }
+
   _renderText = () => {
     const { title, size } = this.props;
     return (
@@ -85,6 +91,7 @@ class ListItemActionComponent extends React.PureComponent {
       <Component
         {...styles('root', { skin, disabled }, this.props)}
         tabIndex={tabIndex}
+        ref={ref => (this.innerComponentRef = ref)}
         autoFocus={autoFocus}
         onFocus={focusableOnFocus}
         onBlur={focusableOnBlur}
@@ -119,7 +126,7 @@ export const listItemActionBuilder = ({
   id,
   disabled,
   overrideStyle: true,
-  value: ({ ref: dropdownRef, ...props }) => (
+  value: props => (
     <ListItemAction
       {...props}
       className={className}

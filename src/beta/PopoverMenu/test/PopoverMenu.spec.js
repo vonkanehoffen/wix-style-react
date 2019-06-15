@@ -152,5 +152,203 @@ describe('PopoverMenu', () => {
         expect(await driver.childrenCount()).toBe(3);
       });
     });
+
+    describe('Accessibility', () => {
+      describe('First focused item', () => {
+        it('should focus first item in menu [when] when trigger element is invoked with a key', async () => {
+          const { driver } = render(
+            renderPopoverMenu({ children: renderPopoverMenuItem() }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect(await driver.getMenuItem(0)).toBe(document.activeElement);
+        });
+        it('should focus first available item in menu [when] when first element of menu is disabled', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [
+                renderPopoverMenuItem({ disabled: true }),
+                renderPopoverMenuItem(),
+              ],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect(await driver.getMenuItem(1)).toBe(document.activeElement);
+        });
+      });
+
+      describe('Menu', () => {
+        it('should open [when]  when triggered with key Enter', async () => {
+          const dataHook = 'iconbutton-custom';
+          const { driver } = render(
+            renderPopoverMenu({
+              triggerElement: <IconButton dataHook={dataHook} />,
+            }),
+          );
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+        });
+
+        it('should be openen [when] when triggered with key Space', async () => {
+          const dataHook = 'iconbutton-custom';
+          const { driver } = render(
+            renderPopoverMenu({
+              triggerElement: <IconButton dataHook={dataHook} />,
+            }),
+          );
+          await driver.keyDownTrigger(' ');
+          expect(await driver.isMenuOpen()).toBe(true);
+        });
+
+        it('should be closed [when] one of the menu items triggered with key Escape', async () => {
+          const dataHook = 'iconbutton-custom';
+          const { driver } = render(
+            renderPopoverMenu({
+              triggerElement: <IconButton dataHook={dataHook} />,
+            }),
+          );
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          await driver.keyDownTrigger('Escape');
+          expect(await driver.isMenuOpen()).toBe(false);
+        });
+      });
+
+      describe('Roving TabIndex', () => {
+        it('focused item should have tabIndex set to 0', async () => {
+          const { driver } = render(
+            renderPopoverMenu({ children: renderPopoverMenuItem() }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(0);
+        });
+
+        it('not focused items should have tabIndex -1', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [renderPopoverMenuItem(), renderPopoverMenuItem()],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(-1);
+        });
+
+        it('navigating to next item should set next item with tabIndex to 0', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [renderPopoverMenuItem(), renderPopoverMenuItem()],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.keyDownOption(0, 'ArrowDown');
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(0);
+        });
+
+        it('navigating to next item [when] item in front is divider should ignore it and and jump to next item ', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [
+                renderPopoverMenuItem(),
+                renderPopoverDivider(),
+                renderPopoverMenuItem(),
+              ],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.keyDownOption(0, 'ArrowDown');
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(2)).tabIndex).toBe(0);
+        });
+
+        it('navigating to next item [when] item in front is disabled should ignore it and jump to next item', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [
+                renderPopoverMenuItem(),
+                renderPopoverMenuItem({ disabled: true }),
+                renderPopoverMenuItem(),
+              ],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.keyDownOption(0, 'ArrowDown');
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(2)).tabIndex).toBe(0);
+        });
+
+        it('navigating to next item [when] there is no options left should go back to first ', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [
+                renderPopoverMenuItem(),
+                renderPopoverMenuItem(),
+                renderPopoverMenuItem(),
+              ],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.keyDownOption(0, 'ArrowDown');
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(0);
+
+          await driver.keyDownOption(1, 'ArrowDown');
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(2)).tabIndex).toBe(0);
+
+          await driver.keyDownOption(2, 'ArrowDown');
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(0);
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(2)).tabIndex).toBe(-1);
+        });
+
+        it('navigating to previous item [when] there is no options in front should jumpt to last item', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [
+                renderPopoverMenuItem(),
+                renderPopoverMenuItem(),
+                renderPopoverMenuItem(),
+              ],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.keyDownOption(0, 'ArrowUp');
+
+          expect((await driver.getMenuItem(0)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(1)).tabIndex).toBe(-1);
+          expect((await driver.getMenuItem(2)).tabIndex).toBe(0);
+        });
+      });
+    });
   });
 });
