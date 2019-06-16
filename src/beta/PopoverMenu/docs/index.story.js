@@ -32,6 +32,8 @@ import { placements } from '../../../Popover';
 import testkitDesc from './testkit.md';
 import usage from './usage.md';
 
+import * as examples from './examples';
+
 const liveCode = config =>
   baseLiveCode({ components: { ...allComponents, PopoverMenu }, ...config });
 const example = ({ source, ...rest }) =>
@@ -138,6 +140,12 @@ export default {
               title: 'Divider',
               text: 'Menu can have a divider between items.',
               source: dividerExample,
+            },
+            {
+              title: 'Text Wrap',
+              text:
+                'By default all menu items text gets ellipsed when reaches boundaries limit. Passing `textWrap` disables ellipsis and wrap text to new line.',
+              source: examples.wrap,
             },
           ].map(example),
         ],

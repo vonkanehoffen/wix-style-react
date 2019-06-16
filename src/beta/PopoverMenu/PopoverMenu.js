@@ -57,6 +57,9 @@ class PopoverMenu extends React.PureComponent {
     /** Changing text size */
     textSize: PropTypes.oneOf(['small', 'medium']),
 
+    /** Allow text wrap for menu items */
+    wrapText: PropTypes.bool,
+
     /**
      * Menu items
      *  * <PopoverMenu.MenuItem>
@@ -97,6 +100,7 @@ class PopoverMenu extends React.PureComponent {
     fixed: true,
     flip: true,
     showArrow: true,
+    wrapText: false,
   };
 
   savedOnClicks = null;
@@ -200,7 +204,7 @@ class PopoverMenu extends React.PureComponent {
   };
 
   _renderOptions = () => {
-    const { textSize } = this.props;
+    const { textSize, wrapText } = this.props;
     const children = this._filterChildren(this.props.children);
     const options = this._buildOptions(children);
 
@@ -236,6 +240,7 @@ class PopoverMenu extends React.PureComponent {
             skin={option.skin || 'dark'}
             size={textSize}
             className={styles.listItem}
+            wrapText={wrapText}
           />
         ),
       };

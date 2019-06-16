@@ -18,6 +18,21 @@ const menuItems = [
   <PopoverMenu.MenuItem text="option 3" onClick={e => console.log(e)} />,
 ];
 
+const longTextMenuItems = [
+  <PopoverMenu.MenuItem
+    text="very long message very long message"
+    onClick={e => console.log(e)}
+  />,
+  <PopoverMenu.MenuItem
+    text="very long message very long message"
+    onClick={e => console.log(e)}
+  />,
+  <PopoverMenu.MenuItem
+    text="very long message very long message"
+    onClick={e => console.log(e)}
+  />,
+];
+
 const menuButtonDataHook = 'menubutton';
 
 const createDriver = dataHook =>
@@ -491,6 +506,34 @@ const interactiveTests = [
           children: menuItems,
           placement: 'left',
           showArrow: false,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'text wrap',
+    its: [
+      {
+        it: 'false',
+        componentDidMount: async () => {
+          const driver = createDriver(interactiveDataHook);
+          const iconButton = await driver.getTriggerElement(menuButtonDataHook);
+          await iconButton.click();
+        },
+        props: {
+          children: longTextMenuItems,
+        },
+      },
+      {
+        it: 'true',
+        componentDidMount: async () => {
+          const driver = createDriver(interactiveDataHook);
+          const iconButton = await driver.getTriggerElement(menuButtonDataHook);
+          await iconButton.click();
+        },
+        props: {
+          children: longTextMenuItems,
+          wrapText: true,
         },
       },
     ],
