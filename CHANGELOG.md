@@ -23,6 +23,7 @@ Types of changes:
 
 ### Changed
 - `<Table/>` - migrate to visual grid [#3559](https://github.com/wix/wix-style-react/pull/3559)
+- `<Text/>` - set default ellipsis appendTo to window [#3573](https://github.com/wix/wix-style-react/pull/3573)
 
 ### Fixed
 - `<InputWithOptions/>` - prevent Enter key from triggering form submit [#3562](https://github.com/wix/wix-style-react/pull/3562)
