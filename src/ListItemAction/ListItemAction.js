@@ -27,6 +27,9 @@ class ListItemActionComponent extends React.PureComponent {
     /** When present, it specifies that a button should automatically get focus when the page loads. */
     autoFocus: PropTypes.bool,
 
+    /** true - text will wrap when necessary, false - text will be ellipsed  */
+    wrapText: PropTypes.bool,
+
     /** Title */
     title: PropTypes.string.isRequired,
 
@@ -44,13 +47,14 @@ class ListItemActionComponent extends React.PureComponent {
   }
 
   _renderText = () => {
-    const { title, size } = this.props;
+    const { title, size, wrapText } = this.props;
     return (
       <Text
         className={styles.text}
         weight="normal"
         size={size}
         dataHook="list-item-action-title"
+        ellipsis={!wrapText}
       >
         {title}
       </Text>
@@ -70,6 +74,7 @@ class ListItemActionComponent extends React.PureComponent {
     as: 'button',
     skin: 'standard',
     size: 'medium',
+    wrapText: false,
   };
 
   render() {
@@ -122,6 +127,7 @@ export const listItemActionBuilder = ({
   tabIndex,
   autoFocus,
   className,
+  wrapText,
 }) => ({
   id,
   disabled,
@@ -129,6 +135,7 @@ export const listItemActionBuilder = ({
   value: props => (
     <ListItemAction
       {...props}
+      wrapText={wrapText}
       className={className}
       autoFocus={autoFocus}
       tabIndex={tabIndex}

@@ -186,6 +186,74 @@ export const state = `
 </div>
 `;
 
+export const wrap = `
+<div style={{ height: '240px' }}>
+  <Layout>
+  <Cell span={6}>
+    <div
+      style={{
+        width: '200px',
+        height: '120px'
+      }}
+    >
+      <DropdownLayout
+        visible
+        options={[
+          listItemActionBuilder({
+            id: 0,
+            as: "button",
+            title: 'very long message very very',
+          }),
+          listItemActionBuilder({
+            id: 1,
+            as: "button",
+            title: 'very long message very very',
+          }),
+          listItemActionBuilder({
+            id: 1,
+            as: "button",
+            title: 'very long message very very',
+          }),
+        ]}
+      />
+    </div>
+    </Cell>
+    <Cell span={6}>
+    <div
+      style={{
+        width: '200px',
+        height: '120px'
+      }}
+    >
+      <DropdownLayout
+        visible
+        options={[
+          listItemActionBuilder({
+            id: 0,
+            as: "button",
+            title: 'very long message very',
+            wrapText: true,
+          }),
+          listItemActionBuilder({
+            id: 1,
+            as: "button",
+            title: 'very long message very',
+            wrapText: true,
+          }),
+          listItemActionBuilder({
+            id: 1,
+            as: "button",
+            title: 'very long message very',
+            wrapText: true,
+          }),
+        ]}
+      />
+    </div>
+    </Cell>
+  </Layout>
+</div>
+`;
+
 export const as = `
 <div
   style={{

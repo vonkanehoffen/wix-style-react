@@ -111,6 +111,12 @@ export default {
               source: examples.state,
             },
             {
+              title: 'Text Wrap',
+              text:
+                'Text can be set to wrap or be ellipsed. By default text gets ellipsed.',
+              source: examples.wrap,
+            },
+            {
               title: 'Custom render element',
               text: 'Supports rendering with custom html tag.',
               source: examples.as,
