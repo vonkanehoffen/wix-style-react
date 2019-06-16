@@ -6,8 +6,7 @@ import tooltip from '../Tooltip/TooltipNext/Tooltip.st.css';
 
 const EllipsedText = withEllipsedTooltip({
   showTooltip: true,
-  tooltipProps: { className: tooltip.root },
-  appendTo: 'window',
+  tooltipProps: { className: tooltip.root, appendTo: 'window' },
 })(OriginalText);
 
 const Text = ({ ellipsis, ...props }) =>
