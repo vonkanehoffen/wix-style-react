@@ -70,7 +70,6 @@ export const numberInputTestkitFactory = enzymeUniTestkitFactoryCreator(load(req
 export const floatingNotificationTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
 export const datePickerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/DatePicker/DatePicker.driver')));
 export const proportionTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/Proportion/Proportion.uni.driver')));
-export const generatedTestComponentTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/GeneratedTestComponent/GeneratedTestComponent.uni.driver')));
 export const dropdownBaseTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/DropdownBase/DropdownBase.uni.driver')));
 export const radioButtonTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/RadioGroup/RadioButton/RadioButton.driver')));
 export const messageBoxMarketerialLayoutTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver')));

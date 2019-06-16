@@ -72,7 +72,6 @@ export const numberInputTestkitFactory = uniTestkitFactoryCreator(load(require('
 export const floatingNotificationTestkitFactory = uniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
 export const datePickerTestkitFactory = testkitFactoryCreator(load(require('../src/DatePicker/DatePicker.driver')));
 export const proportionTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Proportion/Proportion.uni.driver')));
-export const generatedTestComponentTestkitFactory = uniTestkitFactoryCreator(load(require('../src/GeneratedTestComponent/GeneratedTestComponent.uni.driver')));
 export const dropdownBaseTestkitFactory = uniTestkitFactoryCreator(load(require('../src/DropdownBase/DropdownBase.uni.driver')));
 export const radioButtonTestkitFactory = testkitFactoryCreator(load(require('../src/RadioGroup/RadioButton/RadioButton.driver')));
 export const messageBoxMarketerialLayoutTestkitFactory = testkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver')));
