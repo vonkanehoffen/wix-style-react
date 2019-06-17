@@ -1,0 +1,32 @@
+:import {
+    -st-from: "../../Foundation/stylable/colors.st.css";
+    -st-named: D55;
+}
+
+.root {
+    -st-states: disabled(boolean), selected(boolean);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.root:disabled {
+    cursor: default;
+}
+
+.root:selected {
+    cursor: default;
+}
+
+.stepText {
+    -st-states: disabled(boolean), selected(boolean);
+    cursor: pointer;
+}
+
+.stepText:disabled {
+    cursor: default;
+}
+
+.stepText:selected {
+    cursor: default;
+}

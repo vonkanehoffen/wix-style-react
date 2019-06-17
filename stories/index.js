@@ -144,6 +144,7 @@ require('../src/BadgeSelectItemBuilder/docs');
 require('../src/ContactItemBuilder/docs');
 require('../src/DateInput/docs/index.story');
 require('../src/Table/docs/improved-index.story');
+require('../src/Stepper/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');

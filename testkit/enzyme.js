@@ -93,6 +93,7 @@ export const sortableListTestkitFactory = enzymeTestkitFactoryCreator(load(requi
 export const sidebarTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/Sidebar/Sidebar.uni.driver')));
 export const selectorTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Selector/Selector.driver')));
 export const nestableListTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/NestableList/NestableList.driver')));
+export const stepperTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
 export const addItemTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/AddItem/AddItem.driver')));
 export const autoCompleteTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/AutoComplete/AutoComplete.driver')));
 export const autoCompleteCompositeTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/AutoCompleteComposite/AutoCompleteComposite.driver')));

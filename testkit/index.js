@@ -95,6 +95,7 @@ export const sortableListTestkitFactory = testkitFactoryCreator(load(require('..
 export const sidebarTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Sidebar/Sidebar.uni.driver')));
 export const selectorTestkitFactory = testkitFactoryCreator(load(require('../src/Selector/Selector.driver')));
 export const nestableListTestkitFactory = testkitFactoryCreator(load(require('../src/NestableList/NestableList.driver')));
+export const stepperTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
 export const addItemTestkitFactory = testkitFactoryCreator(load(require('../src/AddItem/AddItem.driver')));
 export const autoCompleteTestkitFactory = testkitFactoryCreator(load(require('../src/AutoComplete/AutoComplete.driver')));
 export const autoCompleteCompositeTestkitFactory = testkitFactoryCreator(load(require('../src/AutoCompleteComposite/AutoCompleteComposite.driver')));

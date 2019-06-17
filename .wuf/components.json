@@ -287,6 +287,9 @@
   "StatsWidget": {
     "path": "src/StatsWidget"
   },
+  "Stepper": {
+    "path": "src/Stepper"
+  },
   "Swatches": {
     "path": "src/Swatches"
   },

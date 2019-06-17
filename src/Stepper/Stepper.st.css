@@ -1,0 +1,21 @@
+:import {
+    -st-from: "../Foundation/stylable/colors.st.css";
+    -st-named: D55;
+}
+
+.root {
+    display: flex;
+    overflow: hidden;
+}
+
+
+.stepSplitter {
+    padding-right: 6px;
+    cursor: default;
+    color: value(D55);
+}
+
+.stepAndSplitter {
+    display: flex;
+    align-items: center;
+}
