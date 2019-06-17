@@ -17,6 +17,17 @@ Types of changes:
 ## Next
 
 ### Added
+
+
+### Changed
+
+
+### Fixed
+
+
+## 6.28.0 - 2019-06-17
+
+### Added
 - `<Thumbnail/>` - add title below thumbnail [#3560](https://github.com/wix/wix-style-react/pull/3560)
 - `<Button/>`- add primary dark theme [#3565](https://github.com/wix/wix-style-react/pull/3565)
 - `<PopoverMenu/>` - BETA - add arrow keys focus navigation [#3522](https://github.com/wix/wix-style-react/pull/3522)
