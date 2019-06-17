@@ -24,6 +24,8 @@ Types of changes:
 
 ### Fixed
 
+### Docs
+- `<Table/>` - add example with infinite scroll (appears under `WIP`) [#3584](https://github.com/wix/wix-style-react/pull/3584)
 
 ## 6.28.0 - 2019-06-17
 
