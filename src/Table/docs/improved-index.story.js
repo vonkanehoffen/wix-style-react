@@ -22,6 +22,7 @@ import testkitReadme from './README.TESTKIT.md';
 
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
 import TableToolbarExampleRaw from '!raw-loader!./examples/TableToolbarExample';
+import TableInfiniteScrollExampleRaw from '!raw-loader!./examples/TableInfiniteScrollExample';
 
 const code = config =>
   baseCode({
@@ -119,8 +120,15 @@ export default {
             {
               title: 'Table with Toolbar',
               description:
-                'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there is no selected rows, and an actions toolbar when some rows are selected.',
+                'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there are no selected rows, and an actions toolbar when some rows are selected.',
               source: TableToolbarExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Infinite Scroll',
+              description:
+                'As opposed to pagination - infinite scroll means that new pages are loaded automatically, when the scrollbar reaches to the end (assuming there is more data to load). The `infiniteScroll` prop instructs the table to not render all data on startup, but rather gradually. Notice that the infinite scroll should listen to some scroll events (in order to determine when to render new items). In this example, we pass a container with limited height - but it could be any element that triggers scroll events.',
+              source: TableInfiniteScrollExampleRaw,
               compact: true,
             },
           ].map(code),
