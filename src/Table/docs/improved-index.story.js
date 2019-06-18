@@ -22,6 +22,7 @@ import testkitReadme from './README.TESTKIT.md';
 
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
 import TableToolbarExampleRaw from '!raw-loader!./examples/TableToolbarExample';
+import TableEmptyStateExampleRaw from '!raw-loader!./examples/TableEmptyStateExample';
 import TableInfiniteScrollExampleRaw from '!raw-loader!./examples/TableInfiniteScrollExample';
 import TableVirtualizationExampleRaw from '!raw-loader!./examples/TableVirtualizationExample';
 
@@ -123,6 +124,13 @@ export default {
               description:
                 'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there are no selected rows, and an actions toolbar when some rows are selected.',
               source: TableToolbarExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with EmptyState',
+              description:
+                'This example shows the usage for displaying an empty state message. Notice that `<Card/>` and `<TableToolbar/>` are optional - we should use them as necessary.',
+              source: TableEmptyStateExampleRaw,
               compact: true,
             },
             {
