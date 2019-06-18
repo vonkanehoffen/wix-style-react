@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
-
+- `<Thumbnail/>` — allow custom children [#3568](https://github.com/wix/wix-style-react/pull/3568)
 
 ### Changed
 
