@@ -23,6 +23,7 @@ import testkitReadme from './README.TESTKIT.md';
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
 import TableToolbarExampleRaw from '!raw-loader!./examples/TableToolbarExample';
 import TableInfiniteScrollExampleRaw from '!raw-loader!./examples/TableInfiniteScrollExample';
+import TableVirtualizationExampleRaw from '!raw-loader!./examples/TableVirtualizationExample';
 
 const code = config =>
   baseCode({
@@ -129,6 +130,13 @@ export default {
               description:
                 'As opposed to pagination - infinite scroll means that new pages are loaded automatically, when the scrollbar reaches to the end (assuming there is more data to load). The `infiniteScroll` prop instructs the table to not render all data on startup, but rather gradually. Notice that the infinite scroll should listen to some scroll events (in order to determine when to render new items). In this example, we pass a container with limited height - but it could be any element that triggers scroll events.',
               source: TableInfiniteScrollExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Virtualization (Experimental)',
+              description:
+                "Virtualization is a technique to optimize the performance when it comes in a large collection of items. In practice it means we render a limited number of items at a time - when we scroll, the appropriate hidden items are added to the DOM whereas the irrelevant items are removed from the DOM. Also, it implements infinite scroll behavior by default, so we don't need to use `infiniteScroll`, `hasMore`, `loadMore` and so on. Notice that when using the `virtualized` prop, we must define `width` for the columns and provide the `virtualizedLineHeight` and `virtualizedTableHeight` props. In addition, `titleBarVisible` must be false (because a title bar is appended automatically).",
+              source: TableVirtualizationExampleRaw,
               compact: true,
             },
           ].map(code),
