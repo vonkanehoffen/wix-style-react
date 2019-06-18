@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.29.0 - 2019-06-18
+
 ### Added
 - `<Stepper>` - WIP basic stepper component [#3571](https://github.com/wix/wix-style-react/pull/3571)
 - `<Thumbnail/>` — allow custom children [#3568](https://github.com/wix/wix-style-react/pull/3568)
