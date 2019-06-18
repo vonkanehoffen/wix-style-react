@@ -32,6 +32,22 @@ export const selectedWithBackgroundImage = `<Thumbnail
   title="Thumbnail Title"
   />`;
 
+export const withCustomChildren = `<Thumbnail title="Thumbnail Title" width="250px">
+  <Box padding="3">
+    <Layout gap="12px" col={2} alignItems="center">
+      <Cell span={1}>
+        <Avatar size="size48" />
+      </Cell>
+      <Cell span={11}>
+        <Text size="medium" weight="bold">Jon Doe</Text>
+        <Box>
+          <Text size="small" weight="thin">Description goes here</Text>
+        </Box>
+      </Cell>
+    </Layout>
+  </Box>
+</Thumbnail>`;
+
 export const listOfSmall = `<Layout gap="12px">
   { [1,2,3,4].map(n =>
     <Cell key={n} span={1}>

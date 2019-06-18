@@ -23,6 +23,9 @@ export const thumbnailPrivateDriverFactory = base => {
     /** Does the thumbnails image exist */
     imageExists: () => byHook('thumbnail-image').exists(),
 
+    /** Does custom child exist */
+    customChildExists: () => byHook('custom-child').exists(),
+
     keyDown: async keyCode =>
       ReactTestUtils.Simulate.keyDown(await base.getNative(), { keyCode }),
   };

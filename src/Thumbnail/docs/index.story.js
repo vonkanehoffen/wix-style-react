@@ -6,17 +6,27 @@ import {
   playground,
   api,
   testkit,
-  code,
+  code as baseCode,
 } from 'wix-storybook-utils/Sections';
 
 import Thumbnail from '../Thumbnail';
 import { Layout, Cell } from '../../Layout';
+import Box from '../../Box';
+import Avatar from '../../Avatar';
+import Text from '../../Text';
 
 import * as examples from './examples';
 import exampleControlled from '!raw-loader!./exampleControlled';
 import thumbnailReadme from '../README.md';
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
 
 const sizes = [{ value: 100, label: '100' }, { value: 300, label: '300' }];
+
+const code = config =>
+  baseCode({
+    components: baseScope,
+    ...config,
+  });
 
 export default {
   category: storySettings.category,
@@ -84,16 +94,14 @@ export default {
             source: examples.selectedWithBackgroundImage,
           },
           {
+            title: 'Thumbnail with custom children',
+            source: examples.withCustomChildren,
+          },
+          {
             title: 'List of small thumbnails',
             source: examples.listOfSmall,
           },
-        ].map(({ source, title }) =>
-          code({
-            source,
-            title,
-            components: { Thumbnail, Layout, Cell },
-          }),
-        ),
+        ].map(code),
 
         code({
           title: 'Controlled Thumbnail',

@@ -152,4 +152,38 @@ describe('Thumbnail', () => {
       expect(await driver.getHeight()).toEqual('100px');
     });
   });
+
+  describe('children', async () => {
+    it('should render children', async () => {
+      const driver = await createDriver(
+        <Thumbnail>
+          <div data-hook="custom-child" />
+        </Thumbnail>,
+      );
+      expect(await driver.customChildExists()).toEqual(true);
+    });
+
+    it('should hide title (inside thumbnail wrapper), description and image', async () => {
+      const driver = await createDriver(
+        <Thumbnail title="title" description="description" image="image.jpg">
+          <div data-hook="custom-child" />
+        </Thumbnail>,
+      );
+      expect(await driver.titleExists()).toEqual(false);
+      expect(await driver.descriptionExists()).toEqual(false);
+      expect(await driver.imageExists()).toEqual(false);
+    });
+
+    it('should display bottom title', async () => {
+      const driver = await createDriver(
+        <Thumbnail title="title" description="description" image="image.jpg">
+          <div data-hook="custom-child" />
+        </Thumbnail>,
+      );
+      expect(await driver.titleExists()).toEqual(false);
+      expect(await driver.descriptionExists()).toEqual(false);
+      expect(await driver.imageExists()).toEqual(false);
+      expect(await driver.bottomTitleExists()).toEqual(true);
+    });
+  });
 });

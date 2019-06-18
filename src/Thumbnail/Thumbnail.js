@@ -20,6 +20,9 @@ class Thumbnail extends React.PureComponent {
   static propTypes = {
     dataHook: PropTypes.string,
 
+    /** Children to render inside thumbnail. If children passed then title will be rendered below thumbnail */
+    children: PropTypes.node,
+
     /** Title node */
     title: PropTypes.node,
 
@@ -79,16 +82,19 @@ class Thumbnail extends React.PureComponent {
     );
   };
 
-  _renderBackgroundLayout = () =>
-    isString(this.props.backgroundImage) ? (
+  _renderBackgroundLayout = () => {
+    const { disabled } = this.props;
+
+    return isString(this.props.backgroundImage) ? (
       <div
-        className={styles.backgroundImage}
+        {...styles('backgroundImage', { disabled }, this.props)}
         data-hook="thumbnail-background-image"
         style={{ backgroundImage: `url(${this.props.backgroundImage})` }}
       />
     ) : (
       this.props.backgroundImage
     );
+  };
 
   _renderNoBackgroundLayout = () => {
     const { title, description, image, size } = this.props;
@@ -129,6 +135,26 @@ class Thumbnail extends React.PureComponent {
     );
   };
 
+  _renderThumbnailContent = () => {
+    const { backgroundImage, children, disabled } = this.props;
+    const hasBackground = !!backgroundImage;
+    const hasChildren = !!children;
+
+    if (hasChildren) {
+      return (
+        <div {...styles('customChild', { disabled }, this.props)}>
+          {children}
+        </div>
+      );
+    }
+
+    if (hasBackground) {
+      return this._renderBackgroundLayout();
+    }
+
+    return this._renderNoBackgroundLayout();
+  };
+
   _renderSelectedIcon = () => (
     <div className={styles.selectedIcon} data-hook="thumbnail-selected-icon">
       <Check size="24" />
@@ -141,6 +167,7 @@ class Thumbnail extends React.PureComponent {
 
   render() {
     const {
+      children,
       dataHook,
       size,
       selected,
@@ -155,8 +182,9 @@ class Thumbnail extends React.PureComponent {
       focusableOnBlur,
     } = this.props;
 
+    const hasChildren = !!children;
     const hasBackground = !!backgroundImage;
-    const showBottomTitle = hasBackground && title;
+    const showBottomTitle = (hasChildren || hasBackground) && title;
 
     return (
       <div
@@ -170,7 +198,7 @@ class Thumbnail extends React.PureComponent {
           style={{ height }}
           {...styles(
             'thumbnail',
-            { selected, disabled, size, hasBackground },
+            { selected, disabled, size, hasBackground, hasChildren },
             this.props,
           )}
           onFocus={focusableOnFocus}
@@ -179,8 +207,7 @@ class Thumbnail extends React.PureComponent {
           data-hook="thumbnail-wrapper"
         >
           {!hideSelectedIcon && selected && this._renderSelectedIcon()}
-          {hasBackground && this._renderBackgroundLayout()}
-          {!hasBackground && this._renderNoBackgroundLayout()}
+          {this._renderThumbnailContent()}
         </div>
         {showBottomTitle ? this._renderBottomTitle() : null}
       </div>

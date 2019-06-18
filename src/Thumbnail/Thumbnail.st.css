@@ -24,7 +24,7 @@
 
 .thumbnail {
   -st-extends: Focusable;
-  -st-states: selected, disabled, size(enum(tiny, small, medium)), hasBackground;
+  -st-states: selected, disabled, size(enum(tiny, small, medium)), hasBackground, hasChildren;
   position: relative;
   display: flex;
   margin: 0 auto;
@@ -87,27 +87,52 @@
   color: value(D55);
 }
 
-.thumbnail:hasBackground {
+
+.thumbnail:hasChildren {
   padding: 0;
+  align-items: stretch;
+}
+
+
+.thumbnail:hasBackground,
+.thumbnail:hasChildren {
   height: 100%;
+  padding: 0;
+  background-color: value(WHITE);
   box-shadow: 0 0 0 1px value(B30);
 }
 
-.thumbnail:hasBackground:hover {
+.thumbnail:hasBackground:hover,
+.thumbnail:hasChildren:hover {
   box-shadow: 0 0 0 1px value(B20);
 }
 
-.thumbnail:hasBackground:selected {
+.thumbnail:hasBackground:selected,
+.thumbnail:hasChildren:selected {
   box-shadow: 0 0 0 2px value(B10);
 }
 
-.thumbnail:hasBackground:selected:disabled {
+.thumbnail:hasBackground:selected:disabled,
+.thumbnail:hasChildren:selected:disabled {
   box-shadow: 0 0 0 2px value(D55);
 }
 
-.thumbnail:hasBackground:disabled {
+.thumbnail:hasBackground:disabled,
+.thumbnail:hasChildren:disabled {
   box-shadow: 0 0 0 1px value(D55);
 }
+
+
+.customChild {
+  -st-states: disabled;
+  overflow: auto; /* is required to make thumbnail border be always on top of custom child */
+  border-radius: value(borderRadius);
+}
+
+.customChild:disabled {
+  opacity: 0.3;
+}
+
 
 .title,
 .description,
@@ -147,12 +172,17 @@
 }
 
 .backgroundImage {
+  -st-states: disabled;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: value(borderRadius);
+}
+
+.backgroundImage:disabled {
+  opacity: 0.3;
 }
 
 .selectedIcon {
