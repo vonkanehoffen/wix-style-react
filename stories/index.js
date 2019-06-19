@@ -159,6 +159,7 @@ require('../src/CloseButton/docs/testStory'); // Tests/5. Button/5.4 CloseButton
 require('../src/Calendar/docs/CalendarTestStory'); // Tests/3. Inputs/3.13 Calendar
 require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
+require('../src/Stepper/test/StepperWindowResizeTest');
 require('../src/Popover/docs/testStory');
 require('../src/Modal/test/TestsStory'); //Tests/9. Modal
 require('../src/Table/test/testStory');

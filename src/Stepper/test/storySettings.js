@@ -5,6 +5,6 @@ export const storySettings = {
   storyName: 'Stepper',
   dataHook: 'story-stepper',
   testStoryNames: {
-    DEFAULT: 'Default',
+    WINDOW_RESIZE: 'window resize',
   },
 };

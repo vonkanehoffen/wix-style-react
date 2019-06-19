@@ -62,6 +62,9 @@ export default {
 
   componentProps: {
     buttonText: 'Hello World!',
+    dataHook: storySettings.dataHook,
+    steps: steps7,
+    activeStep: 2,
   },
 
   exampleProps: {
