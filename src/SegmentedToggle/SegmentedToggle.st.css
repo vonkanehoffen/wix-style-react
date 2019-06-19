@@ -21,3 +21,21 @@
 .root:disabled {
   box-shadow: 0 0 0 1px value(D55);
 }
+
+.divider {
+  -st-states: disabled, transparent;
+  /* Sizing */
+  flex-basis: auto;
+  width: 1px;
+  min-width: 1px;
+
+  background-color: value(B30);
+}
+
+.divider:disabled {
+  background-color: value(D55);
+}
+
+.divider:transparent {
+  background-color: transparent;
+}

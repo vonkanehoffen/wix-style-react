@@ -1,5 +1,5 @@
 import React from 'react';
-import { storySettings } from './storySettings';
+import { storySettings } from '../test/storySettings';
 import {
   tab,
   code,

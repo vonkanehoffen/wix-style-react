@@ -171,7 +171,6 @@ require('../src/Thumbnail/docs/testStory');
 require('../src/EditableSelector/docs/testStory');
 require('../src/Slider/docs/testStory'); // 4.7 Slider
 require('../src/StatsWidget/docs/testStory'); // 2.7 StatsWidget
-require('../src/SegmentedToggle/docs/testStory'); // 4.5 SegmentedToggle
 require('../src/FloatingNotification/docs/FloatingNotificationTestStory'); // 8.2 FloatingNotification
 require('../src/FormField/docs/testStory');
 require('../src/DropdownLayout/docs/testStory');
