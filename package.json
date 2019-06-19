@@ -43,7 +43,7 @@
     "test:eyes-storybook": "eyes-storybook -c ./.storybook-test",
     "test:types": "tsc --noEmit -p tsconfig.declarations.json",
     "copy-public-styles": "cp src/*.scss .",
-    "prebuild": "npm run generate-testkit-exports",
+    "prebuild": "npm run update-components && npm run update-components:beta",
     "build": "npm run lint && npm run proxy-wix-ui-icons && npm run transpile && concurrently 'npm run storybook:build' 'npm run build-puppeteer-testkit' --kill-others-on-fail",
     "build-puppeteer-testkit": "webpack --config ./testkit/webpack.config.js",
     "travis": "npm run lint && npm run proxy-wix-ui-icons && npm run transpile && npm run test:unit -- --maxWorkers=4",
