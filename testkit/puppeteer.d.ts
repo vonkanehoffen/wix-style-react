@@ -34,3 +34,4 @@ export const notificationTestkitFactory: any;
 export const checkboxTestkitFactory: any;
 export const loaderTestkitFactory: any;
 export const errorIndicatorTestkitFactory: any;
+export const stepperTestkitFactory: any;

@@ -87,3 +87,4 @@ export const tooltipTestkitFactory: any;
 export const TooltipTestkit: any;
 export const notificationTestkitFactory: any;
 export const errorIndicatorTestkitFactory: any;
+export const stepperTestkitFactory: any;

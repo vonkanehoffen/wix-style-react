@@ -514,3 +514,9 @@ import { swatchesDriverFactory } from '../src/Swatches/Swatches.uni.driver';
 export const swatchesTestkitFactory = protractorUniTestkitFactoryCreator(
   swatchesDriverFactory,
 );
+
+import { stepperDriverFactory } from '../src/Stepper/Stepper.uni.driver';
+
+export const stepperTestkitFactory = protractorUniTestkitFactoryCreator(
+  stepperDriverFactory,
+);

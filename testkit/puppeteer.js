@@ -238,3 +238,9 @@ import { pageHeaderUniDriverFactory } from '../src/PageHeader/PageHeader.uni.dri
 export const pageHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   pageHeaderUniDriverFactory,
 );
+
+import { stepperDriverFactory } from '../src/Stepper/Stepper.uni.driver';
+
+export const stepperTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  stepperDriverFactory,
+);
