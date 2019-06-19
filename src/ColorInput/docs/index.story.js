@@ -10,24 +10,19 @@ import {
   importExample,
   columns,
   header,
-  code as baseLiveCode,
+  title,
+  code as baseCode,
 } from 'wix-storybook-utils/Sections';
 
 import testkit from './README.TESTKIT.md';
 import ColorInput from '..';
 import { placements } from '../../Popover';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 
 import usage from './Usage.md';
 import * as examples from './examples';
-import Swatches from '../../../dist/es/src/Swatches/Swatches';
 
-const liveCode = config => baseLiveCode({ components: baseScope, ...config });
-
-const example = ({ title, text, source }) =>
-  columns({
-    items: [description({ title, text }), liveCode({ compact: true, source })],
-  });
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -64,9 +59,14 @@ export default {
     ],
     colorPickerChildren: [
       {
-        label: 'Swatches',
+        label: 'Simple Text',
+        value: 'I am Color Picker Children!',
+      },
+
+      {
+        label: 'A <button>',
         value: ({ changeColor }) => (
-          <Swatches colors={['red', 'green', 'blue']} onClick={changeColor} />
+          <button onClick={() => changeColor('blue')}>Set color to blue</button>
         ),
       },
     ],
@@ -92,9 +92,7 @@ export default {
             '🎨 ColorInput is an input which allows to write HEX color manually or pick it from color picker.',
           ),
 
-          importExample({
-            source: "import ColorInput from 'wix-style-react/ColorInput';",
-          }),
+          importExample("import ColorInput from 'wix-style-react/ColorInput';"),
 
           divider(),
 
@@ -103,7 +101,7 @@ export default {
             text: usage,
           }),
 
-          columns([description('### Examples')]),
+          title('Examples'),
 
           ...[
             {
@@ -111,11 +109,13 @@ export default {
               text: 'The component is used in controlled mode.',
               source: examples.controlledExample,
             },
+
             {
               title: 'Semi-Controlled',
               text: 'The component returns only valid hex values.',
               source: examples.semiControlledExample,
             },
+
             {
               title: 'Size',
               text: 'ColorInput supports `small`, `medium` and `large` sizes.',
@@ -127,25 +127,26 @@ export default {
               text: 'ColorInput has `error`, `null` and `disabled` states.',
               source: examples.states,
             },
-          ].map(example),
+
+            {
+              title: 'colorPickerChildren prop with <Swatches/>',
+              text:
+                '`<ColorInput/>` accepts `colorPickerChildren` prop which can be a function. It receives `changeColor` function to control `<ColorInput/>` value',
+              source: examples.colorPickerChildren,
+            },
+          ].map(({ title, text, source }) =>
+            columns([
+              description({ title, text }),
+              code({ compact: true, source }),
+            ]),
+          ),
         ],
       }),
 
       ...[
-        {
-          title: 'API',
-          sections: [api()],
-        },
-
-        {
-          title: 'Testkit',
-          sections: [description(testkit)],
-        },
-
-        {
-          title: 'Playground',
-          sections: [playground()],
-        },
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [description(testkit)] },
+        { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),
   ],

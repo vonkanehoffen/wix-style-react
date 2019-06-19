@@ -75,3 +75,12 @@ export const states = `
   </Cell>
 </Layout>
 `;
+
+export const colorPickerChildren = `
+<ColorInput
+  value="#FF4136"
+  colorPickerChildren={({ changeColor }) => (
+    <Swatches colors={['midnightblue', 'darkmagenta', 'lightcoral']} onClick={changeColor} />
+  )}
+/>
+`;
