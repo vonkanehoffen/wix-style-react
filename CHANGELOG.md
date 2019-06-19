@@ -19,8 +19,9 @@ Types of changes:
 ### Docs
 - `<Stepper/>` - Testkits export for protractor & puppetter [#3591](https://github.com/wix/wix-style-react/pull/3591)
 - `<Carousel/>` - move to "Components" section [#3587](https://github.com/wix/wix-style-react/pull/3587)
-- `<Table/>` - add example with virtualization (appears under `WIP`) [#3585](https://github.com/wix/wix-style-react/pull/3585)
-- `<Table/>` - add example with EmptyState (appears under `WIP`) [#3590](https://github.com/wix/wix-style-react/pull/3590)
+- `<Table/>` - add example with virtualization [#3585](https://github.com/wix/wix-style-react/pull/3585)
+- `<Table/>` - add example with EmptyState [#3590](https://github.com/wix/wix-style-react/pull/3590)
+- `<Table/>` - migrate existing examples to new docs [#3592](https://github.com/wix/wix-style-react/pull/3592)
 
 ## 6.29.0 - 2019-06-18
 
@@ -29,7 +30,7 @@ Types of changes:
 - `<Thumbnail/>` — allow custom children [#3568](https://github.com/wix/wix-style-react/pull/3568)
 
 ### Docs
-- `<Table/>` - add example with infinite scroll (appears under `WIP`) [#3584](https://github.com/wix/wix-style-react/pull/3584)
+- `<Table/>` - add example with infinite scroll [#3584](https://github.com/wix/wix-style-react/pull/3584)
 
 ## 6.28.0 - 2019-06-17
 
@@ -61,8 +62,8 @@ Types of changes:
 - `<SectionHelper/>` - add `fullWidth` to support unlimited width content [#3557](https://github.com/wix/wix-style-react/pull/3557)
 
 ### Docs
-- `<Table/>` - explain compound components (appears under `WIP`) [#3538](https://github.com/wix/wix-style-react/pull/3538)
-- `<Table/>` - document missing props (appears under `WIP`) [#3546](https://github.com/wix/wix-style-react/pull/3546)
+- `<Table/>` - explain compound components [#3538](https://github.com/wix/wix-style-react/pull/3538)
+- `<Table/>` - document missing props [#3546](https://github.com/wix/wix-style-react/pull/3546)
 
 ## 6.26.0 - 2019-06-06
 
