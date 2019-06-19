@@ -23,6 +23,9 @@ Types of changes:
 - `<Table/>` - add example with EmptyState [#3590](https://github.com/wix/wix-style-react/pull/3590)
 - `<Table/>` - migrate existing examples to new docs [#3592](https://github.com/wix/wix-style-react/pull/3592)
 
+### Fixed
+- `<SegmentedToggle/>`- adding options divider [#3575](https://github.com/wix/wix-style-react/pull/3575)
+
 ## 6.29.0 - 2019-06-18
 
 ### Added
