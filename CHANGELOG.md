@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Docs
+- `<Stepper/>` - Testkits export for protractor & puppetter [#3591](https://github.com/wix/wix-style-react/pull/3591)
 - `<Carousel/>` - move to "Components" section [#3587](https://github.com/wix/wix-style-react/pull/3587)
 - `<Table/>` - add example with virtualization (appears under `WIP`) [#3585](https://github.com/wix/wix-style-react/pull/3585)
 - `<Table/>` - add example with EmptyState (appears under `WIP`) [#3590](https://github.com/wix/wix-style-react/pull/3590)
