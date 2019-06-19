@@ -73,7 +73,7 @@ class Step extends React.PureComponent {
         />
         <div
           {...styles(
-            'stepText',
+            'stepTextWrapper',
             {
               disabled: type === STEP_TYPES.DISABLED,
               selected: active,
@@ -82,7 +82,22 @@ class Step extends React.PureComponent {
           )}
           style={{ maxWidth: `${stepSize}px` }}
         >
-          <Text ellipsis>{text}</Text>
+          <Text
+            ellipsis
+            weight={'normal'}
+            {...styles(
+              'stepText',
+              {
+                disabled: type === STEP_TYPES.DISABLED,
+                selected: active,
+                stepHover: stepHover,
+                error: type === STEP_TYPES.ERROR,
+              },
+              this.props,
+            )}
+          >
+            {text}
+          </Text>
         </div>
       </div>
     );
