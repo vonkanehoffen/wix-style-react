@@ -1,73 +1,47 @@
-/* eslint-disable no-console */
-import React from 'react';
-import { Table } from 'wix-style-react/Table';
-import {
-  TableToolbar,
-  ItemGroup,
-  Item,
-  Label,
-  SelectedCount,
-  Divider,
-} from 'wix-style-react/TableToolbar';
+/* eslint-disable */
 
-import Dropdown from 'wix-style-react/Dropdown';
-import Search from 'wix-style-react/Search';
-import Checkbox from 'wix-style-react/Checkbox';
-import Card from 'wix-style-react/Card';
-import Page from 'wix-style-react/Page';
-import Button from 'wix-style-react/Button';
-import TextButton from 'wix-style-react/TextButton';
-import Text from 'wix-style-react/Text';
-import { Edit, Duplicate, Upload } from 'wix-style-react/new-icons';
-import Highlighter from 'wix-style-react/Highlighter';
+class TablePageExample extends React.Component {
+  createDataSet = setIndex => [
+    {
+      id: `${setIndex}-1`,
+      name: `Apple Towels ${setIndex}`,
+      SKU: '111222',
+      price: '$2.00',
+      inventory: 'In stock',
+      collectionId: 1,
+    },
+    {
+      id: `${setIndex}-2`,
+      name: `Cyan Towels ${setIndex}`,
+      SKU: '222333',
+      price: '$2.00',
+      inventory: 'In stock',
+      collectionId: 1,
+      filterId: 2,
+    },
+    {
+      id: `${setIndex}-3`,
+      name: `Marble Slippers ${setIndex}`,
+      SKU: '333444',
+      price: '$14.00',
+      inventory: 'In stock',
+      collectionId: 2,
+    },
+    {
+      id: `${setIndex}-4`,
+      name: `Red Slippers ${setIndex}`,
+      SKU: '444555',
+      price: '$14.00',
+      inventory: 'Out of stock',
+      collectionId: 2,
+      filterId: 1,
+    },
+  ];
 
-import ImagePlaceholder from '../../../stories/utils/ImagePlaceholder';
+  allData = [1, 2, 3, 4, 5].reduce((accum, index) => accum.concat(this.createDataSet(index)), []);
 
-const createDataSet = setIndex => [
-  {
-    id: `${setIndex}-1`,
-    name: `Apple Towels ${setIndex}`,
-    SKU: '111222',
-    price: '$2.00',
-    inventory: 'In stock',
-    collectionId: 1,
-  },
-  {
-    id: `${setIndex}-2`,
-    name: `Cyan Towels ${setIndex}`,
-    SKU: '222333',
-    price: '$2.00',
-    inventory: 'In stock',
-    collectionId: 1,
-    filterId: 2,
-  },
-  {
-    id: `${setIndex}-3`,
-    name: `Marble Slippers ${setIndex}`,
-    SKU: '333444',
-    price: '$14.00',
-    inventory: 'In stock',
-    collectionId: 2,
-  },
-  {
-    id: `${setIndex}-4`,
-    name: `Red Slippers ${setIndex}`,
-    SKU: '444555',
-    price: '$14.00',
-    inventory: 'Out of stock',
-    collectionId: 2,
-    filterId: 1,
-  },
-];
-
-const allData = [1, 2, 3, 4, 5].reduce(
-  (accum, index) => accum.concat(createDataSet(index)),
-  [],
-);
-
-export class TablePageExample extends React.Component {
   state = {
-    data: allData,
+    data: this.allData,
     collectionId: 0,
     filterId: 0,
     searchTerm: '',
@@ -99,9 +73,9 @@ export class TablePageExample extends React.Component {
     return (
       <Card>
         <TableToolbar>
-          <ItemGroup position="start">
-            <Item>
-              <Label>
+          <TableToolbar.ItemGroup position="start">
+            <TableToolbar.Item>
+              <TableToolbar.Label>
                 Product
                 <span style={{ width: '150px' }}>
                   <Dropdown
@@ -113,35 +87,33 @@ export class TablePageExample extends React.Component {
                     roundInput
                   />
                 </span>
-              </Label>
-            </Item>
-            <Item>
-              <Label>
+              </TableToolbar.Label>
+            </TableToolbar.Item>
+            <TableToolbar.Item>
+              <TableToolbar.Label>
                 Color
                 <span style={{ width: '86px' }}>
                   <Dropdown
                     options={filterOptions}
                     selectedId={this.state.filterId}
-                    onSelect={selectedOption =>
-                      this.setState({ filterId: selectedOption.id })
-                    }
+                    onSelect={selectedOption => this.setState({ filterId: selectedOption.id })}
                     roundInput
                   />
                 </span>
-              </Label>
-            </Item>
-            <Item>
+              </TableToolbar.Label>
+            </TableToolbar.Item>
+            <TableToolbar.Item>
               <Checkbox
                 checked={this.state.inStock}
                 onChange={e => this.setState({ inStock: e.target.checked })}
               >
                 In Stock only
               </Checkbox>
-            </Item>
-          </ItemGroup>
-          <ItemGroup position="end">
-            <Item>{this.renderSearch(false)}</Item>
-          </ItemGroup>
+            </TableToolbar.Item>
+          </TableToolbar.ItemGroup>
+          <TableToolbar.ItemGroup position="end">
+            <TableToolbar.Item>{this.renderSearch(false)}</TableToolbar.Item>
+          </TableToolbar.ItemGroup>
         </TableToolbar>
       </Card>
     );
@@ -150,53 +122,45 @@ export class TablePageExample extends React.Component {
   renderBulkActionsToolbar(props) {
     return (
       <TableToolbar>
-        <ItemGroup position="start">
-          <Item>
-            <SelectedCount>{`${props.selectedCount} Selected`}</SelectedCount>
-          </Item>
-        </ItemGroup>
-        <ItemGroup position="end">
-          <Item layout="button">
+        <TableToolbar.ItemGroup position="start">
+          <TableToolbar.Item>
+            <TableToolbar.SelectedCount>{`${props.selectedCount} Selected`}</TableToolbar.SelectedCount>
+          </TableToolbar.Item>
+        </TableToolbar.ItemGroup>
+        <TableToolbar.ItemGroup position="end">
+          <TableToolbar.Item layout="button">
             <Button
               skin="light"
               priority="primary"
-              prefixIcon={<Upload />}
-              onClick={() =>
-                window.alert(`Exporting selectedIds=${props.getSelectedIds()}`)
-              }
+              prefixIcon={<Icons.Upload />}
+              onClick={() => window.alert(`Exporting selectedIds=${props.getSelectedIds()}`)}
             >
               Export
             </Button>
-          </Item>
-          <Item layout="button">
+          </TableToolbar.Item>
+          <TableToolbar.Item layout="button">
             <Button
               skin="light"
               priority="primary"
-              prefixIcon={<Duplicate />}
-              onClick={() =>
-                window.alert(
-                  `Duplicating selectedIds=${props.getSelectedIds()}`,
-                )
-              }
+              prefixIcon={<Icons.Duplicate />}
+              onClick={() => window.alert(`Duplicating selectedIds=${props.getSelectedIds()}`)}
             >
               Duplicate
             </Button>
-          </Item>
-          <Item layout="button">
+          </TableToolbar.Item>
+          <TableToolbar.Item layout="button">
             <Button
               skin="light"
               priority="primary"
-              prefixIcon={<Edit />}
-              onClick={() =>
-                window.alert(`Editing selectedIds=${props.getSelectedIds()}`)
-              }
+              prefixIcon={<Icons.Edit />}
+              onClick={() => window.alert(`Editing selectedIds=${props.getSelectedIds()}`)}
             >
               Edit
             </Button>
-          </Item>
-          <Divider />
-          <Item>{this.renderSearch(true)}</Item>
-        </ItemGroup>
+          </TableToolbar.Item>
+          <TableToolbar.Divider />
+          <TableToolbar.Item>{this.renderSearch(true)}</TableToolbar.Item>
+        </TableToolbar.ItemGroup>
       </TableToolbar>
     );
   }
@@ -234,11 +198,7 @@ export class TablePageExample extends React.Component {
           columns={[
             {
               title: 'Name',
-              render: row => (
-                <Highlighter match={this.state.searchTerm}>
-                  {row.name}
-                </Highlighter>
-              ),
+              render: row => <Highlighter match={this.state.searchTerm}>{row.name}</Highlighter>,
               width: '30%',
               minWidth: '150px',
             },
@@ -287,9 +247,7 @@ export class TablePageExample extends React.Component {
                       this.state.searchTerm ? (
                         <Text>
                           There are no search results for{' '}
-                          <Text weight="normal">{`"${
-                            this.state.searchTerm
-                          }"`}</Text>
+                          <Text weight="normal">{`"${this.state.searchTerm}"`}</Text>
                           <br />
                           Try search by other cryteria
                         </Text>
@@ -302,9 +260,7 @@ export class TablePageExample extends React.Component {
                       )
                     }
                   >
-                    <TextButton onClick={() => this.clearSearch()}>
-                      Clear the search
-                    </TextButton>
+                    <TextButton onClick={() => this.clearSearch()}>Clear the search</TextButton>
                   </Table.EmptyState>
                 )}
               </Card>
@@ -321,7 +277,7 @@ export class TablePageExample extends React.Component {
   }
 
   getFilteredData() {
-    let data = allData;
+    let data = this.allData;
     if (this.state.collectionId > 0) {
       data = data.filter(row => row.collectionId === this.state.collectionId);
     }

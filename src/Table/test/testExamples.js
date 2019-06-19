@@ -1,9 +1,17 @@
 import React from 'react';
-import { ExternalLink } from 'wix-style-react/new-icons';
+import {
+  ExternalLink,
+  Star,
+  Download,
+  Duplicate,
+  Print,
+} from 'wix-style-react/new-icons';
 
 import { Table } from '..';
 import { TableToolbar } from '../../TableToolbar';
 import Dropdown from '../../Dropdown';
+import TableActionCell from '../../TableActionCell';
+import Card from '../../Card';
 import Search from '../../Search';
 import TextButton from '../../TextButton';
 import ImagePlaceholder from '../../../stories/utils/ImagePlaceholder';
@@ -63,3 +71,117 @@ export const EmptyStateExample = () => (
     </TextButton>
   </Table.EmptyState>
 );
+
+// TODO: Migrate to visual-grid (currently is being used to E2E)
+export class ActionCellExample extends React.Component {
+  baseData = [
+    {
+      name: 'Apple Towels',
+      SKU: '111222',
+      price: '$2.00',
+      inventory: 'In stock',
+    },
+    {
+      name: 'Cyan Towels',
+      SKU: '222333',
+      price: '$2.00',
+      inventory: 'In stock',
+    },
+    {
+      name: 'Marble Slippers',
+      SKU: '333444',
+      price: '$14.00',
+      inventory: 'In stock',
+    },
+    {
+      name: 'Red Slippers',
+      SKU: '444555',
+      price: '$14.00',
+      inventory: 'Out of stock',
+    },
+  ];
+
+  primaryAction = rowData => window.alert(`Editing ${rowData.name}`);
+
+  render() {
+    return (
+      <Card>
+        <Table
+          dataHook="story-action-cell-primary-secondary-example"
+          data={this.baseData}
+          itemsPerPage={20}
+          showSelection
+          onRowClick={this.primaryAction}
+          columns={[
+            {
+              title: 'Name',
+              render: row => <span>{row.name}</span>,
+              width: '20%',
+              minWidth: '150px',
+            },
+            {
+              title: 'SKU',
+              render: row => <span>{row.SKU}</span>,
+              width: '10%',
+              minWidth: '100px',
+            },
+            {
+              title: 'Price',
+              render: row => <span>{row.price}</span>,
+              width: '10%',
+              minWidth: '100px',
+            },
+            {
+              title: 'Inventory',
+              render: row => <span>{row.inventory}</span>,
+              width: '20%',
+              minWidth: '100px',
+            },
+            {
+              title: '',
+              width: '40%',
+              render: rowData => (
+                <TableActionCell
+                  dataHook="action-cell-component-secondary"
+                  primaryAction={{
+                    text: 'Edit',
+                    theme: 'fullblue',
+                    onActionTrigger: () => this.primaryAction(rowData),
+                  }}
+                  secondaryActions={[
+                    {
+                      text: 'Star',
+                      icon: <Star />,
+                      onClick: () => window.alert(`Starring ${rowData.name}`),
+                    },
+                    {
+                      text: 'Download',
+                      icon: <Download />,
+                      onClick: () =>
+                        window.alert(`Downloading ${rowData.name}`),
+                    },
+                    {
+                      text: 'Duplicate',
+                      icon: <Duplicate />,
+                      onClick: () =>
+                        window.alert(`Duplicating ${rowData.name}`),
+                    },
+                    {
+                      text: 'Print',
+                      icon: <Print />,
+                      onClick: () => window.alert(`Printing ${rowData.name}`),
+                    },
+                  ]}
+                  numOfVisibleSecondaryActions={2}
+                  alwaysShowSecondaryActions={false}
+                />
+              ),
+            },
+          ]}
+        >
+          <Table.Content />
+        </Table>
+      </Card>
+    );
+  }
+}

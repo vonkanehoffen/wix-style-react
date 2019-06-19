@@ -3,23 +3,28 @@ import eyes from 'eyes.it';
 import {
   tableTestkitFactory,
   tableActionCellTestkitFactory,
-} from '../../testkit/protractor';
+} from '../../../testkit/protractor';
 import {
   waitForVisibilityOf,
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../test/utils/storybook-helpers';
-import { flattenInternalDriver } from '../../test/utils/private-drivers';
-import { storySettings } from './docs/storySettings';
+import {
+  createStoryUrl,
+  createTestStoryUrl,
+} from '../../../test/utils/storybook-helpers';
+import { flattenInternalDriver } from '../../../test/utils/private-drivers';
+import { storySettings } from '../docs/storySettings';
 
 describe('Table', () => {
   const storyUrl = createStoryUrl({
     kind: storySettings.category,
     story: storySettings.storyName,
   });
+  const testStoryUrl = testName =>
+    createTestStoryUrl({ ...storySettings, testName });
 
-  const init = async (dataHook = 'storybook-table') => {
-    await browser.get(storyUrl);
+  const init = async (url, dataHook = 'storybook-table') => {
+    await browser.get(url || storyUrl);
     const driver = tableTestkitFactory({ dataHook });
     await waitForVisibilityOf(driver.element, 'Can not find Table Component');
     await scrollToElement(driver.element);
@@ -32,47 +37,12 @@ describe('Table', () => {
   });
 
   describe('Action cell', () => {
-    describe('Primary action only', () => {
-      const createDriver = () => init('story-action-cell-primary-example');
-
-      eyes.it(
-        'should show a primary action placeholder and hide it on row hover',
-        async () => {
-          const tableDriver = await createDriver();
-          const actionCellDriver = tableActionCellTestkitFactory({
-            dataHook: 'action-cell-component-primary',
-          });
-
-          expect(
-            actionCellDriver.getPrimaryActionPlaceholder().isDisplayed(),
-          ).toBe(true);
-          expect(actionCellDriver.getPrimaryActionButton().isDisplayed()).toBe(
-            false,
-          );
-          expect(tableDriver.getRow(0).getCssValue('background-color')).toEqual(
-            'rgba(0, 0, 0, 0)',
-          );
-
-          tableDriver.hoverRow(0);
-
-          expect(
-            actionCellDriver.getPrimaryActionPlaceholder().isDisplayed(),
-          ).toBe(false);
-          expect(actionCellDriver.getPrimaryActionButton().isDisplayed()).toBe(
-            true,
-          );
-          expect(
-            tableDriver.getRow(0).getCssValue('background-color'),
-          ).not.toEqual('rgba(0, 0, 0, 0)');
-
-          tableDriver.hoverRow(1);
-        },
-      );
-    });
-
     describe('Primary and secondary actions', () => {
       const createDriver = () =>
-        init('story-action-cell-primary-secondary-example');
+        init(
+          testStoryUrl(storySettings.testStoryNames.ACTION_CELL),
+          'story-action-cell-primary-secondary-example',
+        );
 
       eyes.it(
         'should always show the PopoverMenu, and show the primary and secondary actions only on hover',

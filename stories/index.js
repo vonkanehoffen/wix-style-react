@@ -143,7 +143,6 @@ require('../src/DragAndDrop/docs/DragAndDrop');
 require('../src/BadgeSelectItemBuilder/docs');
 require('../src/ContactItemBuilder/docs');
 require('../src/DateInput/docs/index.story');
-require('../src/Table/docs/improved-index.story');
 require('../src/Stepper/docs/index.story');
 
 // Tests
@@ -162,6 +161,7 @@ require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
 require('../src/Popover/docs/testStory');
 require('../src/Modal/test/TestsStory'); //Tests/9. Modal
+require('../src/Table/test/testStory');
 require('../src/TableToolbar/docs/ToolbarTestStory'); // Tests/10. Table
 require('../src/Tag/docs/TagTestStory'); // Tests/12. Other/12.5 Tag
 require('../src/Avatar/docs/AvatarTestStory'); // Tests/12. Other/12.6 Avatar
