@@ -21,6 +21,7 @@ Types of changes:
 
 ### Fixed
 - `<Card>` - CardHedaer text ellipsis width propagate parent width [#3601](https://github.com/wix/wix-style-react/pull/3601)
+- `<RichTextInputArea/>` - add missing `target` attribute for rendered links [#3602](https://github.com/wix/wix-style-react/pull/3602)
 
 ## 6.30.0 - 2019-06-20
 
