@@ -27,7 +27,7 @@
   "scripts": {
     "start": "./scripts/npm-start.sh",
     "pretest": "npm run lint && ./scripts/ensure-dist.sh",
-    "test": ":",
+    "test": "npm run test:unit && npm run test:eyes-storybook && npm run test:e2e && npm run test:types",
     "test1": "echo running test1",
     "test2": "echo running test2",
     "test3": "echo running test3",
