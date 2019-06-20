@@ -65,6 +65,8 @@ describe('Tag', () => {
       await eyes.checkWindow('theme: error');
       autoExampleDriver.setProps({ theme: 'warning' });
       await eyes.checkWindow('theme: warning');
+      autoExampleDriver.setProps({ theme: 'dark' });
+      await eyes.checkWindow('theme: dark');
     });
 
     eyes.it('should render disabled', async () => {

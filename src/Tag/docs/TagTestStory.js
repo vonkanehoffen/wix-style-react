@@ -26,6 +26,7 @@ storiesOf(kind, module).add('1. Thumb Variations', () => (
         <Tag children="default" />
         <Tag children="error theme" theme="error" />
         <Tag children="warning theme" theme="warning" />
+        <Tag children="dark theme" theme="dark" />
       </div>
       <div>
         Removable / Disabled:

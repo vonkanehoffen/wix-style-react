@@ -27,11 +27,12 @@ class Tag extends WixComponent {
   }
 
   _renderText() {
-    const { size, wrap, children, disabled } = this.props;
+    const { size, wrap, children, disabled, theme } = this.props;
 
     return (
       <Text
         skin={disabled ? 'disabled' : 'standard'}
+        light={theme === 'dark'}
         ellipsis={wrap}
         size={tagToTextSize[size]}
         weight={size === 'tiny' ? 'thin' : 'normal'}
@@ -43,12 +44,12 @@ class Tag extends WixComponent {
   }
 
   _renderRemoveButton() {
-    const { removable, disabled, size } = this.props;
+    const { removable, disabled, size, theme } = this.props;
     if (removable) {
       return (
         <CloseButton
           size={size === 'large' ? 'medium' : 'small'}
-          skin="dark"
+          skin={theme === 'dark' ? 'light' : 'dark'}
           disabled={disabled}
           dataHook={dataHooks.removeButton}
           className={styles.removeButton}
@@ -130,7 +131,7 @@ Tag.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
 
   /** theme of the Tag */
-  theme: PropTypes.oneOf(['standard', 'error', 'warning']),
+  theme: PropTypes.oneOf(['standard', 'error', 'warning', 'dark']),
 
   /** An optional thumb to display as part of the Tag */
   thumb: PropTypes.element,

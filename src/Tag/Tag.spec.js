@@ -177,5 +177,14 @@ describe('Tag', () => {
       );
       expect(driver.isErrorTheme()).toBe(true);
     });
+
+    it('should have dark theme', () => {
+      const driver = createDriver(
+        <Tag id={id} theme="dark">
+          a
+        </Tag>,
+      );
+      expect(driver.isDarkTheme()).toBe(true);
+    });
   });
 });

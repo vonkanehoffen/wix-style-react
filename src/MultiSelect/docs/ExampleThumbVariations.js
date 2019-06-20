@@ -57,6 +57,7 @@ export default () => (
           { id: '1', label: 'Default' },
           { id: '2', label: 'Error theme', theme: 'error' },
           { id: '3', label: 'Warning theme', theme: 'warning' },
+          { id: '4', label: 'Dark theme', theme: 'dark' },
         ]}
       />
     </Cell>

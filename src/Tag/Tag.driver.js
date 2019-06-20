@@ -26,6 +26,7 @@ const tagDriverFactory = ({ element }) => {
     isStandardTheme: () => isClassExists(element, 'standardTheme'),
     isWarningTheme: () => isClassExists(element, 'warningTheme'),
     isErrorTheme: () => isClassExists(element, 'errorTheme'),
+    isDarkTheme: () => isClassExists(element, 'darkTheme'),
     isRemovable: () => getRemoveButtonDriver(element).exists(),
     removeTag: () => getRemoveButtonDriver(element).click(),
     click: () => ReactTestUtils.Simulate.click(element),

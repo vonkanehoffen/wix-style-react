@@ -143,6 +143,15 @@
       background-color: $R30;
     }
   }
+
+  &.dark-theme {
+    background-color: $D20;
+    color: $D80;
+
+    &.clickable:hover {
+      background-color: $D10;
+    }
+  }
 }
 
 //Disabled
