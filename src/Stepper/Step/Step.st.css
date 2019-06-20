@@ -44,12 +44,20 @@
     color: value(D40);
 }
 
+.stepText:disabled {
+    color: value(D40);
+}
+
 .stepText:selected {
     color: value(B10);
 }
 
 .stepText:stepHover {
     color: value(B10);
+}
+
+.stepText:disabled:stepHover {
+    color: value(D40);
 }
 
 .stepText:error {
