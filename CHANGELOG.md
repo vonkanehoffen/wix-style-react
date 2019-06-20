@@ -16,6 +16,12 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Tag/>` - Add new theme [#3599](https://github.com/wix/wix-style-react/pull/3599)
+
+### Fixed
+- `<Card>` - CardHedaer text ellipsis width propagate parent width [#3601](https://github.com/wix/wix-style-react/pull/3601)
+
 ## 6.30.0 - 2019-06-20
 
 ### Docs
