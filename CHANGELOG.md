@@ -25,6 +25,7 @@ Types of changes:
 
 ### Fixed
 - `<SegmentedToggle/>`- adding options divider [#3575](https://github.com/wix/wix-style-react/pull/3575)
+- `<Page/>` - fix warning regarding missing `key` in children [#3603](https://github.com/wix/wix-style-react/pull/3603)
 
 ## 6.29.0 - 2019-06-18
 
