@@ -16,8 +16,6 @@ Types of changes:
 
 ## Next
 
-## 6.29.0 - 2019-06-20
-
 ### Docs
 - `<Carousel/>` - move to "Components" section [#3587](https://github.com/wix/wix-style-react/pull/3587)
 - `<Table/>` - add example with virtualization [#3585](https://github.com/wix/wix-style-react/pull/3585)
