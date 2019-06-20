@@ -267,12 +267,15 @@ describe('RichTextInputArea', () => {
         await driver.clickLinkButton();
         const isFormDisplayed = await driver.isFormDisplayed();
         await driver.insertLink(sampleText, sampleUrl);
+        const linkElement = await driver.getLink(sampleText, sampleUrl);
 
         expect(isFormDisplayed).toBe(true);
         expect(currentValue).toBe(sampleValue);
         await eventually(async () => {
           expect(await driver.isFormDisplayed()).toBe(false);
         });
+        expect(await linkElement.attr('target')).toBe('_blank');
+        expect(await linkElement.attr('rel')).toContain('noopener noreferrer');
       });
 
       it('should render the link button as active after clicking the button', async () => {

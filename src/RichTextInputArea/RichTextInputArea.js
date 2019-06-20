@@ -24,7 +24,14 @@ const decorator = new CompositeDecorator([
       const { url } = contentState.getEntity(entityKey).getData();
 
       return (
-        <a href={url} className={styles.link}>
+        <a
+          data-hook="richtextarea-link"
+          href={url}
+          className={styles.link}
+          target="_blank"
+          // Avoids a potentially serious vulnerability for '_blank' links
+          rel="noopener noreferrer"
+        >
           {children}
         </a>
       );
