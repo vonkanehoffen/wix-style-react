@@ -281,11 +281,13 @@ class Page extends WixComponent {
   _renderHeader() {
     const { minimized } = this.state;
     const { PageHeader: PageHeaderChild } = this._getNamedChildren();
+    const dataHook = 'page-header-wrapper';
 
     return (
       PageHeaderChild && (
         <div
-          data-hook="page-header-wrapper"
+          data-hook={dataHook}
+          key={dataHook}
           className={classNames(s.headerWrapper, {
             [s.minimized]: minimized,
           })}
@@ -405,10 +407,13 @@ class Page extends WixComponent {
 
   _renderTail() {
     const { PageTail } = this._getNamedChildren();
+    const dataHook = 'page-tail';
+
     return (
       PageTail && (
         <div
-          data-hook="page-tail"
+          data-hook={dataHook}
+          key={dataHook}
           className={s.tail}
           ref={r => (this.pageHeaderTailRef = r)}
         >
