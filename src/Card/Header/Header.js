@@ -41,7 +41,7 @@ class Header extends WixComponent {
     return (
       <div>
         <div className={styles.wrapper}>
-          <div>
+          <div className={styles.titleWrapper}>
             {isString(title) ? (
               <Heading dataHook="title" appearance="H3" children={title} />
             ) : (
