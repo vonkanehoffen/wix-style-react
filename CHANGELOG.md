@@ -16,14 +16,19 @@ Types of changes:
 
 ## Next
 
+## 6.29.0 - 2019-06-20
+
 ### Docs
-- `<Stepper/>` - Testkits export for protractor & puppetter [#3591](https://github.com/wix/wix-style-react/pull/3591)
 - `<Carousel/>` - move to "Components" section [#3587](https://github.com/wix/wix-style-react/pull/3587)
 - `<Table/>` - add example with virtualization [#3585](https://github.com/wix/wix-style-react/pull/3585)
 - `<Table/>` - add example with EmptyState [#3590](https://github.com/wix/wix-style-react/pull/3590)
 - `<Table/>` - migrate existing examples to new docs [#3592](https://github.com/wix/wix-style-react/pull/3592)
 
 ### Fixed
+- `<Stepper/>` - Testkits export for protractor & puppetter [#3591](https://github.com/wix/wix-style-react/pull/3591)
+- `<Stepper>` - WIP - fix text colors according to design spec [#3598](https://github.com/wix/wix-style-react/pull/3575)
+- `<Steper>` - WIP - fix disabled hover state color [#3595](https://github.com/wix/wix-style-react/pull/3575)
+- `<SegmentedToggle/>`- adding options divider [#3575](https://github.com/wix/wix-style-react/pull/3575)
 - `<SegmentedToggle/>`- adding options divider [#3575](https://github.com/wix/wix-style-react/pull/3575)
 - `<Page/>` - fix warning regarding missing `key` in children [#3603](https://github.com/wix/wix-style-react/pull/3603)
 
