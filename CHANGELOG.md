@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.31.0 - 2019-06-21
+
 ### Added
 - `<Tag/>` - Add new theme [#3599](https://github.com/wix/wix-style-react/pull/3599)
 
