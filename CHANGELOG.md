@@ -20,6 +20,7 @@ Types of changes:
 
 ### Added
 - `<Tag/>` - Add new theme [#3599](https://github.com/wix/wix-style-react/pull/3599)
+- `<NestableList/>` - pass `item` that was dragged to onUpdate api [3600](https://github.com/wix/wix-style-react/pull/3600)
 
 ### Fixed
 - `<Card>` - CardHedaer text ellipsis width propagate parent width [#3601](https://github.com/wix/wix-style-react/pull/3601)
