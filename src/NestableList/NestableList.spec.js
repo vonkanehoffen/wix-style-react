@@ -9,6 +9,24 @@ import { nestableListTestkitFactory } from '../../testkit';
 
 import NestableList from './NestableList';
 
+const getDroppedItemMock = (item, overrides) => ({
+  clientRect: { 
+    bottom: 0,
+    height: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    width: 0
+  }, 
+  data: item, 
+  depth: 1, 
+  handleOffset: { x: 0, y: 0 }, 
+  id: item.id, 
+  position: [0],
+  index: 0,
+  ...overrides
+})
+
 describe('NestableList', () => {
   it('nestable should exists', () => {
     const dataHook = 'nestable-list';
@@ -53,7 +71,7 @@ describe('NestableList', () => {
     );
     const driver = nestableListTestkitFactory({ wrapper, dataHook });
     driver.reorder({ removedId: '1', addedId: '1' });
-    expect(onUpdate).toBeCalledWith(items);
+    expect(onUpdate).toBeCalledWith({items, item: getDroppedItemMock(items[0], {})});
   });
 
   it('should be able to drag & drap item vertically', () => {
@@ -75,7 +93,10 @@ describe('NestableList', () => {
     );
     const driver = nestableListTestkitFactory({ wrapper, dataHook });
     driver.reorder({ removedId: '2', addedId: '1' });
-    expect(onUpdate).toBeCalledWith([items[1], items[0]]);
+    expect(onUpdate).toBeCalledWith({ items: [items[1], items[0]], item: getDroppedItemMock(items[1], {
+      prevIndex: 1,
+      prevPosition: [1],
+    }) });
   });
 
   it('should call startDrag and endDrag as part of drag process', () => {
@@ -130,7 +151,14 @@ describe('NestableList', () => {
     const offset = { x: threshold + 1, y: 0 };
     driver.reorder({ removedId: '2', addedId: '2' }, offset);
 
-    expect(onUpdate).toBeCalledWith([{ ...items[0], children: [items[1]] }]);
+    expect(onUpdate).toBeCalledWith(
+      {
+        items: [{...items[0], children: [items[1]]}], 
+        item: getDroppedItemMock(
+          items[1], { position: [0, 0], prevIndex: 1, prevPosition: [1] }
+        )
+      }
+    );
   });
 
   it('should not do nesting if dropped item not horizontally enough', () => {
@@ -156,7 +184,7 @@ describe('NestableList', () => {
     const offset = { x: threshold - 1, y: 0 };
     driver.reorder({ removedId: '2', addedId: '2' }, offset);
 
-    expect(onUpdate).toBeCalledWith(items);
+    expect(onUpdate).toBeCalledWith({items, item: getDroppedItemMock(items[1], { index: 1, position: [1] })});
   });
 
   it('should remove nesting if dropping the item on unnested area', () => {
@@ -184,10 +212,13 @@ describe('NestableList', () => {
     const driver = nestableListTestkitFactory({ wrapper, dataHook });
     driver.reorder({ removedId: '33', addedId: '1' });
 
-    expect(onUpdate).toBeCalledWith([
+    expect(onUpdate).toBeCalledWith({items: [
       { id: '33', text: 'item 33' },
       { id: '1', text: 'item 1' },
       { id: '2', text: 'item 2', children: [] },
-    ]);
+    ], item: getDroppedItemMock({ id: '33', text: 'item 33' }, {
+      prevIndex: 0,
+      prevPosition: [1, 0]
+    })});
   });
 });

@@ -63,7 +63,9 @@ const cardSource = {
       handleOffset,
     };
   },
-  endDrag: props => {
+  endDrag: (props, monitor) => {
+    mouse.lastX = 0;
+    props.dropItem(monitor.getItem());
     props.onDragEnd && props.onDragEnd(props);
   },
 };
@@ -206,13 +208,6 @@ const allowItemMove = ({
 };
 
 const cardTarget = {
-  drop(props, monitor) {
-    // clear mouse position
-    mouse.lastX = 0;
-    if (!monitor.didDrop()) {
-      props.dropItem();
-    }
-  },
   hover(props, monitor, component) {
     if (!component) {
       return;
@@ -253,6 +248,9 @@ const cardTarget = {
       prevPosition,
       nextPosition,
     });
+
+    item.prevPosition = prevPosition;
+    item.prevIndex = item.index;
     // note: we're mutating the monitor item here!
     // generally it's better to avoid mutations,
     // but it's good here for the sake of performance
@@ -308,11 +306,7 @@ class Item extends WixComponent {
       };
 
       return connectDropTarget(
-        <div
-          className={classes}
-          data-hook="nestable-item"
-          ref={this._setRootNode}
-        >
+        <div className={classes} data-hook="nestable-item">
           {renderItem(renderParams)}
           {shouldRenderChildren && children}
         </div>,

@@ -22,7 +22,7 @@ function getItemStyles(props, clientRect, handleOffset) {
   const transform = `translate(${x}px, ${y}px)`;
 
   return {
-    transform: transform,
+    transform,
     WebkitTransform: transform,
     width,
     height,
