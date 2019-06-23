@@ -26,6 +26,7 @@ Types of changes:
 - `<Page/>` - migrate E2Es to visual tests [3612](https://github.com/wix/wix-style-react/pull/3612)
 - `<Box/>` - migrate E2Es to visual tests [3613](https://github.com/wix/wix-style-react/pull/3613)
 - `<Text/>` - migrate E2Es to visual tests [3605](https://github.com/wix/wix-style-react/pull/3605)
+- `<Checkbox/>` - migrate E2Es to visual tests [3614](https://github.com/wix/wix-style-react/pull/3614)
 
 
 ## 6.31.0 - 2019-06-21
