@@ -3,11 +3,11 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react/index';
 
-import checkboxDriverFactory from './Checkbox.driver';
-import { checkboxUniDriverFactory } from './Checkbox.uni.driver';
-import Checkbox from './Checkbox';
+import checkboxDriverFactory from '../Checkbox.driver';
+import { checkboxUniDriverFactory } from '../Checkbox.uni.driver';
+import Checkbox from '../Checkbox';
 
 const cachedConsoleWarn = global.console.warn;
 

@@ -1,11 +1,11 @@
-import { eyesItInstance } from '../../test/utils/eyes-it';
-import { checkboxTestkitFactory } from '../../testkit/protractor';
+import { eyesItInstance } from '../../../test/utils/eyes-it';
+import { checkboxTestkitFactory } from '../../../testkit/protractor';
 import { waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../test/utils/storybook-helpers';
+import { createStoryUrl } from '../../../test/utils/storybook-helpers';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
-import { runFocusTests } from '../common/Focusable/FocusableTestsE2E';
+import { runFocusTests } from '../../common/Focusable/FocusableTestsE2E';
 
-import { storySettings } from './docs/storySettings';
+import { storySettings } from '../docs/storySettings';
 
 const NO_DESCRIPTION = '';
 
@@ -40,13 +40,6 @@ describe('Checkbox', () => {
       await waitForCheckbox();
     });
 
-    eyes.it('should have default props', async () => {
-      expect(await checkboxDriver.hasError()).toBe(false, 'hasError');
-      expect(await checkboxDriver.isChecked()).toBe(false, 'isChecked');
-      expect(await checkboxDriver.isFocused()).toBe(false, 'isFocused');
-      expect(await checkboxDriver.isDisabled()).toBe(false, 'isDisabled');
-    });
-
     eyes.it('should set checked state when clicked', async () => {
       expect(await checkboxDriver.isChecked()).toBe(false);
       await checkboxDriver.click();
@@ -64,10 +57,6 @@ describe('Checkbox', () => {
         await autoExampleDriver.setProps({ hasError: true });
       });
 
-      eyes.it('should show error styles', async () => {
-        expect(await checkboxDriver.hasError()).toBe(true);
-      });
-
       eyes.it('should show focused styles', async () => {
         expect(await checkboxDriver.hasError()).toBe(true);
         expect(await checkboxDriver.isFocused()).toBe(false);
@@ -81,25 +70,11 @@ describe('Checkbox', () => {
         await autoExampleDriver.setProps({ disabled: true });
       });
 
-      eyes.it('should be disabled', async () => {
-        expect(await checkboxDriver.isDisabled()).toBe(true);
-      });
-
       eyes.it('should not be focusable', async () => {
         expect(await checkboxDriver.isDisabled()).toBe(true);
         expect(await checkboxDriver.isFocused()).toBe(false);
         await clickTab();
         expect(await checkboxDriver.isFocused()).toBe(false);
-      });
-    });
-
-    describe('within FormField', () => {
-      eyes.it('should be rendered', async () => {
-        const checkboxFormFieldDriver = checkboxTestkitFactory({
-          dataHook: 'storybook-checkbox-formfield',
-        });
-
-        expect(checkboxFormFieldDriver.element().isDisplayed()).toBeTruthy();
       });
     });
   });
