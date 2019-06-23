@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<NestableList/>` - pass `item` that was dragged to onUpdate api [3600](https://github.com/wix/wix-style-react/pull/3600)
 
+### Changed
+- `<Page/>` - migrate E2Es to visual tests [3612](https://github.com/wix/wix-style-react/pull/3612)
+
 ## 6.31.0 - 2019-06-21
 
 ### Added
