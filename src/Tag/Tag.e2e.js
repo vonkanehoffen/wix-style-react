@@ -89,26 +89,4 @@ describe('Tag', () => {
       },
     );
   });
-
-  describe('TestPage', () => {
-    const getTestUrl = rtl =>
-      createTestStoryUrl({
-        kind: storySettings.category,
-        story: storySettings.storyName,
-        testName: '1. Thumb Variations',
-        rtl,
-      });
-
-    describe('LTR', () => {
-      eyes.it('should render all thumb variations', async () => {
-        await browser.get(getTestUrl());
-      });
-    });
-
-    describe('RTL', () => {
-      eyes.it('should render all thumb variations', async () => {
-        await browser.get(getTestUrl(true));
-      });
-    });
-  });
 });

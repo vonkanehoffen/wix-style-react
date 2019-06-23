@@ -1,18 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings } from './storySettings';
+import { storySettings } from '../docs/storySettings';
+import Tag from '../Tag';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
-import Tag from '..';
 
-const kind = getTestStoryKind({
-  category: storySettings.category,
-  storyName: storySettings.storyName,
-});
+const { dataHook } = storySettings;
 
-storiesOf(kind, module).add('1. Thumb Variations', () => (
-  <RTLWrapper>
+const tests = [
+  {
+    describe: 'thumb variations',
+    its: [
+      {
+        it: 'LTR & RTL',
+        props: {
+          title: 'Card Title',
+        },
+      },
+    ],
+  },
+];
+
+const renderThumbnails = () => {
+  return (
     <div>
       <div>
         sizes:
@@ -50,5 +59,18 @@ storiesOf(kind, module).add('1. Thumb Variations', () => (
         />
       </div>
     </div>
-  </RTLWrapper>
-));
+  );
+};
+
+tests.forEach(({ describe, its }) => {
+  its.forEach(({ it, props }) => {
+    storiesOf(`Tag/${describe}`, module).add(it, () => (
+      <div>
+        <div dir="rtl" className="rtl">
+          {renderThumbnails()}
+        </div>
+        {renderThumbnails()}
+      </div>
+    ));
+  });
+});
