@@ -18,7 +18,7 @@ import H1TagNameExampleRaw from '!raw-loader!./ExampleH1TagName';
 import LinkExample from './ExampleLink';
 import LinkExampleRaw from '!raw-loader!./ExampleLink';
 
-import { storySettings } from './storySettings';
+import { storySettings } from '../test/storySettings';
 
 export default {
   category: storySettings.category,

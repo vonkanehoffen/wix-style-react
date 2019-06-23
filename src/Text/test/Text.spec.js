@@ -1,13 +1,13 @@
 import React from 'react';
-import Text from '.';
-import { SIZES, SKINS, WEIGHTS } from './constants';
+import Text from '../index';
+import { SIZES, SKINS, WEIGHTS } from '../constants';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
-import textDriverFactory from './Text.driver';
-import { textUniDriverFactory } from './Text.uni.driver';
+} from '../../../test/utils/react/index';
+import textDriverFactory from '../Text.driver';
+import { textUniDriverFactory } from '../Text.uni.driver';
 
 describe('Text', () => {
   afterEach(() => cleanup());
