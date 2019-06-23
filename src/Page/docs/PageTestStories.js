@@ -47,51 +47,6 @@ const defaultPageProps = {
 
 const PageTestStories = storiesOf(kind, module);
 
-PageTestStories.add('1. Image', () => (
-  <PageContainer>
-    <Page
-      {...defaultPageProps}
-      backgroundImageUrl="https://static.wixstatic.com/media/f0548921c53940ec803dfb1c203e96fe.jpg/v1/fill/w_400,h_100/f0548921c53940ec803dfb1c203e96fe.jpg"
-    />
-  </PageContainer>
-));
-
-PageTestStories.add('2. Gradient', () => (
-  <PageContainer>
-    <Page {...defaultPageProps} gradientClassName="background-gradient" />
-  </PageContainer>
-));
-
-PageTestStories.add('3. FC-Image', () => (
-  <PageContainer>
-    <Page
-      {...defaultPageProps}
-      children={[header(), fixedContent, content(false)]}
-      backgroundImageUrl="https://static.wixstatic.com/media/f0548921c53940ec803dfb1c203e96fe.jpg/v1/fill/w_400,h_100/f0548921c53940ec803dfb1c203e96fe.jpg"
-    />
-  </PageContainer>
-));
-
-PageTestStories.add('4. FC-Gradient', () => (
-  <PageContainer>
-    <Page
-      {...defaultPageProps}
-      children={[header(), fixedContent, content(false)]}
-      gradientClassName="background-gradient"
-    />
-  </PageContainer>
-));
-
-PageTestStories.add('5. HTC-Image', () => (
-  <PageContainer>
-    <Page
-      {...defaultPageProps}
-      children={[header(), tail, content(false)]}
-      backgroundImageUrl="https://static.wixstatic.com/media/f0548921c53940ec803dfb1c203e96fe.jpg/v1/fill/w_400,h_100/f0548921c53940ec803dfb1c203e96fe.jpg"
-    />
-  </PageContainer>
-));
-
 PageTestStories.add('7. Default [min/max]-width', () => (
   <PageContainer>
     <Page {...defaultPageProps} />
@@ -105,18 +60,6 @@ PageTestStories.add('8. Custom [min/max]-width', () => (
       minWidth={504} // With padding: 504 + 48*2 = 600px
       maxWidth={1304} // With padding: 1304 + 48*2 = 1400px
     />
-  </PageContainer>
-));
-
-PageTestStories.add('9. Empty State', () => (
-  <PageContainer>
-    <ExampleEmptyState {...defaultPageProps} />
-  </PageContainer>
-));
-
-PageTestStories.add('10. Page Example with sidePadding=0', () => (
-  <PageContainer>
-    <Page {...defaultPageProps} sidePadding={0} />
   </PageContainer>
 ));
 
@@ -348,13 +291,3 @@ class PageWithScroll extends React.Component {
     );
   });
 });
-
-const BMStories = storiesOf(`${kind}/BM`, module);
-BMStories.add('1. Simple', () => (
-  <ExamplePageContainer>
-    <Page upgrade gradientClassName="background-gradient">
-      <Page.Header title="Hello WSR" />
-      {content()}
-    </Page>
-  </ExamplePageContainer>
-));

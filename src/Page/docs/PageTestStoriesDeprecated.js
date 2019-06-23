@@ -28,70 +28,6 @@ PageContainer.propTypes = {
 const kind = `${getTestStoryKind(storySettings)}/Deprecated`;
 const dataHook = 'story-page';
 
-storiesOf(kind, module).add('Header-Tail-Content: 1. Image', () => (
-  <PageContainer>
-    <Page
-      dataHook={dataHook}
-      children={[header(), tail, content(false)]}
-      backgroundImageUrl="https://static.wixstatic.com/media/f0548921c53940ec803dfb1c203e96fe.jpg/v1/fill/w_400,h_100/f0548921c53940ec803dfb1c203e96fe.jpg"
-    />
-  </PageContainer>
-));
-
-storiesOf(kind, module).add(
-  'Header-Tail-Content: 2. Gradient Cover Tail',
-  () => (
-    <PageContainer>
-      <Page
-        dataHook={dataHook}
-        children={[header(), tail, content(false)]}
-        gradientClassName="background-gradient"
-        gradientCoverTail
-      />
-    </PageContainer>
-  ),
-);
-
-storiesOf(kind, module).add('1. Image', () => (
-  <PageContainer>
-    <Page
-      dataHook={dataHook}
-      children={[header(), content(false)]}
-      backgroundImageUrl="https://static.wixstatic.com/media/f0548921c53940ec803dfb1c203e96fe.jpg/v1/fill/w_400,h_100/f0548921c53940ec803dfb1c203e96fe.jpg"
-    />
-  </PageContainer>
-));
-
-storiesOf(kind, module).add('2. Gradient', () => (
-  <PageContainer>
-    <Page
-      dataHook={dataHook}
-      children={[header(), content(false)]}
-      gradientClassName="background-gradient"
-    />
-  </PageContainer>
-));
-
-storiesOf(kind, module).add('3. FC-Image', () => (
-  <PageContainer>
-    <Page
-      dataHook={dataHook}
-      children={[header(), fixedContent, content(false)]}
-      backgroundImageUrl="https://static.wixstatic.com/media/f0548921c53940ec803dfb1c203e96fe.jpg/v1/fill/w_400,h_100/f0548921c53940ec803dfb1c203e96fe.jpg"
-    />
-  </PageContainer>
-));
-
-storiesOf(kind, module).add('4. FC-Gradient', () => (
-  <PageContainer>
-    <Page
-      dataHook={dataHook}
-      children={[header(), fixedContent, content(false)]}
-      gradientClassName="background-gradient"
-    />
-  </PageContainer>
-));
-
 storiesOf(kind, module).add('5. Default [min/max]-width', () => (
   <div>
     <Page
@@ -144,18 +80,6 @@ storiesOf(kind, module).add(
     </div>
   ),
 );
-
-storiesOf(kind, module).add('8. Empty State', () => (
-  <PageContainer>
-    <ExampleEmptyState />
-  </PageContainer>
-));
-
-storiesOf(kind, module).add('9. Empty State in BM', () => (
-  <ExamplePageContainer>
-    <ExampleEmptyState />
-  </ExamplePageContainer>
-));
 
 storiesOf(kind, module).add('11. With Notification', () => (
   <PageContainer>
