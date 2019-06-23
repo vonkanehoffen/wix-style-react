@@ -32,7 +32,7 @@ Now it is enought that the parent has a determined height.
 </div>
 ```
 
-IMPORTANT: If you page is already in an App structure, your Page container may already have a determined height!
+IMPORTANT: If your page is already in an App structure, your Page container may already have a determined height!
 
 ```raw
 +--------------------------------------------------
