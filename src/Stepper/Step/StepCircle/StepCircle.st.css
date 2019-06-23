@@ -37,19 +37,23 @@
 .root:hover {
   background-color: value(B20);
   color: value(D80);
+  border: 0px;
 }
 
 .root:stepHover {
   background-color: value(B20);
   color: value(D80);
+  border: 0px;
 }
 
 .root:selected {
   background-color: value(B10);
+  border: 0px;
 }
 
 .root:completed:selected {
   color: value(D80);
+  border: 0px;
 }
 
 .root:error {
