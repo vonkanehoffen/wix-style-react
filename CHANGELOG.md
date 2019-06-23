@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Fixed
-- `<<Stepper/>` - WIP fix border [3616](https://github.com/wix/wix-style-react/pull/3616)
+- `<Stepper/>` - WIP fix border [3616](https://github.com/wix/wix-style-react/pull/3616)
 
 ### Added
 - `<NestableList/>` - pass `item` that was dragged to onUpdate api [3600](https://github.com/wix/wix-style-react/pull/3600)
