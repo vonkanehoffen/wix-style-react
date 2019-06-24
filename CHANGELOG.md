@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Docs
+- `<Table/>` - simplify `<Page/>` example [#3621](https://github.com/wix/wix-style-react/pull/3621)
+
 ## 6.32.0 - 2019-06-24
 
 ### Fixed
