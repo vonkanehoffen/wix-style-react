@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.32.0 - 2019-06-24
+
 ### Fixed
 - `<Stepper/>` - WIP fix border [3616](https://github.com/wix/wix-style-react/pull/3616)
 
