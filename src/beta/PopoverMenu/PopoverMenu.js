@@ -189,7 +189,6 @@ class PopoverMenu extends React.PureComponent {
           title: child.props.text,
           onClick: child.props.onClick,
           skin: child.props.skin,
-          size: child.props.textSize,
           prefixIcon: child.props.prefixIcon,
           disabled: child.props.disabled,
         };
