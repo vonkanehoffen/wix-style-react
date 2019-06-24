@@ -1,63 +1,122 @@
 /* eslint-disable */
 
 class TablePageExample extends React.Component {
-  createDataSet = setIndex => [
-    {
-      id: `${setIndex}-1`,
-      name: `Apple Towels ${setIndex}`,
-      SKU: '111222',
-      price: '$2.00',
-      inventory: 'In stock',
-      collectionId: 1,
-    },
-    {
-      id: `${setIndex}-2`,
-      name: `Cyan Towels ${setIndex}`,
-      SKU: '222333',
-      price: '$2.00',
-      inventory: 'In stock',
-      collectionId: 1,
-      filterId: 2,
-    },
-    {
-      id: `${setIndex}-3`,
-      name: `Marble Slippers ${setIndex}`,
-      SKU: '333444',
-      price: '$14.00',
-      inventory: 'In stock',
-      collectionId: 2,
-    },
-    {
-      id: `${setIndex}-4`,
-      name: `Red Slippers ${setIndex}`,
-      SKU: '444555',
-      price: '$14.00',
-      inventory: 'Out of stock',
-      collectionId: 2,
-      filterId: 1,
-    },
-  ];
-
-  allData = [1, 2, 3, 4, 5].reduce((accum, index) => accum.concat(this.createDataSet(index)), []);
-
   state = {
-    data: this.allData,
+    data: this._simulateData(),
     collectionId: 0,
     filterId: 0,
     searchTerm: '',
     inStock: false,
   };
 
-  clearSearch() {
-    this.setState({
-      collectionId: 0,
-      filterId: 0,
-      searchTerm: '',
-      inStock: false,
-    });
+  render() {
+    const filteredData = this._getFilteredData();
+
+    return (
+      <div style={{ height: '600px' }}>
+        <Page upgrade>
+          <Page.Header title="My Table" />
+          <Page.Content>
+            <Table
+              data={filteredData}
+              columns={[
+                {
+                  title: 'Name',
+                  render: row => (
+                    <Highlighter match={this.state.searchTerm}>{row.name}</Highlighter>
+                  ),
+                  width: '30%',
+                  minWidth: '150px',
+                },
+                {
+                  title: 'SKU',
+                  render: row => row.SKU,
+                  width: '20%',
+                  minWidth: '100px',
+                },
+                {
+                  title: 'Price',
+                  render: row => row.price,
+                  width: '20%',
+                  minWidth: '100px',
+                },
+                {
+                  title: 'Inventory',
+                  render: row => row.inventory,
+                  width: '20%',
+                  minWidth: '100px',
+                },
+              ]}
+              onSelectionChange={selectedIds =>
+                console.log('Table.onSelectionChange(): selectedIds=', selectedIds)
+              }
+              showSelection
+            >
+              <Page.Sticky>
+                <Card>
+                  <Table.ToolbarContainer>
+                    {selectionContext =>
+                      selectionContext.selectedCount === 0
+                        ? this._renderMainToolbar()
+                        : this._renderActionsToolbar({ ...selectionContext })
+                    }
+                  </Table.ToolbarContainer>
+                  {filteredData.length ? <Table.Titlebar /> : this._renderEmptyState()}
+                </Card>
+              </Page.Sticky>
+              <Card>
+                <Table.Content titleBarVisible={false} />
+              </Card>
+            </Table>
+          </Page.Content>
+        </Page>
+      </div>
+    );
   }
 
-  renderMainToolbar() {
+  _simulateData() {
+    const initBaseData = setIndex => [
+      {
+        id: `${setIndex}-1`,
+        name: `Apple Towels ${setIndex}`,
+        SKU: '111222',
+        price: '$2.00',
+        inventory: 'In stock',
+        collectionId: 1,
+      },
+      {
+        id: `${setIndex}-2`,
+        name: `Cyan Towels ${setIndex}`,
+        SKU: '222333',
+        price: '$2.00',
+        inventory: 'In stock',
+        collectionId: 1,
+        filterId: 2,
+      },
+      {
+        id: `${setIndex}-3`,
+        name: `Marble Slippers ${setIndex}`,
+        SKU: '333444',
+        price: '$14.00',
+        inventory: 'In stock',
+        collectionId: 2,
+      },
+      {
+        id: `${setIndex}-4`,
+        name: `Red Slippers ${setIndex}`,
+        SKU: '444555',
+        price: '$14.00',
+        inventory: 'Out of stock',
+        collectionId: 2,
+        filterId: 1,
+      },
+    ];
+
+    // Creates five instances of the base data collection and concatenates them into an array
+    return [1, 2, 3, 4, 5].reduce((data, index) => data.concat(initBaseData(index)), []);
+  }
+
+  _renderMainToolbar() {
     const collectionOptions = [
       { id: 0, value: 'All' },
       { id: 1, value: 'Towels' },
@@ -112,19 +171,19 @@ class TablePageExample extends React.Component {
             </TableToolbar.Item>
           </TableToolbar.ItemGroup>
           <TableToolbar.ItemGroup position="end">
-            <TableToolbar.Item>{this.renderSearch(false)}</TableToolbar.Item>
+            <TableToolbar.Item>{this._renderSearch(false)}</TableToolbar.Item>
           </TableToolbar.ItemGroup>
         </TableToolbar>
       </Card>
     );
   }
 
-  renderBulkActionsToolbar(props) {
+  _renderActionsToolbar({ selectedCount, getSelectedIds }) {
     return (
       <TableToolbar>
         <TableToolbar.ItemGroup position="start">
           <TableToolbar.Item>
-            <TableToolbar.SelectedCount>{`${props.selectedCount} Selected`}</TableToolbar.SelectedCount>
+            <TableToolbar.SelectedCount>{`${selectedCount} Selected`}</TableToolbar.SelectedCount>
           </TableToolbar.Item>
         </TableToolbar.ItemGroup>
         <TableToolbar.ItemGroup position="end">
@@ -133,7 +192,7 @@ class TablePageExample extends React.Component {
               skin="light"
               priority="primary"
               prefixIcon={<Icons.Upload />}
-              onClick={() => window.alert(`Exporting selectedIds=${props.getSelectedIds()}`)}
+              onClick={() => window.alert(`Exporting selectedIds=${getSelectedIds()}`)}
             >
               Export
             </Button>
@@ -143,7 +202,7 @@ class TablePageExample extends React.Component {
               skin="light"
               priority="primary"
               prefixIcon={<Icons.Duplicate />}
-              onClick={() => window.alert(`Duplicating selectedIds=${props.getSelectedIds()}`)}
+              onClick={() => window.alert(`Duplicating selectedIds=${getSelectedIds()}`)}
             >
               Duplicate
             </Button>
@@ -153,19 +212,38 @@ class TablePageExample extends React.Component {
               skin="light"
               priority="primary"
               prefixIcon={<Icons.Edit />}
-              onClick={() => window.alert(`Editing selectedIds=${props.getSelectedIds()}`)}
+              onClick={() => window.alert(`Editing selectedIds=${getSelectedIds()}`)}
             >
               Edit
             </Button>
           </TableToolbar.Item>
           <TableToolbar.Divider />
-          <TableToolbar.Item>{this.renderSearch(true)}</TableToolbar.Item>
+          <TableToolbar.Item>{this._renderSearch(true)}</TableToolbar.Item>
         </TableToolbar.ItemGroup>
       </TableToolbar>
     );
   }
 
-  renderSearch(expandable) {
+  _renderEmptyState = () => (
+    <Table.EmptyState
+      title="You haven't added any items yet"
+      subtitle="Add items to your website so people can buy them"
+      image={<Box height={120} width={120} backgroundColor="#dfe5eb" borderRadius="50%" />}
+    >
+      <TextButton suffixIcon={<Icons.ExternalLink />}>Learn how to add items</TextButton>
+    </Table.EmptyState>
+  );
+
+  _clearSearch() {
+    this.setState({
+      collectionId: 0,
+      filterId: 0,
+      searchTerm: '',
+      inStock: false,
+    });
+  }
+
+  _renderSearch(expandable) {
     return (
       <Search
         expandable={expandable}
@@ -177,121 +255,27 @@ class TablePageExample extends React.Component {
     );
   }
 
-  render() {
-    const tableData = this.getFilteredData();
+  _getFilteredData() {
+    let { data } = this.state;
 
-    return (
-      <div
-        style={{
-          height: '800px',
-          paddingBottom: '16px',
-          display: 'flex',
-          flexFlow: 'column',
-          minWidth: '966px',
-        }}
-      >
-        <Table
-          withWrapper={false}
-          dataHook="story-table-example"
-          data={tableData}
-          itemsPerPage={20}
-          columns={[
-            {
-              title: 'Name',
-              render: row => <Highlighter match={this.state.searchTerm}>{row.name}</Highlighter>,
-              width: '30%',
-              minWidth: '150px',
-            },
-            {
-              title: 'SKU',
-              render: row => row.SKU,
-              width: '20%',
-              minWidth: '100px',
-            },
-            {
-              title: 'Price',
-              render: row => row.price,
-              width: '20%',
-              minWidth: '100px',
-            },
-            {
-              title: 'Inventory',
-              render: row => row.inventory,
-              width: '20%',
-              minWidth: '100px',
-            },
-          ]}
-          onSelectionChange={selectedIds =>
-            console.log('Table.onSelectionChange(): selectedIds=', selectedIds)
-          }
-          showSelection
-          showLastRowDivider
-        >
-          <Page>
-            <Page.Header title="My Table Title" />
-            <Page.FixedContent>
-              <Card>
-                <Table.ToolbarContainer>
-                  {selectionContext =>
-                    selectionContext.selectedCount === 0
-                      ? this.renderMainToolbar()
-                      : this.renderBulkActionsToolbar(selectionContext)
-                  }
-                </Table.ToolbarContainer>
-                {tableData.length ? (
-                  <Table.Titlebar />
-                ) : (
-                  <Table.EmptyState
-                    image={<ImagePlaceholder />}
-                    subtitle={
-                      this.state.searchTerm ? (
-                        <Text>
-                          There are no search results for{' '}
-                          <Text weight="normal">{`"${this.state.searchTerm}"`}</Text>
-                          <br />
-                          Try search by other cryteria
-                        </Text>
-                      ) : (
-                        <Text>
-                          There are no results matching your filters
-                          <br />
-                          Try search by other cryteria
-                        </Text>
-                      )
-                    }
-                  >
-                    <TextButton onClick={() => this.clearSearch()}>Clear the search</TextButton>
-                  </Table.EmptyState>
-                )}
-              </Card>
-            </Page.FixedContent>
-            <Page.Content>
-              <Card>
-                <Table.Content titleBarVisible={false} />
-              </Card>
-            </Page.Content>
-          </Page>
-        </Table>
-      </div>
-    );
-  }
-
-  getFilteredData() {
-    let data = this.allData;
     if (this.state.collectionId > 0) {
       data = data.filter(row => row.collectionId === this.state.collectionId);
     }
+
     if (this.state.filterId > 0) {
       data = data.filter(row => row.filterId === this.state.filterId);
     }
+
     if (this.state.inStock) {
       data = data.filter(row => row.inventory === 'In stock');
     }
+
     if (this.state.searchTerm !== '') {
       data = data.filter(row =>
         row.name.toUpperCase().includes(this.state.searchTerm.toUpperCase()),
       );
     }
+
     return data;
   }
 }

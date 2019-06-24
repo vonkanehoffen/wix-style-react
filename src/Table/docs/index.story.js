@@ -160,7 +160,7 @@ export default {
             {
               title: 'Table in Page',
               description:
-                'This example demonstrates how to render a table with fixed title bar within <Page/>.',
+                'This example demonstrates how to render a table with sticky title and toolbar within `<Page/>`. Notice that `<Page/>` is practically responsible to render the title, using `<Page.Header/>` whereas `titleBarVisible` is false. Moreover, we use `<Page.Sticky/>` in order to stick the toolbar to top while scrolling.',
               source: TablePageExampleRaw,
               compact: true,
             },
