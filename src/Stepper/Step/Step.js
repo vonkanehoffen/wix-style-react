@@ -38,7 +38,7 @@ class Step extends React.PureComponent {
   };
 
   render() {
-    const { type, isLast, active, id, text, stepSize } = this.props;
+    const { type, active, id, text, stepSize } = this.props;
     const { stepHover } = this.state;
 
     return (
@@ -54,7 +54,6 @@ class Step extends React.PureComponent {
           {
             disabled: type === STEP_TYPES.DISABLED,
             selected: active,
-            isLast,
           },
           this.props,
         )}
