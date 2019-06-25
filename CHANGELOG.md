@@ -20,6 +20,8 @@ Types of changes:
 - `<Table/>` - simplify `<Page/>` example [#3621](https://github.com/wix/wix-style-react/pull/3621)
 - `<Button/>`- adding an example of a transparent button (secondary)[#3623](https://github.com/wix/wix-style-react/pull/3623)
 
+### Fixed
+- `<Calendar/>` - FilterDate should not affect calendar if date is modified [#3630](https://github.com/wix/wix-style-react/pull/3630)
 
 ### Added
 - `<PopoverMenu/>` - BETA - add types definition [#3578](https://github.com/wix/wix-style-react/pull/3578)
