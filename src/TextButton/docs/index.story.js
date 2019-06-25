@@ -10,32 +10,28 @@ import {
   columns,
   header,
   title,
-  code as baseLiveCode,
+  code as baseCode,
 } from 'wix-storybook-utils/Sections';
 
 import TextButton from '..';
 import { Layout } from '../../Layout';
 import { storySettings } from '../test/storySettings';
 import icons from '../../../stories/utils/icons-for-story';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import testkit from '!raw-loader!./testkit.md';
 import * as examples from './examples';
-import styles from './examples.scss';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
 
-const liveCode = config =>
-  baseLiveCode({
-    previewProps: {
-      className: styles.livePreview,
-    },
+const code = config =>
+  baseCode({
     compact: true,
-    components: { ...baseScope, Link },
+    components: { ...allComponents, Link },
     ...config,
   });
 
 const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
+  columns([description({ ...rest }), code({ source })]);
 
 export default {
   category: storySettings.category,
@@ -76,18 +72,18 @@ export default {
           title: 'Description',
           sections: [
             columns([
-              description({
-                text: `Text buttons have a low level of emphasis and are typically used for less important actions.`,
-              }),
+              description(
+                'Text buttons have a low level of emphasis and are typically used for less important actions.',
+              ),
             ]),
 
-            importExample({
-              source: "import TexButton from 'wix-style-react/TextButton';",
-            }),
+            importExample(
+              "import TextButton from 'wix-style-react/TextButton';",
+            ),
 
             divider(),
 
-            columns([title('Examples')]),
+            title('Examples'),
 
             ...[
               {
@@ -135,20 +131,9 @@ export default {
           ],
         }),
 
-        tab({
-          title: 'API',
-          sections: [api()],
-        }),
-
-        tab({
-          title: 'Testkit',
-          sections: [description({ text: testkit })],
-        }),
-
-        tab({
-          title: 'Playground',
-          sections: [playground()],
-        }),
+        tab({ title: 'API', sections: [api()] }),
+        tab({ title: 'Testkit', sections: [description(testkit)] }),
+        tab({ title: 'Playground', sections: [playground()] }),
       ],
     }),
   ],
