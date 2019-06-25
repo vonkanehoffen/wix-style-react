@@ -5,7 +5,7 @@ wuf update \
   --shape .wuf/required-component-files.json \
   --components src \
   --max-mismatch 1 \
-  --exclude Typography \
+  --exclude "(Typography|dnd-styles|DragDropContextProvider)" \
   --output .wuf/components.json
 
 # vanilla testkits

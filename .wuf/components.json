@@ -131,6 +131,12 @@
       "docs/index.story.js"
     ]
   },
+  "ErrorIndicator": {
+    "path": "src/ErrorIndicator",
+    "missingFiles": [
+      "docs"
+    ]
+  },
   "FilePicker": {
     "path": "src/FilePicker"
   },
@@ -151,6 +157,12 @@
   },
   "GoogleAddressInput": {
     "path": "src/GoogleAddressInput"
+  },
+  "GoogleAddressInputWithLabel": {
+    "path": "src/GoogleAddressInputWithLabel",
+    "missingFiles": [
+      "docs"
+    ]
   },
   "GooglePreview": {
     "path": "src/GooglePreview"
@@ -224,6 +236,12 @@
       "docs/index.story.js"
     ]
   },
+  "NestableList": {
+    "path": "src/NestableList",
+    "missingFiles": [
+      "docs"
+    ]
+  },
   "NoBorderInput": {
     "path": "src/NoBorderInput"
   },
@@ -244,6 +262,12 @@
   },
   "PopoverMenu": {
     "path": "src/PopoverMenu"
+  },
+  "PopoverMenuItem": {
+    "path": "src/PopoverMenuItem",
+    "missingFiles": [
+      "docs"
+    ]
   },
   "Proportion": {
     "path": "src/Proportion"
@@ -272,6 +296,12 @@
   "SegmentedToggle": {
     "path": "src/SegmentedToggle"
   },
+  "Selector": {
+    "path": "src/Selector",
+    "missingFiles": [
+      "docs"
+    ]
+  },
   "Sidebar": {
     "path": "src/Sidebar"
   },
@@ -283,6 +313,12 @@
   },
   "SocialPreview": {
     "path": "src/SocialPreview"
+  },
+  "SortableList": {
+    "path": "src/SortableList",
+    "missingFiles": [
+      "docs"
+    ]
   },
   "StatsWidget": {
     "path": "src/StatsWidget"

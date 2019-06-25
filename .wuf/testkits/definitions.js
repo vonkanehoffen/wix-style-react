@@ -41,7 +41,10 @@ module.exports = {
     testkitPath: "../src/SideMenu/DrillView/DrillView.driver"
   },
 
-  BadgeSelectItemBuilder: { skipSanityTest: true, noTestkit: true },
+  BadgeSelectItemBuilder: {
+    skipSanityTest: true,
+    noTestkit: true
+  },
 
   MultiSelect: {
     skipSanityTest: true // testkit does not have root `exists` method
@@ -116,7 +119,6 @@ module.exports = {
 
   IconButton: {
     unidriver: true,
-    skipSanityTest: true,
     testkitPath: "../src/IconButton/IconButton.uni.driver"
   },
 
@@ -134,7 +136,10 @@ module.exports = {
     testkitPath: "../src/SideMenu/core/SideMenu.driver"
   },
 
-  Button: { unidriver: true, testkitPath: "../src/Button/Button.uni.driver" },
+  Button: {
+    unidriver: true,
+    testkitPath: "../src/Button/Button.uni.driver"
+  },
 
   CalendarPanelFooter: {
     unidriver: true,
@@ -168,8 +173,6 @@ module.exports = {
   Carousel: {
     drivers: ["enzyme"]
   },
-
-  Notification: {},
 
   NumberInput: {
     unidriver: true,
@@ -214,7 +217,10 @@ module.exports = {
     skipSanityTest: true
   },
 
-  Box: { unidriver: true, testkitPath: "../src/Box/Box.uni.driver" },
+  Box: {
+    unidriver: true,
+    testkitPath: "../src/Box/Box.uni.driver"
+  },
 
   Thumbnail: {
     unidriver: true,
@@ -230,8 +236,6 @@ module.exports = {
     unidriver: true,
     testkitPath: "../src/RichTextInputArea/RichTextInputArea.uni.driver"
   },
-
-  NoBorderInput: {},
 
   DateInput: {
     unidriver: true,
@@ -284,9 +288,6 @@ module.exports = {
     testkitPath: "../src/Swatches/Swatches.uni.driver"
   },
 
-  SortableList: {
-    testkitPath: "../src/SortableList/SortableList.driver"
-  },
   Sidebar: {
     unidriver: true,
     testkitPath: "../src/Sidebar/Sidebar.uni.driver"
@@ -295,10 +296,6 @@ module.exports = {
   Selector: {
     unidriver: false, // TODO: component has unidriver, but it is exported as legacy driver. Changing it is a breaking change
     testkitPath: "../src/Selector/Selector.driver"
-  },
-
-  NestableList: {
-    testkitPath: "../src/NestableList/NestableList.driver"
   },
 
   Stepper: {

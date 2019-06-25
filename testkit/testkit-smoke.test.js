@@ -59,11 +59,12 @@ const DRIVER_ASSERTS = {
           ),
         ).toBe(true));
     });
+
+    /* this test used to be skipped.
+     * intentionally commenting to prevent skipped test notification noise
     describe('ReactTestUtils update dataHook', () => {
       attachHooks(beforeAllHook, afterAllHook);
-      /* eslint-disable jest/no-disabled-tests */
-      xit(`${name} should have an updated dataHook`, () => {
-        /* eslint-enable jest/no-disabled-tests */
+      it(`${name} should have an updated dataHook`, () => {
         const hook1 = 'my-data-hook-1';
         const hook2 = 'my-data-hook-2';
         const { rerender, container } = render(
@@ -80,6 +81,7 @@ const DRIVER_ASSERTS = {
         cleanup();
       });
     });
+    */
   },
 };
 
