@@ -38,7 +38,7 @@ class Step extends React.PureComponent {
   };
 
   render() {
-    const { type, active, id, text, stepSize } = this.props;
+    const { type, isLast, active, id, text, stepSize } = this.props;
     const { stepHover } = this.state;
 
     return (
@@ -54,6 +54,7 @@ class Step extends React.PureComponent {
           {
             disabled: type === STEP_TYPES.DISABLED,
             selected: active,
+            isLast,
           },
           this.props,
         )}
@@ -70,6 +71,7 @@ class Step extends React.PureComponent {
           active={active}
           type={type}
           stepHover={stepHover}
+          className={styles.stepCircle}
         />
         <div
           {...styles(
@@ -80,7 +82,7 @@ class Step extends React.PureComponent {
             },
             this.props,
           )}
-          style={{ maxWidth: `${stepSize}px` }}
+          // style={{ maxWidth: `${stepSize}px` }}
         >
           <Text
             ellipsis

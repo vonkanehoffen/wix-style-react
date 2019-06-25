@@ -90,13 +90,14 @@ class Stepper extends React.PureComponent {
       <div {...styles('root', {}, this.props)} data-hook={dataHook}>
         {steps.map((step, idx) => {
           return (
-            <div className={styles.stepAndSplitter}>
+            <div className={styles.stepAndSplitter + ' ' + (idx === activeStep ? styles.selected : '')}>
               <Step
                 id={idx}
                 {...step}
                 active={idx === activeStep}
                 onClick={onClick}
-                stepSize={stepSize}
+                isLast={idx === steps.length - 1}
+                // stepSize={stepSize}
               />
               {idx !== steps.length - 1 && this._renderStepSplitter()}
             </div>
@@ -107,4 +108,5 @@ class Stepper extends React.PureComponent {
   }
 }
 
-export default withResponsive(Stepper);
+// export default withResponsive(Stepper);
+export default Stepper;

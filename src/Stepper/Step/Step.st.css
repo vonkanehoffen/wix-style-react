@@ -8,10 +8,15 @@
 }
 
 .root {
-    -st-states: disabled, selected;
+    -st-states: disabled, selected, isLast;
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: calc(100% - 30px);
+}
+
+.root:isLast {
+    width: 100%;
 }
 
 .root:disabled {
@@ -25,6 +30,7 @@
 .stepTextWrapper {
     -st-states: disabled, selected;
     cursor: pointer;
+    width: calc(100% - 42px);
 }
 
 .stepTextWrapper:disabled {
@@ -38,6 +44,10 @@
 .stepText {
     -st-extends: Text;
     -st-states: disabled, selected, error, stepHover;
+}
+
+.stepCircle {
+    flex-shrink: 0;
 }
 
 .stepText:disabled {
@@ -67,3 +77,4 @@
 .stepText:error:selected {
     color: value(R10);
 }
+
