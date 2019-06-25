@@ -39,6 +39,9 @@ export const primary = `
         <Box backgroundColor="D10" padding="3px"> 
           <Button priority="secondary" skin="premium-light" fullWidth>PremiumLight</Button>
         </Box>
+        <Box backgroundColor="B20" padding="3px"> 
+          <Button priority="secondary" skin="transparent">transparent</Button>
+        </Box>        
         <Box backgroundColor="Y30" padding="3px"> 
           <Button priority="secondary" skin="dark" fullWidth>dark</Button>
         </Box>

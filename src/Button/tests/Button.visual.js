@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Button from '../Button';
+import Box from 'wix-style-react/Box';
 import AddChannel from '../../new-icons/AddChannel';
 
 const defaultProps = {
@@ -28,7 +29,9 @@ const tests = [
   },
   {
     describe: 'Secondary Skins',
-    its: skins.map(skin => test(skin, { skin, priority: 'secondary' })),
+    its: skins
+      .filter(skin => skin !== 'transparent')
+      .map(skin => test(skin, { skin, priority: 'secondary' })),
   },
   {
     describe: 'Sizes',
@@ -62,3 +65,9 @@ tests.forEach(({ describe, its }) => {
     ));
   });
 });
+
+storiesOf(`Button/Secondary Skins`, module).add('transparent', () => (
+  <Box backgroundColor="B20" width={100} padding="3px">
+    <Button {...defaultProps} priority="secondary" skin="transparent" />
+  </Box>
+));
