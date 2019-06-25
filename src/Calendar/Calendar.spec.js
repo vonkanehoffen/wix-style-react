@@ -126,6 +126,24 @@ describe('Calendar', () => {
       });
     });
 
+    describe('`filterDate` prop', () => {
+      it('should not affect calendar if date is modified', async () => {
+        const date = new Date(2017, 9, 2);
+        const { driver } = render(
+          <Calendar
+            onChange={() => {}}
+            filterDate={_date => {
+              _date.setUTCDate(3);
+              return false;
+            }}
+            value={date}
+          />,
+        );
+
+        expect(await driver.getSelectedDay()).toBe('2');
+      });
+    });
+
     describe('onClose', () => {
       it('should be call with default not prevented when closing with ESC key', async () => {
         const onCloseMock = jest.fn();

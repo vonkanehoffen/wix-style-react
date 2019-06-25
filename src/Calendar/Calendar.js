@@ -266,7 +266,7 @@ export default class Calendar extends WixComponent {
     return {
       disabledDays: excludePastDates
         ? { before: new Date() }
-        : date => !filterDate(date),
+        : date => !filterDate(new Date(date)),
       initialMonth: month,
       initialYear: month,
       selectedDays,
