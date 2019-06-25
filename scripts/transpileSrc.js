@@ -10,6 +10,10 @@ const { transformFromAstAsync } = require('@babel/core');
 
 const srcDir = path.resolve(__dirname, '../dist');
 const esDir = path.resolve(__dirname, '../dist/es');
+const srcToEsBabelPlugin = path.resolve(
+  __dirname,
+  './babel-plugin-src-to-es.js',
+);
 
 const readFileAsync = fileLoc => {
   return new Promise((resolve, reject) => {
@@ -36,9 +40,26 @@ const writeFileAsync = (fileLoc, dir, code) => {
   });
 };
 
-const copyAsync = (...args) => {
+const copyAsync = ({ src, dist, withESTransform }) => {
   return new Promise((resolve, reject) => {
-    copy(...args, function(err, files) {
+    copy(src, dist, function(err, files) {
+      files.forEach(file => {
+        if (withESTransform && file.dest.includes('st.css')) {
+          fs.readFile(file.dest, 'utf-8', function(error, content) {
+            content = content
+              .replace(
+                /wix-ui-backoffice\/dist\/src/g,
+                'wix-ui-backoffice/dist/es/src',
+              )
+              .replace(/wix-ui-core\/dist\/src/g, 'wix-ui-core/dist/es/src');
+            fs.writeFile(file.dest, content, function(writeErr) {
+              if (writeErr) {
+                console.warn(writeErr);
+              }
+            });
+          });
+        }
+      });
       if (err) {
         return reject(err);
       }
@@ -48,8 +69,15 @@ const copyAsync = (...args) => {
 };
 
 const run = () => {
-  const esCopied = copyAsync('./src/**/!(*.js)', './dist/es/src');
-  const srcCopied = copyAsync('./src/**/!(*.js)', './dist/src');
+  const esCopied = copyAsync({
+    src: './src/**/!(*.js)',
+    dist: './dist/es/src',
+    withESTransform: true,
+  });
+  const srcCopied = copyAsync({
+    src: './src/**/!(*.js)',
+    dist: './dist/src',
+  });
 
   const files = glob.sync('./src/**/*.js', {
     ignore: [
@@ -84,6 +112,7 @@ const run = () => {
           babelrc: true,
           ast: true,
           filename: fileLoc,
+          plugins: [srcToEsBabelPlugin],
         });
         const writeModules = writeFileAsync(
           fileLoc,
@@ -97,7 +126,10 @@ const run = () => {
             babelrc: false,
             ast: false,
             filename: fileLoc,
-            plugins: ['@babel/plugin-transform-modules-commonjs'],
+            plugins: [
+              [srcToEsBabelPlugin, { esToSrc: true }],
+              '@babel/plugin-transform-modules-commonjs',
+            ],
           },
         );
         return Promise.all([

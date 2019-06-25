@@ -5,8 +5,9 @@ const ProgressBar = require('progress');
 const rm = require('rimraf');
 const mkdirp = require('mkdirp');
 const transpileSrc = require('./transpileSrc');
+const replaceStylableImports = require('./replaceStylableImports');
 
-const STEPS = 4;
+const STEPS = 5;
 const TOTAL_STEPS_WIDTH = 20;
 const STEP_WIDTH = TOTAL_STEPS_WIDTH / STEPS;
 const options = { stdio: 'pipe', env: { FORCE_COLOR: true } };
@@ -52,7 +53,13 @@ const src = transpileSrc().then(() => {
 });
 
 Promise.all([testkit, test, src])
-  .then(() => {
+  .then(async () => {
+    await replaceStylableImports().then(() => {
+      progress.tick(STEP_WIDTH, {
+        dir: 'stylable',
+      });
+    });
+
     console.log(`🚀 Done in ${Math.round(new Date() - startTime) / 1000}s`);
   })
   .catch(error => {

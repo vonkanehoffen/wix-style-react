@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonNext } from 'wix-ui-core/button-next';
+import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import cx from 'classnames';
 import { iconButton } from 'wix-ui-core/themes/backoffice';
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';

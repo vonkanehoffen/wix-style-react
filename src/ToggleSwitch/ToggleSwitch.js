@@ -1,3 +1,3 @@
-import { ToggleSwitch } from 'wix-ui-backoffice/ToggleSwitch';
+import { ToggleSwitch } from 'wix-ui-backoffice/dist/src/components/ToggleSwitch';
 
 export default ToggleSwitch;

@@ -6,10 +6,8 @@ import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import style from './CircularProgressBar.st.css';
 import PropTypes from 'prop-types';
+import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 import { dataHooks, Size, sizesMap } from './constants';
-
-//TODO: convert to WSR Tooltip
-import { Tooltip } from 'wix-ui-backoffice/Tooltip';
 
 const sizeToSuccessIcon = {
   [Size.small]: <CircleLoaderCheckSmall />,
@@ -53,10 +51,20 @@ class CircularProgressBar extends React.PureComponent {
     value: PropTypes.number || PropTypes.string,
 
     dataHook: PropTypes.string,
+
+    /** load Tooltip async using dynamic import */
+    shouldLoadAsync: PropTypes.bool,
   };
 
   render() {
-    const { errorMessage, light, size, dataHook, ...otherProps } = this.props;
+    const {
+      errorMessage,
+      light,
+      size,
+      dataHook,
+      shouldLoadAsync,
+      ...otherProps
+    } = this.props;
 
     const ProgressBar = (
       <CoreCircularProgressBar
@@ -71,17 +79,32 @@ class CircularProgressBar extends React.PureComponent {
 
     return (
       <div data-hook={dataHook} {...style('root', {}, this.props)}>
-        {this.props.error && errorMessage ? (
-          <Tooltip
-            data-hook={dataHooks.tooltip}
-            placement="top"
-            content={errorMessage}
-          >
-            {ProgressBar}
-          </Tooltip>
-        ) : (
-          ProgressBar
-        )}
+        <Loadable
+          loader={{
+            Tooltip: () =>
+              // TODO: convert to WSR Tooltip
+              shouldLoadAsync
+                ? import('wix-ui-backoffice/dist/es/src/components/Tooltip')
+                : require('wix-ui-backoffice/Tooltip'),
+          }}
+          defaultComponent={ProgressBar}
+          namedExports={{
+            Tooltip: 'Tooltip',
+          }}
+          shouldLoadComponent={this.props.error && errorMessage}
+        >
+          {({ Tooltip }) => {
+            return (
+              <Tooltip
+                data-hook={dataHooks.tooltip}
+                placement="top"
+                content={errorMessage}
+              >
+                {ProgressBar}
+              </Tooltip>
+            );
+          }}
+        </Loadable>
       </div>
     );
   }

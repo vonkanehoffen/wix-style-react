@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 import WixComponent from '../BaseComponents/WixComponent';
 import Arc from './Arc';
 import css from './Loader.scss';
-import Tooltip from '../Tooltip';
 import FormFieldError from '../new-icons/system/FormFieldError';
 import FormFieldErrorSmall from '../new-icons/system/FormFieldErrorSmall';
 import ToggleOn from '../new-icons/system/ToggleOn';
@@ -77,12 +77,16 @@ export default class Loader extends WixComponent {
 
     /** Text to be shown in the tolltip **/
     statusMessage: PropTypes.string,
+
+    /** load Tooltip async using dynamic import */
+    shouldLoadAsync: PropTypes.bool,
   };
 
   static defaultProps = {
     size: 'medium',
     color: 'blue',
     status: 'loading',
+    shouldLoadAsync: false,
   };
 
   render() {
@@ -138,18 +142,33 @@ export default class Loader extends WixComponent {
           css[status],
         )}
       >
-        {statusMessage ? (
-          <Tooltip
-            upgrade
-            appendTo="window"
-            dataHook="loader-tooltip"
-            content={statusMessage}
-          >
-            {loader}
-          </Tooltip>
-        ) : (
-          loader
-        )}
+        <Loadable
+          loader={{
+            Tooltip: () =>
+              this.props.shouldLoadAsync
+                ? import('../Tooltip')
+                : require('../Tooltip'),
+          }}
+          namedExports={
+            /* Remove when https://github.com/wix/wix-ui/pull/1352 will be merged */
+            {}
+          }
+          defaultComponent={loader}
+          shouldLoadComponent={statusMessage}
+        >
+          {({ Tooltip }) => {
+            return (
+              <Tooltip
+                upgrade
+                appendTo="window"
+                dataHook="loader-tooltip"
+                content={statusMessage}
+              >
+                {loader}
+              </Tooltip>
+            );
+          }}
+        </Loadable>
         {shouldShowText && text && (
           <div className={css.text}>
             <Heading appearance="H6" dataHook="loader-text">

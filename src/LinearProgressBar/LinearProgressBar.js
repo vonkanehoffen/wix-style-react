@@ -4,8 +4,7 @@ import styles from './LinearProgressBar.st.css';
 import { LinearProgressBar as CoreLinearProgressBar } from 'wix-ui-core/dist/src/components/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
-//TODO: convert to WSR Tooltip
-import { Tooltip } from 'wix-ui-backoffice/Tooltip';
+import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 
 /**
  * This component is used for indicating a progress along a process.*/
@@ -27,29 +26,63 @@ class LinearProgressBar extends React.PureComponent {
 
     /** The number of the percentage progress */
     value: PropTypes.number || PropTypes.string,
+
+    /** load Tooltip async using dynamic import */
+    shouldLoadAsync: PropTypes.bool,
   };
 
   render() {
-    const { errorMessage, light, dataHook, ...otherProps } = this.props;
+    const {
+      errorMessage,
+      light,
+      dataHook,
+      error,
+      shouldLoadAsync,
+      ...otherProps
+    } = this.props;
 
     return (
       <CoreLinearProgressBar
         data-hook={dataHook}
         {...styles('root', { light }, this.props)}
         {...otherProps}
+        error={error}
         successIcon={<ToggleOn />}
         errorIcon={
-          <Tooltip
-            data-hook="linear-progressbar-tooltip"
-            placement="top"
-            content={errorMessage}
+          <Loadable
+            loader={{
+              Tooltip: () =>
+                // TODO: convert to WSR Tooltip
+                shouldLoadAsync
+                  ? import('wix-ui-backoffice/dist/es/src/components/Tooltip')
+                  : require('wix-ui-backoffice/Tooltip'),
+            }}
+            defaultComponent={<FormFieldError data-hook="wsr-error-icon" />}
+            namedExports={{
+              Tooltip: 'Tooltip',
+            }}
+            shouldLoadComponent={!!error}
           >
-            <FormFieldError data-hook="wsr-error-icon" />
-          </Tooltip>
+            {({ Tooltip }) => {
+              return (
+                <Tooltip
+                  data-hook="linear-progressbar-tooltip"
+                  placement="top"
+                  content={errorMessage}
+                >
+                  <FormFieldError data-hook="wsr-error-icon" />
+                </Tooltip>
+              );
+            }}
+          </Loadable>
         }
       />
     );
   }
 }
+
+LinearProgressBar.defaultProps = {
+  shouldLoadAsync: false,
+};
 
 export default LinearProgressBar;
