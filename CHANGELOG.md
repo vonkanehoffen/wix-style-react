@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+## Added
+- `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
+
+
 ## 6.33.0 - 2019-06-26
 
 ### Docs
@@ -30,7 +34,6 @@ Types of changes:
 ### Added
 - `<PopoverMenu/>` - BETA - add types definition [#3578](https://github.com/wix/wix-style-react/pull/3578)
 - `<CloseButton/>`- adding a `transparent` skin to close button.[#3617](https://github.com/wix/wix-style-react/pull/3617)
-- `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
 
 ## 6.32.0 - 2019-06-24
 
