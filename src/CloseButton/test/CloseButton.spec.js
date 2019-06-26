@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { createRendererWithUniDriver, cleanup } from '../../test/utils/react';
-import { closeButtonPrivateDriverFactory } from './CloseButton.private.uni.driver';
-import CloseButton from '.';
+import {
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../../test/utils/react/index';
+import { closeButtonPrivateDriverFactory } from '../CloseButton.private.uni.driver';
+import CloseButton from '../index';
 import Add from 'wix-ui-icons-common/Add';
 
 describe('CloseButton', () => {

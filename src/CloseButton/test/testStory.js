@@ -2,12 +2,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Help from 'wix-ui-icons-common/Help';
+import { SKINS, SIZES } from '../constants';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { storySettings, testStories } from './storySettings';
+import { storySettings, testStories } from '../docs/storySettings';
 
-import CloseButton from '..';
-import { Layout, Cell } from '../../Layout';
+import CloseButton from '../index';
+import { Layout, Cell } from '../../Layout/index';
 
 const kind = getTestStoryKind(storySettings);
 const dataHook = 'story-button-test';
@@ -28,8 +29,6 @@ const TestContainer = ({ children }) => (
   </div>
 );
 
-const skins = ['standard', 'standardFilled', 'light', 'lightFilled', 'dark'];
-
 const ButtonBlock = values => {
   const { title, ...rest } = values;
   return (
@@ -38,14 +37,14 @@ const ButtonBlock = values => {
         <h1 style={{ fontSize: '30px', margin: '15px 5px' }}>{title}</h1>
       </Cell>
       <Cell span={6}>
-        {skins.map(skin => (
+        {Object.keys(SKINS).map(skin => (
           <div style={{ margin: '5px 0' }}>
             <CloseButton {...rest} skin={skin} />
           </div>
         ))}
       </Cell>
       <Cell span={6}>
-        {skins.map(skin => (
+        {Object.keys(SKINS).map(skin => (
           <div style={{ margin: '5px 0' }}>
             <CloseButton {...rest} skin={skin} disabled />
           </div>
@@ -60,7 +59,7 @@ storiesOf(kind, module).add(testStories.CLOSEBUTTON_SKINS, () => (
     <div style={{ marginLeft: '10px' }}>
       <Layout>
         <ButtonBlock title="Skins (small)" />
-        <ButtonBlock size="medium" title="Skins (medium)" />
+        <ButtonBlock size={SIZES.medium} title="Skins (medium)" />
       </Layout>
     </div>
   </TestContainer>
@@ -83,7 +82,7 @@ storiesOf(kind, module).add(testStories.CLOSEBUTTON_CUSTOM_ICON, () => (
         <ButtonBlock title="Custom Icon (small)">
           <Help />
         </ButtonBlock>
-        <ButtonBlock size="medium" title="Custom Icon (medium)">
+        <ButtonBlock size={SIZES.medium} title="Custom Icon (medium)">
           <Help />
         </ButtonBlock>
       </Layout>

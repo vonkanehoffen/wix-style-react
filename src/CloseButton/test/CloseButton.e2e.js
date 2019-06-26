@@ -1,7 +1,7 @@
-import { eyesItInstance } from '../../test/utils/eyes-it';
+import { eyesItInstance } from '../../../test/utils/eyes-it';
 
-import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
-import { storySettings, testStories } from './docs/storySettings';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
+import { storySettings, testStories } from '../docs/storySettings';
 
 describe('CloseButton', () => {
   const testStoryUrl = testName =>

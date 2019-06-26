@@ -84,19 +84,19 @@ export default {
             {
               title: 'Skin',
               text:
-                'Close button has 5 skins. `standard`, `light`, `dark`, `standardFilled`, `lightFilled`.',
-              source: examples.skins,
+                'Close button has 5 skins. `standard`, `light`, `dark`, `standardFilled`, `lightFilled` and `transparent`.',
+              source: examples.skinsExamples,
             },
             {
               title: 'Size',
-              text: 'Close button has two sizes – small and medium.',
-              source: examples.sizes,
+              text: 'Close button has two sizes – `small` and `medium`.',
+              source: examples.sizesExamples,
             },
             {
               title: 'Custom Icon',
               text:
                 'Additional actions next to the close button can be formed by using close button with a custom icon',
-              source: examples.custom,
+              source: examples.customExamples,
             },
           ].map(example),
         ],

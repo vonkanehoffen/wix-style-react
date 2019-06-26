@@ -3,6 +3,7 @@ import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import cx from 'classnames';
 import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
+import { SIZES } from './constants';
 
 import { closeButton } from 'wix-ui-core/themes/backoffice';
 
@@ -28,7 +29,14 @@ class CloseButton extends Component {
     /** Used for passing any wix-style-react icon. For external icon make sure to follow ux sizing guidelines */
     children: node,
     /** skins of closebutton */
-    skin: oneOf(['standard', 'standardFilled', 'light', 'lightFilled', 'dark']),
+    skin: oneOf([
+      'standard',
+      'standardFilled',
+      'light',
+      'lightFilled',
+      'dark',
+      'transparent',
+    ]),
     /** size of closebutton */
     size: oneOf(['small', 'medium']),
     /** Click event handler  */
@@ -62,7 +70,7 @@ class CloseButton extends Component {
               width: childSize,
               height: childSize,
             })
-          : size === 'small' // fallback to Close icon if children not provided (current behavior)
+          : size === SIZES.small // fallback to Close icon if children not provided (current behavior)
           ? CloseIcon
           : CloseLargeIcon}
       </ButtonNext>
