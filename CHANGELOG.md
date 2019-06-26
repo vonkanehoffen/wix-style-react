@@ -22,6 +22,7 @@ Types of changes:
 
 ### Fixed
 - `<Calendar/>` - FilterDate should not affect calendar if date is modified [#3630](https://github.com/wix/wix-style-react/pull/3630)
+- `<PopoverMenu.MenuItem/> - Fixes double invocation of `onClick` [#3636](https://github.com/wix/wix-style-react/pull/3636)
 
 ### Added
 - `<PopoverMenu/>` - BETA - add types definition [#3578](https://github.com/wix/wix-style-react/pull/3578)
