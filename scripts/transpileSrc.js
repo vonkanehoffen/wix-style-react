@@ -129,6 +129,7 @@ const run = () => {
             plugins: [
               [srcToEsBabelPlugin, { esToSrc: true }],
               '@babel/plugin-transform-modules-commonjs',
+              'babel-plugin-dynamic-import-node',
             ],
           },
         );
