@@ -16,7 +16,7 @@ Types of changes:
 
 ## Next
 
-## Added
+### Added
 - `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
 
 
