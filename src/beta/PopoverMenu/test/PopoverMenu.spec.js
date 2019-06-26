@@ -89,6 +89,24 @@ describe('PopoverMenu', () => {
           await driver.clickAtChild(0);
           expect(onClick).toHaveBeenCalled();
         });
+
+        it('should be called only once', async () => {
+          const onClick = jest.fn();
+          const { driver } = render(
+            renderPopoverMenu({
+              children: renderPopoverMenuItem({ onClick }),
+            }),
+          );
+
+          const iconButton = await driver.getTriggerElement('iconbutton');
+          const iconButtonTestkit = iconButtonDriverFactory(iconButton);
+          await iconButtonTestkit.click();
+
+          expect(await driver.isMenuOpen()).toBe(true);
+          const option = await driver.getMenuItem(0);
+          await option.click(); // Imitates real user click; Using driver.clickAtChild(0) does not simulate real click
+          expect(onClick).toHaveBeenCalledTimes(1);
+        });
       });
     });
 

@@ -214,7 +214,7 @@ class PopoverMenu extends React.PureComponent {
       if (option.divider || option.custom) {
         return option;
       }
-      const { id, disabled, ...rest } = option;
+      const { id, disabled, onClick, ...rest } = option;
 
       const { focused } = this.state;
 
