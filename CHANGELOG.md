@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.33.0 - 2019-06-26
+
 ### Docs
 - `<Table/>` - simplify `<Page/>` example [#3621](https://github.com/wix/wix-style-react/pull/3621)
 - `<Button/>`- adding an example of a transparent button (secondary)[#3623](https://github.com/wix/wix-style-react/pull/3623)
