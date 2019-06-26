@@ -26,6 +26,8 @@ Types of changes:
 
 ### Added
 - `<PopoverMenu/>` - BETA - add types definition [#3578](https://github.com/wix/wix-style-react/pull/3578)
+- `<CloseButton/>`- adding a `transparent` skin to close button.[#3617](https://github.com/wix/wix-style-react/pull/3617)
+
 
 ## 6.32.0 - 2019-06-24
 
