@@ -8,6 +8,7 @@ import { storySettings, testStories } from './storySettings';
 import IconButton from '../index';
 import { Layout, Cell } from '../../Layout/index';
 import AddChannel from '../../new-icons/AddChannel';
+import { SKINS, PRIORITY } from '../constants';
 
 const kind = getTestStoryKind(storySettings);
 const dataHook = 'story-button-test';
@@ -28,7 +29,7 @@ const TestContainer = ({ children }) => (
   </div>
 );
 
-const skins = ['standard', 'inverted', 'light'];
+const skins = Object.keys(SKINS);
 
 const ButtonBlock = values => {
   const { title, ...rest } = values;
@@ -64,18 +65,7 @@ storiesOf(kind, module).add(testStories.ICONBUTTON_SKINS, () => (
     <div style={{ marginLeft: '10px' }}>
       <Layout>
         <ButtonBlock title="Primary" />
-        <ButtonBlock priority="secondary" title="Secondary" />
-      </Layout>
-    </div>
-  </TestContainer>
-));
-
-storiesOf(kind, module).add(testStories.ICONBUTTON_SIZES, () => (
-  <TestContainer>
-    <div style={{ marginLeft: '10px' }}>
-      <Layout>
-        <ButtonBlock size="small" title="Small" />
-        <ButtonBlock title="Medium" />
+        <ButtonBlock priority={PRIORITY.secondary} title="Secondary" />
       </Layout>
     </div>
   </TestContainer>
@@ -88,7 +78,7 @@ storiesOf(kind, module).add(testStories.ICONBUTTON_AS, () => (
         <ButtonBlock as="a" title="as Anchor (primary)" />
         <ButtonBlock
           as="a"
-          priority="secondary"
+          priority={PRIORITY.secondary}
           title="as Anchor (secondary)"
         />
       </Layout>

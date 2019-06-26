@@ -18,10 +18,6 @@ describe('IconButton', () => {
       await checkTestStory(testStories.ICONBUTTON_SKINS);
     });
 
-    eyes.it('check iconbutton affixes', async () => {
-      await checkTestStory(testStories.ICONBUTTON_SIZES);
-    });
-
     eyes.it('check iconbutton sizes', async () => {
       await checkTestStory(testStories.ICONBUTTON_AS);
     });

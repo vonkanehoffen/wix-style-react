@@ -3,7 +3,7 @@ import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import cx from 'classnames';
 import { iconButton } from 'wix-ui-core/themes/backoffice';
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
-import { iconButtonSizes } from './constants';
+import { iconChildSize } from './constants';
 
 class IconButton extends Component {
   static displayName = 'IconButton';
@@ -16,7 +16,7 @@ class IconButton extends Component {
     /** Used for passing any wix-style-react icon. For external icon make sure to follow ux sizing guidelines */
     children: node,
     /** Button skins */
-    skin: oneOf(['standard', 'inverted', 'light']),
+    skin: oneOf(['standard', 'inverted', 'light', 'transparent', 'premium']),
     /** Button priority */
     priority: oneOf(['primary', 'secondary']),
     /** Button size */
@@ -49,7 +49,7 @@ class IconButton extends Component {
     } = this.props;
 
     const classNames = cx(className, iconButton(skin, priority, size));
-    const childSize = iconButtonSizes[size].px;
+    const childSize = iconChildSize[size];
 
     return (
       <ButtonNext

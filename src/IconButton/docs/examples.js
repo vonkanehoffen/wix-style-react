@@ -1,5 +1,5 @@
 export const skins = `
-<Layout cols={3} gap={0} justifyItems="center" alignItems="center">
+<Layout cols={5} gap={0} justifyItems="center" alignItems="center">
   <Box padding={1} backgroundColor="D80">
     <IconButton>
       <Icons.More />
@@ -13,11 +13,19 @@ export const skins = `
       <Icons.More />
     </IconButton>
   </Box>
+  <IconButton skin="transparent">
+      <Icons.More />
+  </IconButton>
+  <Box padding={1} backgroundColor="D80">
+    <IconButton skin="premium">
+      <Icons.More />
+    </IconButton>
+  </Box>
 </Layout>
 `;
 
 export const priority = `
-<Layout cols={3} gap={0} justifyItems="center">
+<Layout cols={5} gap={0} justifyItems="center">
   <Box padding={1} backgroundColor="D80">
     <IconButton priority="secondary">
       <Icons.X />
@@ -39,6 +47,22 @@ export const priority = `
       <Icons.X />
     </IconButton>
     <IconButton priority="primary" skin="light">
+      <Icons.Check />
+    </IconButton>
+  </Box>
+  <Box padding={1} backgroundColor="B10">
+    <IconButton priority="secondary" skin="transparent">
+      <Icons.X />
+    </IconButton>
+    <IconButton priority="primary" skin="transparent">
+      <Icons.Check />
+    </IconButton>
+  </Box>
+    <Box padding={1} backgroundColor="D80">
+    <IconButton priority="secondary" skin="premium">
+      <Icons.X />
+    </IconButton>
+    <IconButton priority="primary" skin="premium">
       <Icons.Check />
     </IconButton>
   </Box>
