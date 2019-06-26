@@ -11,6 +11,7 @@ const ErrorIndicator = ({ dataHook, errorMessage, tooltipPlacement }) => (
     <Tooltip
       upgrade
       dataHook="error-indicator-tooltip"
+      appendTo="window"
       placement={tooltipPlacement}
       exitDelay={100}
       content={errorMessage}
