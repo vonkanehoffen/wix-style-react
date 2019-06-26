@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- transpile `import` keyword in `dist` for dynamically loadable components [#3644](https://github.com/wix/wix-style-react/pull/3644)
 
 ## 6.34.0 - 2019-06-26
 - `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
