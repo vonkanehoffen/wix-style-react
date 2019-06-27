@@ -16,7 +16,7 @@ Types of changes:
 
 ## Next
 
-## Changes
+### Changes
 - `<Stepper/> - resize steps [#3634] (https://github.com/wix/wix-style-react/pull/3634)
 
 ### Fixed
