@@ -27,8 +27,8 @@ export const underline = `
 
 export const affixes = `
 <Layout cols={2} gap={0} justifyItems="center">
-  <TextButton size="small" prefixIcon={<Icons.ChevronDown />}>prefix</TextButton>
-  <TextButton size="medium" suffixIcon={<Icons.ChevronDownSmall />}>suffix</TextButton>
+  <TextButton size="small" prefixIcon={<Icons.ChevronDownSmall />}>prefix</TextButton>
+  <TextButton size="medium" suffixIcon={<Icons.ChevronDown />}>suffix</TextButton>
 </Layout>
 `;
 

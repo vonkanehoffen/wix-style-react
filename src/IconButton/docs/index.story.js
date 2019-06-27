@@ -93,7 +93,7 @@ export default {
               {
                 title: 'Skin',
                 text:
-                  'Icon Button supports 5 skin styles. `standard` works well on white, `inverted` is great on grey, `light` is perfect on dark backgrounds, `transparent` looks good on coloured backgrounds and  and `premium` for premium plan actions.',
+                  'Icon Button supports 5 skin styles. `standard` works well on white, `inverted` is great on grey, `light` is perfect on dark backgrounds, `transparent` looks good on coloured backgrounds and `premium` for premium plan actions.',
                 source: examples.skins,
               },
               {
