@@ -14,9 +14,9 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.34.1 - 2019-06-27
 
-### Changes
+### Changed
 - `<Stepper/>` - resize steps [#3634](https://github.com/wix/wix-style-react/pull/3634)
 
 ### Fixed
