@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Omit} from '..';
+import {Omit} from '../common';
 
 export interface BoxProps extends Omit<React.CSSProperties, 'direction'> {
   inline?: boolean;

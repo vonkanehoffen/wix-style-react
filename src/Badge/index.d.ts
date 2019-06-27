@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {InjectedFocusableProps, IconElement} from '..';
+import {InjectedFocusableProps, IconElement} from '../common';
 
 export interface BadgeProps extends InjectedFocusableProps {
   type?: BadgeType;
