@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 
 import Step from './Step/Step';
 import ChevronRight from '../new-icons/ChevronRight';
-import { MIN_STEPS, MAX_STEPS, STEP_TYPES } from './Consts';
+import { MAX_STEPS, MIN_STEPS, STEP_TYPES } from './Consts';
 
 import styles from './Stepper.st.css';
-import { withResponsive } from './WithResponsive/withResponsive';
 
 /** Stepper */
 class Stepper extends React.PureComponent {
@@ -84,27 +83,34 @@ class Stepper extends React.PureComponent {
   };
 
   render() {
-    const { dataHook, steps, activeStep, onClick, stepSize = 0 } = this.props;
+    const { dataHook, steps, activeStep, onClick } = this.props;
 
     return (
       <div {...styles('root', {}, this.props)} data-hook={dataHook}>
         {steps.map((step, idx) => {
-          return (
-            <div className={styles.stepAndSplitter}>
+          const isLastStep = idx === steps.length - 1;
+          return [
+            <div
+              key={'stepContainer'}
+              {...styles(
+                'stepContainer',
+                { selected: idx === activeStep },
+                this.props,
+              )}
+            >
               <Step
                 id={idx}
                 {...step}
                 active={idx === activeStep}
                 onClick={onClick}
-                stepSize={stepSize}
               />
-              {idx !== steps.length - 1 && this._renderStepSplitter()}
-            </div>
-          );
+            </div>,
+            !isLastStep && this._renderStepSplitter(),
+          ];
         })}
       </div>
     );
   }
 }
 
-export default withResponsive(Stepper);
+export default Stepper;

@@ -19,7 +19,8 @@ import { Layout, Cell } from 'wix-style-react/Layout';
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
+import MaynSteps from '!raw-loader!./examples/ManySteps';
+import FourSteps from '!raw-loader!./examples/FourSteps';
 import Stepper from '..';
 
 const code = config =>
@@ -31,6 +32,7 @@ const code = config =>
       onClick,
       ...allComponents,
     },
+    autoRender: false,
     ...config,
   });
 
@@ -108,19 +110,15 @@ export default {
           title('Examples'),
 
           code({
-            title: 'Stepper',
+            title: 'Stepper with 7 steps inside card',
             compact: true,
-            source: `<div style={{padding: "20px 20px", backgroundColor: "white"}}>
-              <Stepper activeStep={2} steps={steps7} onClick={onClick}/>
-              </div>`,
+            source: MaynSteps,
           }),
 
           code({
-            title: 'Stepper',
+            title: 'Stepper with 4 steps inside card',
             compact: true,
-            source: `<div style={{padding: "20px 20px", backgroundColor: "white"}}>
-              <Stepper activeStep={1} steps={steps4} onClick={onClick} />
-              </div>`,
+            source: FourSteps,
           }),
         ],
       }),

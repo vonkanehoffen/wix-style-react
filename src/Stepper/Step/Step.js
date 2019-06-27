@@ -9,7 +9,6 @@ import { ACTIVE_STEP, STEP_TYPES } from '../Consts';
 
 import styles from './Step.st.css';
 
-/** Stepper */
 class Step extends React.PureComponent {
   static displayName = 'Step';
 
@@ -38,7 +37,7 @@ class Step extends React.PureComponent {
   };
 
   render() {
-    const { type, active, id, text, stepSize } = this.props;
+    const { type, active, id, text } = this.props;
     const { stepHover } = this.state;
 
     return (
@@ -70,18 +69,9 @@ class Step extends React.PureComponent {
           active={active}
           type={type}
           stepHover={stepHover}
+          className={styles.stepCircle}
         />
-        <div
-          {...styles(
-            'stepTextWrapper',
-            {
-              disabled: type === STEP_TYPES.DISABLED,
-              selected: active,
-            },
-            this.props,
-          )}
-          style={{ maxWidth: `${stepSize}px` }}
-        >
+        <div className={styles.stepTextWrapper}>
           <Text
             ellipsis
             weight={'normal'}

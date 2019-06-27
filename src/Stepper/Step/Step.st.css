@@ -7,11 +7,17 @@
     -st-named: D55, D40, B10, B20, R10;
 }
 
+:import {
+    -st-from: "./StepCircle/StepCircle.st.css";
+    -st-named: stepCircleWidth, stepCircleMarginRight;
+}
+
 .root {
     -st-states: disabled, selected;
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 100%;
 }
 
 .root:disabled {
@@ -23,33 +29,27 @@
 }
 
 .stepTextWrapper {
-    -st-states: disabled, selected;
-    cursor: pointer;
-}
-
-.stepTextWrapper:disabled {
-    cursor: default;
-}
-
-.stepTextWrapper:selected {
-    cursor: default;
+    width: calc(100% - value(stepCircleWidth) - value(stepCircleMarginRight));
 }
 
 .stepText {
     -st-extends: Text;
     -st-states: disabled, selected, error, stepHover;
+    cursor: pointer;
+}
+
+.stepCircle {
+    flex-shrink: 0;
 }
 
 .stepText:disabled {
     color: value(D40);
-}
-
-.stepText:disabled {
-    color: value(D40);
+    cursor: default;
 }
 
 .stepText:selected {
     color: value(B10);
+    cursor: default;
 }
 
 .stepText:stepHover {
@@ -67,3 +67,4 @@
 .stepText:error:selected {
     color: value(R10);
 }
+

@@ -8,16 +8,21 @@
   -st-named: B10, B20, D55, D80, R10;
 }
 
+:vars {
+  stepCircleWidth: "30px";
+  stepCircleMarginRight: "12px";
+}
+
 .root {
   -st-states: disabled(boolean), selected(boolean), error(boolean), stepHover(boolean), completed(boolean);
   border-radius: 16px;
-  width: 30px;
+  width: value(stepCircleWidth);
   height: 30px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
+  margin-right: value(stepCircleMarginRight);
   border: 1px solid value(B10);
   color: value(B10);
 }
