@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### fixed
+
+- infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
+
 ## 6.34.1 - 2019-06-27
 
 ### Changed
@@ -39,7 +45,10 @@ Types of changes:
 
 ### Added
 - `<PopoverMenu/>` - BETA - add types definition [#3578](https://github.com/wix/wix-style-react/pull/3578)
-- `<CloseButton/>`- adding a `transparent` skin to close button.[#3617](https://github.com/wix/wix-style-react/pull/3617)
+- `<CloseButton/>`- adding a `transparent` skin to close button [#3617](https://github.com/wix/wix-style-react/pull/3617)
+
+### Changed
+- `<Loader/>` `<CircularProgressBar/>` `<LinearProgressBar/>` - support dynamic imports on demand [#3097](https://github.com/wix/wix-style-react/pull/3097)
 
 ## 6.32.0 - 2019-06-24
 
