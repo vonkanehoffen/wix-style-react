@@ -118,13 +118,15 @@ tests.forEach(({ describe, its }) => {
   });
 });
 
-interactiveTests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`Checkbox/${describe}`, module).add(it, () => (
-      <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
-    ));
-  });
-});
+/* issue with the interactive test: https://github.com/wix/wix-style-react/issues/3647 */
+
+// interactiveTests.forEach(({ describe, its }) => {
+//   its.forEach(({ it, props, componentDidMount }) => {
+//     storiesOf(`Checkbox/${describe}`, module).add(it, () => (
+//       <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
+//     ));
+//   });
+// });
 
 storiesOf('Checkbox/FormField', module).add('FormField', () => (
   <div style={{ padding: '40px' }}>

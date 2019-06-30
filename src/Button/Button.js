@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import cx from 'classnames';
-import { button } from 'wix-ui-core/themes/backoffice';
+import styles from './Button.st.css';
+
 import {
   oneOfType,
   string,
@@ -71,7 +72,10 @@ class Button extends Component {
     } = this.props;
 
     const fluid = fullWidth ? 'fullWidth' : '';
-    const classNames = cx(className, button(fluid, skin, priority, size));
+    const clsArray = [fluid, skin, priority, size].map(
+      cls => styles[cls] || null,
+    );
+    const classNames = cx(styles.button, className, clsArray);
 
     return (
       <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
