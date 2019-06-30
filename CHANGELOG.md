@@ -20,6 +20,9 @@ Types of changes:
 
 - infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
 
+### Changed
+- `<Button/>`- migrating `<Button/>` styles from `wix-ui-core` to `wix-style-react` and updating Button.js to use the styles directly from `wix-style-react`.[#3648](https://github.com/wix/wix-style-react/pull/3648)
+
 ## 6.34.1 - 2019-06-27
 
 ### Changed
