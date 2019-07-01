@@ -160,6 +160,7 @@ require('../src/Calendar/docs/CalendarTestStory'); // Tests/3. Inputs/3.13 Calen
 require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
 require('../src/Stepper/test/StepperWindowResizeTest');
+require('../src/Stepper/test/StepperAccessibilityTest');
 require('../src/Popover/docs/testStory');
 require('../src/Modal/test/TestsStory'); //Tests/9. Modal
 require('../src/Table/test/testStory');

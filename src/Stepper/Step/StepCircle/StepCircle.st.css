@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../../../Foundation/stylable/colors.st.css";
-  -st-named: B10, B20, D55, D80, R10;
+  -st-named: B10, B20, D55, D80, R10, F00;
 }
 
 :vars {
@@ -87,25 +87,24 @@
 
 .text {
   -st-extends: Text;
-  -st-states: disabled(boolean), selected(boolean), error(boolean), stepHover(boolean), completed(boolean);
 }
 
-.text:disabled > a {
+.root:disabled .text > a {
   color: value(D80);
 }
 
-.text:selected > a {
+.root:selected .text > a {
   color: value(D80);
 }
 
-.text:disabled > a:hover {
+.root:disabled .text > a:hover {
 }
 
-.text:stepHover > a {
+.root:stepHover .text > a {
   color: value(D80);
 }
 
-.text:stepHover > a:hover {
+.root:stepHover .text > a:hover {
   color: value(D80);
 }
 

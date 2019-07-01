@@ -16,17 +16,7 @@ const StepCircle = props => {
         size={'small'}
         light={props.disabled}
         weight={'normal'}
-        {...styles(
-          'text',
-          {
-            disabled: type === STEP_TYPES.DISABLED,
-            selected: active,
-            completed: type === STEP_TYPES.COMPLETED,
-            error: type === STEP_TYPES.ERROR,
-            stepHover: stepHover,
-          },
-          props,
-        )}
+        className={styles.text}
       >
         <a>{number}</a>
       </Text>

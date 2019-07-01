@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,6 +7,8 @@ import DataHooks from '../dataHooks';
 import { ACTIVE_STEP, STEP_TYPES } from '../Consts';
 
 import styles from './Step.st.css';
+
+const KEY_CODES = { ENTER: 13, SPACE: 32 };
 
 class Step extends React.PureComponent {
   static displayName = 'Step';
@@ -36,18 +37,37 @@ class Step extends React.PureComponent {
     type !== STEP_TYPES.DISABLED && !active && onClick && onClick(id);
   };
 
-  render() {
-    const { type, active, id, text } = this.props;
-    const { stepHover } = this.state;
+  _onKeyUp = e => {
+    const { type, active, id } = this.props;
+    if (this._enterOrSpace(e.keyCode)) {
+      e.preventDefault();
+      this._onClick({ id, type, active });
+    }
+  };
 
+  _onKeyDown = e => {
+    if (this._enterOrSpace(e.keyCode)) {
+      e.preventDefault();
+    }
+  };
+
+  _enterOrSpace = keyCode =>
+    keyCode === KEY_CODES.ENTER || keyCode === KEY_CODES.SPACE;
+
+  render() {
+    const { type, active, id, text, onFocus } = this.props;
+    const { stepHover } = this.state;
     return (
       <div
         data-type={DataHooks.step}
         data-step-type={type ? type : STEP_TYPES.NORMAL}
         data-active={active ? ACTIVE_STEP : ''}
         key={`step${id}`}
+        onKeyUp={this._onKeyUp}
         onMouseOver={this._onMouseOver}
         onMouseOut={this._onMouseOut}
+        onKeyDown={this._onKeyDown}
+        tabIndex={active || type === STEP_TYPES.DISABLED ? -1 : 0}
         {...styles(
           'root',
           {
@@ -70,6 +90,7 @@ class Step extends React.PureComponent {
           type={type}
           stepHover={stepHover}
           className={styles.stepCircle}
+          onFocus={() => onFocus(id)}
         />
         <div className={styles.stepTextWrapper}>
           <Text

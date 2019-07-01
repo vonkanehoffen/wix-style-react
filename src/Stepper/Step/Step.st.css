@@ -4,12 +4,13 @@
 }
 :import {
     -st-from: "../../Foundation/stylable/colors.st.css";
-    -st-named: D55, D40, B10, B20, R10;
+    -st-named: D55, D40, B10, B20, R10, F00;
 }
 
 :import {
     -st-from: "./StepCircle/StepCircle.st.css";
     -st-named: stepCircleWidth, stepCircleMarginRight;
+    -st-default: StepCircle;
 }
 
 .root {
@@ -18,6 +19,7 @@
     align-items: center;
     cursor: pointer;
     width: 100%;
+    outline: none;
 }
 
 .root:disabled {
@@ -39,6 +41,7 @@
 }
 
 .stepCircle {
+    -st-extends: StepCircle;
     flex-shrink: 0;
 }
 
@@ -67,4 +70,17 @@
 .stepText:error:selected {
     color: value(R10);
 }
+
+.root:focus .stepCircle {
+    box-shadow: 0 0 0 3px value(F00);
+}
+
+.root:focus:disabled .stepCircle {
+    box-shadow: none;
+}
+
+.root:focus:selected .stepCircle {
+    box-shadow: none;
+}
+
 

@@ -35,7 +35,6 @@ class Stepper extends React.PureComponent {
 
   constructor(props) {
     super(props);
-
     this._validateSteps(props.steps, props.activeStep);
   }
 
