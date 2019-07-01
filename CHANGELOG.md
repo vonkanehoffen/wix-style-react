@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Stepper/>` - focus & enter step [#3649](https://github.com/wix/wix-style-react/pull/3649)
+
 ### fixed
 
 - infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
