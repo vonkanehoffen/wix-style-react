@@ -75,8 +75,8 @@ export const testkit = base => {
 
     focus: async () => await reactBaseInput.focus(),
     blur: async () => await reactBaseInput.blur(),
-    keyUp: async () => await reactBaseInput.keyup(),
-    keyDown: async eventData => await reactBaseInput.keydown(eventData),
+    keyUp: async () => await reactBaseInput.keyUp(),
+    keyDown: async eventData => await reactBaseInput.keyDown(eventData),
     paste: async () => await reactBaseInput.paste(),
     trigger: async (value, event) => {
       if (value === 'focus') {

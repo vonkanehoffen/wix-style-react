@@ -99,8 +99,8 @@ export function ReactBase(base) {
     compositionStart: async () =>
       Simulate.compositionStart(await htmlElement()),
     compositionEnd: async () => Simulate.compositionEnd(await htmlElement()),
-    keyup: async eventData => Simulate.keyUp(await htmlElement(), eventData),
-    keydown: async eventData =>
+    keyUp: async eventData => Simulate.keyUp(await htmlElement(), eventData),
+    keyDown: async eventData =>
       Simulate.keyDown(await htmlElement(), eventData),
     mouseEnter: async eventData =>
       Simulate.mouseEnter(await htmlElement(), eventData),
