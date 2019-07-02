@@ -120,7 +120,7 @@ export const dropdownLayoutDriverFactory = base => {
     optionDriver: createOptionDriver,
     options: async () => {
       const drivers = [];
-      for (let position = 0; position < optionsLength(); position++) {
+      for (let position = 0; position < (await optionsLength()); position++) {
         drivers.push(await getOptionDriver(position));
       }
       return drivers;
