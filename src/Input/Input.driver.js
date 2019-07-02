@@ -80,9 +80,7 @@ const inputDriverFactory = ({ element }) => {
       !!element.querySelector(`.${styles.suffix} ${style}`),
     isMenuArrowLast: () =>
       element.querySelectorAll(
-        `.${styles.suffixes} .${styles.suffix}:last-child > .${
-          styles.menuArrow
-        }`,
+        `.${styles.suffixes} .${styles.suffix}:last-child > .${styles.menuArrow}`,
       ).length === 1,
     hasExclamation: () => !!element.querySelector(`.${styles.exclamation}`),
     isNarrowError: () => !!element.querySelector(`.${styles.narrow}`),
