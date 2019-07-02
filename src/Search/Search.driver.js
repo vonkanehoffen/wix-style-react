@@ -1,8 +1,9 @@
 import inputWithOptionsDriverFactory from '../InputWithOptions/InputWithOptions.driver';
-
-const EXPANDABLE_CLASS = 'expandableStyles';
-const EXPANDABLE_COLLAPSED = 'collapsed';
-const EXPANDABLE_EXPANDED = 'expanded';
+import {
+  EXPANDABLE_CLASS,
+  EXPANDABLE_COLLAPSED,
+  EXPANDABLE_EXPANDED,
+} from './constants';
 
 const searchDriverFactory = args => {
   const inputWithOptionsDriver = inputWithOptionsDriverFactory({
