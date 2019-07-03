@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.35.0 - 2019-07-03
 
 ### Added
 - `<Stepper/>` - focus & enter step [#3649](https://github.com/wix/wix-style-react/pull/3649)
