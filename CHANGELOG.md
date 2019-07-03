@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Stepper/>` - focus & enter step [#3649](https://github.com/wix/wix-style-react/pull/3649)
+- `<Badge/>` - support ellipsis in case of long text [#3628](https://github.com/wix/wix-style-react/pull/3628)
 
 ### fixed
 
