@@ -5,8 +5,6 @@
 This is a controlled NumberInput component, with increase, decrease buttons.
 It supports integer values only.
 
-![image](./readme-assets/number-input.png)
-
 ## Basic Usage
 
 ```js

@@ -17,7 +17,7 @@ You will be asked for component name (which **must** be in `PascalCase`) and opt
 Generator will:
 
 * create files according to structure defined in [Component Structure](./COMPONENT_STRUCTURE.md) document
-* add necessary `export`s to [index file](../../src/index.js), [testkits](../../testkit/) and [stories index](../../stories/index.js)
+* add necessary `export`s to [index file](../../src/index.js), [testkits](../../testkit) and [stories index](../../stories/index.js)
 
 ---
 

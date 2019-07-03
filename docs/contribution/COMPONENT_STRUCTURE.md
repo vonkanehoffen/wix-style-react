@@ -44,7 +44,7 @@ src/ComponentName
 ### `ComponentName.driver.js`
 
 1. Every component exposes a public driver It is also used in component tests (`ComponentName.spec.js`). This way driver itself is tested.
-1. Read [Test Drivers section](./TEST_DRIVERS.md) for more information.
+1. Read [Test Drivers section](./TEST_DRIVERS_GUIDELINES.md) for more information.
 
 ### `ComponentName.e2e.js`
 
