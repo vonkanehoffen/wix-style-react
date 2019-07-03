@@ -6,6 +6,8 @@ import { storySettings } from './storySettings';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import ChevronDownSmall from 'wix-ui-icons-common/ChevronDownSmall';
 import ExampleBadgesRaw from '!raw-loader!./ExampleBadges';
+import ExampleBadgeEllipsisRaw from '!raw-loader!./ExampleBadgeEllipsis';
+
 import {
   api,
   code as baseCode,
@@ -77,8 +79,16 @@ export default {
             },
             {
               title: 'Variations',
+              description:
+                'The different combinations of skin and variants. Please notice that not all combinations are valid',
               source: ExampleBadgesRaw,
               autoRender: false,
+            },
+            {
+              title: 'Ellipsis',
+              description:
+                'When wrapped in a container with limited width - ellipsis and tooltip will appear',
+              source: ExampleBadgeEllipsisRaw,
             },
           ].map(code),
         ],

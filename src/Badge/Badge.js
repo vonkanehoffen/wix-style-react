@@ -1,13 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withFocusable, withEllipsedTooltip } from 'wix-ui-core/hocs';
+
 import { SKIN, TYPE, SIZE } from './constants';
 import style from './Badge.st.css';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import ellipsedStyle from '../common/EllipsedTooltip/EllipsedTooltip.st.css';
+
+const WrapWithEllipsis = withEllipsedTooltip({ showTooltip: true });
+
+const BadgeContent = ({ children, className, ...restProps }) => {
+  return (
+    <span className={classNames(style.text, className)} {...restProps}>
+      {children}
+    </span>
+  );
+};
+
+// It's a best practice to create the HOC outside the render function,
+// mainly to improve the performance and prevent remounting that in some case could cause issues
+const EllipsedBadgeContent = WrapWithEllipsis(BadgeContent);
 
 class Badge extends React.PureComponent {
   static propTypes = {
     dataHook: PropTypes.string,
+    /** variation of the component structure */
     type: PropTypes.oneOf(['solid', 'outlined', 'transparent']),
+    /** color indication of the component */
     skin: PropTypes.oneOf([
       'general',
       'standard',
@@ -23,6 +42,7 @@ class Badge extends React.PureComponent {
       'premium',
       'warningLight',
     ]),
+    /** component size */
     size: PropTypes.oneOf(['medium', 'small']),
     /** usually an icon to appear at the beginning of the text */
     prefixIcon: PropTypes.node,
@@ -48,37 +68,52 @@ class Badge extends React.PureComponent {
     uppercase: true,
   };
 
-  render() {
-    const {
-      children,
-      prefixIcon,
-      suffixIcon,
-      onClick,
-      focusableOnFocus,
-      focusableOnBlur,
-      dataHook,
-      ...rest
-    } = this.props;
+  getProps = () => {
+    // that's what you pay for using HOCs...
+    const { focusableOnFocus, focusableOnBlur, ...rest } = this.props;
+    return rest;
+  };
 
-    const focusableProps = onClick
+  _getFocusableProps = () => {
+    // add focusable hooks only when badge is clickable
+    const { onClick, focusableOnFocus, focusableOnBlur } = this.props;
+    return onClick
       ? {
           onFocus: focusableOnFocus,
           onBlur: focusableOnBlur,
           tabIndex: 0,
         }
       : {};
+  };
+
+  _renderContent = children => {
+    return (
+      <EllipsedBadgeContent {...ellipsedStyle('root', {})}>
+        {children}
+      </EllipsedBadgeContent>
+    );
+  };
+
+  render() {
+    const {
+      children,
+      prefixIcon,
+      suffixIcon,
+      onClick,
+      dataHook,
+      ...rest
+    } = this.getProps();
 
     return (
       <div
-        {...(dataHook ? { 'data-hook': dataHook } : undefined)}
+        data-hook={dataHook}
         onClick={onClick}
-        {...focusableProps}
-        {...style('root', { clickable: !!onClick, ...rest }, this.props)}
+        {...this._getFocusableProps()}
+        {...style('root', { clickable: !!onClick, ...rest }, this.getProps())}
       >
         {prefixIcon &&
           React.cloneElement(prefixIcon, { className: style.prefix })}
-        <span className={style.text}>{children}</span>
-
+        {this._renderContent(children)}
         {suffixIcon &&
           React.cloneElement(suffixIcon, { className: style.suffix })}
       </div>

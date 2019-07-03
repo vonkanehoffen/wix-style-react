@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Badge, { SIZE, SKIN, TYPE } from '..';
+import Box from '../../Box';
 
-storiesOf('Badge', module).add('base', () => <Badge>I'M A BADGE!</Badge>);
+storiesOf('Badge', module).add('base', () => <BasicBadges />);
 storiesOf('Badge', module).add('skins', () => <BadgesVariations />);
 storiesOf('Badge', module).add('focus', () => <FocusBadgeTest />);
 
@@ -18,6 +19,19 @@ const renderBadge = props => (
 
 const renderTypes = props => types.map(type => renderBadge({ type, ...props }));
 const renderSizes = props => sizes.map(size => renderTypes({ size, ...props }));
+
+class BasicBadges extends React.Component {
+  render() {
+    return (
+      <div>
+        <Badge>I'M A BADGE!</Badge>
+        <Box maxWidth="60px" marginTop={1}>
+          <Badge>I'M A BADGE WITH ELLIPSIS!</Badge>
+        </Box>
+      </div>
+    );
+  }
+}
 
 class BadgesVariations extends React.Component {
   render() {
