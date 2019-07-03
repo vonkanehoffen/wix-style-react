@@ -27,9 +27,10 @@
     }
   }
 
-  &:not(.hasFocusLast)
-    .lastinput,.lastDate {
-    border-left-width: 0;
+  &:not(.hasFocusLast) {
+    .lastinput, .lastDate {
+      border-left-width: 0;
+    }
   }
 }
 
