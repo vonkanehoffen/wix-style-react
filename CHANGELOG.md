@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Changed
+- `<PopoverMenu/>` - change `appendTo` propType [#3662](https://github.com/wix/wix-style-react/pull/3662)
+
 ## 6.35.0 - 2019-07-03
 
 ### Added
