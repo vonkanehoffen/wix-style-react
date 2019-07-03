@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Docs
+- `<Stepper />` - add stepper testkit docs [#3667](https://github.com/wix/wix-style-react/pull/3667)
+
 ### Changed
 - `<PopoverMenu/>` - change `appendTo` propType [#3662](https://github.com/wix/wix-style-react/pull/3662)
 
