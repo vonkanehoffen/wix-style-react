@@ -20,12 +20,12 @@ Types of changes:
 - `<Stepper/>` - focus & enter step [#3649](https://github.com/wix/wix-style-react/pull/3649)
 - `<Badge/>` - support ellipsis in case of long text [#3628](https://github.com/wix/wix-style-react/pull/3628)
 
-### fixed
-
-- infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
-
 ### Changed
 - `<Button/>`- migrating `<Button/>` styles from `wix-ui-core` to `wix-style-react` and updating Button.js to use the styles directly from `wix-style-react`.[#3648](https://github.com/wix/wix-style-react/pull/3648)
+
+### Fixed
+
+- infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
 
 ## 6.34.1 - 2019-06-27
 
@@ -36,6 +36,8 @@ Types of changes:
 - transpile `import` keyword in `dist` for dynamically loadable components [#3644](https://github.com/wix/wix-style-react/pull/3644)
 
 ## 6.34.0 - 2019-06-26
+
+### Added
 - `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
 
 
