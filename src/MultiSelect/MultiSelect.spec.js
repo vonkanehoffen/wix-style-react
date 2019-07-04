@@ -1,702 +1,728 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import multiSelectDriverFactory from './MultiSelect.driver';
+import { multiselectUniDriverFactory } from './MultiSelect.uni.driver';
 import MultiSelect from './MultiSelect';
 import { multiSelectTestkitFactory } from '../../testkit';
 import { multiSelectTestkitFactory as enzymeMultiSelectTestkitFactory } from '../../testkit/enzyme';
 import { mount } from 'enzyme';
-import { createRendererWithDriver, cleanup } from '../../test/utils/unit';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../test/utils/unit';
 import eventually from '../../test/utils/eventually';
 
 describe('MultiSelect', () => {
-  const render = createRendererWithDriver(multiSelectDriverFactory);
-  const createDriver = jsx => render(jsx).driver;
-  const expectEventTargetValue = value =>
-    expect.objectContaining({
-      target: expect.objectContaining({ value }),
-    });
-
-  const options = [
-    { value: 'Alabama', id: 'Alabama' },
-    { value: 'Alaska', id: 'Alaska' },
-    { value: 'Arkansas', id: 'Arkansas' },
-    { value: 'Arkansas', id: 'Arkansas' },
-    { value: 'California', id: 'California' },
-    { value: 'Two words', id: 'Two words' },
-  ];
-  const FIRST_OPTION = options[0];
-  const FIRST_OPTION_ID = options[0].id;
-
-  afterEach(() => {
-    cleanup();
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(multiSelectDriverFactory));
   });
 
-  class ControlledMultiSelect extends React.Component {
-    state = { inputValue: this.props.value || '' };
-
-    componentWillReceiveProps(nextProps) {
-      this.setState({ inputValue: nextProps.value });
-    }
-
-    render() {
-      return (
-        <MultiSelect
-          {...this.props}
-          onChange={e => {
-            this.setState({ inputValue: e.target.value });
-          }}
-          value={this.state.inputValue}
-        />
-      );
-    }
-  }
-
-  it('should NOT show dropdown when autofocus is on', () => {
-    const { inputDriver, dropdownLayoutDriver } = createDriver(
-      <MultiSelect options={options} autoFocus />,
-    );
-    expect(inputDriver.isFocus()).toBeTruthy();
-    expect(dropdownLayoutDriver.isShown()).toBeFalsy();
+  describe('[async]', () => {
+    runTests(createRendererWithUniDriver(multiselectUniDriverFactory));
   });
 
-  it('should remove options that were selected and became tags', () => {
-    const tags = [{ id: 'Alabama', label: 'Alabama' }];
+  function runTests(render) {
+    const createDriver = jsx => render(jsx).driver;
 
-    const { driver: multiSelectDriver, rerender } = render(
-      <MultiSelect options={options} autoFocus />,
-    );
-    const { dropdownLayoutDriver } = multiSelectDriver;
-    expect(dropdownLayoutDriver.optionsLength()).toBe(options.length);
-    expect(dropdownLayoutDriver.isOptionExists('Alabama')).toBeTruthy();
-
-    rerender(<MultiSelect options={options} tags={tags} autoFocus />);
-    expect(dropdownLayoutDriver.optionsLength()).toBe(
-      options.length - tags.length,
-    );
-    expect(dropdownLayoutDriver.isOptionExists('Alabama')).toBeFalsy();
-  });
-
-  it('should not filter anything without predicate function', () => {
-    const onSelect = jest.fn();
-    const { driver, dropdownLayoutDriver } = createDriver(
-      <MultiSelect options={options} onSelect={onSelect} />,
-    );
-    driver.focus();
-    expect(dropdownLayoutDriver.optionsLength()).toBe(options.length);
-  });
-
-  it('should be editable', () => {
-    const { driver } = createDriver(<MultiSelect options={options} />);
-    expect(driver.isEditable()).toBe(true);
-  });
-
-  it('should NOT be editable on select mode', () => {
-    const { driver } = createDriver(
-      <MultiSelect mode="select" options={options} />,
-    );
-    expect(driver.isEditable()).toBe(false);
-  });
-
-  it('should render custom input as the input element', () => {
-    const { inputDriver } = createDriver(<MultiSelect options={options} />);
-    expect(inputDriver.isCustomInput()).toEqual(true);
-  });
-
-  describe('click-outside', () => {
-    it('should clear input when clicked-out-side given input is non-empty', () => {
-      const onChange = jest.fn();
-      const { driver, inputDriver } = createDriver(
-        <MultiSelect value={''} onChange={onChange} />,
-      );
-      inputDriver.focus('ArrowDown');
-      inputDriver.enterText('foo');
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange).toBeCalledWith(expectEventTargetValue('foo'));
-      onChange.mockReset();
-
-      driver.outsideClick();
-      expect(onChange).toHaveBeenCalledTimes(1);
-      expect(onChange).toBeCalledWith(expectEventTargetValue(''));
-    });
-
-    it('should NOT select option when clicked-out-side given option is marked', () => {
-      const onSelect = jest.fn();
-
-      const { driver, dropdownLayoutDriver } = createDriver(
-        <ControlledMultiSelect options={options} onSelect={onSelect} />,
-      );
-      driver.pressKey('ArrowDown');
-      driver.pressKey('ArrowDown');
-      expect(dropdownLayoutDriver.isOptionHovered(0)).toBeTruthy();
-      driver.outsideClick();
-      expect(onSelect).toHaveBeenCalledTimes(0);
-    });
-  });
-
-  describe('Tag Input', () => {
-    it('should render readonly input on select mode', () => {
-      const { inputDriver } = createDriver(
-        <MultiSelect options={options} mode="select" />,
-      );
-      expect(inputDriver.getReadOnly()).toBeTruthy();
-    });
-
-    it('should render arrow on select mode', () => {
-      const { inputDriver } = createDriver(
-        <MultiSelect options={options} mode="select" />,
-      );
-      expect(inputDriver.hasMenuArrow()).toBeTruthy();
-    });
-
-    it('should render input wrapper with error', () => {
-      const { driver } = createDriver(<MultiSelect error options={options} />);
-      expect(driver.inputWrapperHasError()).toBeTruthy();
-    });
-
-    it('should have disabled attribute on input if disabled', async () => {
-      const { driver } = createDriver(
-        <MultiSelect disabled options={options} />,
-      );
-      expect(driver.isDisabled()).toBe(true);
-      expect(driver.inputWrapperIsDisabled()).toBe(true);
-    });
-
-    describe('Placeholder', () => {
-      it('should display a placeholder if there are no tags', () => {
-        const placeholder = 'myPlaceholder';
-        const { inputDriver } = createDriver(
-          <MultiSelect options={options} placeholder={placeholder} />,
-        );
-        expect(inputDriver.getPlaceholder()).toBe(placeholder);
+    const expectEventTargetValue = value =>
+      expect.objectContaining({
+        target: expect.objectContaining({ value }),
       });
 
-      it('should not display a placeholder if there are any tags', () => {
-        const tags = [{ id: 'Alabama', label: 'Alabama' }];
-        const placeholder = 'myPlaceholder';
-        const { inputDriver } = createDriver(
+    const options = [
+      { value: 'Alabama', id: 'Alabama' },
+      { value: 'Alaska', id: 'Alaska' },
+      { value: 'Arkansas', id: 'Arkansas' },
+      { value: 'Arkansas', id: 'Arkansas' },
+      { value: 'California', id: 'California' },
+      { value: 'Two words', id: 'Two words' },
+    ];
+    const FIRST_OPTION = options[0];
+    const FIRST_OPTION_ID = options[0].id;
+
+    afterEach(() => {
+      cleanup();
+    });
+
+    class ControlledMultiSelect extends React.Component {
+      state = { inputValue: this.props.value || '' };
+
+      componentWillReceiveProps(nextProps) {
+        this.setState({ inputValue: nextProps.value });
+      }
+
+      render() {
+        return (
           <MultiSelect
-            options={options}
-            tags={tags}
-            placeholder={placeholder}
-          />,
+            {...this.props}
+            onChange={e => {
+              this.setState({ inputValue: e.target.value });
+            }}
+            value={this.state.inputValue}
+          />
         );
-        expect(inputDriver.getPlaceholder()).toBe('');
+      }
+    }
+
+    it('should NOT show dropdown when autofocus is on', async () => {
+      const { inputDriver, dropdownLayoutDriver } = createDriver(
+        <MultiSelect options={options} autoFocus />,
+      );
+      expect(await inputDriver.isFocus()).toBeTruthy();
+      expect(await dropdownLayoutDriver.isShown()).toBeFalsy();
+    });
+
+    it('should remove options that were selected and became tags', async () => {
+      const tags = [{ id: 'Alabama', label: 'Alabama' }];
+
+      const { driver: multiSelectDriver, rerender } = render(
+        <MultiSelect options={options} autoFocus />,
+      );
+      const { dropdownLayoutDriver } = multiSelectDriver;
+      expect(await dropdownLayoutDriver.optionsLength()).toBe(options.length);
+      expect(await dropdownLayoutDriver.isOptionExists('Alabama')).toBeTruthy();
+
+      rerender(<MultiSelect options={options} tags={tags} autoFocus />);
+      expect(await dropdownLayoutDriver.optionsLength()).toBe(
+        options.length - tags.length,
+      );
+      expect(await dropdownLayoutDriver.isOptionExists('Alabama')).toBeFalsy();
+    });
+
+    it('should not filter anything without predicate function', async () => {
+      const onSelect = jest.fn();
+      const { driver, dropdownLayoutDriver } = createDriver(
+        <MultiSelect options={options} onSelect={onSelect} />,
+      );
+      await driver.focus();
+      expect(await dropdownLayoutDriver.optionsLength()).toBe(options.length);
+    });
+
+    it('should be editable', async () => {
+      const { driver } = createDriver(<MultiSelect options={options} />);
+      expect(await driver.isEditable()).toBe(true);
+    });
+
+    it('should NOT be editable on select mode', async () => {
+      const { driver } = createDriver(
+        <MultiSelect mode="select" options={options} />,
+      );
+      expect(await driver.isEditable()).toBe(false);
+    });
+
+    it('should render custom input as the input element', async () => {
+      const { inputDriver } = createDriver(<MultiSelect options={options} />);
+      expect(await inputDriver.isCustomInput()).toEqual(true);
+    });
+
+    describe('click-outside', () => {
+      it('should clear input when clicked-out-side given input is non-empty', async () => {
+        const onChange = jest.fn();
+        const { driver, inputDriver } = createDriver(
+          <MultiSelect value={''} onChange={onChange} />,
+        );
+        await inputDriver.focus('ArrowDown');
+        await inputDriver.enterText('foo');
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toBeCalledWith(expectEventTargetValue('foo'));
+        onChange.mockReset();
+
+        await driver.outsideClick();
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toBeCalledWith(expectEventTargetValue(''));
+      });
+
+      it('should NOT select option when clicked-out-side given option is marked', async () => {
+        const onSelect = jest.fn();
+
+        const { driver, dropdownLayoutDriver } = createDriver(
+          <ControlledMultiSelect options={options} onSelect={onSelect} />,
+        );
+        await driver.pressKey('ArrowDown');
+        await driver.pressKey('ArrowDown');
+        expect(await dropdownLayoutDriver.isOptionHovered(0)).toBeTruthy();
+        await driver.outsideClick();
+        expect(onSelect).toHaveBeenCalledTimes(0);
       });
     });
 
-    it('should focus the input when clicking on the input wrapper', () => {
-      const { driver, inputDriver } = createDriver(
-        <MultiSelect options={options} />,
-      );
-      expect(inputDriver.isFocus()).toBeFalsy();
-      driver.clickOnInputWrapper();
-      expect(inputDriver.isFocus()).toBeTruthy();
-    });
+    describe('Tag Input', () => {
+      it('should render readonly input on select mode', async () => {
+        const { inputDriver } = createDriver(
+          <MultiSelect options={options} mode="select" />,
+        );
+        expect(inputDriver.getReadOnly()).toBeTruthy();
+      });
 
-    it('should check that wrapper has focus when the input element does', () => {
-      const { driver, inputDriver } = createDriver(
-        <MultiSelect options={options} />,
-      );
-      driver.clickOnInputWrapper();
-      expect(inputDriver.isFocus()).toBeTruthy();
-      expect(driver.inputWrapperHasFocus()).toBeTruthy();
-    });
+      it('should render arrow on select mode', async () => {
+        const { inputDriver } = createDriver(
+          <MultiSelect options={options} mode="select" />,
+        );
+        expect(inputDriver.hasMenuArrow()).toBeTruthy();
+      });
 
-    it('should contain specific tags', () => {
-      const tags = [
-        { id: 'Alabama', label: 'Alabama' },
-        { id: 'Alaska', label: 'Alaska' },
-      ];
+      it('should render input wrapper with error', async () => {
+        const { driver } = createDriver(
+          <MultiSelect error options={options} />,
+        );
+        expect(await driver.inputWrapperHasError()).toBeTruthy();
+      });
 
-      const { driver } = createDriver(
-        <MultiSelect options={options} tags={tags} />,
-      );
-      expect(driver.numberOfTags()).toBe(tags.length);
-      expect(driver.getTagLabelAt(0)).toBe('Alabama');
-      expect(driver.getTagLabelAt(1)).toBe('Alaska');
-    });
+      it('should have disabled attribute on input if disabled', async () => {
+        const { driver } = createDriver(
+          <MultiSelect disabled options={options} />,
+        );
+        expect(await driver.isDisabled()).toBe(true);
+        expect(await driver.inputWrapperIsDisabled()).toBe(true);
+      });
 
-    describe('Submit (Add Tag)', () => {
-      describe('input is empty', () => {
-        it('should NOT submit when Enter is pressed', () => {
-          const onManuallyInput = jest.fn();
-          const { driver } = createDriver(
-            <ControlledMultiSelect
+      describe('Placeholder', () => {
+        it('should display a placeholder if there are no tags', async () => {
+          const placeholder = 'myPlaceholder';
+          const { inputDriver } = createDriver(
+            <MultiSelect options={options} placeholder={placeholder} />,
+          );
+          expect(await inputDriver.getPlaceholder()).toBe(placeholder);
+        });
+
+        it('should not display a placeholder if there are any tags', async () => {
+          const tags = [{ id: 'Alabama', label: 'Alabama' }];
+          const placeholder = 'myPlaceholder';
+          const { inputDriver } = createDriver(
+            <MultiSelect
               options={options}
-              onManuallyInput={onManuallyInput}
+              tags={tags}
+              placeholder={placeholder}
             />,
           );
-
-          driver.focus();
-          driver.pressKey('Enter');
-
-          expect(onManuallyInput).toHaveBeenCalledTimes(0);
+          expect(await inputDriver.getPlaceholder()).toBe('');
         });
       });
 
-      describe('input is not empty', () => {
-        function testCase({
+      it('should focus the input when clicking on the input wrapper', async () => {
+        const { driver, inputDriver } = createDriver(
+          <MultiSelect options={options} />,
+        );
+        expect(await inputDriver.isFocus()).toBeFalsy();
+        await driver.clickOnInputWrapper();
+        expect(await inputDriver.isFocus()).toBeTruthy();
+      });
+
+      it('should check that wrapper has focus when the input element does', async () => {
+        const { driver, inputDriver } = createDriver(
+          <MultiSelect options={options} />,
+        );
+        await driver.clickOnInputWrapper();
+        expect(inputDriver.isFocus()).toBeTruthy();
+        expect(await driver.inputWrapperHasFocus()).toBeTruthy();
+      });
+
+      it('should contain specific tags', async () => {
+        const tags = [
+          { id: 'Alabama', label: 'Alabama' },
+          { id: 'Alaska', label: 'Alaska' },
+        ];
+
+        const { driver } = createDriver(
+          <MultiSelect options={options} tags={tags} />,
+        );
+        expect(await driver.numberOfTags()).toBe(tags.length);
+        expect(await driver.getTagLabelAt(0)).toBe('Alabama');
+        expect(await driver.getTagLabelAt(1)).toBe('Alaska');
+      });
+
+      describe('Submit (Add Tag)', () => {
+        describe('input is empty', () => {
+          it('should NOT submit when Enter is pressed', async () => {
+            const onManuallyInput = jest.fn();
+            const { driver } = createDriver(
+              <ControlledMultiSelect
+                options={options}
+                onManuallyInput={onManuallyInput}
+              />,
+            );
+
+            await driver.focus();
+            await driver.pressKey('Enter');
+
+            expect(onManuallyInput).toHaveBeenCalledTimes(0);
+          });
+        });
+
+        describe('input is not empty', () => {
+          async function testCase({
+            props,
+            keyPressed,
+            enteredText,
+            Component = MultiSelect,
+            expectSubmit,
+          }) {
+            const onSelect = jest.fn();
+            const onManuallyInput = jest.fn();
+            const { driver, inputDriver } = createDriver(
+              <Component
+                onManuallyInput={onManuallyInput}
+                onSelect={onSelect}
+                {...props}
+              />,
+            );
+
+            await driver.focus();
+            inputDriver.enterText(enteredText);
+            await driver.pressKey(keyPressed);
+
+            expect(onSelect).toHaveBeenCalledTimes(0);
+            expect(onManuallyInput).toHaveBeenCalledTimes(expectSubmit ? 1 : 0);
+            expectSubmit &&
+              expect(onManuallyInput).toBeCalledWith([enteredText]);
+          }
+
+          describe('Controlled', () => {
+            it('should submit when text entered and Enter is pressed', async () => {
+              testCase({
+                Component: ControlledMultiSelect,
+                props: { options },
+                enteredText: 'custom value',
+                keyPressed: 'Enter',
+                expectSubmit: true,
+              });
+            });
+
+            it('should submit when Enter pressed given initial value', async () => {
+              const onSelect = jest.fn();
+              const onManuallyInput = jest.fn();
+              const { driver } = createDriver(
+                <ControlledMultiSelect
+                  onManuallyInput={onManuallyInput}
+                  onSelect={onSelect}
+                  value="foo"
+                />,
+              );
+
+              await driver.focus();
+              await driver.pressKey('Enter');
+
+              expect(onSelect).toHaveBeenCalledTimes(0);
+              expect(onManuallyInput).toHaveBeenCalledTimes(1);
+              expect(onManuallyInput).toBeCalledWith(['foo']);
+            });
+
+            it('should submit when Enter pressed given value updated', async () => {
+              const onSelect = jest.fn();
+              const onManuallyInput = jest.fn();
+              const { driver: _driver, rerender } = render(
+                <ControlledMultiSelect
+                  onManuallyInput={onManuallyInput}
+                  onSelect={onSelect}
+                  value="foo"
+                />,
+              );
+              const { driver } = _driver;
+              rerender(
+                <ControlledMultiSelect
+                  onManuallyInput={onManuallyInput}
+                  onSelect={onSelect}
+                  value="foo2"
+                />,
+              );
+              await driver.focus();
+              await driver.pressKey('Enter');
+
+              expect(onSelect).toHaveBeenCalledTimes(0);
+              expect(onManuallyInput).toHaveBeenCalledTimes(1);
+              expect(onManuallyInput).toBeCalledWith(['foo2']);
+            });
+          });
+
+          describe('Uncontrolled', () => {
+            it('should submit when text entered and Enter is pressed', async () => {
+              testCase({
+                props: { options },
+                enteredText: 'custom value',
+                keyPressed: 'Enter',
+                expectSubmit: true,
+              });
+            });
+
+            it('should submit when text entered and delimiter is pressed', async () => {
+              testCase({
+                props: { options },
+                enteredText: 'custom value',
+                keyPressed: ',',
+                expectSubmit: true,
+              });
+            });
+
+            it('should NOT submit when spaces-only text is entered and Enter pressed', async () => {
+              testCase({
+                props: { options },
+                enteredText: '   ',
+                keyPressed: 'Enter',
+                expectSubmit: false,
+              });
+            });
+
+            it('should NOT submit when delimited-spaces text is entered and Enter pressed', async () => {
+              testCase({
+                props: { options },
+                enteredText: ' ,  ',
+                keyPressed: 'Enter',
+                expectSubmit: false,
+              });
+            });
+          });
+        });
+      });
+
+      describe('Paste', () => {
+        async function testCase({
           props,
-          keyPressed,
-          enteredText,
-          Component = MultiSelect,
-          expectSubmit,
+          pasteValue,
+          expectedonManuallyInputArg,
         }) {
           const onSelect = jest.fn();
           const onManuallyInput = jest.fn();
           const { driver, inputDriver } = createDriver(
-            <Component
-              onManuallyInput={onManuallyInput}
+            <MultiSelect
+              options={options}
               onSelect={onSelect}
+              onManuallyInput={onManuallyInput}
               {...props}
             />,
           );
-
-          driver.focus();
-          inputDriver.enterText(enteredText);
-          driver.pressKey(keyPressed);
+          await driver.focus();
+          inputDriver.trigger('paste');
+          inputDriver.enterText(pasteValue);
 
           expect(onSelect).toHaveBeenCalledTimes(0);
-          expect(onManuallyInput).toHaveBeenCalledTimes(expectSubmit ? 1 : 0);
-          expectSubmit && expect(onManuallyInput).toBeCalledWith([enteredText]);
+          expect(onManuallyInput).toHaveBeenCalledTimes(1);
+          expect(onManuallyInput).toBeCalledWith(expectedonManuallyInputArg);
         }
 
-        describe('Controlled', () => {
-          it('should submit when text entered and Enter is pressed', () => {
-            testCase({
-              Component: ControlledMultiSelect,
-              props: { options },
-              enteredText: 'custom value',
-              keyPressed: 'Enter',
-              expectSubmit: true,
-            });
-          });
-
-          it('should submit when Enter pressed given initial value', () => {
-            const onSelect = jest.fn();
-            const onManuallyInput = jest.fn();
-            const { driver } = createDriver(
-              <ControlledMultiSelect
-                onManuallyInput={onManuallyInput}
-                onSelect={onSelect}
-                value="foo"
-              />,
-            );
-
-            driver.focus();
-            driver.pressKey('Enter');
-
-            expect(onSelect).toHaveBeenCalledTimes(0);
-            expect(onManuallyInput).toHaveBeenCalledTimes(1);
-            expect(onManuallyInput).toBeCalledWith(['foo']);
-          });
-
-          it('should submit when Enter pressed given value updated', () => {
-            const onSelect = jest.fn();
-            const onManuallyInput = jest.fn();
-            const { driver: _driver, rerender } = render(
-              <ControlledMultiSelect
-                onManuallyInput={onManuallyInput}
-                onSelect={onSelect}
-                value="foo"
-              />,
-            );
-            const { driver } = _driver;
-            rerender(
-              <ControlledMultiSelect
-                onManuallyInput={onManuallyInput}
-                onSelect={onSelect}
-                value="foo2"
-              />,
-            );
-            driver.focus();
-            driver.pressKey('Enter');
-
-            expect(onSelect).toHaveBeenCalledTimes(0);
-            expect(onManuallyInput).toHaveBeenCalledTimes(1);
-            expect(onManuallyInput).toBeCalledWith(['foo2']);
+        it('should submit with single value when pasting a single custom value', async () => {
+          testCase({
+            pasteValue: 'custom value',
+            expectedonManuallyInputArg: ['custom value'],
           });
         });
 
-        describe('Uncontrolled', () => {
-          it('should submit when text entered and Enter is pressed', () => {
-            testCase({
-              props: { options },
-              enteredText: 'custom value',
-              keyPressed: 'Enter',
-              expectSubmit: true,
-            });
+        it('should submit with multiple values with pasting comma-delimited value (default delimiter)', async () => {
+          testCase({
+            pasteValue: 'value1,value2',
+            expectedonManuallyInputArg: ['value1', 'value2'],
           });
+        });
 
-          it('should submit when text entered and delimiter is pressed', () => {
-            testCase({
-              props: { options },
-              enteredText: 'custom value',
-              keyPressed: ',',
-              expectSubmit: true,
-            });
+        it('should submit with multiple values with pasting colon-delimited value (custom delimiter)', async () => {
+          testCase({
+            props: { delimiters: [':'] },
+            pasteValue: 'value1:value2',
+            expectedonManuallyInputArg: ['value1', 'value2'],
           });
+        });
 
-          it('should NOT submit when spaces-only text is entered and Enter pressed', () => {
-            testCase({
-              props: { options },
-              enteredText: '   ',
-              keyPressed: 'Enter',
-              expectSubmit: false,
-            });
+        it('should submit with multiple values with pasting mixed delimited value (custom delimiters)', async () => {
+          testCase({
+            props: { delimiters: [':', ';'] },
+            pasteValue: 'value1:value2;value3',
+            expectedonManuallyInputArg: ['value1', 'value2', 'value3'],
           });
+        });
 
-          it('should NOT submit when delimited-spaces text is entered and Enter pressed', () => {
-            testCase({
-              props: { options },
-              enteredText: ' ,  ',
-              keyPressed: 'Enter',
-              expectSubmit: false,
-            });
+        it('should submit with trimmed values', async () => {
+          testCase({
+            pasteValue: ' value1 , value2 ',
+            expectedonManuallyInputArg: ['value1', 'value2'],
           });
         });
       });
+
+      it('should call onRemoveTag when removing a tag', async () => {
+        const tagId = 'SweetHome';
+        const tags = [{ id: tagId, label: 'Alabama' }];
+        const onRemoveTag = jest.fn();
+        const { driver } = createDriver(
+          <MultiSelect autoFocus tags={tags} onRemoveTag={onRemoveTag} />,
+        );
+
+        const tagDriver = await driver.getTagDriverByTagId(tagId);
+        await tagDriver.removeTag();
+
+        expect(onRemoveTag).toHaveBeenCalledWith(tagId);
+      });
     });
 
-    describe('Paste', () => {
-      function testCase({ props, pasteValue, expectedonManuallyInputArg }) {
+    describe('Select Option', () => {
+      it('should call onSelect when option clicked', async () => {
         const onSelect = jest.fn();
-        const onManuallyInput = jest.fn();
-        const { driver, inputDriver } = createDriver(
-          <MultiSelect
-            options={options}
-            onSelect={onSelect}
-            onManuallyInput={onManuallyInput}
-            {...props}
-          />,
-        );
-        driver.focus();
-        inputDriver.trigger('paste');
-        inputDriver.enterText(pasteValue);
 
-        expect(onSelect).toHaveBeenCalledTimes(0);
-        expect(onManuallyInput).toHaveBeenCalledTimes(1);
-        expect(onManuallyInput).toBeCalledWith(expectedonManuallyInputArg);
-      }
-
-      it('should submit with single value when pasting a single custom value', () => {
-        testCase({
-          pasteValue: 'custom value',
-          expectedonManuallyInputArg: ['custom value'],
-        });
-      });
-
-      it('should submit with multiple values with pasting comma-delimited value (default delimiter)', () => {
-        testCase({
-          pasteValue: 'value1,value2',
-          expectedonManuallyInputArg: ['value1', 'value2'],
-        });
-      });
-
-      it('should submit with multiple values with pasting colon-delimited value (custom delimiter)', () => {
-        testCase({
-          props: { delimiters: [':'] },
-          pasteValue: 'value1:value2',
-          expectedonManuallyInputArg: ['value1', 'value2'],
-        });
-      });
-
-      it('should submit with multiple values with pasting mixed delimited value (custom delimiters)', () => {
-        testCase({
-          props: { delimiters: [':', ';'] },
-          pasteValue: 'value1:value2;value3',
-          expectedonManuallyInputArg: ['value1', 'value2', 'value3'],
-        });
-      });
-
-      it('should submit with trimmed values', () => {
-        testCase({
-          pasteValue: ' value1 , value2 ',
-          expectedonManuallyInputArg: ['value1', 'value2'],
-        });
-      });
-    });
-
-    it('should call onRemoveTag when removing a tag', () => {
-      const tagId = 'SweetHome';
-      const tags = [{ id: tagId, label: 'Alabama' }];
-      const onRemoveTag = jest.fn();
-      const { driver } = createDriver(
-        <MultiSelect autoFocus tags={tags} onRemoveTag={onRemoveTag} />,
-      );
-
-      const tagDriver = driver.getTagDriverByTagId(tagId);
-      tagDriver.removeTag();
-
-      expect(onRemoveTag).toHaveBeenCalledWith(tagId);
-    });
-  });
-
-  describe('Select Option', () => {
-    it('should call onSelect when option clicked', () => {
-      const onSelect = jest.fn();
-
-      const { driver } = createDriver(
-        <MultiSelect options={options} onSelect={onSelect} />,
-      );
-      driver.selectOptionById(FIRST_OPTION_ID);
-
-      expect(onSelect).toHaveBeenCalledTimes(1);
-    });
-
-    it('should call onSelect with selected option given highlight enabled', () => {
-      // This is a regression test for old bug , when highlight enabled the value would be a <Highlight> element
-      const onSelect = jest.fn();
-      const { driver } = createDriver(
-        <MultiSelect options={options} onSelect={onSelect} />,
-      );
-      driver.selectOptionById(FIRST_OPTION_ID);
-
-      expect(onSelect).toHaveBeenCalledTimes(1);
-      expect(onSelect).toBeCalledWith(FIRST_OPTION);
-    });
-
-    it('should call onSelect with selected option given highlight disabled', () => {
-      const onSelect = jest.fn();
-      const { driver } = createDriver(
-        <MultiSelect options={options} onSelect={onSelect} highlight={false} />,
-      );
-      driver.selectOptionById(FIRST_OPTION_ID);
-      expect(onSelect).toHaveBeenCalledTimes(1);
-      expect(onSelect).toBeCalledWith(FIRST_OPTION);
-    });
-
-    it('should call onSelect with selected option when selected by keyboard', () => {
-      const onSelect = jest.fn();
-
-      const { driver } = createDriver(
-        <MultiSelect options={options} onSelect={onSelect} />,
-      );
-      driver.pressKey('ArrowDown');
-      driver.pressKey('ArrowDown');
-      driver.pressKey('Enter');
-
-      expect(onSelect).toHaveBeenCalledTimes(1);
-      expect(onSelect).toBeCalledWith(options[0]);
-    });
-
-    it('should NOT display dropdown options when MultiSelect is disabled (keyboard)', () => {
-      const onSelect = jest.fn();
-
-      const { driver, dropdownLayoutDriver } = createDriver(
-        <MultiSelect disabled options={options} onSelect={onSelect} />,
-      );
-      driver.pressKey('ArrowDown');
-      expect(dropdownLayoutDriver.isShown()).toBe(false);
-    });
-
-    it('should NOT display dropdown options when MultiSelect is disabled (mouse click)', () => {
-      const onSelect = jest.fn();
-
-      const { driver, dropdownLayoutDriver } = createDriver(
-        <MultiSelect disabled options={options} onSelect={onSelect} />,
-      );
-
-      driver.clickOnInputWrapper();
-
-      expect(dropdownLayoutDriver.isShown()).toBe(false);
-    });
-
-    // TODO: Disabled since in order to support this in new API, we better add ability for Dropdownlayout to accept custom "select" keys.
-    // We can also consider removing this feature (Ben?)
-    /* eslint-disable-next-line jest/no-disabled-tests */
-    xdescribe('Select with delimiter', () => {
-      it('should select option when comma press', () => {
-        const onSelect = jest.fn();
-        const onChange = jest.fn();
-        const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
-          <MultiSelect
-            value={options[0].value}
-            options={options}
-            delimiters={[',']}
-            onSelect={onSelect}
-            onChange={onChange}
-          />,
-        );
-        driver.pressKey('ArrowDown');
-        inputDriver.trigger('keyDown', { key: ',' });
-        expect(onSelect).toHaveBeenCalledTimes(1);
-        expect(onChange).toBeCalledWith({ target: { value: '' } });
-        expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-        expect(inputDriver.isFocus()).toBeTruthy();
-      });
-
-      it('should select option when custom delimiters pressed', () => {
-        const onSelect = jest.fn();
-        const onChange = jest.fn();
-        const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
-          <MultiSelect
-            value={options[0].value}
-            options={options}
-            delimiters={[';']}
-            onSelect={onSelect}
-            onChange={onChange}
-          />,
-        );
-        driver.pressKey('ArrowDown');
-        inputDriver.trigger('keyDown', { key: ';' });
-        expect(onSelect).toHaveBeenCalledTimes(1);
-        expect(onSelect).toBeCalledWith(options[0]);
-        expect(onChange).toBeCalledWith({ target: { value: '' } });
-        expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-        expect(inputDriver.isFocus()).toBeTruthy();
-      });
-    });
-
-    describe('Keep Options Open', () => {
-      it('should not lose Focus or close the options when options selected by mouse click', () => {
-        const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
-          <MultiSelect options={options} />,
-        );
-        driver.selectOptionById(FIRST_OPTION_ID);
-        expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-        expect(inputDriver.isFocus()).toBeTruthy();
-      });
-
-      it('should not lose Focus or close the options when options selected by pressing Enter', () => {
-        const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
-          <MultiSelect options={options} />,
-        );
-        driver.focus();
-        driver.pressKey('ArrowDown');
-        driver.pressKey('Enter');
-        expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-        expect(inputDriver.isFocus()).toBeTruthy();
-      });
-
-      it('should not lose Focus or close the options when options selected by pressing Tab', async () => {
-        const onSelect = jest.fn();
-        const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+        const { driver } = createDriver(
           <MultiSelect options={options} onSelect={onSelect} />,
         );
-        driver.pressKey('ArrowDown');
-        driver.pressKey('ArrowDown');
-        driver.pressKey('Tab');
+        await driver.selectOptionById(FIRST_OPTION_ID);
+
         expect(onSelect).toHaveBeenCalledTimes(1);
-        expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-        await eventually(() => expect(inputDriver.isFocus()).toBeTruthy()); // Limitation - covered with e2e test
+      });
+
+      it('should call onSelect with selected option given highlight enabled', async () => {
+        // This is a regression test for old bug , when highlight enabled the value would be a <Highlight> element
+        const onSelect = jest.fn();
+        const { driver } = createDriver(
+          <MultiSelect options={options} onSelect={onSelect} />,
+        );
+        await driver.selectOptionById(FIRST_OPTION_ID);
+
+        expect(onSelect).toHaveBeenCalledTimes(1);
+        expect(onSelect).toBeCalledWith(FIRST_OPTION);
+      });
+
+      it('should call onSelect with selected option given highlight disabled', async () => {
+        const onSelect = jest.fn();
+        const { driver } = createDriver(
+          <MultiSelect
+            options={options}
+            onSelect={onSelect}
+            highlight={false}
+          />,
+        );
+        await driver.selectOptionById(FIRST_OPTION_ID);
+        expect(onSelect).toHaveBeenCalledTimes(1);
+        expect(onSelect).toBeCalledWith(FIRST_OPTION);
+      });
+
+      it('should call onSelect with selected option when selected by keyboard', async () => {
+        const onSelect = jest.fn();
+
+        const { driver } = createDriver(
+          <MultiSelect options={options} onSelect={onSelect} />,
+        );
+        await driver.pressKey('ArrowDown');
+        await driver.pressKey('ArrowDown');
+        await driver.pressKey('Enter');
+
+        expect(onSelect).toHaveBeenCalledTimes(1);
+        expect(onSelect).toBeCalledWith(options[0]);
+      });
+
+      it('should NOT display dropdown options when MultiSelect is disabled (keyboard)', async () => {
+        const onSelect = jest.fn();
+
+        const { driver, dropdownLayoutDriver } = createDriver(
+          <MultiSelect disabled options={options} onSelect={onSelect} />,
+        );
+        await driver.pressKey('ArrowDown');
+        expect(await dropdownLayoutDriver.isShown()).toBe(false);
+      });
+
+      it('should NOT display dropdown options when MultiSelect is disabled (mouse click)', async () => {
+        const onSelect = jest.fn();
+
+        const { driver, dropdownLayoutDriver } = createDriver(
+          <MultiSelect disabled options={options} onSelect={onSelect} />,
+        );
+
+        await driver.clickOnInputWrapper();
+
+        expect(await dropdownLayoutDriver.isShown()).toBe(false);
+      });
+
+      // TODO: Disabled since in order to support this in new API, we better add ability for Dropdownlayout to accept custom "select" keys.
+      // We can also consider removing this feature (Ben?)
+      /* eslint-disable-next-line jest/no-disabled-tests */
+      xdescribe('Select with delimiter', () => {
+        it('should select option when comma press', async () => {
+          const onSelect = jest.fn();
+          const onChange = jest.fn();
+          const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+            <MultiSelect
+              value={options[0].value}
+              options={options}
+              delimiters={[',']}
+              onSelect={onSelect}
+              onChange={onChange}
+            />,
+          );
+          await driver.pressKey('ArrowDown');
+          inputDriver.trigger('keyDown', { key: ',' });
+          expect(onSelect).toHaveBeenCalledTimes(1);
+          expect(onChange).toBeCalledWith({ target: { value: '' } });
+          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          expect(inputDriver.isFocus()).toBeTruthy();
+        });
+
+        it('should select option when custom delimiters pressed', async () => {
+          const onSelect = jest.fn();
+          const onChange = jest.fn();
+          const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+            <MultiSelect
+              value={options[0].value}
+              options={options}
+              delimiters={[';']}
+              onSelect={onSelect}
+              onChange={onChange}
+            />,
+          );
+          await driver.pressKey('ArrowDown');
+          inputDriver.trigger('keyDown', { key: ';' });
+          expect(onSelect).toHaveBeenCalledTimes(1);
+          expect(onSelect).toBeCalledWith(options[0]);
+          expect(onChange).toBeCalledWith({ target: { value: '' } });
+          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          expect(inputDriver.isFocus()).toBeTruthy();
+        });
+      });
+
+      describe('Keep Options Open', () => {
+        it('should not lose Focus or close the options when options selected by mouse click', async () => {
+          const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+            <MultiSelect options={options} />,
+          );
+          await driver.selectOptionById(FIRST_OPTION_ID);
+          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          expect(await inputDriver.isFocus()).toBeTruthy();
+        });
+
+        it('should not lose Focus or close the options when options selected by pressing Enter', async () => {
+          const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+            <MultiSelect options={options} />,
+          );
+          await driver.focus();
+          await driver.pressKey('ArrowDown');
+          await driver.pressKey('Enter');
+          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          expect(inputDriver.isFocus()).toBeTruthy();
+        });
+
+        it('should not lose Focus or close the options when options selected by pressing Tab', async () => {
+          const onSelect = jest.fn();
+          const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+            <MultiSelect options={options} onSelect={onSelect} />,
+          );
+          await driver.pressKey('ArrowDown');
+          await driver.pressKey('ArrowDown');
+          await driver.pressKey('Tab');
+          expect(onSelect).toHaveBeenCalledTimes(1);
+          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          await eventually(() => expect(inputDriver.isFocus()).toBeTruthy()); // Limitation - covered with e2e test
+        });
       });
     });
-  });
 
-  describe('onKeyDown', () => {
-    it('should call onKeyDown once when character key pressed', () => {
-      const onKeyDown = jest.fn();
-      const { driver, inputDriver } = createDriver(
-        <MultiSelect options={options} onKeyDown={onKeyDown} />,
-      );
+    describe('onKeyDown', () => {
+      it('should call onKeyDown once when character key pressed', async () => {
+        const onKeyDown = jest.fn();
+        const { driver, inputDriver } = createDriver(
+          <MultiSelect options={options} onKeyDown={onKeyDown} />,
+        );
 
-      driver.focus();
-      inputDriver.keyDown('a');
-      expect(onKeyDown.mock.calls).toHaveLength(1);
-    });
-  });
-
-  describe('maxHeight', () => {
-    it('should set maxHeight to initial when no height limit introduced', () => {
-      const { driver } = createDriver(<MultiSelect options={options} />);
-
-      expect(driver.getMaxHeight()).toBe('initial');
-    });
-
-    it('should set maxHeight when maxNumRows defined', () => {
-      const { driver } = createDriver(
-        <MultiSelect maxNumRows={2} options={options} />,
-      );
-
-      expect(driver.getMaxHeight()).toBe('70px');
-    });
-
-    it('should set maxHeight when maxNumRows defined (large tags)', () => {
-      const _options = [
-        { value: 'Alaska', id: 'Alaska', label: 'Alaska', size: 'large' },
-      ];
-
-      const { driver } = createDriver(
-        <MultiSelect maxNumRows={2} tags={_options} options={_options} />,
-      );
-
-      expect(driver.getMaxHeight()).toBe('94px');
-    });
-  });
-
-  // TODO: dnd testkit is missing - once it's available, this test has to be completed and run
-  // eslint-disable-next-line jest/no-disabled-tests
-  xdescribe('Drag & Drop', () => {
-    it('should allow reordering the tags', () => {
-      const tags = [
-        { label: 'Alabama', id: 'Alabama' },
-        { label: 'California2', id: 'California2' },
-        { label: 'California3', id: 'California3' },
-        { label: 'California4', id: 'California4' },
-      ];
-      const onReorder = jest.fn();
-      const {
-        driver: { getTagLabelAt, getTagDriverByTagId },
-      } = createDriver(
-        <MultiSelect
-          draggable
-          options={options}
-          tags={tags}
-          onReorder={onReorder}
-          autoFocus
-        />,
-      );
-      getTagDriverByTagId('Alabama').dragTo(
-        getTagDriverByTagId('California3').element,
-      );
-      expect(onReorder).toBeCalledWith({ removedIndex: 0, addedIndex: 2 });
-
-      expect(getTagLabelAt(0)).toBe('California3');
-      expect(getTagLabelAt(2)).toBe('Alabama');
-    });
-  });
-
-  describe('testkit', () => {
-    it('should exist', () => {
-      const div = document.createElement('div');
-      const dataHook = 'myDataHook';
-      const tags = [{ id: 'Alabama', label: 'Alabama' }];
-      const wrapper = div.appendChild(
-        ReactTestUtils.renderIntoDocument(
-          <div>
-            <MultiSelect dataHook={dataHook} tags={tags} />
-          </div>,
-        ),
-      );
-      const multiSelectTestkit = multiSelectTestkitFactory({
-        wrapper,
-        dataHook,
+        await driver.focus();
+        await inputDriver.keyDown('a');
+        expect(onKeyDown.mock.calls).toHaveLength(1);
       });
-      expect(multiSelectTestkit.driver.exists()).toBeTruthy();
-      expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
-      expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-      expect(
-        multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
-      ).toBeTruthy();
     });
-  });
 
-  describe('enzyme testkit', () => {
-    it('should exist', () => {
-      const dataHook = 'myDataHook';
-      const tags = [{ id: 'Alabama', label: 'Alabama' }];
-      const wrapper = mount(<MultiSelect dataHook={dataHook} tags={tags} />);
-      const multiSelectTestkit = enzymeMultiSelectTestkitFactory({
-        wrapper,
-        dataHook,
+    describe('maxHeight', () => {
+      it('should set maxHeight to initial when no height limit introduced', async () => {
+        const { driver } = createDriver(<MultiSelect options={options} />);
+
+        expect(await driver.getMaxHeight()).toBe('initial');
       });
-      expect(multiSelectTestkit.driver.exists()).toBeTruthy();
-      expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
-      expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-      expect(
-        multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
-      ).toBeTruthy();
+
+      it('should set maxHeight when maxNumRows defined', async () => {
+        const { driver } = createDriver(
+          <MultiSelect maxNumRows={2} options={options} />,
+        );
+
+        expect(await driver.getMaxHeight()).toBe('70px');
+      });
+
+      it('should set maxHeight when maxNumRows defined (large tags)', async () => {
+        const _options = [
+          { value: 'Alaska', id: 'Alaska', label: 'Alaska', size: 'large' },
+        ];
+
+        const { driver } = createDriver(
+          <MultiSelect maxNumRows={2} tags={_options} options={_options} />,
+        );
+
+        expect(await driver.getMaxHeight()).toBe('94px');
+      });
     });
-  });
+
+    // TODO: dnd testkit is missing - once it's available, this test has to be completed and run
+    // eslint-disable-next-line jest/no-disabled-tests
+    xdescribe('Drag & Drop', () => {
+      it('should allow reordering the tags', async () => {
+        const tags = [
+          { label: 'Alabama', id: 'Alabama' },
+          { label: 'California2', id: 'California2' },
+          { label: 'California3', id: 'California3' },
+          { label: 'California4', id: 'California4' },
+        ];
+        const onReorder = jest.fn();
+        const {
+          driver: { getTagLabelAt, getTagDriverByTagId },
+        } = createDriver(
+          <MultiSelect
+            draggable
+            options={options}
+            tags={tags}
+            onReorder={onReorder}
+            autoFocus
+          />,
+        );
+        getTagDriverByTagId('Alabama').dragTo(
+          getTagDriverByTagId('California3').element,
+        );
+        expect(onReorder).toBeCalledWith({ removedIndex: 0, addedIndex: 2 });
+
+        expect(getTagLabelAt(0)).toBe('California3');
+        expect(getTagLabelAt(2)).toBe('Alabama');
+      });
+    });
+
+    describe('testkit', () => {
+      it('should exist', async () => {
+        const div = document.createElement('div');
+        const dataHook = 'myDataHook';
+        const tags = [{ id: 'Alabama', label: 'Alabama' }];
+        const wrapper = div.appendChild(
+          ReactTestUtils.renderIntoDocument(
+            <div>
+              <MultiSelect dataHook={dataHook} tags={tags} />
+            </div>,
+          ),
+        );
+        const multiSelectTestkit = multiSelectTestkitFactory({
+          wrapper,
+          dataHook,
+        });
+        expect(multiSelectTestkit.driver.exists()).toBeTruthy();
+        expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
+        expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
+        expect(
+          multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
+        ).toBeTruthy();
+      });
+    });
+
+    describe('enzyme testkit', () => {
+      it('should exist', async () => {
+        const dataHook = 'myDataHook';
+        const tags = [{ id: 'Alabama', label: 'Alabama' }];
+        const wrapper = mount(<MultiSelect dataHook={dataHook} tags={tags} />);
+        const multiSelectTestkit = enzymeMultiSelectTestkitFactory({
+          wrapper,
+          dataHook,
+        });
+        expect(multiSelectTestkit.driver.exists()).toBeTruthy();
+        expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
+        expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
+        expect(
+          multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
+        ).toBeTruthy();
+      });
+    });
+  }
 });

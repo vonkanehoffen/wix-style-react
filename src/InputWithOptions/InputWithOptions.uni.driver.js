@@ -15,7 +15,7 @@ export const inputWithOptionsUniDriverFactory = base => {
   const assertOptionsOpen = async () => {
     if (!(await dropdownLayoutDriver.isShown())) {
       await inputDriver.focus();
-      await inputDriver.keyDown('ArrowDown');
+      await inputDriver.keyDown({ key: 'ArrowDown' });
       if (!(await dropdownLayoutDriver.isShown())) {
         throw new Error('Options dropdown should be open!');
       }
@@ -34,6 +34,7 @@ export const inputWithOptionsUniDriverFactory = base => {
     isReadOnly: async () => await inputDriver.getReadOnly(),
     isEditable: async () =>
       !(await inputDriver.getReadOnly()) && !(await inputDriver.getDisabled()),
+    isDisabled: () => inputDriver.getDisabled(),
     /** @deprecated  Should be private */
     inputWrapper: () => inputWrapper.getNative(), // eslint-disable-line no-restricted-properties
     focus: () => inputDriver.focus(),
