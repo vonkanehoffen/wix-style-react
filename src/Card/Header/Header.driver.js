@@ -1,6 +1,8 @@
+import { DataHooks } from './hooks';
+
 const headerDriverFactory = ({ element }) => {
-  const title = element.querySelector('[data-hook="title"]');
-  const subtitle = element.querySelector('[data-hook="subtitle"]');
+  const title = element.querySelector(`[data-hook="${DataHooks.title}"]`);
+  const subtitle = element.querySelector(`[data-hook="${DataHooks.subtitle}"]`);
 
   return {
     exists: () => !!element,
