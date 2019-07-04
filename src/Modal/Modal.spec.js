@@ -3,214 +3,249 @@ import eventually from 'wix-eventually';
 
 import Modal from './Modal';
 import ModalFactory from './Modal.driver';
+import { modalUniDriverFactory } from './Modal.uni.driver';
 import { resolveIn } from '../../test/utils';
-import { createRendererWithDriver, cleanup } from '../../test/utils/react';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../test/utils/react';
 
 const MODAL_CLOSE_TIMEOUT = 10;
 
 describe('Modal', () => {
-  let testDriver; // used for cleanup
-  const render = jsx => {
-    const rendered = createRendererWithDriver(ModalFactory)(jsx);
-    testDriver = rendered.driver;
-    return rendered;
-  };
-
-  afterEach(async () => {
-    cleanup();
-    if (testDriver !== null) {
-      await eventually(() => !testDriver.isOpen() || Promise.reject(), {
-        timeout: MODAL_CLOSE_TIMEOUT * 2,
-        interval: 10,
-      });
-    }
-    testDriver = null;
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(ModalFactory));
   });
 
-  let props = {};
-
-  beforeEach(() => {
-    props = {};
-    props.isOpen = true;
-    props.closeTimeoutMS = MODAL_CLOSE_TIMEOUT;
+  describe('[async]', () => {
+    runTests(createRendererWithUniDriver(modalUniDriverFactory));
   });
 
-  describe('content', () => {
-    it(`should not render the modal content if not open by default`, () => {
-      props.isOpen = false;
+  function runTests(renderer) {
+    let testDriver; // used for cleanup
+    const render = jsx => {
+      const rendered = renderer(jsx);
+      testDriver = rendered.driver;
 
-      const { driver } = render(
-        <Modal {...props}>
-          <div data-hook="inner-div" />
-        </Modal>,
-      );
-      expect(driver.getChildBySelector('[data-hook="inner-div"]')).toBeNull();
+      return rendered;
+    };
+
+    afterEach(async () => {
+      cleanup();
+      if (testDriver !== null) {
+        await eventually(
+          async () => !(await testDriver.isOpen()) || Promise.reject(),
+          {
+            timeout: MODAL_CLOSE_TIMEOUT * 2,
+            interval: 10,
+          },
+        );
+      }
+      testDriver = null;
+      document.body.innerHTML = '';
     });
 
-    it(`should render the passed children in the markup`, () => {
+    let props = {};
+
+    beforeEach(() => {
+      props = {};
       props.isOpen = true;
-      const { driver } = render(
-        <Modal {...props}>
-          <div data-hook="inner-div" />
-        </Modal>,
-      );
-      expect(
-        driver.getChildBySelector('[data-hook="inner-div"]'),
-      ).not.toBeNull();
+      props.closeTimeoutMS = MODAL_CLOSE_TIMEOUT;
     });
 
-    it(`should pass contentLabel property for a11y support`, () => {
-      props.isOpen = true;
-      props.contentLabel = 'test content label';
-      const { driver } = render(
-        <Modal {...props}>
-          <div data-hook="inner-div">Dummy Content</div>
-        </Modal>,
-      );
-      expect(driver.getContentLabel()).toEqual(props.contentLabel);
-    });
+    describe('content', () => {
+      it(`should not render the modal content if not open by default`, async () => {
+        props.isOpen = false;
 
-    describe('maxHeight', () => {
-      it('should render maxHeight passed in props', () => {
         const { driver } = render(
-          <Modal {...props} scrollableContent maxHeight="calc(100vh - 48px)" />,
+          <Modal {...props}>
+            <div data-hook="inner-div" />
+          </Modal>,
         );
-        const { driver: driver2 } = render(
-          <Modal
-            {...props}
-            scrollableContent={false}
-            maxHeight="calc(100vh - 48px)"
-          />,
-        );
-        expect(driver.getContentStyle().maxHeight).toBe('calc(100vh - 48px)');
-        expect(driver2.getContentStyle().maxHeight).toBe('calc(100vh - 48px)');
+
+        expect(
+          await driver.getChildBySelector('[data-hook="inner-div"]'),
+        ).toBeNull();
       });
 
-      it('should render 100vh maxHeight when maxHeight is set to auto and content is scrollable', () => {
+      it(`should render the passed children in the markup`, async () => {
+        props.isOpen = true;
         const { driver } = render(
-          <Modal {...props} scrollableContent maxHeight="auto" />,
+          <Modal {...props}>
+            <div data-hook="inner-div" />
+          </Modal>,
         );
-        expect(driver.getContentStyle().maxHeight).toBe('100vh');
+        expect(
+          await driver.getChildBySelector('[data-hook="inner-div"]'),
+        ).not.toBeNull();
       });
 
-      it('content position should be relative', () => {
+      it(`should pass contentLabel property for a11y support`, async () => {
+        props.isOpen = true;
+        props.contentLabel = 'test content label';
+        const { driver } = render(
+          <Modal {...props}>
+            <div data-hook="inner-div">Dummy Content</div>
+          </Modal>,
+        );
+        expect(await driver.getContentLabel()).toEqual(props.contentLabel);
+      });
+
+      describe('maxHeight', () => {
+        it('should render maxHeight passed in props', async () => {
+          const { driver } = render(
+            <Modal
+              {...props}
+              scrollableContent
+              maxHeight="calc(100vh - 48px)"
+            />,
+          );
+
+          expect((await driver.getContentStyle()).maxHeight).toBe(
+            'calc(100vh - 48px)',
+          );
+        });
+
+        it('should render maxHeight passed in props when content is not scrollable', async () => {
+          const { driver } = render(
+            <Modal
+              {...props}
+              scrollableContent={false}
+              maxHeight="calc(100vh - 48px)"
+            />,
+          );
+          expect((await driver.getContentStyle()).maxHeight).toBe(
+            'calc(100vh - 48px)',
+          );
+        });
+
+        it('should render 100vh maxHeight when maxHeight is set to auto and content is scrollable', async () => {
+          const { driver } = render(
+            <Modal {...props} scrollableContent maxHeight="auto" />,
+          );
+          expect((await driver.getContentStyle()).maxHeight).toBe('100vh');
+        });
+
+        it('content position should be relative', async () => {
+          const { driver } = render(<Modal {...props} />);
+          expect((await driver.getContentStyle()).position).toBe('relative');
+        });
+      });
+    });
+
+    describe('callbacks', () => {
+      it(`should trigger the onAfterOpen function`, async () => {
+        props.onAfterOpen = jest.fn();
+
+        render(<Modal {...props} />);
+        expect(props.onAfterOpen).toHaveBeenCalledTimes(1);
+      });
+
+      it(`should trigger the onRequestClose function when clicking the overlay`, async () => {
+        props.onRequestClose = jest.fn();
+        props.shouldCloseOnOverlayClick = true;
+        props.closeTimeoutMS = 0;
+
         const { driver } = render(<Modal {...props} />);
-        expect(driver.getContentStyle().position).toBe('relative');
+        await driver.clickOnOverlay();
+
+        expect(props.onRequestClose).toHaveBeenCalledTimes(1);
+      });
+
+      it(`should trigger the onRequestClose function when clicking the close button`, async () => {
+        props.onRequestClose = jest.fn();
+        props.shouldDisplayCloseButton = true;
+        props.closeTimeoutMS = 0;
+
+        const { driver } = render(<Modal {...props} />);
+        await driver.clickOnCloseButton();
+
+        expect(props.onRequestClose).toHaveBeenCalledTimes(1);
+      });
+
+      describe('timeout', () => {
+        it(`should wait closeTimeoutMS before removing the modal`, async () => {
+          props.closeTimeoutMS = 100;
+
+          const { rerender, driver } = render(<Modal {...props} />);
+          expect(await driver.isOpen()).toBeTruthy();
+          rerender(<Modal {...props} isOpen={false} />);
+
+          await resolveIn(props.closeTimeoutMS - 50);
+          expect(await driver.isOpen()).toBeTruthy();
+          await resolveIn(100);
+          expect(await driver.isOpen()).toBeFalsy();
+        });
       });
     });
-  });
 
-  describe('callbacks', () => {
-    it(`should trigger the onAfterOpen function`, () => {
-      props.onAfterOpen = jest.fn();
+    describe('theme', () => {
+      it('should set the theme by default to "blue"', async () => {
+        const { driver } = render(<Modal {...props} />);
+        expect(await driver.isThemeExist('blue')).toBeTruthy();
+      });
 
-      render(<Modal {...props} />);
-      expect(props.onAfterOpen).toHaveBeenCalledTimes(1);
-    });
-
-    it(`should trigger the onRequestClose function when clicking the overlay`, () => {
-      props.onRequestClose = jest.fn();
-      props.shouldCloseOnOverlayClick = true;
-      props.closeTimeoutMS = 0;
-
-      const { driver } = render(<Modal {...props} />);
-      driver.clickOnOverlay();
-
-      expect(props.onRequestClose).toHaveBeenCalledTimes(1);
-    });
-
-    it(`should trigger the onRequestClose function when clicking the close button`, () => {
-      props.onRequestClose = jest.fn();
-      props.shouldDisplayCloseButton = true;
-      props.closeTimeoutMS = 0;
-
-      const { driver } = render(<Modal {...props} />);
-      driver.clickOnCloseButton();
-
-      expect(props.onRequestClose).toHaveBeenCalledTimes(1);
-    });
-
-    describe('timeout', () => {
-      it(`should wait closeTimeoutMS before removing the modal`, async () => {
-        props.closeTimeoutMS = 100;
-
-        const { rerender, driver } = render(<Modal {...props} />);
-        expect(driver.isOpen()).toBeTruthy();
-        rerender(<Modal {...props} isOpen={false} />);
-
-        await resolveIn(props.closeTimeoutMS - 50);
-        expect(driver.isOpen()).toBeTruthy();
-        await resolveIn(100);
-        expect(driver.isOpen()).toBeFalsy();
+      it('should allowing setting the theme', async () => {
+        props.theme = 'green';
+        const { driver } = render(<Modal {...props} />);
+        expect(await driver.isThemeExist('green')).toBeTruthy();
+        expect(await driver.isThemeExist('blue')).toBeFalsy();
       });
     });
-  });
 
-  describe('theme', () => {
-    it('should set the theme by default to "blue"', () => {
-      const { driver } = render(<Modal {...props} />);
-      expect(driver.isThemeExist('blue')).toBeTruthy();
-    });
-
-    it('should allowing setting the theme', () => {
-      props.theme = 'green';
-      const { driver } = render(<Modal {...props} />);
-      expect(driver.isThemeExist('green')).toBeTruthy();
-      expect(driver.isThemeExist('blue')).toBeFalsy();
-    });
-  });
-
-  describe('scrollable', () => {
-    it('should be set to true by default', () => {
-      const { driver } = render(<Modal {...props} />);
-      expect(driver.isScrollable()).toBe(true);
-    });
-    it('should allow disabling the scrolling', () => {
-      const { driver } = render(<Modal {...props} scrollable={false} />);
-      expect(driver.isScrollable()).toBe(false);
-    });
-  });
-
-  describe('close button', () => {
-    it('should not have a close button', () => {
-      props.shouldDisplayCloseButton = false;
-      const { driver } = render(<Modal {...props} />);
-      expect(driver.closeButtonExists()).toBe(false);
-    });
-    it('should have a close button', () => {
-      props.shouldDisplayCloseButton = true;
-      const { driver } = render(<Modal {...props} />);
-      expect(driver.closeButtonExists()).toBe(true);
-    });
-  });
-
-  describe('appName', () => {
-    it('should add aria-hidden body if appElement is not specified', () => {
-      render(<Modal {...props} />);
-      expect(
-        document.getElementsByTagName('body')[0].getAttribute('aria-hidden'),
-      ).toBe('true');
+    describe('scrollable', () => {
+      it('should be set to true by default', async () => {
+        const { driver } = render(<Modal {...props} />);
+        expect(await driver.isScrollable()).toBe(true);
+      });
+      it('should allow disabling the scrolling', async () => {
+        const { driver } = render(<Modal {...props} scrollable={false} />);
+        expect(await driver.isScrollable()).toBe(false);
+      });
     });
 
-    it('should add aria-hidden to selected element', () => {
-      const appElemnt = document.createElement('div');
-      appElemnt.setAttribute('id', 'app');
-      document.body.appendChild(appElemnt);
-      props.appElement = '#app';
-      render(<Modal {...props} />);
-      expect(appElemnt.getAttribute('aria-hidden')).toBe('true');
-    });
-  });
-
-  describe('zIndex', () => {
-    it('should have default z-index', () => {
-      const { driver } = render(<Modal {...props} />);
-      expect(driver.getZIndex()).toBe('5000');
+    describe('close button', () => {
+      it('should not have a close button', async () => {
+        props.shouldDisplayCloseButton = false;
+        const { driver } = render(<Modal {...props} />);
+        expect(await driver.closeButtonExists()).toBe(false);
+      });
+      it('should have a close button', async () => {
+        props.shouldDisplayCloseButton = true;
+        const { driver } = render(<Modal {...props} />);
+        expect(await driver.closeButtonExists()).toBe(true);
+      });
     });
 
-    it('should have custom z-index', () => {
-      const { driver } = render(<Modal {...props} zIndex={2500} />);
-      expect(driver.getZIndex()).toBe('2500');
+    describe('appName', () => {
+      it('should add aria-hidden body if appElement is not specified', async () => {
+        render(<Modal {...props} />);
+        expect(
+          document.getElementsByTagName('body')[0].getAttribute('aria-hidden'),
+        ).toBe('true');
+      });
+
+      it('should add aria-hidden to selected element', async () => {
+        const appElement = document.createElement('div');
+        appElement.setAttribute('id', 'app');
+        document.body.appendChild(appElement);
+        props.appElement = '#app';
+        render(<Modal {...props} />);
+        expect(appElement.getAttribute('aria-hidden')).toBe('true');
+      });
     });
-  });
+
+    describe('zIndex', () => {
+      it('should have default z-index', async () => {
+        const { driver } = render(<Modal {...props} />);
+        expect(await driver.getZIndex()).toBe('5000');
+      });
+
+      it('should have custom z-index', async () => {
+        const { driver } = render(<Modal {...props} zIndex={2500} />);
+        expect(await driver.getZIndex()).toBe('2500');
+      });
+    });
+  }
 });
