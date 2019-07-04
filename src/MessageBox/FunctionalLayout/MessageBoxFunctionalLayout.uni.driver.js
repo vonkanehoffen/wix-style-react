@@ -1,8 +1,6 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import styles from './MessageBoxFunctionalLayout.scss';
-import { ReactBase } from '../../../test/utils/unidriver';
-
-const getElement = async elem => ((await elem.exists()) ? elem : null);
+import { ReactBase, getElement } from '../../../test/utils/unidriver';
 
 export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
   const confirmationButton = () => base.$('[data-hook="confirmation-button"]');
