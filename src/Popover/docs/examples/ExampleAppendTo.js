@@ -47,7 +47,7 @@ class PopoverWithState extends React.Component {
 }
 `;
 
-const createScrolParentExample = () => `
+const createScrollParentExample = () => `
 const ScrollableContent = ({ children }) => (
   <div
     style={{
@@ -110,7 +110,7 @@ export default () => (
     <Section
       appendToProp="viewport"
       description={`
-This is similar to \`window\` as it also appends the content to a new \`<div/>\` under the body, but also set its boundry to the viewport.
+This is similar to \`window\` as it also appends the content to a new \`<div/>\` under the body, but also set its boundary to the viewport.
 
 _The Popover in the example is not shown by default._ Try to scroll out of the Popover's viewport to see the effect.
       `}
@@ -145,7 +145,7 @@ _The Popover in the example is not shown by default._ Try to scroll out of the P
       <LiveCodeExample
         compact
         autoRender={false}
-        initialCode={createScrolParentExample()}
+        initialCode={createScrollParentExample()}
       />
     </Section>
   </div>

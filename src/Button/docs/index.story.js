@@ -109,7 +109,7 @@ export default {
             {
               title: 'States',
               text:
-                'If action is submited, but still processing, button can display a loader.Button can be disabled when needed to indicate that action is available, but cannot be performed at the moment.',
+                'If action is submitted, but still processing, button can display a loader.Button can be disabled when needed to indicate that action is available, but cannot be performed at the moment.',
               source: examples.states,
             },
             {

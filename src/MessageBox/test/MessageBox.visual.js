@@ -13,7 +13,7 @@ const alertStories = {
   Actions: require('../docs/AlertExamples/Actions').default,
 };
 
-const desctructiveStories = {
+const destructiveStories = {
   Standard: require('../docs/DestructiveAlertExamples/Standard').default,
   Secondary: require('../docs/DestructiveAlertExamples/Secondary').default,
 };
@@ -42,7 +42,7 @@ storiesOf(`MessageBox/AlertRTL`, module).add('Actions', () => (
   <div dir="rtl">{React.createElement(alertStories.Actions)}</div>
 ));
 
-Object.entries(desctructiveStories).forEach(([name, story]) =>
+Object.entries(destructiveStories).forEach(([name, story]) =>
   storiesOf(`MessageBox/Destructive`, module).add(name, () =>
     React.createElement(story),
   ),

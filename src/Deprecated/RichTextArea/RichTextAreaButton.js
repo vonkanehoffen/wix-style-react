@@ -27,7 +27,7 @@ const buttons = {
   },
   'unordered-list': {
     icon: TextAreaBulletList,
-    tooltipText: 'Bulletted list',
+    tooltipText: 'Bulleted list',
   },
   'ordered-list': {
     icon: TextAreaNumberedList,

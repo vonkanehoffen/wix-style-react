@@ -4,7 +4,7 @@
 | ----------------- | --------- | ------------------ | ----------------------------------------------- |
 | exists            | -         | `Promise<boolean>` | returns true if element in the DOM              |
 | element           | -         | `Promise<element>` | returns the component element                   |
-| inputDriver       | -         | `Promise<func>`    | returns Input's component teskit methods        |
+| inputDriver       | -         | `Promise<func>`    | returns Input's component testkit methods        |
 | colorPickerDriver | -         | `Promise<func>`    | returns ColorPicker's component testkit methods |
 | popoverDriver     | -         | `Promise<func>`    | returns Popover's component testkit methods     |
 | clickColorViewer  | -         | `Promise<void>`    | clicks on color viewer box                      |

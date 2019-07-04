@@ -98,7 +98,7 @@ FilePicker.propTypes = {
   /** Some text that will appear as a sub label besides the Icon   */
   subLabel: PropTypes.string,
 
-  /** supported formats seperated by comma (.png, .pdf) */
+  /** supported formats separated by comma (.png, .pdf) */
   supportedFormats: PropTypes.string,
 
   /** Max size of file allowed */

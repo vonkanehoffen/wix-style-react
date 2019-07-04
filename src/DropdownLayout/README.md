@@ -1,6 +1,6 @@
 # DropdownLayout component
 
-> Dropdown layout Component to use in autocopmlete and select
+> Dropdown layout Component to use in autocomplete and select
 
 **Note:** For creating dropdown-like components, please refer to the `<DropdownBase/>` component
 documentation.

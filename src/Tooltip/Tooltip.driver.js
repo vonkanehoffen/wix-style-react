@@ -14,7 +14,7 @@ const tooltipDriverFactory = ({ element }) => {
     const contentRootHook = element.getAttribute('data-content-hook');
     if (!contentRootHook) {
       throw new Error(
-        `Tooltip.driver: contentRootHook attribute must exist on the Toolrip's root element`,
+        `Tooltip.driver: contentRootHook attribute must exist on the Tooltip's root element`,
       );
     }
     return document.body.querySelector(`[data-hook="${contentRootHook}"]`);

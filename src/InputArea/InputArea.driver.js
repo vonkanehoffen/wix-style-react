@@ -10,7 +10,7 @@ const inputAreaDriverFactory = ({ element }) => {
   const name = textArea.getAttribute('name');
   const counterSelector = '[data-hook="counter"]';
   const errorIndicatorSelector = '[data-hook="inputArea-tooltip"]';
-  const errroIndicatorTestkit = () =>
+  const errorIndicatorTestkit = () =>
     errorIndicatorDriverFactory({
       element: element.querySelector(errorIndicatorSelector),
     });
@@ -54,9 +54,9 @@ const inputAreaDriverFactory = ({ element }) => {
     // TODO: get the dataHook using the <ErrorIndicator/> driver
     getTooltipDataHook: () => tooltipDataHook,
     getTooltipElement: () => element,
-    isErrorMessageShown: () => errroIndicatorTestkit().isShown(),
-    mouseEnterErrorIndicator: () => errroIndicatorTestkit().mouseEnter(),
-    getErrorMessage: () => errroIndicatorTestkit().getErrorMessage(),
+    isErrorMessageShown: () => errorIndicatorTestkit().isShown(),
+    mouseEnterErrorIndicator: () => errorIndicatorTestkit().mouseEnter(),
+    getErrorMessage: () => errorIndicatorTestkit().getErrorMessage(),
   };
 };
 

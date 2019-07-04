@@ -31,7 +31,9 @@ export const testkit = base => {
     clickCustomAffix: async () =>
       await base.$(`[data-hook="custom-affix"]`).click(),
     isMenuArrowLast: async () => {
-      const selector = `.${styles.suffixes} .${styles.suffix}:last-child > .${styles.menuArrow}`;
+      const selector = `.${styles.suffixes} .${styles.suffix}:last-child > .${
+        styles.menuArrow
+      }`;
       return (await base.$$(selector).count()) === 1;
     },
     hasSuffixesClass: async () =>

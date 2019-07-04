@@ -43,7 +43,7 @@ During the test phase of our build process, we run `npm run test:eyes-storybook`
 
 1. Default rendering
 2. Props variations, for example: size, skin, error message, etc…
-3. Simple interactions like cliking on dropdowns.
+3. Simple interactions like clicking on dropdowns.
 
 ## How do I test interactions?
 

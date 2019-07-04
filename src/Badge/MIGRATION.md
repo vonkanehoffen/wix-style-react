@@ -14,13 +14,13 @@ Instead, we are going to have 2 components:
 
 `appearance` - Deprecated because according to the new design the only allowed appearance is `T5`.
 
-`shape` - Deprecated because of the seperation into 2 components `Badge` & `CounterBadge`.
+`shape` - Deprecated because of the separation into 2 components `Badge` & `CounterBadge`.
 
 ## New props
 `type` - This prop used to set the color of the Badge, but in the new version this prop will have a different role. It's optional values are:
-`solid`is the default look, `outlined` is with transparen background and `transparent` is borderLess. Feel free to check the updated storybook.
+`solid`is the default look, `outlined` is with transparent background and `transparent` is borderLess. Feel free to check the updated storybook.
 
-`skin` - This is the prop which controlls the color of the Badge. It has some new values which you should check out in the storybook, but these are the main important changes:
+`skin` - This is the prop which controls the color of the Badge. It has some new values which you should check out in the storybook, but these are the main important changes:
 
 - `default` ---> `neutral`
 

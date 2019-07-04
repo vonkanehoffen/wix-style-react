@@ -86,7 +86,9 @@ export default class ModalSelectorLayout extends WixComponent {
         props[propName] === 'circle'
       ) {
         return new Error(
-          `${componentName}: prop "imageSize" with value of "${props.imageSize}" is incompatible with prop imageShape with value of "circle" — use "rectangular" instead.`,
+          `${componentName}: prop "imageSize" with value of "${
+            props.imageSize
+          }" is incompatible with prop imageShape with value of "circle" — use "rectangular" instead.`,
         );
       }
     },

@@ -97,7 +97,7 @@ export default () => (
           initiallySelectedId={1}
           options={options}
           error
-          errorMessage="Somthing is wrong"
+          errorMessage="Something is wrong"
         />
       </div>
       <div style={style}>

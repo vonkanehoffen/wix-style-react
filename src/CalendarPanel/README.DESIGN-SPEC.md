@@ -2,7 +2,7 @@
 
 ## Intro
 
-CalendarPanel, is a basically `<Calendar/>` component with "peripherials" of:
+CalendarPanel, is a basically `<Calendar/>` component with "peripherals" of:
 
 - a sidebar with presets
 - footer with "Cancel", "Submit" buttons
@@ -89,7 +89,7 @@ It is controlled component.
 
 - Presets:
   - When a preset is clicked, the `<Calendar/>` selected changes.
-  - If many options exists then a vetcial scrollbar is enabled.
+  - If many options exists then a vertical scrollbar is enabled.
 - Calendar:
   - When the Calendar is clicked (selection) then the current selected preset is updated.
 - Footer:
@@ -98,7 +98,7 @@ It is controlled component.
 ### Things to notice about `<CalendarPanel/>` in the example
 
 - It has no border styling (it is wrapped in a `<Card/>` in this example).
-- `selectionMode` is used internally in order to decide the value of the footer's renderProp arguemnt, `submitEnabled`.
+- `selectionMode` is used internally in order to decide the value of the footer's renderProp argument, `submitEnabled`.
 
 ### presets
 
@@ -114,7 +114,7 @@ The recommended footer is achieved by using the optional sub-component `<Calenda
 
 | propName          | propType | defaultValue | isRequired | description |
 | ---               | ---      | ---          | ---        | ---         |
-| submitEnabled     | boolean  | false        | -          | Wether the submit button should be enabled. |
+| submitEnabled     | boolean  | false        | -          | Whether the submit button should be enabled. |
 | selectedDays      | Date |  Range | | | SelecteDays will be used to dispaly a text representation of the current selected date or range (AKA status) |
 | dateToString      | Date=> String | | | Function that turns a date into a string. Should be a localized string. This is used in for the text status.
 | cancelButtonProps | object (ButtonProps) | | | Props of a `<Button/>` for the cancel button.|

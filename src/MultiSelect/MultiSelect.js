@@ -186,7 +186,7 @@ class MultiSelect extends InputWithOptions {
 
 function inputWithOptionsPropTypes() {
   const {
-    // The following props are overriden in dropdownAdditionalProps()
+    // The following props are overridden in dropdownAdditionalProps()
     selectedId,
     closeOnSelect,
     selectedHighlight,

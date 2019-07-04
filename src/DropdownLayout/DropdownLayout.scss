@@ -4,7 +4,7 @@
 @import '../Typography/heading.scss';
 
 $option_height: 35px;
-$big_option_hight: 47px;
+$big_option_height: 47px;
 $content_container_height: 260px;
 $top-arrow-size: 8px;
 $arrowUpShadow: 3px 3px 8px rgba(0, 0, 0, .1);
@@ -96,7 +96,7 @@ $arrowDownShadow: -3px -3px 8px rgba(0, 0, 0, .1);
   text-overflow: ellipsis;
   text-align: left;
   padding: 6px 20px 6px 24px;
-  
+
 
   cursor: pointer;
 
@@ -109,7 +109,7 @@ $arrowDownShadow: -3px -3px 8px rgba(0, 0, 0, .1);
   }
 
   &.big-height {
-    min-height: $big_option_hight;
+    min-height: $big_option_height;
   }
 
   &:not(.title) {

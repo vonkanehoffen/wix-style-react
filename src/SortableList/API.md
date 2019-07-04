@@ -84,12 +84,12 @@ Some details about complex props
 
   - `isPlaceholder` - if item in drag state,
   then instead of an item(item previous place)
-  we want to render placeholder(empty block, or left item as it is), so you able to style your item by cheking isPlaceholder.
+  we want to render placeholder(empty block, or left item as it is), so you able to style your item by checking isPlaceholder.
   - `isPreview` - if item in drag(fly) state,
   then instead of an item,
   we want to render preview
   state(maybe we want to rotate it a little, or hide something),
-  so you able to style your item by cheking isPreview.
+  so you able to style your item by checking isPreview.
   - `id` - an id from item that you render
   - `previewStyles` - styles that coming from SortableList, `you always need to apply` them on your root div, inside of renderItem
   You can add item width as `style={{...previewStyles, width: your_width }}`. By default previewStyles contain original items `width` in pixels

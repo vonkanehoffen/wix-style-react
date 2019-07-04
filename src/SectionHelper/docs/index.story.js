@@ -19,7 +19,7 @@ const childrenExamples = [
   {
     label: 'long text',
     value:
-      'This is the content of very important message which actully has a lot of detailed explanation about various things. It may even have multiple sentences but they do not need to be those boring "Lorem Ipsum"',
+      'This is the content of very important message which actually has a lot of detailed explanation about various things. It may even have multiple sentences but they do not need to be those boring "Lorem Ipsum"',
   },
 ];
 

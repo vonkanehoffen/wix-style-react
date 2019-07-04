@@ -88,7 +88,7 @@ Types of changes:
 - `<Tag/>` - Add new theme [#3599](https://github.com/wix/wix-style-react/pull/3599)
 
 ### Fixed
-- `<Card>` - CardHedaer text ellipsis width propagate parent width [#3601](https://github.com/wix/wix-style-react/pull/3601)
+- `<Card>` - CardHeader text ellipsis width propagate parent width [#3601](https://github.com/wix/wix-style-react/pull/3601)
 - `<RichTextInputArea/>` - add missing `target` attribute for rendered links [#3602](https://github.com/wix/wix-style-react/pull/3602)
 
 ## 6.30.0 - 2019-06-20
@@ -195,7 +195,7 @@ Types of changes:
 ### Changed
 - `<DropdownLayout>` - changed option `onMouseDown` to `onClick` [#3507](https://github.com/wix/wix-style-react/pull/3507)
 - Infra: replace `react-testing-library` with `@testing-library/react` [#3501](https://github.com/wix/wix-style-react/pull/3501)
-- Infra: update `jscodeshift` (now doesn't use deprecated `nomnom` package [#3502](https://github.com/wix/wix-style-react/pull/3502)
+- Infra: update `jscodeshift` (now does not use deprecated `nomnom` package [#3502](https://github.com/wix/wix-style-react/pull/3502)
 - Infra: update husky version [#3503](https://github.com/wix/wix-style-react/pull/3503)
 
 ### Fixed
@@ -215,7 +215,7 @@ Types of changes:
 
 - `<ColorInput/>` - remove default value for placeholder [#3474](https://github.com/wix/wix-style-react/pull/3474)
 - `<ColorPicker/>` - use smaller size x & v buttons [#3499](https://github.com/wix/wix-style-react/pull/3499)
-- `<Swatches/>` - add tooltip for `showClear` buton and display `showClearMessage` content [#3477](https://github.com/wix/wix-style-react/pull/3477)
+- `<Swatches/>` - add tooltip for `showClear` button and display `showClearMessage` content [#3477](https://github.com/wix/wix-style-react/pull/3477)
 
 ## 6.23.0 - 2019-05-28
 
@@ -607,9 +607,9 @@ No Changes (Patch version, only to re-publish Storybook, after failed publish)
 
 ### Added
 
-- `<Calendar/>` - new supported locales Thai, Chinese, and Chech.[#3078](https://github.com/wix/wix-style-react/pull/3078)
-- `<CalendarPanel/>` - new supported locales Thai, Chinese, and Chech.[#3078](https://github.com/wix/wix-style-react/pull/3078)
-- `<DatePicker/>` - new supported locales Thai, Chinese, and Chech.[#3078](https://github.com/wix/wix-style-react/pull/3078)
+- `<Calendar/>` - new supported locales Thai, Chinese, and Czech.[#3078](https://github.com/wix/wix-style-react/pull/3078)
+- `<CalendarPanel/>` - new supported locales Thai, Chinese, and Czech.[#3078](https://github.com/wix/wix-style-react/pull/3078)
+- `<DatePicker/>` - new supported locales Thai, Chinese, and Czech.[#3078](https://github.com/wix/wix-style-react/pull/3078)
 - `<Slider/>` - add single track support [#3062](https://github.com/wix/wix-style-react/pull/3062)
 - `<NumberInput />` - add new NumberInput component [#3033](https://github.com/wix/wix-style-react/pull/3033)
 
@@ -1052,7 +1052,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- re-add some mising enzyme testkits [#2618](https://github.com/wix/wix-style-react/pull/2618)
+- re-add some missing enzyme testkits [#2618](https://github.com/wix/wix-style-react/pull/2618)
 
 ### Added
 
@@ -1408,7 +1408,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- `typography.scss` - Resolve bug with typography import(related to case-sensetive machines) [#2255](https://github.com/wix/wix-style-react/pull/2255)
+- `typography.scss` - Resolve bug with typography import(related to case-sensitive machines) [#2255](https://github.com/wix/wix-style-react/pull/2255)
 
 ## 5.3.1 - 2018-09-18
 
@@ -1446,7 +1446,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 ### Docs
 
 - `<Badge/>` - migrate story to autodocs [#2221](https://github.com/wix/wix-style-react/pull/2221)
-- Update Contriubtion guide [#2220](https://github.com/wix/wix-style-react/pull/2220)
+- Update Contribution guide [#2220](https://github.com/wix/wix-style-react/pull/2220)
 
 ## 5.2.0 - 2018-09-06
 
@@ -1612,7 +1612,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Added
 
-- `<Icons/>` - Update wix-ui-icons-common version to handle new icons(ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Crop, Mobile, PauseFilled, PlayFilled, StatusAlerFilled, StatusCompletetFilled, StopFilled, ZoomIn, ZoomOut) [#2067](https://github.com/wix/wix-style-react/pull/2067)
+- `<Icons/>` - Update wix-ui-icons-common version to handle new icons(ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Crop, Mobile, PauseFilled, PlayFilled, StatusAlertFilled, StatusCompleteFilled, StopFilled, ZoomIn, ZoomOut) [#2067](https://github.com/wix/wix-style-react/pull/2067)
 
 ## 4.14.0 - 2018-08-01
 
@@ -1695,7 +1695,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 - `<Card.ButtonHeader/>` - migrate to new icons [#1979](https://github.com/wix/wix-style-react/pull/1979)
 - `<Card.CollapsedHeader/>` - migrate to new icons [#1980](https://github.com/wix/wix-style-react/pull/1980)
 - `<EditableSelector/>` - improve behavior when editing a line [#1989](https://github.com/wix/wix-style-react/pull/1989)
-- `<DropdownLayout/>` - impove preformance - items will not appear in DOM if not displayed [#1996](https://github.com/wix/wix-style-react/pull/1996)
+- `<DropdownLayout/>` - improve performance - items will not appear in DOM if not displayed [#1996](https://github.com/wix/wix-style-react/pull/1996)
 
 ### Fixed
 
@@ -1753,7 +1753,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Added
 
-- `<DropdownLayout/>` - add `minWidthPixels` prop. This prop is availble in `<Dropdown/>`, `<XXXWithOptions/>`, `<MultiSelect/>` and similar components... [#1914](https://github.com/wix/wix-style-react/pull/1914)
+- `<DropdownLayout/>` - add `minWidthPixels` prop. This prop is available in `<Dropdown/>`, `<XXXWithOptions/>`, `<MultiSelect/>` and similar components... [#1914](https://github.com/wix/wix-style-react/pull/1914)
 
 ### Changed
 
@@ -1839,7 +1839,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Added
 
-- `<TimeInput/>` - Expose isDisable mehod in it's testkit[1838](https://github.com/wix/wix-style-react/pull/1838)
+- `<TimeInput/>` - Expose isDisable method in it's testkit[1838](https://github.com/wix/wix-style-react/pull/1838)
 - `<LinearProgressBar>` - New component [1830](https://github.com/wix/wix-style-react/pull/1830)
 
 ### Fixed
@@ -1868,7 +1868,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- `<TextLink/>` - Updated disabled property behaciour [#1798](https://github.com/wix/wix-style-react/pull/1798)
+- `<TextLink/>` - Updated disabled property behaviour [#1798](https://github.com/wix/wix-style-react/pull/1798)
 
 ### Added
 
@@ -2013,7 +2013,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 - `<Input/>` - fix case when prefix is cut in IE 11 on small inputs [#1692](https://github.com/wix/wix-style-react/pull/1692)
 - `<MultiSelect/>` - fix height according to specs [#1683](https://github.com/wix/wix-style-react/pull/1683)
 - `<PopoverMenu/>` - ellipsis for long items strings [#1686](https://github.com/wix/wix-style-react/pull/1686)
-- `<MultiSelect/>` - placeholder didn't get full input width [#1700](https://github.com/wix/wix-style-react/pull/1700)
+- `<MultiSelect/>` - placeholder did not get full input width [#1700](https://github.com/wix/wix-style-react/pull/1700)
 
 ## 3.1.5 - 2018-04-18
 
@@ -2081,7 +2081,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- Typography - fix `h2` lineheight and use correct grey colors in `t1` and `t3` [e38cd6a](https://github.com/wix/wix-style-react/commit/e38cd6a8ddee4d67a09dcca106a35b830f3735dc)
+- Typography - fix `h2` line-height and use correct grey colors in `t1` and `t3` [e38cd6a](https://github.com/wix/wix-style-react/commit/e38cd6a8ddee4d67a09dcca106a35b830f3735dc)
 - `<DatePicker>` - big date, year dropdown min/max values are no longer hardcoded [#1629](https://github.com/wix/wix-style-react/pull/1629)
 - `<MessageBox>` - right margin only if more then one button [#1588](https://github.com/wix/wix-style-react/pull/1588)
 - `<DataTable>` - add fallback to text-align:start for IE[#1623](https://github.com/wix/wix-style-react/pull/1623)
@@ -2261,7 +2261,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 - `<Input/>` - Amaterial theme fix, added hover and fade in / out [#1445](https://github.com/wix/wix-style-react/pull/1445)
 - `<InputArea/>` - on error tooltip use `theme="dark"` & default `tooltipPlacement="top"` [1456](https://github.com/wix/wix-style-react/pull/1456)
 - `<StatsWidget/>` - fix padding issues [#1446](https://github.com/wix/wix-style-react/pull/1446)
-- `<GoogleAddressInput/>` fix ocasionally missing street number [#1435](https://github.com/wix/wix-style-react/pull/1435)
+- `<GoogleAddressInput/>` fix occasionally missing street number [#1435](https://github.com/wix/wix-style-react/pull/1435)
 
 ### Changed
 
@@ -2283,7 +2283,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 ### Added
 
 - `puppeteer` testkit driver for the `<Label/>` component and added docs.
-- Added disalbed state for a `<SideMenu/>` Drillview.
+- Added disabled state for a `<SideMenu/>` Drillview.
 
 ## 2.0.20 - 2018-02-07
 
@@ -2303,7 +2303,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- Don't render `PopoverMenuItem` icon if doesn't exist
+- Don't render `PopoverMenuItem` icon if does not exist
 - `Breadcrumbs` dark theme color correction.
 - `Page` UI fixes for restricted content size.
 - `Page` pass the `minimized` property to the content element
@@ -2340,7 +2340,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Changed
 
-- Made `wix-ui-test-utils` a depenedency
+- Made `wix-ui-test-utils` a dependency
 
 ## 2.0.15 - 2018-01-23
 
@@ -2360,7 +2360,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- `<Page/>` Add calcualtion when leaving minimized state [1381](https://github.com/wix/wix-style-react/pull/1381)
+- `<Page/>` Add calculation when leaving minimized state [1381](https://github.com/wix/wix-style-react/pull/1381)
 - Page background image [1387](https://github.com/wix/wix-style-react/pull/1387)
 
 ## 2.0.13 - 2018-01-22
@@ -2504,7 +2504,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- `Page Header` - Update Header scrol treshold size [1289](https://github.com/wix/wix-style-react/pull/1289)
+- `Page Header` - Update Header scroll threshold size [1289](https://github.com/wix/wix-style-react/pull/1289)
 - `MultiSelect` - Allow to write any text as tag when options are empty [1292](https://github.com/wix/wix-style-react/pull/1292)
 
 ## 1.2.12 - 2017-12-24
@@ -2614,7 +2614,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 ### Fixed
 
-- `<Loader>` - Fix teskit for the case the loader doesn't exist [1226](https://github.com/wix/wix-style-react/pull/1226), [1228](https://github.com/wix/wix-style-react/pull/1228)
+- `<Loader>` - Fix teskit for the case the loader does not exist [1226](https://github.com/wix/wix-style-react/pull/1226), [1228](https://github.com/wix/wix-style-react/pull/1228)
 - `<InputWithOptions>` - do not force blur when hiding options dropdown [1125](https://github.com/wix/wix-style-react/pull/1225)
 
 ## 1.2.2 - 2017-12-04
@@ -2635,13 +2635,13 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 - Migrate to wix-ui-test-utils [1204](https://github.com/wix/wix-style-react/pull/1204)
 - Removed dist from testkit import path in the examples
-- Deprecate export-components script in facor of import-path package [1217](https://github.com/wix/wix-style-react/pull/1217)
+- Deprecate export-components script in favor of import-path package [1217](https://github.com/wix/wix-style-react/pull/1217)
 - Migrate to haste [1218](https://github.com/wix/wix-style-react/pull/1218)
 - `<Loader>`: New loader [1203](https://github.com/wix/wix-style-react/pull/1203)
 
 ### Fixed
 
-- `<input>` - Correct prop-types for noRitghtBorderRadius [1213](https://github.com/wix/wix-style-react/pull/1213)
+- `<input>` - Correct prop-types for noRightBorderRadius [1213](https://github.com/wix/wix-style-react/pull/1213)
 
 ### Added
 
@@ -2690,7 +2690,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 ### Added
 
 - `<StatsWidget>` - Added new widget (https://github.com/wix/wix-style-react/commit/3209220357d8b8e1bd320de5f1e9512f50214342)
-- `<Tooltip>` - Add reange polyfill [1178](https://github.com/wix/wix-style-react/pull/1178)
+- `<Tooltip>` - Add range polyfill [1178](https://github.com/wix/wix-style-react/pull/1178)
 - Package.lock - [1183](https://github.com/wix/wix-style-react/pull/1183)
 - Themes - huge refactor to boost performance and api. [1186](https://github.com/wix/wix-style-react/pull/1186)
 
@@ -2703,7 +2703,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 - `<ToggleSwitch>` - disable the toggle on disable mode[1174](https://github.com/wix/wix-style-react/pull/1174)
 - storybook e2e
-- `<InputWithOption>` - Solved saffari issue: [387](https://github.com/wix/wix-style-react/issues/387)
+- `<InputWithOption>` - Solved Safari issue: [387](https://github.com/wix/wix-style-react/issues/387)
 - `<Tooltip>` - Remove setTimeout [1177](https://github.com/wix/wix-style-react/pull/1177)
 - Terminal was cleaned from all warning printouts - [1185](https://github.com/wix/wix-style-react/pull/1185)
 
@@ -2751,7 +2751,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 - TpaThemeProvider - small bug (https://github.com/wix/wix-style-react/commit/d66bf2107f1376c5034ef835303da20716df7e82)
 - `<Button>` - Fixed incorrect padding in RTL [1142](https://github.com/wix/wix-style-react/pull/1142)
 - `<DropdownLayout>` - Use lodash findIndex instead of native (for IE support)[1143](https://github.com/wix/wix-style-react/pull/1143)
-- `<DropdownLayout>`, `<GoogleAddressInput>`, `<MultiSelect>` - Added a selectedHightlight prop to DropdownLayout, meaning after selecting an option if it should highlight it when dropdown is reopened [1136](https://github.com/wix/wix-style-react/pull/1136)
+- `<DropdownLayout>`, `<GoogleAddressInput>`, `<MultiSelect>` - Added a selectedHighlight prop to DropdownLayout, meaning after selecting an option if it should highlight it when dropdown is reopened [1136](https://github.com/wix/wix-style-react/pull/1136)
 - `<DropdownLayout>` - mouseClickOutside method was fixed [1147](https://github.com/wix/wix-style-react/pull/1147)
 
 ## 1.1.4525 - 2017-11-18

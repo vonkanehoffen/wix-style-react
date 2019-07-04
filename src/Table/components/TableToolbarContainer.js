@@ -20,5 +20,5 @@ TableToolbarContainer.propTypes = {
   children: any,
 };
 
-/** Helper for PropTypes for componenst which consume the SelectioContext */
+/** Helper for PropTypes for components which consume the SelectionContext */
 export const SelectionContextPropTypes = BulkSelectionContextPropTypes;

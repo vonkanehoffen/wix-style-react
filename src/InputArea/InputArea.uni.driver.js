@@ -9,7 +9,7 @@ export const inputAreaUniDriverFactory = (base, body) => {
   const textArea = base.$('textarea');
   const counterSelector = '[data-hook="counter"]';
   const errorIndicatorSelector = '[data-hook="inputArea-tooltip"]';
-  const errroIndicatorTestkit = () =>
+  const errorIndicatorTestkit = () =>
     errorIndicatorDriverFactory(base.$(errorIndicatorSelector), body);
 
   const textAreaBase = ReactBase(textArea);
@@ -47,8 +47,8 @@ export const inputAreaUniDriverFactory = (base, body) => {
     // TODO: get the dataHook using the <ErrorIndicator/> driver
     getTooltipDataHook: () => tooltipDataHook,
     getTooltipElement: () => base,
-    isErrorMessageShown: () => errroIndicatorTestkit().isShown(),
-    mouseEnterErrorIndicator: () => errroIndicatorTestkit().mouseEnter(),
-    getErrorMessage: () => errroIndicatorTestkit().getErrorMessage(),
+    isErrorMessageShown: () => errorIndicatorTestkit().isShown(),
+    mouseEnterErrorIndicator: () => errorIndicatorTestkit().mouseEnter(),
+    getErrorMessage: () => errorIndicatorTestkit().getErrorMessage(),
   };
 };

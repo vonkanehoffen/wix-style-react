@@ -72,7 +72,7 @@ onSelect(option): void
 
 | What Changed? |  Before                         |            After               |
 |---------|---------------------------------|--------------------------------|
-| Trigger | Called for paste actions. Called (sometimes) when input value submited  | called ONLY when user selects an option |
+| Trigger | Called for paste actions. Called (sometimes) when input value submitted  | called ONLY when user selects an option |
 | 1st Arg | array of tags or single tag | single option   |
 
 #### Migration Example (`onSelect`)
@@ -105,11 +105,11 @@ onSelect(option): void
 #### Notice
 
 - **Option Meta**: You can put any properties you need on the `option` object (option meta), so you can later use them when an option is selected.
-- **`option.value`!**: Keep in mind that the `value` property of an option is a ReactNode, it is what gets renderedas an option. So if you use something other than a string, then you shouldn't have to deal with it in the `onSelect` handling.
+- **`option.value`!**: Keep in mind that the `value` property of an option is a ReactNode, it is what gets rendered as an option. So if you use something other than a string, then you shouldn't have to deal with it in the `onSelect` handling.
 
 ### valueParser
 
-`valueParser` is deprecated (not used). It was used to match Options with the input value when Paste is detected. We don't do that anymore, when Paste is detected, we simply call `onTagsAdded` with the inptu value.
+`valueParser` is deprecated (not used). It was used to match Options with the input value when Paste is detected. We don't do that anymore, when Paste is detected, we simply call `onTagsAdded` with the input value.
 
 ### Creating Tags (Reminder)
 

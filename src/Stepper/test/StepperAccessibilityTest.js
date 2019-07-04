@@ -33,7 +33,9 @@ class StepperWithState extends React.Component {
   }
 }
 
-const kind = `${TESTS_PREFIX}/${storySettings.category}/${storySettings.storyName}`;
+const kind = `${TESTS_PREFIX}/${storySettings.category}/${
+  storySettings.storyName
+}`;
 
 storiesOf(kind, module).add(storySettings.testStoryNames.ACCESSIBILITY, () => (
   <div style={{ marginLeft: 100, marginTop: 100 }}>

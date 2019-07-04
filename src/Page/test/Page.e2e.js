@@ -104,13 +104,13 @@ describe('Page', () => {
         dataHook: 'example-page-header-popover-menu',
       });
       await headerMenu.click();
-      eyes.checkWindow('header PopoverMenu shuold be opened');
+      eyes.checkWindow('header PopoverMenu should be opened');
 
       const contentMenu = popoverMenuTestkitFactory({
         dataHook: 'popovermenu-in-content',
       });
       await contentMenu.click();
-      eyes.checkWindow('content PopoverMenu shuold be opened');
+      eyes.checkWindow('content PopoverMenu should be opened');
     },
     { enableSnapshotAtBrowserGet: false, enableSnapshotAtEnd: false },
   );
@@ -139,7 +139,7 @@ describe('Page', () => {
           dataHook,
         });
         await privateDriver.scrollVertically(ENOUGH_SCROLL_TO_MINIMIZE);
-        expect(await privateDriver.getVeriticalScroll()).toBe(0);
+        expect(await privateDriver.getVerticalScroll()).toBe(0);
       });
     });
 
@@ -150,7 +150,7 @@ describe('Page', () => {
           dataHook,
         });
         await privateDriver.scrollVertically(ENOUGH_SCROLL_TO_MINIMIZE);
-        expect(await privateDriver.getVeriticalScroll()).toBe(0);
+        expect(await privateDriver.getVerticalScroll()).toBe(0);
       });
     });
 
@@ -161,7 +161,7 @@ describe('Page', () => {
           dataHook,
         });
         await privateDriver.scrollVertically(ENOUGH_SCROLL_TO_MINIMIZE);
-        expect(await privateDriver.getVeriticalScroll()).toBe(0);
+        expect(await privateDriver.getVerticalScroll()).toBe(0);
       });
     });
 
@@ -174,7 +174,7 @@ describe('Page', () => {
             dataHook,
           });
           await privateDriver.scrollVertically(ENOUGH_SCROLL_TO_MINIMIZE);
-          expect((await privateDriver.getVeriticalScroll()) > 0).toBeTruthy();
+          expect((await privateDriver.getVerticalScroll()) > 0).toBeTruthy();
         },
       );
     });
@@ -189,7 +189,7 @@ describe('Page', () => {
           });
           await privateDriver.scrollVertically(300);
           await browser.sleep(ANIMATION_DURATION_MS + 100); // eslint-disable-line no-restricted-properties
-          expect((await privateDriver.getVeriticalScroll()) > 0).toBeTruthy();
+          expect((await privateDriver.getVerticalScroll()) > 0).toBeTruthy();
         },
       );
     });
@@ -203,7 +203,7 @@ describe('Page', () => {
         await privateDriver.scrollVertically(SCROLL_TO_BOTTOM);
 
         await browser.sleep(ANIMATION_DURATION_MS + 100); // eslint-disable-line no-restricted-properties
-        expect((await privateDriver.getVeriticalScroll()) > 0).toBeTruthy();
+        expect((await privateDriver.getVerticalScroll()) > 0).toBeTruthy();
       });
     });
 
@@ -239,7 +239,7 @@ describe('Page', () => {
           await privateDriver.scrollVertically(SCROLL_TO_BOTTOM);
 
           await browser.sleep(ANIMATION_DURATION_MS + 100); // eslint-disable-line no-restricted-properties
-          expect((await privateDriver.getVeriticalScroll()) > 0).toBeTruthy();
+          expect((await privateDriver.getVerticalScroll()) > 0).toBeTruthy();
         },
       );
     });

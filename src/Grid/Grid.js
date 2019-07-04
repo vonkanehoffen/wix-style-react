@@ -9,7 +9,7 @@ const containerProps = {
   children: PropTypes.node,
   fluid: PropTypes.bool,
   className: PropTypes.string,
-  /** Applies min-height in order to fit to `<Page.Contnet/>`  */
+  /** Applies min-height in order to fit to `<Page.Content/>`  */
   stretchVertically: PropTypes.bool,
 };
 

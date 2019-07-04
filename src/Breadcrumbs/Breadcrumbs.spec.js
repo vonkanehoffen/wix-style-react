@@ -163,7 +163,7 @@ describe('Breadcrumbs', () => {
       });
     });
 
-    it('should have correct claasNames', async () => {
+    it('should have correct classNames', async () => {
       const { driver } = render(<Breadcrumbs {...{ items }} />);
       expect(await driver.getLabelClassList(0)).toMatch(/Text/);
     });

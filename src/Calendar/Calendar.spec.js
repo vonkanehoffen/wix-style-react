@@ -196,7 +196,7 @@ describe('Calendar', () => {
       it('should prevent default when clicking in header parts', async () => {
         const eventListenerMock = jest.fn(event => event.persist());
         const dataHook = 'calendar-data-hook';
-        // We use a label wrapper, since a label's default is to delegate the click on to it's target. Just to demostrate that this is a use-case that needs to be prevented.
+        // We use a label wrapper, since a label's default is to delegate the click on to it's target. Just to demonstrate that this is a use-case that needs to be prevented.
         const { driver } = render(
           <label onClick={eventListenerMock}>
             <Calendar
@@ -665,7 +665,7 @@ describe('Calendar', () => {
               });
             });
 
-            it(`should change the displayed month so that new range 'to' is in the 2nd month, when new 'to' is before calendar view and the new range doesn't fit in view`, async () => {
+            it(`should change the displayed month so that new range 'to' is in the 2nd month, when new 'to' is before calendar view and the new range does not fit in view`, async () => {
               await testCase({
                 initialValue: new Date(2018, NOVEMBER, 1),
                 expectedInitialMonth: NOVEMBER,

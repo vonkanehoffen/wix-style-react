@@ -26,9 +26,9 @@ export function focusableStates(props) {
 /**
  * NOTE: Technically we should add the focusable proptypes to every component which uses this HOC.
  * Currently it is not used since Auto-Docs can not process spreading a plain object into propTypes.
- * In any way, these props should not be in the documentaion, since we expose only the withFocusable(Component),
- * and the withFocusalbe(...) does not accept these props.
- * So... for now we can omit these from the wrapped components, and silence eslint is neede.
+ * In any way, these props should not be in the documentation, since we expose only the withFocusable(Component),
+ * and the withFocusable(...) does not accept these props.
+ * So... for now we can omit these from the wrapped components, and silence eslint if needed.
  */
 export const FocusablePropTypes = {
   focusableOnFocus: PropTypes.func,
@@ -89,7 +89,7 @@ const inputMethod = new (class {
 
 /*
  * TODO: Consider adding 'disabled' state to this HOC, since:
- * - When component is focused and then it becomes disabled, then the focus needs to be blured.
+ * - When component is focused and then it becomes disabled, then the focus needs to be blurred.
  *
  * TODO: Consider using [Recompose](https://github.com/acdlite/recompose/tree/master/src/packages/recompose) to do:
  *  - the static hoisting
@@ -124,7 +124,7 @@ export const withFocusable = Component => {
     componentDidUpdate(prevProps) {
       /*
         in case when button was focused and then become disabled,
-        we need to trigger blur logic and remove all listers, as disabled button
+        we need to trigger blur logic and remove all listeners, as disabled button
         do not trigger onFocus and onBlur events
       */
       const isFocused = this.state.focus || this.state.focusVisible;

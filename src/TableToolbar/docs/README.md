@@ -24,12 +24,12 @@ The layout of a toolbar is composed of item groups (`<ItemGroups/>` ).
 
 | propName | propType | defaultValue | isRequired | description |
 |----------|----------|--------------|------------|-------------|
-| layout | 'button' | - | false | applys appropriate css styles like margins. There might be more layout values in the future. |
+| layout | 'button' | - | false | applies appropriate css styles like margins. There might be more layout values in the future. |
 | children | node | - | true | any node. If it is a `<Button/>` then you should set `layout` prop to `'button'` to get the desired look |
 
 ## `<Divider/>` (`<Toolbar.Divider/>`)
 
-A divider between `<Item/>` componenets.
+A divider between `<Item/>` components.
 
 ## `<Title/>` (`<Toolbar.Title/>`)
 
@@ -57,4 +57,4 @@ Applies "selected count" font styling to it's children.
 
 ## Examples
 
-The content of the Toolbar may be anything you need, although we do recommed the following typical behavior.
+The content of the Toolbar may be anything you need, although we do recommend the following typical behavior.

@@ -18,7 +18,7 @@
   border: solid 1px value(D60);
   background-color: value(D80);
   box-sizing: border-box;
-} 
+}
 
 .googlePreviewTitle {
   -st-extends: Text;
@@ -39,7 +39,7 @@
 }
 
 .googlePreviewDescriptionContainer {
-  /* TODO - multiline ellipisis is required instead */
+  /* TODO - multiline ellipsis is required instead */
   display: block;
   max-height: 35px;
   overflow: hidden;

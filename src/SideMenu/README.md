@@ -98,7 +98,7 @@ stylized link
 
 ## Important remarks
 
-* `<SideMenu/>` doesn't care how and where you render it. It takes full
+* `<SideMenu/>` does not care how and where you render it. It takes full
 width & height so it's up to you to set parent styling appropriately
 
 * `<SideMenu/>` has no padding or margin. So, if you want e.g. header to not stick

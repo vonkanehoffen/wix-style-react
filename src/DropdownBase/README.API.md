@@ -15,7 +15,7 @@ The `<DropdownBase/>` can accept two types of children:
   | `open(e)` | `Function` | A function that will open the items list. Can be called only when in "Uncontrolled" mode. |
   | `close(e)` | `Function` | A function that will close the items list. Can be called only when in "Uncontrolled" mode. |
   | `toggle(e)` | `Function` | A function that will toggle the items list. Can be called only when in "Uncontrolled" mode. |
-  | `delegateKeyDown(e)` | `Function` | The underlaying `<DropdownLayout/>`'s `keydown` handler. It can be called inside another `keydown` event in order to delegate it (can be useful when using the "Controlled" mode). |
+  | `delegateKeyDown(e)` | `Function` | The underlying `<DropdownLayout/>`'s `keydown` handler. It can be called inside another `keydown` event in order to delegate it (can be useful when using the "Controlled" mode). |
   | `selectedOption` | `{ id: any, value: any }`, `null` | The value of the selected option. |
 
 **Note:** When calling a trigger function, make sure to provide the event to it in order to have the
@@ -61,7 +61,7 @@ You can use the `<DropdownBase/>`'s selection behaviour in 2 modes.
 ### Uncontrolled selection behaviour
 
 In this mode, the `<DropdownBase/>` component will manage it's own state of the currently
-selected option. You can retreive the selected option in the render prop (via the `selectedOption`
+selected option. You can retrieve the selected option in the render prop (via the `selectedOption`
 property described above) using the `onSelect` callback prop. If you'd like to set an initially
 selected option, use the `initialSelectedId` prop.
 

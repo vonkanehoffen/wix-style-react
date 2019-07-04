@@ -36,9 +36,9 @@
 
 ## New props
 
-`skin` - this is the prop which controlls the color of the Button just like `theme` prop did before. Some values are deprecated and some are renamed.
+`skin` - this is the prop which controls the color of the Button just like `theme` prop did before. Some values are deprecated and some are renamed.
 
-`priority` - this the prop which controlls the priority of a button. This is used together with prop `skin` to achieve button color.
+`priority` - this the prop which controls the priority of a button. This is used together with prop `skin` to achieve button color.
 
 Changed `theme` values
 
@@ -78,7 +78,7 @@ Deprecated `theme` values
 
 - `whiteblue` --> deprecated
 
-`size` - this is a prop that controlls the size of a button. It also control prefix and suffix icons sizes.
+`size` - this is a prop that controls the size of a button. It also control prefix and suffix icons sizes.
 
 Changed `height` values
 

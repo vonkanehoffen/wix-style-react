@@ -118,7 +118,7 @@ describe('Loader', () => {
       });
     });
   }
-  it(`shouldn't throw when the Loader doesn't exist`, async () => {
+  it(`shouldn't throw when the Loader does not exist`, async () => {
     expect(() => loaderDriverFactory({})).not.toThrow();
   });
 });

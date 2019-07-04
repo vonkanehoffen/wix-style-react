@@ -8,22 +8,22 @@ export interface BoxProps extends Omit<React.CSSProperties, 'direction'> {
   align?: BoxHorizontalAlignment;
   verticalAlign?: BoxVerticalAlignment;
   dataHook?: string;
-  padding?: BoxCssSizingPropery;
-  paddingTop?: BoxCssSizingPropery;
-  paddingRight?: BoxCssSizingPropery;
-  paddingBottom?: BoxCssSizingPropery;
-  paddingLeft?: BoxCssSizingPropery;
-  margin?: BoxCssSizingPropery;
-  marginTop?: BoxCssSizingPropery;
-  marginRight?: BoxCssSizingPropery;
-  marginBottom?: BoxCssSizingPropery;
-  marginLeft?: BoxCssSizingPropery;
-  minWidth?: BoxCssSizingPropery;
-  maxWidth?: BoxCssSizingPropery;
-  width?: BoxCssSizingPropery;
-  minHeight?: BoxCssSizingPropery;
-  maxHeight?: BoxCssSizingPropery;
-  height?: BoxCssSizingPropery;
+  padding?: BoxCssSizingProperty;
+  paddingTop?: BoxCssSizingProperty;
+  paddingRight?: BoxCssSizingProperty;
+  paddingBottom?: BoxCssSizingProperty;
+  paddingLeft?: BoxCssSizingProperty;
+  margin?: BoxCssSizingProperty;
+  marginTop?: BoxCssSizingProperty;
+  marginRight?: BoxCssSizingProperty;
+  marginBottom?: BoxCssSizingProperty;
+  marginLeft?: BoxCssSizingProperty;
+  minWidth?: BoxCssSizingProperty;
+  maxWidth?: BoxCssSizingProperty;
+  width?: BoxCssSizingProperty;
+  minHeight?: BoxCssSizingProperty;
+  maxHeight?: BoxCssSizingProperty;
+  height?: BoxCssSizingProperty;
 }
 
 declare const Box: React.SFC<BoxProps>;
@@ -45,4 +45,4 @@ export type BoxVerticalAlignment =
 
 export type BoxSpacing = 'tiny' | 'small' | 'medium' | 'large';
 
-type BoxCssSizingPropery = string | number;
+type BoxCssSizingProperty = string | number;

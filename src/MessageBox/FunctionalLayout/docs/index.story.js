@@ -21,7 +21,7 @@ export default {
   componentPath: '../MessageBoxFunctionalLayout.js',
 
   componentProps: {
-    title: 'Interuption Message',
+    title: 'Interruption Message',
     theme: 'blue',
     confirmText: 'Action',
     children:

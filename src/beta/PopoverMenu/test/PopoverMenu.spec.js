@@ -212,7 +212,7 @@ describe('PopoverMenu', () => {
           expect(await driver.isMenuOpen()).toBe(true);
         });
 
-        it('should be openen [when] when triggered with key Space', async () => {
+        it('should be opened [when] when triggered with key Space', async () => {
           const dataHook = 'iconbutton-custom';
           const { driver } = render(
             renderPopoverMenu({
@@ -347,7 +347,7 @@ describe('PopoverMenu', () => {
           expect((await driver.getMenuItem(2)).tabIndex).toBe(-1);
         });
 
-        it('navigating to previous item [when] there is no options in front should jumpt to last item', async () => {
+        it('navigating to previous item [when] there is no options in front should jump to last item', async () => {
           const { driver } = render(
             renderPopoverMenu({
               children: [

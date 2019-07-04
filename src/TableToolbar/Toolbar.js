@@ -2,7 +2,7 @@ import React from 'react';
 import { any, oneOf } from 'prop-types';
 import classNames from 'classnames';
 import s from './Toolbar.scss';
-import OriginaLabel from '../Label';
+import OriginalLabel from '../Label';
 
 export const Toolbar = props => {
   return <div className={s.toolbar}>{props.children}</div>;
@@ -54,11 +54,11 @@ Item.propTypes = {
  */
 export const Label = props => {
   return (
-    <OriginaLabel {...props} className={s.itemLabel}>
+    <OriginalLabel {...props} className={s.itemLabel}>
       {React.Children.toArray(props.children).map((c, index) => {
         return typeof c === 'string' ? <span key={index}>{c}</span> : c;
       })}
-    </OriginaLabel>
+    </OriginalLabel>
   );
 };
 Label.displayName = 'Toolbar.Label';

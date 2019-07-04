@@ -64,7 +64,7 @@ describe('Data Table', () => {
     await browser.wait(
       async () => (await driver.rowsCount()) === itemsAfterLoad,
       10000,
-      'New data wasnt loaded :(',
+      'New data was not loaded :(',
     );
     expect(await driver.rowsCount()).toEqual(itemsAfterLoad);
   });

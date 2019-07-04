@@ -289,13 +289,13 @@ class ExampleStretchTable extends React.Component {
                             this.state.searchTerm
                           }"`}</Text>
                           <br />
-                          Try search by other cryteria
+                          Try search by other criteria
                         </Text>
                       ) : (
                         <Text>
                           There are no results matching your filters
                           <br />
-                          Try search by other cryteria
+                          Try search by other criteria
                         </Text>
                       )
                     }

@@ -63,7 +63,7 @@ eyes.it('Sizes', async () => {
 ```
 
 This will run in parallel !
-(Because `forEach` doesn't do await when calling each the function)
+(Because `forEach` does not do await when calling each the function)
 
 *DO*
 

@@ -19,25 +19,25 @@ const tests = [
     describe: 'small', // prop name (e.g. size)
     its: [
       {
-        it: '6 columns', //prop vaiation (e.g. small)
+        it: '6 columns', //prop variation (e.g. small)
         props: {
           width: 204,
         },
       },
       {
-        it: '4 columns', //prop vaiation (e.g. small)
+        it: '4 columns', //prop variation (e.g. small)
         props: {
           width: 144,
         },
       },
       {
-        it: '1 column', //prop vaiation (e.g. small)
+        it: '1 column', //prop variation (e.g. small)
         props: {
           width: 24,
         },
       },
       {
-        it: 'selected color', //prop vaiation (e.g. small)
+        it: 'selected color', //prop variation (e.g. small)
         props: {
           selected: '#FFFFFF',
         },
@@ -54,14 +54,14 @@ const tests = [
     describe: 'medium', // prop name (e.g. size)
     its: [
       {
-        it: '5 columns', //prop vaiation (e.g. small)
+        it: '5 columns', //prop variation (e.g. small)
         props: {
           width: 248,
           size: 'medium',
         },
       },
       {
-        it: 'selected color', //prop vaiation (e.g. small)
+        it: 'selected color', //prop variation (e.g. small)
         props: {
           selected: '#FFFFFF',
           size: 'medium',

@@ -203,7 +203,7 @@ describe('InputArea', () => {
     });
 
     describe('onKeyUp attribute', () => {
-      it('should be called after keybord key got pressed and then released', async () => {
+      it('should be called after keyboard key got pressed and then released', async () => {
         const onKeyUp = jest.fn();
         const event = { target: { value: 'world' } };
 
@@ -351,14 +351,14 @@ describe('InputArea', () => {
         expect(await driver.getAriaControls()).toBeNull;
       });
 
-      it('should allow adding aria-describeby', async () => {
+      it('should allow adding aria-describedby', async () => {
         const driver = createDriver(
           <InputAreaForTesting ariaDescribedby="blabla" />,
         );
         expect(await driver.getAriaDescribedby()).toBe('blabla');
       });
 
-      it('should not have any aria-describeby by default', async () => {
+      it('should not have any aria-describedby by default', async () => {
         const driver = createDriver(<InputAreaForTesting />);
         expect(await driver.getAriaDescribedby()).toBeNull;
       });

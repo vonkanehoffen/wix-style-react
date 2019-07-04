@@ -32,7 +32,7 @@ class ProductQuantity extends React.Component {
 | ---          | ---      | ---          | ---        | ---         |
 | value        | number   |              | Yes        | counter value |
 | onChange     | func     |              | Yes        | A callback when the value changes. Signature (value) => void |
-| minValue     | number   | 0            |            | manimum counter value (inclusive)|
+| minValue     | number   | 0            |            | minimum counter value (inclusive)|
 | maxValue     | number   | 100          |            | maximum counter value (inclusive)|
 | step         | number   | 1            |            | increase/decrease step |
 | inputProps   | object   |              |            | Object with HTML attributes to be placed onto the native `<input/>`
@@ -107,4 +107,4 @@ class ProductQuantity extends React.Component {
 
 ## Rational (optional)
 
-Here you can optionaly describe important rational of API decissions.
+Here you can optionally describe important rational of API decisions.

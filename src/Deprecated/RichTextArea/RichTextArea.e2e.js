@@ -124,7 +124,7 @@ describe('RichTextArea', () => {
           `${type} - before - hasFocusVisibleState`,
         );
         await buttonDriver.clickRoot();
-        // These buttons shold not be focusable by mouse, since we want the focus to stay in the editor.
+        // These buttons should not be focusable by mouse, since we want the focus to stay in the editor.
         expect(await buttonDriver.isFocused()).toBe(
           false,
           `${type} - after - focused`,

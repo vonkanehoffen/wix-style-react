@@ -26,7 +26,7 @@ class CalendarPanelFooter extends React.PureComponent {
         to: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
       }),
     ]),
-    /** Formats a Date into a string for displaying the current slected days. Receives a Date instance (not undefined). */
+    /** Formats a Date into a string for displaying the current selected days. Receives a Date instance (not undefined). */
     dateToString: PropTypes.func.isRequired,
   };
 

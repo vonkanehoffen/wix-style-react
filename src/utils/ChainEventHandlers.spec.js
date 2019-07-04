@@ -5,8 +5,8 @@ describe('chainEventHandlers', () => {
 
   it('should run handler by order', () => {
     const callResults = [];
-    const funcs = [1, 2, 3, 4].map(i => () => callResults.push(i));
-    chainEventHandlers(...funcs)(newEvent());
+    const functions = [1, 2, 3, 4].map(i => () => callResults.push(i));
+    chainEventHandlers(...functions)(newEvent());
     expect(callResults).toEqual([1, 2, 3, 4]);
   });
 

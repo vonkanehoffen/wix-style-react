@@ -10,7 +10,7 @@ import { buttonTestkitFactory } from '../../testkit';
 import Button from '../Button';
 
 import tooltipDriverFactory from './Tooltip.driver';
-import { teskitTooltip } from './Tooltip.uni.driver';
+import { testkitTooltip } from './Tooltip.uni.driver';
 
 describe('Tooltip', () => {
   describe('[sync]', () => {
@@ -18,7 +18,7 @@ describe('Tooltip', () => {
   });
 
   describe('[async]', () => {
-    runTests(createRendererWithUniDriver(teskitTooltip));
+    runTests(createRendererWithUniDriver(testkitTooltip));
   });
 
   function runTests(render) {

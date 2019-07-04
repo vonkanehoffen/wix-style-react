@@ -339,12 +339,12 @@ const TooltipFamily = () => (
   </GeneralStructure>
 );
 
-const NotifiationFamily = () => (
+const NotificationFamily = () => (
   <GeneralStructure title="8. Notifications">
     <SingleComponent name="8.1 Notification" componentName="<Notification/>">
       <Notification theme="standard" show>
         <Notification.TextLabel>
-          You have enabled new functionallity
+          You have enabled new functionality
         </Notification.TextLabel>
         <Notification.CloseButton />
       </Notification>
@@ -492,7 +492,7 @@ class ComponentsCheatsheet extends React.Component {
               ButtonFamily,
               NavigationFamily,
               TooltipFamily,
-              NotifiationFamily,
+              NotificationFamily,
               ModalFamily,
               PickerFamily,
               OtherFamily,

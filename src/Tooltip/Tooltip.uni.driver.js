@@ -8,7 +8,7 @@ const arrowDirection = {
   right: 'left',
 };
 
-export const teskitTooltip = (base, body) => {
+export const testkitTooltip = (base, body) => {
   const getContentRoot = async () => {
     const contentRootHook = await base.attr('data-content-hook');
     if (!contentRootHook) {

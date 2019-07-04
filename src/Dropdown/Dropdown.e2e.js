@@ -104,7 +104,7 @@ describe('Dropdown', () => {
     });
 
     /*
-     * In our example, the Drodpown can hold about 6 full items in the view.
+     * In our example, the Dropdown can hold about 6 full items in the view.
      */
 
     eyes.it(
@@ -140,7 +140,7 @@ describe('Dropdown', () => {
       async () => {
         await driver.getInput().click();
 
-        // Scroling down 16 item down, then 8 items up. The 8t item (when we
+        // Scrolling down 16 item down, then 8 items up. The 8t item (when we
         // scrolling up) should be *above* the view
         await pressArrowDown(16);
         await pressArrowUp(8);

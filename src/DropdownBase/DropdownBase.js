@@ -34,14 +34,14 @@ class DropdownBase extends React.PureComponent {
     maxWidth: PropTypes.number,
 
     /**
-     * The target component to be rendered. If a regular node is paseed, it'll be rendered as-is.
+     * The target component to be rendered. If a regular node is passed, it'll be rendered as-is.
      * If a function is passed, it's expected to return a React element. The function accepts an
      * object containing the following properties:
      *
      *  * `open` - will open the Popover
      *  * `close` - will close the Popover
      *  * `toggle` - will toggle the Popover
-     *  * `delegateKeyDown` - the underlaying DropdownLayout's keydown handler. It can be called
+     *  * `delegateKeyDown` - the underlying DropdownLayout's keydown handler. It can be called
      *                        inside another keyDown event in order to delegate it.
      *  * `selectedOption` - the currently selected option
      *
@@ -231,7 +231,7 @@ class DropdownBase extends React.PureComponent {
 
   /**
    * A common `keydown` event that can be used for the target elements. It will automatically
-   * delegate the event to the underlaying <DropdownLayout/>, and will determine when to open the
+   * delegate the event to the underlying <DropdownLayout/>, and will determine when to open the
    * dropdown depending on the pressed key.
    */
   _handleKeyDown = e => {

@@ -163,7 +163,7 @@ describe('Carousel', () => {
         );
         driver.clickPrevious();
         expect(driver.getCurrentImageIndex()).toBe(0);
-        // TODO: Figure out why eventually doesn't work
+        // TODO: Figure out why eventually does not work
         setTimeout(() => {
           expect(driver.isPrevButtonDisabled()).toBe(true);
         });

@@ -5,7 +5,7 @@ import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 /**
  * IMPORTANT !!!
  * It is the responsibility of the caller to reset the tested component's state beforeEach test.
- * Reseting the state should include reseting the document's activeElement in such a way so that when pressing TAB one time,
+ * Resetting the state should include resetting the document's activeElement in such a way so that when pressing TAB one time,
  * then the tested component would be focusable.
  *
  * Adds a `describe` block.
@@ -83,16 +83,16 @@ function runFocusTestsImpl(driver, storyUrl) {
     });
 
     // TODO: The next 2 tests are skipped on purpose, I did not yet implement
-    // a driver method for programatically doing focus and blur.
+    // a driver method for programmatically doing focus and blur.
     // This is not in priority to support it.
-    xit('should have focus and focus-visible [when] focused programatically', async () => {
+    xit('should have focus and focus-visible [when] focused programmatically', async () => {
       await driver.focus(); // not implemented
 
       // Default input method is keyboard
       await expectKeyboardFocused(driver, 'default is keyboard');
     });
 
-    xit('should not be focused [when] blured programatically [given] focused programatically', async () => {
+    xit('should not be focused [when] blurred programmatically [given] focused programmatically', async () => {
       await driver.focus(); // not implemented
       await expectKeyboardFocused(driver, 'after focus');
       await driver.blur(); // not implemented
@@ -111,7 +111,7 @@ function runFocusTestsImpl(driver, storyUrl) {
       });
     });
 
-    it('should have focus and focus-visible [when] focused by keyboard [given] clicked by mouse and blured', async () => {
+    it('should have focus and focus-visible [when] focused by keyboard [given] clicked by mouse and blurred', async () => {
       await expectNotFocused(driver, 'initial');
       await driver.clickRoot();
       await expectMouseFocused(driver, 'after click');

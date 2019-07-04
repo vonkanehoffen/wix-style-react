@@ -5,7 +5,7 @@ import surfMusa from '../../../../test/assets/surf-musa.png';
 
 export default () => (
   <MessageBoxFunctionalLayout
-    title="Interuption Message"
+    title="Interruption Message"
     confirmText="Main"
     cancelText="Secondary"
     theme="blue"

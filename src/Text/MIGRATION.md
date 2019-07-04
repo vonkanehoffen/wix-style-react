@@ -18,7 +18,7 @@ The `bold` prop is deprecated in favor of `weight`:
 
 ## Migration to version 3
 
-Instead of having one Text component which can render `<span>`, `<div>`, `<h1>`, ..., `<h4>`, we have seperated the Text into 2 seperated components:
+Instead of having one Text component which can render `<span>`, `<div>`, `<h1>`, ..., `<h4>`, we have separated the Text into 2 separated components:
 
 1. `<Text>`
 2. `<Heading>`

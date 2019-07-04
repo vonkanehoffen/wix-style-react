@@ -8,13 +8,13 @@ const trimPath = (path, pathSeparator) => {
 };
 
 const explodePath = (path, pathSeparator) => {
-  const trimedPath = trimPath(path, pathSeparator);
+  const trimmedPath = trimPath(path, pathSeparator);
 
-  if (trimedPath === '') {
+  if (trimmedPath === '') {
     return [];
   }
 
-  return trimedPath.split(pathSeparator);
+  return trimmedPath.split(pathSeparator);
 };
 
 export default (

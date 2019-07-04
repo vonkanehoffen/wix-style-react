@@ -143,7 +143,7 @@ export default class InfiniteScroll extends Component {
     this.detachScrollListener();
   }
 
-  // Set a defaut loader for all your `InfiniteScroll` components
+  // Set a default loader for all your `InfiniteScroll` components
   setDefaultLoader(loader) {
     this._defaultLoader = loader;
   }

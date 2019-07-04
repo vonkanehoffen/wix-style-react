@@ -19,7 +19,7 @@ const emptyStateDriverFactory = ({ element }) => {
     getImageContainer().querySelector('[data-hook="image-node"]');
 
   return {
-    /** Returns `true` wheter the elemnt exists or not */
+    /** Returns `true` whether the element exists or not */
     exists: () => !!element,
 
     /** Returns the element */

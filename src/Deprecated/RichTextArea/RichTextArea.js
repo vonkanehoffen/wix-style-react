@@ -61,7 +61,7 @@ class RichTextArea extends WixComponent {
     onChange: PropTypes.func,
 
     /** Image icon click callback.
-     * It is a function which recieves a callback.
+     * It is a function which receives a callback.
      * The callback function should be called
      * when we obtain the url text (callback(text)), causing the image to reflect in the editor
      */

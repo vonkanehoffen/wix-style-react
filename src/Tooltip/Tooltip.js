@@ -73,7 +73,7 @@ class Tooltip extends WixComponent {
     /** The tooltip min width  */
     minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-    /** Callback when cliking outside  */
+    /** Callback when clicking outside  */
     onClickOutside: PropTypes.func,
 
     /** override the theme text color of the tooltip  */

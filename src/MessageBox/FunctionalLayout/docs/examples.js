@@ -1,6 +1,6 @@
 export const anAlertModal = `
 <MessageBoxFunctionalLayout
-  title="Interuption Message"
+  title="Interruption Message"
   confirmText="Approve"
   cancelText="Cancel"
   theme="blue"
@@ -101,7 +101,7 @@ export const themes = `
 
 export const scrollbar = `
 <MessageBoxFunctionalLayout
-  title="Interuption Message"
+  title="Interruption Message"
   confirmText="Approve"
   maxHeight="100px"
 >
@@ -122,7 +122,7 @@ export const emptyState = `
 
 export const image = `
   <MessageBoxFunctionalLayout
-    title="Interuption Message"
+    title="Interruption Message"
     confirmText="Main"
     image={<img src="https://picsum.photos/126/126?blur&image=0" />}
   >

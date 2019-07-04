@@ -69,7 +69,7 @@ default).
 
 This behaviour used to keep the \`<Popover/>\` in it's original placement. By default this behaviour
 is disabled, and the \`<Popover/>\` will change it's position when it'll being positioned outside
-the boundary (the boundry is the value of the \`appendTo\` prop).
+the boundary (the boundary is the value of the \`appendTo\` prop).
       `}
     />
 

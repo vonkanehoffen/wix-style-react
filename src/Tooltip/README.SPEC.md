@@ -2,7 +2,7 @@
 
 ## Issues with the current Tooltip
 
-- Uses our own naive postioning mechanism, [which](https://github.com/wix/wix-style-react/issues/2754) [has](https://github.com/wix/wix-style-react/issues/2596) [several](https://github.com/wix/wix-style-react/issues/2582) [issues](https://github.com/wix/wix-style-react/issues/2069). The mechanism is not at mature and community backed as [`Popper.js`](https://github.com/FezVrasta/popper.js).
+- Uses our own naive positioning mechanism, [which](https://github.com/wix/wix-style-react/issues/2754) [has](https://github.com/wix/wix-style-react/issues/2596) [several](https://github.com/wix/wix-style-react/issues/2582) [issues](https://github.com/wix/wix-style-react/issues/2069). The mechanism is not at mature and community backed as [`Popper.js`](https://github.com/FezVrasta/popper.js).
 - Can be both Controlled and Uncontrolled, leads to confusion.
 - Does not follow the UX guidelines:
   - A tooltip should only be opened on HOVER, currently the consumers can set the triggering
@@ -62,14 +62,14 @@ export default MyComponent;
 | `content`    | `string`, `ReactNode`       |               |          | The content to be inside the `<Tooltip/>`. If `ReactNode`, should be a textual component (such as `<Text/>` and `<TextButton/>` as per the UX guidelines. |
 | `appendTo`   | `string`                    | `parent`      |          | Delegated to `<Popover/>` appendTo.                                                                                                                       |
 | `children`   | `ReactNode`, `string`       |               |          | The trigger element.                                                                                                                                      |
-| `exitDelay`  | `Number`                    |               |          | The delay for tooltip to dissapear after mouse out event happens.                                                                                         |
+| `exitDelay`  | `Number`                    |               |          | The delay for tooltip to disappear after mouse out event happens.                                                                                         |
 | `enterDelay` | `Number`                    |               |          | The delay for tooltip to appear after mouse down event happens.                                                                                           |
 | `onHide`     | `Function`                  |               |          | Callback function to be called when hidden                                                                                                                |
 | `onShow`     | `Function`                  |               |          | Callback function to be called when shown                                                                                                                 |
 | `placement`  | `string`                    | `'top'`       |          | Delegated to `<Popover>` placement.                                                                                                                       |
 | `maxWidth`   | `Number`                    | `204`         |          | Sets maximum width of tooltip content.                                                                                                                    |
 | `textAlign`  | `oneOf ['center', 'start']` | `start`       |          | To align content text.                                                                                                                                    |
-| `size`       | `oneOf['small', 'medium']`  |               |          | Toltip size                                                                                                                                               |
+| `size`       | `oneOf['small', 'medium']`  |               |          | Tooltip size                                                                                                                                               |
 | `moveTo`     | `{ x: Number, y: Number }`  |               |          | Moves tooltip relative to the parent                                                                                                                      |
 | `animate`    | `Boolean`                   | `true`        |          |                                                                                                                                                           |
 | `flip`       | `Boolean`                   | `true`        |          |                                                                                                                                                           |
@@ -87,4 +87,4 @@ Neil example: https://codepen.io/WW3/pen/BQzEKE?editors=1000
 
 ### Migration plan
 
-We'll use the `upgrade` prop method like we did for the new `<Button/>`. We'll deprecate the "old" `<Tooltip/>` and remove it completley in the next major Version (V7? 🙏).
+We'll use the `upgrade` prop method like we did for the new `<Button/>`. We'll deprecate the "old" `<Tooltip/>` and remove it completely in the next major Version (V7? 🙏).

@@ -45,7 +45,7 @@ class Proportion extends React.PureComponent {
    * This is based on Noam Rosenthal's (noamr@wix.com) solution
    * which can be found here: https://codeburst.io/keeping-aspect-ratio-with-html-and-no-padding-tricks-40705656808b
    *
-   * The solution uses the fact that svg's can maintain aspect ratio's natively.
+   * The solution uses the fact that SVGs can maintain aspect ratio's natively.
    * In addition we use an img element for this solution to work correctly in IE
    * */
   _getAspectRatioHolder() {

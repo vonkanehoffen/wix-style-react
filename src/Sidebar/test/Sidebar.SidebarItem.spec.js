@@ -125,9 +125,9 @@ describe('Sidebar', () => {
       expect(subItemEl.text()).toEqual('000');
 
       //wrapper = mount(<App/>)
-      // import {SidebarTeskit, SidebarItemTestkit} from 'wsr/testkit'
-      // const sidebarDriver = SidebarTeskit({wrapper, dataHook: 'my-sidebar'})
-      // const sidebarItemDriver = SidebarTeskit({wrapper, dataHook: 'my-sidebar-item-1'})
+      // import {SidebarTestkit, SidebarItemTestkit} from 'wsr/testkit'
+      // const sidebarDriver = SidebarTestkit({wrapper, dataHook: 'my-sidebar'})
+      // const sidebarItemDriver = SidebarTestkit({wrapper, dataHook: 'my-sidebar-item-1'})
 
       // render sidebar with all the content
       // nativeSidebar.querySelector('internal-dataHook)' SidebarItemDriver.click()

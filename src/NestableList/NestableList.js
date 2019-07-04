@@ -52,7 +52,7 @@ class NestableList extends WixComponent {
 
   // tried to use getDerivedStateFromProps but encounter an issue where the state was
   // updated internally but props items stayed the same and it caused the new state to be
-  // overriden with the old state
+  // overridden with the old state
   // can be done if component is controlled but requires refactor
   componentWillReceiveProps(newProps) {
     if (newProps.items !== this.state.items) {

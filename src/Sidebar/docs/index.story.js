@@ -20,7 +20,7 @@ import contextReadmeApi from '../CONTEXT_README.API.md';
 
 import Sidebar from '..';
 
-const importDecleration = `
+const importDeclaration = `
 ### For basic compositions:
 import Sidebar from 'wix-style-react/Sidebar';
 const { Item, BackButton, PersistentFooter, PersistentHeader } = Sidebar;
@@ -55,7 +55,7 @@ export default {
             text:
               'A sidebar menu container component, created to display a drill in menu and persistent elements',
           }),
-          importExample(importDecleration),
+          importExample(importDeclaration),
           divider(),
           title('Examples'),
           columns([
@@ -72,7 +72,7 @@ export default {
             description({
               title: 'Custom Context Usage',
               text:
-                'Items can get internal selection logic from the `SidebarItemContextConsumer` context component. Check the source code for more information about how to use the context components, for example `<SidebarContextConsumer/> allows achieveing custom back buton behavior`',
+                'Items can get internal selection logic from the `SidebarItemContextConsumer` context component. Check the source code for more information about how to use the context components, for example `<SidebarContextConsumer/> allows achieving custom back button behavior`',
             }),
             code({
               source: SidebarItemContextRaw,

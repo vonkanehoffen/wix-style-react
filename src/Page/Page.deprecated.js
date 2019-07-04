@@ -377,7 +377,7 @@ const allowedChildren = [
 ];
 
 Page.propTypes = {
-  /** Background image url of the header beackground */
+  /** Background image url of the header background */
   backgroundImageUrl: PropTypes.string,
   /** Sets the max width of the content (Both in header and body) NOT including the page padding */
   maxWidth: PropTypes.number,

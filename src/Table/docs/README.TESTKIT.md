@@ -29,7 +29,7 @@
 | clickRowChecbox                | index                | -              | Click the row selection checkbox                                 |
 | clickBulkSelectionCheckbox     | -                    | -              | Click the bulk-selection checkbox                                |
 | isRowSelected                  | index : number       | boolean        | Is row selected by index                                         |
-| getBulkSelectionState          | -                    | string         | Get bulk seleciton state. Possible value 'ALL', 'SOME', 'NONE.   |
+| getBulkSelectionState          | -                    | string         | Get bulk selection state. Possible value 'ALL', 'SOME', 'NONE.   |
 | getTitlebar                    | -                    | element        | Get title-bar (column titles)                                    |
 
 ## Protractor TestKit API

@@ -74,8 +74,8 @@ export function getDataTableProps(tableProps) {
 }
 
 /**
- * Table is a composit component that allows adding SelectionColumn, Toolbar (on top of the TitleBar).
- * It is a context provider, and thus the Table.Consumer, Table.TitleBar and Table.Content can be rendered separatly.
+ * Table is a composite component that allows adding SelectionColumn, Toolbar (on top of the TitleBar).
+ * It is a context provider, and thus the Table.Consumer, Table.TitleBar and Table.Content can be rendered separately.
  */
 export class Table extends React.Component {
   static ToolbarContainer = TableToolbarContainer;
@@ -159,7 +159,7 @@ Table.propTypes = {
    * and a `value` prop with the new boolean selection state of the item. */
   onSelectionChanged: PropTypes.func,
 
-  /** Indicates wether to show a selection column (with checkboxes) */
+  /** Indicates whether to show a selection column (with checkboxes) */
   showSelection: PropTypes.bool,
 
   /** Array of selected row ids.
@@ -178,7 +178,7 @@ Table.propTypes = {
 
   /**
    *  When false then Table would not create a `<div/>` wrapper around it's children.
-   *  Useful when using `<Table/>` to wrap a `<Page/>` component, in that case we use the `<Table/>` only as a context provider and it doesn't render anything to the DOM by itself.*/
+   *  Useful when using `<Table/>` to wrap a `<Page/>` component, in that case we use the `<Table/>` only as a context provider and it does not render anything to the DOM by itself.*/
   withWrapper: PropTypes.bool,
 
   /**

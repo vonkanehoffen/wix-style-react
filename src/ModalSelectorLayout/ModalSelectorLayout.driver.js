@@ -15,7 +15,7 @@ const searchTestkitFactory = testkitFactoryCreator(searchDriverFactory);
 const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactory);
 
 const modalSelectorLayoutDriverFactory = ({ element }) => {
-  const findInModalbyDataHook = dataHook =>
+  const findInModalByDataHook = dataHook =>
     element.querySelector(`[data-hook="${dataHook}"]`);
   const mainLoaderDriver = () =>
     loaderTestkitFactory({
@@ -47,15 +47,15 @@ const modalSelectorLayoutDriverFactory = ({ element }) => {
       wrapper: element,
       dataHook: dataHooks.search,
     });
-  const getList = () => findInModalbyDataHook(dataHooks.list);
-  const getModalBody = () => findInModalbyDataHook(dataHooks.modalBody);
+  const getList = () => findInModalByDataHook(dataHooks.list);
+  const getModalBody = () => findInModalByDataHook(dataHooks.modalBody);
   const getSelectors = () =>
     getList().querySelectorAll(`[data-hook="${dataHooks.selector}"]`);
   const selectorDriverAt = i =>
     selectorDriverFactory({ element: getSelectors()[i] });
-  const emptyState = () => findInModalbyDataHook(dataHooks.emptyState);
+  const emptyState = () => findInModalByDataHook(dataHooks.emptyState);
   const noResultsFoundState = () =>
-    findInModalbyDataHook(dataHooks.noResultsFoundState);
+    findInModalByDataHook(dataHooks.noResultsFoundState);
   const footerSelector = checkboxTestkitFactory({
     wrapper: element,
     dataHook: 'footer-selector',
@@ -69,10 +69,10 @@ const modalSelectorLayoutDriverFactory = ({ element }) => {
     okButtonDriver,
     searchDriver,
     subtitleTextDriver,
-    getTitle: () => findInModalbyDataHook('header-layout-title').textContent,
+    getTitle: () => findInModalByDataHook('header-layout-title').textContent,
     clickOnClose: () =>
       ReactTestUtils.Simulate.click(
-        findInModalbyDataHook('header-close-button'),
+        findInModalByDataHook('header-close-button'),
       ),
     showsEmptyState: () => !!emptyState(),
     getEmptyState: () => emptyState().childNodes[0],

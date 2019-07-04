@@ -162,7 +162,7 @@ describe('FocusableHOC', () => {
     let focusableModule;
 
     beforeEach(() => {
-      // Reseting modules, in order to reset the FocusableHOC.InputMethod.method state.
+      // Resetting modules, in order to reset the FocusableHOC.InputMethod.method state.
       jest.resetModules();
       focusableModule = require('./FocusableHOC');
       WithFocusableComp2 = focusableModule.withFocusable(PureChildComponent);
@@ -175,7 +175,7 @@ describe('FocusableHOC', () => {
       expectNotFocused(driver);
     });
 
-    it('should have focus and focus-visible [when] focused programatically', () => {
+    it('should have focus and focus-visible [when] focused programmatically', () => {
       const driver = createDriver(<WithFocusableComp2 />);
 
       driver.focus();
@@ -190,7 +190,7 @@ describe('FocusableHOC', () => {
       expectKeyboardFocused(driver, 'after focus');
     });
 
-    it('should have focus and focus-visible [when] tabbed in withot keyDown', () => {
+    it('should have focus and focus-visible [when] tabbed in without keyDown', () => {
       // This test case checks a scenario when the focus is on the browser's
       // url input, and we press tab. The keyDown is not fired.
       const driver = createDriver(<WithFocusableComp2 />);
@@ -200,7 +200,7 @@ describe('FocusableHOC', () => {
       expectKeyboardFocused(driver, 'after focus');
     });
 
-    it('should not have focus nor focus-visible [when] blured programatically [given] keyboard focused', () => {
+    it('should not have focus nor focus-visible [when] blurred programmatically [given] keyboard focused', () => {
       const driver = createDriver(<WithFocusableComp2 />);
 
       driver.tabIn();
@@ -217,10 +217,10 @@ describe('FocusableHOC', () => {
       expectMouseFocused(driver, 'after click');
     });
 
-    it('should have focus but not focus-visible [when] focused programatically [given] current input method is mouse', () => {
+    it('should have focus but not focus-visible [when] focused programmatically [given] current input method is mouse', () => {
       // This test must be here , after a test which finishes with the input method = mouse.
-      // this test is only to test that we are reseting the FocusableHOC global state proparely,
-      // usin the jest.resetModules() call.
+      // this test is only to test that we are resetting the FocusableHOC global state properly,
+      // using the jest.resetModules() call.
       const driver = createDriver(<WithFocusableComp2 />);
 
       driver.focus();
@@ -228,7 +228,7 @@ describe('FocusableHOC', () => {
     });
 
     /**
-     * This test checks that the InpurMethod.method state is updated to `keyboard` after
+     * This test checks that the InputMethod.method state is updated to `keyboard` after
      * is was set to `mouse`.
      */
     it('should have focus and focus-visible [when] focused [given] mouseDown and blur', () => {

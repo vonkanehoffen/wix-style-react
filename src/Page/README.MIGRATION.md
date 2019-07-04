@@ -7,7 +7,7 @@
 These changes are applied when you "Opt-In" for the new Page (`<Page upgrade/>`):
 
 - **Flex Parent**: No need for Page parent to be a flex container with flow 'column'.
-- **`<Page.FixedContent/>`**: Is now rendered as the new `<Page.Sticky/>` (See Exmples in docs).
+- **`<Page.FixedContent/>`**: Is now rendered as the new `<Page.Sticky/>` (See Examples in docs).
 - **`<Page.Tail>`**: No longer receives a `minimized` prop.
 - **`gradientCoverTail`**: Prop removed. Gradient never covers tail.
 - **Content Stretch**: `<Page.Content/>` now allows it's children to stretch vertically.
@@ -15,7 +15,7 @@ These changes are applied when you "Opt-In" for the new Page (`<Page upgrade/>`)
 
 ### Page Container
 
-Previously we reuired that the Page's parent container will have these styles:
+Previously we required that the Page's parent container will have these styles:
 
 ```css
 height: 100vh;
@@ -24,7 +24,7 @@ flex-flow: column;
 min-height: 0;
 ```
 
-Now it is enought that the parent has a determined height.
+Now it is enough that the parent has a determined height.
 
 ```js
 <div style={{height: '100vh'}}>

@@ -5,7 +5,7 @@ import style from './GooglePreview.st.css';
 import Text from '../Text';
 
 /**
- *  A preview of a title, link and description of SEO result as it displayes in Google
+ *  A preview of a title, link and description of SEO result as it displayed in Google
  */
 class GooglePreview extends React.PureComponent {
   static displayName = 'GooglePreview';

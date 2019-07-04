@@ -57,7 +57,7 @@ describe('Page Deprecated', () => {
       expect(driver.gradientClassNameExists()).toBeTruthy();
     });
 
-    it('should not initialize component with gradiet class name by default', () => {
+    it('should not initialize component with gradient class name by default', () => {
       const driver = createDriver(renderPageWithProps());
       expect(driver.gradientClassNameExists()).toBeFalsy();
     });
@@ -134,7 +134,7 @@ describe('Page Deprecated', () => {
 
   describe('DOM calculations', () => {
     // eslint-disable-next-line jest/no-disabled-tests
-    xit('should recalculate component heights when rerendered', () => {
+    xit('should recalculate component heights when re-rendered', () => {
       // TODO:
     });
   });

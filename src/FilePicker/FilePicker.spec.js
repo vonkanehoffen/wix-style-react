@@ -14,7 +14,7 @@ describe('FilePicker', () => {
   const createDriver = createDriverFactory(filePickerDriverFactory);
 
   describe('error property', () => {
-    it('should not have error by defaullt', () => {
+    it('should not have error by default', () => {
       const driver = createDriver(<FilePicker />);
       expect(driver.hasError()).toEqual(false);
     });
@@ -27,7 +27,7 @@ describe('FilePicker', () => {
   });
 
   describe('name property', () => {
-    it('should not have name property by defaullt', () => {
+    it('should not have name property by default', () => {
       const driver = createDriver(<FilePicker />);
       expect(driver.getName()).toEqual('');
     });

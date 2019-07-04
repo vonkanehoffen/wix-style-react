@@ -77,7 +77,7 @@ describe('NestableList', () => {
     });
   });
 
-  it('should be able to drag & drap item vertically', () => {
+  it('should be able to drag & drop item vertically', () => {
     const dataHook = 'nestable-list';
     const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
     const onUpdate = jest.fn();

@@ -31,7 +31,7 @@ describe('EditorUtilities', () => {
       ).toBe(true);
     });
 
-    it(`should return false when editor contains a style but the selection doesn't`, () => {
+    it(`should return false when editor contains a style but the selection does not`, () => {
       let newEditorState = EditorUtilities.toggleStyle(
         editorState,
         inlineStyleTypes.bold,
@@ -57,7 +57,7 @@ describe('EditorUtilities', () => {
       ).toBe(true);
     });
 
-    it(`should return false when editor contains a block type but the selection doesn't`, () => {
+    it(`should return false when editor contains a block type but the selection does not`, () => {
       let newEditorState = EditorUtilities.toggleBlockType(
         editorState,
         inlineStyleTypes.bulletedList,
@@ -83,7 +83,7 @@ describe('EditorUtilities', () => {
       );
     });
 
-    it(`should return false when editor contains an entity but the selection doesn't`, () => {
+    it(`should return false when editor contains an entity but the selection does not`, () => {
       let newEditorState = EditorUtilities.toggleLink(editorState, linkEntity);
 
       newEditorState = EditorState.moveSelectionToEnd(editorState);

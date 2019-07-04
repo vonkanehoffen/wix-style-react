@@ -118,7 +118,7 @@ const tests = [
     describe: 'Error',
     its: [
       {
-        it: 'Display error desgin with indicator',
+        it: 'Display error design with indicator',
         props: {
           initialValue: 'Some text',
           status: 'error',

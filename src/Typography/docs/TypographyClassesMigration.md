@@ -17,7 +17,7 @@
 
 ### Text
 
-> Old classes marked with `*` have no exact matching in the new TYpography classes, so the new classes shown are the closest match.
+> Old classes marked with `*` have no exact matching in the new Typography classes, so the new classes shown are the closest match.
 
 | Old | New classes |
 |---------|------|

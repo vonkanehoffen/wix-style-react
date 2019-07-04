@@ -20,7 +20,7 @@ describe('TextLink', () => {
     expect(driver.getContent()).toBe(children);
   });
 
-  it('should be with medium size by defualt', () => {
+  it('should be with medium size by default', () => {
     const driver = createDriver(<TextLink link="" />);
     expect(driver.getSize()).toBe('medium');
   });
@@ -80,7 +80,7 @@ describe('TextLink', () => {
     expect(driver.isUnderline()).toBeFalsy();
   });
 
-  it('should not be with underline by defualt', () => {
+  it('should not be with underline by default', () => {
     const driver = createDriver(<TextLink link="" />);
     expect(driver.isUnderline()).toBeFalsy();
   });

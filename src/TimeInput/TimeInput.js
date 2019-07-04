@@ -172,7 +172,7 @@ export default class TimePicker extends Component {
   };
 
   handleInputChange = e => {
-    // thats why cursor is jumping
+    // that is why cursor is jumping
     // https://github.com/facebook/react/issues/955#issuecomment-327069204
     const isDisabled = this.props.disabled && this.props.dashesWhenDisabled;
     const isInvalid = /[^0-9 :]/.test(e.target.value);

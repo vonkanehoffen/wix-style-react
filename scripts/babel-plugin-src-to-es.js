@@ -1,4 +1,4 @@
-// This plugin transpiles wix-ui-core/dist/src/SomeFile into wix-ui-core/dist/src/SomeFile
+// This plugin transpile wix-ui-core/dist/src/SomeFile into wix-ui-core/dist/src/SomeFile
 // and vice versa.
 
 module.exports = function() {

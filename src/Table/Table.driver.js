@@ -62,7 +62,7 @@ const tableDriverFactory = ({ element, eventTrigger }) => {
     clickBulkSelectionCheckbox: () => getBulkSelectionCheckboxDriver().click(),
     /** Is row selected by index */
     isRowSelected: index => getRowCheckboxDriver(index).isChecked(),
-    /** Get bulk seleciton state. Possible value 'ALL', 'SOME', 'NONE. */
+    /** Get bulk selection state. Possible value 'ALL', 'SOME', 'NONE. */
     getBulkSelectionState: () => {
       if (isBulkSelectionChecked()) {
         return 'ALL';

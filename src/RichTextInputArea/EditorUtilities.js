@@ -134,7 +134,7 @@ const convertToHtml = editorState => {
 
 const isEditorFocused = editorState => editorState.getSelection().getHasFocus();
 
-/** Returns true in case the editor's content doesn't contain any block which has a non-default type or text.
+/** Returns true in case the editor's content does not contain any block which has a non-default type or text.
     It means that if the user changes the block type before entering any text, the content will be considered as non-empty.
  */
 const isEditorEmpty = editorState =>

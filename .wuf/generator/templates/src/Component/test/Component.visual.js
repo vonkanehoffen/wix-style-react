@@ -11,7 +11,7 @@ const tests = [
     describe: 'sanity', // prop name (e.g. size)
     its: [
       {
-        it: 'default', //prop vaiation (e.g. small)
+        it: 'default', //prop variation (e.g. small)
         props: {
           // the simulation (e.g. {size: "small"})
         },

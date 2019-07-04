@@ -54,9 +54,9 @@ Avatar.propTypes = {
     'size24',
     'size18',
   ]),
-  /** Bakcground color when text (initials) content is displayed */
+  /** Background color when text (initials) content is displayed */
   color: PropTypes.oneOf(['blue', 'green', 'grey', 'red', 'orange']),
-  /** classes to be applied to the root elemenet */
+  /** classes to be applied to the root element */
   className: PropTypes.string,
   /** Applied as data-hook HTML attribute that can be used to create an Avatar driver in testing */
   dataHook: PropTypes.string,

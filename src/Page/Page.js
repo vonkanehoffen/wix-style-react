@@ -94,7 +94,7 @@ class Page extends WixComponent {
     this._handleWidthResize();
     window.addEventListener('resize', this._handleWindowResize);
 
-    // TODO: Hack to fix cases where initial measurment of headerWrapperHeight is not correct (need to investigate)
+    // TODO: Hack to fix cases where initial measurement of headerWrapperHeight is not correct (need to investigate)
     // Happens in PageTestStories -> PageWithScroll -> 5. Scroll - Trigger Mini Header
     // Maybe there is a transition
     const ARBITRARY_SHORT_DURATION_MS = 100;
@@ -511,7 +511,7 @@ const allowedChildren = [
 ];
 
 Page.propTypes = {
-  /** Background image url of the header beackground */
+  /** Background image url of the header background */
   backgroundImageUrl: PropTypes.string,
   /** Sets the max width of the content (Both in header and body) NOT including the page padding */
   maxWidth: PropTypes.number,

@@ -39,7 +39,7 @@ export const inputWithOptionsUniDriverFactory = base => {
     inputWrapper: () => inputWrapper.getNative(), // eslint-disable-line no-restricted-properties
     focus: () => inputDriver.focus(),
     blur: () => dropdownLayoutDriver.mouseClickOutside(),
-    // TODO: use prerssKey instead of keyDown
+    // TODO: use pressKey instead of keyDown
     pressKey: async key => await inputDriver.keyDown({ key }),
     outsideClick: () => ReactBase.clickBody(),
     isOptionWrappedToHighlighter: async optionId => {

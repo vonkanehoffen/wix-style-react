@@ -82,7 +82,7 @@ class EditableTitle extends React.Component {
           style={{ position: 'absolute', zIndex: 1, width: '100%' }}
           data-hook="renaming-field"
           onFocus={e =>
-            // input doesn't pass his event so we need to catch it
+            // input does not pass his event so we need to catch it
             e.stopPropagation()
           }
         >

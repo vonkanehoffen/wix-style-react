@@ -33,9 +33,9 @@ describe('Checkbox', () => {
 
 ### Visual Testing
 
-1. Visual testing implmementation becomes trivial using a new and simple methodology of Applitools' Visual Grid. [Read about it here](./VISUAL_TESTING.md)
+1. Visual testing implementation becomes trivial using a new and simple methodology of Applitools' Visual Grid. [Read about it here](./VISUAL_TESTING.md)
 
-### Browser Testsing
+### Browser Testing
 
 1. These tests are intended to use anything that needs real browser API (e.g. position calculations, hovering, styling).
 
@@ -86,7 +86,7 @@ describe('Checkbox', () => {
 
 - `npm run build` creates `storybook-static` folder
 - `npm run test:e2e` serves the storybook from `storybook-static` folder.
-- Changing tests doesn't require rebuilding.
+- Changing tests does not require rebuilding.
 
 ### "watch" mode
 

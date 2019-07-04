@@ -10,7 +10,7 @@ export default ({ element }) => {
   return {
     ...publicDriver({ element }),
     selectBlackColor: () => {
-      // as with jsdom size of pallette 0 px, then click to 1,1 will make color black
+      // as with jsdom size of palette 0 px, then click to 1,1 will make color black
       ReactTestUtils.Simulate.mouseDown(
         element.querySelector('[data-hook="color-picker-hsb"]'),
         {

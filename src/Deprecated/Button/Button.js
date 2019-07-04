@@ -68,7 +68,7 @@ class Button extends WixComponent {
           type={type}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
-          onFocus={this.props.focusableOnFocus} // For some reason eslint react/prop-types rule doesn't work here ?!#$
+          onFocus={this.props.focusableOnFocus} // For some reason eslint react/prop-types rule does not work here ?!#$
           onBlur={this.props.focusableOnBlur}
           {...focusableStates(this.props)}
           {...pickAccessibilityProps(this.props)}

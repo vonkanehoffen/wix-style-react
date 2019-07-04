@@ -47,7 +47,7 @@ describe('Badge', () => {
       expect(wrapper.isUppercase()).toBeTruthy();
     });
 
-    it('should be freecase when value is false', () => {
+    it('should be free-case when value is false', () => {
       const wrapper = createDriver(<Badge uppercase={false}>Hello</Badge>);
       expect(wrapper.isUppercase()).toBeFalsy();
     });

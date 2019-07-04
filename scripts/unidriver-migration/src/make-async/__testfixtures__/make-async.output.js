@@ -11,7 +11,7 @@ describe('foo', () => {
     expect(await driver.someOtherMethod()).toBeTruthy();
   });
 
-  it('already has asyc', async () => {
+  it('already has async', async () => {
     const driver = createDriver(<Comp />);
     await driver.someMethod();
     expect(await driver.someOtherMethod()).toBeTruthy();

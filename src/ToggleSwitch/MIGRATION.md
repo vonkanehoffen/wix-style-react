@@ -6,7 +6,7 @@
 `colorDisabled`
 
 ## New props
-`skin` - This is the prop which controlls the color of the ToggleSwitch track. 
+`skin` - This is the prop which controls the color of the ToggleSwitch track. 
 It may be one of `standard`, `success`, `error`.
 
 ## Updated props
@@ -28,4 +28,4 @@ Instead we will have `getSize` which will return `small`, `medium` or `large` st
 
 ### E2E testing (protractor)
 `isXsmall`, `isSmall`, `isLarge` are deprecated.
-If for some reason you are using one of them in e2e tests, pleae let us know.
+If for some reason you are using one of them in e2e tests, please let us know.

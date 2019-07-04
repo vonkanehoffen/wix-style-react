@@ -241,7 +241,7 @@ describe('InputWithOptions', () => {
       expect(await dropdownLayoutDriver.isOptionHovered(3)).toBeTruthy();
     });
 
-    it('should call onManuallyInput on enter key press with a trimed value', async () => {
+    it('should call onManuallyInput on enter key press with a trimmed value', async () => {
       const onManuallyInput = jest.fn();
       const { driver, inputDriver } = createDriver(
         <InputWithOptions

@@ -60,7 +60,7 @@ Let's say we wish to introduce some bug fix to an older version which is represe
 #### Minor sensitive feature
 
 Let's say that our current latest version is `4.1.0`, and we wish to introduce some sensitive new feature we call `new-icons`.
-When we want to release an RC version to gradualy expose this feature.
+When we want to release an RC version to gradually expose this feature.
 
 1. Create a new release branch `version_new-icons`. This branch must be configured as a [protected branch](https://github.com/wix/wix-style-react/settings/branches).
 2. Update the version in `package.json`.
@@ -107,7 +107,7 @@ You need to release `4.3.1` with only a bug fix and no new things.
 
 ### Why semantic versioning
 
-wix-style-react is a large infrastucture library which has many projects using it. The library is under a heavy development and often needs to break some API's or styling. It will not be realistic to break the users every time we wish to improve something, and that is where semver helps us.
+wix-style-react is a large infrastructure library which has many projects using it. The library is under a heavy development and often needs to break some API's or styling. It will not be realistic to break the users every time we wish to improve something, and that is where semver helps us.
 Instead of releasing automatically after every commit, we release our package manually with versions which complies with semver rules:
 
    - **Major** version for incompatible API changes.
@@ -122,7 +122,7 @@ When releasing a new major version, it often introduces breaking changes. We can
 
 Since We have different users using different versions, when we fix an important bug, we might need to introduce this fix in some older supported versions as well.
 
-The library officially supports the 2 latest major versions, and in case some project uses a realy old version, we might break its build in order to force him to upgrade by using [depkeeper](https://github.com/wix/depkeeper).
+The library officially supports the 2 latest major versions, and in case some project uses a really old version, we might break its build in order to force him to upgrade by using [depkeeper](https://github.com/wix/depkeeper).
 
 #### Gradual exposure
 When we implement a new breaking change which we want to gradually expose to our users, we can create an alpha version and ask some of our users to work with it, before we officially release it.
@@ -133,14 +133,14 @@ The [CHANGELOG](https://github.com/wix/wix-style-react/blob/master/CHANGELOG.md)
 The CHANGELOG should be updated in any given time. The reason for that is that when we want to make a release, it should be simple like pressing a button. Having to update the CHANGELOG every time before we are about to release is annoying and might lead to a postponement of the release.
 
 ## Releasable Branches
-In order to be able to hold multiple versions, we must have multiple releasable branches. For that reason we have speacial configurations on CI, where each branch with a name such as `version_**` is automatically becoming a releaseable branch. [See here](http://ci.dev.wix/viewType.html?buildTypeId=CommonComponent_WixStyleReact).
+In order to be able to hold multiple versions, we must have multiple releasable branches. For that reason we have special configurations on CI, where each branch with a name such as `version_**` is automatically becoming a releaseable branch. [See here](http://ci.dev.wix/viewType.html?buildTypeId=CommonComponent_WixStyleReact).
 
 When creating a version branch, please make sure to configure it to be a protected branch in Github.
 
 ## Npm dist tags
 Tags can be used to provide an alias instead of version numbers.
-Each time we publish a new version, it also gets a dist tag. When no specific tag is given, the version gets the `latest` tag. When a user do `npm i wix-style-react` without specifying the specific tag, he will get the `latest` tag. In order to get some speacial version, do `npm install <pkg>@<tag>`.
-For more infrmation, [read this](https://docs.npmjs.com/cli/dist-tag).
+Each time we publish a new version, it also gets a dist tag. When no specific tag is given, the version gets the `latest` tag. When a user do `npm i wix-style-react` without specifying the specific tag, he will get the `latest` tag. In order to get some special version, do `npm install <pkg>@<tag>`.
+For more information, [read this](https://docs.npmjs.com/cli/dist-tag).
 
 For each releasable branch we can create alpha/ betta / rc versions by using the npm dist tags. Just change the version in the package.json to `3.0.0-alpha` for example, and don't forget to keep a relevant updated changelog for this branch.
 

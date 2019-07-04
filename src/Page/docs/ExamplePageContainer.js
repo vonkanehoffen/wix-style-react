@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ExamplePageContainer.scss';
 
-/* This layout try to immitate the current BusinessManager's layout and styles. */
+/* This layout try to imitate the current BusinessManager's layout and styles. */
 
 export const ExamplePageContainer = ({ children }) => (
   <div className={s.root}>

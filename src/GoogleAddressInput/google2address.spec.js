@@ -206,7 +206,7 @@ describe('google 2 address', () => {
     ).toEqual('Ha-Namal St 40');
   });
 
-  it('should complete street addres with user input (5-202) in case google api doesnt return it', () => {
+  it('should complete street address with user input (5-202) in case google api doesnt return it', () => {
     const resultFromGoogle = {
       address_components: [
         {
@@ -237,7 +237,7 @@ describe('google 2 address', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should complete street addres with user input (5/202) in case google api doesnt return it', () => {
+  it('should complete street address with user input (5/202) in case google api doesnt return it', () => {
     const resultFromGoogle = {
       address_components: [
         {
@@ -268,7 +268,7 @@ describe('google 2 address', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should complete street addres with user input (5 202) in case google api doesnt return it', () => {
+  it('should complete street address with user input (5 202) in case google api doesnt return it', () => {
     const resultFromGoogle = {
       address_components: [
         {

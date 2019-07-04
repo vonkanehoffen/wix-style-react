@@ -79,7 +79,7 @@ export function ReactBase(base) {
     width: async () => (await htmlElement()).width,
   };
 
-  // These could be BAD implementations. We shold have a deprecation log and provide a better alternative.
+  // These could be BAD implementations. We should have a deprecation log and provide a better alternative.
   const shouldBeDeprecated = {
     getClassList: async () => (await htmlElement()).classList,
     /** @returns {array} array of children unidrivers */
@@ -127,6 +127,6 @@ export function ReactBase(base) {
 
 ReactBase.clickBody = () =>
   document.body.dispatchEvent(new Event('mouseup', { cancelable: true }));
-// TODO: Findout why some tests need clickOutSide to be on document and some on body
+// TODO: Find out why some tests need clickOutSide to be on document and some on body
 ReactBase.clickDocument = () =>
   document.dispatchEvent(new Event('mousedown', { cancelable: true }));

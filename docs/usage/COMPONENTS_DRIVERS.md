@@ -93,7 +93,7 @@ const inputDriver = inputTestkitFactory({
 await inputDriver.enterText('hello world');
 ```
 
-**Notice:** The driver methods are asynchronious, in order to create a consistent API across different platofrms
+**Notice:** The driver methods are asynchronous, in order to create a consistent API across different platforms
 
 ### Using drivers in a test
 As in any test, the logical component is being rendered and then being interacted.

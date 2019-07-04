@@ -35,7 +35,7 @@ class SortableList extends WixComponent {
 
   componentWillReceiveProps({ items }) {
     // We clear state on drag end if element was dragged from another list,
-    // `onDragEnd` will be called on "source" list, not "taget" one.
+    // `onDragEnd` will be called on "source" list, not "target" one.
     this.reSetAnimationState({ items: items ? items : this.state.items });
   }
 
@@ -331,7 +331,7 @@ SortableList.propTypes = {
   canDrag: PropTypes.func,
   /** number in seconds to add delay between initial mouseDown and drag start  */
   delay: PropTypes.number,
-  /** 
+  /**
     In case that you are using some external props inside of renderItems method,
     you need to define them here.
 

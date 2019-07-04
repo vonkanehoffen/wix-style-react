@@ -62,7 +62,7 @@ export default {
       );
       const currentTags = getState().tags;
       const newTags = currentTags.concat(tags);
-      // FIXME: This doesn't seem to work )-:
+      // FIXME: This does not seem to work )-:
       setState({ tags: newTags });
     },
     onRemoveTag: tagId =>

@@ -17,7 +17,7 @@ const options = Object.values(SKIN).map((skin, id) => ({
   text: skin,
 }));
 
-// Centering the component since the DropdownLayout is centerized and overflows
+// Centering the component since the DropdownLayout is centered and overflows
 // the AutoExample container. In eyes test, the overflowed part will be cut off.
 const CenterBadgeSelect = props => (
   <div

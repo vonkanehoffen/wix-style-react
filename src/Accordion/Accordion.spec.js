@@ -51,7 +51,7 @@ describe('Accordion', () => {
     });
   });
 
-  describe('exapnd and collapse behavior', () => {
+  describe('expand and collapse behavior', () => {
     const singleItem = [
       {
         title: 'first item',

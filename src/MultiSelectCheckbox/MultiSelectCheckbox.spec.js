@@ -88,7 +88,9 @@ describe('multiSelectCheckbox', () => {
       { key: 'Space', keyCode: 32, which: 32 },
     ];
     OPEN_DROPDOWN_CHARS.forEach(charData => {
-      it(`should show dropdown on input focus and press on ${charData.key}`, async () => {
+      it(`should show dropdown on input focus and press on ${
+        charData.key
+      }`, async () => {
         const { inputDriver, dropdownLayoutDriver } = createDriver(
           <MultiSelectCheckbox options={options} />,
         );
@@ -110,7 +112,7 @@ describe('multiSelectCheckbox', () => {
       expect(await inputDriver.isFocus()).toBe(true);
     });
 
-    it('should display a selectedOptions separetaed by default delimiter', async () => {
+    it('should display a selectedOptions separated by default delimiter', async () => {
       const selectedOptions = [options[0].id, options[1].id];
       const { inputDriver } = createDriver(
         <MultiSelectCheckbox
@@ -123,7 +125,7 @@ describe('multiSelectCheckbox', () => {
       );
     });
 
-    it('should display a selectedOptions separetaed by custom delimiter', async () => {
+    it('should display a selectedOptions separated by custom delimiter', async () => {
       const selectedOptions = [options[0].id, options[1].id];
       const delimiter = ';';
       const { inputDriver } = createDriver(

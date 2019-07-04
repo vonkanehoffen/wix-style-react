@@ -7,7 +7,7 @@ const image = <Image width="102" height="102" />;
 
 const componentProps = {
   title: 'This is the title',
-  body: 'This is the a long text which is passed in the `body` propterty',
+  body: 'This is the a long text which is passed in the `body` property',
   actionText: 'Ok, Take Me There!',
   onActionClick: () => null,
 };

@@ -55,7 +55,9 @@ class Input extends Component {
   logDeprecations(props) {
     if (props.unit) {
       deprecationLog(
-        `Input's unit prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix>${props.unit}</Input.Affix>}/>' instead`,
+        `Input's unit prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix>${
+          props.unit
+        }</Input.Affix>}/>' instead`,
       );
     }
     if (props.magnifyingGlass) {
@@ -75,7 +77,7 @@ class Input extends Component {
       !props.updateControlledOnClear
     ) {
       deprecationLog(
-        `<Input/> - Clearing the value in a controlled component through onChange() will be deprectead in next major version. Pass updateControlledOnClear prop and use the onClear() callback to apply the new behavior`,
+        `<Input/> - Clearing the value in a controlled component through onChange() will be deprecated in next major version. Pass updateControlledOnClear prop and use the onClear() callback to apply the new behavior`,
       );
     }
   }
@@ -508,7 +510,7 @@ Input.propTypes = {
   /** Displays clear button (X) on a non-empty input */
   clearButton: PropTypes.bool,
 
-  /** A single CSS class name to be appended to ther Input's wrapper element. */
+  /** A single CSS class name to be appended to the Input's wrapper element. */
   className: PropTypes.string,
 
   name: PropTypes.string,

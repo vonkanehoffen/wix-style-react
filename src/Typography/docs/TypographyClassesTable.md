@@ -1,7 +1,7 @@
 ### Heading Classes
 
 - Each cell in the table is a class name.
-- Classes are devided into column by their semantics
+- Classes are divided into column by their semantics
 
 | Appearance | On Dark |
 |------|---------|

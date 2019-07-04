@@ -75,7 +75,7 @@ export default class Loader extends WixComponent {
     /** The status of the loader */
     status: PropTypes.oneOf(['loading', 'success', 'error']),
 
-    /** Text to be shown in the tolltip **/
+    /** Text to be shown in the tooltip **/
     statusMessage: PropTypes.string,
 
     /** load Tooltip async using dynamic import */

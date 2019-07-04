@@ -23,11 +23,11 @@ class DataTableSortableOldDesignExample extends React.Component {
   handleSortClick(colNum) {
     const desc = !this.state.sort[colNum];
     const sort = Object.assign({}, this.state.sort, { [colNum]: desc });
-    const filelds = {
+    const fields = {
       1: 'firstName',
       2: 'lastName',
     };
-    const sortedData = this.sortDataByField(filelds[colNum], desc);
+    const sortedData = this.sortDataByField(fields[colNum], desc);
     this.setState({ sort, data: sortedData });
   }
 

@@ -19,7 +19,7 @@ import cs from 'date-fns/locale/cs';
 import zh from 'date-fns/locale/zh_cn';
 import * as no from 'date-fns/locale/nb';
 
-const MONTHS_INDICE = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const MONTHS_INDEXES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 const locales = {
   en,
@@ -70,7 +70,7 @@ export default locale => ({
     }),
 
   getMonths: () =>
-    MONTHS_INDICE.map(i =>
+    MONTHS_INDEXES.map(i =>
       format(new Date(2018, i), 'MMMM', { locale: getLocale(locale) }),
     ),
 });

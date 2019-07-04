@@ -12,7 +12,7 @@ const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
   });
 
   const driver = {
-    /** Returns 'true' wether the element exists */
+    /** Returns 'true' whether the element exists */
     exists: () => !!element,
 
     /** Click on an option */

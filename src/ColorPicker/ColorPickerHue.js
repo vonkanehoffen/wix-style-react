@@ -47,7 +47,7 @@ export default class ColorPickerHue extends WixComponent {
   }
 
   render() {
-    // HUE is an intenger value from 0 to 360.
+    // HUE is an integer value from 0 to 360.
     const percentage = (this.props.current.hue() / 360) * 100;
     return (
       <div

@@ -8,7 +8,7 @@
 
 Tooltip issues:
 
-- uses inhouse built positioning mechanism, which has several issues.
+- uses in-house built positioning mechanism, which has several issues.
 - does not follow the UX guidelines.
 - is confusing because can be controlled and uncontrolled.
 
@@ -120,7 +120,7 @@ Deprecated Unit API
 
 - `getContent` - deprecated.
 
-Deprecated E2E Testki API
+Deprecated E2E Testkit API
 
 - `element` - deprecated.
 

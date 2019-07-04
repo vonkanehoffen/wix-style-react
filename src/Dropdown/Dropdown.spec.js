@@ -83,7 +83,7 @@ describe('Dropdown', () => {
       });
     });
 
-    it(`should update selectedId when options change and id doesn't exist anymore`, () => {
+    it(`should update selectedId when options change and id does not exist anymore`, () => {
       const { driver: _driver, rerender } = render(
         <Dropdown
           options={[{ id: 0, value: 'Option 1' }, { id: 1, value: 'Option 2' }]}

@@ -4,7 +4,7 @@ import { MessageBoxFunctionalLayout } from 'wix-style-react/MessageBox';
 
 export default () => (
   <MessageBoxFunctionalLayout
-    title="Interuption Message"
+    title="Interruption Message"
     confirmText="Action"
     theme="blue"
     dataHook="alert-standard"

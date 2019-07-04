@@ -82,7 +82,7 @@ describe('Page', () => {
         expect(await driver.gradientClassNameExists()).toBeTruthy();
       });
 
-      it('should not initialize component with gradiet class name by default', async () => {
+      it('should not initialize component with gradient class name by default', async () => {
         const { driver } = render(renderPageWithProps());
         expect(await driver.gradientClassNameExists()).toBeFalsy();
       });
@@ -143,7 +143,7 @@ describe('Page', () => {
 
     describe('DOM calculations', () => {
       // eslint-disable-next-line jest/no-disabled-tests
-      xit('should recalculate component heights when rerendered', () => {
+      xit('should recalculate component heights when re-rendered', () => {
         // TODO:
       });
     });

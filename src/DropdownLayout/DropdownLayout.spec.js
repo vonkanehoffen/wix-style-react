@@ -196,7 +196,7 @@ describe('DropdownLayout', () => {
       });
 
       describe('without selectedId', () => {
-        it('should nofity a new option was selected for first selection', async () => {
+        it('should notify a new option was selected for first selection', async () => {
           const onSelect = jest.fn();
           const driver = createDriver(
             <DropdownLayout visible options={options} onSelect={onSelect} />,
@@ -205,7 +205,7 @@ describe('DropdownLayout', () => {
           expect(onSelect).toBeCalledWith(options[0], false);
         });
 
-        it('should nofity a new option was selected after a value was previously selected', async () => {
+        it('should notify a new option was selected after a value was previously selected', async () => {
           const onSelect = jest.fn();
           const driver = createDriver(
             <DropdownLayout visible options={options} onSelect={onSelect} />,
@@ -215,7 +215,7 @@ describe('DropdownLayout', () => {
           expect(onSelect).toHaveBeenLastCalledWith(options[1], false);
         });
 
-        it('should nofity the same option was selected', async () => {
+        it('should notify the same option was selected', async () => {
           const onSelect = jest.fn();
           const driver = createDriver(
             <DropdownLayout visible options={options} onSelect={onSelect} />,

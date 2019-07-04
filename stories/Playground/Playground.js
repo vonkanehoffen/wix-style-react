@@ -4,7 +4,7 @@ import Markdown from 'wix-storybook-utils/Markdown';
 import LiveCodeExample from '../utils/LiveCodeExample';
 import exampleCode from '!raw-loader!./example';
 
-const playaroundExplanation = `
+const playgroundExplanation = `
 # Playground
 > "Design is not just what it looks like and feels like. Design is how it works" (Steve Jobs)
 
@@ -14,7 +14,7 @@ This playground is a great way to play with the \`wix-style-react\` components a
 
 storiesOf('Introduction', module).add('Playground', () => (
   <div>
-    <Markdown source={playaroundExplanation} />
+    <Markdown source={playgroundExplanation} />
     <LiveCodeExample compact initialCode={exampleCode} />
   </div>
 ));

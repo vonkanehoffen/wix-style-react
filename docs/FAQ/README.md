@@ -17,7 +17,7 @@ is using the entry file of the component, and **not** importing from the index f
 import Button from 'wix-style-react/Button';
 ```
 
-`import`ing a component directly from `dist/src` is strongly disencouraged.
+`import`ing a component directly from `dist/src` is strongly prohibited.
 
 
 #### Making Server-Side-Rendering (SSR) work
@@ -42,9 +42,9 @@ wixCssModulesRequireHook();
 
 #### Components do not have styling in the first render of Server-Side-Rendering (SSR)
 
-Components that use Stylable may not recieve their styling on the first render (while other components styled with Css-Modules are working fine).
+Components that use Stylable may not receive their styling on the first render (while other components styled with Css-Modules are working fine).
 In that case it means that your Stylable configuration with Yoshi is set to inject styling tags to the header of the html document.
-You need to change the config in order for the styling to be bundled as a seperate css, like css-modules.
+You need to change the config in order for the styling to be bundled as a separate css, like css-modules.
 
 Steps to fix it:
 1. inside your package.json modify the config inside yoshi part like this:

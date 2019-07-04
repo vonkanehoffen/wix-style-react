@@ -6,7 +6,7 @@ import TextButton from 'wix-style-react/TextButton';
 
 export default () => (
   <MessageBoxFunctionalLayout
-    title="Interuption Message"
+    title="Interruption Message"
     confirmText="Main"
     cancelText="Secondary"
     theme="blue"

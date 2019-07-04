@@ -30,8 +30,8 @@ describe('Checkbox', () => {
 
     beforeEach(async () => {
       // TODO: We do browser.get() before EACH test in order to reset the focus.
-      // implmement a generic solution in AutoExampleDriver that will do
-      // propper reset of the focus, so we don't have to get the page,
+      // implement a generic solution in AutoExampleDriver that will do
+      // proper reset of the focus, so we don't have to get the page,
       // and thus the test will run faster.
       await browser.get(storyUrl);
 

@@ -95,7 +95,7 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          description(`Component for collapsable content`),
+          description(`Component for collapsible content`),
 
           importExample("import Accordion from 'wix-style-react/Accordion';"),
 

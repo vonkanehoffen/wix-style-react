@@ -14,7 +14,7 @@ export const pagePrivateDriverFactory = component => {
 
   return {
     scrollVertically,
-    getVeriticalScroll: async () =>
+    getVerticalScroll: async () =>
       browser.executeScript(
         `return arguments[0].scrollTop;`,
         await verticalScrollContainer.getWebElement(),

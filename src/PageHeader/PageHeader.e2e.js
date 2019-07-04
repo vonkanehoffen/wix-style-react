@@ -36,10 +36,10 @@ describe('PageHeader', () => {
       'should display an opened dropdown in title (no ellipsis)',
       async () => {
         await initTest({ testName: '3. Title with Dropdown' });
-        const dropdownTeskit = dropdownTestkitFactory({
+        const dropdownTestkit = dropdownTestkitFactory({
           dataHook: 'title-dropdown',
         });
-        await dropdownTeskit.click();
+        await dropdownTestkit.click();
       },
     );
 
@@ -47,10 +47,10 @@ describe('PageHeader', () => {
       'should display an opened dropdown in subtitle (no ellipsis)',
       async () => {
         await initTest({ testName: '4. Subtitle with Dropdown' });
-        const dropdownTeskit = dropdownTestkitFactory({
+        const dropdownTestkit = dropdownTestkitFactory({
           dataHook: 'subtitle-dropdown',
         });
-        await dropdownTeskit.click();
+        await dropdownTestkit.click();
       },
     );
   });

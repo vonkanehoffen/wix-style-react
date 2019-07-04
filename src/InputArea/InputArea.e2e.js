@@ -109,7 +109,7 @@ describe('input area page', () => {
     },
   );
 
-  eyes.it('should begin with miminum ammount of rows', async () => {
+  eyes.it('should begin with minimum amount of rows', async () => {
     await autoExampleDriver.setProps({ autoGrow: true });
     const rowCount = await inputAreaTestkit.getRowCount();
     expect(rowCount).toBe(InputArea.MIN_ROWS);

@@ -52,7 +52,7 @@ export default class ColorPicker extends WixComponent {
     /** Children would be rendered above action buttons */
     children: oneOfType([node, func]),
 
-    /** Content to show in add button tooltip. Doesn't appear if `onAdd` is not passed. */
+    /** Content to show in add button tooltip. does not appear if `onAdd` is not passed. */
     addTooltipContent: node,
 
     /** Allow to confirm when color is not selected. Returns color object with alpha equal to 0. */

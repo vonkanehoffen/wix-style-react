@@ -102,7 +102,7 @@ storiesOf('Text/Link', module).add('href', () => (
   </Text>
 ));
 
-//TODO - ellipsis test is correct but the tooltip doesn't display on initial load, looks like a bug in the HOC
+//TODO - ellipsis test is correct but the tooltip does not display on initial load, looks like a bug in the HOC
 // import ReactTestUtils from 'react-dom/test-utils';
 //   .add('ellipsis', () => <TextEllipsis />);
 

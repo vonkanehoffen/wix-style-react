@@ -30,7 +30,7 @@
   import {messageBoxFunctionalLayoutTestkitFactory as enzymeMessageBoxFunctionalLayoutTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
 
   /**************
-   enzyme exmaple
+   enzyme example
   ***************/
 
   const component = mount(<div/><MessageBoxFunctionalLayout dataHook='messageBox'/></div>);
@@ -39,7 +39,7 @@
   expect(enzymeMessageBoxFunctionalLayoutTestKit.getConfirmationButtonText()).toBe('OK');
 
   /***********************
-   ReactTestUtils exmaple
+   ReactTestUtils example
   ***********************/
 
   const div = document.createElement('div');
@@ -77,7 +77,7 @@
   import {messageBoxMarketerialLayoutTestkitFactory as enzymeMessageBoxMarketerialLayoutTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
 
   /**************
-   enzyme exmaple
+   enzyme example
   ***************/
 
   const component = mount(<div/><MessageBoxMarketerialLayout dataHook='messageBox'/></div>);
@@ -86,7 +86,7 @@
   expect(enzymeMessageBoxMarketerialLayoutTestKit.getPrimaryButtonText()).toBe('OK');
 
   /***********************
-   ReactTestUtils exmaple
+   ReactTestUtils example
   ***********************/
 
   const div = document.createElement('div');

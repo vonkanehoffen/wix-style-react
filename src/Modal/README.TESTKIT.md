@@ -145,7 +145,7 @@ import {
   modalTestkitFactory,
   buttonTestkitFactory,
   messageBoxFunctionalLayoutTestkitFactory
-} from 'wix-style-react/dist/testkit'; //vanila js drivers
+} from 'wix-style-react/dist/testkit'; //vanilla js drivers
 
 describe('ModalExample', () => {
   it('renders the modal content correctly', async () => {

@@ -55,7 +55,7 @@ class BadgesVariations extends React.Component {
 
 class FocusBadgeTest extends React.Component {
   componentDidMount() {
-    //TODO - might want to make this foucs action as a global driver / using tabs
+    //TODO - might want to make this focus action as a global driver / using tabs
     document.querySelector('[data-hook="focusable-badge"]').focus();
   }
 

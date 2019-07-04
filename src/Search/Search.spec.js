@@ -232,7 +232,7 @@ describe('Search', () => {
     });
 
     describe('Expandable', () => {
-      it('should start as collapsed element by default when expndable=true', async () => {
+      it('should start as collapsed element by default when expandable=true', async () => {
         const { driver } = createDriver(
           <Search options={options} expandable />,
         );
@@ -282,7 +282,7 @@ describe('Search', () => {
         expect(await driver.isCollapsed()).toBeTruthy();
       });
 
-      it('should have non-collapsed input when expandaple=true and the input has initial value', async () => {
+      it('should have non-collapsed input when expandable=true and the input has initial value', async () => {
         const { driver } = createDriver(
           <Search options={options} expandable defaultValue={'Test'} />,
         );

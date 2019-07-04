@@ -53,7 +53,7 @@ class ClickablePopover extends React.Component {
 }
 `;
 
-const createHoverablePopoverExamle = props => `
+const createHoverablePopoverExample = props => `
 class HoverablePopover extends React.Component {
   constructor(props) {
     super(props);
@@ -105,13 +105,13 @@ export default () => (
     <Markdown
       source={`
 A Popover can be interactive when setting \`appendTo="parent"\` or a \`hideDelay\`. This means the
-event handlers set directly on the \`<Popover/>\` component will be triggerd on both the
+event handlers set directly on the \`<Popover/>\` component will be triggered on both the
 \`<Popover.Element/>\` and \`<Popover.Content/>\`
 
 #### Using click handlers
 
 The following example uses the \`onClick\` and the \`onClickOutside\` handlers
-to toggle the Popover. Notice that in the non-interative example, when clicking
+to toggle the Popover. Notice that in the non-interactive example, when clicking
 the \`<Popover.Content/>\`, the \`onClickOutside\` event fires.
       `}
     />
@@ -138,7 +138,7 @@ the \`<Popover.Content/>\`, the \`onClickOutside\` event fires.
 #### Using mouse events
 
 A similar approach can be used with mouse events handlers (\`onMouseEnter\`,
-\`onMouseLeave\`). Notice that in the non-interative example, the
+\`onMouseLeave\`). Notice that in the non-interactive example, the
 \`onMouseLeave\` event fires when entering the \`<Popover.Content/>\`.
       `}
     />
@@ -148,7 +148,7 @@ A similar approach can be used with mouse events handlers (\`onMouseEnter\`,
         <LiveCodeExample
           compact
           title={`Interactive with appendTo="parent"`}
-          initialCode={createHoverablePopoverExamle({ appendTo: 'parent' })}
+          initialCode={createHoverablePopoverExample({ appendTo: 'parent' })}
         />
       </Cell>
 
@@ -156,7 +156,7 @@ A similar approach can be used with mouse events handlers (\`onMouseEnter\`,
         <LiveCodeExample
           compact
           title={`Interactive with hideDelay={150}`}
-          initialCode={createHoverablePopoverExamle({
+          initialCode={createHoverablePopoverExample({
             hideDelay: 150,
           })}
         />
@@ -166,7 +166,7 @@ A similar approach can be used with mouse events handlers (\`onMouseEnter\`,
         <LiveCodeExample
           compact
           title="Non-Interactive"
-          initialCode={createHoverablePopoverExamle({ appendTo: 'window' })}
+          initialCode={createHoverablePopoverExample({ appendTo: 'window' })}
         />
       </Cell>
     </Layout>

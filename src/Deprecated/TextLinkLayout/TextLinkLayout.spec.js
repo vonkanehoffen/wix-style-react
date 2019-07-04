@@ -21,7 +21,7 @@ describe('TextLinkLayout', () => {
     expect(driver.getContent()).toBe(children);
   });
 
-  it('should be with medium size by defualt', () => {
+  it('should be with medium size by default', () => {
     const driver = createDriver(<TextLinkLayout />);
     expect(driver.getSize()).toBe('medium');
   });
@@ -61,7 +61,7 @@ describe('TextLinkLayout', () => {
     expect(driver.isUnderline()).toBeFalsy();
   });
 
-  it('should not be with underline by defualt', () => {
+  it('should not be with underline by default', () => {
     const driver = createDriver(<TextLinkLayout />);
     expect(driver.isUnderline()).toBeFalsy();
   });
@@ -72,7 +72,7 @@ describe('TextLinkLayout', () => {
     expect(driver.isUnderline()).toBeTruthy();
   });
 
-  it('should be with display block by defualt', () => {
+  it('should be with display block by default', () => {
     const driver = createDriver(<TextLinkLayout />);
     expect(driver.getDisplay()).toBe('block');
   });

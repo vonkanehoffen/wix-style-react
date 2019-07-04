@@ -39,7 +39,7 @@ const statsWidgetDriverFactory = ({ element }) => {
     getStatisticTitle: index =>
       findByHook(getStatistic(index), 'statistics-item-title').textContent,
 
-    /** returns subitle of statistics with index passed as param  */
+    /** returns subtitle of statistics with index passed as param  */
     getStatisticSubTitle: index =>
       findByHook(getStatistic(index), 'statistics-item-subtitle').textContent,
 

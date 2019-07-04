@@ -42,7 +42,7 @@ const target = {
       return;
     }
     /**
-      if item is from same group but different container, thats mean that we move item
+      if item is from same group but different container, that's mean that we move item
       from one container to another, and we need to move out item from previous container
     */
     if (isSameGroup && !isSameContainer) {

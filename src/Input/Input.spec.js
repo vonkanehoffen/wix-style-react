@@ -427,7 +427,7 @@ describe('Input', () => {
     });
 
     describe('onKeyUp attribute', () => {
-      it('should be called after keybord key got pressed and then released', async () => {
+      it('should be called after keyboard key got pressed and then released', async () => {
         const onKeyUp = jest.fn();
         const event = { target: { value: 'world' } };
 
@@ -537,7 +537,7 @@ describe('Input', () => {
     });
 
     describe('driver.focus', () => {
-      it('calling driver.focus (wihtout enzyme) should give focus to the input', async () => {
+      it('calling driver.focus (without enzyme) should give focus to the input', async () => {
         const { driver } = render(<Input autoFocus={false} />);
         expect(await driver.isFocus()).toBeFalsy();
         await driver.focus();
@@ -887,12 +887,12 @@ describe('Input', () => {
         expect(await driver.getAriaControls()).toBeNull;
       });
 
-      it('should allow adding aria-describeby', async () => {
+      it('should allow adding aria-describedby', async () => {
         const { driver } = render(<Input ariaDescribedby="blabla" />);
         expect(await driver.getAriaDescribedby()).toBe('blabla');
       });
 
-      it('should not have any aria-describeby buy default', async () => {
+      it('should not have any aria-describedby buy default', async () => {
         const { driver } = render(<Input />);
         expect(await driver.getAriaDescribedby()).toBeNull();
       });

@@ -26,7 +26,7 @@ describe('DateInput', () => {
     );
   });
 
-  it('should format date based on formating function', async () => {
+  it('should format date based on formatting function', async () => {
     const sampleDate = new Date();
     const dateFormat = () => 'Some other string';
     const driver = createDriver(

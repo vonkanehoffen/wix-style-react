@@ -30,10 +30,10 @@ Every component should have a driver file named `Component.driver.js`. New compo
 - Existing components supporting both legacy and `Unidriver` drivers will also have a file be named `Component.uni.driver.js`.
 - `Protractor` specific drivers will be named `Component.protractor.driver.js`
 - `Puppeteer` specific drivers will be named `Component.puppeteer.driver.js`
-- A component might have a **private** driver, used to encapsulate some actions which are not inteded to be exposed as testkit. The file will be named `Component.private.driver.js`.
+- A component might have a **private** driver, used to encapsulate some actions which are not intended to be exposed as testkit. The file will be named `Component.private.driver.js`.
 
 ### Private Drivers
-Private drivers (`Component.private.driver.js`) are used for actions that must be tested as the component behavior, but should not be exposed to the user. For example, explicity hovering over some item has a side effect that displays some opacity. The consumer should not care for it, but in unit-test it might be needed.
+Private drivers (`Component.private.driver.js`) are used for actions that must be tested as the component behavior, but should not be exposed to the user. For example, explicitly hovering over some item has a side effect that displays some opacity. The consumer should not care for it, but in unit-test it might be needed.
 
 ## Drivers APIs
 In general, drivers methods are separated into two types - **getters** and **interactions**.
@@ -57,7 +57,7 @@ For an array of items, the driver should expose a method to receive each item an
 1. `items:[{id, value}, {id, value}]: [{id: number, value: string}]` <=> `getItemIdAt(index: numer): number` **and** `getItemValueAt(index: numer): string`.
 
 #### Node
-In case of props from the type of node (render slot), it is best to return the node iteself. The value of it is that it helps the consumer to verify he passed the right node to the right render slot. For example:
+In case of props from the type of node (render slot), it is best to return the node itself. The value of it is that it helps the consumer to verify he passed the right node to the right render slot. For example:
 1. `prefixIcon: node` <=> `getPrefixIcon(): node`
 
 #### Object
@@ -83,7 +83,7 @@ The above actions can be exposed in a private driver to unit-test the component,
 
 ## Best practices
 
-1. Actions should accomodate for the user's intent (the "What") rather than how the user interacts (click, focus, keydown,...). For example, `<Search/>` input may have clear button (a little `x`).
+1. Actions should accommodate for the user's intent (the "What") rather than how the user interacts (click, focus, keydown,...). For example, `<Search/>` input may have clear button (a little `x`).
 ```diff
 -clickClearButton()
 +clear()
@@ -93,7 +93,7 @@ The above actions can be exposed in a private driver to unit-test the component,
 
 1. Keep drivers flat. The returned object should be flat and simple. Avoid nesting objects or worse, other drivers (it is easy to do but creates implicit dependency which is very hard to maintain)
 
-1. Use `data-*` html attributes to mark and locate elements in the DOM. If there is no specific acceesibility data attribute, use `data-hook`. Make sure `data-hook` names are short as they stay in the application bundle.
+1. Use `data-*` html attributes to mark and locate elements in the DOM. If there is no specific accessibility data attribute, use `data-hook`. Make sure `data-hook` names are short as they stay in the application bundle.
 
 ```js
 <div>

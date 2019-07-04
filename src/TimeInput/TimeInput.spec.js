@@ -149,7 +149,7 @@ describe('TimeInput', () => {
         expect(await driver.getValue()).toBe('12:00');
       });
 
-      it(`should not allow to enter non numeric charecters using keyboard's input, it should bring back the privous valid value`, async () => {
+      it(`should not allow to enter non numeric characters using keyboard's input, it should bring back the previous valid value`, async () => {
         const props = {
           defaultValue: defaultMomentWithAM,
         };
@@ -159,7 +159,7 @@ describe('TimeInput', () => {
         expect(await driver.getValue()).toBe(format12Hours(props.defaultValue));
       });
 
-      it(`should not allow to enter invalid time using keyboard's input, it should bring back the privous valid value`, async () => {
+      it(`should not allow to enter invalid time using keyboard's input, it should bring back the previous valid value`, async () => {
         const props = {
           defaultValue: defaultMomentWithAM,
         };

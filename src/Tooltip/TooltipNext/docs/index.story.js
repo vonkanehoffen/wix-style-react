@@ -164,7 +164,7 @@ export default {
             }),
           ]),
 
-          title('Attachement to DOM'),
+          title('Attachment to DOM'),
 
           columns([
             liveCode({
@@ -181,7 +181,7 @@ export default {
           columns([
             liveCode({
               title: 'Append to: viewport',
-              subtitle: `This is similar to window as it also appends the content to a new <div/> under the body, but also set its boundry to the viewport.`,
+              subtitle: `This is similar to window as it also appends the content to a new <div/> under the body, but also set its boundary to the viewport.`,
               source: examples.viewport,
             }),
             liveCode({

@@ -31,7 +31,7 @@ class InputArea extends WixComponent {
     computedRows: this.props.minRowsAutoGrow,
   };
 
-  // For autoGrow prop min rows is 2 so the textarea doesn't look like an input
+  // For autoGrow prop min rows is 2 so the textarea does not look like an input
   static MIN_ROWS = 2;
 
   componentDidMount() {

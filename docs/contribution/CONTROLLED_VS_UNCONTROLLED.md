@@ -17,12 +17,12 @@ class Dropdown extends React.Component {
 }
 ```
 
-In this case the prop should be called `initialSelectedId`, since thats what it realy does.
+In this case the prop should be called `initialSelectedId`, since that's what it realy does.
 This way, if one day we want to add a controlled version of the prop, we simply add `selectedId`.
 
 ## Migrating A Badly Named Uncontrolled Prop
 
-In the above case, when we want to make a version with a controlled `selectedId`, but we didn't call the prop `initialSelectedId` in the first place, then to avoid a breaking change, we should do the following steps:
+In the above case, when we want to make a version with a controlled `selectedId`, but we did not call the prop `initialSelectedId` in the first place, then to avoid a breaking change, we should do the following steps:
 
 - Add a new `update` boolean prop. When `true` the `selectedId` would act as a controlled prop.
 - Add an `initialSelectedId` prop.

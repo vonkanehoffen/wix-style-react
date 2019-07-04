@@ -1,6 +1,6 @@
 # Documenting Components
 
-## Documnetation tools
+## Documentation tools
 All components are documented and displayed on our main documentation page which is rendered with [Storybook](https://storybook.js.org)
 
 ## Documentation layers
@@ -20,19 +20,19 @@ Components //APIs
 ```
 
 ## Design System indexing
-In this section, the strucutre will be according to the UX definitions of the desing system.
+In this section, the structure will be according to the UX definitions of the design system.
 It contains common examples and use cases, accompanied by explanation how and when to use the components. It will also contain links to the actual component APIs in the next section.
 
 ## Components APIs
 For API documentation, we use [wix-storybook-utils](https://github.com/wix/wix-ui/tree/master/packages/wix-storybook-utils) - a tool built to generate documentation automatically (aka AutoStory, AutoDocs).
 
-It is reponsbile to scrape APIs, testkit drivers and create interactive playground based on props and some code hints.
+It is important to scrape APIs, testkit drivers and create interactive playground based on props and some code hints.
 
 [Read here](https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md) how to document components in the library using `wix-storybook-utils`.
 
 ### Configuring a component story
 
-Here is a minimal example of an AutoStory configuraiton:
+Here is a minimal example of an AutoStory configuration:
 (file name must have a `.story.js` suffix)
 > MyComp.story.js
 

@@ -123,16 +123,16 @@ function runTests(render) {
   });
 
   it('should initialize component with title and subtitle with a special character', async () => {
-    const someTextWithSpecialCharachters = 'tom & jerry';
+    const someTextWithSpecialCharacters = 'tom & jerry';
     const pageHeader = (
       <PageHeader
-        title={someTextWithSpecialCharachters}
-        subtitle={someTextWithSpecialCharachters}
+        title={someTextWithSpecialCharacters}
+        subtitle={someTextWithSpecialCharacters}
       />
     );
     const { driver } = render(pageHeader);
-    expect(await driver.titleText()).toEqual(someTextWithSpecialCharachters);
-    expect(await driver.subtitleText()).toEqual(someTextWithSpecialCharachters);
+    expect(await driver.titleText()).toEqual(someTextWithSpecialCharacters);
+    expect(await driver.subtitleText()).toEqual(someTextWithSpecialCharacters);
   });
 
   it('should initialize component with minimized title and subtitle', async () => {

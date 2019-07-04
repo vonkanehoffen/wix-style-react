@@ -73,7 +73,7 @@ export default {
 
     description(TypographyClassesTable),
     description({
-      title: 'Typography Classes Migration (from preior to WSR 5.6.x)',
+      title: 'Typography Classes Migration (from previous to WSR 5.6.x)',
       text: TypographyClassesMigration,
     }),
   ],

@@ -48,7 +48,7 @@ describe('ImageViewer', () => {
         expect(await driver.isAddItemVisible()).toBe(false);
       });
 
-      it('should show tooltip [when] addImgeInfo is given', async () => {
+      it('should show tooltip [when] addImageInfo is given', async () => {
         const addImageInfo = 'add image info';
         const { driver } = render(
           renderComponent({ imageUrl: '', addImageInfo }),
@@ -111,7 +111,7 @@ describe('ImageViewer', () => {
     });
 
     describe('Error Icon', () => {
-      it('should not be visible by defualt', async () => {
+      it('should not be visible by default', async () => {
         const props = {
           imageUrl: '',
           width: 300,

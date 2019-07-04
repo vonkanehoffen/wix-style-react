@@ -10,7 +10,7 @@ const focusableDriverFactory = ({
   nativeFocusableElement,
 }) => {
   if (!rootElement || !clickableElements || !nativeFocusableElement) {
-    throw new Error('focusableDriverFactory: Invalid aruments');
+    throw new Error('focusableDriverFactory: Invalid arguments');
   }
 
   return {

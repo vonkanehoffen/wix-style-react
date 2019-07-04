@@ -58,14 +58,14 @@ class RichTextToolbarLinkButton extends React.Component {
 
   /*
   When clicking the button, one of the following occurs:
-  1. If the selected text doesn't contain a link, it will show the link insertion form
+  1. If the selected text does not contain a link, it will show the link insertion form
   2. If the selected text contains a link, it will detach that link from the text
   */
   _onButtonClick = () => {
     const { onRemove, data } = this.props;
     const { hasRemovableEntityInSelection } = data;
 
-    // Checks if the selected text doesn't contain a link
+    // Checks if the selected text does not contain a link
     if (!hasRemovableEntityInSelection) {
       this.setState({ isFormShown: true });
     } else {

@@ -5,14 +5,14 @@ module.exports = (file, api, options) => {
   const root = j(file.source);
   addAsync(root, j);
 
-  /* Knwon Issue #1
+  /* Known Issue #1
    * In this case, we should NOT add an `await`:
    *
    * expect(driver.getErrorMessage()).rejects.toThrow(Error);
    */
 
   /* Known Issue #2
-   *In this case we should add paranthesis (assuming that driver's don't have nested methods)
+   *In this case we should add parenthesis (assuming that driver's don't have nested methods)
    *
    *input:
    *driver.someMethod()[0]

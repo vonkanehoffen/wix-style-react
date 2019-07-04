@@ -8,7 +8,7 @@ There was no way to make persistent notification when `type != global`
 ### Steps to upgrade
 
 - Pass `upgrade=true` (`<Notification upgrade/>`)
-- If you didn't passed `timeout` prop and expected the notification to be hidden after 6 seconds, you should pass `timeout = Notification.DEFAULT_TIMEOUT`.
+- If you have not passed `timeout` prop and expected the notification to be hidden after 6 seconds, you should pass `timeout = Notification.DEFAULT_TIMEOUT`.
 - While you're at it, rename `timeout` -> `autoHideTimeout`.
 
 > The new API will be affective from the next major version.

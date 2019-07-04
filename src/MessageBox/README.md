@@ -6,7 +6,7 @@
 
 | propName | propType | defaultValue | isRequired | description |
 |----------|----------|--------------|------------|-------------|
-| title	 | Node | - | + | Title for Messag Box |
+| title	 | Node | - | + | Title for Message Box |
 | content | Node | - | + | Content of the Message Box |
 | primaryButtonLabel | string | - | + | Primary Button Label |
 | primaryButtonDisabled | bool | false | + | Primary Button disabled state |
@@ -43,4 +43,4 @@
 | noBodyPadding| bool | false | - | Should the body of the layout will have surrounding padding |
 | withEmptyState | bool | false | - | Is the body contains an `<EmptyState/>` component |
 | sideActions | Node | - | - | Content to appear on the other side of the actions buttons |
-| image | Node | - | - | Content to appear along side the children (fixed widt/height 126px/126px) |
+| image | Node | - | - | Content to appear along side the children (fixed width/height 126px/126px) |

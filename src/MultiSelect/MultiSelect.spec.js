@@ -527,7 +527,7 @@ describe('MultiSelect', () => {
         expect(await dropdownLayoutDriver.isShown()).toBe(false);
       });
 
-      // TODO: Disabled since in order to support this in new API, we better add ability for Dropdownlayout to accept custom "select" keys.
+      // TODO: Disabled since in order to support this in new API, we better add ability for DropdownLayout to accept custom "select" keys.
       // We can also consider removing this feature (Ben?)
       /* eslint-disable-next-line jest/no-disabled-tests */
       xdescribe('Select with delimiter', () => {

@@ -2,7 +2,7 @@ import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.uni.driver';
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import { teskitTooltip as tooltipUniDriverFactory } from '../Tooltip/Tooltip.uni.driver';
+import { testkitTooltip as tooltipUniDriverFactory } from '../Tooltip/Tooltip.uni.driver';
 
 const labelUniTestkitFactory = uniTestkitFactoryCreator(labelUniDriverFactory);
 const toolTipUniTestkitFactory = uniTestkitFactoryCreator(

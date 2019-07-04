@@ -1,6 +1,6 @@
 import wixEventually from 'wix-eventually';
 
-const DEFAULT_INTERVAL_MS = 10; // Reasonable interval for a component library which doesn't do any fetching
+const DEFAULT_INTERVAL_MS = 10; // Reasonable interval for a component library which does not do any fetching
 
 export const eventually = (
   fn,
