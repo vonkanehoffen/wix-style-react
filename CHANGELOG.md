@@ -19,6 +19,7 @@ Types of changes:
 ### Added ###
 
 - `<PopoverMenu/>` - beta - make sure that beta folder is included in the release [#3698](https://github.com/wix/wix-style-react/pull/3698)
+-  `npm run components-size` - compiles components to bundles and opens source map explorer [#3622](https://github.com/wix/wix-style-react/pull/3622)
 
 ### Docs
 - `<Stepper />` - add stepper testkit docs [#3667](https://github.com/wix/wix-style-react/pull/3667)
