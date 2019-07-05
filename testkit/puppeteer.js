@@ -244,3 +244,9 @@ import { stepperDriverFactory } from '../src/Stepper/Stepper.uni.driver';
 export const stepperTestkitFactory = puppeteerUniTestkitFactoryCreator(
   stepperDriverFactory,
 );
+
+import { carouselUniDriverFactory } from '../src/Carousel/Carousel.uni.driver';
+
+export const carouselTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  carouselUniDriverFactory,
+);

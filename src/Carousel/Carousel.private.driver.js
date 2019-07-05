@@ -45,5 +45,6 @@ export default ({ element }) => {
       );
       ReactTestUtils.Simulate.click(pageNavigator);
     },
+    getChildText: child => child.textContent,
   };
 };
