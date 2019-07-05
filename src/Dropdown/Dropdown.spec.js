@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactTestUtils from 'react-dom/test-utils';
 import dropdownDriverFactory from './Dropdown.driver';
 import Dropdown from './Dropdown';
@@ -6,236 +7,266 @@ import { dropdownTestkitFactory } from '../../testkit';
 import { dropdownTestkitFactory as enzymeDropdownTestkitFactory } from '../../testkit/enzyme';
 import { mount } from 'enzyme';
 import { sleep } from 'wix-ui-test-utils/react-helpers';
-import { createRendererWithDriver, cleanup } from '../../test/utils/unit';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../test/utils/unit';
+import { dropdownUniDriverFactory } from './Dropdown.uni.driver';
 
 describe('Dropdown', () => {
-  const render = createRendererWithDriver(dropdownDriverFactory);
-  const createDriver = jsx => render(jsx).driver;
-
-  const getOptions = () => [
-    { id: 0, value: 'Option 1' },
-    { id: 1, value: 'Option 2' },
-    { id: 2, value: 'Option 3', disabled: true },
-    { id: 3, value: 'Option 4' },
-    { id: 'divider1', value: '-' },
-    { id: 'element1', value: <span style={{ color: 'brown' }}>Option 4</span> },
-  ];
-
-  afterEach(() => {
-    cleanup();
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(dropdownDriverFactory));
   });
 
-  describe('Uncontrolled SelectedId', () => {
-    it('should select item with selectedId on init state', () => {
-      const { inputDriver, dropdownLayoutDriver } = createDriver(
-        <Dropdown options={getOptions()} initialSelectedId={0} />,
-      );
+  describe('[async]', () => {
+    runTests(createRendererWithUniDriver(dropdownUniDriverFactory));
+  });
 
-      expect(dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
-      expect(inputDriver.getValue()).toBe('Option 1');
-    });
+  function runTests(render) {
+    afterEach(() => cleanup());
 
-    it('should select an item when clicked', () => {
-      const { driver, dropdownLayoutDriver } = createDriver(
-        <Dropdown options={getOptions()} />,
-      );
-      driver.focus();
-      dropdownLayoutDriver.clickAtOption(0);
-      expect(dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
-    });
+    const createDriver = jsx => render(jsx).driver;
 
-    it('should enter the selected option text when selected', () => {
-      const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
-        <Dropdown options={getOptions()} />,
-      );
-      driver.focus();
-      dropdownLayoutDriver.clickAtOption(0);
-      expect(inputDriver.getValue()).toBe('Option 1');
-    });
+    const getOptions = () => [
+      { id: 0, value: 'Option 1' },
+      { id: 1, value: 'Option 2' },
+      { id: 2, value: 'Option 3', disabled: true },
+      { id: 3, value: 'Option 4' },
+      { id: 'divider1', value: '-' },
+      {
+        id: 'element1',
+        value: <span style={{ color: 'brown' }}>Option 4</span>,
+      },
+    ];
 
-    it('should close when clicking on input (header)', () => {
-      const { dropdownLayoutDriver, inputDriver } = createDriver(
-        <Dropdown options={getOptions()} />,
-      );
-      inputDriver.click();
-      expect(dropdownLayoutDriver.isShown()).toBe(true);
-
-      return sleep(200).then(() => {
-        inputDriver.click();
-        expect(dropdownLayoutDriver.isShown()).toBe(false);
-      });
-    });
-
-    it('should not be editable ', () => {
-      const { driver } = createDriver(<Dropdown options={getOptions()} />);
-      expect(driver.isEditable()).toBe(false);
-    });
-
-    describe('initiallySelected', () => {
-      it('should keep selectedId and value when initialSelectedId changed', () => {
-        const { driver: _driver, rerender } = render(
+    describe('Uncontrolled SelectedId', () => {
+      it('should select item with selectedId on init state', async () => {
+        const { inputDriver, dropdownLayoutDriver } = createDriver(
           <Dropdown options={getOptions()} initialSelectedId={0} />,
         );
-        const { dropdownLayoutDriver } = _driver;
-        expect(dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
-        rerender(<Dropdown options={getOptions()} initialSelectedId={1} />);
-        expect(dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
-      });
-    });
 
-    it(`should update selectedId when options change and id does not exist anymore`, () => {
-      const { driver: _driver, rerender } = render(
-        <Dropdown
-          options={[{ id: 0, value: 'Option 1' }, { id: 1, value: 'Option 2' }]}
-          initialSelectedId={0}
-        />,
-      );
-      const { inputDriver, dropdownLayoutDriver } = _driver;
-
-      expect(dropdownLayoutDriver.optionById(0).isSelected()).toBe(true);
-      expect(inputDriver.getValue()).toBe('Option 1');
-      rerender(<Dropdown options={[{ id: 1, value: 'Option 2' }]} />);
-
-      expect(
-        dropdownLayoutDriver.options().some(option => option.isSelected()),
-      ).toBeFalsy();
-      expect(inputDriver.getValue()).toBe('');
-    });
-
-    it('should select item with selectedId on async init', () => {
-      const { driver: _driver, rerender } = render(
-        <Dropdown options={[]} selectedId={0} />,
-      );
-      const { inputDriver, dropdownLayoutDriver } = _driver;
-
-      expect(
-        dropdownLayoutDriver.options().some(option => option.isSelected()),
-      ).toBeFalsy();
-      expect(inputDriver.getValue()).toBe('');
-
-      rerender(
-        <Dropdown
-          options={[{ id: 0, value: 'Option 1' }, { id: 1, value: 'Option 2' }]}
-          selectedId={0}
-        />,
-      );
-
-      expect(dropdownLayoutDriver.optionById(0).isSelected()).toBe(true);
-      expect(inputDriver.getValue()).toBe('Option 1');
-    });
-
-    describe('PropTypes Validation', () => {
-      let consoleErrorSpy;
-
-      beforeEach(() => {
-        consoleErrorSpy = jest
-          .spyOn(global.console, 'error')
-          .mockImplementation(jest.fn());
-      });
-      afterEach(() => {
-        consoleErrorSpy.mockRestore();
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+        expect(await inputDriver.getValue()).toBe('Option 1');
       });
 
-      it('should log error when selectedId and initialSelectedId are used together', () => {
-        render(
+      it('should select an item when clicked', async () => {
+        const { driver, dropdownLayoutDriver } = createDriver(
+          <Dropdown options={getOptions()} />,
+        );
+        await driver.focus();
+        await dropdownLayoutDriver.clickAtOption(0);
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+      });
+
+      it('should enter the selected option text when selected', async () => {
+        const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
+          <Dropdown options={getOptions()} />,
+        );
+        await driver.focus();
+        await dropdownLayoutDriver.clickAtOption(0);
+        expect(await inputDriver.getValue()).toBe('Option 1');
+      });
+
+      it('should close when clicking on input (header)', async () => {
+        const { dropdownLayoutDriver, inputDriver } = createDriver(
+          <Dropdown options={getOptions()} />,
+        );
+        await inputDriver.click();
+        expect(await dropdownLayoutDriver.isShown()).toBe(true);
+
+        return sleep(200).then(async () => {
+          await inputDriver.click();
+          expect(await dropdownLayoutDriver.isShown()).toBe(false);
+        });
+      });
+
+      it('should not be editable ', async () => {
+        const { driver } = createDriver(<Dropdown options={getOptions()} />);
+        expect(await driver.isEditable()).toBe(false);
+      });
+
+      describe('initiallySelected', () => {
+        it('should keep selectedId and value when initialSelectedId changed', async () => {
+          const { driver: _driver, rerender } = render(
+            <Dropdown options={getOptions()} initialSelectedId={0} />,
+          );
+          const { dropdownLayoutDriver } = _driver;
+          expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+          rerender(<Dropdown options={getOptions()} initialSelectedId={1} />);
+          expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+        });
+      });
+
+      it(`should update selectedId when options change and id does not exist anymore`, async () => {
+        const { driver: _driver, rerender } = render(
           <Dropdown
-            options={getOptions()}
-            selectedId={0}
+            options={[
+              { id: 0, value: 'Option 1' },
+              { id: 1, value: 'Option 2' },
+            ]}
             initialSelectedId={0}
           />,
         );
-        expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
-        expect(consoleErrorSpy).toBeCalledWith(
-          expect.stringContaining(
-            `'selectedId' and 'initialSelectedId' cannot both be used at the same time.`,
+        const { inputDriver, dropdownLayoutDriver } = _driver;
+
+        const option = await dropdownLayoutDriver.optionById(0);
+        expect(await option.isSelected()).toBe(true);
+        expect(await inputDriver.getValue()).toBe('Option 1');
+        rerender(<Dropdown options={[{ id: 1, value: 'Option 2' }]} />);
+
+        const options = await dropdownLayoutDriver.options();
+        const isAnyOptionSelected = (await Promise.all(
+          options.map(option => option.isSelected()),
+        )).some(val => val);
+
+        expect(isAnyOptionSelected).toBeFalsy();
+        expect(await inputDriver.getValue()).toBe('');
+      });
+
+      it('should select item with selectedId on async init', async () => {
+        const { driver: _driver, rerender } = render(
+          <Dropdown options={[]} selectedId={0} />,
+        );
+        const { inputDriver, dropdownLayoutDriver } = _driver;
+
+        const options = await dropdownLayoutDriver.options();
+        const isAnyOptionSelected = (await Promise.all(
+          options.map(option => option.isSelected()),
+        )).some(val => val);
+
+        expect(isAnyOptionSelected).toBeFalsy();
+        expect(await inputDriver.getValue()).toBe('');
+
+        rerender(
+          <Dropdown
+            options={[
+              { id: 0, value: 'Option 1' },
+              { id: 1, value: 'Option 2' },
+            ]}
+            selectedId={0}
+          />,
+        );
+
+        const option = await dropdownLayoutDriver.optionById(0);
+        expect(await option.isSelected()).toBe(true);
+        expect(await inputDriver.getValue()).toBe('Option 1');
+      });
+
+      describe('PropTypes Validation', () => {
+        let consoleErrorSpy;
+
+        beforeEach(() => {
+          consoleErrorSpy = jest
+            .spyOn(global.console, 'error')
+            .mockImplementation(jest.fn());
+        });
+        afterEach(() => {
+          consoleErrorSpy.mockRestore();
+          PropTypes.checkPropTypes.resetWarningCache();
+        });
+
+        it('should log error when selectedId and initialSelectedId are used together', async () => {
+          render(
+            <Dropdown
+              options={getOptions()}
+              selectedId={0}
+              initialSelectedId={0}
+            />,
+          );
+          expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+          expect(consoleErrorSpy).toBeCalledWith(
+            expect.stringContaining(
+              `'selectedId' and 'initialSelectedId' cannot both be used at the same time.`,
+            ),
+          );
+        });
+      });
+    });
+
+    describe('Controlled SelectedId', () => {
+      it('should keep current selection and value when option clicked', async () => {
+        const { driver, dropdownLayoutDriver, inputDriver } = createDriver(
+          <Dropdown options={getOptions()} selectedId={0} />,
+        );
+
+        await driver.focus();
+        await dropdownLayoutDriver.clickAtOption(1);
+
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+
+        expect(await inputDriver.getValue()).toBe('Option 1');
+      });
+
+      it('should have no selection if selectedId does not exist', async () => {
+        const { dropdownLayoutDriver } = createDriver(
+          <Dropdown options={[{ id: 0, value: 'Option 1' }]} selectedId={99} />,
+        );
+        const option = await dropdownLayoutDriver.optionById(0);
+        expect(await option.isSelected()).toBe(false);
+      });
+
+      it('should update selection and value when selectedId changes', async () => {
+        const { driver: _driver, rerender } = render(
+          <Dropdown options={getOptions()} selectedId={0} />,
+        );
+        const { dropdownLayoutDriver, inputDriver } = _driver;
+
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+        expect(await inputDriver.getValue()).toBe('Option 1');
+
+        rerender(<Dropdown options={getOptions()} selectedId={1} />);
+        expect(await dropdownLayoutDriver.isOptionSelected(1)).toBe(true);
+
+        expect(await inputDriver.getValue()).toBe('Option 2');
+      });
+    });
+
+    describe('Rerender', () => {
+      it('should keep value when unrelated prop updates', async () => {
+        const { driver: _driver, rerender } = render(
+          <Dropdown options={getOptions()} />,
+        );
+        const { inputDriver } = _driver;
+
+        await inputDriver.enterText('foo');
+        expect(await inputDriver.getValue()).toBe('foo');
+        rerender(<Dropdown options={getOptions()} status="error" />);
+
+        expect(await inputDriver.getValue()).toBe('foo');
+      });
+    });
+
+    describe('testkit', () => {
+      it('should exist', async () => {
+        const div = document.createElement('div');
+        const dataHook = 'myDataHook';
+        const wrapper = div.appendChild(
+          ReactTestUtils.renderIntoDocument(
+            <div>
+              <Dropdown dataHook={dataHook} />
+            </div>,
           ),
         );
+        const dropdownTestkit = dropdownTestkitFactory({ wrapper, dataHook });
+        expect(await dropdownTestkit.driver.exists()).toBe(true);
+        expect(await dropdownTestkit.inputDriver.exists()).toBe(true);
+        expect(await dropdownTestkit.dropdownLayoutDriver.exists()).toBe(true);
       });
     });
-  });
 
-  describe('Controlled SelectedId', () => {
-    it('should keep current selection and value when option clicked', () => {
-      const { driver, dropdownLayoutDriver, inputDriver } = createDriver(
-        <Dropdown options={getOptions()} selectedId={0} />,
-      );
-
-      driver.focus();
-      dropdownLayoutDriver.clickAtOption(1);
-
-      expect(dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
-
-      expect(inputDriver.getValue()).toBe('Option 1');
-    });
-
-    it('should have no selection if selectedId does not exist', () => {
-      const { dropdownLayoutDriver } = createDriver(
-        <Dropdown options={[{ id: 0, value: 'Option 1' }]} selectedId={99} />,
-      );
-
-      expect(dropdownLayoutDriver.optionById(0).isSelected()).toBe(false);
-    });
-
-    it('should update selection and value when selectedId changes', () => {
-      const { driver: _driver, rerender } = render(
-        <Dropdown options={getOptions()} selectedId={0} />,
-      );
-      const { dropdownLayoutDriver, inputDriver } = _driver;
-
-      expect(dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
-      expect(inputDriver.getValue()).toBe('Option 1');
-
-      rerender(<Dropdown options={getOptions()} selectedId={1} />);
-      expect(dropdownLayoutDriver.isOptionSelected(1)).toBe(true);
-
-      expect(inputDriver.getValue()).toBe('Option 2');
-    });
-  });
-
-  describe('Rerender', () => {
-    it('should keep value when unrelated prop updates', () => {
-      const { driver: _driver, rerender } = render(
-        <Dropdown options={getOptions()} />,
-      );
-      const { inputDriver } = _driver;
-
-      inputDriver.enterText('foo');
-      expect(inputDriver.getValue()).toBe('foo');
-      rerender(<Dropdown options={getOptions()} status="error" />);
-
-      expect(inputDriver.getValue()).toBe('foo');
-    });
-  });
-
-  describe('testkit', () => {
-    it('should exist', () => {
-      const div = document.createElement('div');
-      const dataHook = 'myDataHook';
-      const wrapper = div.appendChild(
-        ReactTestUtils.renderIntoDocument(
-          <div>
-            <Dropdown dataHook={dataHook} />
-          </div>,
-        ),
-      );
-      const dropdownTestkit = dropdownTestkitFactory({ wrapper, dataHook });
-      expect(dropdownTestkit.driver.exists()).toBe(true);
-      expect(dropdownTestkit.inputDriver.exists()).toBe(true);
-      expect(dropdownTestkit.dropdownLayoutDriver.exists()).toBe(true);
-    });
-  });
-
-  describe('enzyme testkit', () => {
-    it('should exist', () => {
-      const dataHook = 'myDataHook';
-      const wrapper = mount(<Dropdown dataHook={dataHook} />);
-      const dropdownTestkit = enzymeDropdownTestkitFactory({
-        wrapper,
-        dataHook,
+    describe('enzyme testkit', () => {
+      it('should exist', async () => {
+        const dataHook = 'myDataHook';
+        const wrapper = mount(<Dropdown dataHook={dataHook} />);
+        const dropdownTestkit = enzymeDropdownTestkitFactory({
+          wrapper,
+          dataHook,
+        });
+        expect(await dropdownTestkit.driver.exists()).toBe(true);
+        expect(await dropdownTestkit.inputDriver.exists()).toBe(true);
+        expect(await dropdownTestkit.dropdownLayoutDriver.exists()).toBe(true);
       });
-      expect(dropdownTestkit.driver.exists()).toBe(true);
-      expect(dropdownTestkit.inputDriver.exists()).toBe(true);
-      expect(dropdownTestkit.dropdownLayoutDriver.exists()).toBe(true);
     });
-  });
+  }
 });
