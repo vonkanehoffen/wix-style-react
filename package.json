@@ -69,9 +69,11 @@
     "generate-autodocs-registry": "node scripts/generate-autodocs-registry",
     "update-components": "./scripts/update-components.sh",
     "update-components:beta": "./scripts/update-components-beta.sh",
+    "generate-components-bundles": "node ./scripts/bundlify-components/bundlify.js",
     "eyes-storybook-debug": "start-storybook -c ./.storybook-test -p 6007",
     "make-async-spec": "npx jscodeshift -t scripts/unidriver-migration/src/make-async/make-async.js",
-    "sanity": "autotools-sanity --files './src/**/*.meta.js'"
+    "sanity": "autotools-sanity --files './src/**/*.meta.js'",
+    "components-size": "npm run generate-components-bundles && source-map-explorer ./bundles/*.js"
   },
   "husky": {
     "hooks": {
@@ -164,6 +166,7 @@
     "rimraf": "^2.6.3",
     "simple-git": "^1.107.0",
     "sinon": "^1.17.6",
+    "source-map-explorer": "^2.0.1",
     "tempy": "^0.2.1",
     "terser": "3.14.0",
     "thread-loader": "^2.1.2",
