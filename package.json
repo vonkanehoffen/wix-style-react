@@ -11,6 +11,7 @@
   ],
   "files": [
     "dist",
+    "beta",
     "src",
     "scripts",
     "babel.config.js",
