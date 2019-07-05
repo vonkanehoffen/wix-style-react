@@ -14,11 +14,11 @@ import {
 const MODAL_CLOSE_TIMEOUT = 10;
 
 describe('Modal', () => {
-  describe('[sync]', () => {
+  xdescribe('[sync]', () => {
     runTests(createRendererWithDriver(ModalFactory));
   });
 
-  describe('[async]', () => {
+  xdescribe('[async]', () => {
     runTests(createRendererWithUniDriver(modalUniDriverFactory));
   });
 
