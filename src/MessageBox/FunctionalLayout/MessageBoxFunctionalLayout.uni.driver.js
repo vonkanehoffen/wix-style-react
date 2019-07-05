@@ -14,7 +14,7 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
   return {
     ...baseUniDriverFactory(base),
     exists: () => base.exists(),
-    getConfirmationButtonText: () => confirmationButton()._prop('textContent'),
+    getConfirmationButtonText: () => confirmationButton().text(),
     isConfirmationButtonPrefixIconExists: async () =>
       (await confirmationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isConfirmationButtonSuffixIconExists: async () =>

@@ -1,113 +1,129 @@
 import React from 'react';
-import badgeDriverFactory from './Badge.driver';
+import { badgePrivateDriverFactory } from './Badge.private.driver';
 import Badge from '.';
 import { SKIN, TYPE, SIZE } from './constants';
 import Email from 'wix-ui-icons-common/Email';
-import { createRendererWithDriver, cleanup } from '../../test/utils/unit';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../test/utils/unit';
+import { badgeUniDriverFactory } from './Badge.uni.driver';
 
 describe('Badge', () => {
-  const render = createRendererWithDriver(badgeDriverFactory);
-  const createDriver = jsx => render(jsx).driver;
-
-  afterEach(() => {
-    cleanup();
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(badgePrivateDriverFactory));
   });
 
-  describe('type prop', () => {
-    it('should be solid by default', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getType()).toBe(TYPE.solid);
-    });
+  describe('[async]', () => {
+    runTests(createRendererWithUniDriver(badgeUniDriverFactory));
+  });
 
-    Object.keys(TYPE).forEach(type => {
-      it(`should be ${type}`, () => {
-        const wrapper = createDriver(<Badge type={type}>Hello</Badge>);
-        expect(wrapper.getType()).toBe(type);
+  function runTests(render) {
+    afterEach(() => cleanup());
+
+    const createDriver = jsx => render(jsx).driver;
+
+    describe('type prop', () => {
+      it('should be solid by default', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.getType()).toBe(TYPE.solid);
+      });
+
+      Object.keys(TYPE).forEach(type => {
+        it(`should be ${type}`, async () => {
+          const driver = createDriver(<Badge type={type}>Hello</Badge>);
+          expect(await driver.getType()).toBe(type);
+        });
       });
     });
-  });
 
-  describe('skin prop', () => {
-    it('should be general by default', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getSkin()).toBe(SKIN.general);
-    });
+    describe('skin prop', () => {
+      it('should be general by default', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.getSkin()).toBe(SKIN.general);
+      });
 
-    Object.keys(SKIN).forEach(skin => {
-      it(`should be ${skin}`, () => {
-        const wrapper = createDriver(<Badge skin={skin}>Hello</Badge>);
-        expect(wrapper.getSkin()).toBe(skin);
+      Object.keys(SKIN).forEach(skin => {
+        it(`should be ${skin}`, async () => {
+          const driver = createDriver(<Badge skin={skin}>Hello</Badge>);
+          expect(await driver.getSkin()).toBe(skin);
+        });
       });
     });
-  });
 
-  describe('uppercase prop', () => {
-    it('should be uppercase by default', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.isUppercase()).toBeTruthy();
-    });
+    describe('uppercase prop', () => {
+      it('should be uppercase by default', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.isUppercase()).toBeTruthy();
+      });
 
-    it('should be free-case when value is false', () => {
-      const wrapper = createDriver(<Badge uppercase={false}>Hello</Badge>);
-      expect(wrapper.isUppercase()).toBeFalsy();
-    });
-  });
-
-  describe('size prop', () => {
-    it('should be medium by default', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getSize()).toBe(SIZE.medium);
-    });
-
-    Object.keys(SIZE).forEach(size => {
-      it(`should be ${size}`, () => {
-        const wrapper = createDriver(<Badge size={size}>Hello</Badge>);
-        expect(wrapper.getSize()).toBe(size);
+      it('should be free-case when value is false', async () => {
+        const driver = createDriver(<Badge uppercase={false}>Hello</Badge>);
+        expect(await driver.isUppercase()).toBeFalsy();
       });
     });
-  });
 
-  describe('onClick prop', () => {
-    it('cursor should be default when no onClick', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.hasClickCursor()).toBeFalsy();
+    describe('size prop', () => {
+      it('should be medium by default', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.getSize()).toBe(SIZE.medium);
+      });
+
+      Object.keys(SIZE).forEach(size => {
+        it(`should be ${size}`, async () => {
+          const driver = createDriver(<Badge size={size}>Hello</Badge>);
+          expect(await driver.getSize()).toBe(size);
+        });
+      });
     });
 
-    it('cursor should be pointer when onClick set', () => {
-      const wrapper = createDriver(<Badge onClick={e => e}>Hello</Badge>);
-      expect(wrapper.hasClickCursor()).toBeTruthy();
+    describe('onClick prop', () => {
+      it('cursor should be default when no onClick', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.hasClickCursor()).toBeFalsy();
+      });
+
+      it('cursor should be pointer when onClick set', async () => {
+        const driver = createDriver(<Badge onClick={e => e}>Hello</Badge>);
+        expect(await driver.hasClickCursor()).toBeTruthy();
+      });
+
+      it('should call event handler on badge click', async () => {
+        const handler = jest.fn();
+        const driver = createDriver(
+          <Badge onClick={() => handler()}>Hello</Badge>,
+        );
+        await driver.click();
+        expect(handler).toHaveBeenCalled();
+      });
     });
 
-    it('should call event handler on badge click', () => {
-      const handler = jest.fn();
-      const wrapper = createDriver(
-        <Badge onClick={() => handler()}>Hello</Badge>,
-      );
-      wrapper.click();
-      expect(handler).toHaveBeenCalled();
-    });
-  });
+    describe('children prop', () => {
+      it('should render the text given as a children prop', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.text()).toBe('Hello');
+      });
 
-  describe('children prop', () => {
-    it('should render the text given as a children prop', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.text()).toBe('Hello');
-    });
+      it('should not have any icons by default', async () => {
+        const driver = createDriver(<Badge>Hello</Badge>);
+        expect(await driver.getPrefixIcon().exists()).toBeFalsy();
+        expect(await driver.getSuffixIcon().exists()).toBeFalsy();
+      });
 
-    it('should not have any icons by default', () => {
-      const wrapper = createDriver(<Badge>Hello</Badge>);
-      expect(wrapper.getPrefixIcon()).toBeFalsy();
-      expect(wrapper.getSuffixIcon()).toBeFalsy();
-    });
+      it('should have prefix icon', async () => {
+        const driver = createDriver(
+          <Badge prefixIcon={<Email />}>Hello</Badge>,
+        );
+        expect(await driver.getPrefixIcon().exists()).toBeTruthy();
+      });
 
-    it('should have prefix icon', () => {
-      const wrapper = createDriver(<Badge prefixIcon={<Email />}>Hello</Badge>);
-      expect(wrapper.getPrefixIcon()).toBeTruthy();
+      it('should have suffix icon', async () => {
+        const driver = createDriver(
+          <Badge suffixIcon={<Email />}>Hello</Badge>,
+        );
+        expect(await driver.getSuffixIcon().exists()).toBeTruthy();
+      });
     });
-
-    it('should have suffix icon', () => {
-      const wrapper = createDriver(<Badge suffixIcon={<Email />}>Hello</Badge>);
-      expect(wrapper.getSuffixIcon()).toBeTruthy();
-    });
-  });
+  }
 });

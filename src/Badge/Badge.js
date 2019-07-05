@@ -94,6 +94,17 @@ class Badge extends React.PureComponent {
     );
   };
 
+  _getDataAttributes = () => {
+    const { type, skin, size, uppercase, onClick } = this.props;
+    return {
+      'data-type': type,
+      'data-skin': skin,
+      'data-size': size,
+      'data-clickable': !!onClick,
+      'data-uppercase': uppercase,
+    };
+  };
+
   render() {
     const {
       children,
@@ -107,6 +118,7 @@ class Badge extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
+        {...this._getDataAttributes()}
         onClick={onClick}
         {...this._getFocusableProps()}
         {...style('root', { clickable: !!onClick, ...rest }, this.getProps())}

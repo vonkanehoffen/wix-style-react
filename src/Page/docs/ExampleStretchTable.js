@@ -285,9 +285,7 @@ class ExampleStretchTable extends React.Component {
                       this.state.searchTerm ? (
                         <Text>
                           There are no search results for{' '}
-                          <Text weight="normal">{`"${
-                            this.state.searchTerm
-                          }"`}</Text>
+                          <Text weight="normal">{`"${this.state.searchTerm}"`}</Text>
                           <br />
                           Try search by other criteria
                         </Text>
