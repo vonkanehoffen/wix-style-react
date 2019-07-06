@@ -26,6 +26,7 @@ Types of changes:
 
 ### Changed
 - `<PopoverMenu/>` - change `appendTo` propType [#3662](https://github.com/wix/wix-style-react/pull/3662)
+- `<Text/>` - expose tooltip props [#3701](https://github.com/wix/wix-style-react/pull/3701)
 
 ## 6.35.0 - 2019-07-03
 
