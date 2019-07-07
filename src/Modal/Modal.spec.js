@@ -14,7 +14,7 @@ import {
 const MODAL_CLOSE_TIMEOUT = 10;
 
 describe('Modal', () => {
-  xdescribe('[sync]', () => {
+  describe('[sync]', () => {
     runTests(createRendererWithDriver(ModalFactory));
   });
 
@@ -23,7 +23,7 @@ describe('Modal', () => {
   });
 
   function runTests(renderer) {
-    let testDriver; // used for cleanup
+    let testDriver; //  used for cleanup
     const render = jsx => {
       const rendered = renderer(jsx);
       testDriver = rendered.driver;
