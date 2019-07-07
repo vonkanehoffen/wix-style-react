@@ -9,6 +9,7 @@
 | click                | -         | `Promise<void>`    | clicks on the button               |
 | getButtonTextContent | -         | `Promise<string>`  | returns button text                |
 | isButtonDisabled     | -         | `Promise<boolean>` | returns true if button is disabled |
+| hasSkin              | skinName  | `Promise<boolean>` | returns true if button was configured with given skin |
 
 ## ReactTestUtils Example
 

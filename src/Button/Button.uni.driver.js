@@ -1,3 +1,28 @@
-import { buttonNextDriverFactory } from 'wix-ui-core/drivers/unidriver';
+import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
+import { StylableUnidriverUtil } from 'wix-ui-test-utils/unidriver';
+import stylesBase from 'wix-ui-core/dist/src/components/button-next/button-next.st.css';
+import styles from './Button.st.css';
+
+const buttonNextDriverFactory = base => {
+  const stylableUtil = new StylableUnidriverUtil(stylesBase);
+
+  return {
+    ...baseUniDriverFactory(base),
+
+    /** Returns button text */
+    getButtonTextContent: async () => base.text(),
+
+    /** Returns true if the button is focused */
+    isFocused: async () => document.activeElement === (await base.getNative()), // eslint-disable-line no-restricted-properties
+
+    /** Returns true if the button is disabled */
+    isButtonDisabled: async () => {
+      // Using stylable state and not html 'disabled' attribute, since if 'href' exists, then we don't pu the 'disabled' attribute.
+      return stylableUtil.hasStyleState(base, 'disabled');
+    },
+    /** Returns true if the Button was configured with given skin */
+    hasSkin: skinName => base.hasClass(styles[skinName]),
+  };
+};
 
 export const buttonDriverFactory = buttonNextDriverFactory;
