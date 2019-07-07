@@ -1,5 +1,7 @@
 export { isClassExists, makeControlled } from 'wix-ui-test-utils/react-helpers';
 
+export const findBaseByHook = (base, hook) => base.$(`[data-hook*="${hook}"]`);
+
 export const findByHook = (element, hook) =>
   element.querySelector(`[data-hook*="${hook}"]`);
 

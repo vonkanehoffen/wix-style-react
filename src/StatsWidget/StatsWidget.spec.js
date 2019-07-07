@@ -1,11 +1,14 @@
 import React from 'react';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import statsWidgetDriverFactory from './StatsWidget.driver';
 import StatsWidget from './StatsWidget';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../test/utils/unit';
+import { statsWidgetUniDriverFactory } from './StatsWidget.uni.driver';
 
 describe('StatsWidget', () => {
-  const createDriver = createDriverFactory(statsWidgetDriverFactory);
-
   const title = 'Stats Widget title';
   const statistics = [
     {
@@ -48,200 +51,226 @@ describe('StatsWidget', () => {
     },
   ];
 
-  let driver;
+  const uniDriverRender = createRendererWithUniDriver(
+    statsWidgetUniDriverFactory,
+  );
+  describe('[sync]', () =>
+    runTests(createRendererWithDriver(statsWidgetDriverFactory)));
 
-  function createComponent(props) {
-    driver = createDriver(<StatsWidget {...props} />);
+  describe('[async]', () => runTests(uniDriverRender));
+
+  runPropTypesValidation(uniDriverRender);
+
+  /**PropTypes - error messages are memorized and will only be shown once.
+   * PropTypes.resetWarningCache() does not work too, so we can only run these tests once.*/
+  function runPropTypesValidation(render) {
+    describe('propTypes validation', () => {
+      let consoleErrorSpy;
+
+      function createComponent(props) {
+        render(<StatsWidget {...props} />);
+      }
+
+      const createChildren = n =>
+        Array(n)
+          .fill()
+          .map((v, i) => (
+            <StatsWidget.FilterButton
+              open
+              key={i}
+              selectedId={1}
+              dataHook="stats-widget-filter"
+              options={[{ id: 1, value: 'value' }]}
+            />
+          ));
+
+      beforeEach(() => {
+        consoleErrorSpy = jest
+          .spyOn(global.console, 'error')
+          .mockImplementation(jest.fn());
+      });
+
+      afterEach(() => {
+        consoleErrorSpy.mockRestore();
+      });
+
+      it('should not initialize component with percent which are not a numbers', async () => {
+        const wrongStatistics = [
+          {
+            title: '10$',
+            subtitle: 'Revenue',
+            percent: '15%',
+          },
+          {
+            title: '2',
+            subtitle: 'Products',
+            percent: '-15%',
+          },
+          {
+            title: '1',
+            subtitle: 'Transactions',
+            percent: '0',
+          },
+        ];
+
+        createComponent({ title, statistics: wrongStatistics });
+
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          expect.stringContaining(
+            'Warning: Failed prop type: Invalid prop `statistics[0].percent` of type `string` supplied to `StatsWidget`, expected `number`',
+          ),
+        );
+      });
+
+      it('should throw when there are more than 3 children', async () => {
+        createComponent({
+          title,
+          statistics,
+          children: createChildren(4),
+        });
+
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          expect.stringContaining(
+            'Warning: Failed prop type: Invalid Prop children, maximum amount of filters are 3',
+          ),
+        );
+      });
+
+      it('should throw when children are not <StatsWidget.FilterButton/>', async () => {
+        createComponent({
+          title,
+          statistics,
+          children: [<div key="1" />, <div key="2" />, <div key="3" />],
+        });
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          expect.stringContaining(
+            'Warning: Failed prop type: StatsWidget: Invalid Prop children, only <StatsWidget.FilterButton/> is allowed',
+          ),
+        );
+      });
+    });
   }
 
-  it('should have correct title', () => {
-    createComponent({ title, statistics });
-    expect(driver.titleText()).toBe(title);
-  });
+  function runTests(render) {
+    afterEach(() => cleanup());
 
-  it('should show statistics and not empty state', () => {
-    createComponent({ title, statistics });
-    expect(driver.getStatisticTitle(0)).toBe(statistics[0].title);
-    expect(driver.getStatisticSubTitle(0)).toBe(statistics[0].subtitle);
-    expect(driver.isEmptyStateExists()).toBe(false);
-  });
+    let driver;
 
-  it('should show empty state and not statistics', () => {
-    createComponent({ title, emptyState: <div>Empty</div> });
-    expect(driver.isEmptyStateExists()).toBe(true);
-    expect(driver.isStatisticsContentExists()).toBe(false);
-  });
+    function createComponent(props) {
+      driver = render(<StatsWidget {...props} />).driver;
+    }
 
-  it('should show abs of percentage', () => {
-    createComponent({ title, statistics: statisticsWithPercents });
-    expect(driver.getStatisticPercentValue(0)).toBe(
-      Math.abs(statisticsWithPercents[0].percent) + '%',
-    );
-    expect(driver.getStatisticPercentValue(1)).toBe(
-      Math.abs(statisticsWithPercents[1].percent) + '%',
-    );
-  });
-
-  it('should check the stats percent color skin', () => {
-    createComponent({ title, statistics: statisticsWithPercents });
-    expect(driver.isNegativePercentValue(0)).toBe(false);
-    expect(driver.isNegativePercentValue(1)).toBe(true);
-  });
-
-  it('should put proper classes to percentage according to value', () => {
-    createComponent({ title, statistics: statisticsWithPercents });
-
-    expect(driver.getStatisticPercentClass(0)).toContain('isPositive');
-    expect(driver.getStatisticPercentClass(1)).toContain('isNegative');
-
-    expect(driver.getStatisticPercentClass(2)).not.toContain('isNegative');
-    expect(driver.getStatisticPercentClass(2)).not.toContain('isPositive');
-  });
-
-  it('should show filter with DropdownBase inside', () => {
-    const children = (
-      <StatsWidget.FilterButton
-        open
-        selectedId={1}
-        dataHook="stats-widget-filter"
-        options={[{ id: 1, value: 'value' }]}
-      />
-    );
-    createComponent({ title, statistics, children });
-    expect(
-      driver
-        .getFilterButtonDriver('stats-widget-filter')
-        .dropdownLayoutDriver.exists(),
-    ).toBe(true);
-  });
-
-  it('should be able to transfer a suffix inside', () => {
-    createComponent({
-      title,
-      statistics: statisticsWithPercents,
-      suffix: <div data-hook="suffix-element-hook">some test</div>,
-    });
-    expect(driver.getSuffixElementByHook('suffix-element-hook')).toBe(
-      'some test',
-    );
-  });
-
-  it('filters should have selectable options', () => {
-    const onSelectStub = jest.fn();
-
-    const children = (
-      <StatsWidget.FilterButton
-        open
-        selectedId={1}
-        dataHook="stats-widget-filter"
-        onSelect={onSelectStub}
-        options={[{ id: 1, value: 'value' }]}
-      />
-    );
-    createComponent({ title, statistics, children });
-    driver
-      .getFilterButtonDriver('stats-widget-filter')
-      .dropdownLayoutDriver.clickAtOption(0);
-    expect(onSelectStub).toHaveBeenCalledWith({ id: 1, value: 'value' });
-  });
-
-  it('should show filters with option value specified', () => {
-    const value = 'Last Week';
-    const children = (
-      <StatsWidget.FilterButton
-        open
-        selectedId={1}
-        dataHook="stats-widget-filter"
-        options={[{ id: 1, value }]}
-      />
-    );
-    createComponent({ title, statistics, children });
-    expect(
-      driver
-        .getFilterButtonDriver('stats-widget-filter')
-        .dropdownLayoutDriver.optionsContent(),
-    ).toContain(value);
-  });
-
-  describe('propTypes validation', () => {
-    let consoleErrorSpy;
-
-    const createChildren = n =>
-      Array(n)
-        .fill()
-        .map((v, i) => (
-          <StatsWidget.FilterButton
-            open
-            key={i}
-            selectedId={1}
-            dataHook="stats-widget-filter"
-            options={[{ id: 1, value: 'value' }]}
-          />
-        ));
-
-    beforeEach(() => {
-      consoleErrorSpy = jest
-        .spyOn(global.console, 'error')
-        .mockImplementation(jest.fn());
+    it('should have correct title', async () => {
+      createComponent({ title, statistics });
+      expect(await driver.titleText()).toBe(title);
     });
 
-    afterEach(() => {
-      consoleErrorSpy.mockRestore();
+    it('should show statistics and not empty state', async () => {
+      createComponent({ title, statistics });
+      expect(await driver.getStatisticTitle(0)).toBe(statistics[0].title);
+      expect(await driver.getStatisticSubTitle(0)).toBe(statistics[0].subtitle);
+      expect(await driver.isEmptyStateExists()).toBe(false);
     });
 
-    it('should not initialize component with percent which are not a numbers', () => {
-      const wrongStatistics = [
-        {
-          title: '10$',
-          subtitle: 'Revenue',
-          percent: '15%',
-        },
-        {
-          title: '2',
-          subtitle: 'Products',
-          percent: '-15%',
-        },
-        {
-          title: '1',
-          subtitle: 'Transactions',
-          percent: '0',
-        },
-      ];
+    it('should show empty state and not statistics', async () => {
+      createComponent({ title, emptyState: <div>Empty</div> });
+      expect(await driver.isEmptyStateExists()).toBe(true);
+      expect(await driver.isStatisticsContentExists()).toBe(false);
+    });
 
-      createComponent({ title, statistics: wrongStatistics });
-
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Warning: Failed prop type: Invalid prop `statistics[0].percent` of type `string` supplied to `StatsWidget`, expected `number`',
-        ),
+    it('should show abs of percentage', async () => {
+      createComponent({ title, statistics: statisticsWithPercents });
+      expect(await driver.getStatisticPercentValue(0)).toBe(
+        Math.abs(statisticsWithPercents[0].percent) + '%',
+      );
+      expect(await driver.getStatisticPercentValue(1)).toBe(
+        Math.abs(statisticsWithPercents[1].percent) + '%',
       );
     });
 
-    it('should throw when there are more than 3 children', () => {
+    it('should check the stats percent color skin', async () => {
+      createComponent({ title, statistics: statisticsWithPercents });
+      expect(await driver.isNegativePercentValue(0)).toBe(false);
+      expect(await driver.isNegativePercentValue(1)).toBe(true);
+    });
+
+    it('should put proper classes to percentage according to value', async () => {
+      createComponent({ title, statistics: statisticsWithPercents });
+
+      expect(await driver.getStatisticPercentClass(0)).toContain('isPositive');
+      expect(await driver.getStatisticPercentClass(1)).toContain('isNegative');
+
+      expect(await driver.getStatisticPercentClass(2)).not.toContain(
+        'isNegative',
+      );
+      expect(await driver.getStatisticPercentClass(2)).not.toContain(
+        'isPositive',
+      );
+    });
+
+    it('should show filter with DropdownBase inside', async () => {
+      const children = (
+        <StatsWidget.FilterButton
+          open
+          selectedId={1}
+          dataHook="stats-widget-filter"
+          options={[{ id: 1, value: 'value' }]}
+        />
+      );
+      createComponent({ title, statistics, children });
+      expect(
+        await driver
+          .getFilterButtonDriver('stats-widget-filter')
+          .dropdownLayoutDriver.exists(),
+      ).toBe(true);
+    });
+
+    it('should be able to transfer a suffix inside', async () => {
       createComponent({
         title,
-        statistics,
-        children: createChildren(4),
+        statistics: statisticsWithPercents,
+        suffix: <div data-hook="suffix-element-hook">some test</div>,
       });
-
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Warning: Failed prop type: Invalid Prop children, maximum amount of filters are 3',
-        ),
+      expect(await driver.getSuffixElementByHook('suffix-element-hook')).toBe(
+        'some test',
       );
     });
 
-    it('should throw when children are not <StatsWidget.FilterButton/>', () => {
-      createComponent({
-        title,
-        statistics,
-        children: [<div key="1" />, <div key="2" />, <div key="3" />],
-      });
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Warning: Failed prop type: StatsWidget: Invalid Prop children, only <StatsWidget.FilterButton/> is allowed',
-        ),
+    it('filters should have selectable options', async () => {
+      const onSelectStub = jest.fn();
+
+      const children = (
+        <StatsWidget.FilterButton
+          open
+          selectedId={1}
+          dataHook="stats-widget-filter"
+          onSelect={onSelectStub}
+          options={[{ id: 1, value: 'value' }]}
+        />
       );
+      createComponent({ title, statistics, children });
+      await driver
+        .getFilterButtonDriver('stats-widget-filter')
+        .dropdownLayoutDriver.clickAtOption(0);
+      expect(onSelectStub).toHaveBeenCalledWith({ id: 1, value: 'value' });
     });
-  });
+
+    it('should show filters with option value specified', async () => {
+      const value = 'Last Week';
+      const children = (
+        <StatsWidget.FilterButton
+          open
+          selectedId={1}
+          dataHook="stats-widget-filter"
+          options={[{ id: 1, value }]}
+        />
+      );
+      createComponent({ title, statistics, children });
+      expect(
+        await driver
+          .getFilterButtonDriver('stats-widget-filter')
+          .dropdownLayoutDriver.optionsContent(),
+      ).toContain(value);
+    });
+  }
 });
