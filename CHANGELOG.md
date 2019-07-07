@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added ###
-- `<Button/>` - Teskit - add hasSkin function[#3652](https://github.com/wix/wix-style-react/pull/3652)
+- `<Button/>` - Teskit - add hasSkin function [#3652](https://github.com/wix/wix-style-react/pull/3652)
 - `<Stepper/>` - Export testkit types [#3690](https://github.com/wix/wix-style-react/pull/3690)
 - `<PopoverMenu/>` - beta - make sure that beta folder is included in the release [#3698](https://github.com/wix/wix-style-react/pull/3698)
 -  `npm run components-size` - compiles components to bundles and opens source map explorer [#3622](https://github.com/wix/wix-style-react/pull/3622)
