@@ -16,6 +16,11 @@ Types of changes:
 
 ## Next
 
+### Fixed
+
+- `<Table/>` - Given only one column exists, treat it as first instead of last style-wise [#3705](https://github.com/wix/wix-style-react/pull/3705)
+
+
 ## 6.36.0 - 2019-07-07
 
 ### Added ###
