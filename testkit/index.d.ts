@@ -107,6 +107,7 @@ declare namespace VanillaTestkit {
   export const toggleSwitchTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const draggableTestkitFactory: any;
+  export const stepperTestkitFactory: any;
   export const editableRowTestkitFactory: any;
   export const fieldLabelAttributesTestkitFactory: any;
   export const fieldWithSelectionCompositeTestkitFactory: any;
