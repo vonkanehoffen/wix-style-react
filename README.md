@@ -108,6 +108,7 @@ const App = () => (
     }
     ```
 * Use [demo pages](https://wix-wix-style-react.surge.sh/) to find all available components with examples.
+* Use [version 5 demo pages](https://wix-wix-style-react-v5.surge.sh/) to find demos of the previous version of the library - version 5.
 
 ## Test drivers
 All of `wix-style-react` components are 100% tested and supplies test drivers for easy interactions in your tests. Read more about [Components Drivers](./docs/usage/COMPONENTS_DRIVERS.md)
