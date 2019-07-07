@@ -1,73 +1,87 @@
 import React from 'react';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 
 import GenericModalLayout from '.';
 import genericModalLayoutPrivateDriverFactory from './GenericModalLayout.private.driver';
+import { genericModalLayoutPrivateUniDriverFactory } from './GenericModalLayout.private.uni.driver';
+import {
+  createRendererWithDriver,
+  createRendererWithUniDriver,
+} from '../../test/utils/unit';
 
 const renderWithProps = (properties = {}) => (
   <GenericModalLayout {...properties} />
 );
 
 describe('GenericModalLayout', () => {
-  const createPrivateDriver = createDriverFactory(
-    genericModalLayoutPrivateDriverFactory,
-  );
-
-  it('should render header', () => {
-    const driver = createPrivateDriver(
-      renderWithProps({
-        header: <div data-hook="generic-modal-layout-header">Header</div>,
-      }),
-    );
-
-    expect(driver.getHeaderTextContent()).toEqual('Header');
+  describe('[sync]', () => {
+    runTests(createRendererWithDriver(genericModalLayoutPrivateDriverFactory));
   });
 
-  it('should render content', () => {
-    const driver = createPrivateDriver(
-      renderWithProps({
-        content: <div data-hook="generic-modal-layout-content">Content</div>,
-      }),
+  describe('[async]', () => {
+    runTests(
+      createRendererWithUniDriver(genericModalLayoutPrivateUniDriverFactory),
     );
-
-    expect(driver.getContentTextContent()).toEqual('Content');
   });
 
-  it('should render footer', () => {
-    const driver = createPrivateDriver(
-      renderWithProps({
-        footer: <div data-hook="generic-modal-layout-footer">Footer</div>,
-      }),
-    );
+  function runTests(render) {
+    const createPrivateDriver = jsx => render(jsx).driver;
 
-    expect(driver.getFooterTextContent()).toEqual('Footer');
-  });
-
-  describe('fullscreen', () => {
-    it('should render not fullscreen as default', () => {
-      const driver = createPrivateDriver(renderWithProps());
-
-      expect(driver.isFullscreen()).toBeFalsy();
-    });
-
-    it('should render fullscreen layout', () => {
+    it('should render header', async () => {
       const driver = createPrivateDriver(
         renderWithProps({
-          fullscreen: true,
+          header: <div data-hook="generic-modal-layout-header">Header</div>,
         }),
       );
 
-      expect(driver.isFullscreen()).toBeTruthy();
+      expect(await driver.getHeaderTextContent()).toEqual('Header');
     });
 
-    it('should render not fullscreen layout', () => {
+    it('should render content', async () => {
       const driver = createPrivateDriver(
         renderWithProps({
-          fullscreen: false,
+          content: <div data-hook="generic-modal-layout-content">Content</div>,
         }),
       );
 
-      expect(driver.isFullscreen()).toBeFalsy();
+      expect(await driver.getContentTextContent()).toEqual('Content');
     });
-  });
+
+    it('should render footer', async () => {
+      const driver = createPrivateDriver(
+        renderWithProps({
+          footer: <div data-hook="generic-modal-layout-footer">Footer</div>,
+        }),
+      );
+
+      expect(await driver.getFooterTextContent()).toEqual('Footer');
+    });
+
+    describe('fullscreen', () => {
+      it('should render not fullscreen as default', async () => {
+        const driver = createPrivateDriver(renderWithProps());
+
+        expect(await driver.isFullscreen()).toBeFalsy();
+      });
+
+      it('should render fullscreen layout', async () => {
+        const driver = createPrivateDriver(
+          renderWithProps({
+            fullscreen: true,
+          }),
+        );
+
+        expect(await driver.isFullscreen()).toBeTruthy();
+      });
+
+      it('should render not fullscreen layout', async () => {
+        const driver = createPrivateDriver(
+          renderWithProps({
+            fullscreen: false,
+          }),
+        );
+
+        expect(await driver.isFullscreen()).toBeFalsy();
+      });
+    });
+  }
 });
