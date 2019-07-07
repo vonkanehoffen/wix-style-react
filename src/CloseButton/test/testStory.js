@@ -54,17 +54,6 @@ const ButtonBlock = values => {
   );
 };
 
-storiesOf(kind, module).add(testStories.CLOSEBUTTON_SKINS, () => (
-  <TestContainer>
-    <div style={{ marginLeft: '10px' }}>
-      <Layout>
-        <ButtonBlock title="Skins (small)" />
-        <ButtonBlock size={SIZES.medium} title="Skins (medium)" />
-      </Layout>
-    </div>
-  </TestContainer>
-));
-
 storiesOf(kind, module).add(testStories.CLOSEBUTTON_AS, () => (
   <TestContainer>
     <div style={{ marginLeft: '10px' }}>

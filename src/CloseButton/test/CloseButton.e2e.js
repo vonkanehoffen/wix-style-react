@@ -15,10 +15,6 @@ describe('CloseButton', () => {
       eyes.checkWindow(testName);
     };
 
-    eyes.it('check closebutton skins', async () => {
-      await checkTestStory(testStories.CLOSEBUTTON_SKINS);
-    });
-
     eyes.it('check closebutton sizes', async () => {
       await checkTestStory(testStories.CLOSEBUTTON_AS);
     });
