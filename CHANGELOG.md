@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Added
+Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
+
+
 ### Fixed
 
 - `<Table/>` - Given only one column exists, treat it as first instead of last style-wise [#3705](https://github.com/wix/wix-style-react/pull/3705)
