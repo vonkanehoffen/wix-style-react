@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
+- `Cheatsheet`- Adding examples to `InputFamily` [#3682](https://github.com/wix/wix-style-react/pull/3682)
 
 
 ### Fixed
