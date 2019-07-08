@@ -143,7 +143,7 @@ describe('Table', () => {
         const { driver } = render(
           <Table {...defaultProps} selectedIds={firstSelected()} />,
         );
-        await driver.clickRowChecbox(1);
+        await driver.clickRowCheckbox(1);
         expect(await driver.isRowSelected(1)).toBeTruthy();
       });
 
@@ -151,7 +151,7 @@ describe('Table', () => {
         const { driver } = render(
           <Table {...defaultProps} selectedIds={allSelected()} />,
         );
-        await driver.clickRowChecbox(1);
+        await driver.clickRowCheckbox(1);
         expect(await driver.isRowSelected(1)).toBeFalsy();
       });
 
@@ -198,7 +198,7 @@ describe('Table', () => {
       it('should keep selection when re-rendered given selectedIds not provided (Uncontrolled)', async () => {
         const { driver, rerender } = render(<Table {...defaultProps} />);
         expect(await driver.isRowSelected(1)).toBeFalsy();
-        await driver.clickRowChecbox(1);
+        await driver.clickRowCheckbox(1);
         expect(await driver.isRowSelected(1)).toBeTruthy();
         rerender(<Table {...defaultProps} />);
         expect(await driver.isRowSelected(1)).toBeTruthy();
@@ -336,7 +336,7 @@ describe('Table', () => {
               onSelectionChanged={onSelectionChanged}
             />,
           );
-          await driver.clickRowChecbox(1);
+          await driver.clickRowCheckbox(1);
           expect(onSelectionChanged.mock.calls).toHaveLength(1);
           expect(onSelectionChanged).toHaveBeenCalledWith(allSelected(), {
             type: 'SINGLE_TOGGLE',
@@ -352,7 +352,7 @@ describe('Table', () => {
           const { driver } = render(
             <Table {...defaultProps} selectedIds={selectedIds} />,
           );
-          await driver.clickRowChecbox(0);
+          await driver.clickRowCheckbox(0);
           expect((await driver.getBulkSelectionState()) === 'ALL').toBeTruthy();
         });
 
@@ -361,7 +361,7 @@ describe('Table', () => {
           const { driver } = render(
             <Table {...defaultProps} selectedIds={selectedIds} />,
           );
-          await driver.clickRowChecbox(1);
+          await driver.clickRowCheckbox(1);
           expect(
             (await driver.getBulkSelectionState()) === 'NONE',
           ).toBeTruthy();
@@ -387,7 +387,7 @@ describe('Table', () => {
           const { driver } = render(
             <Table {...defaultProps} selectedIds={selectedIds} />,
           );
-          await driver.clickRowChecbox(1);
+          await driver.clickRowCheckbox(1);
           expect(
             (await driver.getBulkSelectionState()) === 'SOME',
           ).toBeTruthy();
@@ -398,7 +398,7 @@ describe('Table', () => {
           const { driver } = render(
             <Table {...defaultProps} selectedIds={selectedIds} />,
           );
-          await driver.clickRowChecbox(1);
+          await driver.clickRowCheckbox(1);
           expect(
             (await driver.getBulkSelectionState()) === 'SOME',
           ).toBeTruthy();

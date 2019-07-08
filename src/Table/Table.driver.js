@@ -1,5 +1,6 @@
 import dataTableDriverFactory from '../DataTable/DataTable.driver';
 import checkboxDriverFactory from '../Checkbox/Checkbox.driver';
+import deprecationLog from '../utils/deprecationLog';
 
 const tableDriverFactory = ({ element, eventTrigger }) => {
   const dataTableDriver = dataTableDriverFactory({
@@ -48,16 +49,23 @@ const tableDriverFactory = ({ element, eventTrigger }) => {
   return {
     ...dataTableDriver,
     element,
-    /** Get driver of row selection checbox by row index */
+    /** Get driver of row selection checkbox by row index */
     getRowCheckboxDriver,
-    /** Get driver of row bulk-selection checbox */
+    /** Get driver of row bulk-selection checkbox */
     getBulkSelectionCheckboxDriver,
     /** Whether bulk selection checkbox is disabled */
     isBulkSelectionDisabled,
     /** Whether specific row selection checkbox is disabled */
     isRowSelectionDisabled,
     /** Click the row selection checkbox */
-    clickRowChecbox: index => getRowCheckboxDriver(index).click(),
+    clickRowChecbox: index => {
+      deprecationLog(
+        '"clickRowChecbox" method is deprecated (because of typo) and will be removed in next major release, please use "clickRowCheckbox" driver method',
+      );
+      return getRowCheckboxDriver(index).click();
+    },
+    /** Click the row selection checkbox */
+    clickRowCheckbox: index => getRowCheckboxDriver(index).click(),
     /** Click the bulk-selection checkbox */
     clickBulkSelectionCheckbox: () => getBulkSelectionCheckboxDriver().click(),
     /** Is row selected by index */

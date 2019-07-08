@@ -24,9 +24,9 @@
 | hasSortDescending              | (index)              | bool           | true if column title has sort descending style                   |
 | clickSort                      | (index, eventData)   | -              | click with <eventData> the column index <number>                 |
 | getRowDetails                  | string               | element        | returns row details by row index                                 |
-| getRowCheckboxDriver           | index: number        | CheckboxDriver | Get driver of row selection checbox by row index                 |
-| getBulkSelectionCheckboxDriver | -                    | CheckboxDriver | Get driver of row bulk-selection checbox                         |
-| clickRowChecbox                | index                | -              | Click the row selection checkbox                                 |
+| getRowCheckboxDriver           | index: number        | CheckboxDriver | Get driver of row selection checkbox by row index                 |
+| getBulkSelectionCheckboxDriver | -                    | CheckboxDriver | Get driver of row bulk-selection checkbox                         |
+| clickRowCheckbox                | index                | -              | Click the row selection checkbox                                 |
 | clickBulkSelectionCheckbox     | -                    | -              | Click the bulk-selection checkbox                                |
 | isRowSelected                  | index : number       | boolean        | Is row selected by index                                         |
 | getBulkSelectionState          | -                    | string         | Get bulk selection state. Possible value 'ALL', 'SOME', 'NONE.   |

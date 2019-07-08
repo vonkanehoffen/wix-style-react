@@ -831,7 +831,7 @@ No Changes (Patch version, only to re-publish Storybook, after failed publish)
 
 - `<StatsWidget/>` - support custom suffix header action [#2885](https://github.com/wix/wix-style-react/pull/2885)
 - `<FormField/>` - add max-width to children [#2894](https://github.com/wix/wix-style-react/pull/2894)
-- `<Checbox/>` - Add error message tooltip [#2892](https://github.com/wix/wix-style-react/pull/2892)
+- `<Checkbox/>` - Add error message tooltip [#2892](https://github.com/wix/wix-style-react/pull/2892)
 
 ### Fixed
 
