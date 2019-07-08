@@ -6,7 +6,7 @@ import Markdown from 'wix-storybook-utils/Markdown';
 import Readme from '../../README.md';
 import UsageWithoutYoshiReadme from '../../docs/usage-without-yoshi.md';
 
-import ComponentsCheatsheet from './ComponentsCheatsheet';
+import ComponentsCheatsheet from './Cheatsheet/ComponentsCheatsheet';
 
 storiesOf('Introduction', module)
   .add('Getting started', () => <Markdown source={Readme} />)
@@ -15,4 +15,4 @@ storiesOf('Introduction', module)
     <Markdown source={UsageWithoutYoshiReadme} />
   ));
 
-//TODO - add contriubtion docs links here somehow
+//TODO - add contribution docs links here somehow
