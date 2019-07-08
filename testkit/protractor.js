@@ -479,10 +479,10 @@ export const TooltipTestkit = protractorUniTestkitFactoryCreator(
   tooltipNextDriverFactory,
 );
 
-import { notificationDriverFactory } from '../src/Notification/Notification.uni.driver';
+import { notificationUniDriverFactory } from '../src/Notification/Notification.uni.driver';
 
 export const notificationTestkitFactory = protractorUniTestkitFactoryCreator(
-  notificationDriverFactory,
+  notificationUniDriverFactory,
 );
 
 import { errorIndicatorDriverFactory } from '../src/ErrorIndicator/ErrorIndicator.uni.driver';
@@ -519,4 +519,46 @@ import { stepperDriverFactory } from '../src/Stepper/Stepper.uni.driver';
 
 export const stepperTestkitFactory = protractorUniTestkitFactoryCreator(
   stepperDriverFactory,
+);
+
+import { messageBoxMarketerialLayoutUniDriverFactory } from '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver';
+
+export const messageBoxMarketerialLayoutTestkitFactory = protractorTestkitFactoryCreator(
+  messageBoxMarketerialLayoutUniDriverFactory,
+);
+
+import { sideMenuUniDriverFactory } from '../src/SideMenu/core/SideMenu.uni.driver';
+
+export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(
+  sideMenuUniDriverFactory,
+);
+
+import { contactItemBuilderUniDriverFactory } from '../src/ContactItemBuilder/ContactItemBuilder.uni.driver';
+
+export const contactItemBuilderTestkitFactory = protractorTestkitFactoryCreator(
+  contactItemBuilderUniDriverFactory,
+);
+
+import { modalUniDriverFactory } from '../src/Modal/Modal.uni.driver';
+
+export const modalTestkitFactory = protractorTestkitFactoryCreator(
+  modalUniDriverFactory,
+);
+
+import { headerUniDriverFactory } from '../src/Card/Header/Header.uni.driver';
+
+export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(
+  headerUniDriverFactory,
+);
+
+import { editableRowUniDriverFactory } from '../src/EditableSelector/EditableRow/EditableRow.uni.driver';
+
+export const editableRowTestkitFactory = protractorTestkitFactoryCreator(
+  editableRowUniDriverFactory,
+);
+
+import { timeInputUniDriverFactory } from '../src/TimeInput/TimeInput.uni.driver';
+
+export const timeInputTestkitFactory = protractorTestkitFactoryCreator(
+  timeInputUniDriverFactory,
 );

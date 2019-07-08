@@ -88,3 +88,11 @@ export const TooltipTestkit: any;
 export const notificationTestkitFactory: any;
 export const errorIndicatorTestkitFactory: any;
 export const stepperTestkitFactory: any;
+export const messageBoxMarketerialLayoutTestkitFactory: any;
+export const sideMenuTestkitFactory: any;
+export const contactItemBuilderTestkitFactory: any;
+export const modalTestkitFactory: any;
+export const cardHeaderTestkitFactory: any;
+export const editableRowTestkitFactory: any;
+export const timeInputTestkitFactory: any;
+
