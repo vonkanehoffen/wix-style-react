@@ -24,6 +24,8 @@ Types of changes:
 
 - `<Table/>` - Given only one column exists, treat it as first instead of last style-wise [#3705](https://github.com/wix/wix-style-react/pull/3705)
 
+### Deprecated
+`<Table />` - deprecate `clickRowChecbox` driver method, you should use `clickRowCheckbox` instead [#3678](https://github.com/wix/wix-style-react/pull/3678)
 
 ## 6.36.0 - 2019-07-07
 
