@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
-Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
+- Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
 
 
 ### Fixed
