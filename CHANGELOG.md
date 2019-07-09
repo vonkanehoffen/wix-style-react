@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Changed
+
+- `<Text/>` - expose tooltip props: hideDelay, showDelay, zIndex [#3725](https://github.com/wix/wix-style-react/pull/3725)
+
 ## 6.37.0 - 2019-07-08
 
 ### Added
