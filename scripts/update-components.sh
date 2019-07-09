@@ -10,18 +10,14 @@ wuf update \
 
 # vanilla testkits
 wuf export-testkits \
-  --factoryName testkitFactoryCreator \
-  --uniFactoryName uniTestkitFactoryCreator \
   --components .wuf/components.json \
   --definitions .wuf/testkits/definitions.js \
-  --template .wuf/testkits/vanilla.template.js \
+  --template .wuf/testkits/vanilla.template.ejs \
   --output testkit/index.js
 
 # enzyme testkits
 wuf export-testkits \
-  --factoryName enzymeTestkitFactoryCreator \
-  --uniFactoryName enzymeUniTestkitFactoryCreator \
   --components .wuf/components.json \
   --definitions .wuf/testkits/definitions.js \
-  --template .wuf/testkits/enzyme.template.js \
+  --template .wuf/testkits/enzyme.template.ejs \
   --output testkit/enzyme.js
