@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Sidebar, { SidebarSectionTitle } from '..';
+import Sidebar, { SidebarSectionTitle, SidebarSectionDivider } from '..';
 
 // TODO: Remove after "Visual" is finished with all supported functionality
 storiesOf('Sidebar', module).add('sanity', () => (
@@ -51,6 +51,8 @@ storiesOf('Sidebar', module).add('Visual', () => (
       <Sidebar.PersistentHeader>
         <div>Header</div>
       </Sidebar.PersistentHeader>
+
+      <SidebarSectionDivider />
 
       <SidebarSectionTitle>Ascend By Wix</SidebarSectionTitle>
 
