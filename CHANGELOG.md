@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.37.0 - 2019-07-08
+
 ### Added
 - `<Text/>` - expose tooltip props [#3701](https://github.com/wix/wix-style-react/pull/3701)
 - Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
