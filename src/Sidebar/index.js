@@ -5,3 +5,5 @@ const SidebarContextConsumer = SidebarContext.Consumer;
 const SidebarItemContextConsumer = SidebarItemContext.Consumer;
 
 export { SidebarContextConsumer, SidebarItemContextConsumer };
+
+export { default as SidebarSectionTitle } from './SidebarSectionTitle';

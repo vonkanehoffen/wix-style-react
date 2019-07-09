@@ -130,6 +130,7 @@ export {
   default as Sidebar,
   SidebarContextConsumer,
   SidebarItemContextConsumer,
+  SidebarSectionTitle,
 } from './Sidebar';
 export { default as Subheader } from './Card/Subheader';
 export { default as Swatches } from './Swatches';

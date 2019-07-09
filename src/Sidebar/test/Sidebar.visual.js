@@ -1,7 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Sidebar from '..';
 
+import Sidebar, { SidebarSectionTitle } from '..';
+
+// TODO: Remove after "Visual" is finished with all supported functionality
 storiesOf('Sidebar', module).add('sanity', () => (
   <div style={{ height: '500px', color: 'white' }}>
     <Sidebar selectedKey={'item1'}>
@@ -38,6 +40,22 @@ storiesOf('Sidebar', module).add('sanity', () => (
         <div style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}>
           Sidebar Footer
         </div>
+      </Sidebar.PersistentFooter>
+    </Sidebar>
+  </div>
+));
+
+storiesOf('Sidebar', module).add('Visual', () => (
+  <div style={{ height: '500px', color: 'white' }}>
+    <Sidebar selectedKey={'dashboard'}>
+      <Sidebar.PersistentHeader>
+        <div>Header</div>
+      </Sidebar.PersistentHeader>
+
+      <SidebarSectionTitle>Ascend By Wix</SidebarSectionTitle>
+
+      <Sidebar.PersistentFooter>
+        <div>Footer</div>
       </Sidebar.PersistentFooter>
     </Sidebar>
   </div>
