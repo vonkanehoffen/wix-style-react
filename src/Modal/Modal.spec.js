@@ -18,7 +18,7 @@ describe('Modal', () => {
     runTests(createRendererWithDriver(ModalFactory));
   });
 
-  xdescribe('[async]', () => {
+  describe('[async]', () => {
     runTests(createRendererWithUniDriver(modalUniDriverFactory));
   });
 
