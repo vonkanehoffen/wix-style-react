@@ -20,6 +20,9 @@ const Text = ({
   timeout,
   appendTo,
   maxWidth,
+  zIndex,
+  hideDelay,
+  showDelay,
   ...props
 }) => {
   const EllipsedText = withEllipsedTooltip({
@@ -32,6 +35,9 @@ const Text = ({
       placement,
       timeout,
       maxWidth,
+      zIndex,
+      hideDelay,
+      showDelay,
     },
   })(OriginalText);
 
@@ -62,6 +68,12 @@ Text.propTypes = {
   timeout: number,
   /** `ellipsis` prop. Tooltip content max width value. */
   maxWidth: number,
+  /** `ellipsis` prop. Tooltip content zIndex. */
+  zIndex: number,
+  /** `ellipsis` prop. Tooltip hide delay. */
+  hideDelay: number,
+  /** `ellipsis` prop. Tooltip show delay. */
+  showDelay: number,
 };
 
 Text.defaultProps = {
