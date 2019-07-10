@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+`<SidebarSectionTitle/>` - create component for displaying title within the sidebar [#3722](https://github.com/wix/wix-style-react/pull/3722)
+
 ### Changed
 
 - `<Text/>` - expose tooltip props: hideDelay, showDelay, zIndex [#3725](https://github.com/wix/wix-style-react/pull/3725)
