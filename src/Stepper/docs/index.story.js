@@ -10,16 +10,15 @@ import {
   columns,
   divider,
   code as baseCode,
-  playground,
   api,
 } from 'wix-storybook-utils/Sections';
-import SectionHelper from 'wix-style-react/SectionHelper';
 import { Layout, Cell } from 'wix-style-react/Layout';
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import MaynSteps from '!raw-loader!./examples/ManySteps';
 import FourSteps from '!raw-loader!./examples/FourSteps';
+import StepTypes from '!raw-loader!./examples/StepTypes';
 import Stepper from '..';
 
 import testkitDesc from './testkit.md';
@@ -80,15 +79,6 @@ export default {
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/Stepper/',
-      component: (
-        <Layout>
-          <Cell span={6}>
-            <SectionHelper title="Work in progress" appearance="danger">
-              Component is currently in development and should not be used yet.
-            </SectionHelper>
-          </Cell>
-        </Layout>
-      ),
     }),
 
     tabs([
@@ -98,7 +88,8 @@ export default {
           columns([
             description({
               title: 'Description',
-              text: 'Stepper',
+              text:
+                'Stepper displays the path a user needs to follow to complete the process. It breaks a large number of information into steps and indicates which step is active. It works best when split up to 7 steps.',
             }),
           ]),
 
@@ -111,13 +102,23 @@ export default {
           title('Examples'),
 
           code({
-            title: 'Stepper with 7 steps inside card',
+            title: 'Steps types',
+            description: `Steps can get different types: normal, completed, error and disabled.`,
+            compact: true,
+            source: StepTypes,
+          }),
+
+          code({
+            title: 'Inside card',
+            description: `In cases where there is not enough space, the active step's text is fully displayed and the rest of the steps texts are equally shortened.`,
             compact: true,
             source: MaynSteps,
           }),
 
           code({
-            title: 'Stepper with 4 steps inside card',
+            title: 'Inside card',
+            description:
+              'Demonstrating a case where there is enough space for all steps text',
             compact: true,
             source: FourSteps,
           }),
@@ -127,7 +128,6 @@ export default {
       ...[
         { title: 'API', sections: [api()] },
         { title: 'Testkit', sections: [description(testkitDesc)] },
-        { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),
   ],

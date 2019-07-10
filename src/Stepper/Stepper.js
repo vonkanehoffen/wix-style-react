@@ -29,7 +29,7 @@ class Stepper extends React.PureComponent {
   };
 
   static defaultProps = {
-    onClick: () => {},
+    onClick: activeStep => {},
     steps: [],
   };
 
