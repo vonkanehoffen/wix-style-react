@@ -143,3 +143,4 @@ export const radioButtonTestkitFactory = enzymeTestkitFactoryCreator(load(requir
 export const messageBoxMarketerialLayoutTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver')));
 export const messageBoxFunctionalLayoutTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.driver')));
 export const cardSubheaderTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/Card/Subheader/Subheader.uni.driver')));
+export const sidebarSectionTitleTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver')));

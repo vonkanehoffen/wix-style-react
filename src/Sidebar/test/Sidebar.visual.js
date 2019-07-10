@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Sidebar, { SidebarSectionTitle, SidebarSectionDivider } from '..';
+import Sidebar, { SidebarSectionDivider } from '..';
+import SidebarSectionTitle from '../../SidebarSectionTitle';
 
 // TODO: Remove after "Visual" is finished with all supported functionality
 storiesOf('Sidebar', module).add('sanity', () => (

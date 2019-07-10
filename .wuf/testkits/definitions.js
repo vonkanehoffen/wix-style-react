@@ -301,5 +301,10 @@ module.exports = {
   Stepper: {
     unidriver: true,
     testkitPath: "../src/Stepper/Stepper.uni.driver"
+  },
+
+  SidebarSectionTitle: {
+    unidriver: true,
+    testkitPath: "../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver"
   }
 };

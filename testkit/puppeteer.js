@@ -446,3 +446,9 @@ import { sliderUniDriverFactory } from '../src/Slider/Slider.uni.driver';
 export const sliderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   sliderUniDriverFactory,
 );
+
+import { sidebarSectionTitleDriverFactory } from '../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver';
+
+export const sidebarSectionTitleTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sidebarSectionTitleDriverFactory,
+);

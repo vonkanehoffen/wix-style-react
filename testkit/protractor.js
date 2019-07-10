@@ -562,3 +562,9 @@ import { timeInputUniDriverFactory } from '../src/TimeInput/TimeInput.uni.driver
 export const timeInputTestkitFactory = protractorTestkitFactoryCreator(
   timeInputUniDriverFactory,
 );
+
+import { sidebarSectionTitleDriverFactory } from '../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver';
+
+export const sidebarSectionTitleTestkitFactory = protractorUniTestkitFactoryCreator(
+  sidebarSectionTitleDriverFactory,
+);

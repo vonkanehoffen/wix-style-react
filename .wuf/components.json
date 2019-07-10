@@ -305,6 +305,9 @@
   "Sidebar": {
     "path": "src/Sidebar"
   },
+  "SidebarSectionTitle": {
+    "path": "src/SidebarSectionTitle"
+  },
   "Skeleton": {
     "path": "src/Skeleton"
   },

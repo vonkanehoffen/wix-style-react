@@ -6,5 +6,4 @@ const SidebarItemContextConsumer = SidebarItemContext.Consumer;
 
 export { SidebarContextConsumer, SidebarItemContextConsumer };
 
-export { default as SidebarSectionTitle } from './SidebarSectionTitle';
 export { default as SidebarSectionDivider } from './SidebarSectionDivider';
