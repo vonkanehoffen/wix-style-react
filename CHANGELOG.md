@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.38.0 - 2019-07-10
+
 ### Added
 - `<SidebarSectionTitle/>` - create component for displaying title within the sidebar (WIP) [#3722](https://github.com/wix/wix-style-react/pull/3722)
 
