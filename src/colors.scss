@@ -1,6 +1,4 @@
 
-/* New swatches! */
-
 $D10: #162D3D;   // Main input text, titles
 $D20: #32536A;   // Titles, texts
 $D30: #577083;   // Texts
@@ -10,6 +8,12 @@ $D55: #CBD3DC;   // Disabled button - new version - naming not final
 $D60: #DFE5EB;   // Dividers
 $D70: #F0F4F7;   // Page background, dividers
 $D80: #FFFFFF;   // Content box background
+
+$D10-05: rgba($D10, 0.05);
+$D10-10: rgba($D10, 0.1);
+$D10-20: rgba($D10, 0.2);
+$D10-30: rgba($D10, 0.3);
+$D80-70: rgba($D80, 0.7);
 
 $B00: #2B81CB;   // Buttons
 $B05: #308DDD;   // CTA

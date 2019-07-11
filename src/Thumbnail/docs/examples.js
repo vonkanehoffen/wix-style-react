@@ -61,3 +61,26 @@ export const listOfSmall = `<Layout gap="12px">
     </Cell>
   ) }
 </Layout>`;
+
+export const disabledWithImage = `<Layout>
+  <Cell>
+    <Text>Disabled: with image</Text>
+    <Thumbnail
+      disabled
+      title="Thumbnail Title"
+      description="Description about this thumbnail option goes here"
+      image="${getImageUrl(234, 72)}"
+      width={270}
+    />
+  </Cell>
+  <Cell>
+    <Text>Disabled: with background image</Text>
+    <Thumbnail
+      disabled
+      backgroundImage="${getImageUrl(270, 270)}"
+      width={270}
+      height={270}
+      title="Thumbnail Title"
+    />
+  </Cell>
+</Layout>`;

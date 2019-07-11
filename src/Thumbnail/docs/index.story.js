@@ -101,6 +101,10 @@ export default {
             title: 'List of small thumbnails',
             source: examples.listOfSmall,
           },
+          {
+            title: 'Disabled',
+            source: examples.disabledWithImage,
+          },
         ].map(code),
 
         code({

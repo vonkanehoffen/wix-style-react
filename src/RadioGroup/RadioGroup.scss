@@ -78,12 +78,13 @@ $radioButtonDisabledShadow: $B50 0 0 0 1px;
 
 .disabled {
   .radio {
-    border-color: $D60;
-    background-color: $D70;
+    color: $D10-30;
+    border-color: $D10-30;
+    background-color: $D10-05;
   }
 
   &.checked .radio:after {
-    background-color: $D55;
+    background-color: $D10-30;
   }
 }
 
