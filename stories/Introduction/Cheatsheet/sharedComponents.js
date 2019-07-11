@@ -6,6 +6,24 @@ import Text from 'wix-style-react/Text';
 import Heading from 'wix-style-react/Heading';
 import Box from 'wix-style-react/Box';
 
+const renderComponentsNames = componentsNames =>
+  componentsNames &&
+  componentsNames.map((name, i) => (
+    <Box marginRight={i !== componentsNames.length - 1 ? '6px' : null} key={i}>
+      <Text size="small" weight="thin" secondary>
+        {name}
+      </Text>
+    </Box>
+  ));
+
+const renderNameSection = ({ name, secondary, light }) => (
+  <Box marginBottom="6px">
+    <Text secondary={secondary} light={light} size="medium" weight="bold">
+      {name}
+    </Text>
+  </Box>
+);
+
 export const SingleComponent = ({
   name,
   componentsNames,
@@ -15,27 +33,30 @@ export const SingleComponent = ({
 }) => (
   <Row>
     <Col span={6}>
-      <Box marginBottom={'6px'}>
-        <Text secondary={secondary} light={light} size="medium" weight="bold">
-          {name}
-        </Text>
-      </Box>
-      <Box>
-        {componentsNames &&
-          componentsNames.map((name, i) => (
-            <Box marginRight={'6px'} key={i}>
-              <Text size="small" weight="thin" secondary>
-                {name}
-              </Text>
-            </Box>
-          ))}
-      </Box>
+      {renderNameSection({ name, secondary, light })}
+      <Box>{renderComponentsNames(componentsNames)}</Box>
     </Col>
     <Col span={6}>{children}</Col>
   </Row>
 );
 
-export const GeneralStructure = ({ title, children }) => (
+export const SingleLayoutComponent = ({
+  name,
+  componentsNames,
+  children,
+  secondary,
+  light,
+}) => (
+  <Row>
+    <Col>
+      {renderNameSection({ name, secondary, light })}
+      <Box marginBottom="18px">{renderComponentsNames(componentsNames)}</Box>
+      {children}
+    </Col>
+  </Row>
+);
+
+export const GeneralStructure = ({ title, children, showPreview = true }) => (
   <Card>
     <Card.Header title={title} />
     <Card.Content>
@@ -47,9 +68,11 @@ export const GeneralStructure = ({ title, children }) => (
             </Heading>
           </Col>
           <Col span={6}>
-            <Heading appearance="H5" light>
-              PREVIEW
-            </Heading>
+            {showPreview && (
+              <Heading appearance="H5" light>
+                PREVIEW
+              </Heading>
+            )}
           </Col>
         </Row>
         {children}

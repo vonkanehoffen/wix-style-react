@@ -4,7 +4,7 @@ import Page from 'wix-style-react/Page';
 import Button from 'wix-style-react/Button';
 import Card from 'wix-style-react/Card';
 
-import { Breadcrumbs } from 'wix-style-react/Breadcrumbs';
+import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import Box from 'wix-style-react/Box';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
 import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';

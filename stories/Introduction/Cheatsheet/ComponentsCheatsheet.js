@@ -4,7 +4,7 @@ import Page from 'wix-style-react/Page';
 
 //importing components by family type
 import FoundationFamily from './ComponentsFamilies/FoundationFamily';
-import LayoutFamily from './ComponentsFamilies/LayoutFamily';
+import LayoutFamily from './ComponentsFamilies/LayoutFamily/LayoutFamily';
 import InputFamily from './ComponentsFamilies/InputFamily';
 import SelectionFamily from './ComponentsFamilies/SelectionFamily';
 import ButtonFamily from './ComponentsFamilies/ButtonFamily';
