@@ -20,6 +20,10 @@ Types of changes:
 
 - `<Stepper>` - changes to docs - [#3712](https://github.com/wix/wix-style-react/pull/3712)
 
+### Added
+
+- `<PopoverMenu/>` - BETA - UX story [#3626](https://github.com/wix/wix-style-react/pull/3626)
+
 ## 6.38.0 - 2019-07-10
 
 ### Added
