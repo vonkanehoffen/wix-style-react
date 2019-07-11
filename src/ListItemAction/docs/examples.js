@@ -203,16 +203,19 @@ export const wrap = `
             id: 0,
             as: "button",
             title: 'very long message very very',
+            ellipsis: true,
           }),
           listItemActionBuilder({
             id: 1,
             as: "button",
             title: 'very long message very very',
+            ellipsis: true,
           }),
           listItemActionBuilder({
             id: 1,
             as: "button",
             title: 'very long message very very',
+            ellipsis: true,
           }),
         ]}
       />
@@ -232,19 +235,16 @@ export const wrap = `
             id: 0,
             as: "button",
             title: 'very long message very',
-            wrapText: true,
           }),
           listItemActionBuilder({
             id: 1,
             as: "button",
             title: 'very long message very',
-            wrapText: true,
           }),
           listItemActionBuilder({
             id: 1,
             as: "button",
             title: 'very long message very',
-            wrapText: true,
           }),
         ]}
       />

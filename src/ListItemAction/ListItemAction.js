@@ -27,14 +27,17 @@ class ListItemActionComponent extends React.PureComponent {
     /** When present, it specifies that a button should automatically get focus when the page loads. */
     autoFocus: PropTypes.bool,
 
-    /** true - text will wrap when necessary, false - text will be ellipsed  */
-    wrapText: PropTypes.bool,
+    /** should the text get ellipsed with tooltip, or should it get broken into lines when it reaches the end of its container */
+    ellipsis: PropTypes.bool,
 
     /** Title */
     title: PropTypes.string.isRequired,
 
     /** Disabled */
     disabled: PropTypes.bool,
+
+    /** Tooltip floating modifiers */
+    tooltipModifiers: PropTypes.object,
 
     /** On Click */
     onClick: PropTypes.func,
@@ -47,14 +50,16 @@ class ListItemActionComponent extends React.PureComponent {
   }
 
   _renderText = () => {
-    const { title, size, wrapText } = this.props;
+    const { title, size, ellipsis, tooltipModifiers } = this.props;
     return (
       <Text
         className={styles.text}
         weight="normal"
         size={size}
         dataHook="list-item-action-title"
-        ellipsis={!wrapText}
+        ellipsis={ellipsis}
+        placement="right"
+        {...tooltipModifiers}
       >
         {title}
       </Text>
@@ -74,7 +79,6 @@ class ListItemActionComponent extends React.PureComponent {
     as: 'button',
     skin: 'standard',
     size: 'medium',
-    wrapText: false,
   };
 
   render() {
@@ -127,7 +131,7 @@ export const listItemActionBuilder = ({
   tabIndex,
   autoFocus,
   className,
-  wrapText,
+  ellipsis,
 }) => ({
   id,
   disabled,
@@ -135,7 +139,7 @@ export const listItemActionBuilder = ({
   value: props => (
     <ListItemAction
       {...props}
-      wrapText={wrapText}
+      ellipsis={ellipsis}
       className={className}
       autoFocus={autoFocus}
       tabIndex={tabIndex}
