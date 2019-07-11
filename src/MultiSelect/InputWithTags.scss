@@ -2,6 +2,10 @@
 
 .input {
   flex-grow:1;
+
+  .disabled & {
+    visibility: hidden;
+  }
 }
 
 // Override <Input>'s default focus style
@@ -59,6 +63,10 @@
   overflow-y: hidden;
   box-sizing: border-box;
 
+  &.disabled {
+    background-color: $D10-05
+  }
+
   &:hover:not(.hasFocus):not(.disabled) {
     background: $B50;
   }
@@ -75,7 +83,7 @@
 }
 
 .disabled {
-  border-color: $D55;
+  border-color: $D10-30;
 }
 
 .hasFocus {

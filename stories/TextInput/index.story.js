@@ -80,6 +80,12 @@ export default {
       },
 
       {
+        title: 'Disabled + Affix',
+        text: '',
+        source: examples.disabledAffix,
+      },
+
+      {
         title: 'Char limit',
         text: 'It is allowed to set maximum number of characters',
         source: examples.charLimit,

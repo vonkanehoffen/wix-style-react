@@ -8,6 +8,7 @@
   -st-named: 
   B10, B20,
   D10, D20, D40,
+  D10-30,
   G10, P10, R10, WHITE, D55;
 }
 
@@ -74,7 +75,7 @@
 .root:skin(disabled),
 .root:skin(disabled):light,
 .root:skin(disabled):secondary {
-  color: value(D55);
+  color: value(D10-30);
 }
 
 .root:size(medium):weight(bold),

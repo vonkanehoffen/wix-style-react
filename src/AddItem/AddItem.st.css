@@ -1,6 +1,10 @@
 :import {
   -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: B10, B40, B20, B50, B30, D55, F00, D70, D60;
+  -st-named:
+    B10, B20, B30, B40, B50,
+    D55, D60, D70,
+    D10-05, D10-30,
+    F00,
 }
 
 :import {
@@ -54,8 +58,8 @@
 
 .root:theme(plain):disabled {
   cursor: not-allowed;
-  background-color: value(D70);
-  color: value(D55);
+  background-color: value(D10-05);
+  color: value(D10-30);
 }
 
 /** Theme dashes **/
@@ -76,9 +80,9 @@
 
 .root:theme(dashes):disabled {
   cursor: not-allowed;
-  background-color: value(opacity48);
-  color: value(D55);
-  border: dashed 1px value(D55);
+  background-color: value(D10-05);
+  color: value(D10-30);
+  border: dashed 1px value(D10-30);
 }
 
 .root:not(:disabled):focus-visible:theme(dashes) {

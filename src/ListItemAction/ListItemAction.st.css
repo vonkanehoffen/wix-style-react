@@ -1,11 +1,12 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: G30,R30,B10,B50,B40,D10,R10,D55,D80, F00;
-}
-
-:import {
-  -st-from: "../Foundation/stylable/mixins/calc_rgba";
-  -st-default: calcRgba;
+  -st-named:
+    B10, B40, B50,
+    D10, D55, D80,
+    D10-30,
+    F00,
+    G30,
+    R10, R30;
 }
 
 :import {
@@ -34,7 +35,7 @@
 .root:disabled {
   cursor: default;
   pointer-events: none;
-  color: calcRgba(value(D10), 30);
+  color: value(D10-30);
 }
 
 .root:not(:disabled):focus-visible {
@@ -68,7 +69,7 @@
 
 .root:skin(standard):disabled .text, 
 .root:skin(standard):disabled .prefixIcon {
-  color: calcRgba(value(D10), 30);
+  color: value(D10-30);
 }
 
 /** Skin dark */
@@ -90,7 +91,7 @@
 
 .root:skin(dark):disabled .text, 
 .root:skin(dark):disabled .prefixIcon {
-  color: calcRgba(value(D10), 30);
+  color: value(D10-30);
 }
 
 /** Skin destructive */
@@ -102,7 +103,7 @@
 
 .root:skin(destructive):disabled .text, 
 .root:skin(destructive):disabled .prefixIcon {
-  color: calcRgba(value(D10), 30);
+  color: value(D10-30);
 }
 
 .text {

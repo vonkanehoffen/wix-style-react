@@ -6,7 +6,6 @@ $gap: 6px;
 $double-gap: 12px;
 $material-gap: 8px;
 
-
 .root {
   position: relative;
   display: flex;
@@ -47,7 +46,7 @@ $material-gap: 8px;
   box-shadow: none;
   @include BorderRadius(6px);
   @include FontRoman();
-  @include Placeholder(getTextColor($light: true, $secondary: true));
+  @include Placeholder($D40);
   @include Selection($paletteB4);
 
   &[type='number'] {
@@ -58,6 +57,10 @@ $material-gap: 8px;
       -webkit-appearance: none;
       margin: 0;
     }
+  }
+
+  &.disabled {
+    @include Placeholder($D10-30);
   }
 }
 
@@ -146,11 +149,10 @@ $material-gap: 8px;
     @include ThemeError($borderColor: $paletteR1);
     @include ThemeWarning($borderColor: $paletteR5);
     @include ThemeDisable(
-      $color: $D55,
-      $borderColor: $D60,
-      $backgroundColor: $D80
+      $color: $D10-30,
+      $backgroundColor: $D10-05,
+      $borderColor: $D10-30
     );
-    @include ThemeDisableHover($borderColor: $GR20);
   }
   &-paneltitle {
     @include ThemeDefault(
@@ -166,9 +168,9 @@ $material-gap: 8px;
     @include ThemeError($borderColor: $paletteR1);
     @include ThemeWarning($borderColor: $paletteR5);
     @include ThemeDisable(
-      $color: white,
-      $borderColor: $GR40,
-      $backgroundColor: rgba(22, 45, 61, 0.6)
+      $color: $D10-30,
+      $backgroundColor: $D10-05,
+      $borderColor: $D10-30
     );
   }
   &-tags {
@@ -188,11 +190,10 @@ $material-gap: 8px;
       $boxShadow: inset 0px 0px 5px 0px fade($R70, 60%)
     );
     @include ThemeDisable(
-      $color: $D55,
-      $borderColor: $D60,
-      $backgroundColor: $D80
+      $color: $D10-30,
+      $backgroundColor: $D10-05,
+      $borderColor: $D10-30
     );
-    @include ThemeDisableHover($borderColor: $GR20);
   }
   &-amaterial {
     .errorIcon {
@@ -312,8 +313,6 @@ $material-gap: 8px;
         height: 2px;
       }
     }
-
-
   }
   &-material {
     border-radius: 0;
@@ -399,7 +398,7 @@ $material-gap: 8px;
       @include ThemeFlat($B10);
     }
     &.disabled {
-      @include ThemeFlat($D50);
+      @include ThemeFlat($D10-30);
     }
 
     @include ThemeFlat($D20);
@@ -421,7 +420,7 @@ $material-gap: 8px;
       @include ThemeFlat($B10);
     }
     &.disabled {
-      @include ThemeFlat($D50);
+      @include ThemeFlat($D80-70);
     }
 
     @include ThemeFlat($D80);

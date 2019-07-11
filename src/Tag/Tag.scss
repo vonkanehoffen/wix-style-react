@@ -154,10 +154,9 @@
   }
 }
 
-//Disabled
 .disabled {
-  background-color: $D70;
-  color: $D30;
+  background-color: $D10-05;
+  color: $D10-30;
 }
 
 @include withRTL() {

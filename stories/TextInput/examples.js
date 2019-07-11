@@ -39,6 +39,13 @@ export const affix = `
 </Layout>
 `;
 
+export const disabledAffix = `
+<Layout>
+  <Cell>
+    <Input disabled size="normal" placeholder="Placeholder" prefix={<Input.Affix disabled>$</Input.Affix>}/>
+  </Cell>
+</Layout>
+`;
 export const charLimit = `
 <FormField label="Field label">
   {({setCharactersLeft}) =>
