@@ -115,3 +115,28 @@ tests.forEach(({ describe, its }) => {
     ));
   });
 });
+
+const rtl = [
+  {
+    describe: 'rtl',
+    its: [
+      {
+        it: 'div',
+        props: {
+          as: 'button',
+          prefixIcon: <Edit />,
+        },
+      },
+    ],
+  },
+];
+
+rtl.forEach(({ describe, its }) => {
+  its.forEach(({ it, props }) => {
+    storiesOf(`ListItemAction/${describe}`, module).add(it, () => (
+      <div dir="rtl">
+        <ListItemAction {...commonProps} {...props} />
+      </div>
+    ));
+  });
+});

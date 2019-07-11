@@ -13,6 +13,7 @@ import {
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
+import icons from '../../../stories/utils/icons-for-story';
 
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import * as examples from './examples';
@@ -46,8 +47,7 @@ export default {
   },
 
   exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
+    prefixIcon: icons,
   },
 
   sections: [

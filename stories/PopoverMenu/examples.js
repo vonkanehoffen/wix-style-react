@@ -84,7 +84,7 @@ export const size = `
     />
 </PopoverMenu> 
   <PopoverMenu 
-      textSize=""
+      textSize="small"
       triggerElement={<TextButton suffixIcon={<Icons.ChevronDown/>}> Menu</TextButton>}
   > 
       <PopoverMenu.MenuItem 

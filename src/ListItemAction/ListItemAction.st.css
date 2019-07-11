@@ -21,7 +21,7 @@
   display: inline-flex;
   padding: 6px 24px 6px 18px;
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
 
   background-color: value(D80);
   cursor: pointer;
@@ -106,9 +106,15 @@
 }
 
 .text {
-  margin-left: 6px;
+  margin: 0 0 0 6px;
 }
 
 .prefixIcon {
   flex-shrink: 0;
+}
+
+/* RTL support */
+
+:global([dir='rtl']) .text {
+  margin: 0 6px 0 0;
 }
