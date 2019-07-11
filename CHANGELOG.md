@@ -23,6 +23,7 @@ Types of changes:
 ### Added
 
 - `<PopoverMenu/>` - BETA - UX story [#3626](https://github.com/wix/wix-style-react/pull/3626)
+- `<ListItemAction/>` - add RTL support [#3737](https://github.com/wix/wix-style-react/pull/3737)
 
 ## 6.38.0 - 2019-07-10
 
