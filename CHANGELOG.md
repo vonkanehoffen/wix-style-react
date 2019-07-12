@@ -27,10 +27,11 @@ Types of changes:
 - `<PopoverMenu/>` - BETA - UX story [#3626](https://github.com/wix/wix-style-react/pull/3626)
 - `<ListItemAction/>` - add RTL support [#3737](https://github.com/wix/wix-style-react/pull/3737)
 - `<Listitemaction/>` - change wrapText to ellipsis prop [#3700](https://github.com/wix/wix-style-react/pull/3700)
+- `<PopoverMenu/>` - add deprecation log [#3743](https://github.com/wix/wix-style-react/pull/3743)
 
 ### Changed
 
--`<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
+- `<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
 
 ## 6.38.0 - 2019-07-10
 
