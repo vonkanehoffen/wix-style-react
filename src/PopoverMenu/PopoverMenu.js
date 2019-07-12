@@ -1,5 +1,4 @@
-import React from 'react';
-import WixComponent from '../BaseComponents/WixComponent';
+import React, { Component } from 'react';
 import styles from './PopoverMenu.scss';
 import Tooltip from '../Tooltip';
 import Button from '../Deprecated/Button';
@@ -19,7 +18,7 @@ import {
 } from 'prop-types';
 import deprecationLog from '../utils/deprecationLog';
 
-class PopoverMenu extends WixComponent {
+class PopoverMenu extends Component {
   static displayName = 'PopoverMenu';
 
   static propTypes = {
@@ -115,11 +114,19 @@ class PopoverMenu extends WixComponent {
   );
 
   render() {
-    const { placement, size, maxWidth, buttonHeight, buttonTheme } = this.props;
+    const {
+      placement,
+      size,
+      maxWidth,
+      buttonHeight,
+      buttonTheme,
+      dataHook,
+    } = this.props;
 
     return (
       <Tooltip
         ref={tooltip => (this.tooltip = tooltip)}
+        dataHook={dataHook}
         placement={placement}
         alignment="center"
         content={this._menu()}
