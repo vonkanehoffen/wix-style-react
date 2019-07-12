@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import Input from '../Input';
 
 class NumberInput extends React.PureComponent {
@@ -29,7 +28,7 @@ class NumberInput extends React.PureComponent {
   }
 
   _defaultValueNullIfEmpty(value) {
-    return _.isNil(value) || value === '' ? null : +value;
+    return value == null || value === '' ? null : +value;
   }
 
   _defaultValueToNullIfInvalidNumber(value) {
@@ -38,7 +37,7 @@ class NumberInput extends React.PureComponent {
 
   _getInputValueFromState() {
     const { value } = this.state;
-    return _.isNil(value) ? '' : value;
+    return value == null ? '' : value;
   }
 
   _isInRange(value) {
