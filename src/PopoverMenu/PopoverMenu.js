@@ -17,6 +17,7 @@ import {
   func,
   shape,
 } from 'prop-types';
+import deprecationLog from '../utils/deprecationLog';
 
 class PopoverMenu extends WixComponent {
   static displayName = 'PopoverMenu';
@@ -75,6 +76,12 @@ class PopoverMenu extends WixComponent {
     appendToParent: false,
     showArrow: true,
   };
+
+  componentDidMount() {
+    deprecationLog(
+      'Using "PopoverMenu" with current API is deprecated. In order to upgrade to the new PopoverMenu API make sure to import it from /beta section and follow "7.3 PopoverMenu" UX story or "BETA/Popovermenu" API story guidelines.',
+    );
+  }
 
   _menuItems = items =>
     React.Children.map(items, (item, i) => {
