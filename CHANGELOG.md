@@ -32,6 +32,7 @@ Types of changes:
 ### Changed
 
 - `<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
+- `<NumberInput/>` - reduce bundle size [#3739](https://github.com/wix/wix-style-react/pull/3739)
 
 ## 6.38.0 - 2019-07-10
 
