@@ -142,9 +142,8 @@ export default {
               source: dividerExample,
             },
             {
-              title: 'Text Wrap',
-              text:
-                'By default all menu items text gets ellipsed when reaches boundaries limit. Passing `textWrap` disables ellipsis and wrap text to new line.',
+              title: 'Text Ellipsis',
+              text: 'Text can be ellipsed with prop `ellipsis`',
               source: examples.wrap,
             },
           ].map(example),

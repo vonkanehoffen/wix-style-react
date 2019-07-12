@@ -136,6 +136,7 @@ export const wrap = `
 <PopoverMenu 
   textSize="medium"
   maxWidth={150}
+  ellipsis
   triggerElement={<TextButton suffixIcon={<Icons.ChevronDown/>}>Ellipsis</TextButton>}
 > 
     <PopoverMenu.MenuItem 

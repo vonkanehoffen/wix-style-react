@@ -1,6 +1,7 @@
 export const wrap = `
 <Layout cols={2} gap={0} justifyItems="center">
   <PopoverMenu 
+    ellipsis
     triggerElement={<IconButton priority="secondary"><Icons.More /></IconButton>}
   > 
     <PopoverMenu.MenuItem 
@@ -14,7 +15,6 @@ export const wrap = `
     />
   </PopoverMenu>
   <PopoverMenu 
-    wrapText={true}
     triggerElement={<IconButton priority="secondary"><Icons.More /></IconButton>}
   > 
     <PopoverMenu.MenuItem 
