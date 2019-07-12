@@ -30,7 +30,7 @@ Types of changes:
 
 ### Changed
 
-`<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
+-`<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
 
 ## 6.38.0 - 2019-07-10
 
