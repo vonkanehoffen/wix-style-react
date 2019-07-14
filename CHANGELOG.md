@@ -23,7 +23,7 @@ Types of changes:
 <br/><hr/><br/>
 
 
-## 6.38.0 - 2019-07-10
+## 6.39.0 - 2019-07-14
 
 ### Docs
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
