@@ -13,7 +13,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-
+<br/><hr/><br/>
 
 ## Next
 
@@ -28,7 +28,7 @@ Types of changes:
 - `<PopoverMenu/>` - BETA - UX story [#3626](https://github.com/wix/wix-style-react/pull/3626)
 - `<ListItemAction/>` - add RTL support [#3737](https://github.com/wix/wix-style-react/pull/3737)
 - `<PopoverMenu/>` - add deprecation log [#3743](https://github.com/wix/wix-style-react/pull/3743)
-- `<Slider/>` - added `disabled` prop
+- `<Slider/>` - added disabled prop [#3723](https://github.com/wix/wix-style-react/pull/3723)
 
 ### Changed
 - `<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
@@ -39,7 +39,7 @@ Types of changes:
 ### Fixed
 - `<InputWithTags/>` - removed Input overlay on disabled state [#3718](https://github.com/wix/wix-style-react/pull/3718)
 
-
+<br/><hr/><br/>
 
 ## 6.38.0 - 2019-07-10
 
