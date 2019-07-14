@@ -18,7 +18,7 @@ Types of changes:
 ## Next
 
 ### Fixed
-- `<InputWithOptions/>` - Fixing dropdown textOverflow propagate to the input [#3735])https://github.com/wix/wix-style-react/pull/3735)
+- `<InputWithOptions/>` - Fixing dropdown textOverflow propagate to the input [#3735](https://github.com/wix/wix-style-react/pull/3735)
 
 ### Docs
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
