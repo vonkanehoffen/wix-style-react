@@ -28,8 +28,11 @@ const Card = ({
 Card.displayName = 'Card';
 
 Card.propTypes = {
+  /** any node to render inside card */
   children: node,
+  /** makes the card stretch to max height in a container */
   stretchVertically: bool,
+  /** makes the card's overflow content to be hidden */
   hideOverflow: bool,
   dataHook: string,
 };

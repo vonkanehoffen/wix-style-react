@@ -5,7 +5,7 @@ import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import { storySettings } from './storySettings';
 
-import CardReadme from '../README.md';
+import CardReadme from '../README-manual.md';
 
 import ExampleBasic from './ExampleBasic';
 import ExampleBasicRaw from '!raw-loader!./ExampleBasic';

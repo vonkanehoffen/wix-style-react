@@ -15,7 +15,7 @@ require('./ScrollBar'); // 1.8 ScrollBar
 
 // 2. Layout
 require('./PageLayout/index.story'); // 2.1 Page Layout
-require('../src/Card/docs'); // 2.2 Card Layout
+require('./CardLayout/index.story'); // 2.1 Card Layout
 
 // 3. Inputs
 require('./TextInput/index.story'); // 3.1. Text Input
@@ -60,6 +60,7 @@ require('../src/Breadcrumbs/docs/index.story');
 require('../src/Calendar/docs/index.story');
 require('../src/CalendarPanel/docs/index.story');
 require('../src/CalendarPanelFooter/docs/index.story');
+require('../src/Card/docs/index.story.js');
 require('../src/CardGalleryItem/docs/index.story');
 require('../src/Card/Subheader/docs/index.story');
 require('../src/Carousel/docs/index.story');
