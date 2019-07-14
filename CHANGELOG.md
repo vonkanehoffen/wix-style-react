@@ -3,7 +3,6 @@
 All notable changes are documented in this file.
 
 Types of changes:
-
 1. **Added** for new features.
 1. **Changed** for changes in existing functionality.
 1. **Deprecated** for soon-to-be removed features.
@@ -14,27 +13,33 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
+
 ## Next
 
 ### Docs
-
-- `<Stepper>` - changes to docs - [#3712](https://github.com/wix/wix-style-react/pull/3712)
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
-- `<Page/>` - simplify component docs - [#3742](https://github.com/wix/wix-style-react/pull/3742)
 - `Cheatsheet`- Adding examples to `SelectionFamily` [#3727](https://github.com/wix/wix-style-react/pull/3727)
-
+- `<Stepper>` - changes to docs - [#3712](https://github.com/wix/wix-style-react/pull/3712)
+- `<Page/>` - simplify component docs - [#3742](https://github.com/wix/wix-style-react/pull/3742)
+- `<Thumbnail/>` - Added example with disabled mode [#3723](https://github.com/wix/wix-style-react/pull/3723)
 
 ### Added
-
 - `<PopoverMenu/>` - BETA - UX story [#3626](https://github.com/wix/wix-style-react/pull/3626)
 - `<ListItemAction/>` - add RTL support [#3737](https://github.com/wix/wix-style-react/pull/3737)
 - `<PopoverMenu/>` - add deprecation log [#3743](https://github.com/wix/wix-style-react/pull/3743)
+- `<Slider/>` - added `disabled` prop
 
 ### Changed
-
 - `<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
 - `<NumberInput/>` - reduce bundle size [#3739](https://github.com/wix/wix-style-react/pull/3739)
 - `<Listitemaction/>` - change wrapText to ellipsis prop [#3700](https://github.com/wix/wix-style-react/pull/3700)
+- `Disabled State Color Scheme` - changed colors scheme of components on disabled state to new colors having opacity (rgba) [#3718](https://github.com/wix/wix-style-react/pull/3718) [#3723](https://github.com/wix/wix-style-react/pull/3723) 
+
+### Fixed
+- `<InputWithTags/>` - removed Input overlay on disabled state [#3718](https://github.com/wix/wix-style-react/pull/3718)
+
+
 
 ## 6.38.0 - 2019-07-10
 
