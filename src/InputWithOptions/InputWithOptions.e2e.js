@@ -1,7 +1,6 @@
 import { inputWithOptionsTestkitFactory } from '../../testkit/protractor';
 import { $, browser } from 'protractor';
 import { isFocused, waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { sleep } from 'wix-ui-test-utils/react-helpers';
 import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
 import {
   storySettings,

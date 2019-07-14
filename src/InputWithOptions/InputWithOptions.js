@@ -103,7 +103,7 @@ class InputWithOptions extends WixComponent {
       onBlur: this._onBlur,
       onCompositionChange: this.onCompositionChange,
       width: inputElement.props.width,
-      textOverflow: inputElement.props.textOverflow,
+      textOverflow: this.props.textOverflow || inputElement.props.textOverflow,
     });
   }
 

@@ -23,6 +23,10 @@ describe('InputWithOptions', () => {
       id: 'element1',
       value: <span style={{ color: 'brown' }}>Option 4</span>,
     },
+    {
+      id: 5,
+      value: 'An option with a veryyyyyyyyy long text that exceeds the input',
+    },
   ];
 
   describe('[sync]', () => {
@@ -36,6 +40,20 @@ describe('InputWithOptions', () => {
   function runTests(render) {
     afterEach(() => cleanup());
     const createDriver = jsx => render(jsx).driver;
+
+    it('should render input with ellipsis text-overflow style', async () => {
+      const { inputDriver } = createDriver(
+        <InputWithOptions options={options} textOverflow={'ellipsis'} />,
+      );
+      expect(await inputDriver.getTextOverflow()).toBe('ellipsis');
+    });
+
+    it('should render input with default clip text-overflow style', async () => {
+      const { inputDriver } = createDriver(
+        <InputWithOptions options={options} />,
+      );
+      expect(await inputDriver.getTextOverflow()).toBe('clip');
+    });
 
     it('should NOT show dropdown when autofocus is on', async () => {
       const { inputDriver, dropdownLayoutDriver } = createDriver(
