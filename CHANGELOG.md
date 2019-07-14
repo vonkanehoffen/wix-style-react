@@ -19,6 +19,9 @@ Types of changes:
 
 ## Next
 
+### Docs
+- `Cheatsheet`- Adding examples to `ModalFamily`[#3731](https://github.com/wix/wix-style-react/pull/3731)
+
 
 <br/><hr/><br/>
 
