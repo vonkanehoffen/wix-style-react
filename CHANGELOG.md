@@ -20,7 +20,7 @@ Types of changes:
 
 - `<Stepper>` - changes to docs - [#3712](https://github.com/wix/wix-style-react/pull/3712)
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
-
+- `<Page/>` - simplify component docs - [#3742](https://github.com/wix/wix-style-react/pull/3742)
 
 ### Added
 
