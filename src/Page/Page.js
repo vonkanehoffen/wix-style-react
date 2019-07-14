@@ -56,9 +56,6 @@ import {
  * Tooltip is hard-coded-ly using a selector like this: [data-class="page-scrollable-content"]
  */
 
-/**
- * A page container which contains a sticky header and scrollable content.
- */
 class Page extends WixComponent {
   static defaultProps = {
     minWidth: GRID_MIN_WIDTH,

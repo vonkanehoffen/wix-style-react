@@ -2,34 +2,44 @@ import React from 'react';
 
 import {
   api,
+  tabs,
   tab,
   playground,
   testkit,
   title,
-  columns,
-  table,
   code as baseCode,
   description,
   importExample,
+  header,
+  divider,
 } from 'wix-storybook-utils/Sections';
 
 import Page from '..';
+import { Layout, Cell } from '../../Layout';
+import SectionHelper from '../../SectionHelper';
+import Text from '../../Text';
+
 import { storySettings } from './storySettings';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
-import LinkTo from '@storybook/addon-links/react';
 
-import { header, tail, fixedContent, content } from './PageChildren';
+import {
+  header as headerExample,
+  tail as tailExample,
+  fixedContent as fixedContentExample,
+  content as contentExample,
+} from './PageChildren';
 import './PageStory.scss';
 
-import PageReadme from './Description.md';
 import ChildrenReadme from './Children.md';
 
-import ExampleStretchGridRaw from '!raw-loader!./ExampleStretchGrid';
 import ExampleStickyTableWithGapRaw from '!raw-loader!./ExampleStickyTableWithGap';
-import ExampleStickySideRaw from '!raw-loader!./ExampleStickySide';
 
 const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+  baseCode({
+    components: baseScope,
+    compact: false,
+    ...config,
+  });
 
 export default {
   category: storySettings.category,
@@ -42,7 +52,7 @@ export default {
   componentPath: '../Page.js',
 
   componentProps: {
-    children: [header(), tail, content(false)],
+    children: [headerExample(), tailExample, contentExample(false)],
     dataHook: 'story-page-playground',
     gradientClassName: 'background-gradient',
     upgrade: true,
@@ -51,20 +61,25 @@ export default {
   exampleProps: {
     children: [
       {
-        label: 'header, tail & content',
-        value: [header(), tail, content()],
+        label: 'header, tailExample & content',
+        value: [headerExample(), tailExample, contentExample()],
       },
       {
         label: 'header & content',
-        value: [header(), content()],
+        value: [headerExample(), contentExample()],
       },
       {
         label: 'just content',
-        value: [content()],
+        value: [contentExample()],
       },
       {
-        label: 'header, tail, fixed-content & content',
-        value: [header(), tail, fixedContent, content()],
+        label: 'header, tailExample, fixed-content & content',
+        value: [
+          headerExample(),
+          tailExample,
+          fixedContentExample,
+          contentExample(),
+        ],
       },
     ],
     backgroundImageUrl: [
@@ -77,69 +92,266 @@ export default {
   },
 
   sections: [
-    tab({
-      title: 'Usage',
-      sections: [
-        columns([description(PageReadme)]),
-
-        columns([
-          table({
-            title: 'Included Components',
-            rows: [
-              [
-                <LinkTo
-                  kind="Components"
-                  story="PageHeader"
-                  children="Page.Header"
-                />,
-                '`<Page/>` component’s child',
-              ],
-            ],
-          }),
-        ]),
-
-        columns([
-          importExample({ source: `import Page from 'wix-style-react/Page';` }),
-        ]),
-
-        title('Examples'),
-
-        code({
-          title: 'Stretch Content Vertically',
-          description: `Use Grid's <Container stretchVertically> to fill the viewport's height`,
-          source: ExampleStretchGridRaw,
-          compact: true,
-          autoRender: false,
-        }),
-
-        code({
-          title: 'Multiple Tables With Sticky Headers',
-          description: `Use <Page.Sticky/> to wrap the Table's header`,
-          source: ExampleStickyTableWithGapRaw,
-          compact: true,
-          autoRender: false,
-        }),
-
-        code({
-          title: 'Sticky Side Card',
-          description: `Use <Page.Sticky/> to wrap a <Card/> on a side`,
-          source: ExampleStickySideRaw,
-          compact: true,
-          autoRender: false,
-        }),
-      ],
+    header({
+      component: (
+        <Layout>
+          <Cell span={6}>
+            <SectionHelper title="Upgrade period">
+              Make sure you pass the <Text weight="bold">`upgrade`</Text> prop
+              in order to use the revised component implementation with all the
+              latest features.
+            </SectionHelper>
+          </Cell>
+        </Layout>
+      ),
     }),
-
-    ...[
-      { title: 'Playground', sections: [playground()] },
-      {
-        title: 'API',
+    tabs([
+      tab({
+        title: 'Description',
         sections: [
-          api(),
-          description({ title: 'Children', text: ChildrenReadme }),
+          description({
+            title: 'Description',
+            description:
+              'The Page component provides a common layout for a page header and content, including scrolling capabilities, sticky nodes and much more',
+          }),
+
+          importExample({
+            source: `import Page from 'wix-style-react/Page';`,
+          }),
+
+          divider(),
+
+          title('Basic Examples'),
+          ...[
+            {
+              title: 'Basic',
+              description:
+                'Simply compund a <Page/> with <Page.Header/> and <Page.Content/>',
+              source: `
+                <Page upgrade>
+                  <Page.Header title="Page Header"/>
+                  <Page.Content>
+                    Page Content
+                  </Page.Content>
+                </Page>
+                `,
+              compact: false,
+            },
+            {
+              title: 'Stretch to full size',
+              description:
+                'A Page stretches according to its container height. use `100vh` for a standalone page or `calc(100vh - 48px)` if top bar exists',
+              source: `
+                <div style={{height: '40vh'}}>
+                  <Page upgrade>
+                    <Page.Header title="Page Header"/>
+                    <Page.Content>
+                      Page Content
+                    </Page.Content>
+                  </Page>
+                </div>
+                `,
+              compact: false,
+            },
+            {
+              title: 'Page containing a grid of cards',
+              description:
+                'A common use case will be a Page containing Card components arranged by Grid components',
+              source: `
+                <div style={{height: '40vh'}}>
+                  <Page upgrade>
+                    <Page.Header title="Page Header"/>
+                    <Page.Content>
+                      <Container>
+                        <Row>
+                          <Col span={6}>
+                            <Card>
+                              <Card.Header title="Card"/>
+                              <Card.Content>
+                                Some content
+                              </Card.Content>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Container>
+                    </Page.Content>
+                  </Page>
+                </div>
+                `,
+              compact: true,
+            },
+            {
+              title: 'A Powerful Page Header',
+              description:
+                'The `PageHeader` is a standalone component, checkout its docs to see all features',
+              source: `
+                <Page upgrade>
+                  <Page.Header title="Page Header" showBackButton onBackClicked={() => alert('cool')} actionsBar={<Button>Click me</Button>}/>
+                  <Page.Content>
+                    Page Content
+                  </Page.Content>
+                </Page>
+                `,
+              compact: true,
+            },
+          ].map(code),
+
+          divider(),
+
+          title('Page Layout Features'),
+          ...[
+            {
+              title: 'Minimized header',
+              description:
+                'The Page will automatically adjust its header to a minimized mode when scrolling through the content',
+              source: `
+                <div style={{ height: '40vh' }}>
+                  <Page upgrade>
+                    <Page.Header title="Page Header" />
+                    <Page.Content>
+                      <Container>
+                        <Row>
+                          <Col span={8}>
+                            <Card>
+                              <Card.Content>
+                                <h3>Scroll Down</h3>
+                                {Array(20).fill(' ').map(item => 
+                                  (<div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                    facilisis molestie magna vitae pellentesque. Ut elementum
+                                    accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
+                                  </div>)
+                                  )
+                                }
+                              </Card.Content>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Container>
+                    </Page.Content>
+                  </Page>
+                </div>
+              `,
+              compact: true,
+            },
+            {
+              title: 'Header Tail elements',
+              description:
+                'elements can be sticked to the header when scrolled. Tabs are a good example for usage.',
+              source: `
+                <div style={{ height: '40vh' }}>
+                  <Page upgrade>
+                    <Page.Header title="Page Header" />
+                    <Page.Tail>
+                      <Tabs
+                        activeId={1}
+                        hasDivider={false}
+                        items={[{id: 1, title: 'item 1'}, {id: 2, title: 'item 2'}]}
+                      />
+                    </Page.Tail>
+                    <Page.Content>
+                      <Container>
+                        <Row>
+                          <Col span={8}>
+                            <Card>
+                              <Card.Content>
+                                {Array(20).fill(' ').map(item => 
+                                  (<div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                    facilisis molestie magna vitae pellentesque. Ut elementum
+                                    accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
+                                  </div>)
+                                  )
+                                }
+                              </Card.Content>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Container>
+                    </Page.Content>
+                  </Page>
+                </div>
+              `,
+              compact: true,
+            },
+            {
+              title: 'Sticky elements',
+              description:
+                'The Page provides <Page.Sticky/> container to attach elements to the scrolled container.',
+              source: `
+                <div style={{ height: '40vh' }}>
+                  <Page upgrade>
+                    <Page.Header title="Page Header" />
+                    <Page.Content>
+                      <Container>
+                        <Row stretchViewsVertically>
+                          <Col span={8}>
+                            <Card>
+                              <Card.Content>
+                                {Array(20).fill(' ').map(item => 
+                                  (<div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                    facilisis molestie magna vitae pellentesque. Ut elementum
+                                    accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
+                                  </div>)
+                                  )
+                                }
+                              </Card.Content>
+                            </Card>
+                          </Col>
+                          <Col span={4}>
+                            <Page.Sticky>
+                              <Card>
+                                <Card.Header title="Sticky" />
+                                <Card.Content>Some menu or other content</Card.Content>
+                              </Card>
+                            </Page.Sticky>
+                          </Col>
+                        </Row>
+                      </Container>
+                    </Page.Content>
+                  </Page>
+                </div>
+              `,
+              compact: true,
+            },
+            {
+              title: 'Complex structures',
+              description: `With Page component you can achieve rich experiences, for example wrapping Table components`,
+              source: ExampleStickyTableWithGapRaw,
+              autoRender: false,
+              compact: true,
+            },
+          ].map(code),
         ],
-      },
-      { title: 'Testkit', sections: [testkit()] },
-    ].map(tab),
+      }),
+      ...[
+        {
+          title: 'API',
+          sections: [
+            description({
+              title:
+                'Please refer the "Compound Components API" for <Page.XXX/> related API',
+            }),
+            api(),
+          ],
+        },
+        {
+          title: 'Compound Components API',
+          sections: [description({ title: 'Children', text: ChildrenReadme })],
+        },
+        {
+          title: 'V6 upgrade migration',
+          sections: [
+            description('## Migration guide (`6.x` -> + `upgrade`)'),
+            description(
+              'If you are already using `<Page/>` and you are adding the `upgrade` prop (`<Page upgrade/>`), then see this [README.MIGRATION.md](https://github.com/wix/wix-style-react/blob/53033adb9241879eeb2dd7d76f7498fd784e97ff/src/Page/README.MIGRATION.md)',
+            ),
+          ],
+        },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
   ],
 };
