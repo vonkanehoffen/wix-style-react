@@ -13,12 +13,17 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
 <br/><hr/><br/>
+
 
 ## Next
 
-### Fixed
-- `<InputWithOptions/>` - Fixing dropdown textOverflow propagate to the input [#3735](https://github.com/wix/wix-style-react/pull/3735)
+
+<br/><hr/><br/>
+
+
+## 6.38.0 - 2019-07-10
 
 ### Docs
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
@@ -41,8 +46,11 @@ Types of changes:
 
 ### Fixed
 - `<InputWithTags/>` - removed Input overlay on disabled state [#3718](https://github.com/wix/wix-style-react/pull/3718)
+- `<InputWithOptions/>` - Fixing dropdown textOverflow propagate to the input [#3735](https://github.com/wix/wix-style-react/pull/3735)
+
 
 <br/><hr/><br/>
+
 
 ## 6.38.0 - 2019-07-10
 
