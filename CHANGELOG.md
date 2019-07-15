@@ -20,6 +20,7 @@ Types of changes:
 
 ### Docs
 - `Cheatsheet`- Adding examples to `ModalFamily`[#3731](https://github.com/wix/wix-style-react/pull/3731)
+- `Cheatsheet`- Adding examples to `ButtonsFamily`[#3748](https://github.com/wix/wix-style-react/pull/3748)
 
 
 ## 6.39.0 - 2019-07-14
