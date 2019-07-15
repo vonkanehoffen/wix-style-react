@@ -51,10 +51,7 @@
     "path": "src/CalendarPanelFooter"
   },
   "Card": {
-    "path": "src/Card",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/Card"
   },
   "CardGalleryItem": {
     "path": "src/CardGalleryItem"
