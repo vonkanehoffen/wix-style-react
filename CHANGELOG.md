@@ -19,6 +19,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<SidebarSectionItem/>` - create the component (WIP) [#3751](https://github.com/wix/wix-style-react/pull/3751)
+
 ### Docs
 - `Cheatsheet`- Adding examples to `ModalFamily`[#3731](https://github.com/wix/wix-style-react/pull/3731)
 
@@ -31,8 +34,8 @@ Types of changes:
 ### Docs
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
 - `Cheatsheet`- Adding examples to `SelectionFamily` [#3727](https://github.com/wix/wix-style-react/pull/3727)
-- `<Stepper>` - changes to docs - [#3712](https://github.com/wix/wix-style-react/pull/3712)
-- `<Page/>` - simplify component docs - [#3742](https://github.com/wix/wix-style-react/pull/3742)
+- `<Stepper>` - changes to docs [#3712](https://github.com/wix/wix-style-react/pull/3712)
+- `<Page/>` - simplify component docs [#3742](https://github.com/wix/wix-style-react/pull/3742)
 - `<Thumbnail/>` - Added example with disabled mode [#3723](https://github.com/wix/wix-style-react/pull/3723)
 
 ### Added
