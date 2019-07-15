@@ -13,10 +13,6 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-
-<br/><hr/><br/>
-
-
 ## Next
 
 ### Added
@@ -24,9 +20,6 @@ Types of changes:
 
 ### Docs
 - `Cheatsheet`- Adding examples to `ModalFamily`[#3731](https://github.com/wix/wix-style-react/pull/3731)
-
-
-<br/><hr/><br/>
 
 
 ## 6.39.0 - 2019-07-14
@@ -55,9 +48,6 @@ Types of changes:
 - `<InputWithOptions/>` - Fixing dropdown textOverflow propagate to the input [#3735](https://github.com/wix/wix-style-react/pull/3735)
 
 
-<br/><hr/><br/>
-
-
 ## 6.38.0 - 2019-07-10
 
 ### Added
@@ -74,7 +64,6 @@ Types of changes:
 - Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
 - `Cheatsheet`- Adding examples to `InputFamily` [#3682](https://github.com/wix/wix-style-react/pull/3682)
 
-
 ### Fixed
 
 - `<Table/>` - Given only one column exists, treat it as first instead of last style-wise [#3705](https://github.com/wix/wix-style-react/pull/3705)
@@ -82,9 +71,10 @@ Types of changes:
 ### Deprecated
 - `<Table/>` - deprecate `clickRowChecbox` driver method, you should use `clickRowCheckbox` instead [#3678](https://github.com/wix/wix-style-react/pull/3678)
 
+
 ## 6.36.0 - 2019-07-07
 
-### Added ###
+### Added
 - `<Button/>` - Teskit - add hasSkin function [#3652](https://github.com/wix/wix-style-react/pull/3652)
 - `<Stepper/>` - Export testkit types [#3690](https://github.com/wix/wix-style-react/pull/3690)
 - `<PopoverMenu/>` - beta - make sure that beta folder is included in the release [#3698](https://github.com/wix/wix-style-react/pull/3698)
@@ -97,6 +87,7 @@ Types of changes:
 - `<PopoverMenu/>` - change `appendTo` propType [#3662](https://github.com/wix/wix-style-react/pull/3662)
 - `<Text/>` - expose tooltip props [#3701](https://github.com/wix/wix-style-react/pull/3701)
 
+
 ## 6.35.0 - 2019-07-03
 
 ### Added
@@ -107,8 +98,8 @@ Types of changes:
 - `<Button/>`- migrating `<Button/>` styles from `wix-ui-core` to `wix-style-react` and updating Button.js to use the styles directly from `wix-style-react`.[#3648](https://github.com/wix/wix-style-react/pull/3648)
 
 ### Fixed
-
 - infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
+
 
 ## 6.34.1 - 2019-06-27
 
@@ -117,6 +108,7 @@ Types of changes:
 
 ### Fixed
 - transpile `import` keyword in `dist` for dynamically loadable components [#3644](https://github.com/wix/wix-style-react/pull/3644)
+
 
 ## 6.34.0 - 2019-06-26
 
