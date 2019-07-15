@@ -370,5 +370,8 @@
     "missingFiles": [
       "docs/index.story.js"
     ]
+  },
+  "SidebarSectionItem": {
+    "path": "src/SidebarSectionItem"
   }
 }

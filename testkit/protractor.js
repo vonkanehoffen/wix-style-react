@@ -568,3 +568,9 @@ import { sidebarSectionTitleDriverFactory } from '../src/SidebarSectionTitle/Sid
 export const sidebarSectionTitleTestkitFactory = protractorUniTestkitFactoryCreator(
   sidebarSectionTitleDriverFactory,
 );
+
+import { sidebarSectionItemDriverFactory } from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
+
+export const sidebarSectionItemTestkitFactory = protractorUniTestkitFactoryCreator(
+  sidebarSectionItemDriverFactory,
+);

@@ -134,4 +134,5 @@ export {
 export { default as Subheader } from './Card/Subheader';
 export { default as Swatches } from './Swatches';
 export { default as SidebarSectionTitle } from './SidebarSectionTitle';
+export { default as SidebarSectionItem } from './SidebarSectionItem';
 export { default as Collapse } from './Collapse';

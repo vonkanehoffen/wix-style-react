@@ -8,12 +8,6 @@
     -st-named: D40
 }
 
-:import {
-    -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
-    -st-named: fontBold;
-}
-
-
 .root {
   -st-extends: Text;
 

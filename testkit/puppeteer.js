@@ -452,3 +452,9 @@ import { sidebarSectionTitleDriverFactory } from '../src/SidebarSectionTitle/Sid
 export const sidebarSectionTitleTestkitFactory = puppeteerUniTestkitFactoryCreator(
   sidebarSectionTitleDriverFactory,
 );
+
+import { sidebarSectionItemDriverFactory } from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
+
+export const sidebarSectionItemTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sidebarSectionItemDriverFactory,
+);

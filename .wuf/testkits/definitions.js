@@ -306,5 +306,10 @@ module.exports = {
   SidebarSectionTitle: {
     unidriver: true,
     testkitPath: "../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver"
+  },
+
+  SidebarSectionItem: {
+    unidriver: true,
+    testkitPath: "../src/SidebarSectionItem/SidebarSectionItem.uni.driver"
   }
 };
