@@ -9,7 +9,7 @@ import {
   oneOfType,
 } from 'prop-types';
 import OriginalText from './Text';
-import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
+import { withEllipsedTooltip } from 'wix-ui-core/dist/standalone/src/hocs/EllipsedTooltip';
 import tooltip from '../Tooltip/TooltipNext/Tooltip.st.css';
 
 const Text = ({

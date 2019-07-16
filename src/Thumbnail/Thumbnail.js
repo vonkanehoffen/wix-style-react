@@ -4,7 +4,7 @@ import styles from './Thumbnail.st.css';
 
 import Check from 'wix-ui-icons-common/Check';
 import Text from '../Text';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import { withFocusable } from 'wix-ui-core/dist/standalone/src/hocs/Focusable/FocusableHOC';
 
 const isString = a => typeof a === 'string';
 

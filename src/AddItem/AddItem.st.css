@@ -1,5 +1,5 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "wix-ui-core/src/themes/backoffice/colors.st.css";
   -st-named:
     B10, B20, B30, B40, B50,
     D55, D60, D70,
@@ -8,17 +8,17 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/opacity.st.css";
+  -st-from: "wix-ui-core/src/themes/backoffice/opacity.st.css";
   -st-named: opacity48;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/border.st.css";
+  -st-from: "wix-ui-core/src/themes/backoffice/border.st.css";
   -st-named: radius08;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-from: "wix-ui-core/src/hocs/Focusable/Focusable.st.css";
   -st-default: Focusable;
 }
 

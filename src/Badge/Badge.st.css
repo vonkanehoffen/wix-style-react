@@ -4,12 +4,12 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-from: "wix-ui-core/src/hocs/Focusable/Focusable.st.css";
   -st-default: Focusable;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "wix-ui-core/src/themes/backoffice/colors.st.css";
   -st-named:
     B10, B20, B30,
     D20, D40, D70, D80,

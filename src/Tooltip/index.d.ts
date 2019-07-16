@@ -3,7 +3,7 @@ import { WixComponentProps } from '../BaseComponents/WixComponent';
 import {
   AppendTo,
   Placement,
-} from 'wix-ui-core/dist/src/components/popover/Popover.d';
+} from 'wix-ui-core/src/components/popover/Popover.d';
 
 export interface TooltipNewProps {
   upgrade: true;

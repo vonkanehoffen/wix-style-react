@@ -1,4 +1,4 @@
-import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/standalone/src/components/tooltip/Tooltip.driver';
 import { Simulate } from 'react-dom/test-utils';
 
 const formFieldDriver = ({ element }) => {

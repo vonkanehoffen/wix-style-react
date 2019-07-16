@@ -1,6 +1,6 @@
 /* eslint-disable */
 import textDriverFactory from '../Text/Text.driver';
-import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
+import { tooltipTestkitFactory } from 'wix-ui-core/dist/standalone/src/testkit';
 
 const addItemDriverFactory = ({ element, eventTrigger }) => {
   const byHook = hook => element.querySelector(`[data-hook*="${hook}"]`);

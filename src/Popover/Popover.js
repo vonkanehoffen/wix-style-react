@@ -1,6 +1,6 @@
 import React from 'react';
-import { Popover as CorePopover } from 'wix-ui-core/dist/src/components/popover';
-import { buildChildrenObject } from 'wix-ui-core/dist/src/utils';
+import { Popover as CorePopover } from 'wix-ui-core/dist/standalone/src/components/popover';
+import { buildChildrenObject } from 'wix-ui-core/dist/standalone/src/utils';
 import PropTypes from 'prop-types';
 
 import style from './Popover.st.css';

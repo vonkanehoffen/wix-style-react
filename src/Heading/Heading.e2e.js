@@ -4,7 +4,7 @@ import {
   waitForVisibilityOf,
 } from 'wix-ui-test-utils/protractor';
 import { headingTestkitFactory } from '../../testkit/protractor';
-import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit/protractor';
+import { tooltipTestkitFactory } from 'wix-ui-core/dist/standalone/src/testkit/protractor';
 import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
 import { APPEARANCES } from './Heading';
 

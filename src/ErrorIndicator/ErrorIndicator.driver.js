@@ -1,4 +1,4 @@
-import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
+import { tooltipTestkitFactory } from 'wix-ui-core/dist/standalone/src/testkit';
 
 export const errorIndicatorDriverFactory = ({ element }) => {
   const tooltipTestkit = tooltipTestkitFactory({

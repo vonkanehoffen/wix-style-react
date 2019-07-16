@@ -1,3 +1,3 @@
-import { popoverDriverFactory } from 'wix-ui-core/dist/src/components/popover/Popover.driver';
+import { popoverDriverFactory } from 'wix-ui-core/dist/standalone/src/components/popover/Popover.driver';
 
 export default popoverDriverFactory;

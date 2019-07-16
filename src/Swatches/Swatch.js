@@ -1,5 +1,5 @@
 import React from 'react';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import { withFocusable } from 'wix-ui-core/dist/standalone/src/hocs/Focusable/FocusableHOC';
 import styles from './Swatches.st.css';
 import Tooltip from '../Tooltip';
 

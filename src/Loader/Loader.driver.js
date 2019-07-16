@@ -1,5 +1,5 @@
 import { isClassExists } from '../../test/utils';
-import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
+import { tooltipTestkitFactory } from 'wix-ui-core/dist/standalone/src/testkit';
 
 const getTextElement = element =>
   element.querySelector(`[data-hook="loader-text"]`);

@@ -13,9 +13,7 @@ export const InputConsumer = props => {
       {context => {
         if (!context) {
           throw new Error(
-            `${
-              props.consumerCompName
-            } cannot be rendered outside the Input component`,
+            `${props.consumerCompName} cannot be rendered outside the Input component`,
           );
         }
         return props.children(context);

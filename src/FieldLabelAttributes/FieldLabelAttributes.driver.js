@@ -1,4 +1,4 @@
-import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
+import { tooltipTestkitFactory } from 'wix-ui-core/dist/standalone/src/testkit';
 
 const fieldLabelAttributesDriverFactory = ({ element }) => {
   const tooltipTestkit = tooltipTestkitFactory({ element, dataHook: 'info' });

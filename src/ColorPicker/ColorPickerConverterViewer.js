@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import Color from 'color';
 import styles from './ColorPickerConverter.st.css';
 import { func, node, object } from 'prop-types';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import { withFocusable } from 'wix-ui-core/dist/standalone/src/hocs/Focusable/FocusableHOC';
 import AddSmall from '../new-icons/AddSmall';
 import Tooltip from '../Tooltip';
 
