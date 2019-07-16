@@ -26,6 +26,7 @@ const DropdownExample = () => (
   <SingleComponent
     name="4.1 Dropdown"
     componentsNames={['<FormField/>', '<Dropdown/>']}
+    compact
   >
     <FormField id="formfieldDropdownId" label="Dropdown">
       <Dropdown
@@ -68,6 +69,7 @@ class MultiSelectDropdownExample extends PureComponent {
       <SingleComponent
         name="4.2 Multi Select Dropdown"
         componentsNames={['<FormField/>', '<MultiSelectCheckbox/>']}
+        compact
       >
         <FormField
           id="formfieldMultiSelectDropdownId"
@@ -182,17 +184,19 @@ const SegmentedToggleExample = () => (
     componentsNames={['<FormField/>', '<SegmentedToggle/>']}
   >
     <FormField id="formfieldSegmentedToggleId" label="Segmented Toggle">
-      <SegmentedToggle
-        defaultSelected="option 1"
-        id="formfieldSegmentedToggleId"
-      >
-        <SegmentedToggle.Icon value="option" tooltipText="Locked">
-          <LockLocked />
-        </SegmentedToggle.Icon>
-        <SegmentedToggle.Icon value="option2" tooltipText="Unlocked">
-          <LockUnlocked />
-        </SegmentedToggle.Icon>
-      </SegmentedToggle>
+      <Box>
+        <SegmentedToggle
+          defaultSelected="option 1"
+          id="formfieldSegmentedToggleId"
+        >
+          <SegmentedToggle.Icon value="option" tooltipText="Locked">
+            <LockLocked />
+          </SegmentedToggle.Icon>
+          <SegmentedToggle.Icon value="option2" tooltipText="Unlocked">
+            <LockUnlocked />
+          </SegmentedToggle.Icon>
+        </SegmentedToggle>
+      </Box>
     </FormField>
   </SingleComponent>
 );
@@ -270,6 +274,7 @@ class SliderExample extends PureComponent {
       <SingleComponent
         name="4.8 Slider"
         componentsNames={['<FormField/>', '<Slider/>']}
+        compact
       >
         <FormField id="formfieldSliderId" label="Slider Label">
           <Slider

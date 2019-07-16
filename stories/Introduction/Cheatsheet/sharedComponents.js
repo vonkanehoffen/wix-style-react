@@ -30,13 +30,22 @@ export const SingleComponent = ({
   children,
   secondary,
   light,
+  compact,
 }) => (
   <Row>
-    <Col span={6}>
+    <Col span={4}>
       {renderNameSection({ name, secondary, light })}
       <Box>{renderComponentsNames(componentsNames)}</Box>
     </Col>
-    <Col span={6}>{children}</Col>
+    <Col span={8}>
+      {compact ? (
+        <Row>
+          <Col span={6}>{children}</Col>
+        </Row>
+      ) : (
+        children
+      )}
+    </Col>
   </Row>
 );
 
@@ -62,12 +71,12 @@ export const GeneralStructure = ({ title, children, showPreview = true }) => (
     <Card.Content>
       <Container fluid>
         <Row>
-          <Col span={6}>
+          <Col span={4}>
             <Heading appearance="H5" light>
               INDEX NAME & I.C.
             </Heading>
           </Col>
-          <Col span={6}>
+          <Col span={8}>
             {showPreview && (
               <Heading appearance="H5" light>
                 PREVIEW

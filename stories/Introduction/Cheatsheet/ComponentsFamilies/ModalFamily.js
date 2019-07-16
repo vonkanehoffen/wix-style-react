@@ -33,7 +33,6 @@ const AlretExamples = () => (
       title="System Crashed!"
       confirmText="Action"
       theme="red"
-      confirmText="Main"
       cancelText="Secondary"
       image={
         <Box

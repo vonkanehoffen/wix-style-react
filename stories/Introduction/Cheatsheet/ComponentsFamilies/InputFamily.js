@@ -27,6 +27,7 @@ const TextInputExample = () => (
   <SingleComponent
     name="3.1 Text Input"
     componentsNames={['<FormField/>', '<Input/>']}
+    compact
   >
     <FormField label="Text Input">
       <Input placeholder="Value" />
@@ -38,6 +39,7 @@ const TextAreaExample = () => (
   <SingleComponent
     name="3.2 Text Area"
     componentsNames={['<FormField/>', '<Input/>']}
+    compact
   >
     <FormField label="Text Area">
       <InputArea placeholder="Value" />
@@ -49,6 +51,7 @@ const RichTextAreaExample = () => (
   <SingleComponent
     name="3.3 Rich Text Area"
     componentsNames={['<FormField/>', '<RichTextInputArea/>']}
+    compact
   >
     <FormField label="Rich Text Area">
       <RichTextInputArea />
@@ -60,6 +63,7 @@ const NumberInputExample = () => (
   <SingleComponent
     name="3.4 Number Input"
     componentsNames={['<FormField/>', '<NumberInput/>']}
+    compact
   >
     <FormField label="Number Input">
       <NumberInput value={500} />
@@ -100,6 +104,7 @@ const DateInputExample = () => (
   <SingleComponent
     name="3.9 Date Input"
     componentsNames={['<FormField/>', '<DateInput/>']}
+    compact
   >
     <FormField label="Date">
       <DateInput value={new Date().toString()} />
@@ -117,6 +122,7 @@ const ColorInputExample = () => (
   <SingleComponent
     name="3.11 Color Input"
     componentsNames={['<FormField/>', '<ColorInput/>']}
+    compact
   >
     <FormField label="Color Input">
       <ColorInput value="" placeholder="Please choose a color" />
@@ -128,6 +134,7 @@ const TagsInputExample = () => (
   <SingleComponent
     name="3.12 Tags Input"
     componentsNames={['<FormField/>', '<MultiSelect/>', '<Tag/>']}
+    compact
   >
     <FormField label="Tag Input">
       <MultiSelect tags={[{ label: 'Tag 1' }, { label: 'Tag 2' }]} />
@@ -142,7 +149,11 @@ const GoogleAddressInputExample = () => (
 );
 
 const SearchInputExample = () => (
-  <SingleComponent name="3.14 Search Input" componentsNames={['<Search/>']}>
+  <SingleComponent
+    name="3.14 Search Input"
+    componentsNames={['<Search/>']}
+    compact
+  >
     <Search placeholder="Search..." />
   </SingleComponent>
 );
