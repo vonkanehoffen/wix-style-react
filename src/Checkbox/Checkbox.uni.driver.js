@@ -1,28 +1,21 @@
 import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.uni.driver';
-import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import { testkitTooltip as tooltipUniDriverFactory } from '../Tooltip/Tooltip.uni.driver';
 
-const labelUniTestkitFactory = uniTestkitFactoryCreator(labelUniDriverFactory);
-const toolTipUniTestkitFactory = uniTestkitFactoryCreator(
-  tooltipUniDriverFactory,
-);
+import * as DATA_ATTR from './DataAttr';
 
-export const checkboxUniDriverFactory = base => {
+const getDataCheckType = base => base.attr(DATA_ATTR.DATA_CHECK_TYPE);
+
+export const checkboxUniDriverFactory = (base, body) => {
   const reactBase = ReactBase(base);
   const input = () => base.$('input');
-  const isChecked = () => base.hasClass('checked');
+  const isChecked = async () =>
+    (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.CHECKED;
   const labelDriver = async () =>
-    labelUniTestkitFactory({
-      wrapper: await base.getNative(), // eslint-disable-line no-restricted-properties
-      dataHook: 'checkbox-label',
-    });
+    labelUniDriverFactory(base.$('[data-hook="checkbox-label"]'));
   const tooltipDriver = async () =>
-    toolTipUniTestkitFactory({
-      wrapper: await base.getNative(), // eslint-disable-line no-restricted-properties
-      dataHook: 'checkbox-box',
-    });
+    tooltipUniDriverFactory(base.$('[data-hook="checkbox-box"]'), body);
 
   return {
     ...baseUniDriverFactory(base),
@@ -46,14 +39,18 @@ export const checkboxUniDriverFactory = base => {
      */
     hasFocusState: () => base.attr('data-focus'),
     isChecked,
-    isDisabled: () => base.hasClass('disabled'),
-    isIndeterminate: () => base.hasClass('indeterminate'),
-    hasError: () => base.hasClass('hasError'),
+    isDisabled: async () =>
+      (await base.attr(DATA_ATTR.DATA_DISABLED)) === 'true',
+    isIndeterminate: async () =>
+      (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.INDETERMINATE,
+    hasError: async () =>
+      (await base.attr(DATA_ATTR.DATA_HAS_ERROR)) === 'true',
     getLabel: async () => (await labelDriver()).getLabelText(),
     getLabelDriver: () => labelDriver(),
     getErrorMessage: async () => {
       try {
-        return (await tooltipDriver()).hoverAndGetContent();
+        const newVar = await tooltipDriver();
+        return newVar.hoverAndGetContent();
       } catch (e) {
         throw new Error('Failed getting checkbox error message');
       }

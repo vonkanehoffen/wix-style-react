@@ -10,6 +10,7 @@ import { withFocusable, focusableStates } from '../common/Focusable';
 
 import { generateID } from '../utils/generateId';
 import Tooltip from '../Tooltip';
+import * as DATA_ATTR from './DataAttr';
 
 /** a simple WixStyle checkbox */
 class Checkbox extends WixComponent {
@@ -47,6 +48,19 @@ class Checkbox extends WixComponent {
 
   //TODO fix me please. We need to get away from ids.
   _id = `${Checkbox.displayName}-${generateID()}`;
+
+  _getDataAttributes = () => {
+    const { checked, indeterminate, disabled, hasError } = this.props;
+    return {
+      [DATA_ATTR.DATA_CHECK_TYPE]: indeterminate
+        ? DATA_ATTR.CHECK_TYPES.INDETERMINATE
+        : checked
+        ? DATA_ATTR.CHECK_TYPES.CHECKED
+        : DATA_ATTR.CHECK_TYPES.UNCHECKED,
+      [DATA_ATTR.DATA_HAS_ERROR]: hasError && !disabled,
+      [DATA_ATTR.DATA_DISABLED]: disabled,
+    };
+  };
 
   render() {
     const {
@@ -87,6 +101,7 @@ class Checkbox extends WixComponent {
         onBlur={this.props.focusableOnBlur}
         {...focusableStates(this.props)}
         tabIndex={disabled ? null : 0}
+        {...this._getDataAttributes()}
       >
         <input
           data-hook="checkbox-input"
