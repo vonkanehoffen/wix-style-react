@@ -1,11 +1,12 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
+import * as DataAttr from './DataAttr';
 import styles from './DropdownLayout.scss';
 
 export const dropdownLayoutDriverFactory = base => {
   const byDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
   const reactBase = ReactBase(base);
   const contentContainer = async () => byDataHook('content-container');
-  const optionsDataHook = 'dropdown-layout-options';
+  const optionsDataHook = DataAttr.DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS;
   const optionsElement = byDataHook(optionsDataHook);
   const optionElementAt = async position =>
     await base.$(
@@ -82,7 +83,8 @@ export const dropdownLayoutDriverFactory = base => {
       doIfOptionExists(position, async () =>
         (await optionElementAt(position)).hasClass(styles.bigHeight),
       ),
-    isShown: async () => (await contentContainer()).hasClass(styles.shown),
+    isShown: async () =>
+      (await (await contentContainer()).attr(DataAttr.DATA_SHOWN)) === 'true',
     isUp: async () => (await contentContainer()).hasClass(styles.up),
     mouseEnter: () => base.hover(),
     mouseEnterAtOption: position =>
@@ -171,7 +173,7 @@ const createOptionDriver = option => ({
   isHoveredWithGlobalClassName: () => option.hasClass('wixstylereactHovered'),
   isSelectedWithGlobalClassName: () => option.hasClass('wixstylereactSelected'),
   content: () => option.text(),
-  click: () => ReactBase(option).click(),
+  click: () => option.click(),
   isDivider: () => option.hasClass(styles.divider),
   isDisabled: () => option.hasClass(styles.disabled),
 });

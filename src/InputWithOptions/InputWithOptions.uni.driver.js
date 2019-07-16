@@ -14,8 +14,7 @@ export const inputWithOptionsUniDriverFactory = base => {
 
   const assertOptionsOpen = async () => {
     if (!(await dropdownLayoutDriver.isShown())) {
-      await inputDriver.focus();
-      await inputDriver.keyDown({ key: 'ArrowDown' });
+      await inputDriver.click();
       if (!(await dropdownLayoutDriver.isShown())) {
         throw new Error('Options dropdown should be open!');
       }

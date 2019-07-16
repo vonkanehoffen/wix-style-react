@@ -6,6 +6,7 @@ import WixComponent from '../BaseComponents/WixComponent';
 import scrollIntoView from '../utils/scrollIntoView';
 import InfiniteScroll from '../utils/InfiniteScroll';
 import Loader from '../Loader/Loader';
+import * as DataAttr from './DataAttr';
 
 const modulu = (n, m) => {
   const remain = n % m;
@@ -232,6 +233,14 @@ class DropdownLayout extends WixComponent {
     </InfiniteScroll>
   );
 
+  _getDataAttributes = () => {
+    const { visible } = this.props;
+    return {
+      'data-hook': DataAttr.DATA_HOOKS.CONTENT_CONTAINER,
+      [DataAttr.DATA_SHOWN]: visible,
+    };
+  };
+
   render() {
     const {
       options,
@@ -270,7 +279,7 @@ class DropdownLayout extends WixComponent {
         onMouseLeave={onMouseLeave}
       >
         <div
-          data-hook="content-container"
+          {...this._getDataAttributes()}
           className={contentContainerClassName}
           style={{
             overflow,
@@ -288,7 +297,7 @@ class DropdownLayout extends WixComponent {
               overflow,
             }}
             ref={_options => (this.options = _options)}
-            data-hook="dropdown-layout-options"
+            data-hook={DataAttr.DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS}
           >
             {this.props.infiniteScroll
               ? this._wrapWithInfiniteScroll(renderedOptions)
@@ -319,7 +328,7 @@ class DropdownLayout extends WixComponent {
     });
 
     return linkTo ? (
-      <a key={idx} data-hook="link-item" href={linkTo}>
+      <a key={idx} data-hook={DataAttr.DATA_HOOKS.LINK_ITEM} href={linkTo}>
         {content}
       </a>
     ) : (
