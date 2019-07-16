@@ -18,6 +18,9 @@ Types of changes:
 ### Added
 - `<SidebarSectionItem/>` - create the component (WIP) [#3751](https://github.com/wix/wix-style-react/pull/3751)
 
+### Fixed
+- `beta/<PopoverMenu/>` - fix `moveBy` prop for [#3755](https://github.com/wix/wix-style-react/pull/3755)
+
 ### Docs
 - `Cheatsheet`- Adding examples to `ModalFamily`[#3731](https://github.com/wix/wix-style-react/pull/3731)
 - `Cheatsheet`- Adding examples to `ButtonsFamily`[#3748](https://github.com/wix/wix-style-react/pull/3748)
