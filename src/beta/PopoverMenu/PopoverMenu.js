@@ -271,6 +271,7 @@ class PopoverMenu extends React.PureComponent {
       fixed,
       showArrow,
       dataHook,
+      moveBy,
     } = this.props;
     return (
       <DropdownBase
@@ -287,6 +288,7 @@ class PopoverMenu extends React.PureComponent {
         fixed={fixed}
         showArrow={showArrow}
         tabIndex="-1"
+        moveBy={moveBy}
       >
         {({ toggle }) => this._renderTriggerElement(toggle)}
       </DropdownBase>
