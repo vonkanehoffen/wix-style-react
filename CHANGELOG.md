@@ -15,6 +15,10 @@ Types of changes:
 
 ## Next
 
+### Changed
+
+- `<Input/>` - replace old puppeteer driver with unidriver for testkit export [#3769](https://github.com/wix/wix-style-react/pull/3769)
+
 ## 6.40.0 - 2019-07-17
 
 ### Added
