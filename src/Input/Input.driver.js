@@ -52,6 +52,7 @@ const inputDriverFactory = ({ element }) => {
       });
     },
     getValue: () => input.value,
+    getText: () => input.value,
     getPlaceholder: () => input.placeholder,
     getDefaultValue: () => input.defaultValue,
     getTabIndex: () => input.tabIndex,

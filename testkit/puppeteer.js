@@ -4,9 +4,9 @@ import {
   puppeteerUniTestkitFactoryCreator,
 } from 'wix-ui-test-utils/puppeteer';
 
-import inputDriverFactory from '../src/Input/Input.puppeteer.driver';
+import inputDriverFactory from '../src/Input/Input.uni.driver';
 
-export const inputTestkitFactory = puppeteerTestkitFactoryCreator(
+export const inputTestkitFactory = puppeteerUniTestkitFactoryCreator(
   inputDriverFactory,
 );
 
