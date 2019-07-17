@@ -20,6 +20,7 @@ Types of changes:
 ### Added
 - `<SidebarSectionItem/>` - create the component (WIP) [#3751](https://github.com/wix/wix-style-react/pull/3751)
 - `<SidebarSectionDivider/>` - create the component (WIP) [#3758](https://github.com/wix/wix-style-react/pull/3758)
+- `<Multiselect/>` - add `customSuffix` prop [#3759](https://github.com/wix/wix-style-react/pull/3759)
 
 ### Fixed
 - `beta/<PopoverMenu/>` - fix `moveBy` prop for [#3755](https://github.com/wix/wix-style-react/pull/3755)
