@@ -15,6 +15,8 @@ Types of changes:
 
 ## Next
 
+## 6.40.0 - 2019-07-17
+
 ### Added
 - `<SidebarSectionItem/>` - create the component (WIP) [#3751](https://github.com/wix/wix-style-react/pull/3751)
 - `<SidebarSectionDivider/>` - create the component (WIP) [#3758](https://github.com/wix/wix-style-react/pull/3758)
