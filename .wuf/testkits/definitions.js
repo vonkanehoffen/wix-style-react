@@ -311,5 +311,10 @@ module.exports = {
   SidebarSectionItem: {
     unidriver: true,
     testkitPath: "../src/SidebarSectionItem/SidebarSectionItem.uni.driver"
+  },
+
+  SidebarSectionDivider: {
+    unidriver: true,
+    testkitPath: "../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver"
   }
 };

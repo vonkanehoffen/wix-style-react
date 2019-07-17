@@ -132,6 +132,7 @@ export const thumbnailTestkitFactory = uniTestkitFactoryCreator(load(require('..
 export const timeInputTestkitFactory = testkitFactoryCreator(load(require('../src/TimeInput/TimeInput.driver')));
 export const toggleSwitchTestkitFactory = testkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.driver')));
 export const sidebarSectionItemTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarSectionItem/SidebarSectionItem.uni.driver')));
+export const sidebarSectionDividerTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const richTextAreaTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/RichTextArea/RichTextArea.driver')));

@@ -458,3 +458,9 @@ import { sidebarSectionItemDriverFactory } from '../src/SidebarSectionItem/Sideb
 export const sidebarSectionItemTestkitFactory = puppeteerUniTestkitFactoryCreator(
   sidebarSectionItemDriverFactory,
 );
+
+import { sidebarSectionDividerDriverFactory } from '../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver';
+
+export const sidebarSectionDividerTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sidebarSectionDividerDriverFactory,
+);

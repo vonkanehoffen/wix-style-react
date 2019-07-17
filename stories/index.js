@@ -137,6 +137,7 @@ require('../src/ToggleSwitch/docs/index.story');
 require('../src/Tooltip/TooltipNext/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
+require('../src/SidebarSectionDivider/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
