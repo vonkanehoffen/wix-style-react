@@ -622,6 +622,22 @@ describe('MultiSelect', () => {
       });
     });
 
+    describe('custom node suffix', () => {
+      it('should have custom node suffix when prop is passed', async () => {
+        const { driver } = createDriver(
+          <MultiSelect customSuffix={<div />} options={options} />,
+        );
+
+        expect(await driver.customSuffixExists()).toBeTruthy();
+      });
+
+      it('should not have custom node suffix when prop is not passed', async () => {
+        const { driver } = createDriver(<MultiSelect options={options} />);
+
+        expect(await driver.customSuffixExists()).toBeFalsy();
+      });
+    });
+
     describe('maxHeight', () => {
       it('should set maxHeight to initial when no height limit introduced', async () => {
         const { driver } = createDriver(<MultiSelect options={options} />);

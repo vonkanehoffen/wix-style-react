@@ -6,6 +6,7 @@ import Card from 'wix-style-react/Card';
 import FormField from 'wix-style-react/FormField';
 
 import { contactItemBuilder } from 'wix-style-react/ContactItemBuilder';
+import TextButton from '../../TextButton/TextButton';
 
 const contacts = [
   { name: 'David Fincher', email: 'davidf@wix.com' },
@@ -94,6 +95,7 @@ class ContactsInput extends React.Component {
         onRemoveTag={this.handleOnRemoveTag}
         predicate={this.predicate}
         upgrade
+        customSuffix={<TextButton>+ Add Tag</TextButton>}
         highlight={false} // FIXME: This is a workaround a current bug
       />
     );

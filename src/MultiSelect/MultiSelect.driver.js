@@ -20,6 +20,8 @@ const multiSelectDriverFactory = ({ element }) => {
     inputWrapperHasError: () => inputWrapper.classList.contains('error'),
     inputWrapperIsDisabled: () => inputWrapper.classList.contains('disabled'),
     numberOfTags: () => tags.length,
+    customSuffixExists: () =>
+      inputWrapper.querySelector('[data-hook="custom-suffix"]'),
     getTagLabelAt: index => tags[index].textContent,
     pressCommaKey: () => inputDriver.keyDown(','),
     getTagDriverByTagId: tagId =>

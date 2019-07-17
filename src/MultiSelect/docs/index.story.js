@@ -22,6 +22,7 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import ExampleSelectSimpleRaw from '!raw-loader!./ExampleSelectSimple';
 import ExampleSelectAutocompleteRaw from '!raw-loader!./ExampleSelectAutocomplete';
+
 import ExampleSuggestionsRaw from '!raw-loader!./ExampleSuggestions';
 import ExampleTagInputRaw from '!raw-loader!./ExampleTagInput';
 import ExampleTagInputSelectionRaw from '!raw-loader!./ExampleTagInputSelection';

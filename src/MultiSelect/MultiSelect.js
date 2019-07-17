@@ -59,6 +59,8 @@ class MultiSelect extends InputWithOptions {
           onReorder={this.props.onReorder}
           maxNumRows={this.props.maxNumRows}
           mode={this.props.mode}
+          hideCustomSuffix={this.isDropdownLayoutVisible()}
+          customSuffix={this.props.customSuffix}
         />
       ),
       onKeyDown: this.onKeyDown,
@@ -214,6 +216,7 @@ MultiSelect.propTypes = {
    */
   onSelect: PropTypes.func,
   customInput: PropTypes.func,
+  customSuffix: PropTypes.node,
 };
 
 MultiSelect.defaultProps = {

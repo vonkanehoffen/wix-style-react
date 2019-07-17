@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import MultiSelect from 'wix-style-react/MultiSelect';
+import TextButton from '../../TextButton/TextButton';
 
 const countries = [
   { name: 'Alabama', code: 'AL' },
@@ -57,6 +58,7 @@ class CountrySelection extends React.Component {
         onSelect={this.handleOnSelect}
         onRemoveTag={this.handleOnRemoveTag}
         options={this.state.options}
+        customSuffix={<TextButton>+ Add Tag</TextButton>}
         upgrade
       />
     );
