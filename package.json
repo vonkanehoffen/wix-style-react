@@ -58,7 +58,7 @@
     "storybook:build": "npm run prestorybook && build-storybook",
     "storybook:static": "node scripts/e2e-server.js",
     "storybook": "npm run prestorybook && start-storybook -p 6006",
-    "postpublish": "npm install && npm run build && npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease",
+    "postpublish": "if [ \"$NPM_PUBLISH_TYPE\" == \"re-publish\" ]; then npm install && npm run build && npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease; fi",
     "export-components": "import-path --path src --dts",
     "lint": "yoshi lint --fix",
     "proxy-wix-ui-icons": "node scripts/proxy-wix-ui-icons",
