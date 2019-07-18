@@ -322,8 +322,9 @@ class InputWithOptions extends WixComponent {
 
     const { key } = event;
 
-    // Prevent a wrapping form from submitting when hitting Enter
-    if (key === 'Enter') {
+    /* Enter - prevent a wrapping form from submitting when hitting Enter */
+    /* ArrowUp - prevent input's native behaviour from moving the text cursor to the beginning */
+    if (key === 'Enter' || key === 'ArrowUp') {
       event.preventDefault();
     }
 

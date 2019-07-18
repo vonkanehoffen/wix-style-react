@@ -581,6 +581,26 @@ describe('InputWithOptions', () => {
       });
     });
 
+    describe('onKeyArrowUp', () => {
+      it("should NOT move Input's text cursor", async () => {
+        const filteringText = 'Opt';
+        const { driver, inputDriver } = createDriver(
+          <InputWithOptions
+            options={options}
+            value={filteringText}
+            autoFocus
+          />,
+        );
+
+        await driver.pressKey('ArrowDown');
+        await driver.pressKey('ArrowDown');
+        await driver.pressKey('ArrowUp');
+
+        const cursorLocation = await inputDriver.getCursorLocation();
+        expect(cursorLocation).toEqual(filteringText.length);
+      });
+    });
+
     describe('onSelect', () => {
       it('should call onSelect on enter key press', async () => {
         const onSelect = jest.fn();
