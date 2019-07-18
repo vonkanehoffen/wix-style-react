@@ -15,6 +15,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<InputWithOptions/>` - fix Input cursor jumping to input start on ArrowUp [#3762](https://github.com/wix/wix-style-react/pull/3762)
+
 ### Changed
 
 - `<Input/>` - replace old puppeteer driver with unidriver for testkit export [#3769](https://github.com/wix/wix-style-react/pull/3769)
