@@ -38,7 +38,10 @@
 module.exports = {
   SideMenuDrill: {
     skipSanityTest: true,
-    testkitPath: "../src/SideMenu/DrillView/DrillView.driver"
+    testkitPath: "../src/SideMenu/DrillView/DrillView.driver",
+    protractorTestkitPath:
+      "../src/SideMenu/DrillView/DrillView.protractor.driver",
+    protractorTestkitExportName: "drillViewTestkitFactory"
   },
 
   BadgeSelectItemBuilder: {
@@ -72,9 +75,12 @@ module.exports = {
   },
 
   GoogleAddressInputWithLabel: {
-    skipSanityTest: true
+    skipSanityTest: true,
     // TODO: testkit of this component is not following convention.
     // It is used only internally and before automated export was not exported manually
+
+    // the name of export has a typo, it's different than component name
+    protractorTestkitExportName: "googleAddressWithInputTestkitFactory"
   },
 
   Grid: { skipSanityTest: true, noTestkit: true },
@@ -85,7 +91,11 @@ module.exports = {
   Header: {
     testkitPath: "../src/Card/Header/Header.driver",
     // TODO: this is actually  Card.Header, but is exported just as header
-    skipSanityTest: true
+    skipSanityTest: true,
+    namedTestkitExport: true,
+    testkitImportName: "headerUniDriverFactory",
+    protractorTestkitPath: "../src/Card/Header/Header.uni.driver",
+    protractorTestkitExportName: "cardHeaderTestkitFactory"
   },
 
   Page: { skipSanityTest: true },
@@ -101,7 +111,9 @@ module.exports = {
 
   RichTextArea: {
     beforeAllHook: () => (window.getSelection = () => ({})),
-    testkitPath: "../src/Deprecated/RichTextArea/RichTextArea.driver"
+    testkitPath: "../src/Deprecated/RichTextArea/RichTextArea.driver",
+    protractorTestkitPath:
+      "../src/Deprecated/RichTextArea/RichTextArea.protractor.driver"
   },
 
   RichTextAreaComposite: {
@@ -110,21 +122,28 @@ module.exports = {
       "../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver"
   },
 
-  Avatar: { unidriver: true },
+  Avatar: {
+    unidriver: true,
+    namedTestkitExport: true,
+    protractorTestkitPath: "../src/Avatar/Avatar.driver"
+  },
 
   TextButton: {
     unidriver: true,
-    testkitPath: "../src/TextButton/TextButton.uni.driver"
+    testkitPath: "../src/TextButton/TextButton.uni.driver",
+    namedTestkitExport: true
   },
 
   IconButton: {
     unidriver: true,
-    testkitPath: "../src/IconButton/IconButton.uni.driver"
+    testkitPath: "../src/IconButton/IconButton.uni.driver",
+    namedTestkitExport: true
   },
 
   CloseButton: {
     unidriver: true,
-    testkitPath: "../src/CloseButton/CloseButton.uni.driver"
+    testkitPath: "../src/CloseButton/CloseButton.uni.driver",
+    namedTestkitExport: true
   },
 
   CardGalleryItem: {
@@ -133,30 +152,46 @@ module.exports = {
   },
 
   SideMenu: {
-    testkitPath: "../src/SideMenu/core/SideMenu.driver"
+    testkitPath: "../src/SideMenu/core/SideMenu.driver",
+    namedTestkitExport: true,
+    testkitImportName: "sideMenuUniDriverFactory",
+    protractorTestkitPath: "../src/SideMenu/core/SideMenu.uni.driver"
   },
 
   Button: {
     unidriver: true,
-    testkitPath: "../src/Button/Button.uni.driver"
+    testkitPath: "../src/Button/Button.uni.driver",
+    namedTestkitExport: true
   },
 
   CalendarPanelFooter: {
     unidriver: true,
-    testkitPath: "../src/CalendarPanelFooter/CalendarPanelFooter.uni.driver"
+    testkitPath: "../src/CalendarPanelFooter/CalendarPanelFooter.uni.driver",
+    namedTestkitExport: true
   },
 
-  ContactItemBuilder: { skipSanityTest: true },
+  ContactItemBuilder: {
+    skipSanityTest: true,
+    namedTestkitExport: true,
+    testkitImportName: "contactItemBuilderUniDriverFactory",
+    protractorTestkitPath:
+      "../src/ContactItemBuilder/ContactItemBuilder.uni.driver"
+  },
 
   Draggable: {
     testkitPath: "../src/DragAndDrop/Draggable/Draggable.driver",
-    skipSanityTest: true
+    skipSanityTest: true,
+    noProtractorTestkit: true
   },
 
   EditableRow: {
     testkitPath: "../src/EditableSelector/EditableRow/EditableRow.driver",
     unidriver: false, // TODO: component has unidriver, but it is exported as legacy driver. Changing it is a breaking change
-    skipSanityTest: true
+    skipSanityTest: true,
+    namedTestkitExport: true,
+    testkitImportName: "editableRowUniDriverFactory",
+    protractorTestkitPath:
+      "../src/EditableSelector/EditableRow/EditableRow.uni.driver"
   },
 
   FieldLabelAttributes: {
@@ -167,6 +202,8 @@ module.exports = {
   FieldWithSelectionComposite: {
     testkitPath:
       "../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.driver",
+    protractorTestkitPath:
+      "../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.protractor.driver",
     skipSanityTest: true
   },
 
@@ -176,13 +213,15 @@ module.exports = {
 
   NumberInput: {
     unidriver: true,
-    testkitPath: "../src/NumberInput/NumberInput.uni.driver"
+    testkitPath: "../src/NumberInput/NumberInput.uni.driver",
+    namedTestkitExport: true
   },
 
   FloatingNotification: {
     unidriver: true,
     drivers: ["enzyme"],
-    testkitPath: "../src/FloatingNotification/FloatingNotification.uni.driver"
+    testkitPath: "../src/FloatingNotification/FloatingNotification.uni.driver",
+    namedTestkitExport: true
   },
 
   DatePicker: {
@@ -192,115 +231,148 @@ module.exports = {
   Proportion: {
     unidriver: true,
     drivers: ["enzyme"],
-    testkitPath: "../src/Proportion/Proportion.uni.driver"
+    testkitPath: "../src/Proportion/Proportion.uni.driver",
+    namedTestkitExport: true
   },
 
   DropdownBase: {
     unidriver: true,
-    testkitPath: "../src/DropdownBase/DropdownBase.uni.driver"
+    testkitPath: "../src/DropdownBase/DropdownBase.uni.driver",
+    namedTestkitExport: true
   },
 
   RadioButton: {
     testkitPath: "../src/RadioGroup/RadioButton/RadioButton.driver",
+    protractorTestkitPath:
+      "../src/RadioGroup/RadioButton/RadioButton.protractor.driver",
     skipSanityTest: true
   },
 
   MessageBoxMarketerialLayout: {
     testkitPath:
       "../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver",
-    skipSanityTest: true
+    protractorTestkitPath:
+      "../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver",
+    skipSanityTest: true,
+    namedTestkitExport: true,
+    testkitImportName: "messageBoxMarketerialLayoutUniDriverFactory"
   },
 
   MessageBoxFunctionalLayout: {
     testkitPath:
       "../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.driver",
+
+    protractorTestkitPath:
+      "../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.protractor.driver",
+
     skipSanityTest: true
   },
 
   Box: {
     unidriver: true,
-    testkitPath: "../src/Box/Box.uni.driver"
+    testkitPath: "../src/Box/Box.uni.driver",
+    namedTestkitExport: true
   },
 
   Thumbnail: {
     unidriver: true,
-    testkitPath: "../src/Thumbnail/Thumbnail.uni.driver"
+    testkitPath: "../src/Thumbnail/Thumbnail.uni.driver",
+    namedTestkitExport: true
   },
 
   SegmentedToggle: {
     unidriver: true,
-    testkitPath: "../src/SegmentedToggle/SegmentedToggle.uni.driver"
+    testkitPath: "../src/SegmentedToggle/SegmentedToggle.uni.driver",
+    namedTestkitExport: true
   },
 
   RichTextInputArea: {
     unidriver: true,
-    testkitPath: "../src/RichTextInputArea/RichTextInputArea.uni.driver"
+    testkitPath: "../src/RichTextInputArea/RichTextInputArea.uni.driver",
+    namedTestkitExport: true
   },
 
   DateInput: {
     unidriver: true,
-    testkitPath: "../src/DateInput/DateInput.uni.driver"
+    testkitPath: "../src/DateInput/DateInput.uni.driver",
+    namedTestkitExport: true
   },
 
   ColorInput: {
     unidriver: true,
-    testkitPath: "../src/ColorInput/ColorInput.uni.driver"
+    testkitPath: "../src/ColorInput/ColorInput.uni.driver",
+    namedTestkitExport: true
   },
 
   EditableTitle: {
     testkitPath: "../src/EditableTitle/EditableTitle.uni.driver",
-    unidriver: true
+    unidriver: true,
+    namedTestkitExport: true,
+    testkitImportName: "editableTitleUniDriverFactory"
   },
 
   GooglePreview: {
     unidriver: true,
-    testkitPath: "../src/GooglePreview/GooglePreview.uni.driver"
+    testkitPath: "../src/GooglePreview/GooglePreview.uni.driver",
+    namedTestkitExport: true
   },
 
   Accordion: {
     unidriver: true,
-    testkitPath: "../src/Accordion/Accordion.uni.driver"
+    testkitPath: "../src/Accordion/Accordion.uni.driver",
+    namedTestkitExport: true
   },
 
   SocialPreview: {
     unidriver: true,
-    testkitPath: "../src/SocialPreview/SocialPreview.uni.driver"
+    testkitPath: "../src/SocialPreview/SocialPreview.uni.driver",
+    namedTestkitExport: true
   },
 
   ErrorIndicator: {
     unidriver: true,
-    testkitPath: "../src/ErrorIndicator/ErrorIndicator.uni.driver"
+    testkitPath: "../src/ErrorIndicator/ErrorIndicator.uni.driver",
+    namedTestkitExport: true
   },
 
   CardSubheader: {
     unidriver: true,
     skipSanityTest: true,
-    testkitPath: "../src/Card/Subheader/Subheader.uni.driver"
+    testkitPath: "../src/Card/Subheader/Subheader.uni.driver",
+    protractorTestkitExportName: "subheaderTestkitFactory",
+    namedTestkitExport: true
   },
 
   ListItemAction: {
     unidriver: true,
-    testkitPath: "../src/ListItemAction/ListItemAction.uni.driver"
+    testkitPath: "../src/ListItemAction/ListItemAction.uni.driver",
+    namedTestkitExport: true,
+    testkitImportName: "ListItemActionDriverFactory",
+    protractorTestkitExportName: "ListItemActionTestkitFactory"
   },
 
   Swatches: {
     unidriver: true,
-    testkitPath: "../src/Swatches/Swatches.uni.driver"
+    testkitPath: "../src/Swatches/Swatches.uni.driver",
+    namedTestkitExport: true
   },
 
   Sidebar: {
     unidriver: true,
-    testkitPath: "../src/Sidebar/Sidebar.uni.driver"
+    testkitPath: "../src/Sidebar/Sidebar.uni.driver",
+    namedTestkitExport: true
   },
 
   Selector: {
     unidriver: false, // TODO: component has unidriver, but it is exported as legacy driver. Changing it is a breaking change
-    testkitPath: "../src/Selector/Selector.driver"
+    testkitPath: "../src/Selector/Selector.driver",
+    noProtractorTestkit: true
   },
 
   Stepper: {
     unidriver: true,
-    testkitPath: "../src/Stepper/Stepper.uni.driver"
+    testkitPath: "../src/Stepper/Stepper.uni.driver",
+    namedTestkitExport: true
   },
 
   SidebarSectionTitle: {
@@ -316,5 +388,60 @@ module.exports = {
   SidebarSectionDivider: {
     unidriver: true,
     testkitPath: "../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver"
+  },
+
+  LinearProgressBar: {
+    namedTestkitExport: true
+  },
+
+  NoBorderInput: {
+    namedTestkitExport: true
+  },
+
+  Modal: {
+    namedTestkitExport: true,
+    testkitImportName: "modalUniDriverFactory",
+    protractorTestkitPath: "../src/Modal/Modal.uni.driver"
+  },
+
+  TimeInput: {
+    namedTestkitExport: true,
+    testkitImportName: "timeInputUniDriverFactory",
+    protractorTestkitPath: "../src/TimeInput/TimeInput.uni.driver"
+  },
+
+  Notification: {
+    protractorUnidriver: true,
+    namedTestkitExport: true,
+    testkitImportName: "notificationUniDriverFactory",
+    protractorTestkitPath: "../src/Notification/Notification.uni.driver"
+  },
+
+  Skeleton: {
+    noProtractorTestkit: true
+  },
+
+  SortableList: {
+    noProtractorTestkit: true
+  },
+
+  NestableList: {
+    noProtractorTestkit: true
+  },
+
+  CounterBadge: {
+    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+  },
+
+  FloatingHelper: {
+    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+  },
+
+  ToggleSwitch: {
+    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+  },
+
+  Label: {
+    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
   }
 };
