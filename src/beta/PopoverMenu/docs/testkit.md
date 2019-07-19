@@ -6,7 +6,7 @@
 | ----------------- | --------- | ------------------ | --------------------------------------------------------- |
 | exists            | -         | `Promise<boolean>` | return true if element is in the DOM                      |
 | getTriggerElement | -         | `Promise<element>` | Returns trigger element                                   |
-| clickAtChild      | -         | `Promise<void>`    | Select a specific option (requires the menu to be opened) |
+| clickAtChild      | index     | `Promise<void>`    | Select a specific option (requires the menu to be opened) |
 | isMenuOpen        | -         | `Promise<boolean>` | Return true if the menu is opened, otherwise return false |
 | childrenCount     | -         | `Promise<number>`  | Returns children count                                    |
 
