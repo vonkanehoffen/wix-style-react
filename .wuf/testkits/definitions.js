@@ -2,37 +2,7 @@
  * This file exports object with config for component testkits.
  * Ideally there should be no config, it is used for cases that are not following convention.
  *
- * Glossary:
- *   regular components export testkits and pass sanity tests automatically (no config).
- *   non-regular components need additional config for export and sanity tests to be automated.
- *
- * { [component.displayName]: TestkitDefinition }
- *
- * [component.displayName] = {
- *   // what kind of drivers should be tested
- *   drivers?: ['vanilla', 'enzyme']
- *
- *   // set to true if testkit already has export in `test/generate-testkit-exports/enzyme.template
- *   // this is used for proxied components from other libraries (like wix-ui-backoffice)
- *   manualExport?: false;
- *
- *   // skip sanity tests for this component entirely.
- *   // this is likely an indication for a fix
- *   skipTestkitSanity?: false;
- *
- *   // Indicate that component does not have testkit at all.
- *   // It is sometimes ok not to have one.
- *   noTestkit?: false;
- *
- *   // Mark if component uses unidriver.
- *   // It is required for unidriver, because it is tested differently
- *   unidriver?: false;
- *
- *   // set path to testkit if path is not following convention
- *   // this file will be imported and wrapped with appropriate testkit factory
- *   // (one of testkitFactoryCreator, uniTestkitFactoryCreator, enzymeTestkitFactoryCreator or enzymeUniTestkitFactoryCreator
- *   testkitPath?: function;
- * }
+ * this is temporary and should be treated as a TODO list of things to fix (make consistent)
  */
 
 module.exports = {
@@ -41,7 +11,14 @@ module.exports = {
     testkitPath: "../src/SideMenu/DrillView/DrillView.driver",
     protractorTestkitPath:
       "../src/SideMenu/DrillView/DrillView.protractor.driver",
-    protractorTestkitExportName: "drillViewTestkitFactory"
+    protractorTestkitExportName: "drillViewTestkitFactory",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'drillViewUniDriverFactory',
+    puppeteerTestkitPath:
+      "../src/SideMenu/DrillView/DrillView.uni.driver",
+    puppeteerTestkitExportName: "drillViewTestkitFactory",
   },
 
   BadgeSelectItemBuilder: {
@@ -49,12 +26,32 @@ module.exports = {
     noTestkit: true
   },
 
+  BadgeSelect: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  TableActionCell: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
   MultiSelect: {
-    skipSanityTest: true // testkit does not have root `exists` method
+    skipSanityTest: true, // testkit does not have root `exists` method
+
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'multiselectUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
   },
 
   MultiSelectCheckbox: {
-    skipSanityTest: true // testkit does not have root `exists` method
+    skipSanityTest: true, // testkit does not have root `exists` method
+
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'multiSelectCheckboxUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  MultiSelectComposite: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   DragAndDrop: { skipSanityTest: true, noTestkit: true },
@@ -80,7 +77,8 @@ module.exports = {
     // It is used only internally and before automated export was not exported manually
 
     // the name of export has a typo, it's different than component name
-    protractorTestkitExportName: "googleAddressWithInputTestkitFactory"
+    protractorTestkitExportName: "googleAddressWithInputTestkitFactory",
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Grid: { skipSanityTest: true, noTestkit: true },
@@ -92,14 +90,38 @@ module.exports = {
     testkitPath: "../src/Card/Header/Header.driver",
     // TODO: this is actually  Card.Header, but is exported just as header
     skipSanityTest: true,
-    namedTestkitExport: true,
-    testkitImportName: "headerUniDriverFactory",
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "headerUniDriverFactory",
     protractorTestkitPath: "../src/Card/Header/Header.uni.driver",
-    protractorTestkitExportName: "cardHeaderTestkitFactory"
+    protractorTestkitExportName: "cardHeaderTestkitFactory",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: "headerUniDriverFactory",
+    puppeteerTestkitPath: "../src/Card/Header/Header.uni.driver",
+    puppeteerTestkitExportName: "cardHeaderTestkitFactory"
   },
 
-  Page: { skipSanityTest: true },
-  PageHeader: { skipSanityTest: true },
+  Page: {
+    skipSanityTest: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  PageHeader: {
+    skipSanityTest: true,
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'pageHeaderUniDriverFactory',
+    puppeteerTestkitPath: '../src/PageHeader/PageHeader.uni.driver'
+  },
+  Popover: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  PopoverMenu: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
   PopoverMenuItem: { skipSanityTest: true, noTestkit: true },
   TableToolbar: { skipSanityTest: true, noTestkit: true },
   Tooltip: { skipSanityTest: true, manualExport: true },
@@ -113,37 +135,45 @@ module.exports = {
     beforeAllHook: () => (window.getSelection = () => ({})),
     testkitPath: "../src/Deprecated/RichTextArea/RichTextArea.driver",
     protractorTestkitPath:
-      "../src/Deprecated/RichTextArea/RichTextArea.protractor.driver"
+      "../src/Deprecated/RichTextArea/RichTextArea.protractor.driver",
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   RichTextAreaComposite: {
     beforeAllHook: () => (window.getSelection = () => ({})),
     testkitPath:
-      "../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver"
+      "../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver",
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Avatar: {
     unidriver: true,
-    namedTestkitExport: true,
-    protractorTestkitPath: "../src/Avatar/Avatar.driver"
+    puppeteerUnidriver: true,
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
+    protractorTestkitPath: "../src/Avatar/Avatar.driver",
+    puppeteerTestkitImportName: "avatarUniDriverFactory"
   },
 
   TextButton: {
     unidriver: true,
     testkitPath: "../src/TextButton/TextButton.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   IconButton: {
     unidriver: true,
     testkitPath: "../src/IconButton/IconButton.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   CloseButton: {
     unidriver: true,
     testkitPath: "../src/CloseButton/CloseButton.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   CardGalleryItem: {
@@ -153,50 +183,85 @@ module.exports = {
 
   SideMenu: {
     testkitPath: "../src/SideMenu/core/SideMenu.driver",
-    namedTestkitExport: true,
-    testkitImportName: "sideMenuUniDriverFactory",
-    protractorTestkitPath: "../src/SideMenu/core/SideMenu.uni.driver"
+
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "sideMenuUniDriverFactory",
+    protractorTestkitPath: "../src/SideMenu/core/SideMenu.uni.driver",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'sideMenuUniDriverFactory',
+    puppeteerTestkitPath: '../src/SideMenu/core/SideMenu.uni.driver'
   },
 
   Button: {
     unidriver: true,
     testkitPath: "../src/Button/Button.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
+  },
+
+  Calendar: {
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'calendarUniDriverFactory',
+    puppeteerTestkitPath: '../src/Calendar/Calendar.uni.driver',
+  },
+
+  CalendarPanel: {
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'calendarPanelUniDriverFactory',
+    puppeteerTestkitPath: '../src/CalendarPanel/CalendarPanel.uni.driver',
   },
 
   CalendarPanelFooter: {
     unidriver: true,
     testkitPath: "../src/CalendarPanelFooter/CalendarPanelFooter.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   ContactItemBuilder: {
     skipSanityTest: true,
-    namedTestkitExport: true,
-    testkitImportName: "contactItemBuilderUniDriverFactory",
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "contactItemBuilderUniDriverFactory",
     protractorTestkitPath:
-      "../src/ContactItemBuilder/ContactItemBuilder.uni.driver"
+      "../src/ContactItemBuilder/ContactItemBuilder.uni.driver",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: "contactItemBuilderUniDriverFactory",
+    puppeteerTestkitPath:
+      "../src/ContactItemBuilder/ContactItemBuilder.uni.driver",
   },
 
   Draggable: {
     testkitPath: "../src/DragAndDrop/Draggable/Draggable.driver",
     skipSanityTest: true,
-    noProtractorTestkit: true
+    noProtractorTestkit: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   EditableRow: {
     testkitPath: "../src/EditableSelector/EditableRow/EditableRow.driver",
     unidriver: false, // TODO: component has unidriver, but it is exported as legacy driver. Changing it is a breaking change
     skipSanityTest: true,
-    namedTestkitExport: true,
-    testkitImportName: "editableRowUniDriverFactory",
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "editableRowUniDriverFactory",
     protractorTestkitPath:
-      "../src/EditableSelector/EditableRow/EditableRow.uni.driver"
+      "../src/EditableSelector/EditableRow/EditableRow.uni.driver",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'editableRowUniDriverFactory',
+    puppeteerTestkitPath: '../src/EditableSelector/EditableRow/EditableRow.uni.driver',
   },
 
   FieldLabelAttributes: {
     testkitPath: "../src/FieldLabelAttributes/FieldLabelAttributes.driver",
-    skipSanityTest: true
+    skipSanityTest: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   FieldWithSelectionComposite: {
@@ -204,135 +269,183 @@ module.exports = {
       "../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.driver",
     protractorTestkitPath:
       "../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.protractor.driver",
-    skipSanityTest: true
+    skipSanityTest: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Carousel: {
-    drivers: ["enzyme"]
+    drivers: ["enzyme"],
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'carouselUniDriverFactory',
+    puppeteerTestkitPath: '../src/Carousel/Carousel.uni.driver'
+  },
+
+  Input: {
+    puppeteerUnidriver: true
   },
 
   NumberInput: {
     unidriver: true,
     testkitPath: "../src/NumberInput/NumberInput.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   FloatingNotification: {
     unidriver: true,
     drivers: ["enzyme"],
     testkitPath: "../src/FloatingNotification/FloatingNotification.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   DatePicker: {
-    skipSanityTest: true // testkit does not have root `exists` method
+    skipSanityTest: true, // testkit does not have root `exists` method
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Proportion: {
     unidriver: true,
     drivers: ["enzyme"],
     testkitPath: "../src/Proportion/Proportion.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
+  },
+
+  Dropdown: {
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'dropdownUniDriverFactory',
+    puppeteerTestkitPath: '../src/Dropdown/Dropdown.uni.driver',
   },
 
   DropdownBase: {
     unidriver: true,
     testkitPath: "../src/DropdownBase/DropdownBase.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   RadioButton: {
     testkitPath: "../src/RadioGroup/RadioButton/RadioButton.driver",
     protractorTestkitPath:
       "../src/RadioGroup/RadioButton/RadioButton.protractor.driver",
-    skipSanityTest: true
+    skipSanityTest: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  RadioGroup: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   MessageBoxMarketerialLayout: {
+    skipSanityTest: true,
+
     testkitPath:
       "../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver",
     protractorTestkitPath:
       "../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver",
-    skipSanityTest: true,
-    namedTestkitExport: true,
-    testkitImportName: "messageBoxMarketerialLayoutUniDriverFactory"
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "messageBoxMarketerialLayoutUniDriverFactory",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'messageBoxMarketerialLayoutUniDriverFactory',
+    puppeteerTestkitPath: '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver'
   },
 
   MessageBoxFunctionalLayout: {
+    skipSanityTest: true,
+
     testkitPath:
       "../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.driver",
 
     protractorTestkitPath:
       "../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.protractor.driver",
 
-    skipSanityTest: true
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'MessageBoxFunctionalLayoutUniDriverFactory',
+    puppeteerTestkitPath: '../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.uni.driver'
   },
 
   Box: {
     unidriver: true,
     testkitPath: "../src/Box/Box.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: "BoxDriver"
   },
 
   Thumbnail: {
     unidriver: true,
     testkitPath: "../src/Thumbnail/Thumbnail.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   SegmentedToggle: {
     unidriver: true,
     testkitPath: "../src/SegmentedToggle/SegmentedToggle.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   RichTextInputArea: {
     unidriver: true,
     testkitPath: "../src/RichTextInputArea/RichTextInputArea.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true
   },
 
   DateInput: {
     unidriver: true,
     testkitPath: "../src/DateInput/DateInput.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   ColorInput: {
     unidriver: true,
     testkitPath: "../src/ColorInput/ColorInput.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   EditableTitle: {
     testkitPath: "../src/EditableTitle/EditableTitle.uni.driver",
     unidriver: true,
-    namedTestkitExport: true,
-    testkitImportName: "editableTitleUniDriverFactory"
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "editableTitleUniDriverFactory",
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: "editableTitleUniDriverFactory",
   },
 
   GooglePreview: {
     unidriver: true,
     testkitPath: "../src/GooglePreview/GooglePreview.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   Accordion: {
     unidriver: true,
     testkitPath: "../src/Accordion/Accordion.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true
   },
 
   SocialPreview: {
     unidriver: true,
     testkitPath: "../src/SocialPreview/SocialPreview.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   ErrorIndicator: {
     unidriver: true,
     testkitPath: "../src/ErrorIndicator/ErrorIndicator.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   CardSubheader: {
@@ -340,108 +453,297 @@ module.exports = {
     skipSanityTest: true,
     testkitPath: "../src/Card/Subheader/Subheader.uni.driver",
     protractorTestkitExportName: "subheaderTestkitFactory",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitExportName: "subheaderTestkitFactory",
   },
 
   ListItemAction: {
     unidriver: true,
     testkitPath: "../src/ListItemAction/ListItemAction.uni.driver",
-    namedTestkitExport: true,
-    testkitImportName: "ListItemActionDriverFactory",
-    protractorTestkitExportName: "ListItemActionTestkitFactory"
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "ListItemActionDriverFactory",
+    protractorTestkitExportName: "ListItemActionTestkitFactory",
+
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: "ListItemActionDriverFactory",
+    puppeteerTestkitExportName: "ListItemActionTestkitFactory",
   },
 
   Swatches: {
     unidriver: true,
     testkitPath: "../src/Swatches/Swatches.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   Sidebar: {
     unidriver: true,
     testkitPath: "../src/Sidebar/Sidebar.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   Selector: {
     unidriver: false, // TODO: component has unidriver, but it is exported as legacy driver. Changing it is a breaking change
     testkitPath: "../src/Selector/Selector.driver",
-    noProtractorTestkit: true
+    noProtractorTestkit: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Stepper: {
     unidriver: true,
     testkitPath: "../src/Stepper/Stepper.uni.driver",
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   SidebarSectionTitle: {
     unidriver: true,
-    testkitPath: "../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver"
+    testkitPath: "../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver",
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   SidebarSectionItem: {
     unidriver: true,
-    testkitPath: "../src/SidebarSectionItem/SidebarSectionItem.uni.driver"
+    testkitPath: "../src/SidebarSectionItem/SidebarSectionItem.uni.driver",
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
   },
 
   SidebarSectionDivider: {
     unidriver: true,
-    testkitPath: "../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver"
+    testkitPath: "../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver",
+    namedPuppeteerTestkitExport: true,
   },
 
   LinearProgressBar: {
-    namedTestkitExport: true
+    puppeteerUnidriver: true,
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
+  },
+
+  CircularProgressBar: {
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true
   },
 
   NoBorderInput: {
-    namedTestkitExport: true
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   Modal: {
-    namedTestkitExport: true,
-    testkitImportName: "modalUniDriverFactory",
-    protractorTestkitPath: "../src/Modal/Modal.uni.driver"
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "modalUniDriverFactory",
+    protractorTestkitPath: "../src/Modal/Modal.uni.driver",
+
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'modalUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  ModalSelectorLayout: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   TimeInput: {
-    namedTestkitExport: true,
-    testkitImportName: "timeInputUniDriverFactory",
-    protractorTestkitPath: "../src/TimeInput/TimeInput.uni.driver"
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "timeInputUniDriverFactory",
+    protractorTestkitPath: "../src/TimeInput/TimeInput.uni.driver",
+
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'timeInputUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
   },
 
   Notification: {
     protractorUnidriver: true,
-    namedTestkitExport: true,
-    testkitImportName: "notificationUniDriverFactory",
-    protractorTestkitPath: "../src/Notification/Notification.uni.driver"
+    namedProtractorTestkitExport: true,
+    protractorTestkitImportName: "notificationUniDriverFactory",
+    protractorTestkitPath: "../src/Notification/Notification.uni.driver",
+
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: "notificationUniDriverFactory",
+    puppeteerTestkitPath: "../src/Notification/Notification.uni.driver",
   },
 
   Skeleton: {
-    noProtractorTestkit: true
+    noProtractorTestkit: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   SortableList: {
-    noProtractorTestkit: true
+    noProtractorTestkit: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   NestableList: {
-    noProtractorTestkit: true
+    noProtractorTestkit: true,
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  Badge: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'badgeUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
   },
 
   CounterBadge: {
-    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   FloatingHelper: {
-    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   ToggleSwitch: {
-    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Label: {
-    noProtractorTestkit: true // it is exported manually in `.wuf/testkits/protractor.template.ejs`
-  }
+    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  Highlighter: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  ColorPicker: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  FilePicker: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  Checkbox: {
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'checkboxUniDriverFactory',
+  },
+
+  Loader: {
+    puppeteerUnidriver: true,
+    namedPuppeteerTestkitExport: true,
+    puppeteerTestkitImportName: 'loaderUniDriverFactory',
+  },
+
+  InputArea: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'inputAreaUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  Search: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'searchUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  AutoComplete: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'autoCompleteUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  AutoCompleteComposite: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
+  EditableSelector: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'editableSelectorUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  Tag: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'tagUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  InputWithOptions: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'inputWithOptionsUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  Breadcrumbs: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'breadcrumbsUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  DataTable: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'dataTableUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  DropdownLayout: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'dropdownLayoutDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  EmptyState: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'emptyStateUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  Tabs: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'tabsUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  StatsWidget: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'statsWidgetUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  AddItem: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'addItemUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  ImageViewer: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'imageViewerUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  SectionHelper: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'sectionHelperUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  GenericModalLayout: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'genericModalLayoutUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  Slider: {
+    puppeteerUnidriver: true,
+    puppeteerTestkitImportName: 'sliderUniDriverFactory',
+    namedPuppeteerTestkitExport: true,
+  },
+
+  Range: {
+    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
+  },
+
 };

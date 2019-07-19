@@ -46,11 +46,11 @@ export const TooltipTestkit = protractorUniTestkitFactoryCreator(
     const factoryName = component.protractorUnidriver || component.unidriver ? 'protractorUniTestkitFactoryCreator' : 'protractorTestkitFactoryCreator';
     const exportName = component.protractorTestkitExportName || testkitName;
 
-    if (component.namedTestkitExport) { %>
-import { <%= component.testkitImportName || driverFactory %> } from '<%= driverPath %>';<% } else { %>
+    if (component.namedProtractorTestkitExport) { %>
+import { <%= component.protractorTestkitImportName || driverFactory %> } from '<%= driverPath %>';<% } else { %>
 import <%= driverFactory %> from '<%= driverPath %>';<% } %>
 
 export const <%= exportName %> = <%= factoryName%>(
-  <%= component.testkitImportName || driverFactory %>,
+  <%= component.protractorTestkitImportName || driverFactory %>,
 );
 <% }) %>
