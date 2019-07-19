@@ -33,7 +33,10 @@ const cardGalleryItemDriverFactory = base => {
 
       return style.match(/url\("?([^"]*)"?\)/)[1];
     },
-    click: () => getHoverComponent(base).click(),
+    click: async () => {
+      await base.$(`[data-hook=${DataHooks.hoverComponent}]`).hover();
+      await getPrimaryAction(base).click();
+    },
     getPrimaryActionLabel: () => getPrimaryAction(base).text(),
     clickOnPrimaryAction: () => getPrimaryAction(base).click(),
     getSecondaryActionLabel: () => getSecondaryAction(base).text(),
