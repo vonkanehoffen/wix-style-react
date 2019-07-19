@@ -21,6 +21,7 @@ Types of changes:
 
 - `<InputWithOptions/>` - fix Input cursor jumping to input start on ArrowUp [#3762](https://github.com/wix/wix-style-react/pull/3762)
 - `<PopoverMenu/>`, `<Swatches/>` - fix stylable colors with opacity imports [#3778](https://github.com/wix/wix-style-react/pull/3778)
+- `<Popovermenu/>` - beta - fixing testkit definition for clickAtChild [#3779](https://github.com/wix/wix-style-react/pull/3779)
 
 ### Changed
 
