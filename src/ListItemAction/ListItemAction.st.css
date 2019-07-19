@@ -3,10 +3,14 @@
   -st-named:
     B10, B40, B50,
     D10, D55, D80,
-    D10-30,
     F00,
     G30,
     R10, R30;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-named: D10-30;
 }
 
 :import {
