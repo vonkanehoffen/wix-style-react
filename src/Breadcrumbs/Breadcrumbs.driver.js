@@ -16,7 +16,7 @@ const breadcrumbsDriverFactory = ({ element }) => {
     /** click on breadcrumb item at position */
     clickBreadcrumbAt: position =>
       ReactTestUtils.Simulate.click(
-        optionAt(position).querySelector('[data-hook="breadcrumb-clickable"]'),
+        optionAt(position).querySelector('[data-hook^="breadcrumb-clickable"]'),
       ),
 
     /** return the active breadcrumb item position or return null if no active item exists */

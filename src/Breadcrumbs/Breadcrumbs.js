@@ -17,6 +17,7 @@ import WixComponent from '../BaseComponents/WixComponent';
 import Text from '../Text';
 import BreadcrumbsPathFactory from './BreadcrumbsPathFactory';
 import BreadcrumbsChevronRight from 'wix-ui-icons-common/system/BreadcrumbsChevronRight';
+import * as DATA_ATTR from './DataAttr';
 
 /**
  * a way to visualise current navigation path
@@ -66,17 +67,20 @@ class Breadcrumbs extends WixComponent {
     };
   }
 
-  createItem({ item, isActive, onClick, className }) {
+  createItem({ item, isActive, onClick, className, id }) {
     const breadcrumbText = value => (
-      <Text dataHook="breadcrumbs-item" {...this.getTextAppearance(isActive)}>
+      <Text
+        dataHook={DATA_ATTR.DATA_HOOKS.BREADCRUMBS_ITEM}
+        {...this.getTextAppearance(isActive)}
+      >
         {value}
       </Text>
     );
 
-    const defaultBreadcrumb = () => (
+    const defaultBreadcrumb = id => (
       <button
         type="button"
-        data-hook="breadcrumb-clickable"
+        data-hook={`${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
         className={classnames(styles.item, styles.button, className, {
           [styles.disabled]: item.disabled,
           [styles.active]: isActive,
@@ -86,10 +90,10 @@ class Breadcrumbs extends WixComponent {
       />
     );
 
-    const linkBreadcrumb = () => (
+    const linkBreadcrumb = id => (
       <a
         href={item.link}
-        data-hook="breadcrumb-clickable"
+        data-hook={`${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
         className={classnames(styles.item, styles.link, className, {
           [styles.disabled]: item.disabled,
           [styles.active]: isActive,
@@ -99,9 +103,9 @@ class Breadcrumbs extends WixComponent {
       />
     );
 
-    const customBreadcrumb = () => (
+    const customBreadcrumb = id => (
       <span
-        data-hook="breadcrumb-clickable"
+        data-hook={`${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
         className={classnames(styles.item, className)}
         onClick={onClick}
         children={breadcrumbText(item.customElement)}
@@ -109,19 +113,27 @@ class Breadcrumbs extends WixComponent {
     );
 
     if (isActive) {
-      return defaultBreadcrumb();
+      return defaultBreadcrumb(id);
     } else if (item.customElement) {
-      return customBreadcrumb();
+      return customBreadcrumb(id);
     } else if (item.link) {
-      return linkBreadcrumb();
+      return linkBreadcrumb(id);
     } else {
-      return defaultBreadcrumb();
+      return defaultBreadcrumb(id);
     }
   }
 
   _getIsActive = item => this.props.activeId === item.id;
 
   _handleItemClick = item => () => !item.disabled && this.props.onClick(item);
+
+  _getItemWrapperDataAttributes = ({ position, item }) => {
+    return {
+      'data-hook': `${DATA_ATTR.DATA_HOOKS.ITEM_WRAPPER}-${position}`,
+      [DATA_ATTR.DATA_ACTIVE]: this._getIsActive(item),
+      [DATA_ATTR.DATA_POSITION_ID]: position,
+    };
+  };
 
   render() {
     const { items, size, theme } = this.props;
@@ -134,8 +146,10 @@ class Breadcrumbs extends WixComponent {
             className={classnames(styles.itemContainer, {
               [styles.active]: this._getIsActive(item),
             })}
+            {...this._getItemWrapperDataAttributes({ position: i, item })}
           >
             {this.createItem({
+              id: i,
               item,
               isActive: this._getIsActive(item),
               onClick: this._handleItemClick(item),

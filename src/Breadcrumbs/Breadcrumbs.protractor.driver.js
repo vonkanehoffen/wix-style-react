@@ -17,7 +17,7 @@ const breadcrumbsDriverFactory = component => {
     /** click on breadcrumb item at position */
     clickBreadcrumbAt: position =>
       component
-        .$$('[data-hook="breadcrumb-clickable"]')
+        .$$('[data-hook^="breadcrumb-clickable"]')
         .get(position)
         .click(),
 
