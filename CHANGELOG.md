@@ -15,6 +15,8 @@ Types of changes:
 
 ## Next
 
+## 6.41.0 - 2019-07-20
+
 ### Fixed
 
 - `<Breadcrumbs/>` - fix UniDriver [#3777](https://github.com/wix/wix-style-react/pull/3777)
