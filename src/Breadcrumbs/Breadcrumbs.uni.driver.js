@@ -1,16 +1,18 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 
-export const breadcrumbsUniDriverFactory = base => {
-  const reactBase = ReactBase(base);
+import * as DATA_ATTR from './DataAttr';
 
+export const breadcrumbsUniDriverFactory = base => {
   const optionAt = async position =>
-    reactBase.children().then(children => children[position]);
+    base.$(`[data-hook="${DATA_ATTR.DATA_HOOKS.ITEM_WRAPPER}-${position}"]`);
 
   return {
     ...baseUniDriverFactory(base),
     /** return the number of the items in the breadcrumbs */
     breadcrumbsLength: async () =>
-      reactBase.children().then(children => children.length),
+      await base
+        .$$(`[data-hook^="${DATA_ATTR.DATA_HOOKS.ITEM_WRAPPER}-"]`)
+        .count(),
 
     /** return the breadcrumb item content at position  */
     breadcrumbContentAt: async position =>
@@ -18,19 +20,18 @@ export const breadcrumbsUniDriverFactory = base => {
 
     /** click on breadcrumb item at position */
     clickBreadcrumbAt: async position =>
-      (await optionAt(position))
-        .$('[data-hook="breadcrumb-clickable"]')
+      base
+        .$(
+          `[data-hook^="${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${position}"]`,
+        )
         .click(),
 
     /** return the active breadcrumb item position or return null if no active item exists */
     getActiveItemId: async () => {
-      const itemsArray = await base
-        .$$('.itemContainer')
-        .map(item => (item.exists() ? item.getNative() : null)); // eslint-disable-line no-restricted-properties
-      const index = itemsArray.findIndex(item =>
-        item.classList.contains('active'),
-      );
-      return index === -1 ? null : index;
+      const activeItem = await base.$$(`[${DATA_ATTR.DATA_ACTIVE}="true"]`);
+      return (await activeItem.count()) === 1
+        ? parseInt(await activeItem.get(0).attr('data-position-id'))
+        : null;
     },
 
     /** fulfilled if breadcrumbs component is large */
@@ -51,7 +52,9 @@ export const breadcrumbsUniDriverFactory = base => {
     /** returns breadcrumbs component classes */
     getLabelClassList: async position => {
       const breadcrumbAt = await optionAt(position);
-      const breadcrumbItem = breadcrumbAt.$('[data-hook="breadcrumbs-item"]');
+      const breadcrumbItem = breadcrumbAt.$(
+        `[data-hook="${DATA_ATTR.DATA_HOOKS.BREADCRUMBS_ITEM}"]`,
+      );
       const classList = await ReactBase(breadcrumbItem).getClassList();
       return Array.from(classList).join(' ');
     },

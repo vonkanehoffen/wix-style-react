@@ -129,10 +129,15 @@ class InputWithTags extends React.Component {
             </Tag>
           ))
         )}
+
+        {this.props.customSuffix && !this.props.hideCustomSuffix && (
+          <span data-hook="custom-suffix" className={styles.customSuffix}>
+            {this.props.customSuffix}
+          </span>
+        )}
+
         <span
-          className={classNames(styles.input, {
-            [styles.emptyInput]: !tags.length,
-          })}
+          className={classNames(styles.input, !tags.length)}
           data-hook="inner-input-with-tags"
         >
           <div className={styles.hiddenDiv} style={{ fontSize }}>
@@ -241,6 +246,8 @@ InputWithTags.propTypes = {
   mode: PropTypes.oneOf(['select']),
   delimiters: PropTypes.array,
   width: PropTypes.string,
+  customSuffix: PropTypes.node,
+  hideCustomSuffix: PropTypes.bool,
 };
 
 InputWithTags.defaultProps = {

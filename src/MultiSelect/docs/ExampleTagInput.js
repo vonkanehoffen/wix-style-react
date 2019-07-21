@@ -4,6 +4,7 @@ import React from 'react';
 import MultiSelect from 'wix-style-react/MultiSelect';
 import Card from 'wix-style-react/Card';
 import FormField from 'wix-style-react/FormField';
+import TextButton from '../../TextButton/TextButton';
 
 class ExampleTagInput extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class ExampleTagInput extends React.Component {
         tags={this.state.tags}
         onManuallyInput={this.handleOnManuallyInput}
         onRemoveTag={this.handleOnRemoveTag}
+        customSuffix={<TextButton>+ Add Tag</TextButton>}
         upgrade
       />
     );

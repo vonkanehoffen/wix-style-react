@@ -128,6 +128,10 @@ class InputWithOptions extends WixComponent {
         });
   }
 
+  isDropdownLayoutVisible = () =>
+    this.state.showOptions &&
+    (this.props.showOptionsIfEmptyInput || this.state.inputValue.length > 0);
+
   _renderDropdownLayout() {
     const inputOnlyProps = omit(['tabIndex'], Input.propTypes);
     const dropdownProps = Object.assign(
@@ -141,10 +145,6 @@ class InputWithOptions extends WixComponent {
       customStyle.width = this.props.dropdownWidth;
     }
 
-    const isDropdownLayoutVisible =
-      this.state.showOptions &&
-      (this.props.showOptionsIfEmptyInput || this.state.inputValue.length > 0);
-
     return (
       <div
         className={this.dropdownClasses()}
@@ -156,7 +156,7 @@ class InputWithOptions extends WixComponent {
           {...dropdownProps}
           options={this._processOptions(dropdownProps.options)}
           theme={this.props.theme}
-          visible={isDropdownLayoutVisible}
+          visible={this.isDropdownLayoutVisible()}
           onClose={this.hideOptions}
           onSelect={this._onSelect}
           isComposing={this.state.isComposing}
@@ -322,8 +322,9 @@ class InputWithOptions extends WixComponent {
 
     const { key } = event;
 
-    // Prevent a wrapping form from submitting when hitting Enter
-    if (key === 'Enter') {
+    /* Enter - prevent a wrapping form from submitting when hitting Enter */
+    /* ArrowUp - prevent input's native behaviour from moving the text cursor to the beginning */
+    if (key === 'Enter' || key === 'ArrowUp') {
       event.preventDefault();
     }
 

@@ -1,4 +1,4 @@
-    # PopoverMenu Testkits
+# PopoverMenu Testkits
 
 ## PopoverMenu TestKit API
 
@@ -6,7 +6,7 @@
 | ----------------- | --------- | ------------------ | --------------------------------------------------------- |
 | exists            | -         | `Promise<boolean>` | return true if element is in the DOM                      |
 | getTriggerElement | -         | `Promise<element>` | Returns trigger element                                   |
-| clickAtChild      | -         | `Promise<void>`    | Select a specific option (requires the menu to be opened) |
+| clickAtChild      | index     | `Promise<void>`    | Select a specific option (requires the menu to be opened) |
 | isMenuOpen        | -         | `Promise<boolean>` | Return true if the menu is opened, otherwise return false |
 | childrenCount     | -         | `Promise<number>`  | Returns children count                                    |
 
@@ -16,7 +16,7 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import PopoverMenu from 'wix-style-react/beta/PopoverMenu';
-import { PopoverMenuTestkit } from 'wix-style-react/dist/beta/testkit';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/beta';
 
 const div = document.createElement('div');
 const dataHook = 'myDataHook';
@@ -45,7 +45,7 @@ describe('Element should exist', async () => {
 import React from 'react';
 import { mount } from 'enzyme';
 import PopoverMenu from 'wix-style-react/beta/PopoverMenu';
-import { PopoverMenuTestkit } from 'wix-style-react/dist/beta/testkit/enzyme';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/beta/enzyme';
 
 const dataHook = 'myDataHook';
 const wrapper = mount(
@@ -68,7 +68,7 @@ describe('Element should exist', async () => {
 
 ```javascript
 import puppeteer from 'puppeteer';
-import { PopoverMenuTestkit } from 'wix-style-react/dist/beta/testkit/puppeteer';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/beta/puppeteer';
 
 //puppeteer setup
 const browser = await puppeteer.launch();
@@ -92,7 +92,7 @@ describe('Element should exist', async () => {
 > Element should be rendered with a data-hook into the DOM `<PopoverMenu dataHook="myDataHook" />`
 
 ```javascript
-import { PopoverMenuTestkit } from 'wix-style-react/dist/beta/testkit/protractor';
+import { PopoverMenuTestkit } from 'wix-style-react/dist/testkit/beta/protractor';
 
 //Create an element testkit via the data-hook attribute
 const testkit = PopoverMenuTestkit({ dataHook: 'myDataHook' });

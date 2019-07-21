@@ -4,6 +4,7 @@ import React from 'react';
 import MultiSelect from 'wix-style-react/MultiSelect';
 import Card from 'wix-style-react/Card';
 import FormField from 'wix-style-react/FormField';
+import TextButton from '../../TextButton/TextButton';
 
 const countries = [
   { name: 'Alabama', code: 'AL' },
@@ -99,6 +100,7 @@ class CountryInput extends React.Component {
         onSelect={this.handleOnSelect}
         onRemoveTag={this.handleOnRemoveTag}
         predicate={this.predicate}
+        customSuffix={<TextButton>+ Add Tag</TextButton>}
         upgrade
       />
     );

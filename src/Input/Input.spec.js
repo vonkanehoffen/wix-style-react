@@ -172,6 +172,7 @@ describe('Input', () => {
 
         const { driver } = render(<Input {...props} />);
         expect(await driver.getValue()).toEqual(props.value);
+        expect(await driver.getText()).toEqual(props.value);
       });
     });
 
@@ -256,6 +257,7 @@ describe('Input', () => {
           driver.trigger('change', { target: { value: 'a' } });
           driver.trigger('keyPress', { target: { key: 'l' } });
           expect(await driver.getValue()).toEqual('2');
+          expect(await driver.getText()).toEqual('2');
           expect(onChange).not.toHaveBeenCalled();
         });
       });
@@ -688,6 +690,7 @@ describe('Input', () => {
           await driver.enterText('some value');
           await driver.clickClear();
           expect(await driver.getValue()).toBe('');
+          expect(await driver.getText()).toBe('');
           expect(await driver.isFocus()).toBe(true);
         });
 

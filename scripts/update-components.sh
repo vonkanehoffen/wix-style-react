@@ -21,3 +21,17 @@ wuf export-testkits \
   --definitions .wuf/testkits/definitions.js \
   --template .wuf/testkits/enzyme.template.ejs \
   --output testkit/enzyme.js
+
+# protractor testkits
+wuf export-testkits \
+  --components .wuf/components.json \
+  --definitions .wuf/testkits/definitions.js \
+  --template .wuf/testkits/protractor.template.ejs \
+  --output testkit/protractor.js
+
+# puppeteer testkits
+wuf export-testkits \
+  --components .wuf/components.json \
+  --definitions .wuf/testkits/definitions.js \
+  --template .wuf/testkits/puppeteer.template.ejs \
+  --output testkit/puppeteer.js

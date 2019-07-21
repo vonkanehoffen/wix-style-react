@@ -47,6 +47,7 @@ export const testkit = base => {
     hasClearButton: async () => await clearButtonNode.exists(),
     clickClear: async () => await ReactBase(clearButtonNode).click(),
     getValue: async () => await input.value(),
+    getText: async () => await input.value(),
     getPlaceholder: async () => await input.attr('placeholder'),
     isOfStyle: async style => await base.hasClass(styles[`theme-${style}`]),
     isDisabled: async () => await base.hasClass(styles.disabled),
@@ -116,3 +117,5 @@ export const testkit = base => {
 
   return driver;
 };
+
+export default testkit;
