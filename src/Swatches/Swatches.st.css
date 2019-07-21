@@ -4,6 +4,13 @@
 }
 
 :import {
+  -st-from: "./grid-repeat.js";
+  -st-default: GridRepeat;
+}
+
+
+
+:import {
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: B00, B10,F00;
 }
@@ -24,10 +31,10 @@
   -st-states: size(string);
 }
 .root:size(small) {
-  grid-template-columns: repeat(auto-fill, 24px);
+  grid-template-columns: GridRepeat(auto-fill, 24px);
 }
 .root:size(medium) {
-  grid-template-columns: repeat(auto-fill, 40px);
+  grid-template-columns: GridRepeat(auto-fill, 40px);
 }
 
 .swatch {
