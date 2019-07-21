@@ -32,6 +32,11 @@ const sliderDriverFactory = ({ element }) => {
       const handle = $sliderHandles()[handleIndex];
       ReactTestUtils.Simulate.mouseLeave(handle);
     },
+
+    /** returns if the slider is disabled */
+    isDisabled: () => {
+      return !!element.querySelector('.rc-slider-disabled');
+    },
   };
 };
 
