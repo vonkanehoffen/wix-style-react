@@ -6,7 +6,7 @@ import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import style from './CircularProgressBar.st.css';
 import PropTypes from 'prop-types';
-import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
+import { Loadable } from 'wix-ui-core/dist/standalone/src/components/loadable';
 import { dataHooks, Size, sizesMap } from './constants';
 
 const sizeToSuccessIcon = {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   AppendTo,
   Placement,
-} from 'wix-ui-core/dist/src/components/popover/Popover.d';
+} from 'wix-ui-core/dist/standalone/src/components/popover/Popover.d';
 
 export interface PopoverMenuProps {
   triggerElement: React.ReactNode;

@@ -14,7 +14,7 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-from: "wix-ui-core/src/hocs/Focusable/Focusable.st.css";
   -st-default: Focusable;
   -st-named: focus-box;
 }

@@ -4,7 +4,7 @@
  * We want to gradually remove colors duplications between projects
  */
 :import {
-  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
+  -st-from: 'wix-ui-core/src/themes/backoffice/colors.st.css';
   -st-named: D10-05, D10-30, B00-24, B00-42;
 }
 

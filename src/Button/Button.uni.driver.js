@@ -1,6 +1,6 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { StylableUnidriverUtil } from 'wix-ui-test-utils/unidriver';
-import stylesBase from 'wix-ui-core/dist/src/components/button-next/button-next.st.css';
+import stylesBase from 'wix-ui-core/dist/standalone/src/components/button-next/button-next.st.css';
 import styles from './Button.st.css';
 
 const buttonNextDriverFactory = base => {

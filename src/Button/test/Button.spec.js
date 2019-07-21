@@ -6,7 +6,7 @@ import {
 import { buttonDriverFactory } from '../Button.uni.driver';
 import Button from '../index';
 import { PRIORITY, SIZES, SKINS } from '../constants';
-import { ReactDOMTestContainer } from 'wix-ui-core/dist/test/dom-test-container';
+import { ReactDOMTestContainer } from 'wix-ui-core/dist/standalone/test/dom-test-container';
 
 const createButton = (props = {}) => {
   const dataHook = 'button';

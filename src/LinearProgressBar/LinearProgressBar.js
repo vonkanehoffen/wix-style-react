@@ -4,7 +4,7 @@ import styles from './LinearProgressBar.st.css';
 import { LinearProgressBar as CoreLinearProgressBar } from 'wix-ui-core/dist/standalone/src/components/linear-progress-bar';
 import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
-import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
+import { Loadable } from 'wix-ui-core/dist/standalone/src/components/loadable';
 
 /**
  * This component is used for indicating a progress along a process.*/
