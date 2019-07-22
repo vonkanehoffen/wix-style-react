@@ -292,9 +292,8 @@ class DropdownBase extends React.PureComponent {
           open: this._open,
           close: this._close,
           toggle: this._toggle,
-
+          shown: this.state.open,
           delegateKeyDown: this._delegateKeyDown,
-
           selectedOption: this._getSelectedOption(selectedId),
         });
   }
