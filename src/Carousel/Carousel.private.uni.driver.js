@@ -11,6 +11,7 @@ export const carouselPrivateUniDriverFactory = base => {
 
   return {
     ...carouselUniDriverFactory(base),
+    hasClass: className => base.hasClass(className),
     getCurrentImageIndex: async () =>
       Number(await getCurrentSlide().attr('data-index')),
     isPrevButtonDisabled: () => arrowButtonDriver('prev').isButtonDisabled(),
@@ -28,6 +29,8 @@ export const carouselPrivateUniDriverFactory = base => {
       const pageNavigator = base.$(`[data-hook="page-navigation-${index}"]`);
       pageNavigator.click();
     },
+    isPageNavigationDotExists: () =>
+      base.$(`[data-hook^="page-navigation-"]`).exists(),
     getChildText: child => child.text(),
   };
 };

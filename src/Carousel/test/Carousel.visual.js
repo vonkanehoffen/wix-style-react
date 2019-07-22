@@ -52,6 +52,34 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'Variable width',
+    its: [
+      {
+        it: 'Display item with variable width ',
+        props: {
+          variableWidth: true,
+          children: [
+            <div>
+              <div
+                style={{ width: '300px', height: '100px', background: 'red' }}
+              />
+            </div>,
+            <div>
+              <div
+                style={{ width: '200px', height: '100px', background: 'green' }}
+              />
+            </div>,
+            <div>
+              <div
+                style={{ width: '350px', height: '100px', background: 'blue' }}
+              />
+            </div>,
+          ],
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

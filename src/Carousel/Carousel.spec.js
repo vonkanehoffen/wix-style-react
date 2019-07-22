@@ -123,6 +123,13 @@ describe('Carousel', () => {
           expect(afterChange).toHaveBeenCalled();
         }, 0);
       });
+
+      it('should pass the class name', async () => {
+        const expectedClassName = 'some-selector';
+        const driver = createDriver(<Carousel className={expectedClassName} />);
+
+        expect(await driver.hasClass(expectedClassName)).toBeTruthy();
+      });
     });
 
     describe('infinite functionality', () => {
@@ -306,6 +313,21 @@ describe('Carousel', () => {
         setTimeout(async () => {
           expect(await driver.getCurrentImageIndex()).toBe(2);
         }, 0);
+      });
+
+      it('dots should NOT be rendered when disabled', async () => {
+        const driver = createDriver(
+          <Carousel
+            dots={false}
+            images={[
+              { src: 'image1.jpg' },
+              { src: 'image2.jpg' },
+              { src: 'image3.jpg' },
+            ]}
+          />,
+        );
+
+        expect(await driver.isPageNavigationDotExists()).toBe(false);
       });
     });
     describe('initial slide functionality', () => {
