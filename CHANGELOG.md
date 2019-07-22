@@ -22,6 +22,7 @@ Types of changes:
 ### Docs
 
 - `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
+- `<CardGalleryItem/>` - examples refactored to support new PopoverMenu [#3744](https://github.com/wix/wix-style-react/pull/3744)
 
 ### Fixed
 
