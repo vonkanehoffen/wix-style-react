@@ -30,8 +30,8 @@ const menuItems = [
 
 const commonProps = {
   appendTo: 'window',
-  triggerElement: ({ onClick }) => (
-    <IconButton onClick={onClick} priority="secondary">
+  triggerElement: (
+    <IconButton priority="secondary">
       <More />
     </IconButton>
   ),

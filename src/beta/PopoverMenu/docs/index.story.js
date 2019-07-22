@@ -25,9 +25,7 @@ import More from '../../../new-icons/More';
 import Add from '../../../new-icons/Add';
 import Edit from '../../../new-icons/Edit';
 import Delete from '../../../new-icons/Delete';
-import triggerElementExample from './examples/buttonMenuExample';
-import stylesExample from './examples/stylesExample';
-import dividerExample from './examples/dividerExample';
+
 import { placements } from '../../../Popover';
 import testkitDesc from './testkit.md';
 import usage from './usage.md';
@@ -43,8 +41,8 @@ const example = ({ source, ...rest }) =>
 
 const commonProps = {
   appendTo: 'window',
-  triggerElement: ({ onClick }) => (
-    <IconButton onClick={onClick} priority="secondary">
+  triggerElement: (
+    <IconButton priority="secondary">
       <More />
     </IconButton>
   ),
@@ -128,22 +126,23 @@ export default {
             {
               title: 'Trigger',
               text: 'Trigger element can be an icon button or a text button.',
-              source: triggerElementExample,
+              source: examples.trigger,
             },
             {
               title: 'Menu item styling',
               text:
                 'Each menu item can be styled differently with the following props - skin, prefixIcon, text size, disabled.',
-              source: stylesExample,
+              source: examples.menuItemStyling,
             },
             {
               title: 'Divider',
               text: 'Menu can have a divider between items.',
-              source: dividerExample,
+              source: examples.divider,
             },
             {
-              title: 'Text Ellipsis',
-              text: 'Text can be ellipsed with prop `ellipsis`',
+              title: 'Text Wrap',
+              text:
+                'By default all menu items text gets ellipsed when reaches boundaries limit. Passing `textWrap` disables ellipsis and wrap text to new line.',
               source: examples.wrap,
             },
           ].map(example),
