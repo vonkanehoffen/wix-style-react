@@ -1,5 +1,9 @@
 import React from 'react';
-import { GeneralStructure, SingleComponent } from '../sharedComponents';
+import {
+  FamilyStructure,
+  SingleComponentSideBySide,
+  singleComponentSizes,
+} from '../sharedComponents';
 //Assets
 import More from 'wix-style-react/new-icons/More';
 
@@ -78,7 +82,7 @@ const SecondarySkinsExamples = () => {
 };
 
 const ButtonsExamples = () => (
-  <SingleComponent name="5.1 Button" componentsNames={['<Button/>']}>
+  <SingleComponentSideBySide name="5.1 Button" componentsNames={['<Button/>']}>
     <Layout>
       <Cell>
         <PrimarySkinsExamples />
@@ -87,11 +91,14 @@ const ButtonsExamples = () => (
         <SecondarySkinsExamples />
       </Cell>
     </Layout>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const IconButtonExamples = () => (
-  <SingleComponent name="5.2 Icon Button" componentsNames={['<IconButton/>']}>
+  <SingleComponentSideBySide
+    name="5.2 Icon Button"
+    componentsNames={['<IconButton/>']}
+  >
     <Layout cols={6} gap={0} justifyItems="center" alignItems="center">
       <IconButton>
         <More />
@@ -111,11 +118,14 @@ const IconButtonExamples = () => (
         <More />
       </IconButton>
     </Layout>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const TextButtonExamples = () => (
-  <SingleComponent name="5.3 Text Button" componentsNames={['<TextButton/>']}>
+  <SingleComponentSideBySide
+    name="5.3 Text Button"
+    componentsNames={['<TextButton/>']}
+  >
     <Layout cols={6} justifyItems="center">
       <TextButton>Standard</TextButton>
       <TextButton skin="premium">Premium</TextButton>
@@ -126,11 +136,14 @@ const TextButtonExamples = () => (
         <TextButton skin="dark">Dark</TextButton>
       </Box>
     </Layout>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const CloseButtonExamples = () => (
-  <SingleComponent name="5.4 Close Button" componentsNames={['<CloseButton/>']}>
+  <SingleComponentSideBySide
+    name="5.4 Close Button"
+    componentsNames={['<CloseButton/>']}
+  >
     <Layout cols={6} justifyItems="center" alignItems="center">
       <CloseButton />
       <CloseButton skin="standardFilled" />
@@ -145,23 +158,27 @@ const CloseButtonExamples = () => (
         <CloseButton skin="lightFilled" />
       </Box>
     </Layout>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const AddItemExample = () => (
-  <SingleComponent name="5.5 Add Item" componentsNames={['<AddItem/>']} compact>
+  <SingleComponentSideBySide
+    name="5.5 Add Item"
+    componentsNames={['<AddItem/>']}
+    size={singleComponentSizes.compact}
+  >
     <AddItem>Add New Item</AddItem>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const ButtonFamily = () => (
-  <GeneralStructure title="5. Button">
+  <FamilyStructure title="5. Button">
     <ButtonsExamples />
     <IconButtonExamples />
     <TextButtonExamples />
     <CloseButtonExamples />
     <AddItemExample />
-  </GeneralStructure>
+  </FamilyStructure>
 );
 
 export default ButtonFamily;

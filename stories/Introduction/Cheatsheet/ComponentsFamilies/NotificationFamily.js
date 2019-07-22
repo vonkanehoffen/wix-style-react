@@ -1,5 +1,8 @@
 import React from 'react';
-import { GeneralStructure, SingleComponent } from '../sharedComponents';
+import {
+  FamilyStructure,
+  SingleComponentSideBySide,
+} from '../sharedComponents';
 
 //8. Notifications
 import Notification from 'wix-style-react/Notification';
@@ -7,8 +10,8 @@ import FloatingNotification from 'wix-style-react/FloatingNotification';
 import SectionHelper from 'wix-style-react/SectionHelper';
 
 const NotificationFamily = () => (
-  <GeneralStructure title="8. Notifications">
-    <SingleComponent
+  <FamilyStructure title="8. Notifications">
+    <SingleComponentSideBySide
       name="8.1 Notification"
       componentsNames={['<Notification/>']}
     >
@@ -18,8 +21,8 @@ const NotificationFamily = () => (
         </Notification.TextLabel>
         <Notification.CloseButton />
       </Notification>
-    </SingleComponent>
-    <SingleComponent
+    </SingleComponentSideBySide>
+    <SingleComponentSideBySide
       name="8.2 Floating Notification"
       componentsNames={['<FloatingNotification/>']}
     >
@@ -27,16 +30,16 @@ const NotificationFamily = () => (
         type="destructive"
         text="Image.jpg failed to upload"
       />
-    </SingleComponent>
-    <SingleComponent
+    </SingleComponentSideBySide>
+    <SingleComponentSideBySide
       name="8.3 Section Helper"
       componentsNames={['<SectionHelper/>']}
     >
       <SectionHelper title="Don’t forget to setup payments">
         In order to sell your music you need to choose a payment method.
       </SectionHelper>
-    </SingleComponent>
-  </GeneralStructure>
+    </SingleComponentSideBySide>
+  </FamilyStructure>
 );
 
 export default NotificationFamily;

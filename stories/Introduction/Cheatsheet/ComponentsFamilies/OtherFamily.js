@@ -1,5 +1,8 @@
 import React from 'react';
-import { GeneralStructure, SingleComponent } from '../sharedComponents';
+import {
+  FamilyStructure,
+  SingleComponentSideBySide,
+} from '../sharedComponents';
 
 //11. Other
 import Avatar from 'wix-style-react/Avatar';
@@ -81,44 +84,53 @@ const OtherFamily = () => {
   ];
 
   return (
-    <GeneralStructure title="11. Other">
-      <SingleComponent name="11.1 Avatar" componentsNames={['<Avatar/>']}>
+    <FamilyStructure title="11. Other">
+      <SingleComponentSideBySide
+        name="11.1 Avatar"
+        componentsNames={['<Avatar/>']}
+      >
         <Avatar />
-      </SingleComponent>
-      <SingleComponent name="11.2 Badge" componentsNames={['<Badge/>']}>
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
+        name="11.2 Badge"
+        componentsNames={['<Badge/>']}
+      >
         <Badge uppercase={false}>Badge</Badge>
-      </SingleComponent>
-      <SingleComponent
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
         name="11.3 Badge Select"
         componentsNames={['<BadgeSelect/>']}
       >
         <BadgeSelect options={badgeSelectOptions} uppercase />
-      </SingleComponent>
-      <SingleComponent
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
         name="11.4 Counter Badge"
         componentsNames={['<CounterBadge/>']}
       >
         <CounterBadge>12</CounterBadge>
-      </SingleComponent>
-      <SingleComponent name="11.5 Tag" componentsNames={['<Tag/>']}>
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide name="11.5 Tag" componentsNames={['<Tag/>']}>
         <Tag>Tag</Tag>
-      </SingleComponent>
-      <SingleComponent name="11.6 Loader" componentsNames={['<Loader/>']}>
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
+        name="11.6 Loader"
+        componentsNames={['<Loader/>']}
+      >
         <Loader />
-      </SingleComponent>
-      <SingleComponent
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
         name="11.7 Linear Progress Bar"
         componentsNames={['<LinearProgressBar/>']}
       >
         <LinearProgressBar value={25} />
-      </SingleComponent>
-      <SingleComponent
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
         name="11.8 Circular Progress Bar"
         componentsNames={['<CircularProgressBar/>']}
       >
         <CircularProgressBar value={25} />
-      </SingleComponent>
-    </GeneralStructure>
+      </SingleComponentSideBySide>
+    </FamilyStructure>
   );
 };
 

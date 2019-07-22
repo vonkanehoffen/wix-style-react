@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  GeneralStructure,
-  SingleComponent,
+  FamilyStructure,
+  SingleComponentSideBySide,
   NotDefined,
   NotDeveloped,
+  singleComponentSizes,
 } from '../sharedComponents';
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import Box from 'wix-style-react/Box';
@@ -24,142 +25,142 @@ import Search from 'wix-style-react/Search';
 import ImageViewer from 'wix-style-react/ImageViewer';
 
 const TextInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.1 Text Input"
     componentsNames={['<FormField/>', '<Input/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Text Input">
       <Input placeholder="Value" />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const TextAreaExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.2 Text Area"
     componentsNames={['<FormField/>', '<Input/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Text Area">
       <InputArea placeholder="Value" />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const RichTextAreaExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.3 Rich Text Area"
     componentsNames={['<FormField/>', '<RichTextInputArea/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Rich Text Area">
       <RichTextInputArea />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const NumberInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.4 Number Input"
     componentsNames={['<FormField/>', '<NumberInput/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Number Input">
       <NumberInput value={500} />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const NumberRangeExample = () => (
-  <SingleComponent secondary light name="3.5 Number Range Input">
+  <SingleComponentSideBySide name="3.5 Number Range Input">
     <NotDeveloped />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const IncrementerInputExample = () => (
-  <SingleComponent secondary light name="3.6 Incrementer Input">
+  <SingleComponentSideBySide name="3.6 Incrementer Input">
     <NotDefined />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const DurationInputExample = () => (
-  <SingleComponent secondary light name="3.7 Duration Input">
+  <SingleComponentSideBySide name="3.7 Duration Input">
     <NotDeveloped />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const TimeInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.8 Time Input"
     componentsNames={['<FormField/>', '<TimeInput/>']}
   >
     <FormField label="Time Input">
       <TimeInput disableAmPm />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const DateInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.9 Date Input"
     componentsNames={['<FormField/>', '<DateInput/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Date">
       <DateInput value={new Date().toString()} />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const DateRangeInputExample = () => (
-  <SingleComponent secondary light name="3.10 Date Range Input">
+  <SingleComponentSideBySide name="3.10 Date Range Input">
     <NotDeveloped />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const ColorInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.11 Color Input"
     componentsNames={['<FormField/>', '<ColorInput/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Color Input">
       <ColorInput value="" placeholder="Please choose a color" />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const TagsInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.12 Tags Input"
     componentsNames={['<FormField/>', '<MultiSelect/>', '<Tag/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField label="Tag Input">
       <MultiSelect tags={[{ label: 'Tag 1' }, { label: 'Tag 2' }]} />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const GoogleAddressInputExample = () => (
-  <SingleComponent name="3.13 Google Address Input" secondary light>
+  <SingleComponentSideBySide name="3.13 Google Address Input">
     <NotDefined />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const SearchInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.14 Search Input"
     componentsNames={['<Search/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <Search placeholder="Search..." />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const MediaInputExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="3.15 Media Input"
     componentsNames={['<FormField/>', '<ImageViewer/>']}
   >
@@ -180,11 +181,11 @@ const MediaInputExample = () => (
         </FormField>
       </Box>
     </Box>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const InputFamily = () => (
-  <GeneralStructure title="3. Input">
+  <FamilyStructure title="3. Input">
     <TextInputExample />
     <TextAreaExample />
     <RichTextAreaExample />
@@ -200,7 +201,7 @@ const InputFamily = () => (
     <GoogleAddressInputExample />
     <SearchInputExample />
     <MediaInputExample />
-  </GeneralStructure>
+  </FamilyStructure>
 );
 
 export default InputFamily;

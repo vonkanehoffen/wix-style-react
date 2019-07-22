@@ -1,5 +1,8 @@
 import React from 'react';
-import { GeneralStructure, SingleComponent } from '../sharedComponents';
+import {
+  FamilyStructure,
+  SingleComponentSideBySide,
+} from '../sharedComponents';
 
 //7. Tooltip
 import Tooltip from 'wix-style-react/Tooltip';
@@ -14,13 +17,19 @@ import IconButton from 'wix-style-react/IconButton';
 import MoreIcon from 'wix-style-react/new-icons/More';
 
 const TooltipFamily = () => (
-  <GeneralStructure title="7. Tooltips and Popovers">
-    <SingleComponent name="7.1 Tooltip" componentsNames={['<Tooltip/>']}>
+  <FamilyStructure title="7. Tooltips and Popovers">
+    <SingleComponentSideBySide
+      name="7.1 Tooltip"
+      componentsNames={['<Tooltip/>']}
+    >
       <Tooltip upgrade content="Tooltip">
         <Text>Hover me</Text>
       </Tooltip>
-    </SingleComponent>
-    <SingleComponent name="7.2 Popover" componentsNames={['<Popover/>']}>
+    </SingleComponentSideBySide>
+    <SingleComponentSideBySide
+      name="7.2 Popover"
+      componentsNames={['<Popover/>']}
+    >
       <Popover showArrow shown placement="right">
         <Popover.Element>
           <div />
@@ -31,8 +40,8 @@ const TooltipFamily = () => (
           </Box>
         </Popover.Content>
       </Popover>
-    </SingleComponent>
-    <SingleComponent
+    </SingleComponentSideBySide>
+    <SingleComponentSideBySide
       name="7.3 Popover Menu"
       componentsNames={['<PopoverMenu/>']}
     >
@@ -47,8 +56,8 @@ const TooltipFamily = () => (
         <PopoverMenu.MenuItem text="option 2" />
         <PopoverMenu.MenuItem text="option 3" />
       </PopoverMenu>
-    </SingleComponent>
-    <SingleComponent
+    </SingleComponentSideBySide>
+    <SingleComponentSideBySide
       name="7.4 Floating Helper"
       componentsNames={['<FloatingHelper/>']}
     >
@@ -71,8 +80,8 @@ const TooltipFamily = () => (
         placement="right"
         target={<Box height="150px" />}
       />
-    </SingleComponent>
-  </GeneralStructure>
+    </SingleComponentSideBySide>
+  </FamilyStructure>
 );
 
 export default TooltipFamily;

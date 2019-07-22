@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SingleLayoutComponent } from '../../../sharedComponents';
+import { SingleComponentStacked } from '../../../sharedComponents';
 import Card from 'wix-style-react/Card';
 import Page from 'wix-style-react/Page';
 import Box from 'wix-style-react/Box';
@@ -138,7 +138,7 @@ class ExamplePageEmptyState extends Component {
 }
 
 const PageExamples = () => (
-  <SingleLayoutComponent
+  <SingleComponentStacked
     name="2.1 Page Layout"
     componentsNames={[
       '<Page/>',
@@ -149,9 +149,9 @@ const PageExamples = () => (
     ]}
   >
     <ExamplePageWithCard />
-    <Box height={'30px'} backgroundColor={'WHITE'} />
+    <Box height="30px" backgroundColor="D80" />
     <ExamplePageEmptyState />
-  </SingleLayoutComponent>
+  </SingleComponentStacked>
 );
 
 export default PageExamples;

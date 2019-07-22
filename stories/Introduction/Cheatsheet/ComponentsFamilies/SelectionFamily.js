@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import {
   NotDeveloped,
-  GeneralStructure,
-  SingleComponent,
+  FamilyStructure,
+  SingleComponentSideBySide,
+  singleComponentSizes,
 } from '../sharedComponents';
 
 import { Layout, Cell } from 'wix-style-react/Layout';
@@ -23,10 +24,10 @@ import LockLocked from 'wix-style-react/new-icons/LockLocked';
 import LockUnlocked from 'wix-style-react/new-icons/LockUnlocked';
 
 const DropdownExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="4.1 Dropdown"
     componentsNames={['<FormField/>', '<Dropdown/>']}
-    compact
+    size={singleComponentSizes.compact}
   >
     <FormField id="formfieldDropdownId" label="Dropdown">
       <Dropdown
@@ -38,7 +39,7 @@ const DropdownExample = () => (
         ]}
       />
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 class MultiSelectDropdownExample extends PureComponent {
@@ -66,10 +67,10 @@ class MultiSelectDropdownExample extends PureComponent {
     const { selectedOptions } = this.state;
 
     return (
-      <SingleComponent
+      <SingleComponentSideBySide
         name="4.2 Multi Select Dropdown"
         componentsNames={['<FormField/>', '<MultiSelectCheckbox/>']}
-        compact
+        size={singleComponentSizes.compact}
       >
         <FormField
           id="formfieldMultiSelectDropdownId"
@@ -83,7 +84,7 @@ class MultiSelectDropdownExample extends PureComponent {
             selectedOptions={selectedOptions}
           />
         </FormField>
-      </SingleComponent>
+      </SingleComponentSideBySide>
     );
   }
 }
@@ -97,7 +98,7 @@ class CheckboxExample extends PureComponent {
     const { value } = this.state;
 
     return (
-      <SingleComponent
+      <SingleComponentSideBySide
         name="4.3 Checkbox"
         componentsNames={['<FormField/>', '<Checkbox/>']}
       >
@@ -115,7 +116,7 @@ class CheckboxExample extends PureComponent {
             onChange={e => this.setState({ value: e.target.checked })}
           />
         </FormField>
-      </SingleComponent>
+      </SingleComponentSideBySide>
     );
   }
 }
@@ -126,7 +127,7 @@ class RadioExample extends PureComponent {
   render() {
     const { value } = this.state;
     return (
-      <SingleComponent
+      <SingleComponentSideBySide
         name="4.4 Radio"
         componentsNames={['<FormField/>', '<RadioGroup/>']}
       >
@@ -142,7 +143,7 @@ class RadioExample extends PureComponent {
             <RadioGroup.Radio value={3}>Option 3</RadioGroup.Radio>
           </RadioGroup>
         </FormField>
-      </SingleComponent>
+      </SingleComponentSideBySide>
     );
   }
 }
@@ -155,7 +156,7 @@ class ToggleExample extends PureComponent {
   render() {
     const { value } = this.state;
     return (
-      <SingleComponent
+      <SingleComponentSideBySide
         name="4.5 Toggle"
         componentsNames={['<FormField/>', '<ToggleSwitch/>']}
       >
@@ -173,13 +174,13 @@ class ToggleExample extends PureComponent {
             onChange={e => this.setState({ value: e.target.checked })}
           />
         </FormField>
-      </SingleComponent>
+      </SingleComponentSideBySide>
     );
   }
 }
 
 const SegmentedToggleExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="4.6 Segmented Toggle"
     componentsNames={['<FormField/>', '<SegmentedToggle/>']}
   >
@@ -198,7 +199,7 @@ const SegmentedToggleExample = () => (
         </SegmentedToggle>
       </Box>
     </FormField>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 class ThumbnailWithTitleExmaple extends PureComponent {
@@ -248,7 +249,7 @@ class ListSmallThumbnailaExmaple extends PureComponent {
 }
 
 const ThumbnailSelectExamples = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="4.7 Thumbnail Select"
     componentsNames={['<Thumbnail/>']}
   >
@@ -256,7 +257,7 @@ const ThumbnailSelectExamples = () => (
     <ThumbnailWithTitleExmaple />
     <Box marginBottom="30px" />
     <ListSmallThumbnailaExmaple />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 /* This Box component was added due to an issue with the Slider */
@@ -271,10 +272,10 @@ class SliderExample extends PureComponent {
   render() {
     const { value } = this.state;
     return (
-      <SingleComponent
+      <SingleComponentSideBySide
         name="4.8 Slider"
         componentsNames={['<FormField/>', '<Slider/>']}
-        compact
+        size={singleComponentSizes.compact}
       >
         <FormField id="formfieldSliderId" label="Slider Label">
           <Slider
@@ -287,19 +288,19 @@ class SliderExample extends PureComponent {
           />
         </FormField>
         <Box marginBottom="50px" />
-      </SingleComponent>
+      </SingleComponentSideBySide>
     );
   }
 }
 
 const CheckToggleExample = () => (
-  <SingleComponent name="4.9 Check Toggle">
+  <SingleComponentSideBySide name="4.9 Check Toggle">
     <NotDeveloped />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const SelectionFamily = () => (
-  <GeneralStructure title="4. Selection">
+  <FamilyStructure title="4. Selection">
     <DropdownExample />
     <MultiSelectDropdownExample />
     <CheckboxExample />
@@ -309,7 +310,7 @@ const SelectionFamily = () => (
     <ThumbnailSelectExamples />
     <SliderExample />
     <CheckToggleExample />
-  </GeneralStructure>
+  </FamilyStructure>
 );
 
 export default SelectionFamily;

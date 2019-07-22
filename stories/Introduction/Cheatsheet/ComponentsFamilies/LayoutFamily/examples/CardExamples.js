@@ -1,6 +1,7 @@
 import React from 'react';
-import { SingleLayoutComponent } from '../../../sharedComponents';
+import SingleComponentStacked from '../../../sharedComponents/SingleComponentStacked';
 import Card from 'wix-style-react/Card';
+
 import Box from 'wix-style-react/Box';
 import { Row, Col, Container } from 'wix-style-react/Grid';
 import TextButton from 'wix-style-react/TextButton';
@@ -8,7 +9,7 @@ import TextButton from 'wix-style-react/TextButton';
 import Add from 'wix-style-react/new-icons/Add';
 
 const CardExamples = () => (
-  <SingleLayoutComponent
+  <SingleComponentStacked
     name="2.2 Card Layout"
     componentsNames={[
       '<Card/>',
@@ -17,8 +18,8 @@ const CardExamples = () => (
       '<Card.Divider/>',
     ]}
   >
-    <Box padding="30px" backgroundColor="D70">
-      <Card stretchVertically>
+    <SingleComponentStacked.Preview>
+      <Card>
         <Card.Header
           title="Card title"
           subtitle="This is how a subtitle looks like"
@@ -36,8 +37,8 @@ const CardExamples = () => (
           <Box minHeight="200px" />
         </Card.Content>
       </Card>
-    </Box>
-  </SingleLayoutComponent>
+    </SingleComponentStacked.Preview>
+  </SingleComponentStacked>
 );
 
 export default CardExamples;

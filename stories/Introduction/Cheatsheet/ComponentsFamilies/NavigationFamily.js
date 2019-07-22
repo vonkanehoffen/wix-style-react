@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  GeneralStructure,
-  SingleComponent,
+  FamilyStructure,
+  SingleComponentSideBySide,
   NotDefined,
 } from '../sharedComponents';
 
@@ -29,8 +29,11 @@ const NavigationFamily = () => {
   ];
 
   return (
-    <GeneralStructure title="6. Navigation">
-      <SingleComponent name="6.1 Sidebar Menu" componentsNames={['<Sidebar/>']}>
+    <FamilyStructure title="6. Navigation">
+      <SingleComponentSideBySide
+        name="6.1 Sidebar Menu"
+        componentsNames={['<Sidebar/>']}
+      >
         <Sidebar selectedKey="item1">
           <Sidebar.PersistentHeader>
             <Box direction="vertical" padding="30px">
@@ -51,14 +54,17 @@ const NavigationFamily = () => {
             </Box>
           </Sidebar.Item>
         </Sidebar>
-      </SingleComponent>
-      <SingleComponent name="6.2 Tree Navigation">
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide name="6.2 Tree Navigation">
         <NotDefined />
-      </SingleComponent>
-      <SingleComponent name="6.3 Text Tabs" componentsNames={['<Tabs/>']}>
+      </SingleComponentSideBySide>
+      <SingleComponentSideBySide
+        name="6.3 Text Tabs"
+        componentsNames={['<Tabs/>']}
+      >
         <Tabs activeId={1} items={tabItems} />
-      </SingleComponent>
-    </GeneralStructure>
+      </SingleComponentSideBySide>
+    </FamilyStructure>
   );
 };
 export default NavigationFamily;

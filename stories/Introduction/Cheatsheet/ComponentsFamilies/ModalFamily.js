@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import {
-  GeneralStructure,
-  SingleComponent,
+  FamilyStructure,
+  SingleComponentSideBySide,
   NotDeveloped,
 } from '../sharedComponents';
 
@@ -15,7 +15,7 @@ import Modal from 'wix-style-react/Modal';
 import Box from 'wix-style-react/Box';
 
 const AlretExamples = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="9.1 Alert"
     componentsNames={['<MessageBoxFunctionalLayout/>']}
   >
@@ -45,7 +45,7 @@ const AlretExamples = () => (
     >
       Something terribly bad happened, that cannot be undone.
     </MessageBoxFunctionalLayout>
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 class FullScreenModal extends PureComponent {
@@ -85,16 +85,16 @@ class FullScreenModal extends PureComponent {
 }
 
 const CustomModalExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="9.2 Content"
     componentsNames={['<MessageBoxFunctionalLayout/>', '<Modal/>']}
   >
     <FullScreenModal />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const MarketingExample = () => (
-  <SingleComponent
+  <SingleComponentSideBySide
     name="9.3 Marketing"
     componentsNames={['<MessageBoxMarketerialLayout/>']}
   >
@@ -107,22 +107,22 @@ const MarketingExample = () => (
       primaryButtonLabel="Button"
       primaryButtonTheme="blue"
     />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const PreviewExample = () => (
-  <SingleComponent name="9.4 Preview" secondary light>
+  <SingleComponentSideBySide name="9.4 Preview">
     <NotDeveloped />
-  </SingleComponent>
+  </SingleComponentSideBySide>
 );
 
 const ModalFamily = () => (
-  <GeneralStructure title="9. Modal">
+  <FamilyStructure title="9. Modal">
     <AlretExamples />
     <CustomModalExample />
     <MarketingExample />
     <PreviewExample />
-  </GeneralStructure>
+  </FamilyStructure>
 );
 
 export default ModalFamily;
