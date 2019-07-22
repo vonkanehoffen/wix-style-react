@@ -444,6 +444,12 @@ export const sidebarSectionTitleTestkitFactory = protractorUniTestkitFactoryCrea
   sidebarSectionTitleDriverFactory,
 );
 
+import { sidebarHeaderDriverFactory } from '../src/SidebarHeader/SidebarHeader.uni.driver';
+
+export const sidebarHeaderTestkitFactory = protractorUniTestkitFactoryCreator(
+  sidebarHeaderDriverFactory,
+);
+
 import sliderDriverFactory from '../src/Slider/Slider.protractor.driver';
 
 export const sliderTestkitFactory = protractorTestkitFactoryCreator(

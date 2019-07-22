@@ -138,6 +138,7 @@ require('../src/Tooltip/TooltipNext/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
 require('../src/SidebarSectionDivider/docs/index.story');
+require('../src/SidebarHeader/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');

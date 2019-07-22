@@ -519,6 +519,12 @@ module.exports = {
     namedPuppeteerTestkitExport: true,
   },
 
+  SidebarHeader: {
+    unidriver: true,
+    testkitPath: "../src/SidebarHeader/SidebarHeader.uni.driver",
+    namedPuppeteerTestkitExport: true,
+  },
+
   LinearProgressBar: {
     puppeteerUnidriver: true,
     namedProtractorTestkitExport: true,

@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Sidebar from '..';
+import SidebarHeader from '../../SidebarHeader';
 import SidebarSectionTitle from '../../SidebarSectionTitle';
 import SidebarSectionDivider from '../../SidebarSectionDivider';
 
@@ -51,7 +52,7 @@ storiesOf('Sidebar', module).add('Visual', () => (
   <div style={{ height: '500px', color: 'white' }}>
     <Sidebar selectedKey={'dashboard'}>
       <Sidebar.PersistentHeader>
-        <div>Header</div>
+        <SidebarHeader title="Site Name" subtitle="Role: Owner" />
       </Sidebar.PersistentHeader>
 
       <SidebarSectionDivider />

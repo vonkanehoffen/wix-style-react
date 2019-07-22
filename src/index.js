@@ -137,3 +137,4 @@ export { default as SidebarSectionTitle } from './SidebarSectionTitle';
 export { default as SidebarSectionItem } from './SidebarSectionItem';
 export { default as Collapse } from './Collapse';
 export { default as SidebarSectionDivider } from './SidebarSectionDivider';
+export { default as SidebarHeader } from './SidebarHeader';

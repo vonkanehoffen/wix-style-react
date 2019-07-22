@@ -376,5 +376,8 @@
   },
   "SidebarSectionDivider": {
     "path": "src/SidebarSectionDivider"
+  },
+  "SidebarHeader": {
+    "path": "src/SidebarHeader"
   }
 }

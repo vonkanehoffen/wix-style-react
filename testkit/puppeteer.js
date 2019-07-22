@@ -472,3 +472,8 @@ export const sidebarSectionDividerTestkitFactory = puppeteerUniTestkitFactoryCre
   sidebarSectionDividerDriverFactory,
 );
 
+import { sidebarHeaderDriverFactory } from '../src/SidebarHeader/SidebarHeader.uni.driver';
+
+export const sidebarHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sidebarHeaderDriverFactory,
+);
