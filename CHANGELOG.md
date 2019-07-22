@@ -21,7 +21,6 @@ Types of changes:
 ### Docs
 
 - `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
-- `<PopoverMenu/>` - move old story to deprecation section [#3745](https://github.com/wix/wix-style-react/pull/3745)
 
 ### Fixed
 
