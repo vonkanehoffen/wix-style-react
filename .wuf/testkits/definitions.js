@@ -513,9 +513,9 @@ module.exports = {
     namedPuppeteerTestkitExport: true,
   },
 
-  SidebarSectionDivider: {
+  SidebarDivider: {
     unidriver: true,
-    testkitPath: "../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver",
+    testkitPath: "../src/SidebarDivider/SidebarDivider.uni.driver",
     namedPuppeteerTestkitExport: true,
   },
 

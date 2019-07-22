@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import SidebarSectionDivider from '../SidebarSectionDivider';
+import SidebarDivider from '../SidebarDivider';
 import Box from '../../Box';
 
 const tests = [
@@ -23,13 +23,13 @@ const tests = [
 ];
 
 tests.forEach(({ describe, its }) =>
-  storiesOf(`SidebarSectionDivider`, module).add(describe, () => (
+  storiesOf(`SidebarDivider`, module).add(describe, () => (
     <div>
       {its.map(({ it, props }) => (
         <Box direction="vertical" marginBottom={3}>
           <h3>{it}:</h3>
           <div style={{ width: '222px', backgroundColor: '#23263c' }}>
-            <SidebarSectionDivider {...props} />
+            <SidebarDivider {...props} />
           </div>
         </Box>
       ))}

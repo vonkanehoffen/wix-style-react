@@ -534,10 +534,10 @@ export const sidebarSectionItemTestkitFactory = protractorUniTestkitFactoryCreat
   sidebarSectionItemDriverFactory,
 );
 
-import sidebarSectionDividerDriverFactory from '../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver';
+import sidebarDividerDriverFactory from '../src/SidebarDivider/SidebarDivider.uni.driver';
 
-export const sidebarSectionDividerTestkitFactory = protractorUniTestkitFactoryCreator(
-  sidebarSectionDividerDriverFactory,
+export const sidebarDividerTestkitFactory = protractorUniTestkitFactoryCreator(
+  sidebarDividerDriverFactory,
 );
 
 import sideMenuDrillDriverFactory from '../src/SideMenu/DrillView/DrillView.protractor.driver';

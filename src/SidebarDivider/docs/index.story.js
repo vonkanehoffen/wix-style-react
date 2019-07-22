@@ -17,22 +17,22 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
-import SidebarSectionDivider from '..';
+import SidebarDivider from '..';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
-  storyName: 'SidebarSectionDivider',
+  storyName: 'SidebarDivider',
 
-  component: SidebarSectionDivider,
+  component: SidebarDivider,
   componentPath: '..',
 
   sections: [
     header({
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/SidebarSectionDivider/',
+        'https://github.com/wix/wix-style-react/tree/master/src/SidebarDivider/',
     }),
 
     tabs([
@@ -42,13 +42,13 @@ export default {
           columns([
             description({
               title: 'Description',
-              text: 'An item for the section within the sidebar.',
+              text: 'A divider within the sidebar.',
             }),
           ]),
 
           columns([
             importExample(
-              "import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';",
+              "import SidebarDivider from 'wix-style-react/SidebarDivider';",
             ),
           ]),
 
@@ -64,19 +64,20 @@ export default {
 
             code({
               compact: true,
-              source: `<SidebarSectionDivider />`,
+              source: `<SidebarDivider />`,
             }),
           ]),
 
           columns([
             description({
               title: 'Full-Width Divider',
-              text: 'An example that demonstrates a divider with full width',
+              text:
+                'An example that demonstrates a divider with full width. Notice that in this mode, the divider has no margins',
             }),
 
             code({
               compact: true,
-              source: `<SidebarSectionDivider fullWidth />`,
+              source: `<SidebarDivider fullWidth />`,
             }),
           ]),
         ],

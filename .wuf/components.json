@@ -374,8 +374,8 @@
   "SidebarSectionItem": {
     "path": "src/SidebarSectionItem"
   },
-  "SidebarSectionDivider": {
-    "path": "src/SidebarSectionDivider"
+  "SidebarDivider": {
+    "path": "src/SidebarDivider"
   },
   "SidebarHeader": {
     "path": "src/SidebarHeader"

@@ -466,10 +466,10 @@ export const sidebarSectionItemTestkitFactory = puppeteerUniTestkitFactoryCreato
   sidebarSectionItemDriverFactory,
 );
 
-import { sidebarSectionDividerDriverFactory } from '../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver';
+import { sidebarDividerDriverFactory } from '../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver';
 
-export const sidebarSectionDividerTestkitFactory = puppeteerUniTestkitFactoryCreator(
-  sidebarSectionDividerDriverFactory,
+export const sidebarDividerTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sidebarDividerDriverFactory,
 );
 
 import { sidebarHeaderDriverFactory } from '../src/SidebarHeader/SidebarHeader.uni.driver';

@@ -136,5 +136,5 @@ export { default as Swatches } from './Swatches';
 export { default as SidebarSectionTitle } from './SidebarSectionTitle';
 export { default as SidebarSectionItem } from './SidebarSectionItem';
 export { default as Collapse } from './Collapse';
-export { default as SidebarSectionDivider } from './SidebarSectionDivider';
+export { default as SidebarDivider } from './SidebarDivider';
 export { default as SidebarHeader } from './SidebarHeader';

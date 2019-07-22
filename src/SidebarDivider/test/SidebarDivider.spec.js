@@ -1,12 +1,12 @@
 import React from 'react';
 
-import SidebarSectionDivider from '../SidebarSectionDivider';
+import SidebarDivider from '../SidebarDivider';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
-import { sidebarSectionDividerPrivateDriverFactory } from './SidebarSectionDivider.private.uni.driver';
+import { SidebarDividerPrivateDriverFactory } from './SidebarDivider.private.uni.driver';
 
-describe('SidebarSectionDivider', () => {
+describe('SidebarDivider', () => {
   const render = createRendererWithUniDriver(
-    sidebarSectionDividerPrivateDriverFactory,
+    SidebarDividerPrivateDriverFactory,
   );
 
   afterEach(() => {
@@ -14,13 +14,13 @@ describe('SidebarSectionDivider', () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<SidebarSectionDivider />);
+    const { driver } = render(<SidebarDivider />);
 
     expect(await driver.exists()).toBeTruthy();
   });
 
   it('should render as full width', async () => {
-    const { driver } = render(<SidebarSectionDivider fullWidth />);
+    const { driver } = render(<SidebarDivider fullWidth />);
 
     expect(await driver.isFullWidth()).toBeTruthy();
   });

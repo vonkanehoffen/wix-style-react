@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import styles from './SidebarSectionDivider.st.css';
+import styles from './SidebarDivider.st.css';
 
 /** A divider that separates sections within the sidebar */
-class SidebarSectionDivider extends React.PureComponent {
-  static displayName = 'SidebarSectionDivider';
+class SidebarDivider extends React.PureComponent {
+  static displayName = 'SidebarDivider';
 
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used in the tests */
@@ -27,4 +27,4 @@ class SidebarSectionDivider extends React.PureComponent {
   }
 }
 
-export default SidebarSectionDivider;
+export default SidebarDivider;
