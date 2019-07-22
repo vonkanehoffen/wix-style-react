@@ -26,6 +26,10 @@ Types of changes:
 
 - `<PopoverMenu/>` - beta - fix typing for getTrriggerElement [#3791](https://github.com/wix/wix-style-react/pull/3791)
 
+### Changed
+
+- `<PopoverMenu/>` - beta - expose more control on render props [#3792](https://github.com/wix/wix-style-react/pull/3792)
+
 ## 6.41.0 - 2019-07-20
 
 ### Fixed
