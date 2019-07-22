@@ -20,6 +20,10 @@ Types of changes:
 - `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
 - `<PopoverMenu/>` - move old story to deprecation section [#3745](https://github.com/wix/wix-style-react/pull/3745)
 
+### Fixed
+
+- `<PopoverMenu/>` - beta - fix typing for getTrriggerElement [#3791](https://github.com/wix/wix-style-react/pull/3791)
+
 ## 6.41.0 - 2019-07-20
 
 ### Fixed
