@@ -1,7 +1,7 @@
 import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
-  category: Category.DEPRECATED,
+  category: Category.COMPONENTS,
   storyName: 'PopoverMenu',
   dataHook: 'story-popover-menu',
   itemDataHook: 'story-popover-menu-item',

@@ -1,17 +1,27 @@
 import React from 'react';
-
-import { header } from 'wix-storybook-utils/Sections';
-import LinkTo from '@storybook/addon-links/react';
+import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import { default as PopoverMenu } from '..';
 import { default as PopoverMenuItem } from '../../PopoverMenuItem';
 import { storySettings } from './storySettings';
-import { Category } from '../../../stories/storiesHierarchy';
 
-import SectionHelper from '../../SectionHelper';
-import { Layout, Cell } from '../../Layout';
-
+import ExampleBasic from './ExampleBasic';
+import ExampleBasicRaw from '!raw-loader!./ExampleBasic';
+import ExampleDisabled from './ExampleDisabled';
+import ExampleDisabledRaw from '!raw-loader!./ExampleDisabled';
+import ExampleDisabledLarge from './ExampleDisabledLarge';
+import ExampleDisabledLargeRaw from '!raw-loader!./ExampleDisabledLarge';
+import ExampleWithDivider from './ExampleWithDivider';
+import ExampleWithDividerRaw from '!raw-loader!./ExampleWithDivider';
 import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
+
+const exampleContainerStyle = {
+  display: 'flex',
+  backgroundColor: '#f6f8fa',
+  minHeight: '50px',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
 
 const exampleItems = [
   <PopoverMenuItem
@@ -64,29 +74,31 @@ export default {
     children: exampleChildren,
   },
 
-  sections: [
-    header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/PopoverMenu/',
-      component: (
-        <Layout gap={10}>
-          <Cell span={6}>
-            <SectionHelper
-              title="This Component is Deprecated"
-              appearance="danger"
-            >
-              Read more about new implementation in UX story
-              <LinkTo
-                kind={Category.TOOLTIP}
-                story="7.3 PopoverMenu"
-              >{` UX story `}</LinkTo>
-              or{' '}
-              <LinkTo kind="BETA" story="PopoverMenu">{` API story.`}</LinkTo>
-            </SectionHelper>
-          </Cell>
-        </Layout>
-      ),
-    }),
-  ],
+  examples: (
+    <div>
+      <CodeExample title="Standard with icons" code={ExampleBasicRaw}>
+        <div style={exampleContainerStyle}>
+          <ExampleBasic />
+        </div>
+      </CodeExample>
+      <CodeExample title="Disabled item" code={ExampleDisabledRaw}>
+        <div style={exampleContainerStyle}>
+          <ExampleDisabled />
+        </div>
+      </CodeExample>
+      <CodeExample
+        title="Disabled item within a large popover menu"
+        code={ExampleDisabledLargeRaw}
+      >
+        <div style={exampleContainerStyle}>
+          <ExampleDisabledLarge />
+        </div>
+      </CodeExample>
+      <CodeExample title="With divider" code={ExampleWithDividerRaw}>
+        <div style={exampleContainerStyle}>
+          <ExampleWithDivider />
+        </div>
+      </CodeExample>
+    </div>
+  ),
 };
