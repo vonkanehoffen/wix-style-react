@@ -17,6 +17,7 @@ Types of changes:
 
 ### Added
 - `<SidebarHeader/>` - create the component (WIP) [#3787](https://github.com/wix/wix-style-react/pull/3787)
+- `<Carousel/>` - add `dots` & `variableWidth` props [#3760](https://github.com/wix/wix-style-react/pull/3760)
 
 ### Docs
 
