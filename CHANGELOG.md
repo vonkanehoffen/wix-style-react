@@ -15,6 +15,10 @@ Types of changes:
 
 ## Next
 
+### Docs
+
+- `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
+
 ## 6.41.0 - 2019-07-20
 
 ### Fixed
