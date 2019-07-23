@@ -33,7 +33,8 @@ class PopoverMenu extends React.PureComponent {
     moveBy: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
 
     /** Element to trigger the popover */
-    triggerElement: PropTypes.element.isRequired,
+    triggerElement: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+      .isRequired,
 
     /** The Popover's placement:
      *  * auto-start
