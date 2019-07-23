@@ -26,6 +26,7 @@ Types of changes:
 - `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
 - `<CardGalleryItem/>` - examples refactored to support new PopoverMenu [#3744](https://github.com/wix/wix-style-react/pull/3744)
 - `Cheatsheet`- Adding examples to `ContentWidgetsFamily`[#3793](https://github.com/wix/wix-style-react/pull/3793)
+- `<CardGalleryitem/>` -  popovermenu example should use render prop toggle instead of open [#3809](https://github.com/wix/wix-style-react/pull/3809)
 
 ### Fixed
 
