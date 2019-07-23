@@ -289,7 +289,7 @@ class PopoverMenu extends React.PureComponent {
         flip={flip}
         fixed={fixed}
         showArrow={showArrow}
-        tabIndex="-1"
+        tabIndex={-1}
         moveBy={moveBy}
       >
         {({ toggle, open, close }) =>
