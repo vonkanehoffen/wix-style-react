@@ -68,8 +68,7 @@ export default {
 
             code({
               compact: true,
-              source:
-                '<Sidebar><SidebarSectionTitle>Some Title</SidebarSectionTitle></Sidebar>',
+              source: '<SidebarSectionTitle>Some Title</SidebarSectionTitle>',
             }),
           ]),
 
@@ -82,7 +81,7 @@ export default {
             code({
               compact: true,
               source:
-                '<Sidebar><SidebarSectionTitle>This is a very long text which exceeds the maximum width of its container</SidebarSectionTitle></Sidebar>',
+                '<SidebarSectionTitle>This is a very long text which exceeds the maximum width of its container</SidebarSectionTitle>',
             }),
           ]),
         ],

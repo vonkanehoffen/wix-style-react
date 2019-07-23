@@ -22,7 +22,6 @@ class SidebarSectionTitle extends React.PureComponent {
       <Text
         data-hook={dataHook}
         {...styles('root')}
-        className={styles.root}
         size="tiny"
         weight="bold"
         ellipsis

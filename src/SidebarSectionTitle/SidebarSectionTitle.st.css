@@ -4,6 +4,11 @@
 };
 
 :import {
+  -st-from: "../Sidebar/colors.st.css";
+  -st-named: sidebarBackgroundColor
+}
+
+:import {
     -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
     -st-named: D40
 }
@@ -12,10 +17,13 @@
   -st-extends: Text;
 
   display: block;
-  margin: 9px 0;
-  padding: 0 30px;
+  padding: 9px 30px;
+  max-width: 222px;
+  box-sizing: border-box;
+  background-color: value(sidebarBackgroundColor);
 }
 
 .root:size(tiny) {
   color: value(D40);
+  line-height: 18px;
 }
