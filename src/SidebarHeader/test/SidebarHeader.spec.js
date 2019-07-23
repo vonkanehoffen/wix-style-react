@@ -6,19 +6,19 @@ import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
 describe('SidebarHeader', () => {
   const render = createRendererWithUniDriver(sidebarHeaderPrivateDriverFactory);
+  const title = 'Some title';
 
   afterEach(() => {
     cleanup();
   });
 
   it('should render', async () => {
-    const { driver } = render(<SidebarHeader />);
+    const { driver } = render(<SidebarHeader title={title} />);
 
     expect(await driver.exists()).toBeTruthy();
   });
 
   it('should render the `title` prop', async () => {
-    const title = 'Some title';
     const { driver } = render(<SidebarHeader title={title} />);
 
     expect(await driver.getTitle()).toBe(title);
@@ -26,7 +26,9 @@ describe('SidebarHeader', () => {
 
   it('should render the `subtitle` prop', async () => {
     const subtitle = 'Some subtitle';
-    const { driver } = render(<SidebarHeader subtitle={subtitle} />);
+    const { driver } = render(
+      <SidebarHeader title={title} subtitle={subtitle} />,
+    );
 
     expect(await driver.getSubtitle()).toBe(subtitle);
   });
@@ -34,7 +36,7 @@ describe('SidebarHeader', () => {
   it('should render the `children` prop', async () => {
     const sampleText = 'Some child';
     const { driver } = render(
-      <SidebarHeader>
+      <SidebarHeader title={title}>
         <span>{sampleText}</span>
       </SidebarHeader>,
     );

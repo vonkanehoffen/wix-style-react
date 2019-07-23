@@ -16,7 +16,9 @@ describe('SidebarSectionItem', () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<SidebarSectionItem></SidebarSectionItem>);
+    const { driver } = render(
+      <SidebarSectionItem>{sampleText}</SidebarSectionItem>,
+    );
 
     expect(await driver.exists()).toBeTruthy();
     expect(await driver.hasPrefix()).toBe(false);
