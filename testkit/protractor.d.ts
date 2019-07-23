@@ -90,6 +90,7 @@ export const textTestkitFactory: any;
 export const textButtonTestkitFactory: any;
 export const thumbnailTestkitFactory: any;
 export const timeInputTestkitFactory: any;
+export const sidebarDividerTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const richTextAreaTestkitFactory: any;
