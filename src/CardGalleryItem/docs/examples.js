@@ -3,12 +3,9 @@ export const iconButton = `
 title="Card title"
 subtitle="Card subtitle"
 settingsMenu={<PopoverMenu
-  triggerElement={({ open, close }) => (
+  triggerElement={({ toggle, close }) => (
     <IconButton
-      onClick={e => {
-        open(e);
-        e.stopPropogation();
-      }}
+      onClick={e => { e.stopPropagation(); toggle()}}
       onMouseLeave={close}
       skin="light"
       priority="secondary"
