@@ -1,7 +1,4 @@
-import {
-  enzymeTestkitFactoryCreator,
-  enzymeUniTestkitFactoryCreator,
-} from 'wix-ui-test-utils/enzyme';
+import { enzymeUniTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 
 const load = module => {
   const MODULE_META_KEYS = ['__esModule'];
@@ -24,8 +21,6 @@ const load = module => {
   return defaultOrFirstExport;
 };
 <% components
-  .filter(component => !component.noTestkit)
-  .filter(component => !component.manualExport)
   .map(component => {
     const driverPath = component.testkitPath || [
       '../src',
@@ -34,6 +29,6 @@ const load = module => {
     ].join('\/');
 
     const testkitName = component.name + 'Testkit';
-    const factoryName = component.unidriver ? 'enzymeUniTestkitFactoryCreator' : 'enzymeTestkitFactoryCreator';
+    const factoryName = 'enzymeUniTestkitFactoryCreator';
 %>
 export const <%= testkitName %> = <%= factoryName%>(load(require('<%= driverPath %>')));<% }) %>

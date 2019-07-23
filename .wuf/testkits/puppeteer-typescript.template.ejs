@@ -1,0 +1,55 @@
+export const tooltipTestkitFactory: any;
+<%
+  const typeless = [
+    'Skeleton',
+    'DatePicker',
+    'Page',
+    'PageHeader',
+    'Popover',
+    'PopoverMenu',
+    'GoogleAddressInputWithLabel',
+    'RadioGroup',
+    'Range',
+    'CounterBadge',
+    'ColorPicker',
+    'Label',
+    'Selector',
+    'Sidebar',
+    'SidebarSectionTitle',
+    'CircularProgressBar',
+    'SortableList',
+    'LinearProgressBar',
+    'Carousel',
+    'Swatches',
+    'ListItemAction',
+    'TableActionCell',
+    'Highlighter',
+    'ModalSelectorLayout',
+    'ToggleSwitch',
+    'MultiSelectComposite',
+    'SidebarSectionItem',
+    'SidebarSectionDivider',
+    'SidebarHeader',
+    'NestableList',
+    'RichTextArea',
+    'RichTextAreaComposite',
+    'BadgeSelect',
+    'Draggable',
+    'FloatingHelper',
+    'FieldLabelAttributes',
+    'FieldWithSelectionComposite',
+    'RadioButton',
+    'FilePicker',
+    'AutoCompleteComposite',
+    'CardSubheader',
+  ];
+
+  components
+  .filter(component => !component.noTestkit)
+  .filter(component => !component.manualExport)
+  .filter(component => !typeless.includes(component.name))
+  .map(component => {
+    const camelName = utils.toCamel(component.name);
+    const testkitName = component.puppeteerTestkitExportName || camelName + 'TestkitFactory';
+%>export const <%= testkitName %>: any;
+<% }) %>
