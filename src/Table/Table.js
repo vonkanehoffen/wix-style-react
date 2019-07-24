@@ -250,6 +250,8 @@ Table.propTypes = {
   virtualizedLineHeight: PropTypes.number,
   /** The width of the fixed table. Can be in percentages or pixels. */
   width: PropTypes.string,
+  /** Table styling. Supports `standard` and `neutral`. */
+  skin: PropTypes.oneOf(['standard', 'neutral']),
 };
 
 // export default Table;

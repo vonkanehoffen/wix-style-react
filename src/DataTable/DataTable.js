@@ -344,6 +344,7 @@ class TableHeader extends Component {
     thLetterSpacing: PropTypes.string,
     thBoxShadow: PropTypes.string,
     columns: PropTypes.array,
+    skin: PropTypes.oneOf(['standard', 'neutral']),
   };
 
   get style() {
@@ -406,7 +407,11 @@ class TableHeader extends Component {
       <th
         style={style}
         key={colNum}
-        className={this.style.thText}
+        className={classNames(this.style.thText, {
+          [this.style.thSkinStandard]:
+            !this.props.skin || this.props.skin === 'standard',
+          [this.style.thSkinNeutral]: this.props.skin === 'neutral',
+        })}
         {...optionalHeaderCellProps}
       >
         <div
@@ -464,6 +469,7 @@ DataTable.defaultProps = {
   rowVerticalPadding: 'medium',
   showLastRowDivider: true,
   virtualizedLineHeight: 60,
+  skin: 'standard',
 };
 
 /* eslint-disable no-unused-vars */
@@ -508,6 +514,8 @@ DataTable.propTypes = {
   itemsPerPage: PropTypes.number,
   /** The width of the fixed table. Can be in percentages or pixels. */
   width: PropTypes.string,
+  /** Table styling. Supports `standard` and `neutral`. */
+  skin: PropTypes.oneOf(['standard', 'neutral']),
   /** A callback when more items are requested by the user. */
   loadMore: PropTypes.func,
   /** Whether there are more items to be loaded. Event listeners are removed if false. */
