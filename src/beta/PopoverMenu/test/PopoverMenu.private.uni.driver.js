@@ -3,12 +3,19 @@ import { dropdownBasePrivateDriverFactory } from '../../../DropdownBase/Dropdown
 
 export const PopoverMenuPrivateDriver = base => {
   const { keyDown } = dropdownBasePrivateDriverFactory(base);
-  const getOption = option => base.$(`[data-hook="popover-menu-${option}"]`);
+  const getOption = (option, dataHook) =>
+    base.$(
+      dataHook
+        ? `[data-hook="${dataHook}"]`
+        : `[data-hook="popover-menu-${option}"]`,
+    );
 
   return {
     ...publicDriverFactory(base),
     keyDownTrigger: key => keyDown(key),
     keyDownOption: async (option, key) => getOption(option).pressKey(key),
-    getMenuItem: async option => await getOption(option).getNative(),
+    getDivider: async dataHook => getOption('', dataHook).getNative(),
+    getMenuItem: async (option, dataHook) =>
+      await getOption(option, dataHook).getNative(),
   };
 };

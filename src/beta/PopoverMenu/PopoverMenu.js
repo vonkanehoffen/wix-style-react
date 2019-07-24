@@ -11,9 +11,9 @@ class PopoverMenu extends React.PureComponent {
 
   static MenuItem = () => ({});
 
-  static Divider = () => {
+  static Divider = ({ dataHook }) => {
     return (
-      <div style={{ padding: `6px 24px 6px 18px` }}>
+      <div data-hook={dataHook} style={{ padding: `6px 24px 6px 18px` }}>
         <div className={styles.divider} />
       </div>
     );
@@ -178,7 +178,7 @@ class PopoverMenu extends React.PureComponent {
       if (displayName && displayName === 'PopoverMenu.Divider') {
         return {
           id: id,
-          value: child,
+          value: React.cloneElement(child, { dataHook: child.props.dataHook }),
           divider: true,
           overrideStyle: true,
         };
@@ -190,6 +190,7 @@ class PopoverMenu extends React.PureComponent {
           title: child.props.text,
           onClick: child.props.onClick,
           skin: child.props.skin,
+          dataHook: child.props.dataHook,
           prefixIcon: child.props.prefixIcon,
           disabled: child.props.disabled,
         };
@@ -215,7 +216,7 @@ class PopoverMenu extends React.PureComponent {
       if (option.divider || option.custom) {
         return option;
       }
-      const { id, disabled, onClick, ...rest } = option;
+      const { id, disabled, onClick, dataHook, ...rest } = option;
 
       const { focused } = this.state;
 
@@ -233,7 +234,7 @@ class PopoverMenu extends React.PureComponent {
             {...rest}
             as="button"
             autoFocus={id === this.focusableList[0]}
-            dataHook={`popover-menu-${id}`}
+            dataHook={dataHook ? dataHook : `popover-menu-${id}`}
             ref={ref => (this.children[id] = ref)}
             tabIndex={id === focused && !disabled ? '0' : '-1'}
             onKeyDown={e => this._onKeyDown(e, id)}

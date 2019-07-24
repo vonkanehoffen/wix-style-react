@@ -107,6 +107,21 @@ describe('PopoverMenu', () => {
           await option.click(); // Imitates real user click; Using driver.clickAtChild(0) does not simulate real click
           expect(onClick).toHaveBeenCalledTimes(1);
         });
+
+        it('should allow passing `dataHook` prop', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [renderPopoverMenuItem({ dataHook: 'random' })],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect(
+            (await driver.getMenuItem(0, 'random')).getAttribute('data-hook'),
+          ).toBe('random');
+        });
       });
     });
 
@@ -126,6 +141,21 @@ describe('PopoverMenu', () => {
         expect(await driver.isMenuOpen()).toBe(true);
         await driver.clickAtChild(0);
         expect(onClick).not.toHaveBeenCalled();
+      });
+
+      it('should allow passing `dataHook` prop', async () => {
+        const { driver } = render(
+          renderPopoverMenu({
+            children: [renderPopoverDivider({ dataHook: 'random' })],
+          }),
+        );
+
+        await driver.keyDownTrigger('Enter');
+        expect(await driver.isMenuOpen()).toBe(true);
+
+        expect(
+          (await driver.getDivider('random')).getAttribute('data-hook'),
+        ).toBe('random');
       });
     });
 
