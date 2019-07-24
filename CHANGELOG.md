@@ -35,6 +35,7 @@ Types of changes:
 - `<PopoverMenu/>` - beta - fix typing for getTrriggerElement [#3791](https://github.com/wix/wix-style-react/pull/3791)
 - `<PopoverMenu/>` - beta - tabIndex should be of type number [#3789](https://github.com/wix/wix-style-react/pull/3789)
 - `<PopoverMenu/>` - beta - fix triggerElement proptype [#3812](https://github.com/wix/wix-style-react/pull/3812)
+- `<DropdownLayout/>` - add stopPropagation() to list items [#3818](https://github.com/wix/wix-style-react/pull/3818)
 
 ### Changed
 
