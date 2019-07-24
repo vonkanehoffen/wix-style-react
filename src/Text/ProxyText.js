@@ -11,6 +11,7 @@ import {
 import OriginalText from './Text';
 import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
 import tooltip from '../Tooltip/TooltipNext/Tooltip.st.css';
+import { ZIndex } from '../ZIndex';
 
 const Text = ({
   ellipsis,
@@ -79,6 +80,7 @@ Text.propTypes = {
 Text.defaultProps = {
   appendTo: 'window',
   maxWidth: 204,
+  zIndex: ZIndex('Tooltip'),
 };
 
 Text.displayName = 'Text';
