@@ -78,12 +78,14 @@ declare namespace EnzymeTestkit {
   export const inputWithOptionsTestkitFactory: any;
   export const labelTestkitFactory: any;
   export const linearProgressBarTestkitFactory: any;
+  export const listItemActionTestkitFactory: any;
   export const loaderTestkitFactory: any;
   export const modalTestkitFactory: any;
   export const modalSelectorLayoutTestkitFactory: any;
   export const multiSelectTestkitFactory: any;
   export const multiSelectCheckboxTestkitFactory: any;
   export const multiSelectCompositeTestkitFactory: any;
+  export const nestableListTestkitFactory: any;
   export const noBorderInputTestkitFactory: any;
   export const notificationTestkitFactory: any;
   export const numberInputTestkitFactory: any;
@@ -99,12 +101,15 @@ declare namespace EnzymeTestkit {
   export const sectionHelperTestkitFactory: any;
   export const segmentedToggleTestkitFactory: any;
   export const selectorTestkitFactory: any;
+  export const sidebarTestkitFactory: any;
+  export const sidebarSectionTitleTestkitFactory: any;
   export const skeletonTestkitFactory: any;
   export const sliderTestkitFactory: any;
   export const socialPreviewTestkitFactory: any;
   export const sortableListTestkitFactory: any;
   export const statsWidgetTestkitFactory: any;
   export const stepperTestkitFactory: any;
+  export const swatchesTestkitFactory: any;
   export const tableTestkitFactory: any;
   export const tableActionCellTestkitFactory: any;
   export const tabsTestkitFactory: any;
@@ -114,7 +119,9 @@ declare namespace EnzymeTestkit {
   export const thumbnailTestkitFactory: any;
   export const timeInputTestkitFactory: any;
   export const toggleSwitchTestkitFactory: any;
+  export const sidebarSectionItemTestkitFactory: any;
   export const sidebarDividerTestkitFactory: any;
+  export const sidebarHeaderTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const richTextAreaTestkitFactory: any;
@@ -127,6 +134,7 @@ declare namespace EnzymeTestkit {
   export const radioButtonTestkitFactory: any;
   export const messageBoxMarketerialLayoutTestkitFactory: any;
   export const messageBoxFunctionalLayoutTestkitFactory: any;
+  export const cardSubheaderTestkitFactory: any;
   export const tooltipTestkitFactory: EnzymeTestkitFactory<TooltipDriver>;
   export const TooltipTestkit: EnzymeUniTestkitFactory<TooltipUniDriver>;
 }

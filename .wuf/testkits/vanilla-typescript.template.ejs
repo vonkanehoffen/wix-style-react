@@ -22,22 +22,9 @@ declare namespace VanillaTestkit {
     Avatar: 'VanillaUniTestkitFactory<AvatarDriver>'
   };
 
-  const typeless = [
-    'ListItemAction',
-    'NestableList',
-    'SidebarHeader',
-    'Swatches',
-    'Sidebar',
-    'CardSubheader',
-    'SidebarSectionTitle',
-    'SidebarSectionItem',
-    'SidebarSectionDivider'
-  ];
-
   components
   .filter(component => !component.noTestkit)
   .filter(component => !component.manualExport)
-  .filter(component => !typeless.includes(component.name))
   .map(component => {
     const camelName = utils.toCamel(component.name);
     const testkitName = camelName + 'TestkitFactory';

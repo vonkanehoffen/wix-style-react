@@ -8,36 +8,9 @@ export {
 export const tooltipTestkitFactory: any;
 export const TooltipTestkit: any;
 <%
-  const typeless = [
-    'NestableList',
-    'SortableList',
-    'Swatches',
-    'FloatingHelper',
-    'ListItemAction',
-    'CounterBadge',
-    'LinearProgressBar',
-    'Label',
-    'ToggleSwitch',
-    'Selector',
-    'SidebarSectionItem',
-    'SidebarSectionDivider',
-    'SidebarHeader',
-    'CircularProgressBar',
-    'Sidebar',
-    'RichTextAreaComposite',
-    'SidebarSectionTitle',
-    'Draggable',
-    'Skeleton',
-    'FieldLabelAttributes',
-    'RadioButton',
-    'Badge',
-    'CardSubheader',
-  ];
-
   components
   .filter(component => !component.noTestkit)
   .filter(component => !component.manualExport)
-  .filter(component => !typeless.includes(component.name))
   .map(component => {
     const camelName = utils.toCamel(component.name);
     const testkitName = component.protractorTestkitExportName || camelName + 'TestkitFactory';
