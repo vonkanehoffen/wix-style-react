@@ -15,7 +15,7 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
-## Next
+## 6.43.0 - 2019-07-24
 
 ### Docs
 - `Cheatsheet`- Adding examples to `TooltipFamily`[#3804](https://github.com/wix/wix-style-react/pull/3804)
@@ -26,6 +26,10 @@ Types of changes:
 - POC(Perfer) - add perfer to run through our components bundles [#3798](https://github.com/wix/wix-style-react/pull/3798)
 - `<Table>`, `<DataTable>` add `skin` prop for table header styles [#3813](https://github.com/wix/wix-style-react/pull/3813)
 - `<PopoverMenu.MenuItem/>`, `<PopoverMenu.Divider/>` - beta - allow overwriting internal dataHook [#3822](https://github.com/wix/wix-style-react/pull/3822)
+
+### Fixed
+
+- `<Text/>` - add default zIndex for ellipsis [#3828] (https://github.com/wix/wix-style-react/pull/3828)
 
 ## 6.42.0 - 2019-07-24
 
