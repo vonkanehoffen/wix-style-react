@@ -78,13 +78,14 @@ class DropdownLayout extends WixComponent {
     onOptionMarked && onOptionMarked(options[index] || null);
   }
 
-  _onSelect(index) {
+  _onSelect(index, e) {
     const { options, onSelect } = this.props;
     const chosenOption = options[index];
 
     if (chosenOption) {
       const sameOptionWasPicked = chosenOption.id === this.state.selectedId;
       if (onSelect) {
+        e.stopPropagation();
         onSelect(chosenOption, sameOptionWasPicked);
       }
     }
@@ -171,7 +172,7 @@ class DropdownLayout extends WixComponent {
       case ' ':
       case 'Spacebar':
       case 'Enter': {
-        if (!this._onSelect(this.state.hovered)) {
+        if (!this._onSelect(this.state.hovered, event)) {
           return false;
         }
         break;
@@ -179,9 +180,9 @@ class DropdownLayout extends WixComponent {
 
       case 'Tab': {
         if (this.props.closeOnSelect) {
-          return this._onSelect(this.state.hovered);
+          return this._onSelect(this.state.hovered, event);
         } else {
-          if (this._onSelect(this.state.hovered)) {
+          if (this._onSelect(this.state.hovered, event)) {
             event.preventDefault();
             return true;
           } else {
@@ -200,7 +201,6 @@ class DropdownLayout extends WixComponent {
         return false;
       }
     }
-
     event.stopPropagation();
     return true;
   }
@@ -368,7 +368,7 @@ class DropdownLayout extends WixComponent {
       <div
         className={optionClassName}
         ref={node => this._setSelectedOptionNode(node, option)}
-        onClick={!disabled ? () => this._onSelect(idx) : null}
+        onClick={!disabled ? e => this._onSelect(idx, e) : null}
         key={idx}
         onMouseEnter={() => this._onMouseEnter(idx)}
         onMouseLeave={this._onMouseLeave}
