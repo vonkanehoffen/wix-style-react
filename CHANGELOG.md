@@ -25,7 +25,7 @@ Types of changes:
 ### Added
 
 - POC(Perfer) - add perfer to run through our components bundles [#3798](https://github.com/wix/wix-style-react/pull/3798)
-
+- `<Table>`, `<DataTable>` add `skin` prop for table header styles [#3813](https://github.com/wix/wix-style-react/pull/3813)
 
 ## 6.42.0 - 2019-07-24
 
