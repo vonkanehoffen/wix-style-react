@@ -55,7 +55,7 @@ const TooltipExample = () => (
 const PopoverExample = () => (
   <SingleComponentSideBySide
     name="7.2 Popover"
-    componentsNames={['<Popover/>', '<Popover.Content/>', '<Popover.Element/>']}
+    componentsNames={['<Popover/>']}
   >
     <Popover animate appendTo="parent" placement="right" showArrow shown>
       <Popover.Element>
