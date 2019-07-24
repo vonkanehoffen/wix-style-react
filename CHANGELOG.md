@@ -19,6 +19,8 @@ Types of changes:
 
 ### Docs
 - `Cheatsheet`- Adding examples to `TooltipFamily`[#3804](https://github.com/wix/wix-style-react/pull/3804)
+- `Cheatsheet`- Adding examples to `NavigationFamily`[#3802](https://github.com/wix/wix-style-react/pull/3802)
+
 
 ### Added
 
