@@ -14,6 +14,13 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
+## Next
+
+### Docs
+- `Cheatsheet`- Adding examples to `TooltipFamily`[#3804](https://github.com/wix/wix-style-react/pull/3804)
+
+
 ## 6.42.0 - 2019-07-24
 
 ### Added
