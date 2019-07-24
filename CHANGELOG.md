@@ -20,6 +20,10 @@ Types of changes:
 ### Docs
 - `Cheatsheet`- Adding examples to `TooltipFamily`[#3804](https://github.com/wix/wix-style-react/pull/3804)
 
+### Added
+
+- POC(Perfer) - add perfer to run through our components bundles [#3798](https://github.com/wix/wix-style-react/pull/3798)
+
 
 ## 6.42.0 - 2019-07-24
 
