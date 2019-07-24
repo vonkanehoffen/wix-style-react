@@ -106,8 +106,8 @@ class ListItemActionComponent extends React.PureComponent {
         onBlur={focusableOnBlur}
         type={Component === 'button' ? 'button' : undefined}
         data-hook={dataHook}
-        onKeyDown={!disabled && onKeyDown}
-        onClick={!disabled && onClick}
+        onKeyDown={!disabled ? onKeyDown : undefined}
+        onClick={!disabled ? onClick : undefined}
       >
         {prefixIcon && this._renderPrefix()}
         {this._renderText()}

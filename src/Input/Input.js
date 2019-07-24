@@ -30,10 +30,12 @@ class Input extends Component {
 
   constructor(props) {
     super(props);
+    this._isMounted = false;
     this.logDeprecations(props);
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const { autoFocus, value } = this.props;
 
     if (autoFocus) {
@@ -42,6 +44,10 @@ class Input extends Component {
       // Opera sometimes sees a carriage return as 2 characters.
       value && this.input.setSelectionRange(value.length * 2, value.length * 2);
     }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   onCompositionChange = isComposing => {
@@ -138,8 +144,8 @@ class Input extends Component {
     } = this.props;
     const onIconClicked = e => {
       if (!disabled) {
-        this.input.focus();
-        this._onFocus();
+        this.input && this.input.focus();
+        this._isMounted && this._onFocus();
         this._onClick(e);
       }
     };

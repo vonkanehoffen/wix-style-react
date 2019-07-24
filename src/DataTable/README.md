@@ -1,4 +1,4 @@
-# Data Table component
+# Data Table component 
 
 > A table component for displaying data
 

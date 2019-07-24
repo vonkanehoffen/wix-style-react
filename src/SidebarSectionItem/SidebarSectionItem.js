@@ -41,7 +41,7 @@ class SidebarSectionItem extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        onClick={!disabled && onClick}
+        onClick={!disabled ? onClick : undefined}
         {...styles('root', { selected, disabled }, this.props)}
       >
         {prefix && <span className={styles.prefix}>{prefix}</span>}
