@@ -84,7 +84,8 @@ export default {
           columns([
             description({
               title: 'Description',
-              text: 'A header within the sidebar.',
+              text:
+                'A header within the sidebar with title, subtitle and custom content at the bottom.',
             }),
           ]),
 

@@ -27,9 +27,8 @@ const code = config => baseCode({ components: allComponents, ...config });
 const childrenExamples = [
   { label: 'Text', value: 'Some text' },
   {
-    label: 'Long text',
-    value:
-      'This is a very long text which exceeds the maximum width of its container',
+    label: 'Multiple lines',
+    value: 'This is an example of multiple lines',
   },
 ];
 
@@ -148,14 +147,13 @@ export default {
 
           columns([
             description({
-              title: 'Item with Ellipsis',
-              text:
-                'An example that demonstrates an item with a very long text which exceeds the maximum width of its container',
+              title: 'Item with Multiple Lines',
+              text: 'An example that demonstrates an item with multiple lines',
             }),
 
             code({
               compact: true,
-              source: examples.ellipsis,
+              source: examples.multipleLines,
             }),
           ]),
 

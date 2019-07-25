@@ -42,7 +42,8 @@ export default {
           columns([
             description({
               title: 'Description',
-              text: 'A divider within the sidebar.',
+              text:
+                'A divider within the sidebar that supports inner and full mode.',
             }),
           ]),
 

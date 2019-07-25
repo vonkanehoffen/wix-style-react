@@ -36,6 +36,9 @@ require('../src/IconButton/docs/index.story'); // 5.2 Icon Button
 require('../src/TextButton/docs/index.story'); // 5.3 Text Button
 require('../src/CloseButton/docs/index.story'); // 5.4 Close Button
 
+// 6. Navigation
+require('./Sidebar/index.story'); // 6.1 Sidebar
+
 // 7. Tooltips
 require('./Tooltip/index.story'); // 7.1 Tooltip
 require('./PopoverMenu/index.story'); // 7.3 PopoverMenu

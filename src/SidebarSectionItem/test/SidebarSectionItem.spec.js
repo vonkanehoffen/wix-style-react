@@ -89,11 +89,27 @@ describe('SidebarSectionItem', () => {
     expect(await driver.hasPrefix()).toBe(true);
   });
 
-  it('should render the suffix', async () => {
-    const { driver } = render(
-      <SidebarSectionItem suffix={<Badge />}>{sampleText}</SidebarSectionItem>,
-    );
+  describe('Suffix', () => {
+    it('should render the suffix', async () => {
+      const { driver } = render(
+        <SidebarSectionItem suffix={<Badge />}>
+          {sampleText}
+        </SidebarSectionItem>,
+      );
 
-    expect(await driver.hasSuffix()).toBe(true);
+      expect(await driver.hasSuffix()).toBe(true);
+    });
+
+    it('should not render the chevron when hovering', async () => {
+      const { driver } = render(
+        <SidebarSectionItem suffix={<Badge />}>
+          {sampleText}
+        </SidebarSectionItem>,
+      );
+
+      await driver.hover();
+
+      expect(await driver.hasChevron()).toBe(false);
+    });
   });
 });

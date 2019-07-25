@@ -14,6 +14,7 @@ export const Category = {
   BUTTONS: '5. Buttons',
   INPUTS: '3. Inputs',
   SELECTION: '4. Selection',
+  NAVIGATION: '6. Navigation',
   TOOLTIP: '7. Tooltips & Popovers',
   MODALS: '9. Modals',
   PICKERS_AND_SELECTORS: '11. Pickers and Selectors',

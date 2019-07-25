@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './SidebarDivider.st.css';
 
-/** A divider that separates sections within the sidebar */
+/** A divider within the sidebar that supports inner and full mode */
 class SidebarDivider extends React.PureComponent {
   static displayName = 'SidebarDivider';
 

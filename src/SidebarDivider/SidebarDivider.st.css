@@ -6,7 +6,7 @@
 .root {
   border: 0;
   height: 1px;
-  margin: 20px 30px;
+  margin: 20px 24px;
   background-color: value(dividerColor);
 }
 

@@ -14,8 +14,8 @@ export const drillable = `
 <SidebarSectionItem drillable>Action</SidebarSectionItem>
 `;
 
-export const ellipsis = `
-<SidebarSectionItem>This is a very long text which exceeds the maximum width of its container</SidebarSectionItem>
+export const multipleLines = `
+<SidebarSectionItem>This is an example of multiple lines</SidebarSectionItem>
 `;
 
 export const prefix = `

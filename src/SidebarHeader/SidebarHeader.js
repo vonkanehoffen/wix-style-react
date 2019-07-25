@@ -5,7 +5,7 @@ import styles from './SidebarHeader.st.css';
 import { dataHooks } from './constants';
 import Text from '../Text';
 
-/** A header within the sidebar */
+/** A header within the sidebar with title, subtitle and custom content at the bottom. */
 class SidebarHeader extends React.PureComponent {
   static displayName = 'SidebarHeader';
 

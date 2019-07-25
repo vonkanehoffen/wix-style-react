@@ -4,6 +4,7 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
 import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 
 import styles from './SidebarSectionItem.st.css';
+import { dataHooks } from './constants';
 import Text from '../Text';
 
 /** An item for the section within the sidebar */
@@ -45,14 +46,26 @@ class SidebarSectionItem extends React.PureComponent {
       <div
         data-hook={dataHook}
         onClick={!disabled ? onClick : undefined}
-        {...styles('root', { selected, disabled }, this.props)}
+        {...styles(
+          'root',
+          { selected, disabled, prefix, suffix, drillable },
+          this.props,
+        )}
       >
-        {prefix && <span className={styles.prefix}>{prefix}</span>}
-        <Text className={styles.text} size="small" weight="bold" light ellipsis>
+        {prefix && (
+          <span data-hook={dataHooks.prefix} className={styles.prefix}>
+            {prefix}
+          </span>
+        )}
+        <Text className={styles.text} size="small" weight="bold" light>
           {children}
         </Text>
-        {!disabled && drillable && <ChevronRight className={styles.chevron} />}
-        {!disabled && suffix && <span className={styles.suffix}>{suffix}</span>}
+        {!disabled && !suffix && drillable && (
+          <ChevronRight className={styles.chevron} />
+        )}
+        {!disabled && suffix && (
+          <span data-hook={dataHooks.suffix}>{suffix}</span>
+        )}
       </div>
     );
   }

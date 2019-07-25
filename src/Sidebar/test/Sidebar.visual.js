@@ -6,7 +6,6 @@ import SidebarHeader from '../../SidebarHeader';
 import SidebarSectionTitle from '../../SidebarSectionTitle';
 import SidebarDivider from '../../SidebarDivider';
 
-// TODO: Remove after "Visual" is finished with all supported functionality
 storiesOf('Sidebar', module).add('sanity', () => (
   <div style={{ height: '500px', color: 'white' }}>
     <Sidebar selectedKey={'item1'}>
@@ -43,24 +42,6 @@ storiesOf('Sidebar', module).add('sanity', () => (
         <div style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}>
           Sidebar Footer
         </div>
-      </Sidebar.PersistentFooter>
-    </Sidebar>
-  </div>
-));
-
-storiesOf('Sidebar', module).add('Visual', () => (
-  <div style={{ height: '500px', color: 'white' }}>
-    <Sidebar selectedKey={'dashboard'}>
-      <Sidebar.PersistentHeader>
-        <SidebarHeader title="Site Name" subtitle="Role: Owner" />
-      </Sidebar.PersistentHeader>
-
-      <SidebarDivider />
-
-      <SidebarSectionTitle>Ascend By Wix</SidebarSectionTitle>
-
-      <Sidebar.PersistentFooter>
-        <div>Footer</div>
       </Sidebar.PersistentFooter>
     </Sidebar>
   </div>
