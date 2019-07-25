@@ -1,8 +1,15 @@
 /* eslint no-console: 0 */
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
 const { defaultConfig } = require('./webpack.config.js');
 
-webpack(defaultConfig, errorHandler);
+webpack(
+  {
+    ...defaultConfig,
+    ...defaultConfig.plugins.push(new BundleAnalyzerPlugin()),
+  },
+  errorHandler,
+);
 
 function errorHandler(err, stats) {
   if (err) {
