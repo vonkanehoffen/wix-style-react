@@ -25,6 +25,7 @@ DataTableHeader.propTypes = {
   width: PropTypes.string,
 };
 
+const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 class DataTable extends React.Component {
   constructor(props) {
     super(props);
@@ -303,6 +304,11 @@ class DataTable extends React.Component {
 
   getVirtualRowHeight = () => this.props.virtualizedLineHeight;
 
+  renderVirtualizedTableElementWithRefForward = () =>
+    React.forwardRef((props, ref) =>
+      this.renderVirtualizedTableElement({ ...props, ref }),
+    );
+
   renderVirtualizedTableElement = ({ children, ...rest }) => {
     return (
       <table {...rest}>
@@ -322,7 +328,11 @@ class DataTable extends React.Component {
           itemCount={data.length}
           width={'100%'}
           itemSize={this.getVirtualRowHeight}
-          outerElementType={this.renderVirtualizedTableElement}
+          outerElementType={
+            SUPPORT_REF_FORWARD
+              ? this.renderVirtualizedTableElementWithRefForward()
+              : this.renderVirtualizedTableElement
+          }
           innerElementType={'tbody'}
         >
           {this.renderVirtualizedRow}
