@@ -73,9 +73,9 @@ class Stepper extends React.PureComponent {
     }
   }
 
-  _renderStepSplitter = () => {
+  _renderStepSplitter = idx => {
     return (
-      <div className={styles.stepSplitter}>
+      <div className={styles.stepSplitter} key={`stepSplitter${idx}`}>
         <ChevronRight size={'24px'} />
       </div>
     );
@@ -104,7 +104,7 @@ class Stepper extends React.PureComponent {
                 onClick={onClick}
               />
             </div>,
-            !isLastStep && this._renderStepSplitter(),
+            !isLastStep && this._renderStepSplitter(idx),
           ];
         })}
       </div>
