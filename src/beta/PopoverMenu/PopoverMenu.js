@@ -259,6 +259,7 @@ class PopoverMenu extends React.PureComponent {
           onClick: toggle,
         })
       : triggerElement({
+          onClick: toggle,
           toggle,
           open,
           close,
