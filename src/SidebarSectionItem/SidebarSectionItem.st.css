@@ -85,7 +85,7 @@
   color: value(B30);
 }
 
-.root:prefix:hover {
+.root:prefix:hover:not(:suffix) {
   padding: value(paddingWithoutSuffix);
 }
 
