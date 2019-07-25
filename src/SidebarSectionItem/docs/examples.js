@@ -10,6 +10,10 @@ export const disabled = `
 <SidebarSectionItem disabled>Action</SidebarSectionItem>
 `;
 
+export const drillable = `
+<SidebarSectionItem drillable>Action</SidebarSectionItem>
+`;
+
 export const ellipsis = `
 <SidebarSectionItem>This is a very long text which exceeds the maximum width of its container</SidebarSectionItem>
 `;

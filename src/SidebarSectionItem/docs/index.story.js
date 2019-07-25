@@ -135,6 +135,19 @@ export default {
 
           columns([
             description({
+              title: 'Drillable Item',
+              text:
+                'An example that demonstrates an icon for drilling in when hovering the item within the sidebar',
+            }),
+
+            code({
+              compact: true,
+              source: examples.drillable,
+            }),
+          ]),
+
+          columns([
+            description({
               title: 'Item with Ellipsis',
               text:
                 'An example that demonstrates an item with a very long text which exceeds the maximum width of its container',

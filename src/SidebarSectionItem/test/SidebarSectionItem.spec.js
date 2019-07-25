@@ -44,9 +44,9 @@ describe('SidebarSectionItem', () => {
     expect(onClick).toBeCalled();
   });
 
-  it('should render the chevron when hovering', async () => {
+  it('should render the chevron when passing `drillable` and hovering', async () => {
     const { driver } = render(
-      <SidebarSectionItem>{sampleText}</SidebarSectionItem>,
+      <SidebarSectionItem drillable>{sampleText}</SidebarSectionItem>,
     );
 
     await driver.hover();
@@ -68,9 +68,11 @@ describe('SidebarSectionItem', () => {
       expect(onClick).not.toBeCalled();
     });
 
-    it('should not render the chevron when hovering', async () => {
+    it('should not render the chevron when passing `drillable` hovering', async () => {
       const { driver } = render(
-        <SidebarSectionItem disabled>{sampleText}</SidebarSectionItem>,
+        <SidebarSectionItem disabled drillable>
+          {sampleText}
+        </SidebarSectionItem>,
       );
 
       await driver.hover();

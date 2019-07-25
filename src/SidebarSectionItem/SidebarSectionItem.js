@@ -23,6 +23,8 @@ class SidebarSectionItem extends React.PureComponent {
     selected: PropTypes.bool,
     /** Indicates whether to display the item as disabled */
     disabled: PropTypes.bool,
+    /** Indicates whether to display an icon for drilling in on hover */
+    drillable: PropTypes.bool,
     /** A callback to be triggered on click */
     onClick: PropTypes.func,
   };
@@ -33,6 +35,7 @@ class SidebarSectionItem extends React.PureComponent {
       children,
       selected,
       disabled,
+      drillable,
       prefix,
       suffix,
       onClick,
@@ -48,7 +51,7 @@ class SidebarSectionItem extends React.PureComponent {
         <Text className={styles.text} size="small" weight="bold" light ellipsis>
           {children}
         </Text>
-        {!disabled && <ChevronRight className={styles.chevron} />}
+        {!disabled && drillable && <ChevronRight className={styles.chevron} />}
         {!disabled && suffix && <span className={styles.suffix}>{suffix}</span>}
       </div>
     );
