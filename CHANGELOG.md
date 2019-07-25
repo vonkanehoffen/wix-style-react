@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.43.1 - 2019-07-24
 
 - `<PopoverMenu/>` - beta - add back the onClick render prop [#3835](https://github.com/wix/wix-style-react/pull/3835)
 
