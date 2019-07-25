@@ -62,12 +62,9 @@ const tests = [
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarHeader`, module).add(describe, () => (
     <div>
-      {its.map(({ it, props }) => (
-        <Box direction="vertical" marginBottom={3}>
-          <h3>{it}:</h3>
-          <div style={{ width: '222px', backgroundColor: '#23263c' }}>
-            <SidebarHeader {...props} />
-          </div>
+      {its.map(({ props }) => (
+        <Box marginBottom={5}>
+          <SidebarHeader {...props} />
         </Box>
       ))}
     </div>

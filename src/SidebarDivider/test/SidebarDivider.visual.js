@@ -25,9 +25,8 @@ const tests = [
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarDivider`, module).add(describe, () => (
     <div>
-      {its.map(({ it, props }) => (
-        <Box direction="vertical" marginBottom={3}>
-          <h3>{it}:</h3>
+      {its.map(({ props }) => (
+        <Box direction="vertical" marginBottom={5}>
           <div style={{ width: '222px', backgroundColor: '#23263c' }}>
             <SidebarDivider {...props} />
           </div>

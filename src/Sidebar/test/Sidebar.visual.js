@@ -2,9 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Sidebar from '..';
-import SidebarHeader from '../../SidebarHeader';
-import SidebarSectionTitle from '../../SidebarSectionTitle';
-import SidebarDivider from '../../SidebarDivider';
 
 storiesOf('Sidebar', module).add('sanity', () => (
   <div style={{ height: '500px', color: 'white' }}>
