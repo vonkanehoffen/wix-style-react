@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Docs
-`<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
+- `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
 
 ## 6.43.1 - 2019-07-24
 
