@@ -48,13 +48,13 @@ We still have to stay backward compatible and to achieve this we use one of the 
 ### How can we make sure a component doesn’t stay in Next mode?
 Before the next major version - go over `Next` components and migrate - replace Next component path to override the old component.
 
-### WIP
-Work in progress - another section in storybook woth mentiong in this context. Should be used when you start working on a component and would like to consume it before it’s perfect. It will be released but not officially used.
-
 
 ## Deprecation
 
 [Read here](https://github.com/wix/wix-style-react/blob/master/docs/internal/DEPRECATION_GUIDE.md)
+
+## WIP
+Work in progress - another section in storybook. Should be used when you start working on a component and would like to consume it before it’s perfect. It will be released but not officially used.
 
 ## Documentation
 
