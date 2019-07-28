@@ -33,6 +33,10 @@ Every component folder should be a single component.
 1. For common typography, components should use the `Text` or `Heading` components.
 1. In some cases where you can not use a component, you can use the `typography-helpers.scss` file directly.
 
+## Deprecation
+
+[Read here](https://github.com/wix/wix-style-react/blob/master/docs/internal/DEPRECATION_GUIDE.md)
+
 ## Documentation
 
 1. Add `propTypes` to each component and document each property with a `/** */` comment on above. (AutoDocs will make use of it)
