@@ -14,6 +14,7 @@ import {
 import inputDriverFactory from './Input.driver';
 import { testkit } from './Input.uni.driver';
 
+const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 describe('Input', () => {
   describe('[sync]', () => {
     runTests(createRendererWithDriver(inputDriverFactory));
@@ -929,7 +930,15 @@ describe('Input', () => {
         const customInput = props => {
           return <input {...props} className={className} />;
         };
-        const { driver } = render(<Input customInput={customInput} />);
+        const customInputWithRef = () =>
+          React.forwardRef((props, ref) => customInput({ ...props, ref }));
+        const { driver } = render(
+          <Input
+            customInput={
+              SUPPORT_REF_FORWARD ? customInputWithRef() : customInput
+            }
+          />,
+        );
         expect(await driver.isCustomInput()).toEqual(true);
       });
 

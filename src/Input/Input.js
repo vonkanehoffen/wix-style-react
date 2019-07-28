@@ -13,6 +13,7 @@ import deprecationLog from '../utils/deprecationLog';
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
 
+const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 class Input extends Component {
   static Ticker = Ticker;
   static Unit = Unit;
@@ -204,7 +205,7 @@ class Input extends Component {
       step,
       'data-hook': 'wsr-input',
       style: { textOverflow },
-      dataRef: this.extractRef,
+      ref: this.extractRef,
       className: inputClassNames,
       id,
       name,
@@ -407,11 +408,12 @@ class Input extends Component {
   };
 
   _renderInput = props => {
-    const { customInput: CustomInputComponent, dataRef, ...rest } = props;
+    const { customInput: CustomInputComponent, ref, ...rest } = props;
+    const refKey = SUPPORT_REF_FORWARD ? 'ref' : 'data-ref';
     const inputProps = {
       ...(CustomInputComponent
-        ? { 'data-ref': dataRef, ...rest, 'data-hook': 'wsr-custom-input' }
-        : { ref: dataRef, ...rest }),
+        ? { [refKey]: ref, ...rest, 'data-hook': 'wsr-custom-input' }
+        : { ref, ...rest }),
     };
 
     return React.cloneElement(
@@ -621,7 +623,13 @@ Input.propTypes = {
   step: PropTypes.number,
 
   /** Use a customized input component instead of the default html input tag */
-  customInput: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  customInput: PropTypes.elementType
+    ? PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.node,
+        PropTypes.elementType,
+      ])
+    : PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
 
   /** Don't call onChange on a controlled Input when user clicks the clear button.
    *  See https://github.com/wix/wix-style-react/issues/3122

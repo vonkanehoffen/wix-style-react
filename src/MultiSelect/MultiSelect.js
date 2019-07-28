@@ -9,6 +9,7 @@ import difference from 'difference';
 
 import styles from './MultiSelect.scss';
 
+const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 class MultiSelect extends InputWithOptions {
   constructor(props) {
     super(props);
@@ -184,6 +185,14 @@ class MultiSelect extends InputWithOptions {
     const inputClassName = classNames(className, styles.autoSizeInput);
     return <input {...rest} ref={dataRef} className={inputClassName} />;
   };
+
+  static autoSizeInputWithRef = () =>
+    React.forwardRef((props, ref) =>
+      (({ className, ref, ...rest }) => {
+        const inputClassName = classNames(className, styles.autoSizeInput);
+        return <input {...rest} ref={ref} className={inputClassName} />;
+      })({ ...props, ref }),
+    );
 }
 
 function inputWithOptionsPropTypes() {
@@ -215,7 +224,9 @@ MultiSelect.propTypes = {
    * `onSelect(option: Option): void` - Option is the original option from the provided `options` prop.
    */
   onSelect: PropTypes.func,
-  customInput: PropTypes.func,
+  customInput: PropTypes.elementType
+    ? PropTypes.oneOfType(PropTypes.func, PropTypes.elementType)
+    : PropTypes.oneOfType(PropTypes.func),
   customSuffix: PropTypes.node,
 };
 
@@ -226,7 +237,9 @@ MultiSelect.defaultProps = {
   predicate: () => true,
   tags: [],
   delimiters: [','],
-  customInput: MultiSelect.autoSizeInput,
+  customInput: SUPPORT_REF_FORWARD
+    ? MultiSelect.autoSizeInputWithRef()
+    : MultiSelect.autoSizeInput,
 };
 
 export default MultiSelect;
