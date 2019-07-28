@@ -97,7 +97,7 @@ export default {
           columns([
             description({
               title: 'Plain Example',
-              text: 'A simple example within the sidebar',
+              text: 'A simple example for section item',
             }),
 
             code({
@@ -109,8 +109,7 @@ export default {
           columns([
             description({
               title: 'Selected Item',
-              text:
-                'An example that demonstrates a selected item within the sidebar',
+              text: 'An example that demonstrates a selected item',
             }),
 
             code({
@@ -122,8 +121,7 @@ export default {
           columns([
             description({
               title: 'Disabled Item',
-              text:
-                'An example that demonstrates a disabled item within the sidebar',
+              text: 'An example that demonstrates a disabled item',
             }),
 
             code({
@@ -136,7 +134,7 @@ export default {
             description({
               title: 'Drillable Item',
               text:
-                'An example that demonstrates an icon for drilling in when hovering the item within the sidebar',
+                'An example that demonstrates an icon for drilling in when hovering the item',
             }),
 
             code({

@@ -63,7 +63,7 @@ export default {
           columns([
             description({
               title: 'Plain Example',
-              text: 'A simple example within the sidebar',
+              text: 'A simple example for section title',
             }),
 
             code({
