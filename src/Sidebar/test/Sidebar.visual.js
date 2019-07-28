@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import Sidebar from '..';
 
-storiesOf('Sidebar', module).add('sanity', () => (
+storiesOf('Sidebar', module).add('Sanity', () => (
   <div style={{ height: '500px', color: 'white' }}>
     <Sidebar selectedKey={'item1'}>
       <Sidebar.PersistentHeader>
@@ -32,6 +32,28 @@ storiesOf('Sidebar', module).add('sanity', () => (
         <div disable="true">Disabled item</div>
       </Sidebar.Item>
       <Sidebar.Item itemKey={'item3'}>
+        <div>A simple clickable item</div>
+      </Sidebar.Item>
+
+      <Sidebar.PersistentFooter>
+        <div style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}>
+          Sidebar Footer
+        </div>
+      </Sidebar.PersistentFooter>
+    </Sidebar>
+  </div>
+));
+
+storiesOf('Sidebar', module).add('Hidden', () => (
+  <div style={{ height: '500px', color: 'white' }}>
+    <Sidebar selectedKey={'item1'} isHidden>
+      <Sidebar.PersistentHeader>
+        <div style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}>
+          Simple Sidebar
+        </div>
+      </Sidebar.PersistentHeader>
+
+      <Sidebar.Item itemKey={'item1'}>
         <div>A simple clickable item</div>
       </Sidebar.Item>
 
