@@ -33,6 +33,25 @@ Every component folder should be a single component.
 1. For common typography, components should use the `Text` or `Heading` components.
 1. In some cases where you can not use a component, you can use the `typography-helpers.scss` file directly.
 
+## Breaking Changes
+
+When implementing new requirements for exisintg components, we sometimes have to make breaking changes.
+We still have to stay backward compatible and to achieve this we use one of the following:
+
+1. Next - A recreation of an existing component with an improved changed api, will be the official component in the next major version. Will have the same component name but will sit under `next` dir. For example:
+
+* old component - `import Button from 'wix-style-react/Button'`;
+* new comopnent - `import Button from 'wix-style-react/next/Button'`;
+
+2. Upgrade flag - In cases we want to change some of the features of the component but not reconstruct the whole component - usually be used for small sized changes.
+
+### How can we make sure a component doesn’t stay in Next mode?
+Before the next major version - go over `Next` components and migrate - replace Next component path to override the old component.
+
+### WIP
+Work in progress - another section in storybook woth mentiong in this context. hould be used when you start working on a component and would like to consume it before it’s perfect. It will be released but not officially used.
+
+
 ## Deprecation
 
 [Read here](https://github.com/wix/wix-style-react/blob/master/docs/internal/DEPRECATION_GUIDE.md)
