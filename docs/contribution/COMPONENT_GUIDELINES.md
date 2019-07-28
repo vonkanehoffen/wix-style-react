@@ -49,7 +49,7 @@ We still have to stay backward compatible and to achieve this we use one of the 
 Before the next major version - go over `Next` components and migrate - replace Next component path to override the old component.
 
 ### WIP
-Work in progress - another section in storybook woth mentiong in this context. hould be used when you start working on a component and would like to consume it before it’s perfect. It will be released but not officially used.
+Work in progress - another section in storybook woth mentiong in this context. Should be used when you start working on a component and would like to consume it before it’s perfect. It will be released but not officially used.
 
 
 ## Deprecation
