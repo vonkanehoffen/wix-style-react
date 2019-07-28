@@ -30,6 +30,7 @@ import deprecationLog from '../utils/deprecationLog';
  * * `Enter`/`Esc`/`Tab`: close the calendar. (`Enter` & `Esc` calls `preventDefault`)
  *
  */
+const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 export default class DatePicker extends WixComponent {
   static displayName = 'DatePicker';
 
@@ -146,6 +147,9 @@ export default class DatePicker extends WixComponent {
     this.closeCalendar();
   }
 
+  _renderInputWithRefForward = () =>
+    React.forwardRef((props, ref) => this._renderInput({ ...props, ref }));
+
   _renderInput = () => {
     const {
       inputDataHook,
@@ -220,7 +224,14 @@ export default class DatePicker extends WixComponent {
     return (
       <div style={{ width }} className={styles.root}>
         <div ref={this._setInputRef}>
-          <DayPickerInput component={this._renderInput} keepFocus={false} />
+          <DayPickerInput
+            component={
+              SUPPORT_REF_FORWARD
+                ? this._renderInputWithRefForward()
+                : this._renderInput
+            }
+            keepFocus={false}
+          />
         </div>
 
         <div

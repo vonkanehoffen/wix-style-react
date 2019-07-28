@@ -14,7 +14,7 @@ const IconAffix = ({ children, dataHook }) => (
       });
       return (
         <div
-          onClick={!disabled && onInputClicked}
+          onClick={!disabled ? onInputClicked : undefined}
           className={className}
           data-hook={dataHook}
         >
