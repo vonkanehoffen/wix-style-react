@@ -18,6 +18,7 @@ Types of changes:
 
 ### Docs
 - `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
+- `<Sidebar/>` - remove WIP category from the sidebar visual components [#3842](https://github.com/wix/wix-style-react/pull/3842)
 
 ## 6.43.1 - 2019-07-24
 
