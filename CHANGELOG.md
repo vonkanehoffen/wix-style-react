@@ -23,6 +23,9 @@ Types of changes:
 - `<DatePicker/>` - support string width [#3803](https://github.com/wix/wix-style-react/pull/3803)
 - `<Tooltip/>` - change default appendTo value to `window` and some extra internal changes [#3848](https://github.com/wix/wix-style-react/pull/3848)
 
+### Fixed
+- `Disabled State Styling` - styling alignments for the following components: `<ToggleButton/>, <AddItem/>, <Text/>, <InputArea/>, <InputWithOptions/>, <SegmentedToggle/>, <RadioButton/>, <Thumbnail/>` [#3776](https://github.com/wix/wix-style-react/pull/3776)
+
 ### Docs
 - `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
 - `<Sidebar/>` - remove WIP category from the sidebar visual components [#3842](https://github.com/wix/wix-style-react/pull/3842)
