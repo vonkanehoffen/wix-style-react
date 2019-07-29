@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<Sidebar/>` - add `isHidden` prop [#3640](https://github.com/wix/wix-style-react/pull/3640)
 
+### Changed
+- `<DatePicker/>` - support string width [#3803](https://github.com/wix/wix-style-react/pull/3803)
+
 ### Docs
 - `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
 - `<Sidebar/>` - remove WIP category from the sidebar visual components [#3842](https://github.com/wix/wix-style-react/pull/3842)
