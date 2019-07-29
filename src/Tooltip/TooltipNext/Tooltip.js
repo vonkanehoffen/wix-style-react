@@ -65,7 +65,7 @@ class Tooltip extends React.PureComponent {
 
   static defaultProps = {
     content: '',
-    appendTo: 'parent',
+    appendTo: 'window',
     placement: 'top',
     enterDelay: 0,
     exitDelay: 0,
@@ -78,10 +78,10 @@ class Tooltip extends React.PureComponent {
   };
 
   _renderContent = () => {
-    const { content, maxWidth, zIndex, textAlign, size } = this.props;
+    const { content, textAlign, size } = this.props;
     const textSize = size === 'small' ? 'tiny' : 'small';
     return (
-      <div style={{ maxWidth, zIndex, textAlign }}>
+      <div style={{ textAlign }}>
         {typeof content === 'string' ? (
           <Text dataHook="tooltip-text" size={textSize} weight="normal" light>
             {content}
@@ -99,7 +99,6 @@ class Tooltip extends React.PureComponent {
       enterDelay,
       children,
       content,
-      maxWidth,
       size,
       dataHook,
       disabled,
