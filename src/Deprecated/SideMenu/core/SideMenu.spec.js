@@ -5,7 +5,7 @@ import SideMenu from '../index';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../../test/utils/unit';
+} from '../../../../test/utils/unit';
 
 describe('SideMenu', () => {
   describe('[sync]', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from '../../../Tooltip';
+import Tooltip from '../../../../Tooltip';
 import styles from './styles.scss';
 
 const TinyLink = ({ icon, tooltip, ...rest }) => (

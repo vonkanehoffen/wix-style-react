@@ -8,16 +8,16 @@
 module.exports = {
   SideMenuDrill: {
     skipSanityTest: true,
-    testkitPath: "../src/SideMenu/DrillView/DrillView.driver",
+    testkitPath: "../src/Deprecated/SideMenu/DrillView/DrillView.driver",
     protractorTestkitPath:
-      "../src/SideMenu/DrillView/DrillView.protractor.driver",
+      "../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver",
     protractorTestkitExportName: "drillViewTestkitFactory",
 
     puppeteerUnidriver: true,
     namedPuppeteerTestkitExport: true,
     puppeteerTestkitImportName: 'drillViewUniDriverFactory',
     puppeteerTestkitPath:
-      "../src/SideMenu/DrillView/DrillView.uni.driver",
+      "../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver",
     puppeteerTestkitExportName: "drillViewTestkitFactory",
   },
 
@@ -182,16 +182,16 @@ module.exports = {
   },
 
   SideMenu: {
-    testkitPath: "../src/SideMenu/core/SideMenu.driver",
+    testkitPath: "../src/Deprecated/SideMenu/core/SideMenu.driver",
 
     namedProtractorTestkitExport: true,
     protractorTestkitImportName: "sideMenuUniDriverFactory",
-    protractorTestkitPath: "../src/SideMenu/core/SideMenu.uni.driver",
+    protractorTestkitPath: "../src/Deprecated/SideMenu/core/SideMenu.uni.driver",
 
     puppeteerUnidriver: true,
     namedPuppeteerTestkitExport: true,
     puppeteerTestkitImportName: 'sideMenuUniDriverFactory',
-    puppeteerTestkitPath: '../src/SideMenu/core/SideMenu.uni.driver'
+    puppeteerTestkitPath: '../src/Deprecated/SideMenu/core/SideMenu.uni.driver'
   },
 
   Button: {

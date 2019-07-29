@@ -1,4 +1,4 @@
-import { baseUniDriverFactory } from '../../../test/utils/unidriver';
+import { baseUniDriverFactory } from '../../../../test/utils/unidriver';
 import navigationStyles from './navigation/styles.scss';
 
 export const sideMenuUniDriverFactory = base => {

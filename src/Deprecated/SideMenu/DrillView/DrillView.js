@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import SideMenu from '../core/SideMenu';
 import SlideAnimation, {
   SlideDirection,
-} from '../../Animations/SlideAnimation';
+} from '../../../Animations/SlideAnimation';
+import deprecationLog from '../../../utils/deprecationLog';
 import styles from './DrillView.scss';
 
 const isAnchorTag = function(item) {
@@ -13,6 +14,10 @@ const isAnchorTag = function(item) {
 class SideMenuDrill extends React.Component {
   constructor(props) {
     super(props);
+
+    deprecationLog(
+      `Using "<SideMenuDrill/>" is deprecated. Instead, we advise you to use the newer "<Sidebar/>" component. Please refer to it's documentation.`,
+    );
 
     const state = {
       menus: {},

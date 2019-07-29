@@ -6,7 +6,7 @@ import drillViewDriverFactory from './DrillView.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../../test/utils/react';
+} from '../../../../test/utils/react';
 import { drillViewUniDriverFactory } from './DrillView.uni.driver';
 
 describe('DrillView', () => {

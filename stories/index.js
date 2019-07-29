@@ -122,8 +122,6 @@ require('../src/SectionHelper/docs/index.story');
 require('../src/SegmentedToggle/docs/index.story');
 require('../src/Sidebar/docs/index.story');
 require('../src/Slider/docs/index.story');
-require('../src/SideMenu/docs');
-require('../src/SideMenu/docs/SideMenu');
 require('../src/Skeleton/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
 require('../src/StatsWidget/docs/index.story');
@@ -153,6 +151,8 @@ require('../src/BadgeSelectItemBuilder/docs');
 require('../src/ContactItemBuilder/docs');
 require('../src/DateInput/docs/index.story');
 require('../src/Stepper/docs/index.story');
+require('../src/NoBorderInput/docs/index.story');
+require('../src/EditableTitle/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');
@@ -191,9 +191,8 @@ require('../src/DateInput/test/testStories');
 require('./FieldWithSelectionComposite');
 require('./Deprecated/RichTextArea/index.story');
 require('./Deprecated/RichTextArea/testStory');
-
-require('../src/NoBorderInput/docs/index.story');
-require('../src/EditableTitle/docs/index.story');
+require('../src/Deprecated/SideMenu/docs');
+require('../src/Deprecated/SideMenu/docs/SideMenu');
 
 // TODO: move to correct position
 require('../src/beta/PopoverMenu/docs/index.story');

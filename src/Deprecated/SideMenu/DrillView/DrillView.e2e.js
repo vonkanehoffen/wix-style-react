@@ -1,11 +1,11 @@
 import eyes from 'eyes.it';
-import { drillViewTestkitFactory } from '../../../testkit/protractor';
+import { drillViewTestkitFactory } from '../../../../testkit/protractor';
 import { waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../../test/utils/storybook-helpers';
+import { createStoryUrl } from '../../../../test/utils/storybook-helpers';
 
 describe('DrillView', () => {
   const storyUrl = createStoryUrl({
-    kind: 'Components',
+    kind: 'Deprecated',
     story: 'SideMenuDrill',
   });
 

@@ -541,7 +541,7 @@ export const sidebarHeaderTestkitFactory = protractorUniTestkitFactoryCreator(
   sidebarHeaderDriverFactory,
 );
 
-import sideMenuDrillDriverFactory from '../src/SideMenu/DrillView/DrillView.protractor.driver';
+import sideMenuDrillDriverFactory from '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver';
 
 export const drillViewTestkitFactory = protractorTestkitFactoryCreator(
   sideMenuDrillDriverFactory,
@@ -565,7 +565,7 @@ export const richTextAreaCompositeTestkitFactory = protractorTestkitFactoryCreat
   richTextAreaCompositeDriverFactory,
 );
 
-import { sideMenuUniDriverFactory } from '../src/SideMenu/core/SideMenu.uni.driver';
+import { sideMenuUniDriverFactory } from '../src/Deprecated/SideMenu/core/SideMenu.uni.driver';
 
 export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(
   sideMenuUniDriverFactory,

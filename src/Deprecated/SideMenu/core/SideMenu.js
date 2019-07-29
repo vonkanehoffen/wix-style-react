@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.scss';
+import deprecationLog from '../../../utils/deprecationLog';
 
 const SideMenu = ({ children, inFlex, className, dataHook }) => {
   const rootStyles = classNames(
@@ -10,6 +11,10 @@ const SideMenu = ({ children, inFlex, className, dataHook }) => {
       [styles.inFlex]: inFlex,
     },
     className,
+  );
+
+  deprecationLog(
+    `Using "<SideMenu/>" is deprecated. Instead, we advise you to use the newer "<Sidebar/>" component. Please refer to it's documentation.`,
   );
 
   return (
