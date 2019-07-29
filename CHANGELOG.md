@@ -21,6 +21,7 @@ Types of changes:
 
 ### Changed
 - `<DatePicker/>` - support string width [#3803](https://github.com/wix/wix-style-react/pull/3803)
+- `<Tooltip/>` - change default appendTo value to `window` and some extra internal changes [#3848](https://github.com/wix/wix-style-react/pull/3848)
 
 ### Docs
 - `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
