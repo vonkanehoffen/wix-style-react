@@ -87,7 +87,7 @@ class AddItem extends Component {
     const { children, disabled, theme, size } = this.props;
 
     const textSize = size === 'tiny' ? 'small' : 'medium';
-    const textColor = disabled ? '#CBD3DC' : '#3899EC';
+    const skin = disabled ? 'disabled' : 'standard';
 
     if (!children || theme === 'image') {
       return null;
@@ -98,7 +98,7 @@ class AddItem extends Component {
         <Text
           weight="thin"
           size={textSize}
-          style={{ color: textColor }}
+          skin={skin}
           dataHook="additem-text"
           ellipsis
         >
