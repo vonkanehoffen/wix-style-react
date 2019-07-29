@@ -15,17 +15,25 @@ import {
 import tooltipDriverFactory from '../src/Tooltip/Tooltip.puppeteer.driver';
 import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 
-export const tooltipTestkitFactory = puppeteerTestkitFactoryCreator(tooltipDriverFactory);
+export const tooltipTestkitFactory = puppeteerTestkitFactoryCreator(
+  tooltipDriverFactory,
+);
 
-export const TooltipTestkit = puppeteerUniTestkitFactoryCreator(tooltipNextDriverFactory);
+export const TooltipTestkit = puppeteerUniTestkitFactoryCreator(
+  tooltipNextDriverFactory,
+);
 
 import accordionDriverFactory from '../src/Accordion/Accordion.uni.driver';
 
-export const accordionTestkitFactory = puppeteerUniTestkitFactoryCreator(accordionDriverFactory);
+export const accordionTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  accordionDriverFactory,
+);
 
 import { addItemUniDriverFactory } from '../src/AddItem/AddItem.uni.driver';
 
-export const addItemTestkitFactory = puppeteerUniTestkitFactoryCreator(addItemUniDriverFactory);
+export const addItemTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  addItemUniDriverFactory,
+);
 
 import { autoCompleteUniDriverFactory } from '../src/AutoComplete/AutoComplete.uni.driver';
 
@@ -35,15 +43,21 @@ export const autoCompleteTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { avatarUniDriverFactory } from '../src/Avatar/Avatar.uni.driver';
 
-export const avatarTestkitFactory = puppeteerUniTestkitFactoryCreator(avatarUniDriverFactory);
+export const avatarTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  avatarUniDriverFactory,
+);
 
 import { badgeUniDriverFactory } from '../src/Badge/Badge.uni.driver';
 
-export const badgeTestkitFactory = puppeteerUniTestkitFactoryCreator(badgeUniDriverFactory);
+export const badgeTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  badgeUniDriverFactory,
+);
 
 import { BoxDriver } from '../src/Box/Box.uni.driver';
 
-export const boxTestkitFactory = puppeteerUniTestkitFactoryCreator(BoxDriver);
+export const boxTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  BoxDriver,
+);
 
 import { breadcrumbsUniDriverFactory } from '../src/Breadcrumbs/Breadcrumbs.uni.driver';
 
@@ -53,11 +67,15 @@ export const breadcrumbsTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { buttonDriverFactory } from '../src/Button/Button.uni.driver';
 
-export const buttonTestkitFactory = puppeteerUniTestkitFactoryCreator(buttonDriverFactory);
+export const buttonTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  buttonDriverFactory,
+);
 
 import { calendarUniDriverFactory } from '../src/Calendar/Calendar.uni.driver';
 
-export const calendarTestkitFactory = puppeteerUniTestkitFactoryCreator(calendarUniDriverFactory);
+export const calendarTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  calendarUniDriverFactory,
+);
 
 import { calendarPanelUniDriverFactory } from '../src/CalendarPanel/CalendarPanel.uni.driver';
 
@@ -79,11 +97,15 @@ export const cardGalleryItemTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { carouselUniDriverFactory } from '../src/Carousel/Carousel.uni.driver';
 
-export const carouselTestkitFactory = puppeteerUniTestkitFactoryCreator(carouselUniDriverFactory);
+export const carouselTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  carouselUniDriverFactory,
+);
 
 import { checkboxUniDriverFactory } from '../src/Checkbox/Checkbox.uni.driver';
 
-export const checkboxTestkitFactory = puppeteerUniTestkitFactoryCreator(checkboxUniDriverFactory);
+export const checkboxTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  checkboxUniDriverFactory,
+);
 
 import { circularProgressBarDriverFactory } from '../src/CircularProgressBar/CircularProgressBar.uni.driver';
 
@@ -99,7 +121,9 @@ export const closeButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { colorInputDriverFactory } from '../src/ColorInput/ColorInput.uni.driver';
 
-export const colorInputTestkitFactory = puppeteerUniTestkitFactoryCreator(colorInputDriverFactory);
+export const colorInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  colorInputDriverFactory,
+);
 
 import { contactItemBuilderUniDriverFactory } from '../src/ContactItemBuilder/ContactItemBuilder.uni.driver';
 
@@ -109,15 +133,21 @@ export const contactItemBuilderTestkitFactory = puppeteerUniTestkitFactoryCreato
 
 import { dataTableUniDriverFactory } from '../src/DataTable/DataTable.uni.driver';
 
-export const dataTableTestkitFactory = puppeteerUniTestkitFactoryCreator(dataTableUniDriverFactory);
+export const dataTableTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  dataTableUniDriverFactory,
+);
 
 import { dateInputDriverFactory } from '../src/DateInput/DateInput.uni.driver';
 
-export const dateInputTestkitFactory = puppeteerUniTestkitFactoryCreator(dateInputDriverFactory);
+export const dateInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  dateInputDriverFactory,
+);
 
 import { dropdownUniDriverFactory } from '../src/Dropdown/Dropdown.uni.driver';
 
-export const dropdownTestkitFactory = puppeteerUniTestkitFactoryCreator(dropdownUniDriverFactory);
+export const dropdownTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  dropdownUniDriverFactory,
+);
 
 import { dropdownBaseDriverFactory } from '../src/DropdownBase/DropdownBase.uni.driver';
 
@@ -163,7 +193,9 @@ export const floatingNotificationTestkitFactory = puppeteerUniTestkitFactoryCrea
 
 import formFieldDriverFactory from '../src/FormField/FormField.puppeteer.driver';
 
-export const formFieldTestkitFactory = puppeteerTestkitFactoryCreator(formFieldDriverFactory);
+export const formFieldTestkitFactory = puppeteerTestkitFactoryCreator(
+  formFieldDriverFactory,
+);
 
 import { genericModalLayoutUniDriverFactory } from '../src/GenericModalLayout/GenericModalLayout.uni.driver';
 
@@ -179,11 +211,15 @@ export const googlePreviewTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import headingDriverFactory from '../src/Heading/Heading.puppeteer.driver';
 
-export const headingTestkitFactory = puppeteerTestkitFactoryCreator(headingDriverFactory);
+export const headingTestkitFactory = puppeteerTestkitFactoryCreator(
+  headingDriverFactory,
+);
 
 import { iconButtonDriverFactory } from '../src/IconButton/IconButton.uni.driver';
 
-export const iconButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(iconButtonDriverFactory);
+export const iconButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  iconButtonDriverFactory,
+);
 
 import { imageViewerUniDriverFactory } from '../src/ImageViewer/ImageViewer.uni.driver';
 
@@ -193,11 +229,15 @@ export const imageViewerTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import inputDriverFactory from '../src/Input/Input.uni.driver';
 
-export const inputTestkitFactory = puppeteerUniTestkitFactoryCreator(inputDriverFactory);
+export const inputTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  inputDriverFactory,
+);
 
 import { inputAreaUniDriverFactory } from '../src/InputArea/InputArea.uni.driver';
 
-export const inputAreaTestkitFactory = puppeteerUniTestkitFactoryCreator(inputAreaUniDriverFactory);
+export const inputAreaTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  inputAreaUniDriverFactory,
+);
 
 import { inputWithOptionsUniDriverFactory } from '../src/InputWithOptions/InputWithOptions.uni.driver';
 
@@ -219,11 +259,15 @@ export const ListItemActionTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { loaderUniDriverFactory } from '../src/Loader/Loader.uni.driver';
 
-export const loaderTestkitFactory = puppeteerUniTestkitFactoryCreator(loaderUniDriverFactory);
+export const loaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  loaderUniDriverFactory,
+);
 
 import { modalUniDriverFactory } from '../src/Modal/Modal.uni.driver';
 
-export const modalTestkitFactory = puppeteerUniTestkitFactoryCreator(modalUniDriverFactory);
+export const modalTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  modalUniDriverFactory,
+);
 
 import { multiselectUniDriverFactory } from '../src/MultiSelect/MultiSelect.uni.driver';
 
@@ -263,7 +307,9 @@ export const pageHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { proportionDriverFactory } from '../src/Proportion/Proportion.uni.driver';
 
-export const proportionTestkitFactory = puppeteerUniTestkitFactoryCreator(proportionDriverFactory);
+export const proportionTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  proportionDriverFactory,
+);
 
 import richTextInputAreaDriverFactory from '../src/RichTextInputArea/RichTextInputArea.uni.driver';
 
@@ -273,7 +319,9 @@ export const richTextInputAreaTestkitFactory = puppeteerUniTestkitFactoryCreator
 
 import { searchUniDriverFactory } from '../src/Search/Search.uni.driver';
 
-export const searchTestkitFactory = puppeteerUniTestkitFactoryCreator(searchUniDriverFactory);
+export const searchTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  searchUniDriverFactory,
+);
 
 import { sectionHelperUniDriverFactory } from '../src/SectionHelper/SectionHelper.uni.driver';
 
@@ -289,7 +337,9 @@ export const segmentedToggleTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { sidebarDriverFactory } from '../src/Sidebar/Sidebar.uni.driver';
 
-export const sidebarTestkitFactory = puppeteerUniTestkitFactoryCreator(sidebarDriverFactory);
+export const sidebarTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sidebarDriverFactory,
+);
 
 import { sidebarSectionTitleDriverFactory } from '../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver';
 
@@ -299,7 +349,9 @@ export const sidebarSectionTitleTestkitFactory = puppeteerUniTestkitFactoryCreat
 
 import { sliderUniDriverFactory } from '../src/Slider/Slider.uni.driver';
 
-export const sliderTestkitFactory = puppeteerUniTestkitFactoryCreator(sliderUniDriverFactory);
+export const sliderTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sliderUniDriverFactory,
+);
 
 import { socialPreviewDriverFactory } from '../src/SocialPreview/SocialPreview.uni.driver';
 
@@ -315,39 +367,57 @@ export const statsWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { stepperDriverFactory } from '../src/Stepper/Stepper.uni.driver';
 
-export const stepperTestkitFactory = puppeteerUniTestkitFactoryCreator(stepperDriverFactory);
+export const stepperTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  stepperDriverFactory,
+);
 
 import { swatchesDriverFactory } from '../src/Swatches/Swatches.uni.driver';
 
-export const swatchesTestkitFactory = puppeteerUniTestkitFactoryCreator(swatchesDriverFactory);
+export const swatchesTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  swatchesDriverFactory,
+);
 
 import tableDriverFactory from '../src/Table/Table.puppeteer.driver';
 
-export const tableTestkitFactory = puppeteerTestkitFactoryCreator(tableDriverFactory);
+export const tableTestkitFactory = puppeteerTestkitFactoryCreator(
+  tableDriverFactory,
+);
 
 import { tabsUniDriverFactory } from '../src/Tabs/Tabs.uni.driver';
 
-export const tabsTestkitFactory = puppeteerUniTestkitFactoryCreator(tabsUniDriverFactory);
+export const tabsTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  tabsUniDriverFactory,
+);
 
 import { tagUniDriverFactory } from '../src/Tag/Tag.uni.driver';
 
-export const tagTestkitFactory = puppeteerUniTestkitFactoryCreator(tagUniDriverFactory);
+export const tagTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  tagUniDriverFactory,
+);
 
 import textDriverFactory from '../src/Text/Text.puppeteer.driver';
 
-export const textTestkitFactory = puppeteerTestkitFactoryCreator(textDriverFactory);
+export const textTestkitFactory = puppeteerTestkitFactoryCreator(
+  textDriverFactory,
+);
 
 import { textButtonDriverFactory } from '../src/TextButton/TextButton.uni.driver';
 
-export const textButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(textButtonDriverFactory);
+export const textButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  textButtonDriverFactory,
+);
 
 import { thumbnailDriverFactory } from '../src/Thumbnail/Thumbnail.uni.driver';
 
-export const thumbnailTestkitFactory = puppeteerUniTestkitFactoryCreator(thumbnailDriverFactory);
+export const thumbnailTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  thumbnailDriverFactory,
+);
 
 import { timeInputUniDriverFactory } from '../src/TimeInput/TimeInput.uni.driver';
 
-export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(timeInputUniDriverFactory);
+export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  timeInputUniDriverFactory,
+);
 
 import { sidebarSectionItemDriverFactory } from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
 
@@ -369,15 +439,21 @@ export const sidebarHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
 
 import { drillViewUniDriverFactory } from '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver';
 
-export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(drillViewUniDriverFactory);
+export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  drillViewUniDriverFactory,
+);
 
 import { headerUniDriverFactory } from '../src/Card/Header/Header.uni.driver';
 
-export const cardHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(headerUniDriverFactory);
+export const cardHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  headerUniDriverFactory,
+);
 
 import { sideMenuUniDriverFactory } from '../src/Deprecated/SideMenu/core/SideMenu.uni.driver';
 
-export const sideMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(sideMenuUniDriverFactory);
+export const sideMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  sideMenuUniDriverFactory,
+);
 
 import { editableRowUniDriverFactory } from '../src/EditableSelector/EditableRow/EditableRow.uni.driver';
 
@@ -402,3 +478,4 @@ import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.
 export const subheaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
+
