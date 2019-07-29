@@ -27,7 +27,7 @@ Types of changes:
 - `<Sidebar/>` - remove WIP category from the sidebar visual components [#3842](https://github.com/wix/wix-style-react/pull/3842)
 
 ### Deprecated
-- `<SideMenu/>` - deprecated component, you should use <Sidebar/> instead [#3847](https://github.com/wix/wix-style-react/pull/3847)
+- `<SideMenu/>` - deprecated component, you should use `<Sidebar/>` instead [#3847](https://github.com/wix/wix-style-react/pull/3847)
 
 ## 6.43.1 - 2019-07-24
 
