@@ -64,19 +64,19 @@ const tests = [
       },
     ],
   },
-  {
-    describe: 'checked',
-    its: [
-      {
-        it: 'checked',
-        props: { checked: true },
-      },
-      {
-        it: 'unchecked',
-        props: { checked: false },
-      },
-    ],
-  },
+  // {
+  //   describe: 'checked',
+  //   its: [
+  //     {
+  //       it: 'checked',
+  //       props: { checked: true },
+  //     },
+  //     {
+  //       it: 'unchecked',
+  //       props: { checked: false },
+  //     },
+  //   ],
+  // },
   {
     describe: 'disabled',
     its: [
