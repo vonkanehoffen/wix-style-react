@@ -265,21 +265,6 @@ describe('Input', () => {
     });
 
     describe('status attribute', () => {
-      it('deprecated - should display an error icon if error is true', async () => {
-        const { driver } = render(<Input error />);
-
-        expect(await driver.hasExclamation()).toBeTruthy();
-        expect(await driver.hasError()).toBeTruthy();
-      });
-
-      it('should display an error icon if status is error', async () => {
-        // change
-        const { driver } = render(<Input status={'error'} />);
-
-        expect(await driver.hasExclamation()).toBeTruthy();
-        expect(await driver.hasError()).toBeTruthy();
-      });
-
       it('should display a loader icon if status is loading', async () => {
         // change
         const { driver } = render(<Input status={'loading'} />);
@@ -369,17 +354,6 @@ describe('Input', () => {
       it('should not display a menu arrow icon if menuArrow is false', async () => {
         const { driver } = render(<Input menuArrow={false} />);
         expect(await driver.hasMenuArrow()).toBeFalsy();
-      });
-
-      it('should display a menu arrow icon if error is true', async () => {
-        const { driver } = render(<Input menuArrow error />);
-        expect(await driver.hasMenuArrow()).toBeTruthy();
-      });
-
-      it('should have a narrow error style of arrow is shown', async () => {
-        const { driver } = render(<Input menuArrow error />);
-        expect(await driver.isNarrowError()).toBeTruthy();
-        expect(await driver.hasExclamation()).toBeTruthy();
       });
 
       it('should not display a menu arrow icon if magnifyingGlass is true', async () => {

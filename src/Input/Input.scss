@@ -492,20 +492,9 @@ $material-gap: 8px;
 
 .exclamation {
   margin: 0 $gap;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
 
   &.narrow {
     margin: 0;
-  }
-
-  > svg {
-    color: $paletteR1;
-    width: 18px;
-    height: 18px;
   }
 }
 
