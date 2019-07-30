@@ -22,6 +22,7 @@ Types of changes:
 ### Changed
 - `<DatePicker/>` - support string width [#3803](https://github.com/wix/wix-style-react/pull/3803)
 - `<Tooltip/>` - change default appendTo value to `window` and some extra internal changes [#3848](https://github.com/wix/wix-style-react/pull/3848)
+- `<Input/>` - error indicator. Migrate to new tooltip [#3854](https://github.com/wix/wix-style-react/pull/3854)
 
 ### Fixed
 - `Disabled State Styling` - styling alignments for the following components: `<ToggleButton/>, <AddItem/>, <Text/>, <InputArea/>, <InputWithOptions/>, <SegmentedToggle/>, <RadioButton/>, <Thumbnail/>` [#3776](https://github.com/wix/wix-style-react/pull/3776)
