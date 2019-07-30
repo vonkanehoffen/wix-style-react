@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.44.0 - 2019-07-30
 
 ### Added
 - `<Sidebar/>` - add `isHidden` prop [#3640](https://github.com/wix/wix-style-react/pull/3640)
