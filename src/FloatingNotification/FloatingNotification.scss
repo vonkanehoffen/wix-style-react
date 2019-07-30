@@ -1,5 +1,5 @@
-@import "../colors";
-@import "../common";
+@import '../colors';
+@import '../common';
 
 $buttonMaxWidth: 25%;
 
@@ -23,7 +23,8 @@ $buttonMaxWidth: 25%;
     flex-shrink: 0;
   }
 
-  .text, .textButton {
+  .text,
+  .textButton {
     margin-left: 6px;
   }
 
@@ -31,7 +32,8 @@ $buttonMaxWidth: 25%;
     margin-left: 12px;
   }
 
-  .button, .textButton {
+  .button,
+  .textButton {
     max-width: $buttonMaxWidth;
   }
 
@@ -50,27 +52,32 @@ $buttonMaxWidth: 25%;
 
   &.standard {
     background-color: $B50;
-    border-color: $B20;
+    border-color: $B30;
   }
 
   &.success {
     background-color: $G50;
-    border-color: $G20;
+    border-color: $G30;
   }
 
   &.destructive {
-    background-color: $R40;
-    border-color: $R20;
+    background-color: $R50;
+    border-color: $R30;
   }
 
   &.warning {
-    background-color: $Y60;
-    border-color: $Y05;
+    background-color: $Y50;
+    border-color: $Y30;
   }
 
   &.premium {
     background-color: $P50;
-    border-color: $P20;
+    border-color: $P30;
+  }
+
+  &.preview {
+    background-color: $D70;
+    border-color: $D50;
   }
 }
 
@@ -79,7 +86,8 @@ $buttonMaxWidth: 25%;
     padding-right: 12px;
     padding-left: 6px;
 
-    .text, .textButton {
+    .text,
+    .textButton {
       margin-left: unset;
       margin-right: 6px;
     }

@@ -31,8 +31,10 @@ class Tag extends WixComponent {
 
     return (
       <Text
+        className={styles.text}
         skin={disabled ? 'disabled' : 'standard'}
         light={theme === 'dark'}
+        secondary={theme !== 'dark'}
         ellipsis={wrap}
         size={tagToTextSize[size]}
         weight={size === 'tiny' ? 'thin' : 'normal'}
@@ -131,7 +133,14 @@ Tag.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
 
   /** theme of the Tag */
-  theme: PropTypes.oneOf(['standard', 'error', 'warning', 'dark']),
+  theme: PropTypes.oneOf([
+    'standard',
+    'error',
+    'warning',
+    'dark',
+    'neutral',
+    'light',
+  ]),
 
   /** An optional thumb to display as part of the Tag */
   thumb: PropTypes.element,

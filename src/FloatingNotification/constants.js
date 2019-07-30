@@ -4,4 +4,5 @@ export const NOTIFICATION_TYPES = {
   DESTRUCTIVE: 'destructive',
   WARNING: 'warning',
   PREMIUM: 'premium',
+  PREVIEW: 'preview',
 };

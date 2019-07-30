@@ -36,6 +36,8 @@ const renderThumbnails = () => {
         <Tag children="error theme" theme="error" />
         <Tag children="warning theme" theme="warning" />
         <Tag children="dark theme" theme="dark" />
+        <Tag children="neutral theme" theme="neutral" />
+        <Tag children="light theme" theme="light" />
       </div>
       <div>
         Removable / Disabled:

@@ -32,49 +32,88 @@ function renderTestCase(desc, props) {
 storiesOf(kind, module).add(storySettings.testStories.ALL, () => {
   return (
     <RTLWrapper>
-      <div style={{ display: 'flex' }}>
-        <div>
-          {renderTestCase('with defaults', {})}
-          {renderTestCase('with prefix icon', {
-            prefixIcon: <StatusComplete />,
-          })}
-          {Object.values(NOTIFICATION_TYPES).forEach(type => {
-            renderTestCase(`with type=${type}`, { type: type });
-          })}
+      <div>
+        <div style={{ display: 'flex' }}>
+          <div>
+            {renderTestCase('with defaults', {})}
 
-          {renderTestCase('with textButton', {
-            textButtonProps: { label: 'Trash' },
-          })}
-          {renderTestCase('with button', { buttonProps: { label: 'Undo' } })}
-          {renderTestCase('with textButton and button', {
-            textButtonProps: { label: 'Trash' },
-            buttonProps: { label: 'Undo' },
-          })}
-          {renderTestCase('with short text and 1 button with long text', {
-            buttonProps: { label: LONG_TEXT },
-          })}
+            {renderTestCase('with prefix icon', {
+              prefixIcon: <StatusComplete />,
+            })}
+
+            {Object.values(NOTIFICATION_TYPES).forEach(type => {
+              renderTestCase(`with type=${type}`, { type: type });
+            })}
+
+            {renderTestCase('with textButton', {
+              textButtonProps: { label: 'Trash' },
+            })}
+
+            {renderTestCase('with button', { buttonProps: { label: 'Undo' } })}
+
+            {renderTestCase('with textButton and button', {
+              textButtonProps: { label: 'Trash' },
+              buttonProps: { label: 'Undo' },
+            })}
+
+            {renderTestCase('with short text and 1 button with long text', {
+              buttonProps: { label: LONG_TEXT },
+            })}
+          </div>
+
+          <div>
+            {renderTestCase('with long text', { text: LONG_TEXT })}
+
+            {renderTestCase('with long text and buttons', {
+              text: LONG_TEXT,
+              textButtonProps: { label: 'Trash' },
+              buttonProps: { label: 'Undo' },
+            })}
+
+            {renderTestCase('with long text and no close button', {
+              text: LONG_TEXT,
+              showCloseButton: false,
+            })}
+
+            {renderTestCase('with long text and buttons with long text', {
+              text: LONG_TEXT,
+              buttonProps: { label: LONG_TEXT },
+              textButtonProps: { label: LONG_TEXT },
+            })}
+
+            <div style={{ height: '100px' }} />
+
+            {renderTestCase('with long text and 1 button with long text', {
+              text: LONG_TEXT,
+              buttonProps: { label: LONG_TEXT },
+            })}
+          </div>
         </div>
-        <div>
-          {renderTestCase('with long text', { text: LONG_TEXT })}
-          {renderTestCase('with long text and buttons', {
-            text: LONG_TEXT,
-            textButtonProps: { label: 'Trash' },
-            buttonProps: { label: 'Undo' },
-          })}
-          {renderTestCase('with long text and no close button', {
-            text: LONG_TEXT,
-            showCloseButton: false,
-          })}
-          {renderTestCase('with long text and buttons with long text', {
-            text: LONG_TEXT,
-            buttonProps: { label: LONG_TEXT },
-            textButtonProps: { label: LONG_TEXT },
-          })}
-          <div style={{ height: '100px' }} />
-          {renderTestCase('with long text and 1 button with long text', {
-            text: LONG_TEXT,
-            buttonProps: { label: LONG_TEXT },
-          })}
+
+        <div style={{ marginTop: 20 }}>
+          <div>Type variations:</div>
+
+          <div>
+            {renderTestCase('standard', {
+              type: 'standard',
+            })}
+
+            {renderTestCase('success', {
+              type: 'success',
+            })}
+            {renderTestCase('warning', {
+              type: 'warning',
+            })}
+            {renderTestCase('destructive', {
+              type: 'destructive',
+            })}
+            {renderTestCase('premium', {
+              type: 'premium',
+            })}
+            {renderTestCase('preview', {
+              type: 'preview',
+            })}
+          </div>
         </div>
       </div>
     </RTLWrapper>
