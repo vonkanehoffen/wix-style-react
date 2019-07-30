@@ -25,6 +25,7 @@ Types of changes:
 
 ### Fixed
 - `Disabled State Styling` - styling alignments for the following components: `<ToggleButton/>, <AddItem/>, <Text/>, <InputArea/>, <InputWithOptions/>, <SegmentedToggle/>, <RadioButton/>, <Thumbnail/>` [#3776](https://github.com/wix/wix-style-react/pull/3776)
+- `<SectionHelper/>, <FloatingNotification/>, <Tag/>` - change/add themes colors [#3786](https://github.com/wix/wix-style-react/pull/3786)
 
 ### Docs
 - `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
