@@ -11,3 +11,10 @@ Make sure you saved your selection after reviewing the diffs.
 - Select a repo/branch on the top right corner.
 - Filter by component/test name via the filter option (funnel icon).
 - Open the test's diff history clicking the the 3 dots icon on the right hand side of the test row, and select Show History.
+
+## How can I enable logs locally?
+
+Just run the following in order to export the logs into a file:
+```
+APPLITOOLS_SHOW_LOGS=true npm run test:eyes-storybook > file.log
+```
