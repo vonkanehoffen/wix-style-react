@@ -83,76 +83,76 @@ const tests = [
           skin: 'neutral',
         },
       },
-      // {
-      //   it: 'Should display the table with aligned columns',
-      //   props: {
-      //     data: [
-      //       {
-      //         name: 'Apple Towels',
-      //         visible: true,
-      //         onSale: false,
-      //         price: '$22.99',
-      //       },
-      //       {
-      //         name: 'Cyan Towls',
-      //         visible: false,
-      //         onSale: false,
-      //         price: '$145.99',
-      //       },
-      //       {
-      //         name: 'Marble Slippers',
-      //         visible: false,
-      //         onSale: false,
-      //         price: '$125,265.00',
-      //       },
-      //       {
-      //         name: 'Red Slippers',
-      //         visible: false,
-      //         onSale: false,
-      //         price: '$1,265.69',
-      //       },
-      //     ],
-      //     columns: [
-      //       {
-      //         title: 'Name',
-      //         render: row => <span>{row.name}</span>,
-      //         width: '30%',
-      //         minWidth: '150px',
-      //       },
-      //       {
-      //         title: 'Visibility',
-      //         render: row => (
-      //           <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-      //             <ToggleSwitch checked={row.visible} />
-      //             <span style={{ marginLeft: 12 }}>
-      //               {row.visible ? 'Visible' : 'Hidden'}
-      //             </span>
-      //           </span>
-      //         ),
-      //         width: '20%',
-      //         minWidth: '100px',
-      //         align: 'start',
-      //       },
-      //       {
-      //         title: 'On Sale',
-      //         render: () => <Checkbox />,
-      //         width: '20%',
-      //         minWidth: '100px',
-      //         align: 'center',
-      //         infoTooltipProps: {
-      //           content: 'I am a Tooltip!',
-      //         },
-      //       },
-      //       {
-      //         title: 'Price',
-      //         render: row => <span>{row.price}</span>,
-      //         width: '20%',
-      //         minWidth: '100px',
-      //         align: 'end',
-      //       },
-      //     ],
-      //   },
-      // },
+      {
+        it: 'Should display the table with aligned columns',
+        props: {
+          data: [
+            {
+              name: 'Apple Towels',
+              visible: true,
+              onSale: false,
+              price: '$22.99',
+            },
+            {
+              name: 'Cyan Towls',
+              visible: false,
+              onSale: false,
+              price: '$145.99',
+            },
+            {
+              name: 'Marble Slippers',
+              visible: false,
+              onSale: false,
+              price: '$125,265.00',
+            },
+            {
+              name: 'Red Slippers',
+              visible: false,
+              onSale: false,
+              price: '$1,265.69',
+            },
+          ],
+          columns: [
+            {
+              title: 'Name',
+              render: row => <span>{row.name}</span>,
+              width: '30%',
+              minWidth: '150px',
+            },
+            {
+              title: 'Visibility',
+              render: row => (
+                <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                  <ToggleSwitch checked={row.visible} />
+                  <span style={{ marginLeft: 12 }}>
+                    {row.visible ? 'Visible' : 'Hidden'}
+                  </span>
+                </span>
+              ),
+              width: '20%',
+              minWidth: '100px',
+              align: 'start',
+            },
+            {
+              title: 'On Sale',
+              render: () => <Checkbox />,
+              width: '20%',
+              minWidth: '100px',
+              align: 'center',
+              infoTooltipProps: {
+                content: 'I am a Tooltip!',
+              },
+            },
+            {
+              title: 'Price',
+              render: row => <span>{row.price}</span>,
+              width: '20%',
+              minWidth: '100px',
+              align: 'end',
+            },
+          ],
+        },
+      },
       {
         it: 'Should display the table with selection',
         props: {
