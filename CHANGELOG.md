@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Fixed
+- `<Card.Subheader/>` -fix top/bottom padding to match designs [#3860](https://github.com/wix/wix-style-react/pull/3860)
+
 ## 6.44.2 - 2019-07-31
 
 No Changes (Patch version, only to re-publish Storybook, after failed publish)
