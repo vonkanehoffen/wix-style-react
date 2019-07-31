@@ -82,9 +82,10 @@ class ColorInput extends React.Component {
   static getDerivedStateFromProps(props, state) {
     if (!state.active && props.value !== state.value) {
       return {
-        ...state,
         value: extractHex(props.value),
       };
+    } else {
+      return null;
     }
   }
 
@@ -178,15 +179,15 @@ class ColorInput extends React.Component {
   };
 
   render() {
-    const { placeholder, errorMessage, size, ...rest } = this.props;
+    const { placeholder, error, errorMessage, size, ...rest } = this.props;
     const { active, value } = this.state;
     return (
       <Input
         {...rest}
         ref={input => (this.input = input)}
-        status={this.props.error ? 'error' : undefined}
+        status={error ? 'error' : undefined}
         statusMessage={errorMessage}
-        placeholder={active ? undefined : placeholder}
+        placeholder={active ? '' : placeholder}
         size={this._sizeMapping(size)}
         onKeyDown={this._keyDown}
         onChange={this._onChange}

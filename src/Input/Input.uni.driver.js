@@ -3,7 +3,10 @@ import styles from './Input.scss';
 import { ReactBase } from '../../test/utils/unidriver';
 
 export const testkit = base => {
-  const input = base.$('input');
+  // single $ throws an exception for more than 1 match, so we use the first matching result with $$
+  // to support cases of multiple inputs, e.g cases where this driver is used inside other drivers with popovers
+  // which includes an input
+  const input = base.$$('input').get(0);
 
   const reactBase = ReactBase(base);
   const reactBaseInput = ReactBase(input);
@@ -50,6 +53,7 @@ export const testkit = base => {
     getText: async () => await input.value(),
     getPlaceholder: async () => await input.attr('placeholder'),
     isOfStyle: async style => await base.hasClass(styles[`theme-${style}`]),
+    isOfSize: async size => await base.hasClass(styles[`size-${size}`]),
     isDisabled: async () => await base.hasClass(styles.disabled),
     isHoveredStyle: async () => await base.hasClass(styles.hasHover),
     isFocusedStyle: async () => await base.hasClass(styles.hasFocus),
