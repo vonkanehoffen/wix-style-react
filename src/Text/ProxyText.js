@@ -10,7 +10,7 @@ import {
 } from 'prop-types';
 import OriginalText from './Text';
 import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
-import tooltip from '../Tooltip/TooltipNext/Tooltip.st.css';
+import tooltip from './Ellipsis.st.css';
 import { ZIndex } from '../ZIndex';
 
 const Text = ({
