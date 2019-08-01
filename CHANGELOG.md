@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## next
+## 6.45.1 - 2019-08-01
 ### Fixed
 - `testkit/protractor` - fix .d.ts file to not have duplicate entries [#3867](https://github.com/wix/wix-style-react/pull/3867)
 - remove `jscodeshift` dev to avoid deprecation warning - [#3868](https://github.com/wix/wix-style-react/pull/3868)
