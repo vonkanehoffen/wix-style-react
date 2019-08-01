@@ -13,8 +13,8 @@ import {
 } from '../../test/utils/unit';
 import inputDriverFactory from './Input.driver';
 import { testkit } from './Input.uni.driver';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
-const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 describe('Input', () => {
   describe('[sync]', () => {
     runTests(createRendererWithDriver(inputDriverFactory));

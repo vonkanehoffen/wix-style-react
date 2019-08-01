@@ -8,8 +8,8 @@ import last from 'lodash/last';
 import difference from 'difference';
 
 import styles from './MultiSelect.scss';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
-const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 class MultiSelect extends InputWithOptions {
   constructor(props) {
     super(props);

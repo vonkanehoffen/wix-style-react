@@ -9,6 +9,7 @@ import setDate from 'date-fns/set_date';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Calendar from '../Calendar';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 import styles from './DatePicker.scss';
 import DateInput from '../DateInput';
@@ -30,7 +31,7 @@ import deprecationLog from '../utils/deprecationLog';
  * * `Enter`/`Esc`/`Tab`: close the calendar. (`Enter` & `Esc` calls `preventDefault`)
  *
  */
-const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
+
 export default class DatePicker extends WixComponent {
   static displayName = 'DatePicker';
 

@@ -12,8 +12,8 @@ import deprecationLog from '../utils/deprecationLog';
 
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
-const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 class Input extends Component {
   static Ticker = Ticker;
   static Unit = Unit;

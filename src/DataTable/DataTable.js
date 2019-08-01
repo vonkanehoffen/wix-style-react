@@ -9,6 +9,7 @@ import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../common/InfoIcon';
 import { VariableSizeList as List } from 'react-window';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 export const DataTableHeader = props => {
   const { dataHook } = props;
@@ -25,7 +26,6 @@ DataTableHeader.propTypes = {
   width: PropTypes.string,
 };
 
-const SUPPORT_REF_FORWARD = parseFloat(React.version) >= 16.3;
 class DataTable extends React.Component {
   constructor(props) {
     super(props);
