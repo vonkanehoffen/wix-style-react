@@ -15,8 +15,12 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
 ### Fixed
 - `<Card.Subheader/>` -fix top/bottom padding to match designs [#3860](https://github.com/wix/wix-style-react/pull/3860)
+
+### Changed
+- `<ColorInput/>` - add popoverProps prop [#3858](https://github.com/wix/wix-style-react/pull/3858)
 
 ## 6.44.2 - 2019-07-31
 
