@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool, string, func, oneOf, oneOfType } from 'prop-types';
+import { node, bool, string, func, oneOf, oneOfType, object } from 'prop-types';
 
 import { polyfill } from 'react-lifecycles-compat';
 
@@ -57,6 +57,8 @@ class ColorInput extends React.Component {
     onAddColor: func,
     /** Content to show in color picker add button tooltip */
     addTooltipContent: node,
+    /** Popover props */
+    popoverProps: object,
   };
 
   static defaultProps = {
@@ -68,6 +70,7 @@ class ColorInput extends React.Component {
     onChange: () => {},
     onConfirm: () => {},
     onCancel: () => {},
+    popoverProps: {},
   };
 
   constructor(props) {
@@ -110,6 +113,7 @@ class ColorInput extends React.Component {
       onAddColor,
       addTooltipContent,
       placeholder,
+      popoverProps,
     } = this.props;
     return (
       <ColorViewer
@@ -128,6 +132,7 @@ class ColorInput extends React.Component {
         onAddColor={onAddColor}
         addTooltipContent={addTooltipContent}
         placeholder={placeholder}
+        popoverProps={popoverProps}
       />
     );
   };

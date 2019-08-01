@@ -6,6 +6,10 @@ import styles from './ColorViewer.st.css';
 import Color from 'color';
 
 export class ColorViewer extends React.Component {
+  static defaultProps = {
+    popoverProps: {},
+  };
+
   onChange = _color => {
     const color = typeof _color === 'object' ? _color : Color(_color);
     this.props.onChange(color.alpha() === 0 ? '' : color.hex());
@@ -27,9 +31,11 @@ export class ColorViewer extends React.Component {
       onAddColor,
       addTooltipContent,
       placeholder,
+      popoverProps,
     } = this.props;
     return (
       <Popover
+        {...popoverProps}
         showArrow
         fixed
         dataHook="colorinput-popover"
