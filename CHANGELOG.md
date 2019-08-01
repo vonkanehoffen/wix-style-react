@@ -17,6 +17,7 @@ Types of changes:
 ## next
 ### Fixed
 - `testkit/protractor` - fix .d.ts file to not have duplicate entries [#3867](https://github.com/wix/wix-style-react/pull/3867)
+- remove `jscodeshift` dev to avoid deprecation warning - [#3868](https://github.com/wix/wix-style-react/pull/3868)
 
 ## 6.45.0 - 2019-08-01
 
