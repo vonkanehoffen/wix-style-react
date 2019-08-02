@@ -14,7 +14,8 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.46.0 - 2019-08-02
+
 ### Changed
 - `<Notification/>` - allow usage without `<Notification.CloseButton/>` [#3865](https://github.com/wix/wix-style-react/pull/3865)
 
