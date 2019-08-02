@@ -595,26 +595,22 @@ module.exports = {
   Badge: {
     puppeteerUnidriver: true,
     puppeteerTestkitImportName: 'badgeUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   CounterBadge: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   FloatingHelper: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   ToggleSwitch: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Label: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 

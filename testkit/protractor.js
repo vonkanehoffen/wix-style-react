@@ -18,14 +18,6 @@ export {
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
 
-// wix-ui-backoffice proxy
-export {
-  stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory,
-  toggleSwitchTestkitFactory,
-  labelTestkitFactory,
-  floatingHelperTestkitFactory,
-} from 'wix-ui-backoffice/dist/src/testkit/protractor';
-
 import tooltipDriverFactory from '../src/Tooltip/Tooltip.protractor.driver';
 import { tooltipDriverFactory as tooltipNextDriverFactory } from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 
@@ -163,6 +155,12 @@ export const contactItemBuilderTestkitFactory = protractorTestkitFactoryCreator(
   contactItemBuilderUniDriverFactory,
 );
 
+import counterBadgeDriverFactory from '../src/CounterBadge/CounterBadge.protractor.driver';
+
+export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator(
+  counterBadgeDriverFactory,
+);
+
 import dataTableDriverFactory from '../src/DataTable/DataTable.protractor.driver';
 
 export const dataTableTestkitFactory = protractorTestkitFactoryCreator(
@@ -227,6 +225,12 @@ import filePickerDriverFactory from '../src/FilePicker/FilePicker.protractor.dri
 
 export const filePickerTestkitFactory = protractorTestkitFactoryCreator(
   filePickerDriverFactory,
+);
+
+import floatingHelperDriverFactory from '../src/FloatingHelper/FloatingHelper.protractor.driver';
+
+export const floatingHelperTestkitFactory = protractorTestkitFactoryCreator(
+  floatingHelperDriverFactory,
 );
 
 import { floatingNotificationDriverFactory } from '../src/FloatingNotification/FloatingNotification.uni.driver';
@@ -299,6 +303,12 @@ import inputWithOptionsDriverFactory from '../src/InputWithOptions/InputWithOpti
 
 export const inputWithOptionsTestkitFactory = protractorTestkitFactoryCreator(
   inputWithOptionsDriverFactory,
+);
+
+import labelDriverFactory from '../src/Label/Label.protractor.driver';
+
+export const labelTestkitFactory = protractorTestkitFactoryCreator(
+  labelDriverFactory,
 );
 
 import { linearProgressBarDriverFactory } from '../src/LinearProgressBar/LinearProgressBar.protractor.driver';
@@ -521,6 +531,12 @@ import { timeInputUniDriverFactory } from '../src/TimeInput/TimeInput.uni.driver
 
 export const timeInputTestkitFactory = protractorTestkitFactoryCreator(
   timeInputUniDriverFactory,
+);
+
+import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.protractor.driver';
+
+export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(
+  toggleSwitchDriverFactory,
 );
 
 import sidebarSectionItemDriverFactory from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
