@@ -21,6 +21,19 @@ import typesReadme from './types.readme.md';
 const exampleChildren = [
   {
     label: 'Just text',
+    value: <Notification.TextLabel>Notification text</Notification.TextLabel>,
+  },
+
+  {
+    label: 'Text and action button',
+    value: [
+      <Notification.TextLabel>Notification text</Notification.TextLabel>,
+      <Notification.ActionButton>Button</Notification.ActionButton>,
+    ],
+  },
+
+  {
+    label: 'Text and close button',
     value: [
       <Notification.TextLabel>Notification text</Notification.TextLabel>,
       <Notification.CloseButton />,
@@ -28,7 +41,7 @@ const exampleChildren = [
   },
 
   {
-    label: 'Text and button',
+    label: 'Text and both buttons',
     value: [
       <Notification.TextLabel>Notification text</Notification.TextLabel>,
       <Notification.ActionButton>Button</Notification.ActionButton>,

@@ -34,19 +34,22 @@ function FirstChild(props) {
 
 function mapChildren(children) {
   const childrenArray = Children.toArray(children);
-
-  if (childrenArray.length === 3) {
-    return {
-      label: childrenArray[0],
-      ctaButton: childrenArray[1],
-      closeButton: React.cloneElement(childrenArray[2], { size: 'small' }),
-    };
-  } else {
-    return {
-      label: childrenArray[0],
-      closeButton: React.cloneElement(childrenArray[1], { size: 'small' }),
-    };
-  }
+  return childrenArray.reduce((childrenAsMap, child) => {
+    switch (child.type.displayName) {
+      case 'Notification.TextLabel':
+        childrenAsMap.label = child;
+        break;
+      case 'Notification.ActionButton':
+        childrenAsMap.ctaButton = child;
+        break;
+      case 'Notification.CloseButton':
+        childrenAsMap.closeButton = React.cloneElement(child, {
+          size: 'small',
+        });
+        break;
+    }
+    return childrenAsMap;
+  }, {});
 }
 
 class Notification extends WixComponent {
@@ -162,12 +165,14 @@ class Notification extends WixComponent {
             />
           )}
 
-          <div
-            data-hook="notification-close-button"
-            className={css.closeButton}
-            onClick={this.hideNotificationOnCloseClick}
-            children={childrenComponents.closeButton}
-          />
+          {childrenComponents.closeButton && (
+            <div
+              data-hook="notification-close-button"
+              className={css.closeButton}
+              onClick={this.hideNotificationOnCloseClick}
+              children={childrenComponents.closeButton}
+            />
+          )}
         </div>
       </CSSTransition>
     );

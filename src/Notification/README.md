@@ -1,4 +1,4 @@
-`<Notification>` is a compound component and requires `<Notification.TextLabel/>` and `<Notification.CloseButton/>` to be used as children.
+`<Notification>` is a compound component and requires `<Notification.TextLabel/>` to be used as children.
 
 <details>
   <summary>
@@ -14,7 +14,7 @@
 
 <details>
   <summary>
-    `<Notification.CloseButton/>` (required)
+    `<Notification.CloseButton/>`
   </summary>
 
   Use this component to display the close button
