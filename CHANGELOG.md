@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed
 - `<Tooltip/>` - fix page jump issues on hover [#3851](https://github.com/wix/wix-style-react/pull/3851)
+- FIX(protractor typings & testkit exports) - update protractor testkit export definition [#3875](https://github.com/wix/wix-style-react/pull/3875)
 
 ## 6.45.1 - 2019-08-01
 ### Fixed
