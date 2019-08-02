@@ -38,7 +38,7 @@ export const testkitTooltip = (base, body) => {
     while ((await ReactBase(content).children()).length > 0) {
       content = (await ReactBase(content).children())[0];
     }
-    return ReactBase(content).innerHtml();
+    return content._prop('innerHTML');
   };
   const hoverAndGetContent = async (timeout, interval) => {
     await base.hover(base);
@@ -85,7 +85,7 @@ export const testkitTooltip = (base, body) => {
     hasLightTheme: async () => (await getTooltipContent()).hasClass('light'),
     hasAnimationClass: async () =>
       await (await getContentRoot()).$('.fadeIn').exists(),
-    getChildren: async () => await ReactBase(base).innerHtml(),
+    getChildren: async () => await base._prop('innerHTML'),
     getContent,
     getPlacement: async () => await getArrowPlacement(),
     getMaxWidth: async () => await getContentStyleValue('max-width'),

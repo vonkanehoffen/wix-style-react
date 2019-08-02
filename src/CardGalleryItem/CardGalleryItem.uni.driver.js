@@ -22,8 +22,8 @@ const cardGalleryItemDriverFactory = base => {
       (await getTitle(base).exists()) ? getTitle(base).text() : null,
     getBadge: async () =>
       (await getBadge(base).exists())
-        ? ReactBase(getBadge(base)).prop('firstChild')
-        : null, // eslint-disable-line no-restricted-properties
+        ? getBadge(base)._prop('firstChild')
+        : null,
     getSubtitle: async () =>
       (await getSubtitle(base).exists()) ? getSubtitle(base).text() : null,
     getBackgroundImageUrl: async () => {
@@ -46,9 +46,9 @@ const cardGalleryItemDriverFactory = base => {
     getSettingsMenu: async () => {
       await getHoverComponent(base).hover();
       return (await getSettingsMenu(base).exists())
-        ? ReactBase(getSettingsMenu(base)).prop('firstChild')
+        ? getSettingsMenu(base)._prop('firstChild')
         : null;
-    }, // eslint-disable-line no-restricted-properties
+    },
   };
 };
 

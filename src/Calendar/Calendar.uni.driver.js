@@ -103,10 +103,7 @@ export const calendarUniDriverFactory = base => {
     pressLeftArrow: () => getFocusedDay().pressKey('ArrowLeft'),
     pressRightArrow: () => getFocusedDay().pressKey('ArrowRight'),
     getSelectedDay: () => getSelectedDay().text(),
-    getWidth: () =>
-      ReactBase(base)
-        .getStyle()
-        .then(style => style.width),
+    getWidth: () => base._prop('style').then(style => style.width),
     triggerKeyDown: ({ key }) => getFocusedDay().pressKey(key),
     isFocusedDayVisuallyUnfocused: () =>
       getFocusedDay().hasClass('DayPicker-Day--unfocused'),

@@ -17,7 +17,7 @@ export const headingUniDriverFactory = base => {
      * @ReactDOMOnly
      * @returns {string} innerHTML
      * */
-    getText: () => reactBase.innerHtml(),
+    getText: () => base._prop('innerHTML'),
     /**
      * Get appearance
      * @ReactDOMOnly

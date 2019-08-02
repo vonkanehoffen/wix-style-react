@@ -20,13 +20,13 @@ export const pageUniDriverFactory = base => {
 
     /** return container height */
     gradientContainerHeight: async () => {
-      const style = await ReactBase(
-        base.$('[data-hook="page-gradient-class-name"]'),
-      ).getStyle();
+      const style = await base
+        .$('[data-hook="page-gradient-class-name"]')
+        ._prop('style');
       return style.height;
     },
 
     /** returns html in a string form */
-    getPageHtml: () => reactBase.innerHtml(),
+    getPageHtml: () => base._prop('innerHTML'),
   };
 };

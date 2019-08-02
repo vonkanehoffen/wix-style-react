@@ -6,7 +6,7 @@ export const dataTableUniDriverFactory = base => {
   // When a React component renders null in React 15, a Comment-Element is rendered to the DOM.
   const isDisplayingNothing = async () =>
     !(await base.exists()) ||
-    (await reactBase.nodeType()) === Node.COMMENT_NODE;
+    (await base._prop('nodeType')) === Node.COMMENT_NODE;
 
   /* Since a Comment-Element has no methods like querySelector(),
    * we replace (if needed) it with an arbitrary Element.
@@ -78,18 +78,18 @@ export const dataTableUniDriverFactory = base => {
      * @deprecated Should be private
      */
     getHeaderCell: index => getHeaderCell(index).getNative(), // eslint-disable-line no-restricted-properties
-    getHeaderCellStyle: index => ReactBase(getHeaderCell(index)).getStyle(),
+    getHeaderCellStyle: index => getHeaderCell(index)._prop('style'),
     getHeaderCellWidth: async index =>
-      (await ReactBase(getHeaderCell(index)).getStyle()).width,
+      (await getHeaderCell(index)._prop('style')).width,
     /**
      * Get cell element: (rowIndex, columnIndex) => Element
      * @deprecated Should be private
      */
     getCell: (rowIndex, cellIndex) => getCell(rowIndex, cellIndex).getNative(), // eslint-disable-line no-restricted-properties
     getCellStyle: (rowIndex, colIndex) =>
-      ReactBase(getCell(rowIndex, colIndex)).getStyle(),
+      getCell(rowIndex, colIndex)._prop('style'),
     getCellWidth: (rowIndex, colIndex) =>
-      ReactBase(getCell(rowIndex, colIndex)).width(),
+      getCell(rowIndex, colIndex)._prop('width'),
     isRowClickable: index =>
       getRows()
         .get(index)

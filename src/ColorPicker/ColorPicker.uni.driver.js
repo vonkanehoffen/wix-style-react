@@ -12,13 +12,13 @@ export const colorPickerUniDriverFactory = base => {
     historyPanelExists: async () =>
       base.$('[data-hook="color-picker-history"]').exists(),
     historyCurrentColor: async () =>
-      (await ReactBase(
-        base.$('[data-hook="color-picker-history-current"]'),
-      ).getStyle()).background,
+      (await base
+        .$('[data-hook="color-picker-history-current"]')
+        ._prop('style')).background,
     historyPreviousColor: async () =>
-      (await ReactBase(
-        base.$('[data-hook="color-picker-history-previous"]'),
-      ).getStyle()).background,
+      (await base
+        .$('[data-hook="color-picker-history-previous"]')
+        ._prop('style')).background,
     clickAddColor: async () =>
       base.$('[data-hook="color-picker-add-color"]').click(),
     getChildren: async () => base.$('[data-hook="color-picker-children"]'),

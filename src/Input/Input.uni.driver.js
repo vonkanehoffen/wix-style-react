@@ -53,20 +53,19 @@ export const testkit = base => {
     isDisabled: async () => await base.hasClass(styles.disabled),
     isHoveredStyle: async () => await base.hasClass(styles.hasHover),
     isFocusedStyle: async () => await base.hasClass(styles.hasFocus),
-    getRequired: async () => await reactBaseInput.required(),
+    getRequired: async () => await input._prop('required'),
     enterText: async value => await reactBaseInput.enterValue(value),
     getAutocomplete: async () => await input.attr('autocomplete'),
-    getDefaultValue: async () => await reactBaseInput.defaultValue(),
+    getDefaultValue: async () => await input._prop('defaultValue'),
     getUnit: async () => {
-      return await ReactBase(unitNode).textContent();
+      return await unitNode.text();
     },
-    getTabIndex: async () => await reactBaseInput.tabIndex(),
+    getTabIndex: async () => await input._prop('tabIndex'),
     isCustomInput: async () =>
       (await input.attr('data-hook')) === 'wsr-custom-input',
-    getReadOnly: async () => await reactBaseInput.readOnly(),
-    getDisabled: async () => await reactBaseInput.disabled(),
-    getTextOverflow: async () =>
-      (await reactBaseInput.getStyle())['text-overflow'],
+    getReadOnly: async () => await input._prop('readOnly'),
+    getDisabled: async () => await input._prop('disabled'),
+    getTextOverflow: async () => (await input._prop('style'))['text-overflow'],
     hasExclamation: async () => await base.$(`.${styles.exclamation}`).exists(),
     hasError: async () => await base.hasClass(styles.hasError),
     hasWarning: async () => await base.hasClass(styles.hasWarning),
@@ -109,7 +108,7 @@ export const testkit = base => {
     hasMenuArrow: async () => await menuArrowNode.exists(),
     isNarrowError: async () => await base.$(`.${styles.narrow}`).exists(),
     isRTL: async () => await base.hasClass(styles.rtl),
-    getCursorLocation: async () => await reactBaseInput.selectionStart(),
+    getCursorLocation: async () => await input._prop('selectionStart'),
     startComposing: () => reactBaseInput.compositionStart(),
     endComposing: () => reactBaseInput.compositionEnd(),
     clearText: () => driver.enterText(''),

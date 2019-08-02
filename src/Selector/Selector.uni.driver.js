@@ -20,17 +20,16 @@ export const selectorUniDriverFactory = base => {
     isImageCinema: () => image().hasClass('cinema'),
     isImageCircle: () => image().hasClass('circle'),
     isImageRectangular: () => image().hasClass('rectangular'),
-    isDisabled: () => ReactBase(toggleInput()).prop('disabled'),
-    toggleType: () => ReactBase(toggleInput()).prop('type'),
+    isDisabled: () => toggleInput()._prop('disabled'),
+    toggleType: () => toggleInput()._prop('type'),
     isChecked: async () =>
-      (await toggleInput().exists()) &&
-      ReactBase(toggleInput()).prop('checked'),
+      (await toggleInput().exists()) && toggleInput()._prop('checked'),
     hasImage: () => image().exists(),
-    getImage: async () => ReactBase(image()).prop('firstChild'),
+    getImage: async () => image()._prop('firstChild'),
     titleTextDriver,
     subtitleTextDriver,
     hasExtraNode: () => extraNode().exists(),
-    getExtraNode: () => ReactBase(extraNode()).prop('firstChild'),
+    getExtraNode: () => extraNode()._prop('firstChild'),
     toggle: () => base.click(),
   };
 };

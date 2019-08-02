@@ -30,12 +30,12 @@ export const dropdownLayoutDriverFactory = base => {
   return {
     ...baseUniDriverFactory(base),
     /** @deprecated should be private */
-    classes: () => ReactBase(optionsElement).prop('className'),
+    classes: () => optionsElement._prop('className'),
     clickAtOption: async index =>
       ReactBase(await optionElementAt(index)).click(),
     clickAtOptionWithValue: async value => {
       for (const _option of await options()) {
-        if ((await ReactBase(_option).innerHtml()) === value) {
+        if ((await _option._prop('innerHTML')) === value) {
           return ReactBase(_option).click();
         }
       }
@@ -44,8 +44,8 @@ export const dropdownLayoutDriverFactory = base => {
     hasTopArrow: () => base.$(`.${styles.arrow}`).exists(),
     isDown: async () => (await contentContainer()).hasClass(styles.down),
     isLinkOption: async position => {
-      const option = ReactBase(await optionElementAt(position));
-      return (await option.tagName()).toLowerCase() === 'a';
+      const option = await optionElementAt(position);
+      return (await option._prop('tagName')).toLowerCase() === 'a';
     },
     isOptionADivider: position =>
       doIfOptionExists(position, async () =>
@@ -153,14 +153,14 @@ export const dropdownLayoutDriverFactory = base => {
     },
     optionsLength,
     /** @deprecated should be private */
-    optionsScrollTop: () => ReactBase(optionsElement).prop('scrollTop'),
+    optionsScrollTop: () => optionsElement._prop('scrollTop'),
     pressDownKey: () => base.pressKey('ArrowDown'),
     pressUpKey: () => base.pressKey('ArrowUp'),
     pressEnterKey: () => base.pressKey('Enter'),
     pressSpaceKey: () => base.pressKey(' '),
     pressTabKey: () => base.pressKey('Tab'),
     pressEscKey: () => base.pressKey('Escape'),
-    tabIndex: () => reactBase.tabIndex(),
+    tabIndex: () => base._prop('tabIndex'),
   };
 };
 
