@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Changed
+- `<Notification/>` - allow usage without `<Notification.CloseButton/>` [#3865](https://github.com/wix/wix-style-react/pull/3865)
 
 ### Fixed
 - `<Tooltip/>` - fix page jump issues on hover [#3851](https://github.com/wix/wix-style-react/pull/3851)
