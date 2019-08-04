@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed 
+- `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
+
 ## 6.46.0 - 2019-08-02
 
 ### Changed
