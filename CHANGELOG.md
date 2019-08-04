@@ -18,6 +18,7 @@ Types of changes:
 
 ### Fixed 
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
+- `<AddItem/>` - fix text color [#3872](https://github.com/wix/wix-style-react/pull/3872)
 
 ## 6.46.0 - 2019-08-02
 
