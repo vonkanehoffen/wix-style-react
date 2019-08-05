@@ -280,7 +280,7 @@ describe('MultiSelect', () => {
 
           describe('Controlled', () => {
             it('should submit when text entered and Enter is pressed', async () => {
-              testCase({
+              await testCase({
                 Component: ControlledMultiSelect,
                 props: { options },
                 enteredText: 'custom value',
@@ -337,7 +337,7 @@ describe('MultiSelect', () => {
 
           describe('Uncontrolled', () => {
             it('should submit when text entered and Enter is pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: 'custom value',
                 keyPressed: 'Enter',
@@ -346,7 +346,7 @@ describe('MultiSelect', () => {
             });
 
             it('should submit when text entered and delimiter is pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: 'custom value',
                 keyPressed: ',',
@@ -355,7 +355,7 @@ describe('MultiSelect', () => {
             });
 
             it('should NOT submit when spaces-only text is entered and Enter pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: '   ',
                 keyPressed: 'Enter',
@@ -364,7 +364,7 @@ describe('MultiSelect', () => {
             });
 
             it('should NOT submit when delimited-spaces text is entered and Enter pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: ' ,  ',
                 keyPressed: 'Enter',
