@@ -132,6 +132,7 @@ module.exports = {
   FullTextView: { skipSanityTest: true, noTestkit: true },
 
   RichTextArea: {
+    skipSanityTest: true,
     beforeAllHook: () => (window.getSelection = () => ({})),
     testkitPath: "../src/Deprecated/RichTextArea/RichTextArea.driver",
     protractorTestkitPath:
@@ -140,6 +141,7 @@ module.exports = {
   },
 
   RichTextAreaComposite: {
+    skipSanityTest: true,
     beforeAllHook: () => (window.getSelection = () => ({})),
     testkitPath:
       "../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver",
