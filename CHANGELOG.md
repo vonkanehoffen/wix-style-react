@@ -20,6 +20,10 @@ Types of changes:
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
 - `<AddItem/>` - fix text color [#3872](https://github.com/wix/wix-style-react/pull/3872)
 
+### Docs
+- `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
+
+
 ## 6.46.0 - 2019-08-02
 
 ### Changed
