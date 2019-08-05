@@ -379,5 +379,8 @@
   },
   "SidebarHeader": {
     "path": "src/SidebarHeader"
+  },
+  "ModalPreviewLayout": {
+    "path": "src/ModalPreviewLayout"
   }
 }

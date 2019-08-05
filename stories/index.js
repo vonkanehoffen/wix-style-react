@@ -153,6 +153,7 @@ require('../src/DateInput/docs/index.story');
 require('../src/Stepper/docs/index.story');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
+require('../src/ModalPreviewLayout/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');

@@ -138,3 +138,4 @@ export { default as SidebarSectionItem } from './SidebarSectionItem';
 export { default as Collapse } from './Collapse';
 export { default as SidebarDivider } from './SidebarDivider';
 export { default as SidebarHeader } from './SidebarHeader';
+export { default as ModalPreviewLayout } from './ModalPreviewLayout';

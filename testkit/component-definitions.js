@@ -273,4 +273,11 @@ export default {
       children: 'test',
     },
   },
+
+  ModalPreviewLayout: {
+    props: {
+      children: <div />,
+      onClose: () => {},
+    },
+  },
 };

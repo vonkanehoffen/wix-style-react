@@ -479,3 +479,10 @@ export const subheaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
 
+import { modalPreviewLayoutDriverFactory } from '../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver';
+
+export const modalPreviewLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  modalPreviewLayoutDriverFactory,
+);
+
+

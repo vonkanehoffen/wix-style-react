@@ -748,4 +748,11 @@ module.exports = {
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
+  ModalPreviewLayout: {
+    unidriver: true,
+    testkitPath: "../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver",
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
+  },
+
 };
