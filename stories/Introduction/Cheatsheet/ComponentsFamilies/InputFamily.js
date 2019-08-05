@@ -39,7 +39,7 @@ const TextInputExample = () => (
 const TextAreaExample = () => (
   <SingleComponentSideBySide
     name="3.2 Text Area"
-    componentsNames={['<FormField/>', '<Input/>']}
+    componentsNames={['<FormField/>', '<InputArea/>']}
     size={singleComponentSizes.compact}
   >
     <FormField label="Text Area">
