@@ -1,6 +1,7 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import styles from './Input.scss';
 import { ReactBase } from '../../test/utils/unidriver';
+import DATA_ATTR from './DataAttr';
 
 export const testkit = base => {
   const input = base.$('input');
@@ -50,6 +51,8 @@ export const testkit = base => {
     getText: async () => await input.value(),
     getPlaceholder: async () => await input.attr('placeholder'),
     isOfStyle: async style => await base.hasClass(styles[`theme-${style}`]),
+    isOfSize: async size => await base.hasClass(styles[`size-${size}`]),
+    getSize: async () => await base.attr(DATA_ATTR.DATA_SIZE),
     isDisabled: async () => await base.hasClass(styles.disabled),
     isHoveredStyle: async () => await base.hasClass(styles.hasHover),
     isFocusedStyle: async () => await base.hasClass(styles.hasFocus),

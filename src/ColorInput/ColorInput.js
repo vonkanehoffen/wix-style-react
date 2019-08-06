@@ -96,7 +96,7 @@ class ColorInput extends React.Component {
     const { active, value } = this.state;
     const hash = (
       <Input.Affix>
-        <Hash disabled={disabled} size={this._sizeMapping(size)} />
+        <Hash disabled={disabled} size={size} />
       </Input.Affix>
     );
     return active || value ? hash : undefined;
@@ -120,7 +120,7 @@ class ColorInput extends React.Component {
         value={value}
         active={active}
         disabled={disabled}
-        size={this._sizeMapping(size)}
+        size={size}
         placement={popoverPlacement}
         appendTo={popoverAppendTo}
         onClick={this.click}
@@ -136,8 +136,6 @@ class ColorInput extends React.Component {
       />
     );
   };
-
-  _sizeMapping = size => (size === 'medium' ? 'normal' : size);
 
   _onChange = evt => {
     const { onChange } = this.props;
@@ -192,7 +190,7 @@ class ColorInput extends React.Component {
         status={this.props.error ? 'error' : undefined}
         statusMessage={errorMessage}
         placeholder={active ? undefined : placeholder}
-        size={this._sizeMapping(size)}
+        size={size}
         onKeyDown={this._keyDown}
         onChange={this._onChange}
         onFocus={this._onFocus}

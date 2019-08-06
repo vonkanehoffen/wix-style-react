@@ -921,5 +921,16 @@ describe('Input', () => {
         expect(await driver.isCustomInput()).toEqual(false);
       });
     });
+
+    describe(`'size' prop`, () => {
+      it('should be equal to given', async () => {
+        const props = {
+          size: 'large',
+        };
+
+        const { driver } = render(<Input {...props} />);
+        expect(await driver.getSize()).toEqual('' + props.size);
+      });
+    });
   }
 });

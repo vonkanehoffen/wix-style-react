@@ -103,6 +103,7 @@ const inputDriverFactory = ({ element }) => {
     isDisabled: () => element.classList.contains(styles.disabled),
     isOfStyle: style => element.classList.contains(styles[`theme-${style}`]),
     isOfSize: size => element.classList.contains(styles[`size-${size}`]),
+    getSize: () => element.getAttribute('data-size'),
     isFocus: () => document.activeElement === input,
     exists: () => !!(element && element.querySelector('input')),
     startComposing: () => ReactTestUtils.Simulate.compositionStart(input),

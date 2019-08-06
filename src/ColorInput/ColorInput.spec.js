@@ -234,7 +234,13 @@ describe('ColorInput', () => {
     describe(`'size' prop`, () => {
       it(`by default should be medium`, async () => {
         const { inputDriver } = createDriver(renderColorInput());
-        expect((await inputDriver()).isOfSize('normal')).toBe(true);
+        expect(await (await inputDriver()).getSize()).toEqual('medium');
+      });
+      it(`should be equal to given`, async () => {
+        const { inputDriver } = createDriver(
+          renderColorInput({ size: 'small' }),
+        );
+        expect(await (await inputDriver()).getSize()).toEqual('small');
       });
     });
     describe(`'placeholder' prop`, () => {

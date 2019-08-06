@@ -579,7 +579,7 @@ Input.propTypes = {
   rtl: PropTypes.bool,
 
   /** Specifies the size of the input */
-  size: PropTypes.oneOf(['small', 'normal', 'large']),
+  size: PropTypes.oneOf(['small', 'normal', 'medium', 'large']),
 
   /** Component you want to show as the suffix of the input */
   suffix: PropTypes.node,
