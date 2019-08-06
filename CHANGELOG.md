@@ -15,6 +15,10 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+
+### Changed
+- `<Input/> <ColorInput/>` - support `medium` size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
+
 ### Added
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
 
