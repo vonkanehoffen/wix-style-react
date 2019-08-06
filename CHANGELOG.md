@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Changed
-- `<Input/> <ColorInput/>` - support `medium` size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
+- `<Input/> <ColorInput/>` - support "medium" size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
 
 ### Added
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
