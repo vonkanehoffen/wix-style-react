@@ -4,7 +4,10 @@ import { ReactBase } from '../../test/utils/unidriver';
 import DATA_ATTR from './DataAttr';
 
 export const testkit = base => {
-  const input = base.$('input');
+  // single $ throws an exception for more than 1 match, so we use the first matching result with $$
+  // to support cases of multiple inputs, e.g cases where this driver is used inside other drivers with popovers
+  // which includes an input
+  const input = base.$$('input').get(0);
 
   const reactBase = ReactBase(base);
   const reactBaseInput = ReactBase(input);
@@ -115,6 +118,7 @@ export const testkit = base => {
     startComposing: () => reactBaseInput.compositionStart(),
     endComposing: () => reactBaseInput.compositionEnd(),
     clearText: () => driver.enterText(''),
+    clickOutside: () => ReactBase.clickDocument(),
   };
 
   return driver;

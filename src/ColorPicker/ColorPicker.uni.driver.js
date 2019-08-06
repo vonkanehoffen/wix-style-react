@@ -31,3 +31,5 @@ export const colorPickerUniDriverFactory = base => {
       }),
   };
 };
+
+export default colorPickerUniDriverFactory;

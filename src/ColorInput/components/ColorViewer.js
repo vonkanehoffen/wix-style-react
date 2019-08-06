@@ -2,6 +2,8 @@ import React from 'react';
 
 import Popover from '../../Popover';
 import ColorPicker from '../../ColorPicker';
+import DATA_HOOKS from '../DataHooks';
+
 import styles from './ColorViewer.st.css';
 import Color from 'color';
 
@@ -38,7 +40,7 @@ export class ColorViewer extends React.Component {
         {...popoverProps}
         showArrow
         fixed
-        dataHook="colorinput-popover"
+        dataHook={DATA_HOOKS.COLOR_INPUT_POPOVER}
         shown={active}
         placement={placement}
         appendTo={appendTo}
@@ -46,19 +48,22 @@ export class ColorViewer extends React.Component {
       >
         <Popover.Element>
           <div
-            data-hook="colorinput-viewer"
+            data-hook={DATA_HOOKS.COLOR_INPUT_VIEWER}
             onClick={disabled ? undefined : onClick}
             style={{ backgroundColor: value }}
             {...styles('root', { size })}
           >
             {value === '' && (
-              <div data-hook="colorinput-viewer-line" {...styles('line')} />
+              <div
+                data-hook={DATA_HOOKS.COLOR_INPUT_VIEWER_LINE}
+                {...styles('line')}
+              />
             )}
           </div>
         </Popover.Element>
         <Popover.Content>
           <ColorPicker
-            dataHook="colorinput-colorpicker"
+            dataHook={DATA_HOOKS.COLOR_INPUT_COLOR_PICKER}
             showConverter={false}
             showInput
             onCancel={onCancel}

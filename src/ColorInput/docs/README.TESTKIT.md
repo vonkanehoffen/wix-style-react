@@ -1,13 +1,21 @@
 ### Testkit API
 
-| method            | arguments | returned value     | description                                     |
-| ----------------- | --------- | ------------------ | ----------------------------------------------- |
-| exists            | -         | `Promise<boolean>` | returns true if element in the DOM              |
-| element           | -         | `Promise<element>` | returns the component element                   |
-| inputDriver       | -         | `Promise<func>`    | returns Input's component testkit methods        |
-| colorPickerDriver | -         | `Promise<func>`    | returns ColorPicker's component testkit methods |
-| popoverDriver     | -         | `Promise<func>`    | returns Popover's component testkit methods     |
-| clickColorViewer  | -         | `Promise<void>`    | clicks on color viewer box                      |
+
+| method             | arguments | returned value     | description                                 |
+| ------------------ | --------- | ------------------ | ------------------------------------------- |
+| exists             | -         | `Promise<boolean>` | Returns true if element in the DOM          |
+| element            | -         | `Promise<element>` | Returns the component element               |
+| cancel             | -         | `Promise<void>`    | Cancels color selection                     |
+| confirm            | -         | `Promise<void>`    | Confirms color selection                    |
+| clickColorViewer   | -         | `Promise<void>`    | Clicks on color viewer box                  |
+| enterText          | string    | `Promise<void>`    | Enters text to color input                  |
+| getValue           | -         | `Promise<string>`  | Returns the input value                     |
+| hasError           | -         | `Promise<boolean>` | Returns whether there is an error           |
+| getPlaceholder     | -         | `Promise<string>`  | Returns the placeholder of the input        |
+| getSize            | -         | `Promise<string>`  | Return whether the input size               |
+| isDisabled         | -         | `Promise<boolean>` | Returns whether the input is disabled       |
+| colorPickerVisible | -         | `Promise<boolean>` | Returns whether the color picker is visible |
+| click              | -         | `Promise<void>`    | Clicks on input                             |                 
 
 ### ReactTestUtils Example
 
