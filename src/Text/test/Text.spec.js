@@ -85,17 +85,6 @@ describe('Text', () => {
         const { driver } = render(<Text light>Hello</Text>);
         expect(await driver.isLight()).toBe(true);
       });
-
-      [SKINS.error, SKINS.success, SKINS.premium].forEach(skin => {
-        it(`should be dark when skin is ${skin}`, async () => {
-          const { driver } = render(
-            <Text skin={skin} light>
-              Hello
-            </Text>,
-          );
-          expect(await driver.isLight()).toBe(false);
-        });
-      });
     });
 
     describe('tagName', () => {

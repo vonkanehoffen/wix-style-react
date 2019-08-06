@@ -51,7 +51,7 @@ const Text = ({
           size,
           secondary,
           skin,
-          light: light && skin === SKINS.standard,
+          light,
           weight,
         },
         rest,
@@ -83,7 +83,7 @@ Text.propTypes = {
   /** skin color of the text */
   skin: oneOf(Object.keys(SKINS)),
 
-  /** is the text has dark or light skin */
+  /** make the text color lighter */
   light: bool,
 
   /** font weight of the text */
