@@ -80,6 +80,23 @@ describe('InputWithOptions', () => {
       expect(await dropdownLayoutDriver.isShown()).toBeFalsy();
     });
 
+    describe('dropDirectionUp property', () => {
+      it('should show DropdownLayout if text entered and dropdown direction is up', async () => {
+        const driver = createDriver(
+          <ControlledInputWithOptions
+            dropDirectionUp
+            showOptionsIfEmptyInput={false}
+            options={options}
+          />,
+        );
+
+        expect(await driver.dropdownLayoutDriver.isShown()).toBe(false);
+        await driver.inputDriver.focus();
+        await driver.inputDriver.enterText('some value');
+        expect(await driver.dropdownLayoutDriver.isShown()).toBe(true);
+      });
+    });
+
     describe('showOptionsIfEmptyInput property', () => {
       describe('show options if input is empty (default behaviour)', () => {
         it('should show DropdownLayout if input is empty and down arrow pressed', async () => {

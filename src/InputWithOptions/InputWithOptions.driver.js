@@ -2,7 +2,9 @@ import inputDriverFactory from '../Input/Input.driver';
 import dropdownLayoutDriverFactory from '../DropdownLayout/DropdownLayout.driver';
 
 const inputWithOptionsDriverFactory = ({ element }) => {
-  const inputWrapper = element && element.childNodes[0];
+  const inputWrapper =
+    element && element.querySelector(`[data-hook=input-wrapper]`);
+
   const inputDriver =
     element &&
     inputDriverFactory({
@@ -12,7 +14,8 @@ const inputWithOptionsDriverFactory = ({ element }) => {
   const dropdownLayoutDriver =
     element &&
     dropdownLayoutDriverFactory({
-      element: element.childNodes[1].childNodes[0],
+      element: element.querySelector(`[data-hook=dropdown-layout-wrapper]`)
+        .childNodes[0],
     });
 
   const assertOptionsOpen = () => {
