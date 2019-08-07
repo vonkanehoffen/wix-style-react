@@ -22,10 +22,11 @@ Types of changes:
 ### Added
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
 
-### Fixed 
+### Fixed
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
 - `<AddItem/>` - fix text color [#3872](https://github.com/wix/wix-style-react/pull/3872)
 - `<Popover/>` - expose uni driver [#3890](https://github.com/wix/wix-style-react/pull/3890)
+- `<Text/>` - change text color for `light && skin=disabled` [#3861](https://github.com/wix/wix-style-react/pull/3861)
 
 ### Docs
 - `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
