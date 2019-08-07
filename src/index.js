@@ -139,3 +139,4 @@ export { default as Collapse } from './Collapse';
 export { default as SidebarDivider } from './SidebarDivider';
 export { default as SidebarHeader } from './SidebarHeader';
 export { default as ModalPreviewLayout } from './ModalPreviewLayout';
+export { default as StatisticsWidget } from './StatisticsWidget';

@@ -1,0 +1,58 @@
+:import {
+  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
+  -st-named: D60;
+}
+
+:vars {
+  gap: 30px;
+}
+
+.root {
+  display: flex;
+  text-align: center;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: value(gap);
+  white-space: nowrap;
+}
+
+.item:not(:last-child)::after {
+  position: absolute;
+  top: value(gap);
+  right: 0;
+  bottom: value(gap);
+  width: 1px;
+  content: '';
+  background-color: value(D60);
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  display: inline-block;
+  height: 24px;
+}
+
+.percentage {
+  margin: 0 12px;
+}
+
+.percentageInner {
+  height: 12px;
+}
+
+.trendIndicator {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}

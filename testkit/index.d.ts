@@ -119,6 +119,7 @@ declare namespace VanillaTestkit {
   export const sidebarDividerTestkitFactory: any;
   export const sidebarHeaderTestkitFactory: any;
   export const modalPreviewLayoutTestkitFactory: any;
+  export const statisticsWidgetTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const richTextAreaTestkitFactory: any;

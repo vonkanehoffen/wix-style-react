@@ -382,5 +382,8 @@
   },
   "ModalPreviewLayout": {
     "path": "src/ModalPreviewLayout"
+  },
+  "StatisticsWidget": {
+    "path": "src/StatisticsWidget"
   }
 }

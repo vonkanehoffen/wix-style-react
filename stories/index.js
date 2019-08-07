@@ -154,6 +154,7 @@ require('../src/Stepper/docs/index.story');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
+require('../src/StatisticsWidget/test/StatisticsWidgetStories');
 
 // Tests
 require('../src/Typography/test/TestStory');
@@ -197,3 +198,6 @@ require('../src/Deprecated/SideMenu/docs/SideMenu');
 
 // TODO: move to correct position
 require('../src/beta/PopoverMenu/docs/index.story');
+
+// TODO: move to correct position
+require('../src/StatisticsWidget/docs/index.story');

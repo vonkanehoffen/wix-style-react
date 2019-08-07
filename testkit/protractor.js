@@ -563,6 +563,12 @@ export const modalPreviewLayoutTestkitFactory = protractorUniTestkitFactoryCreat
   modalPreviewLayoutDriverFactory,
 );
 
+import statisticsWidgetDriverFactory from '../src/StatisticsWidget/StatisticsWidget.uni.driver';
+
+export const statisticsWidgetTestkitFactory = protractorUniTestkitFactoryCreator(
+  statisticsWidgetDriverFactory,
+);
+
 import sideMenuDrillDriverFactory from '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver';
 
 export const drillViewTestkitFactory = protractorTestkitFactoryCreator(

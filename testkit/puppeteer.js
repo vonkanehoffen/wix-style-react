@@ -443,6 +443,12 @@ export const modalPreviewLayoutTestkitFactory = puppeteerUniTestkitFactoryCreato
   modalPreviewLayoutDriverFactory,
 );
 
+import statisticsWidgetDriverFactory from '../src/StatisticsWidget/StatisticsWidget.uni.driver';
+
+export const statisticsWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  statisticsWidgetDriverFactory,
+);
+
 import { drillViewUniDriverFactory } from '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver';
 
 export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(

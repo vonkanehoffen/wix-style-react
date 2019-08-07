@@ -114,6 +114,7 @@ module.exports = {
     puppeteerTestkitImportName: 'pageHeaderUniDriverFactory',
     puppeteerTestkitPath: '../src/PageHeader/PageHeader.uni.driver'
   },
+
   Popover: {
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
@@ -757,4 +758,8 @@ module.exports = {
     namedPuppeteerTestkitExport: true,
   },
 
+  StatisticsWidget: {
+    unidriver: true,
+    testkitPath: "../src/StatisticsWidget/StatisticsWidget.uni.driver"
+  }
 };

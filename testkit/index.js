@@ -136,6 +136,7 @@ export const sidebarSectionItemTestkitFactory = uniTestkitFactoryCreator(load(re
 export const sidebarDividerTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarDivider/SidebarDivider.uni.driver')));
 export const sidebarHeaderTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarHeader/SidebarHeader.uni.driver')));
 export const modalPreviewLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver')));
+export const statisticsWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/StatisticsWidget/StatisticsWidget.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const richTextAreaTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/RichTextArea/RichTextArea.driver')));
