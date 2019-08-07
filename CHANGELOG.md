@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
-- `<StatisticsWidget/>` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
+- `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
 
 ### Changed
 - `<Input/> <ColorInput/>` - support "medium" size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
