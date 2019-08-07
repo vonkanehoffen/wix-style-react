@@ -437,6 +437,12 @@ export const sidebarHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   sidebarHeaderDriverFactory,
 );
 
+import { modalPreviewLayoutDriverFactory } from '../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver';
+
+export const modalPreviewLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  modalPreviewLayoutDriverFactory,
+);
+
 import { drillViewUniDriverFactory } from '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver';
 
 export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(
@@ -478,11 +484,4 @@ import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.
 export const subheaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
-
-import { modalPreviewLayoutDriverFactory } from '../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver';
-
-export const modalPreviewLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(
-  modalPreviewLayoutDriverFactory,
-);
-
 

@@ -13,9 +13,7 @@ export const BulkSelectionConsumer = props => {
       {context => {
         if (!context) {
           throw new Error(
-            `${props.consumerCompName} cannot be rendered outside the ${
-              props.providerCompName
-            } component`,
+            `${props.consumerCompName} cannot be rendered outside the ${props.providerCompName} component`,
           );
         }
         return props.children(context);

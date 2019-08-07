@@ -99,6 +99,7 @@ export const toggleSwitchTestkitFactory: any;
 export const sidebarSectionItemTestkitFactory: any;
 export const sidebarDividerTestkitFactory: any;
 export const sidebarHeaderTestkitFactory: any;
+export const modalPreviewLayoutTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const richTextAreaTestkitFactory: any;

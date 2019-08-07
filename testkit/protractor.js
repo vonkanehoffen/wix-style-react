@@ -557,7 +557,7 @@ export const sidebarHeaderTestkitFactory = protractorUniTestkitFactoryCreator(
   sidebarHeaderDriverFactory,
 );
 
-import modalPreviewLayoutDriverFactory from '../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver';
+import { modalPreviewLayoutDriverFactory } from '../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver';
 
 export const modalPreviewLayoutTestkitFactory = protractorUniTestkitFactoryCreator(
   modalPreviewLayoutDriverFactory,
