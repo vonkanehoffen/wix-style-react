@@ -113,7 +113,7 @@ class DropdownBase extends React.PureComponent {
 
   static defaultProps = {
     placement: 'bottom',
-    appendTo: 'parent',
+    appendTo: 'window',
     showArrow: false,
   };
 
