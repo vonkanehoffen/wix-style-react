@@ -205,4 +205,41 @@ describe('StatisticsWidget', () => {
       expect(titleLast).toBe('5k');
     });
   });
+
+  describe('Mouse and keyboard actions', () => {
+    let data;
+    const onClick = jest.fn();
+
+    beforeEach(() => {
+      data = {
+        statistics: [
+          {
+            title: 'First title',
+            subtitle: 'First subtitle',
+            percentage: 12,
+            onClick,
+          },
+        ],
+      };
+    });
+
+    afterEach(() => {
+      onClick.mockReset();
+    });
+
+    it('should not call onclick, when prop not passed', async () => {
+      data.statistics[0].onClick = undefined;
+      const { driver } = render(<StatisticsWidget {...data} />);
+      await driver.clickStatistics(0);
+
+      expect(onClick).toBeCalledTimes(0);
+    });
+
+    it('should call onClick', async () => {
+      const { driver } = render(<StatisticsWidget {...data} />);
+      await driver.clickStatistics(0);
+
+      expect(onClick).toBeCalledTimes(1);
+    });
+  });
 });

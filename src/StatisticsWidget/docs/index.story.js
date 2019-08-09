@@ -26,6 +26,7 @@ import InfoIcons from '!raw-loader!./examples/InfoIcons';
 import LongText from '!raw-loader!./examples/LongText';
 import Trends from '!raw-loader!./examples/Trends';
 import InvertedTrends from '!raw-loader!./examples/InvertedTrends';
+import onClick from '!raw-loader!./examples/onClick';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
@@ -141,6 +142,15 @@ export default {
             description:
               'By default, positive numbers are displayed in green, negative - with red. This could be changed with `invertedPercentage` property.',
             source: InvertedTrends,
+          }),
+
+          code({
+            compact: true,
+            autoRender: false,
+            title: 'onClick',
+            description:
+              "It is possible to specify an 'onClick' handler for every statistic. The items with this property are focusable with Tab button. Also, the handler will be called on Space or Enter press.",
+            source: onClick,
           }),
         ],
       }),
