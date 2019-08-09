@@ -30,6 +30,7 @@ Types of changes:
 - `<AddItem/>` - fix text color [#3872](https://github.com/wix/wix-style-react/pull/3872)
 - `<Popover/>` - expose uni driver [#3890](https://github.com/wix/wix-style-react/pull/3890)
 - `<Text/>` - change text color for `light && skin=disabled` [#3861](https://github.com/wix/wix-style-react/pull/3861)
+- `<FloatingNotification/>` - support node based labels for buttons [#3916](https://github.com/wix/wix-style-react/pull/3916)
 
 ### Docs
 - `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
