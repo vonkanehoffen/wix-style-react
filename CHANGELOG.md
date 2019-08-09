@@ -16,14 +16,12 @@ Types of changes:
 
 ## Next
 
-### Added
-- `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
-
 ### Changed
 - `<Input/> <ColorInput/>` - support "medium" size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
 
 ### Added
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
+- `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
 
 ### Fixed
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
@@ -34,7 +32,6 @@ Types of changes:
 
 ### Docs
 - `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
-
 
 ## 6.46.0 - 2019-08-02
 
