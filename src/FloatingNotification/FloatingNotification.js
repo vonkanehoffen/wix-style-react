@@ -16,7 +16,7 @@ import {
 import styles from './FloatingNotification.scss';
 
 const buttonPropTypes = PropTypes.shape({
-  label: PropTypes.string,
+  label: PropTypes.node,
   as: PropTypes.node,
   href: PropTypes.string,
   onClick: PropTypes.func,
