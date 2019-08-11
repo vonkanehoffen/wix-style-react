@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SingleComponentStacked } from '../../../sharedComponents';
+import { SingleComponentStacked, Preview } from '../../../sharedComponents';
 
 import Table from 'wix-style-react/Table';
 import TableActionCell from 'wix-style-react/TableActionCell';
@@ -117,9 +117,9 @@ const TableExamples = () => (
     name="2.3 Table Layout"
     componentsNames={['<Table/>']}
   >
-    <SingleComponentStacked.Preview>
+    <Preview>
       <TablePageExample />
-    </SingleComponentStacked.Preview>
+    </Preview>
   </SingleComponentStacked>
 );
 

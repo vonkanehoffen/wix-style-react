@@ -2,10 +2,10 @@ import React from 'react';
 import { number, node, string, array } from 'prop-types';
 import { Row, Col } from 'wix-style-react/Grid';
 
-import ComponentNaming from '../ComponentNaming';
+import ComponentNaming from './ComponentNaming';
 import Preview from './Preview';
 
-import singleComponentSizes from '../constants';
+import singleComponentSizes from './constants';
 
 const SingleComponentStacked = ({
   name,

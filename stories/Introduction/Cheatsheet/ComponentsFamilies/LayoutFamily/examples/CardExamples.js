@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleComponentStacked from '../../../sharedComponents/SingleComponentStacked';
+import { SingleComponentStacked, Preview } from '../../../sharedComponents';
 import Card from 'wix-style-react/Card';
 
 import Box from 'wix-style-react/Box';
@@ -18,7 +18,7 @@ const CardExamples = () => (
       '<Card.Divider/>',
     ]}
   >
-    <SingleComponentStacked.Preview>
+    <Preview stretch>
       <Card>
         <Card.Header
           title="Card title"
@@ -37,7 +37,7 @@ const CardExamples = () => (
           <Box minHeight="200px" />
         </Card.Content>
       </Card>
-    </SingleComponentStacked.Preview>
+    </Preview>
   </SingleComponentStacked>
 );
 

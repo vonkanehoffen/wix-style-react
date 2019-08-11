@@ -4,6 +4,7 @@ import {
   SingleComponentStacked,
   NotDefined,
   NotDeveloped,
+  Preview,
   singleComponentSizes,
 } from '../sharedComponents';
 
@@ -33,7 +34,7 @@ const EmptyStateExample = () => (
     name="12.2 Empty State"
     componentsNames={['<EmptyState/>']}
   >
-    <SingleComponentStacked.Preview wrapWithCard>
+    <Preview wrapWithCard stretch>
       <EmptyState
         image={
           <Box
@@ -46,7 +47,7 @@ const EmptyStateExample = () => (
         subtitle="Create your product item in an easy & fast way to display it on your site"
         title="You don't have any items yet"
       />
-    </SingleComponentStacked.Preview>
+    </Preview>
   </SingleComponentStacked>
 );
 
@@ -91,7 +92,7 @@ const StatsWidgetExamples = () => {
       name="12.3 Stats Widget"
       componentsNames={['<StatsWidget/>']}
     >
-      <SingleComponentStacked.Preview wrapWithCard>
+      <Preview wrapWithCard stretch>
         <StatsWidget
           title="Let's see what's going on with your store"
           statistics={statistics}
@@ -102,7 +103,7 @@ const StatsWidgetExamples = () => {
             onSelect={onFilterChange}
           />
         </StatsWidget>
-      </SingleComponentStacked.Preview>
+      </Preview>
     </SingleComponentStacked>
   );
 };
@@ -123,9 +124,9 @@ const CarouselExample = () => {
       componentsNames={['<Carousel/>']}
       size={singleComponentSizes.compact}
     >
-      <SingleComponentStacked.Preview>
+      <Preview stretch>
         <Carousel>{carouselItems}</Carousel>
-      </SingleComponentStacked.Preview>
+      </Preview>
     </SingleComponentStacked>
   );
 };
@@ -163,9 +164,9 @@ const AccordionExample = () => {
       componentsNames={['<Accordion/>']}
       size={singleComponentSizes.compact}
     >
-      <SingleComponentStacked.Preview>
+      <Preview>
         <Accordion multiple items={accordionItems} />
-      </SingleComponentStacked.Preview>
+      </Preview>
     </SingleComponentStacked>
   );
 };
@@ -180,7 +181,7 @@ const CardGalleryItemExample = () => {
       componentsNames={['<CardGalleryItem/>']}
       size={singleComponentSizes.tiny}
     >
-      <SingleComponentStacked.Preview>
+      <Preview stretch>
         <CardGalleryItem
           title="Card title"
           badge={
@@ -203,7 +204,7 @@ const CardGalleryItemExample = () => {
           }}
           backgroundImageUrl={backgroundImageUrl}
         />
-      </SingleComponentStacked.Preview>
+      </Preview>
     </SingleComponentStacked>
   );
 };
