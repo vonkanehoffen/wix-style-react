@@ -22,6 +22,7 @@ Types of changes:
 ### Added
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
 - `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
+- `<InputWithOptions/>` - add `native` prop [#3900](https://github.com/wix/wix-style-react/pull/3900)
 
 ### Fixed
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
