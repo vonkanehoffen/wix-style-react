@@ -14,15 +14,15 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
-
-### Changed
-- `<Input/> <ColorInput/>` - support "medium" size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
+## 6.47.0 - 2019-08-11
 
 ### Added
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
 - `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
 - `<InputWithOptions/>` - add `native` prop [#3900](https://github.com/wix/wix-style-react/pull/3900)
+
+### Changed
+- `<Input/> <ColorInput/>` - support "medium" size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
 
 ### Fixed
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
