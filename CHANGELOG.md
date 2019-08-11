@@ -30,6 +30,7 @@ Types of changes:
 - `<Popover/>` - expose uni driver [#3890](https://github.com/wix/wix-style-react/pull/3890)
 - `<Text/>` - change text color for `light && skin=disabled` [#3861](https://github.com/wix/wix-style-react/pull/3861)
 - `<FloatingNotification/>` - support node based labels for buttons [#3916](https://github.com/wix/wix-style-react/pull/3916)
+- `<ModalPreviewLayout/>` - fix scrollbar to not hide the header [#3898](https://github.com/wix/wix-style-react/pull/3898)
 
 ### Docs
 - `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
