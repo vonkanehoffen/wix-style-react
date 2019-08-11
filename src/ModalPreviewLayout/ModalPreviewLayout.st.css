@@ -11,11 +11,8 @@
 }
 
 .overlay {
-  align-self: start;
   width: 100vw;
   height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
   justify-content: center;
 }
 
@@ -54,7 +51,18 @@
 .innerOverlay {
   display: flex;
   justify-content: center;
-  top: calc(value(verticalMargins) + value(headerHeight));
+  top: value(headerHeight);
+  height: calc(100vh - value(headerHeight));
   position: relative;
-  margin-bottom: value(verticalMargins);
+  overflow-y: auto;
+}
+
+.content {
+  margin-top: value(verticalMargins);
+}
+
+.content::after {
+  height: value(verticalMargins);
+  content: ' ';
+  display: block;
 }

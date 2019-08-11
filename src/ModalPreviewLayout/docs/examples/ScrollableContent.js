@@ -57,7 +57,7 @@ export class ScrollableContentPreviewModal extends Component {
             }
           >
             <Box>
-              <img src={ascendInvoice} />
+              <img height="1167" width="870" src={ascendInvoice} />
             </Box>
           </ModalPreviewLayout>
         </Modal>

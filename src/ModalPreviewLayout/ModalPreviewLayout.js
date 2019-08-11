@@ -71,7 +71,9 @@ class ModalPreviewLayout extends React.PureComponent {
           data-hook={INNER_OVERLAY_ID}
           className={styles.innerOverlay}
         >
-          <div data-hook="preview-modal-content">{children}</div>
+          <div data-hook="preview-modal-content" className={styles.content}>
+            {children}
+          </div>
         </div>
       </div>
     );
