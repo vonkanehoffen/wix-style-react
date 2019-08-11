@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Docs
+- `Cheatsheet`- Adding examples to `PickerFamily`[#3884](https://github.com/wix/wix-style-react/pull/3884)
+
+
 ## 6.47.1 - 2019-08-11
 
 No Changes (Patch version, only to re-publish Storybook, after failed publish)
