@@ -661,4 +661,35 @@ describe('InputWithOptions', () => {
       });
     });
   }
+
+  describe('[async] only', () => {
+    const render = createRendererWithUniDriver(
+      inputWithOptionsUniDriverFactory,
+    );
+    const createDriver = jsx => render(jsx).driver;
+
+    describe('native', () => {
+      it('should invoke onSelect when an option is clicked', async () => {
+        const sampleOptions = [
+          { id: 50, value: 'Option 1' },
+          { id: 30, value: 'Option 2' },
+          { id: 20, value: 'Option 3' },
+        ];
+        const selectedId = 30;
+        const onSelect = jest.fn();
+        const { driver } = createDriver(
+          <InputWithOptions
+            options={sampleOptions}
+            onSelect={onSelect}
+            native
+          />,
+        );
+
+        await driver.selectOptionById(selectedId);
+
+        expect(onSelect).toHaveBeenCalledWith(sampleOptions[1]);
+        expect(onSelect).toHaveBeenCalledTimes(1);
+      });
+    });
+  });
 });

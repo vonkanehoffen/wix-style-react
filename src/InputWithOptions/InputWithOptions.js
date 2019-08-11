@@ -8,6 +8,7 @@ import DropdownLayout, {
 } from '../DropdownLayout/DropdownLayout';
 import Highlighter from '../Highlighter/Highlighter';
 import { chainEventHandlers } from '../utils/ChainEventHandlers';
+import styles from './InputWithOptions.scss';
 
 export const DEFAULT_VALUE_PARSER = option => option.value;
 
@@ -104,6 +105,7 @@ class InputWithOptions extends WixComponent {
       onCompositionChange: this.onCompositionChange,
       width: inputElement.props.width,
       textOverflow: this.props.textOverflow || inputElement.props.textOverflow,
+      tabIndex: this.props.native ? -1 : 0,
     });
   }
 
@@ -166,9 +168,42 @@ class InputWithOptions extends WixComponent {
     );
   }
 
-  render() {
-    const { dropDirectionUp } = this.props;
+  _renderNativeSelect() {
+    const { options, onSelect } = this.props;
+
     return (
+      <div className={styles.nativeSelectWrapper}>
+        {this.renderInput()}
+        <select
+          data-hook="native-select"
+          className={styles.nativeSelect}
+          onChange={event => {
+            this._onChange(event);
+
+            // In this case we don't use DropdownLayout so we need to invoke `onSelect` manually
+            onSelect(options[event.target.selectedIndex]);
+          }}
+        >
+          {options.map((option, index) => (
+            <option
+              data-hook={`native-option-${option.id}`}
+              data-index={index}
+              key={option.id}
+              value={option.value}
+              className={styles.nativeOption}
+            >
+              {option.value}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  }
+
+  render() {
+    const { dropDirectionUp, native } = this.props;
+
+    return !native ? (
       <div>
         {dropDirectionUp ? this._renderDropdownLayout() : null}
         <div data-input-parent className={this.inputClasses()}>
@@ -176,6 +211,8 @@ class InputWithOptions extends WixComponent {
         </div>
         {!dropDirectionUp ? this._renderDropdownLayout() : null}
       </div>
+    ) : (
+      this._renderNativeSelect()
     );
   }
 
@@ -278,7 +315,7 @@ class InputWithOptions extends WixComponent {
     }
 
     // If the input value is not empty, should show the options
-    if (event.target.value.trim()) {
+    if (event.target.value.trim() && !this.props.native) {
       this.showOptions();
     }
   }
@@ -381,6 +418,7 @@ InputWithOptions.defaultProps = {
   showOptionsIfEmptyInput: true,
   magnifyingGlass: false,
   autocomplete: 'off',
+  native: false,
 };
 
 InputWithOptions.propTypes = {
@@ -397,6 +435,8 @@ InputWithOptions.propTypes = {
   /** Controls whether to show options if input is empty */
   showOptionsIfEmptyInput: PropTypes.bool,
   highlight: PropTypes.bool,
+  /** Indicates whether to render using the native select element */
+  native: PropTypes.bool,
 };
 
 InputWithOptions.displayName = 'InputWithOptions';

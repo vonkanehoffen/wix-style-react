@@ -2,17 +2,16 @@
 import React from 'react';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
-import ExampleStandard from './ExampleStandard';
-import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
-
-import ExampleControlled from './ExampleControlled';
-import ExampleControlledRaw from '!raw-loader!./ExampleControlled';
-
-import ExampleWithCustomValue from './ExampleWithCustomValue';
-import ExampleWithCustomValueRaw from '!raw-loader!./ExampleWithCustomValue';
-
 import Dropdown from '..';
 import { storySettings } from './storySettings';
+import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
+import ExampleStandard from './ExampleStandard';
+import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
+import ExampleControlled from './ExampleControlled';
+import ExampleControlledRaw from '!raw-loader!./ExampleControlled';
+import ExampleWithCustomValue from './ExampleWithCustomValue';
+import ExampleWithCustomValueRaw from '!raw-loader!./ExampleWithCustomValue';
+import ExampleNativeRaw from '!raw-loader!./ExampleNative';
 
 const options = [
   { id: 0, value: 'Option 1' },
@@ -87,6 +86,8 @@ export default {
       >
         <ExampleWithCustomValue />
       </CodeExample>
+
+      <LiveCodeExample title="Native" compact initialCode={ExampleNativeRaw} />
     </div>
   ),
 };

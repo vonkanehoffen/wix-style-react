@@ -49,6 +49,10 @@ export function ReactBase(base) {
       return document.activeElement === (await htmlElement());
     },
     paste: async () => Simulate.paste(await htmlElement()),
+    select: async selectedIndex =>
+      Simulate.change(await htmlElement(), {
+        target: { selectedIndex, value: '' },
+      }),
   };
 
   const unidriverRejected = {
