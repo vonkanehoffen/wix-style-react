@@ -14,17 +14,24 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 6.47.1 - 2019-08-11
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
 ## 6.47.0 - 2019-08-11
 
 ### Added
+
 - `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
 - `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
 - `<InputWithOptions/>` - add `native` prop [#3900](https://github.com/wix/wix-style-react/pull/3900)
 
 ### Changed
-- `<Input/> <ColorInput/>` - support "medium" size  [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
+
+- `<Input/> <ColorInput/>` - support "medium" size [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
 
 ### Fixed
+
 - `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
 - `<AddItem/>` - fix text color [#3872](https://github.com/wix/wix-style-react/pull/3872)
 - `<Popover/>` - expose uni driver [#3890](https://github.com/wix/wix-style-react/pull/3890)
@@ -33,28 +40,35 @@ Types of changes:
 - `<ModalPreviewLayout/>` - fix scrollbar to not hide the header [#3898](https://github.com/wix/wix-style-react/pull/3898)
 
 ### Docs
+
 - `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
 
 ## 6.46.0 - 2019-08-02
 
 ### Changed
+
 - `<Notification/>` - allow usage without `<Notification.CloseButton/>` [#3865](https://github.com/wix/wix-style-react/pull/3865)
 
 ### Fixed
+
 - `<Tooltip/>` - fix page jump issues on hover [#3851](https://github.com/wix/wix-style-react/pull/3851)
 - FIX(protractor typings & testkit exports) - update protractor testkit export definition [#3875](https://github.com/wix/wix-style-react/pull/3875)
 
 ## 6.45.1 - 2019-08-01
+
 ### Fixed
+
 - `testkit/protractor` - fix .d.ts file to not have duplicate entries [#3867](https://github.com/wix/wix-style-react/pull/3867)
 - remove `jscodeshift` dev to avoid deprecation warning - [#3868](https://github.com/wix/wix-style-react/pull/3868)
 
 ## 6.45.0 - 2019-08-01
 
 ### Fixed
+
 - `<Card.Subheader/>` -fix top/bottom padding to match designs [#3860](https://github.com/wix/wix-style-react/pull/3860)
 
 ### Changed
+
 - `<ColorInput/>` - add popoverProps prop [#3858](https://github.com/wix/wix-style-react/pull/3858)
 
 ## 6.44.2 - 2019-07-31
@@ -68,22 +82,27 @@ No Changes (Patch version, only to re-publish Storybook, after failed publish)
 ## 6.44.0 - 2019-07-30
 
 ### Added
+
 - `<Sidebar/>` - add `isHidden` prop [#3640](https://github.com/wix/wix-style-react/pull/3640)
 
 ### Changed
+
 - `<DatePicker/>` - support string width [#3803](https://github.com/wix/wix-style-react/pull/3803)
 - `<Tooltip/>` - change default appendTo value to `window` and some extra internal changes [#3848](https://github.com/wix/wix-style-react/pull/3848)
 - `<Input/>` - error indicator. Migrate to new tooltip [#3854](https://github.com/wix/wix-style-react/pull/3854)
 
 ### Fixed
+
 - `Disabled State Styling` - styling alignments for the following components: `<ToggleButton/>, <AddItem/>, <Text/>, <InputArea/>, <InputWithOptions/>, <SegmentedToggle/>, <RadioButton/>, <Thumbnail/>` [#3776](https://github.com/wix/wix-style-react/pull/3776)
 - `<SectionHelper/>, <FloatingNotification/>, <Tag/>` - change/add themes colors [#3786](https://github.com/wix/wix-style-react/pull/3786)
 
 ### Docs
+
 - `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
 - `<Sidebar/>` - remove WIP category from the sidebar visual components [#3842](https://github.com/wix/wix-style-react/pull/3842)
 
 ### Deprecated
+
 - `<SideMenu/>` - deprecated component, you should use `<Sidebar/>` instead [#3847](https://github.com/wix/wix-style-react/pull/3847)
 
 ## 6.43.1 - 2019-07-24
@@ -93,6 +112,7 @@ No Changes (Patch version, only to re-publish Storybook, after failed publish)
 ## 6.43.0 - 2019-07-24
 
 ### Docs
+
 - `Cheatsheet`- Adding examples to `TooltipFamily`[#3804](https://github.com/wix/wix-style-react/pull/3804)
 - `Cheatsheet`- Adding examples to `NavigationFamily`[#3802](https://github.com/wix/wix-style-react/pull/3802)
 
@@ -104,7 +124,7 @@ No Changes (Patch version, only to re-publish Storybook, after failed publish)
 
 ### Fixed
 
-- `<Text/>` - add default zIndex for ellipsis [#3828] (https://github.com/wix/wix-style-react/pull/3828)
+- `<Text/>` - add default zIndex for ellipsis [#3828](https://github.com/wix/wix-style-react/pull/3828)
 
 ## 6.42.0 - 2019-07-24
 
@@ -118,9 +138,8 @@ No Changes (Patch version, only to re-publish Storybook, after failed publish)
 - `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
 - `<CardGalleryItem/>` - examples refactored to support new PopoverMenu [#3744](https://github.com/wix/wix-style-react/pull/3744)
 - `Cheatsheet`- Adding examples to `ContentWidgetsFamily`[#3793](https://github.com/wix/wix-style-react/pull/3793)
-- `<CardGalleryitem/>` -  popovermenu example should use render prop toggle instead of open [#3809](https://github.com/wix/wix-style-react/pull/3809)
+- `<CardGalleryitem/>` - popovermenu example should use render prop toggle instead of open [#3809](https://github.com/wix/wix-style-react/pull/3809)
 - `Cheatsheet`- Adding examples to `OtherFamily`[#3797](https://github.com/wix/wix-style-react/pull/3797)
-
 
 ### Fixed
 
