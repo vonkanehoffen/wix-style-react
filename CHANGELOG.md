@@ -22,6 +22,9 @@ Types of changes:
 ### Docs
 - `Cheatsheet`- Adding examples to `PickerFamily`[#3884](https://github.com/wix/wix-style-react/pull/3884)
 
+### Added
+- `<CardGalleryItem/>` - support background image as node element [#3913](https://github.com/wix/wix-style-react/pull/3913)
+
 
 ## 6.47.1 - 2019-08-11
 
