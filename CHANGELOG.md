@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Fixed
-`<RichTextInputArea>` - Keep newlines of empty html elements in initial value [#3922](https://github.com/wix/wix-style-react/pull/3922)
+- `<RichTextInputArea>` - Keep newlines of empty html elements in initial value [#3922](https://github.com/wix/wix-style-react/pull/3922)
 
 ### Docs
 - `Cheatsheet`- Adding examples to `PickerFamily`[#3884](https://github.com/wix/wix-style-react/pull/3884)
