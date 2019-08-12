@@ -60,6 +60,41 @@ describe('CardGalleryItem', () => {
     expect((await driver.getBadge()).textContent).toEqual('sale');
   });
 
+  it('should render backgroundImageNode', async () => {
+    const backgroundImageNode = <div>My Component!</div>;
+    const driver = createDriver(
+      <CardGalleryItem backgroundImageNode={backgroundImageNode} />,
+    );
+
+    expect(await driver.getBackgroundImageNode()).toBeTruthy();
+  });
+
+  it('should set backgroundImageUrl', async () => {
+    const backgroundImageNode = <div>My Component!</div>;
+    const driver = createDriver(
+      <CardGalleryItem
+        backgroundImageNode={backgroundImageNode}
+        backgroundImageUrl="http://test.com/img.png"
+      />,
+    );
+
+    expect(await driver.getBackgroundImageUrl()).toBe(
+      'http://test.com/img.png',
+    );
+  });
+
+  it('should set only backgroundImageUrl and not both backgroundImageUrl & backgroundImageNode', async () => {
+    const backgroundImageNode = <div>My Component!</div>;
+    const driver = createDriver(
+      <CardGalleryItem
+        backgroundImageNode={backgroundImageNode}
+        backgroundImageUrl="http://test.com/img.png"
+      />,
+    );
+
+    expect(await driver.getBackgroundImageNode()).toBeNull();
+  });
+
   it('should not render menu by default', async () => {
     const driver = createDriver(<CardGalleryItem />);
 

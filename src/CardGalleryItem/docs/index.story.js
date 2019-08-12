@@ -127,6 +127,12 @@ export default {
               text: 'Component can display a badge.',
               source: examples.badge,
             },
+            {
+              title: 'Background Image Node',
+              text:
+                'Component can display with background image node component instead background image URL.',
+              source: examples.backgroundImageNode,
+            },
           ].map(example),
         ],
       }),

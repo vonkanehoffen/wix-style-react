@@ -14,7 +14,8 @@ const getSecondaryAction = base =>
   base.$(`[data-hook=${DataHooks.secondaryAction}]`);
 const getHoverComponent = base =>
   base.$(`[data-hook=${DataHooks.hoverComponent}]`);
-
+const getBackgroundImageNode = base =>
+  base.$(`[data-hook=${DataHooks.backgroundImageNode}]`);
 const cardGalleryItemDriverFactory = base => {
   return {
     ...baseUniDriverFactory(base),
@@ -49,6 +50,10 @@ const cardGalleryItemDriverFactory = base => {
         ? getSettingsMenu(base)._prop('firstChild')
         : null;
     },
+    getBackgroundImageNode: async () =>
+      (await getBackgroundImageNode(base).exists())
+        ? getBackgroundImageNode(base)._prop('firstChild')
+        : null,
   };
 };
 
