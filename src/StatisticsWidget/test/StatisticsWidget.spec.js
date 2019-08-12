@@ -208,38 +208,102 @@ describe('StatisticsWidget', () => {
 
   describe('Mouse and keyboard actions', () => {
     let data;
-    const onClick = jest.fn();
+    const onClick1 = jest.fn();
+    const onClick2 = jest.fn();
+    const onClick3 = jest.fn();
 
     beforeEach(() => {
       data = {
         statistics: [
           {
-            title: 'First title',
-            subtitle: 'First subtitle',
+            title: '1st title',
+            subtitle: '1st subtitle',
             percentage: 12,
-            onClick,
+            onClick: onClick1,
+          },
+          {
+            title: '2nd title',
+            subtitle: '2nd subtitle',
+            percentage: 12,
+          },
+          {
+            title: '3rd title',
+            subtitle: '3rd subtitle',
+            percentage: 12,
+            onClick: onClick2,
+          },
+          {
+            title: '4th title',
+            subtitle: '4th subtitle',
+            percentage: 12,
+            onClick: onClick3,
           },
         ],
       };
     });
 
     afterEach(() => {
-      onClick.mockReset();
+      onClick1.mockReset();
+      onClick2.mockReset();
+      onClick3.mockReset();
+    });
+
+    it('should not receive focus, when prop not passed', async () => {
+      const { driver } = render(<StatisticsWidget {...data} />);
+
+      expect(await driver.hasTabIndex(1)).toBe(false);
+    });
+
+    it('should receive focus, when prop is passed', async () => {
+      const { driver } = render(<StatisticsWidget {...data} />);
+
+      expect(await driver.hasTabIndex(0)).toBe(true);
+      expect(await driver.hasTabIndex(2)).toBe(true);
+      expect(await driver.hasTabIndex(3)).toBe(true);
     });
 
     it('should not call onclick, when prop not passed', async () => {
-      data.statistics[0].onClick = undefined;
       const { driver } = render(<StatisticsWidget {...data} />);
-      await driver.clickStatistics(0);
+      await driver.clickStatistics(1);
 
-      expect(onClick).toBeCalledTimes(0);
+      expect(onClick1).toBeCalledTimes(0);
     });
 
     it('should call onClick', async () => {
       const { driver } = render(<StatisticsWidget {...data} />);
       await driver.clickStatistics(0);
 
-      expect(onClick).toBeCalledTimes(1);
+      expect(onClick1).toBeCalledTimes(1);
+    });
+
+    it('should call a callback on Space key press', async () => {
+      const { driver } = render(<StatisticsWidget {...data} />);
+      await driver.pressSpaceKey(0);
+      await driver.pressSpaceKey(2);
+      await driver.pressSpaceKey(3);
+
+      expect(onClick1).toBeCalledTimes(1);
+      expect(onClick2).toBeCalledTimes(1);
+      expect(onClick3).toBeCalledTimes(1);
+    });
+
+    it('should call a callback on Enter key press', async () => {
+      const { driver } = render(<StatisticsWidget {...data} />);
+      await driver.pressEnterKey(0);
+      await driver.pressEnterKey(2);
+      await driver.pressEnterKey(3);
+
+      expect(onClick1).toBeCalledTimes(1);
+      expect(onClick2).toBeCalledTimes(1);
+      expect(onClick3).toBeCalledTimes(1);
+    });
+
+    it('should not call a callback on an item without onClick', async () => {
+      const { driver } = render(<StatisticsWidget {...data} />);
+      await driver.pressSpaceKey(1);
+      await driver.pressEnterKey(1);
+
+      expect(onClick1).toBeCalledTimes(0);
     });
   });
 });

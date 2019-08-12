@@ -5,6 +5,9 @@ import DataHooks from '../dataHooks';
 export const statisticsWidgetPrivateDriverFactory = (base, body) => {
   const getHookSelector = hook => `[data-hook="${hook}"]`;
 
+  const getStatsItem = async index =>
+    base.$$(getHookSelector(DataHooks.stat)).get(index);
+
   return {
     ...publicDriverFactory(base, body),
 
@@ -14,5 +17,22 @@ export const statisticsWidgetPrivateDriverFactory = (base, body) => {
         await base.$$(getHookSelector(DataHooks.stat)).get(index),
         DataHooks.info,
       ).exists(),
+
+    pressEnterKey: async index => {
+      const stat = await getStatsItem(index);
+      await stat.pressKey('Enter');
+    },
+
+    pressSpaceKey: async index => {
+      const stat = await getStatsItem(index);
+      await stat.pressKey(' ');
+    },
+
+    hasTabIndex: async index => {
+      const stat = await getStatsItem(index);
+      const tabIndex = await stat._prop('tabIndex');
+
+      return tabIndex === 0;
+    },
   };
 };
