@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 6.48.1 - 2019-08-12
+
+### Fixed
+- `<RichTextInputArea>` - `Revert` Keep newlines of empty html elements in initial value [#3930](https://github.com/wix/wix-style-react/pull/3930)
+
 ## 6.48.0 - 2019-08-12
 
 ### Fixed
