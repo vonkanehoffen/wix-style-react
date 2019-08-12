@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EditorState, Editor, CompositeDecorator } from 'draft-js';
-import { convertFromHTML } from 'draft-convert';
+import {
+  EditorState,
+  Editor,
+  ContentState,
+  convertFromHTML,
+  CompositeDecorator,
+} from 'draft-js';
 import mapValues from 'lodash/mapValues';
 import classNames from 'classnames';
 
@@ -178,12 +183,16 @@ class RichTextInputArea extends React.PureComponent {
   };
 
   _updateContentByValue = value => {
-    const content = convertFromHTML(value);
-    const updatedEditorState = EditorState.push(
-      this.state.editorState,
-      content,
-    );
-    this.setState({ editorState: updatedEditorState });
+    const blocksFromHtml = convertFromHTML(value);
+
+    if (blocksFromHtml.contentBlocks) {
+      const content = ContentState.createFromBlockArray(blocksFromHtml);
+      const updatedEditorState = EditorState.push(
+        this.state.editorState,
+        content,
+      );
+      this.setState({ editorState: updatedEditorState });
+    }
   };
 }
 
