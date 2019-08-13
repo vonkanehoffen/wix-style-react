@@ -17,7 +17,6 @@ class StatisticsItem extends React.PureComponent {
   static displayName = 'StatisticsItem';
 
   _getFocusableProps = () => {
-    // add focusable hooks only when item is clickable
     const { onClick, focusableOnFocus, focusableOnBlur } = this.props;
 
     return onClick
@@ -30,14 +29,9 @@ class StatisticsItem extends React.PureComponent {
   };
 
   _getSpaceOrEnterHandler = handler => event => {
-    if (event.defaultPrevented) {
-      return;
-    }
-
-    const { key, keyCode } = event;
-    const pressed = key || keyCode;
-    const isEnter = pressed === 'Enter' || pressed === 13;
-    const isSpace = pressed === ' ' || pressed === 32;
+    const { key } = event;
+    const isEnter = key === 'Enter';
+    const isSpace = key === ' ';
 
     if (isEnter || isSpace) {
       handler(event);
