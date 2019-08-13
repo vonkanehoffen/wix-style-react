@@ -28,7 +28,14 @@ import Trends from '!raw-loader!./examples/Trends';
 import InvertedTrends from '!raw-loader!./examples/InvertedTrends';
 import onClick from '!raw-loader!./examples/onClick';
 
-const code = config => baseCode({ components: allComponents, ...config });
+import styles from './index.story.scss';
+
+const code = config =>
+  baseCode({
+    components: allComponents,
+    ...config,
+    previewProps: { className: styles.preview },
+  });
 
 export default {
   category: storySettings.category,
