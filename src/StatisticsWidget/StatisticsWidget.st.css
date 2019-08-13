@@ -39,12 +39,13 @@
 }
 
 .info {
+  position: absolute;
   display: inline-block;
   height: 24px;
 }
 
 .percentage {
-  margin: 0 12px;
+  margin-top: auto;
 }
 
 .percentageInner {

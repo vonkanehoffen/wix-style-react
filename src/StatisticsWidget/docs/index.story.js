@@ -19,6 +19,14 @@ import allComponents from '../../../stories/utils/allComponents';
 
 import StatisticsWidget from '..';
 
+import OneStatistic from '!raw-loader!./examples/OneStatistic';
+import OnlyTitles from '!raw-loader!./examples/OnlyTitles';
+import Subtitles from '!raw-loader!./examples/Subtitles';
+import InfoIcons from '!raw-loader!./examples/InfoIcons';
+import LongText from '!raw-loader!./examples/LongText';
+import Trends from '!raw-loader!./examples/Trends';
+import InvertedTrends from '!raw-loader!./examples/InvertedTrends';
+
 const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
@@ -28,21 +36,11 @@ export default {
   component: StatisticsWidget,
   componentPath: '..',
 
-  componentProps: {
-    buttonText: 'Hello World!',
-  },
-
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
-  },
-
   sections: [
     header({
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/StatisticsWidget/',
-      component: <StatisticsWidget buttonText="Click me!" />,
     }),
 
     tabs([
@@ -53,7 +51,7 @@ export default {
             description({
               title: 'Description',
               text:
-                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+                'StatisticsWidget displays various statistics with a short explanation. Can display up to 5 items with value, subtitle, and change in percents.',
             }),
           ]),
 
@@ -69,36 +67,80 @@ export default {
 
           columns([
             description({
-              title: 'Simple Usage',
-              text: 'A simple example with compact preview',
+              title: 'One statistic',
             }),
 
             code({
               compact: true,
-              source: `<StatisticsWidget statistics={[
-                  {
-                    title: "$12 000",
-                    subtitle: "Income",
-                    percentage: 800,
-                  },
-                   {
-                    title: "312",
-                    subtitle: "Bookings",
-                    percentage: 92,
-                  },
-                   {
-                    title: "2 120 000",
-                    subtitle: "Sold in one week",
-                    percentage: 800,
-                  },
-                ]}/>`,
+              autoRender: false,
+              source: OneStatistic,
             }),
           ]),
 
           code({
-            title: 'Full Interactive Preview',
-            description: 'A non compact version of same code example as above',
-            source: '<StatisticsWidget buttonText="Hello World!"/>',
+            compact: true,
+            autoRender: false,
+            title: 'Only titles',
+            description:
+              'The title is the only required property in statistics.',
+            source: OnlyTitles,
+          }),
+
+          code({
+            compact: true,
+            autoRender: false,
+            title: 'Subtitles',
+            description:
+              'Should be short, contains an explanation of the current stat.',
+            source: Subtitles,
+          }),
+
+          columns([
+            description({
+              title: 'Info icon',
+              description:
+                "Since subtitle is small by design, there is a possibility to clarify the meaning of each statistic by specifying 'subtitleContentInfo' property.  It this case widget will render an info icon with a text inside a tooltip.",
+            }),
+            code({
+              compact: true,
+              autoRender: false,
+              source: InfoIcons,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Long text',
+              description:
+                'When there is not enough space, part of the title or description will be hidden with an ellipsis. Hover it to see full text.',
+            }),
+            code({
+              compact: true,
+              autoRender: false,
+              source: LongText,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Trends',
+              description:
+                'Shows a change since the last period. Positive change displays with an arrow up, negative - with an arrow down.',
+            }),
+            code({
+              compact: true,
+              autoRender: false,
+              source: Trends,
+            }),
+          ]),
+
+          code({
+            compact: true,
+            autoRender: false,
+            title: 'Inverted trends',
+            description:
+              'By default, positive numbers are displayed in green, negative - with red. This could be changed with `invertedPercentage` property.',
+            source: InvertedTrends,
           }),
         ],
       }),

@@ -89,7 +89,7 @@ class StatisticsWidget extends React.PureComponent {
     };
 
     return (
-      <Badge {...badgeProps}>
+      <Badge {...badgeProps} className={styles.percentage}>
         <div className={styles.percentageInner}>
           {!!percentage && (
             <span
