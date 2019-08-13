@@ -33,10 +33,17 @@ export const statisticsWidgetDriverFactory = (base, body) => {
     getItemsCount: async () =>
       await base.$$(getHookSelector(DataHooks.stat)).count(),
 
-    /** Get title of the stat with index */
+    /** Click on the statistic with index */
+    clickStatistics: async index => {
+      const statistics = await getStatsItem(index);
+
+      return statistics.click();
+    },
+
+    /** Get title of the statistic with index */
     getTitle: async index => getStatsPartText(index, DataHooks.title),
 
-    /** Get subtitle of the stat with index */
+    /** Get subtitle of the statistic with index */
     getSubtitle: async index => getStatsPartText(index, DataHooks.subtitle),
 
     /** Get the text of the info tooltip */
@@ -56,7 +63,7 @@ export const statisticsWidgetDriverFactory = (base, body) => {
       return text;
     },
 
-    /** Get percentage of the stat with index */
+    /** Get percentage of the statistic with index */
     getPercentage: async index => {
       const percents = await getStatsPartText(index, DataHooks.percentage);
 
