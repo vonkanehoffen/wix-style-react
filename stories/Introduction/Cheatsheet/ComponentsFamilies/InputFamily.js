@@ -6,13 +6,6 @@ import {
   NotDeveloped,
   singleComponentSizes,
 } from '../sharedComponents';
-import { inputFamilyMapping } from '../urlsMapping/inputsUrlsMapping';
-import {
-  linkedComponentUxName,
-  linkedComponentsNames,
-} from '../urlsMapping/shared';
-
-//Assets
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import Box from 'wix-style-react/Box';
 
@@ -31,43 +24,29 @@ import FormField from 'wix-style-react/FormField';
 import Search from 'wix-style-react/Search';
 import ImageViewer from 'wix-style-react/ImageViewer';
 
-const { familyName, symbols } = inputFamilyMapping;
+const TextInputExample = () => (
+  <SingleComponentSideBySide
+    name="3.1 Text Input"
+    componentsNames={['<FormField/>', '<Input/>']}
+    size={singleComponentSizes.compact}
+  >
+    <FormField label="Text Input">
+      <Input placeholder="Value" />
+    </FormField>
+  </SingleComponentSideBySide>
+);
 
-const TextInputExample = () => {
-  const { UxStory, componentsNames } = symbols[0];
-
-  const textInputProps = {
-    name: linkedComponentUxName({ UxStory, familyName }),
-    componentsNames: linkedComponentsNames(componentsNames),
-    size: singleComponentSizes.compact,
-  };
-
-  return (
-    <SingleComponentSideBySide {...textInputProps}>
-      <FormField label="Text Input">
-        <Input placeholder="Value" />
-      </FormField>
-    </SingleComponentSideBySide>
-  );
-};
-
-const TextAreaExample = () => {
-  const { UxStory, componentsNames } = symbols[1];
-
-  const TextAreaProps = {
-    name: linkedComponentUxName({ UxStory, familyName }),
-    componentsNames: linkedComponentsNames(componentsNames),
-    size: singleComponentSizes.compact,
-  };
-
-  return (
-    <SingleComponentSideBySide {...TextAreaProps}>
-      <FormField label="Text Area">
-        <InputArea placeholder="Value" />
-      </FormField>
-    </SingleComponentSideBySide>
-  );
-};
+const TextAreaExample = () => (
+  <SingleComponentSideBySide
+    name="3.2 Text Area"
+    componentsNames={['<FormField/>', '<InputArea/>']}
+    size={singleComponentSizes.compact}
+  >
+    <FormField label="Text Area">
+      <InputArea placeholder="Value" />
+    </FormField>
+  </SingleComponentSideBySide>
+);
 
 const RichTextAreaExample = () => (
   <SingleComponentSideBySide
