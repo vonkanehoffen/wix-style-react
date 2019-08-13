@@ -42,14 +42,21 @@
   box-shadow: 0 0 0 3px value(F00);
 }
 
-.item:not(:last-child)::after {
+.item:not(:first-child)::before {
   position: absolute;
   top: value(gap);
-  right: 0;
+  left: 0;
   bottom: value(gap);
   width: 1px;
   content: '';
   background-color: value(D60);
+}
+
+.item:clickable:not(:first-child):hover::before,
+.item:clickable:hover + .item:before
+{
+  top: 0;
+  bottom: 0;
 }
 
 .subtitle {
