@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { cleanup, createRendererWithUniDriver } from '../../../test/utils/unit';
 
 import StatisticsWidget from '../StatisticsWidget';
@@ -45,7 +46,7 @@ describe('StatisticsWidget', () => {
       data.statistics[0].title = 'Changed title';
 
       const { driver } = render(<StatisticsWidget {...data} />);
-      const title = await driver.getStatisticTitle(0);
+      const title = await driver.getTitle(0);
 
       expect(title).toBe('Changed title');
     });
@@ -55,7 +56,7 @@ describe('StatisticsWidget', () => {
         data.statistics[0].subtitle = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const subtitle = await driver.getStatisticSubtitle(0);
+        const subtitle = await driver.getSubtitle(0);
 
         expect(subtitle).toBeNull();
       });
@@ -64,7 +65,7 @@ describe('StatisticsWidget', () => {
         data.statistics[0].subtitle = 'Changed subtitle';
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const subtitle = await driver.getStatisticSubtitle(0);
+        const subtitle = await driver.getSubtitle(0);
 
         expect(subtitle).toBe('Changed subtitle');
       });
@@ -73,7 +74,7 @@ describe('StatisticsWidget', () => {
     describe('Info icon', () => {
       it('should not exist by default', async () => {
         const { driver } = render(<StatisticsWidget {...data} />);
-        const info = await driver.isStatisticInfoExists(0);
+        const info = await driver.isInfoExists(0);
 
         expect(info).toBeFalsy();
       });
@@ -82,23 +83,26 @@ describe('StatisticsWidget', () => {
         data.statistics[0].subtitleContentInfo = 'This is a description';
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const info = await driver.isStatisticInfoExists(0);
+        const info = await driver.isInfoExists(0);
 
         expect(info).toBeTruthy();
       });
 
-      it('should show tooltip with text on hover', async () => {
+      it('should contain passed text', async () => {
         const description = 'This is a description';
         data.statistics[0].subtitleContentInfo = description;
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const tooltip = await driver.getStatisticInfoTooltip(0);
 
-        expect(await tooltip.exists()).toBeTruthy();
-        await tooltip.mouseEnter();
+        expect(await driver.getInfo(0)).toBe(description);
+      });
 
-        expect(await tooltip.tooltipExists()).toBeTruthy();
-        expect(await tooltip.getTooltipText()).toBe(description);
+      it('should be null, when there is no description', async () => {
+        data.statistics[0].subtitleContentInfo = undefined;
+
+        const { driver } = render(<StatisticsWidget {...data} />);
+
+        expect(await driver.getInfo(0)).toBeNull();
       });
     });
 
@@ -107,14 +111,14 @@ describe('StatisticsWidget', () => {
         data.statistics[0].percentage = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const percentage = await driver.getStatisticPercentage(0);
+        const percentage = await driver.getPercentage(0);
 
         expect(percentage).toBeNull();
       });
 
       it('should exist when is set', async () => {
         const { driver } = render(<StatisticsWidget {...data} />);
-        const percentage = await driver.getStatisticPercentage(0);
+        const percentage = await driver.getPercentage(0);
 
         expect(percentage).toBe(12);
       });
@@ -122,7 +126,7 @@ describe('StatisticsWidget', () => {
       describe('Reverted percentage', () => {
         it('should be false when unset', async () => {
           const { driver } = render(<StatisticsWidget {...data} />);
-          const isInverted = await driver.isStatisticPercentageInverted(0);
+          const isInverted = await driver.isPercentageInverted(0);
 
           expect(isInverted).toBe(false);
         });
@@ -131,7 +135,7 @@ describe('StatisticsWidget', () => {
           data.statistics[0].invertedPercentage = false;
 
           const { driver } = render(<StatisticsWidget {...data} />);
-          const isInverted = await driver.isStatisticPercentageInverted(0);
+          const isInverted = await driver.isPercentageInverted(0);
 
           expect(isInverted).toBe(false);
         });
@@ -140,7 +144,7 @@ describe('StatisticsWidget', () => {
           data.statistics[0].invertedPercentage = true;
 
           const { driver } = render(<StatisticsWidget {...data} />);
-          const isInverted = await driver.isStatisticPercentageInverted(0);
+          const isInverted = await driver.isPercentageInverted(0);
 
           expect(isInverted).toBe(true);
         });
@@ -191,8 +195,8 @@ describe('StatisticsWidget', () => {
 
     it('should render first 5 items', async () => {
       const { driver } = render(<StatisticsWidget {...data} />);
-      const titleFirst = await driver.getStatisticTitle(0);
-      const titleLast = await driver.getStatisticTitle(4);
+      const titleFirst = await driver.getTitle(0);
+      const titleLast = await driver.getTitle(4);
 
       const count = await driver.getItemsCount();
 

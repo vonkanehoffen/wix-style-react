@@ -9,7 +9,7 @@ export const statisticsWidgetPrivateDriverFactory = (base, body) => {
     ...publicDriverFactory(base, body),
 
     /** Get info icon of the stat with index */
-    isStatisticInfoExists: async index =>
+    isInfoExists: async index =>
       await findBaseByHook(
         await base.$$(getHookSelector(DataHooks.stat)).get(index),
         DataHooks.info,

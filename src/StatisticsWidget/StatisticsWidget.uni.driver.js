@@ -10,6 +10,13 @@ export const statisticsWidgetDriverFactory = (base, body) => {
   const getStatsItem = async index =>
     base.$$(getHookSelector(DataHooks.stat)).get(index);
 
+  const getTooltipDriver = async index => {
+    const item = await getStatsItem(index);
+    const tooltip = await item.$(getHookSelector(DataHooks.tooltip));
+
+    return tooltipDriverFactory(tooltip, body);
+  };
+
   const getStatsPartText = async (index, hook) => {
     const node = findBaseByHook(await getStatsItem(index), hook);
 
@@ -27,29 +34,37 @@ export const statisticsWidgetDriverFactory = (base, body) => {
       await base.$$(getHookSelector(DataHooks.stat)).count(),
 
     /** Get title of the stat with index */
-    getStatisticTitle: async index => getStatsPartText(index, DataHooks.title),
+    getTitle: async index => getStatsPartText(index, DataHooks.title),
 
     /** Get subtitle of the stat with index */
-    getStatisticSubtitle: async index =>
-      getStatsPartText(index, DataHooks.subtitle),
+    getSubtitle: async index => getStatsPartText(index, DataHooks.subtitle),
 
-    /** Get info icon of the stat with index */
-    getStatisticInfoTooltip: async index => {
-      const item = await getStatsItem(index);
-      const tooltip = await item.$(getHookSelector(DataHooks.tooltip));
+    /** Get the text of the info tooltip */
+    getInfo: async index => {
+      const tooltip = await getTooltipDriver(index);
 
-      return tooltipDriverFactory(tooltip, body);
+      if (!(await tooltip.exists())) {
+        return null;
+      }
+
+      await tooltip.mouseEnter();
+
+      const text = await tooltip.getTooltipText();
+
+      await tooltip.mouseLeave();
+
+      return text;
     },
 
     /** Get percentage of the stat with index */
-    getStatisticPercentage: async index => {
+    getPercentage: async index => {
       const percents = await getStatsPartText(index, DataHooks.percentage);
 
       return percents ? Number(percents.split('%')[0]) : percents;
     },
 
     /** Returns true if invertedPercentage set to true */
-    isStatisticPercentageInverted: async index => {
+    isPercentageInverted: async index => {
       const item = await getStatsItem(index);
       const percentage = await item
         .$(getHookSelector(DataHooks.percentage))
