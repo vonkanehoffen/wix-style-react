@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Docs
+- `<Dropdown/>` - improve documentation [#3917](https://github.com/wix/wix-style-react/pull/3917)
+
 ## 6.48.1 - 2019-08-12
 
 ### Fixed
