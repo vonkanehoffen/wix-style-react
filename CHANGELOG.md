@@ -18,6 +18,7 @@ Types of changes:
 
 ### Docs
 - `<Dropdown/>` - improve documentation [#3917](https://github.com/wix/wix-style-react/pull/3917)
+`<AutoComplete/>` - refactor autocomplete documentation & move tests to test folder [#3926](https://github.com/wix/wix-style-react/pull/3926)
 
 ## 6.48.1 - 2019-08-12
 
