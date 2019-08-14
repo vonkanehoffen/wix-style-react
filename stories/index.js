@@ -26,7 +26,6 @@ require('../src/ColorInput/docs/index.story'); // 3.11 ColorInput
 require('./MultiSelect/index.story'); // 3.12 Tags
 
 // 4. Selection
-require('./Dropdown/DropdownStory'); // 4.1 Dropdown
 require('./SegmentedToggle/index.story'); // 4.5 SegmentedToggle
 require('./Slider/index.story'); // 4.8 Slider
 
