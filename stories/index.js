@@ -52,7 +52,7 @@ require('../src/MessageBox/docs');
 // Components API
 require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
-require('../src/AutoComplete/docs');
+require('../src/AutoComplete/docs/index.story');
 require('../src/AutoCompleteComposite/docs');
 require('../src/Avatar/docs/index.story');
 require('../src/Badge/docs/index.story');

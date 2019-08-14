@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
-import autoCompleteDriverFactory from './AutoComplete.driver';
-import { autoCompleteUniDriverFactory } from './AutoComplete.uni.driver';
-import AutoComplete from './AutoComplete';
-import { autoCompleteTestkitFactory } from '../../testkit';
-import { autoCompleteTestkitFactory as enzymeAutoCompleteTestkitFactory } from '../../testkit/enzyme';
+import autoCompleteDriverFactory from '../AutoComplete.driver';
+import { autoCompleteUniDriverFactory } from '../AutoComplete.uni.driver';
+import AutoComplete from '../AutoComplete';
+import { autoCompleteTestkitFactory } from '../../../testkit';
+import { autoCompleteTestkitFactory as enzymeAutoCompleteTestkitFactory } from '../../../testkit/enzyme';
 import { mount } from 'enzyme';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/unit';
+} from '../../../test/utils/unit';
 
 const asciiA = '97';
 
