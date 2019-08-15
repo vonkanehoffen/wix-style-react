@@ -16,6 +16,15 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- `<StatisticsWidget />` - add handlers for mouse and keyboard actions [#3915](https://github.com/wix/wix-style-react/pull/3915)
+- `<StatisticsWidget />` - add short text when title doesn't fit [#3909](https://github.com/wix/wix-style-react/pull/3909)
+- `<StatisticsWidget />` - add examples [#3905](https://github.com/wix/wix-style-react/pull/3905)
+
+### Changed
+- `<StatisticsWidget />` - improve drivers API [#3908](https://github.com/wix/wix-style-react/pull/3908)
+
 ### Fixed
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
 
