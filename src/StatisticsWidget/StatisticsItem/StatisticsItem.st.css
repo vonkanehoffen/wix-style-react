@@ -53,7 +53,7 @@
 }
 
 .item:clickable:not(:first-child):hover::before,
-.item:clickable:hover + .item:not(:first-child):before
+.item:clickable:hover + .item::before
 {
   top: 0;
   bottom: 0;

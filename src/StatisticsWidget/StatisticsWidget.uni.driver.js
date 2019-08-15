@@ -5,7 +5,7 @@ import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver'
 import DataHooks from './dataHooks';
 import DataAttrs from './dataAttrs';
 
-export const statisticsWidgetDriverFactory = (base, body) => {
+const statisticsWidgetDriverFactory = (base, body) => {
   const getHookSelector = hook => `[data-hook="${hook}"]`;
   const getStatsItem = async index =>
     base.$$(getHookSelector(DataHooks.stat)).get(index);
@@ -86,3 +86,5 @@ export const statisticsWidgetDriverFactory = (base, body) => {
     },
   };
 };
+
+export default statisticsWidgetDriverFactory;

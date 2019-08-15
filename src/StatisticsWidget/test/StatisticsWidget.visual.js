@@ -2,13 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StatisticsWidget from '../StatisticsWidget';
 
-const commonProps = {
-  //use for repeated props across the tests (e.g. {buttonText: 'example'})
-};
-
 const tests = [
   {
-    describe: 'sanity', // prop name (e.g. size)
+    describe: 'sanity',
     its: [
       {
         it: '3 items',
@@ -220,7 +216,9 @@ const tests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`StatisticsWidget/${describe}`, module).add(it, () => (
-      <StatisticsWidget {...commonProps} {...props} />
+      <div style={{ marginLeft: 100, marginTop: 100 }}>
+        <StatisticsWidget {...props} />
+      </div>
     ));
   });
 });

@@ -139,21 +139,22 @@ class StatisticsItem extends React.PureComponent {
       title,
       titleInShort,
       subtitle,
-      percentage,
       subtitleContentInfo,
+      percentage,
       invertedPercentage,
       onClick,
     } = this.props;
 
+    const attrs = {
+      ...this._getFocusableProps(),
+      ...styles('item', { clickable: !!onClick }, this.props),
+      'data-hook': DataHooks.stat,
+      onKeyDown: onClick ? this._getSpaceOrEnterHandler(onClick) : undefined,
+      onClick,
+    };
+
     return (
-      <div
-        data-hook={DataHooks.stat}
-        onClick={onClick}
-        onKeyDown={onClick ? this._getSpaceOrEnterHandler(onClick) : undefined}
-        {...this._getFocusableProps()}
-        {...styles('item', { clickable: !!onClick }, this.props)}
-        ref={element => (this._element = element)}
-      >
+      <div {...attrs}>
         {this._renderTitle(title, titleInShort)}
         {this._renderSubtitle(subtitle, subtitleContentInfo)}
         {this._renderPercents(percentage, invertedPercentage)}

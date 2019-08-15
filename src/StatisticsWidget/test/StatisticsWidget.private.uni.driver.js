@@ -1,4 +1,4 @@
-import { statisticsWidgetDriverFactory as publicDriverFactory } from '../StatisticsWidget.uni.driver';
+import publicDriverFactory from '../StatisticsWidget.uni.driver';
 import { findBaseByHook } from '../../../test/utils';
 import DataHooks from '../dataHooks';
 
@@ -19,11 +19,21 @@ export const statisticsWidgetPrivateDriverFactory = (base, body) => {
       ).exists(),
 
     pressEnterKey: async index => {
+      if (index === undefined) {
+        await base.pressKey('Enter');
+        return;
+      }
+
       const stat = await getStatsItem(index);
       await stat.pressKey('Enter');
     },
 
     pressSpaceKey: async index => {
+      if (index === undefined) {
+        await base.pressKey(' ');
+        return;
+      }
+
       const stat = await getStatsItem(index);
       await stat.pressKey(' ');
     },

@@ -153,7 +153,7 @@ require('../src/Stepper/docs/index.story');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
-require('../src/StatisticsWidget/test/StatisticsWidgetStories');
+require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 
 // Tests
 require('../src/Typography/test/TestStory');

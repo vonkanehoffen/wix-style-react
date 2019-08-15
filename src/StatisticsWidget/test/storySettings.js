@@ -5,6 +5,6 @@ export const storySettings = {
   storyName: 'StatisticsWidget',
   dataHook: 'story-statistics-widget',
   testStoryNames: {
-    DEFAULT: 'Default',
+    ACCESSIBILITY: 'accessibility',
   },
 };
