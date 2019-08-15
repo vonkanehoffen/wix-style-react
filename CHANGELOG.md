@@ -17,6 +17,8 @@ Types of changes:
 ## Next
 
 ### Fixed
+- `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
+
 - `<RichTextInputArea/>` - keep newlines of empty html elements in initial value [#3935](https://github.com/wix/wix-style-react/pull/3935)
 
 ### Docs
