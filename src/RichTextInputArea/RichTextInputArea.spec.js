@@ -333,5 +333,41 @@ describe('RichTextInputArea', () => {
         expect(await driver.isFormDisplayed()).toBe(false);
       });
     });
+
+    it('should set value to given value', async () => {
+      const onChange = jest.fn();
+      let myRef = null;
+      const driver = createDriver(
+        <RichTextInputArea
+          initialValue={'something old'}
+          ref={ref => {
+            myRef = ref;
+          }}
+          onChange={onChange}
+        />,
+      );
+
+      expect(await driver.getContent()).toEqual('something old');
+      myRef.setValue('something new');
+      expect(await driver.getContent()).toEqual('something new');
+    });
+
+    it('should set value to empty value', async () => {
+      const onChange = jest.fn();
+      let myRef = null;
+      const driver = createDriver(
+        <RichTextInputArea
+          initialValue={'something old'}
+          ref={ref => {
+            myRef = ref;
+          }}
+          onChange={onChange}
+        />,
+      );
+
+      expect(await driver.getContent()).toEqual('something old');
+      myRef.setValue('');
+      expect(await driver.getContent()).toEqual('');
+    });
   });
 });

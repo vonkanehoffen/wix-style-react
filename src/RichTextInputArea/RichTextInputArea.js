@@ -192,6 +192,11 @@ class RichTextInputArea extends React.PureComponent {
     );
     this.setState({ editorState: updatedEditorState });
   };
+
+  /** Set value to display in the editor */
+  setValue = value => {
+    this._updateContentByValue(value);
+  };
 }
 
 export default RichTextInputArea;

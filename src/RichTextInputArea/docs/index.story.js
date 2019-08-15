@@ -7,19 +7,30 @@ import {
   playground,
   testkit,
   description,
+  columns,
 } from 'wix-storybook-utils/Sections';
 
 import RichTextInputArea from '..';
 import { storySettings } from './storySettings';
-import * as examples from './examples';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import testkitReadme from './README.TESTKIT.md';
 
-const code = config =>
+import SetValueExample from '!raw-loader!./examples/SetValue';
+import RichTextElements from '!raw-loader!./examples/RichTextElements';
+import InitialValueExamle from '!raw-loader!./examples/InitialValue';
+import ErrorExample from '!raw-loader!./examples/Error';
+import DisabledExample from '!raw-loader!./examples/Disabled';
+import PlaceholderExample from '!raw-loader!./examples/Placeholder';
+
+const liveCode = config =>
   baseCode({
     components: baseScope,
+    compact: true,
     ...config,
   });
+
+const example = ({ source, autoRender = true, ...rest }) =>
+  columns([description({ ...rest }), liveCode({ source, autoRender })]);
 
 export default {
   category: storySettings.category,
@@ -51,10 +62,27 @@ export default {
         title('Examples'),
 
         ...[
-          { title: 'Error', source: examples.error },
-          { title: 'Disabled', source: examples.disabled },
-          { title: 'Placeholder', source: examples.placeholder },
-        ].map(code),
+          {
+            title: 'Basic',
+            description: 'Using rich text elements',
+            source: RichTextElements,
+          },
+          {
+            title: 'Initial value',
+            description: 'Can be initialized with a given value',
+            source: InitialValueExamle,
+          },
+          {
+            title: 'Set value / Rest value',
+            description:
+              'Value can be externally set at any time, mostly will be used for reset purposes',
+            source: SetValueExample,
+            autoRender: false,
+          },
+          { title: 'Error', source: ErrorExample },
+          { title: 'Disabled', source: DisabledExample },
+          { title: 'Placeholder', source: PlaceholderExample },
+        ].map(example),
       ],
     }),
 
