@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<RichTextInputArea/>` - keep newlines of empty html elements in initial value [#3935](https://github.com/wix/wix-style-react/pull/3935)
+
 ### Docs
 - `<Dropdown/>` - improve documentation [#3917](https://github.com/wix/wix-style-react/pull/3917)
 `<AutoComplete/>` - refactor autocomplete documentation & move tests to test folder [#3926](https://github.com/wix/wix-style-react/pull/3926)
