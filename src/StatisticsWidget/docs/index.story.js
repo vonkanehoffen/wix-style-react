@@ -24,6 +24,7 @@ import OnlyTitles from '!raw-loader!./examples/OnlyTitles';
 import Subtitles from '!raw-loader!./examples/Subtitles';
 import InfoIcons from '!raw-loader!./examples/InfoIcons';
 import LongText from '!raw-loader!./examples/LongText';
+import CustomLongText from '!raw-loader!./examples/CustomLongText';
 import Trends from '!raw-loader!./examples/Trends';
 import InvertedTrends from '!raw-loader!./examples/InvertedTrends';
 import onClick from '!raw-loader!./examples/onClick';
@@ -123,6 +124,19 @@ export default {
               compact: true,
               autoRender: false,
               source: LongText,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Custom text instead of ellipsis',
+              description:
+                'There is a possibility to set custom text on title, when there is not enough space for long version. Full text will be still visible on hover',
+            }),
+            code({
+              compact: true,
+              autoRender: false,
+              source: CustomLongText,
             }),
           ]),
 

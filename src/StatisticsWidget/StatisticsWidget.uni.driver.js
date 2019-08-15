@@ -43,6 +43,10 @@ export const statisticsWidgetDriverFactory = (base, body) => {
     /** Get title of the statistic with index */
     getTitle: async index => getStatsPartText(index, DataHooks.title),
 
+    /** Get short title of the stat with index */
+    getTitleInShort: async index =>
+      getStatsPartText(index, DataHooks.shortTitle),
+
     /** Get subtitle of the statistic with index */
     getSubtitle: async index => getStatsPartText(index, DataHooks.subtitle),
 

@@ -35,20 +35,35 @@ describe('StatisticsWidget', () => {
       };
     });
 
-    it('should render title', async () => {
-      const { driver } = render(<StatisticsWidget {...data} />);
-      const count = await driver.getItemsCount();
+    describe('Title', () => {
+      it('should render title', async () => {
+        const { driver } = render(<StatisticsWidget {...data} />);
+        const count = await driver.getItemsCount();
 
-      expect(count).toBe(1);
-    });
+        expect(count).toBe(1);
+      });
 
-    it('should render title based on props', async () => {
-      data.statistics[0].title = 'Changed title';
+      it('should render title based on props', async () => {
+        data.statistics[0].title = 'Changed title';
 
-      const { driver } = render(<StatisticsWidget {...data} />);
-      const title = await driver.getTitle(0);
+        const { driver } = render(<StatisticsWidget {...data} />);
+        const title = await driver.getTitle(0);
+        const shortTitle = await driver.getTitleInShort(0);
 
-      expect(title).toBe('Changed title');
+        expect(shortTitle).toBeNull();
+        expect(title).toBe('Changed title');
+      });
+
+      it('should render short version', async () => {
+        data.statistics[0].titleInShort = '1K';
+
+        const { driver } = render(<StatisticsWidget {...data} />);
+        const shortTitle = await driver.getTitleInShort(0);
+        const title = await driver.getTitle(0);
+
+        expect(shortTitle).toBe('1K');
+        expect(title).toBe('First title');
+      });
     });
 
     describe('Subtitle', () => {

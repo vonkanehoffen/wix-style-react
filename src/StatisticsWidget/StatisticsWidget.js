@@ -14,6 +14,7 @@ class StatisticsWidget extends React.PureComponent {
     /**
      * Array of statistic items
      *  * `title` - Big text in a first row. Value of stat itself.
+     *  * `titleInShort` - Short version of title. Will be applied when there is no space for long title. If not specified, part of the title will be hidden with ellipsis
      *  * `subtitle` - Second row. Subtitle of stat
      *  * `percentage` - Change in percents. Positive number - arrow up, negative - arrow down
      *  * `invertedPercentage` - Without flag will render positive percentage green and negative red. With flag - vice versa
@@ -23,6 +24,7 @@ class StatisticsWidget extends React.PureComponent {
     statistics: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
+        titleInShort: PropTypes.string,
         subtitle: PropTypes.string,
         percentage: PropTypes.number,
         invertedPercentage: PropTypes.bool,

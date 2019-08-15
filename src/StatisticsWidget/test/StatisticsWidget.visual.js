@@ -109,6 +109,112 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'short text', // prop name (e.g. size)
+    its: [
+      {
+        it: 'without short text in title',
+        props: {
+          statistics: [
+            {
+              title: '$7,500,000,000',
+            },
+            {
+              title: '$1,200,000',
+            },
+            {
+              title: '$1,872',
+            },
+            {
+              title: 'Testing very very long text',
+            },
+          ],
+        },
+      },
+      {
+        it: 'with short text on title',
+        props: {
+          statistics: [
+            {
+              title: '$7,500,000,000',
+              titleInShort: '$7,5B',
+            },
+            {
+              title: '$1,200,000',
+              titleInShort: '$1,2M',
+            },
+            {
+              title: '$1,872',
+              titleInShort: '$1,8K',
+            },
+            {
+              title: 'Testing very very long text',
+              titleInShort: 'Text',
+            },
+          ],
+        },
+      },
+      {
+        it: 'without short text in subtitle',
+        props: {
+          statistics: [
+            {
+              title: '$7,500,000,000',
+              subtitle: 'Average orders on Monday, US dollars',
+            },
+            {
+              title: '$1,500',
+              subtitle: 'Average orders on Tuesday, US dollars',
+            },
+            {
+              title: '$1,200,000',
+              subtitle: 'Average orders on Wednesday, US dollars',
+            },
+            {
+              title: '$1,872',
+              subtitle: 'Average orders on Thursday, US dollars',
+            },
+            {
+              title: 'Testing very very long text',
+              subtitle: 'Average orders on Friday, US dollars',
+            },
+          ],
+        },
+      },
+      {
+        it: 'with short text in subtitle',
+        props: {
+          statistics: [
+            {
+              title: '$7,500,000,000',
+              subtitle: 'Average orders on Monday, US dollars',
+              subtitleShort: 'Monday',
+            },
+            {
+              title: '$1,500',
+              subtitle: 'Average orders on Tuesday, US dollars',
+              subtitleShort: 'Tuesday',
+            },
+            {
+              title: '$1,200,000',
+              subtitle: 'Average orders on Wednesday, US dollars',
+              subtitleShort: 'Wednesday',
+            },
+            {
+              title: '$1,872',
+              subtitle: 'Average orders on Thursday, US dollars',
+              subtitleShort: 'Thursday',
+            },
+            {
+              title: 'Testing very very long text',
+              subtitle: 'Average orders on Friday, US dollars',
+              subtitleShort: 'Friday',
+            },
+          ],
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

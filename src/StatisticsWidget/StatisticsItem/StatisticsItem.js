@@ -39,6 +39,35 @@ class StatisticsItem extends React.PureComponent {
     }
   };
 
+  _renderTitle = (title, titleInShort) => {
+    if (!titleInShort) {
+      return (
+        <Heading ellipsis appearance="H1" dataHook={DataHooks.title}>
+          {title}
+        </Heading>
+      );
+    }
+
+    return (
+      <Heading appearance="H1" className={styles.headerWrapper}>
+        <div className={styles.headerShort}>
+          <Tooltip upgrade content={title} theme="dark">
+            <span
+              data-hook={DataHooks.shortTitle}
+              aria-hidden="true"
+              title={title}
+            >
+              {titleInShort}
+            </span>
+          </Tooltip>
+        </div>
+        <span data-hook={DataHooks.title} className={styles.headerFull}>
+          {title}
+        </span>
+      </Heading>
+    );
+  };
+
   _renderSubtitle = (subtitle, subtitleContentInfo) => {
     if (!subtitle) {
       return null;
@@ -108,9 +137,10 @@ class StatisticsItem extends React.PureComponent {
   render() {
     const {
       title,
+      titleInShort,
       subtitle,
-      subtitleContentInfo,
       percentage,
+      subtitleContentInfo,
       invertedPercentage,
       onClick,
     } = this.props;
@@ -124,9 +154,7 @@ class StatisticsItem extends React.PureComponent {
         {...styles('item', { clickable: !!onClick }, this.props)}
         ref={element => (this._element = element)}
       >
-        <Heading ellipsis data-hook={DataHooks.title} appearance="H1">
-          {title}
-        </Heading>
+        {this._renderTitle(title, titleInShort)}
         {this._renderSubtitle(subtitle, subtitleContentInfo)}
         {this._renderPercents(percentage, invertedPercentage)}
       </div>
