@@ -7,16 +7,16 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500,000,000',
-          subtitle: 'Monday',
+          value: '$500,000,000',
+          description: 'Monday',
         },
         {
-          title: '$1,500',
-          subtitle: 'Tuesday sales in average',
+          value: '$1,500',
+          description: 'Tuesday sales in average',
         },
         {
-          title: '4,200,000',
-          subtitle: 'Number of active customers',
+          value: '4,200,000',
+          description: 'Number of active customers',
         },
       ]}
     />

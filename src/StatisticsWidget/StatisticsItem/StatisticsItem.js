@@ -39,11 +39,11 @@ class StatisticsItem extends React.PureComponent {
     }
   };
 
-  _renderTitle = (title, titleInShort) => {
-    if (!titleInShort) {
+  _renderValue = (value, valueInShort) => {
+    if (!valueInShort) {
       return (
-        <Heading ellipsis appearance="H1" dataHook={DataHooks.title}>
-          {title}
+        <Heading ellipsis appearance="H1" dataHook={DataHooks.value}>
+          {value}
         </Heading>
       );
     }
@@ -51,32 +51,32 @@ class StatisticsItem extends React.PureComponent {
     return (
       <Heading appearance="H1" className={styles.headerWrapper}>
         <div className={styles.headerShort}>
-          <Tooltip upgrade content={title} theme="dark">
+          <Tooltip upgrade content={value} theme="dark">
             <span
-              data-hook={DataHooks.shortTitle}
+              data-hook={DataHooks.shortValue}
               aria-hidden="true"
-              title={title}
+              title={value}
             >
-              {titleInShort}
+              {valueInShort}
             </span>
           </Tooltip>
         </div>
-        <span data-hook={DataHooks.title} className={styles.headerFull}>
-          {title}
+        <span data-hook={DataHooks.value} className={styles.headerFull}>
+          {value}
         </span>
       </Heading>
     );
   };
 
-  _renderSubtitle = (subtitle, subtitleContentInfo) => {
-    if (!subtitle) {
+  _renderDescription = (description, subtitleContentInfo) => {
+    if (!description) {
       return null;
     }
 
     return (
-      <div className={styles.subtitle}>
-        <Heading ellipsis data-hook={DataHooks.subtitle} appearance="H5">
-          {subtitle}
+      <div className={styles.description}>
+        <Heading ellipsis data-hook={DataHooks.description} appearance="H5">
+          {description}
         </Heading>
         {subtitleContentInfo && (
           <Tooltip
@@ -136,10 +136,10 @@ class StatisticsItem extends React.PureComponent {
 
   render() {
     const {
-      title,
-      titleInShort,
-      subtitle,
-      subtitleContentInfo,
+      value,
+      valueInShort,
+      description,
+      descriptionInfo,
       percentage,
       invertedPercentage,
       onClick,
@@ -155,8 +155,8 @@ class StatisticsItem extends React.PureComponent {
 
     return (
       <div {...attrs}>
-        {this._renderTitle(title, titleInShort)}
-        {this._renderSubtitle(subtitle, subtitleContentInfo)}
+        {this._renderValue(value, valueInShort)}
+        {this._renderDescription(description, descriptionInfo)}
         {this._renderPercents(percentage, invertedPercentage)}
       </div>
     );

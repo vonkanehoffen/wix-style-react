@@ -13,22 +13,22 @@ class StatisticsWidget extends React.PureComponent {
     dataHook: PropTypes.string,
     /**
      * Array of statistic items
-     *  * `title` - Big text in a first row. Value of stat itself.
-     *  * `titleInShort` - Short version of title. Will be applied when there is no space for long title. If not specified, part of the title will be hidden with ellipsis
-     *  * `subtitle` - Second row. Subtitle of stat
+     *  * `value` - Big text in a first row. Value of stat itself.
+     *  * `valueInShort` - Short version of value. Will be applied when there is no space for long value. If not specified, part of the value will be hidden with ellipsis
+     *  * `description` - Second row. description of stat
+     *  * `descriptionInfo` - Shows info icon with this text inside a tooltip
      *  * `percentage` - Change in percents. Positive number - arrow up, negative - arrow down
      *  * `invertedPercentage` - Without flag will render positive percentage green and negative red. With flag - vice versa
-     *  * `subtitleContentInfo` - Shows info icon with this text inside a tooltip
      *  * `onClick` - handler for click (also works on enter or space press)
      */
     statistics: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        titleInShort: PropTypes.string,
-        subtitle: PropTypes.string,
+        value: PropTypes.string.isRequired,
+        valueInShort: PropTypes.string,
+        description: PropTypes.string,
+        descriptionInfo: PropTypes.string,
         percentage: PropTypes.number,
         invertedPercentage: PropTypes.bool,
-        subtitleContentInfo: PropTypes.string,
         onClick: PropTypes.func,
       }),
     ),

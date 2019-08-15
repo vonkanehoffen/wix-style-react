@@ -1,8 +1,8 @@
 export default {
   stat: 'statisticsWidget-item',
-  title: 'statisticsWidget-item-title',
-  shortTitle: 'statisticsWidget-item-short-title',
-  subtitle: 'statisticsWidget-item-subtitle',
+  value: 'statisticsWidget-item-value',
+  shortValue: 'statisticsWidget-item-short-value',
+  description: 'statisticsWidget-item-description',
   percentage: 'statisticsWidget-item-percentage',
   trendIndicator: 'trend-indicator',
   trendUp: 'sort-up-icon',

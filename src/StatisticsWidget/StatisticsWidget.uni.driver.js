@@ -40,18 +40,19 @@ const statisticsWidgetDriverFactory = (base, body) => {
       return statistics.click();
     },
 
-    /** Get title of the statistic with index */
-    getTitle: async index => getStatsPartText(index, DataHooks.title),
+    /** Get value of the statistic with index */
+    getValue: async index => getStatsPartText(index, DataHooks.value),
 
-    /** Get short title of the stat with index */
-    getTitleInShort: async index =>
-      getStatsPartText(index, DataHooks.shortTitle),
+    /** Get short value of the stat with index */
+    getValueInShort: async index =>
+      getStatsPartText(index, DataHooks.shortValue),
 
-    /** Get subtitle of the statistic with index */
-    getSubtitle: async index => getStatsPartText(index, DataHooks.subtitle),
+    /** Get description of the statistic with index */
+    getDescription: async index =>
+      getStatsPartText(index, DataHooks.description),
 
     /** Get the text of the info tooltip */
-    getInfo: async index => {
+    getDescriptionInfo: async index => {
       const tooltip = await getTooltipDriver(index);
 
       if (!(await tooltip.exists())) {

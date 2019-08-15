@@ -20,8 +20,8 @@ import allComponents from '../../../stories/utils/allComponents';
 import StatisticsWidget from '..';
 
 import OneStatistic from '!raw-loader!./examples/OneStatistic';
-import OnlyTitles from '!raw-loader!./examples/OnlyTitles';
-import Subtitles from '!raw-loader!./examples/Subtitles';
+import OnlyValues from '!raw-loader!./examples/OnlyValues';
+import Descriptions from '!raw-loader!./examples/Descriptions';
 import InfoIcons from '!raw-loader!./examples/InfoIcons';
 import LongText from '!raw-loader!./examples/LongText';
 import CustomLongText from '!raw-loader!./examples/CustomLongText';
@@ -57,7 +57,7 @@ export default {
             description({
               title: 'Description',
               text:
-                'StatisticsWidget displays various statistics with a short explanation. Can display up to 5 items with value, subtitle, and change in percents.',
+                'StatisticsWidget displays various statistics with a short explanation. Can display up to 5 items with value, description, and change in percents.',
             }),
           ]),
 
@@ -86,26 +86,26 @@ export default {
           code({
             compact: true,
             autoRender: false,
-            title: 'Only titles',
+            title: 'Only values',
             description:
-              'The title is the only required property in statistics.',
-            source: OnlyTitles,
+              'The value is the only required property in statistics.',
+            source: OnlyValues,
           }),
 
           code({
             compact: true,
             autoRender: false,
-            title: 'Subtitles',
+            title: 'descriptions',
             description:
               'Should be short, contains an explanation of the current stat.',
-            source: Subtitles,
+            source: Descriptions,
           }),
 
           columns([
             description({
               title: 'Info icon',
               description:
-                "Since subtitle is small by design, there is a possibility to clarify the meaning of each statistic by specifying 'subtitleContentInfo' property.  It this case widget will render an info icon with a text inside a tooltip.",
+                "Since description is small by design, there is a possibility to clarify the meaning of each statistic by specifying 'descriptionInfo' property.  It this case widget will render an info icon with a text inside a tooltip.",
             }),
             code({
               compact: true,
@@ -118,7 +118,7 @@ export default {
             description({
               title: 'Long text',
               description:
-                'When there is not enough space, part of the title or description will be hidden with an ellipsis. Hover it to see full text.',
+                'When there is not enough space, part of the value or description will be hidden with an ellipsis. Hover it to see full text.',
             }),
             code({
               compact: true,
@@ -131,7 +131,7 @@ export default {
             description({
               title: 'Custom text instead of ellipsis',
               description:
-                'There is a possibility to set custom text on title, when there is not enough space for long version. Full text will be still visible on hover',
+                'There is a possibility to set custom text on value, when there is not enough space for long version. Full text will be still visible on hover',
             }),
             code({
               compact: true,

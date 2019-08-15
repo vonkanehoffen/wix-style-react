@@ -11,20 +11,20 @@ const tests = [
         props: {
           statistics: [
             {
-              title: '$7,500',
-              subtitle: 'Monday',
+              value: '$7,500',
+              description: 'Monday',
               percentage: 21,
               invertedPercentage: true,
             },
             {
-              title: '1 200 000',
-              subtitle: 'Tuesday',
-              subtitleContentInfo: 'Sales on Tuesday',
+              value: '1 200 000',
+              description: 'Tuesday',
+              descriptionInfo: 'Sales on Tuesday',
               percentage: 11,
             },
             {
-              title: '21k',
-              subtitle: 'Wednesday',
+              value: '21k',
+              description: 'Wednesday',
             },
           ],
         },
@@ -34,33 +34,33 @@ const tests = [
         props: {
           statistics: [
             {
-              title: '$500',
-              subtitle: 'Monday',
+              value: '$500',
+              description: 'Monday',
               percentage: 21,
             },
             {
-              title: '$1,500',
-              subtitle: 'Tuesday',
+              value: '$1,500',
+              description: 'Tuesday',
               percentage: 21,
               invertedPercentage: true,
             },
             {
-              title: '$2,500',
+              value: '$2,500',
               percentage: -11,
             },
             {
-              title: '$3,500',
-              subtitle: 'Thursday',
+              value: '$3,500',
+              description: 'Thursday',
               percentage: -11,
               invertedPercentage: true,
-              subtitleContentInfo: 'Sales on Thursday',
+              descriptionInfo: 'Sales on Thursday',
             },
             {
-              title: '0',
-              subtitle: 'Friday',
+              value: '0',
+              description: 'Friday',
               percentage: 0,
               invertedPercentage: true,
-              subtitleContentInfo: 'Sales on Friday',
+              descriptionInfo: 'Sales on Friday',
             },
           ],
         },
@@ -70,34 +70,34 @@ const tests = [
         props: {
           statistics: [
             {
-              title: '$500',
-              subtitle: 'Monday',
+              value: '$500',
+              description: 'Monday',
             },
             {
-              title: '$1,500',
-              subtitle: 'Tuesday',
+              value: '$1,500',
+              description: 'Tuesday',
               percentage: 21,
               invertedPercentage: true,
             },
             {
-              title: '$2,500',
+              value: '$2,500',
               percentage: 11,
             },
             {
-              title: '$3,500',
-              subtitle: 'Thursday',
+              value: '$3,500',
+              description: 'Thursday',
               percentage: 0,
               invertedPercentage: true,
-              subtitleContentInfo: 'Sales on Thursday',
+              descriptionInfo: 'Sales on Thursday',
             },
             {
-              title: '$4,500',
-              subtitle: 'Friday',
-              subtitleContentInfo: 'Sales on Friday',
+              value: '$4,500',
+              description: 'Friday',
+              descriptionInfo: 'Sales on Friday',
             },
             {
-              title: '$5,500',
-              subtitle: 'Saturday',
+              value: '$5,500',
+              description: 'Saturday',
               percentage: 0,
             },
           ],
@@ -106,105 +106,46 @@ const tests = [
     ],
   },
   {
-    describe: 'short text', // prop name (e.g. size)
+    describe: 'short text',
     its: [
       {
-        it: 'without short text in title',
+        it: 'without short text in value',
         props: {
           statistics: [
             {
-              title: '$7,500,000,000',
+              value: '$7,500,000,000',
             },
             {
-              title: '$1,200,000',
+              value: '$1,200,000',
             },
             {
-              title: '$1,872',
+              value: '$1,872',
             },
             {
-              title: 'Testing very very long text',
+              value: 'Testing very very long text',
             },
           ],
         },
       },
       {
-        it: 'with short text on title',
+        it: 'with short text on value',
         props: {
           statistics: [
             {
-              title: '$7,500,000,000',
-              titleInShort: '$7,5B',
+              value: '$7,500,000,000',
+              valueInShort: '$7,5B',
             },
             {
-              title: '$1,200,000',
-              titleInShort: '$1,2M',
+              value: '$1,200,000',
+              valueInShort: '$1,2M',
             },
             {
-              title: '$1,872',
-              titleInShort: '$1,8K',
+              value: '$1,872',
+              valueInShort: '$1,8K',
             },
             {
-              title: 'Testing very very long text',
-              titleInShort: 'Text',
-            },
-          ],
-        },
-      },
-      {
-        it: 'without short text in subtitle',
-        props: {
-          statistics: [
-            {
-              title: '$7,500,000,000',
-              subtitle: 'Average orders on Monday, US dollars',
-            },
-            {
-              title: '$1,500',
-              subtitle: 'Average orders on Tuesday, US dollars',
-            },
-            {
-              title: '$1,200,000',
-              subtitle: 'Average orders on Wednesday, US dollars',
-            },
-            {
-              title: '$1,872',
-              subtitle: 'Average orders on Thursday, US dollars',
-            },
-            {
-              title: 'Testing very very long text',
-              subtitle: 'Average orders on Friday, US dollars',
-            },
-          ],
-        },
-      },
-      {
-        it: 'with short text in subtitle',
-        props: {
-          statistics: [
-            {
-              title: '$7,500,000,000',
-              subtitle: 'Average orders on Monday, US dollars',
-              subtitleShort: 'Monday',
-            },
-            {
-              title: '$1,500',
-              subtitle: 'Average orders on Tuesday, US dollars',
-              subtitleShort: 'Tuesday',
-            },
-            {
-              title: '$1,200,000',
-              subtitle: 'Average orders on Wednesday, US dollars',
-              subtitleShort: 'Wednesday',
-            },
-            {
-              title: '$1,872',
-              subtitle: 'Average orders on Thursday, US dollars',
-              subtitleShort: 'Thursday',
-            },
-            {
-              title: 'Testing very very long text',
-              subtitle: 'Average orders on Friday, US dollars',
-              subtitleShort: 'Friday',
+              value: 'Testing very very long text',
+              valueInShort: 'Text',
             },
           ],
         },

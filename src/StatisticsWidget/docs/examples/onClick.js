@@ -7,35 +7,35 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500',
-          subtitle: 'Monday',
+          value: '$500',
+          description: 'Monday',
           percentage: 21,
           onClick: () => console.log('Hello from 1st'),
         },
         {
-          title: '$1,500',
-          subtitle: 'Tuesday',
+          value: '$1,500',
+          description: 'Tuesday',
           percentage: 21,
           invertedPercentage: true,
         },
         {
-          title: '$2,500',
+          value: '$2,500',
           percentage: -11,
         },
         {
-          title: '$3,500',
-          subtitle: 'Thursday',
+          value: '$3,500',
+          description: 'Thursday',
           percentage: -11,
           invertedPercentage: true,
-          subtitleContentInfo: 'Sales on Thursday',
+          descriptionInfo: 'Sales on Thursday',
           onClick: () => console.log('Hello from 4th'),
         },
         {
-          title: '0',
-          subtitle: 'Friday',
+          value: '0',
+          description: 'Friday',
           percentage: 0,
           invertedPercentage: true,
-          subtitleContentInfo: 'Sales on Friday',
+          descriptionInfo: 'Sales on Friday',
           onClick: () => console.log('Hello from 5th'),
         },
       ]}
