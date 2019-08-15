@@ -46,6 +46,17 @@ describe('RichTextInputArea', () => {
       expect(await driver.getContent()).toBe(expectedText);
     });
 
+    it('should keep newlines when `initialValue` prop contains empty HTML elements', async () => {
+      const driver = createDriver(
+        <RichTextInputArea
+          initialValue={`<p>hello<br/></br><p></p>world</p>`}
+        />,
+      );
+
+      const content = await driver.getContent();
+      expect(content).toEqual('hello\n\n\nworld');
+    });
+
     it('should invoke `onChange` with parsed HTML value after typing text', async () => {
       const callback = jest.fn();
       const text = 'Some text';
