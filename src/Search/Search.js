@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 
 import InputWithOptions from '../InputWithOptions';
 import SearchIcon from 'wix-ui-icons-common/Search';
-import WixComponent from '../BaseComponents/WixComponent';
+
 import { StringUtils } from '../utils/StringUtils';
 import styles from './Search.scss';
 import Input from '../Input/Input';
@@ -24,7 +24,7 @@ function debounce(fn, wait) {
 /**
  * Search component with suggestions based on input value listed in dropdown
  */
-class Search extends WixComponent {
+class Search extends Component {
   static displayName = 'Search';
 
   static propTypes = {
@@ -164,7 +164,7 @@ class Search extends WixComponent {
   };
 
   render() {
-    const { defaultValue, ...restProps } = this.props;
+    const { defaultValue, dataHook, ...restProps } = this.props;
 
     const wrapperClasses = classNames({
       [styles.expandableStyles]: this.props.expandable,
@@ -174,6 +174,7 @@ class Search extends WixComponent {
 
     return (
       <div
+        data-hook={dataHook}
         className={wrapperClasses}
         onClick={this._onWrapperClick}
         onMouseDown={this._onWrapperMouseDown}
@@ -188,6 +189,7 @@ class Search extends WixComponent {
               <SearchIcon />
             </Input.IconAffix>
           }
+          dataHook="search-inputwithoptions"
           menuArrow={false}
           clearButton
           closeOnSelect

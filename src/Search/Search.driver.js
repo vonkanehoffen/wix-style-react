@@ -6,12 +6,13 @@ import {
 } from './constants';
 
 const searchDriverFactory = args => {
+  const { element } = args;
+
   const inputWithOptionsDriver = inputWithOptionsDriverFactory({
     ...args,
-    element: args.element && args.element.childNodes[0],
+    element:
+      element && element.querySelector('[data-hook="search-inputwithoptions"]'),
   });
-
-  const { element } = args;
 
   return {
     ...inputWithOptionsDriver,

@@ -6,8 +6,11 @@ import {
   EXPANDABLE_EXPANDED,
 } from './constants';
 
-export const searchUniDriverFactory = base => {
-  const inputWithOptionsUniDriver = inputWithOptionsUniDriverFactory(base);
+export const searchUniDriverFactory = (base, body) => {
+  const inputWithOptionsUniDriver = inputWithOptionsUniDriverFactory(
+    base.$(`[data-hook="search-inputwithoptions"]`),
+    body,
+  );
 
   return {
     ...baseUniDriverFactory(base),

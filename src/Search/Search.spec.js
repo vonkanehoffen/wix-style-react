@@ -5,6 +5,7 @@ import { searchUniDriverFactory } from './Search.uni.driver';
 import Search from './Search';
 import { makeControlled } from '../../test/utils';
 import {
+  cleanup,
   createRendererWithDriver,
   createRendererWithUniDriver,
 } from '../../test/utils/unit';
@@ -31,7 +32,7 @@ describe('Search', () => {
       REGEXP_SPECIAL_CHARS,
     ].map((value, index) => ({ id: index, value }));
     const createDriver = jsx => render(jsx).driver;
-
+    afterEach(() => cleanup());
     describe('Controlled', () => {
       const ControlledSearch = makeControlled(Search);
 
