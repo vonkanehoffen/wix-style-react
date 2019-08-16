@@ -1,14 +1,14 @@
-import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
+import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import ReactTestUtils from 'react-dom/test-utils';
 import { inputWithOptionsUniDriverFactory } from '../InputWithOptions/InputWithOptions.uni.driver';
 import { tagPrivateUniDriverFactory } from '../Tag/Tag.private.uni.driver';
 
-export const multiselectUniDriverFactory = base => {
+export const multiselectUniDriverFactory = (base, body) => {
   const {
     driver,
     inputDriver,
     dropdownLayoutDriver,
-  } = inputWithOptionsUniDriverFactory(base);
+  } = inputWithOptionsUniDriverFactory(base, body);
 
   const getInputWrapper = async () =>
     (await driver.inputWrapper()).childNodes[0];

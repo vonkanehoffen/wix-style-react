@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import DropdownLayout from '../DropdownLayout';
 import InputWithTags from './InputWithTags';
 import last from 'lodash/last';
 import difference from 'difference';
@@ -195,19 +196,10 @@ class MultiSelect extends InputWithOptions {
     );
 }
 
-function inputWithOptionsPropTypes() {
-  const {
-    // The following props are overridden in dropdownAdditionalProps()
-    selectedId,
-    closeOnSelect,
-    selectedHighlight,
-    ...rest
-  } = InputWithOptions.propTypes;
-  return rest;
-}
-
 MultiSelect.propTypes = {
-  ...inputWithOptionsPropTypes(),
+  selectedId: DropdownLayout.propTypes.selectedId,
+  closeOnSelect: DropdownLayout.propTypes.closeOnSelect,
+  selectedHighlight: DropdownLayout.propTypes.selectedHighlight,
   predicate: PropTypes.func,
   tags: PropTypes.array,
   maxNumRows: PropTypes.number,

@@ -594,7 +594,7 @@ describe('MultiSelect', () => {
           expect(inputDriver.isFocus()).toBeTruthy();
         });
 
-        it('should not lose Focus or close the options when options selected by pressing Tab', async () => {
+        it.skip('should not lose Focus or close the options when options selected by pressing Tab', async () => {
           const onSelect = jest.fn();
           const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
             <MultiSelect options={options} onSelect={onSelect} />,
