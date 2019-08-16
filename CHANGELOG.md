@@ -29,6 +29,7 @@ Types of changes:
 - `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
 - `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
 - `<MultiSelect/>` -  preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
+- `<AutoComplete/> , <MultiSelect/>, <Dropdown/>` - remove testkit checking tests [#3960](https://github.com/wix/wix-style-react/pull/3960)
 
 ### Fixed
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
