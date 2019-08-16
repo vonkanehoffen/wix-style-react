@@ -29,7 +29,7 @@ Types of changes:
 
 ### Fixed
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
-
+- `<Stepper/>` - added keyboard focusability only [#3949](https://github.com/wix/wix-style-react/pull/3949)
 - `<RichTextInputArea/>` - keep newlines of empty html elements in initial value [#3935](https://github.com/wix/wix-style-react/pull/3935)
 
 ### Docs
