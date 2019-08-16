@@ -28,6 +28,7 @@ Types of changes:
 - `<StatisticsWidget />` - improve drivers API [#3908](https://github.com/wix/wix-style-react/pull/3908)
 - `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
 - `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
+- `<MultiSelect/>` -  preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
 
 ### Fixed
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
