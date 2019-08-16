@@ -26,6 +26,7 @@ Types of changes:
 
 ### Changed
 - `<StatisticsWidget />` - improve drivers API [#3908](https://github.com/wix/wix-style-react/pull/3908)
+- `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
 
 ### Fixed
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
