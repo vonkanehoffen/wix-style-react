@@ -14,7 +14,14 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
 
+### Fixed
+- `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
+- `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
+- `<MultiSelect/>` -  preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
+- `<AutoComplete/> , <MultiSelect/>, <Dropdown/>` - remove testkit checking tests [#3960](https://github.com/wix/wix-style-react/pull/3960)
+- `<Search/>` - improve dataHook usage and prepare for inputwithoptions usage [#3961](https://github.com/wix/wix-style-react/pull/3961)
 
 ## 6.49.0 - 2019-08-15
 
@@ -26,10 +33,6 @@ Types of changes:
 
 ### Changed
 - `<StatisticsWidget />` - improve drivers API [#3908](https://github.com/wix/wix-style-react/pull/3908)
-- `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
-- `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
-- `<MultiSelect/>` -  preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
-- `<AutoComplete/> , <MultiSelect/>, <Dropdown/>` - remove testkit checking tests [#3960](https://github.com/wix/wix-style-react/pull/3960)
 
 ### Fixed
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
