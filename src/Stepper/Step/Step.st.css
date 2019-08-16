@@ -1,4 +1,9 @@
 :import {
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-default: Focusable;
+}
+
+:import {
     -st-from: "../../Text/Text.st.css";
     -st-default: Text;
 }
@@ -14,6 +19,7 @@
 }
 
 .root {
+    -st-extends: Focusable;
     -st-states: disabled, selected;
     display: flex;
     align-items: center;
@@ -71,16 +77,10 @@
     color: value(R10);
 }
 
-.root:focus .stepCircle {
-    box-shadow: 0 0 0 3px value(F00);
+.root:focus-visible:not(:disabled) .stepCircle {
+  box-shadow: 0 0 0 3px value(F00);
 }
 
-.root:focus:disabled .stepCircle {
-    box-shadow: none;
+.root:selected:focus-visible:not(:disabled) .stepCircle {
+  box-shadow: 0 0 0 3px value(F00);
 }
-
-.root:focus:selected .stepCircle {
-    box-shadow: none;
-}
-
-

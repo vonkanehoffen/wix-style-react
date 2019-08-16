@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Text from '../../Text';
 import StepCircle from './StepCircle/StepCircle';
 import DataHooks from '../dataHooks';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+
 import { ACTIVE_STEP, STEP_TYPES } from '../Consts';
 
 import styles from './Step.st.css';
@@ -55,19 +57,29 @@ class Step extends React.PureComponent {
     keyCode === KEY_CODES.ENTER || keyCode === KEY_CODES.SPACE;
 
   render() {
-    const { type, active, id, text, onFocus } = this.props;
+    const {
+      type,
+      active,
+      id,
+      text,
+      onFocus,
+      focusableOnFocus,
+      focusableOnBlur,
+    } = this.props;
     const { stepHover } = this.state;
     return (
       <div
         data-type={DataHooks.step}
         data-step-type={type ? type : STEP_TYPES.NORMAL}
         data-active={active ? ACTIVE_STEP : ''}
+        onFocus={focusableOnFocus}
+        onBlur={focusableOnBlur}
         key={`step${id}`}
         onKeyUp={this._onKeyUp}
         onMouseOver={this._onMouseOver}
         onMouseOut={this._onMouseOut}
         onKeyDown={this._onKeyDown}
-        tabIndex={active || type === STEP_TYPES.DISABLED ? -1 : 0}
+        tabIndex={type === STEP_TYPES.DISABLED ? -1 : 0}
         {...styles(
           'root',
           {
@@ -115,4 +127,4 @@ class Step extends React.PureComponent {
   }
 }
 
-export default Step;
+export default withFocusable(Step);
