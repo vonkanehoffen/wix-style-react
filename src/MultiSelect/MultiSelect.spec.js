@@ -697,48 +697,5 @@ describe('MultiSelect', () => {
         expect(getTagLabelAt(2)).toBe('Alabama');
       });
     });
-
-    describe('testkit', () => {
-      it('should exist', async () => {
-        const div = document.createElement('div');
-        const dataHook = 'myDataHook';
-        const tags = [{ id: 'Alabama', label: 'Alabama' }];
-        const wrapper = div.appendChild(
-          ReactTestUtils.renderIntoDocument(
-            <div>
-              <MultiSelect dataHook={dataHook} tags={tags} />
-            </div>,
-          ),
-        );
-        const multiSelectTestkit = multiSelectTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(multiSelectTestkit.driver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-        expect(
-          multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
-        ).toBeTruthy();
-      });
-    });
-
-    describe('enzyme testkit', () => {
-      it('should exist', async () => {
-        const dataHook = 'myDataHook';
-        const tags = [{ id: 'Alabama', label: 'Alabama' }];
-        const wrapper = mount(<MultiSelect dataHook={dataHook} tags={tags} />);
-        const multiSelectTestkit = enzymeMultiSelectTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(multiSelectTestkit.driver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-        expect(
-          multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
-        ).toBeTruthy();
-      });
-    });
   }
 });
