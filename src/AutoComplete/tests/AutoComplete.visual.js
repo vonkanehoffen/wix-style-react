@@ -32,23 +32,21 @@ class InteractiveEyeTest extends React.Component {
     const { value } = this.state;
 
     return (
-      <div style={{ marginLeft: '300px', marginTop: '200px' }}>
-        <Layout>
-          <Cell span={4}>
-            <AutoComplete
-              dataHook={interactiveDataHook}
-              value={value}
-              onChange={this.onChange}
-              onSelect={this.onSelect}
-              placeholder={'Start typing'}
-              predicate={option =>
-                option.value.toLowerCase().indexOf(value.toLowerCase()) !== -1
-              }
-              {...this.props}
-            />
-          </Cell>
-        </Layout>
-      </div>
+      <Layout>
+        <Cell>
+          <AutoComplete
+            dataHook={interactiveDataHook}
+            value={value}
+            onChange={this.onChange}
+            onSelect={this.onSelect}
+            placeholder={'Start typing'}
+            predicate={option =>
+              option.value.toLowerCase().indexOf(value.toLowerCase()) !== -1
+            }
+            {...this.props}
+          />
+        </Cell>
+      </Layout>
     );
   }
 }

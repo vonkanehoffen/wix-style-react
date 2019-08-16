@@ -7,6 +7,7 @@ import { autoCompleteTestkitFactory } from '../../../testkit';
 import { autoCompleteTestkitFactory as enzymeAutoCompleteTestkitFactory } from '../../../testkit/enzyme';
 import { mount } from 'enzyme';
 import {
+  cleanup,
   createRendererWithDriver,
   createRendererWithUniDriver,
 } from '../../../test/utils/unit';
@@ -24,7 +25,7 @@ describe('Autocomplete', () => {
 
   function runTests(render) {
     const createDriver = jsx => render(jsx).driver;
-
+    afterEach(() => cleanup());
     const options = [
       { id: 0, value: 'aaa' },
       { id: 1, value: 'abb' },
