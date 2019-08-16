@@ -104,40 +104,5 @@ describe('Autocomplete', () => {
       await inputDriver.focus();
       expect(await dropdownLayoutDriver.optionsLength()).toBe(options.length);
     });
-
-    describe('testkit', () => {
-      it('should exist', async () => {
-        const div = document.createElement('div');
-        const dataHook = 'myDataHook';
-        const wrapper = div.appendChild(
-          ReactTestUtils.renderIntoDocument(
-            <div>
-              <AutoComplete dataHook={dataHook} />
-            </div>,
-          ),
-        );
-        const autoCompleteTestkit = autoCompleteTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(autoCompleteTestkit.driver.exists()).toBeTruthy();
-        expect(autoCompleteTestkit.inputDriver.exists()).toBeTruthy();
-        expect(autoCompleteTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-      });
-    });
-
-    describe('enzyme testkit', () => {
-      it('should exist', async () => {
-        const dataHook = 'myDataHook';
-        const wrapper = mount(<AutoComplete dataHook={dataHook} />);
-        const autoCompleteTestkit = enzymeAutoCompleteTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(autoCompleteTestkit.driver.exists()).toBeTruthy();
-        expect(autoCompleteTestkit.inputDriver.exists()).toBeTruthy();
-        expect(autoCompleteTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-      });
-    });
   }
 });

@@ -236,37 +236,5 @@ describe('Dropdown', () => {
         expect(await inputDriver.getValue()).toBe('foo');
       });
     });
-
-    describe('testkit', () => {
-      it('should exist', async () => {
-        const div = document.createElement('div');
-        const dataHook = 'myDataHook';
-        const wrapper = div.appendChild(
-          ReactTestUtils.renderIntoDocument(
-            <div>
-              <Dropdown dataHook={dataHook} />
-            </div>,
-          ),
-        );
-        const dropdownTestkit = dropdownTestkitFactory({ wrapper, dataHook });
-        expect(await dropdownTestkit.driver.exists()).toBe(true);
-        expect(await dropdownTestkit.inputDriver.exists()).toBe(true);
-        expect(await dropdownTestkit.dropdownLayoutDriver.exists()).toBe(true);
-      });
-    });
-
-    describe('enzyme testkit', () => {
-      it('should exist', async () => {
-        const dataHook = 'myDataHook';
-        const wrapper = mount(<Dropdown dataHook={dataHook} />);
-        const dropdownTestkit = enzymeDropdownTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(await dropdownTestkit.driver.exists()).toBe(true);
-        expect(await dropdownTestkit.inputDriver.exists()).toBe(true);
-        expect(await dropdownTestkit.dropdownLayoutDriver.exists()).toBe(true);
-      });
-    });
   }
 });
