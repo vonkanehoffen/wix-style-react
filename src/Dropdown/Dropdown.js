@@ -5,6 +5,7 @@ import sortBy from 'lodash/sortBy';
 import { allValidators, extendPropTypes } from '../utils/propTypes';
 
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import DropdownLayout from '../DropdownLayout';
 import styles from './Dropdown.scss';
 
 const NO_SELECTED_ID = null;
@@ -128,14 +129,14 @@ class Dropdown extends InputWithOptions {
 Dropdown.propTypes = {
   ...InputWithOptions.propTypes,
   /** Sets the selected option id. (Implies Controlled mode) */
-  selectedId: InputWithOptions.propTypes.selectedId,
+  selectedId: DropdownLayout.propTypes.selectedId,
   /** An initial selected option id. (Implies Uncontrolled mode) */
-  initialSelectedId: InputWithOptions.propTypes.selectedId,
+  initialSelectedId: DropdownLayout.propTypes.selectedId,
 };
 
 extendPropTypes(Dropdown, {
   selectedId: allValidators(
-    InputWithOptions.propTypes.selectedId,
+    DropdownLayout.propTypes.selectedId,
     (props, propName) => {
       if (
         props[propName] !== undefined &&

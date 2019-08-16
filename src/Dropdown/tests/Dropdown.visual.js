@@ -21,13 +21,11 @@ class InteractiveEyeTest extends React.Component {
   }
   render() {
     return (
-      <div style={{ marginLeft: '300px', marginTop: '200px' }}>
-        <Layout>
-          <Cell span={4}>
-            <Dropdown dataHook={interactiveDataHook} {...this.props} />
-          </Cell>
-        </Layout>
-      </div>
+      <Layout>
+        <Cell>
+          <Dropdown dataHook={interactiveDataHook} {...this.props} />
+        </Cell>
+      </Layout>
     );
   }
 }
