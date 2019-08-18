@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ModalPreviewLayout from '../..';
 import Button from 'wix-style-react/Button';
 import Box from 'wix-style-react/Box';
-import Text from 'wix-style-react/Text';
 import IconButton from 'wix-style-react/IconButton';
 import Print from 'wix-style-react/new-icons/Print';
 import More from 'wix-style-react/new-icons/More';
@@ -17,11 +16,7 @@ export class ScrollableContentExample extends Component {
       <ModalPreviewLayout
         onClose={onClose}
         shouldCloseOnOverlayClick
-        title={
-          <Text light ellipsis>
-            Basic Website Design
-          </Text>
-        }
+        title="Basic Website Design"
         actions={
           <Box align="space-between" width={276}>
             <Button prefixIcon={<Print />} skin="dark">

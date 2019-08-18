@@ -74,7 +74,7 @@ describe('ModalPreviewLayout', () => {
     const previewTitle = 'Dashing Title';
     const props = {
       ...requiredProps,
-      title: <div>{previewTitle}</div>,
+      title: previewTitle,
     };
     const { driver } = render(<ModalPreviewLayout {...props} />);
 

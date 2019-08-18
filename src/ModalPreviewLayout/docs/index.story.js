@@ -12,7 +12,6 @@ import {
   playground,
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
-import Text from 'wix-style-react/Text';
 import Box from 'wix-style-react/Box';
 
 import ModalPreviewLayout from '..';
@@ -32,11 +31,7 @@ export default {
     </ModalWrapperExample>
   ),
   componentProps: {
-    title: (
-      <Text light ellipsis>
-        Basic Website Design
-      </Text>
-    ),
+    title: 'Basic Website Design',
     children: (
       <Box
         width="95vw"

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import X from '../new-icons/X';
+import Text from '../Text';
 import IconButton from '../IconButton';
 import styles from './ModalPreviewLayout.st.css';
 
@@ -16,7 +17,7 @@ class ModalPreviewLayout extends React.PureComponent {
     /** component to be displayed in header strip to preform actions relevant to the displayed content */
     actions: PropTypes.node,
     /** title text to be displayed in the header strip */
-    title: PropTypes.node,
+    title: PropTypes.string,
     /** modal content displayed mid-screen*/
     children: PropTypes.node.isRequired,
     /** callback for when the modal is closed */
@@ -49,7 +50,9 @@ class ModalPreviewLayout extends React.PureComponent {
       >
         <div data-hook={dataHook} className={styles.header}>
           <div data-hook="preview-modal-title" className={styles.title}>
-            {title}
+            <Text light ellipsis>
+              {title}
+            </Text>
           </div>
           <div className={styles.actions} data-hook="preview-modal-actions">
             {actions}
