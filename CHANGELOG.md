@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<ModalPreviewLayout/>` - refactor to use `<Text/>` in the header [#3964](https://github.com/wix/wix-style-react/pull/3964)
+
 ### Fixed
 - `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
 - `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
