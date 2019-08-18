@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   header,
   tabs,
@@ -10,14 +9,16 @@ import {
   divider,
   api,
   testkit,
+  playground,
 } from 'wix-storybook-utils/Sections';
-
 import LinkTo from '@storybook/addon-links/react';
-
-import { storySettings } from '../test/storySettings';
+import Text from 'wix-style-react/Text';
+import Box from 'wix-style-react/Box';
 
 import ModalPreviewLayout from '..';
-import { ScrollableContentPreviewModal } from './examples/ScrollableContent';
+import { storySettings } from '../test/storySettings';
+import { ModalWrapperExample } from './examples/ModalWrapper';
+import { ScrollableContentExample } from './examples/ScrollableContent';
 
 export default {
   category: storySettings.category,
@@ -25,13 +26,38 @@ export default {
 
   component: ModalPreviewLayout,
   componentPath: '..',
+  componentWrapper: ({ component }) => (
+    <ModalWrapperExample>
+      {({ onClose }) => React.cloneElement(component, { onClose })}
+    </ModalWrapperExample>
+  ),
+  componentProps: {
+    title: (
+      <Text light ellipsis>
+        Basic Website Design
+      </Text>
+    ),
+    children: (
+      <Box
+        width="95vw"
+        height="95vh"
+        align="center"
+        verticalAlign="middle"
+        backgroundColor="D80"
+      >
+        This is the content!
+      </Box>
+    ),
+    shouldCloseOnOverlayClick: true,
+  },
 
   sections: [
     header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
-      sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/ModalPreviewLayout/',
-      component: <ScrollableContentPreviewModal />,
+      component: (
+        <ModalWrapperExample>
+          {({ onClose }) => <ScrollableContentExample onClose={onClose} />}
+        </ModalWrapperExample>
+      ),
     }),
 
     tabs([
@@ -62,6 +88,7 @@ export default {
       ...[
         { title: 'API', sections: [api()] },
         { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),
   ],
