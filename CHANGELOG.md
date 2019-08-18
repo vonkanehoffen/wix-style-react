@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Changed
+- `<StatisticsWidget />` - rename properties [#3954](https://github.com/wix/wix-style-react/pull/3954)
 - `<ModalPreviewLayout/>` - refactor to use `<Text/>` in the header [#3964](https://github.com/wix/wix-style-react/pull/3964)
 
 ### Fixed
