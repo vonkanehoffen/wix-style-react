@@ -6,10 +6,7 @@
     "path": "src/AddItem"
   },
   "AutoComplete": {
-    "path": "src/AutoComplete",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/AutoComplete"
   },
   "AutoCompleteComposite": {
     "path": "src/AutoCompleteComposite",
