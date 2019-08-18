@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import {
   FamilyStructure,
@@ -6,7 +7,20 @@ import {
   NotDeveloped,
   singleComponentSizes,
 } from '../sharedComponents';
-import { Container, Row, Col } from 'wix-style-react/Grid';
+
+import { inputsSymbolsToComponents } from '../../../symbolsComponentsMapping/InputsFamily';
+
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../sharedComponents/utils';
+
+import {
+  inputsSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
+
+//Assets
 import Box from 'wix-style-react/Box';
 
 //3. Inputs
@@ -24,168 +38,293 @@ import FormField from 'wix-style-react/FormField';
 import Search from 'wix-style-react/Search';
 import ImageViewer from 'wix-style-react/ImageViewer';
 
-const TextInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.1 Text Input"
-    componentsNames={['<FormField/>', '<Input/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Text Input">
-      <Input placeholder="Value" />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+const groupSymbol = symbolsGroup.inputs;
 
-const TextAreaExample = () => (
-  <SingleComponentSideBySide
-    name="3.2 Text Area"
-    componentsNames={['<FormField/>', '<InputArea/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Text Area">
-      <InputArea placeholder="Value" />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+const TextInputExample = () => {
+  const symbol = inputsSymbols.textInput;
+  const components = inputsSymbolsToComponents[symbol];
 
-const RichTextAreaExample = () => (
-  <SingleComponentSideBySide
-    name="3.3 Rich Text Area"
-    componentsNames={['<FormField/>', '<RichTextInputArea/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Rich Text Area">
-      <RichTextInputArea />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+  const textInputProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
 
-const NumberInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.4 Number Input"
-    componentsNames={['<FormField/>', '<NumberInput/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Number Input">
-      <NumberInput value={500} />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+  return (
+    <SingleComponentSideBySide {...textInputProps}>
+      <FormField label="Text Input">
+        <Input placeholder="Value" />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
 
-const NumberRangeExample = () => (
-  <SingleComponentSideBySide name="3.5 Number Range Input">
-    <NotDeveloped />
-  </SingleComponentSideBySide>
-);
+const TextAreaExample = () => {
+  const symbol = inputsSymbols.textArea;
+  const components = inputsSymbolsToComponents[symbol];
 
-const IncrementerInputExample = () => (
-  <SingleComponentSideBySide name="3.6 Incrementer Input">
-    <NotDefined />
-  </SingleComponentSideBySide>
-);
+  const textAreaProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
 
-const DurationInputExample = () => (
-  <SingleComponentSideBySide name="3.7 Duration Input">
-    <NotDeveloped />
-  </SingleComponentSideBySide>
-);
+  return (
+    <SingleComponentSideBySide {...textAreaProps}>
+      <FormField label="Text Area">
+        <InputArea placeholder="Value" />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
 
-const TimeInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.8 Time Input"
-    componentsNames={['<FormField/>', '<TimeInput/>']}
-  >
-    <FormField label="Time Input">
-      <TimeInput disableAmPm />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+const RichTextAreaExample = () => {
+  const symbol = inputsSymbols.richTextArea;
+  const components = inputsSymbolsToComponents[symbol];
 
-const DateInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.9 Date Input"
-    componentsNames={['<FormField/>', '<DateInput/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Date">
-      <DateInput value={new Date().toString()} />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+  const richTextAreaProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
 
-const DateRangeInputExample = () => (
-  <SingleComponentSideBySide name="3.10 Date Range Input">
-    <NotDeveloped />
-  </SingleComponentSideBySide>
-);
+  return (
+    <SingleComponentSideBySide {...richTextAreaProps}>
+      <FormField label="Rich Text Area">
+        <RichTextInputArea />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
 
-const ColorInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.11 Color Input"
-    componentsNames={['<FormField/>', '<ColorInput/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Color Input">
-      <ColorInput value="" placeholder="Please choose a color" />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+const NumberInputExample = () => {
+  const symbol = inputsSymbols.numberInput;
+  const components = inputsSymbolsToComponents[symbol];
 
-const TagsInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.12 Tags Input"
-    componentsNames={['<FormField/>', '<MultiSelect/>', '<Tag/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField label="Tag Input">
-      <MultiSelect tags={[{ label: 'Tag 1' }, { label: 'Tag 2' }]} />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+  const numberInputProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
 
-const GoogleAddressInputExample = () => (
-  <SingleComponentSideBySide name="3.13 Google Address Input">
-    <NotDefined />
-  </SingleComponentSideBySide>
-);
+  return (
+    <SingleComponentSideBySide {...numberInputProps}>
+      <FormField label="Number Input">
+        <NumberInput value={500} />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
 
-const SearchInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.14 Search Input"
-    componentsNames={['<Search/>']}
-    size={singleComponentSizes.compact}
-  >
-    <Search placeholder="Search..." />
-  </SingleComponentSideBySide>
-);
+const NumberRangeExample = () => {
+  const symbol = inputsSymbols.numberRangeInput;
+  const components = inputsSymbolsToComponents[symbol];
 
-const MediaInputExample = () => (
-  <SingleComponentSideBySide
-    name="3.15 Media Input"
-    componentsNames={['<FormField/>', '<ImageViewer/>']}
-  >
-    <Box>
-      <Box flexBasis="0" marginRight="18px">
-        <FormField label="Multimedia Input ">
-          <ImageViewer />
-        </FormField>
-      </Box>
+  const numberRangeProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...numberRangeProps}>
+      <NotDeveloped />
+    </SingleComponentSideBySide>
+  );
+};
+
+const IncrementerInputExample = () => {
+  const symbol = inputsSymbols.incrementerInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const incrementerInputProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...incrementerInputProps}>
+      <NotDefined />
+    </SingleComponentSideBySide>
+  );
+};
+
+const DurationInputExample = () => {
+  const symbol = inputsSymbols.durationInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const durationInputProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...durationInputProps}>
+      <NotDeveloped />
+    </SingleComponentSideBySide>
+  );
+};
+
+const TimeInputExample = () => {
+  const symbol = inputsSymbols.timeInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const timeInputProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...timeInputProps}>
+      <FormField label="Time Input">
+        <TimeInput disableAmPm />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
+
+const DateInputExample = () => {
+  const symbol = inputsSymbols.dateInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const dateInputProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...dateInputProps}>
+      <FormField label="Date">
+        <DateInput value={new Date().toString()} />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
+
+const DateRangeInputExample = () => {
+  const symbol = inputsSymbols.dateRangeInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const dateRangeInputProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...dateRangeInputProps}>
+      <NotDeveloped />
+    </SingleComponentSideBySide>
+  );
+};
+
+const ColorInputExample = () => {
+  const symbol = inputsSymbols.colorInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const colorInputProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...colorInputProps}>
+      <FormField label="Color Input">
+        <ColorInput value="" placeholder="Please choose a color" />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
+
+const TagsInputExample = () => {
+  const symbol = inputsSymbols.tagsInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const tagsInputProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...tagsInputProps}>
+      <FormField label="Tag Input">
+        <MultiSelect tags={[{ label: 'Tag 1' }, { label: 'Tag 2' }]} />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
+
+//TODO: There's a component for it. No symbol for this one.
+const GoogleAddressInputExample = () => {
+  const symbol = inputsSymbols.googleAddressInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const googleAddressInputProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...googleAddressInputProps}>
+      <NotDefined />
+    </SingleComponentSideBySide>
+  );
+};
+
+//TODO: No UX Story for this one.
+const SearchInputExample = () => {
+  const symbol = inputsSymbols.searchInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const searchInputProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...searchInputProps}>
+      <Search placeholder="Search..." />
+    </SingleComponentSideBySide>
+  );
+};
+
+//TODO: No UX Story for this one.
+const MediaInputExample = () => {
+  const symbol = inputsSymbols.mediaInput;
+  const components = inputsSymbolsToComponents[symbol];
+
+  const mediaInputProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...mediaInputProps}>
       <Box>
-        <FormField label="Multimedia Input ">
-          <ImageViewer
-            imageUrl="https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_375,h_375/c78d05b79ede429fb77c9d8ec4443b93.jpg"
-            onAddImage={() => 'onAddImage'}
-            onRemoveImage={() => 'onRemoveImage'}
-            onUpdateImage={() => 'onUpdateImage'}
-          />
-        </FormField>
+        <Box flexBasis="0" marginRight="18px">
+          <FormField label="Multimedia Input ">
+            <ImageViewer />
+          </FormField>
+        </Box>
+        <Box>
+          <FormField label="Multimedia Input ">
+            <ImageViewer
+              imageUrl="https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_375,h_375/c78d05b79ede429fb77c9d8ec4443b93.jpg"
+              onAddImage={() => console.log('onAddImage')}
+              onRemoveImage={() => console.log('onRemoveImage')}
+              onUpdateImage={() => console.log('onUpdateImage')}
+            />
+          </FormField>
+        </Box>
       </Box>
-    </Box>
-  </SingleComponentSideBySide>
-);
+    </SingleComponentSideBySide>
+  );
+};
 
 const InputFamily = () => (
-  <FamilyStructure title="3. Input">
+  <FamilyStructure title={groupSymbol}>
     <TextInputExample />
     <TextAreaExample />
     <RichTextAreaExample />
