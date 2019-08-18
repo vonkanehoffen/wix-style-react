@@ -7,20 +7,20 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500,000,000',
-          titleInShort: '$500M',
-          subtitle: 'Monday',
+          value: '$500,000,000',
+          valueInShort: '$500M',
+          description: 'Income',
         },
         {
-          title: '$1,500',
-          titleInShort: '1,5K',
-          subtitle: 'Tuesday sales in average',
+          value: '$1,500',
+          valueInShort: '1,5K',
+          description: 'Outcome',
         },
         {
-          title: '4,200,000',
-          titleInShort: '4,2M',
-          subtitle: 'Number of active customers',
-          subtitleContentInfo: 'Customers have 10 and more order',
+          value: '4,200,000',
+          valueInShort: '4,2M',
+          description: 'Number of active customers',
+          descriptionInfo: 'Customers have 10 and more order',
         },
       ]}
     />

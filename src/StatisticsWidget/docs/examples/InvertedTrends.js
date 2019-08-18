@@ -7,33 +7,34 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500',
-          subtitle: 'Monday',
+          value: '500',
+          description: 'Customers',
           percentage: 21,
         },
         {
-          title: '$1,500',
-          subtitle: 'Tuesday',
+          value: '1,500',
+          description: 'Orders',
           percentage: 21,
           invertedPercentage: true,
         },
         {
-          title: '$2,500',
+          value: '$2,500',
+          description: 'Outcome',
           percentage: -11,
         },
         {
-          title: '$3,500',
-          subtitle: 'Thursday',
+          value: '$3,500',
+          description: 'Revenue',
           percentage: -11,
           invertedPercentage: true,
-          subtitleContentInfo: 'Sales on Thursday',
+          descriptionInfo: 'Sales on Thursday',
         },
         {
-          title: '0',
-          subtitle: 'Friday',
+          value: '0',
+          description: 'Clicks',
           percentage: 0,
           invertedPercentage: true,
-          subtitleContentInfo: 'Sales on Friday',
+          descriptionInfo: 'Clicks on Friday',
         },
       ]}
     />

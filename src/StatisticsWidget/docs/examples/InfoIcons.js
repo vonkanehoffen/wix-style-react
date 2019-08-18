@@ -7,18 +7,18 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500',
-          subtitle: 'Monday',
-          subtitleContentInfo: 'Sales on Thursday',
+          value: '$500',
+          description: 'Revenue',
+          descriptionInfo: 'Revenue from sales',
         },
         {
-          title: '$1,500',
-          subtitleContentInfo: 'I am not visible because there is no subtitle',
+          value: '$1,500',
+          descriptionInfo: 'I am not visible because there is no description',
         },
         {
-          title: '$2,500',
-          subtitle: 'Wednesday',
-          subtitleContentInfo: 'Sales on Wednesday',
+          value: '2,500',
+          description: 'Orders',
+          descriptionInfo: 'Orders made this week',
         },
       ]}
     />

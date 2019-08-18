@@ -7,17 +7,17 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500',
-          subtitle: 'Monday',
+          value: '500',
+          description: 'Visits',
           percentage: 21,
         },
         {
-          title: '$1,500',
-          subtitle: 'Tuesday',
+          value: '1,500',
+          description: 'Orders',
           percentage: 0,
         },
         {
-          title: '$2,500',
+          value: '$2,500',
           percentage: -11,
         },
       ]}

@@ -7,16 +7,15 @@ render(
     <StatisticsWidget
       statistics={[
         {
-          title: '$500',
+          value: '$500',
+          description: 'Sales',
         },
         {
-          title: '$1,500',
+          value: '$1,500',
         },
         {
-          title: '$2,500',
-        },
-        {
-          title: '$3,500',
+          value: '$2,500',
+          description: 'Revenue',
         },
       ]}
     />

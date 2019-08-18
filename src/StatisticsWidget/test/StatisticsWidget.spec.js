@@ -27,62 +27,62 @@ describe('StatisticsWidget', () => {
       data = {
         statistics: [
           {
-            title: 'First title',
-            subtitle: 'First subtitle',
+            value: 'First value',
+            description: 'First description',
             percentage: 12,
           },
         ],
       };
     });
 
-    describe('Title', () => {
-      it('should render title', async () => {
+    describe('value', () => {
+      it('should render value', async () => {
         const { driver } = render(<StatisticsWidget {...data} />);
         const count = await driver.getItemsCount();
 
         expect(count).toBe(1);
       });
 
-      it('should render title based on props', async () => {
-        data.statistics[0].title = 'Changed title';
+      it('should render value based on props', async () => {
+        data.statistics[0].value = 'Changed value';
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const title = await driver.getTitle(0);
-        const shortTitle = await driver.getTitleInShort(0);
+        const value = await driver.getValue(0);
+        const shortValue = await driver.getValueInShort(0);
 
-        expect(shortTitle).toBeNull();
-        expect(title).toBe('Changed title');
+        expect(shortValue).toBeNull();
+        expect(value).toBe('Changed value');
       });
 
       it('should render short version', async () => {
-        data.statistics[0].titleInShort = '1K';
+        data.statistics[0].valueInShort = '1K';
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const shortTitle = await driver.getTitleInShort(0);
-        const title = await driver.getTitle(0);
+        const shortvalue = await driver.getValueInShort(0);
+        const value = await driver.getValue(0);
 
-        expect(shortTitle).toBe('1K');
-        expect(title).toBe('First title');
+        expect(shortvalue).toBe('1K');
+        expect(value).toBe('First value');
       });
     });
 
-    describe('Subtitle', () => {
+    describe('description', () => {
       it('should not exist by default', async () => {
-        data.statistics[0].subtitle = undefined;
+        data.statistics[0].description = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const subtitle = await driver.getSubtitle(0);
+        const description = await driver.getDescription(0);
 
-        expect(subtitle).toBeNull();
+        expect(description).toBeNull();
       });
 
       it('should render based on props', async () => {
-        data.statistics[0].subtitle = 'Changed subtitle';
+        data.statistics[0].description = 'Changed description';
 
         const { driver } = render(<StatisticsWidget {...data} />);
-        const subtitle = await driver.getSubtitle(0);
+        const description = await driver.getDescription(0);
 
-        expect(subtitle).toBe('Changed subtitle');
+        expect(description).toBe('Changed description');
       });
     });
 
@@ -94,8 +94,8 @@ describe('StatisticsWidget', () => {
         expect(info).toBeFalsy();
       });
 
-      it('should exist when description is set', async () => {
-        data.statistics[0].subtitleContentInfo = 'This is a description';
+      it('should exist when descriptionInfo is set', async () => {
+        data.statistics[0].descriptionInfo = 'This is a description';
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const info = await driver.isInfoExists(0);
@@ -105,19 +105,19 @@ describe('StatisticsWidget', () => {
 
       it('should contain passed text', async () => {
         const description = 'This is a description';
-        data.statistics[0].subtitleContentInfo = description;
+        data.statistics[0].descriptionInfo = description;
 
         const { driver } = render(<StatisticsWidget {...data} />);
 
-        expect(await driver.getInfo(0)).toBe(description);
+        expect(await driver.getDescriptionInfo(0)).toBe(description);
       });
 
-      it('should be null, when there is no description', async () => {
-        data.statistics[0].subtitleContentInfo = undefined;
+      it('should be null, when there is no descriptionInfo', async () => {
+        data.statistics[0].descriptionInfo = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
 
-        expect(await driver.getInfo(0)).toBeNull();
+        expect(await driver.getDescriptionInfo(0)).toBeNull();
       });
     });
 
@@ -178,25 +178,25 @@ describe('StatisticsWidget', () => {
       data = {
         statistics: [
           {
-            title: '1k',
+            value: '1k',
           },
           {
-            title: '2k',
+            value: '2k',
           },
           {
-            title: '3k',
+            value: '3k',
           },
           {
-            title: '4k',
+            value: '4k',
           },
           {
-            title: '5k',
+            value: '5k',
           },
           {
-            title: '6k',
+            value: '6k',
           },
           {
-            title: '7k',
+            value: '7k',
           },
         ],
       };
@@ -210,14 +210,14 @@ describe('StatisticsWidget', () => {
 
     it('should render first 5 items', async () => {
       const { driver } = render(<StatisticsWidget {...data} />);
-      const titleFirst = await driver.getTitle(0);
-      const titleLast = await driver.getTitle(4);
+      const valueFirst = await driver.getValue(0);
+      const valueLast = await driver.getValue(4);
 
       const count = await driver.getItemsCount();
 
       expect(count).toBe(5);
-      expect(titleFirst).toBe('1k');
-      expect(titleLast).toBe('5k');
+      expect(valueFirst).toBe('1k');
+      expect(valueLast).toBe('5k');
     });
   });
 
@@ -231,25 +231,25 @@ describe('StatisticsWidget', () => {
       data = {
         statistics: [
           {
-            title: '1st title',
-            subtitle: '1st subtitle',
+            value: '1st value',
+            description: '1st description',
             percentage: 12,
             onClick: onClick1,
           },
           {
-            title: '2nd title',
-            subtitle: '2nd subtitle',
+            value: '2nd value',
+            description: '2nd description',
             percentage: 12,
           },
           {
-            title: '3rd title',
-            subtitle: '3rd subtitle',
+            value: '3rd value',
+            description: '3rd description',
             percentage: 12,
             onClick: onClick2,
           },
           {
-            title: '4th title',
-            subtitle: '4th subtitle',
+            value: '4th value',
+            description: '4th description',
             percentage: 12,
             onClick: onClick3,
           },
