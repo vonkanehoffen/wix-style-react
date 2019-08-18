@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Box from 'wix-style-react/Box';
-import Text from 'wix-style-react/Text';
 import Button from 'wix-style-react/Button';
 import IconButton from 'wix-style-react/IconButton';
 import Print from 'wix-style-react/new-icons/Print';
@@ -19,11 +18,7 @@ const tests = [
       {
         it: 'scrollable', //prop variation (e.g. small)
         props: {
-          title: (
-            <Text light ellipsis>
-              Basic Website Design
-            </Text>
-          ),
+          title: 'Basic Website Design',
           children: (
             <Box>
               <img src={ascendInvoice} />
