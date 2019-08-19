@@ -217,8 +217,8 @@ MultiSelect.propTypes = {
    */
   onSelect: PropTypes.func,
   customInput: PropTypes.elementType
-    ? PropTypes.oneOfType(PropTypes.func, PropTypes.elementType)
-    : PropTypes.oneOfType(PropTypes.func),
+    ? PropTypes.oneOfType([PropTypes.func, PropTypes.elementType])
+    : PropTypes.oneOfType([PropTypes.func]),
   customSuffix: PropTypes.node,
 };
 
