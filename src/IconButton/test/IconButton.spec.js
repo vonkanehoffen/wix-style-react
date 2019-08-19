@@ -40,34 +40,34 @@ describe('IconButton', () => {
         expect(await driver.getIconSize()).toEqual('24px');
       },
     );
+  });
 
-    describe(`'as' prop`, () => {
-      const Link = ({ children }) => <a>{children}</a>;
+  describe(`'as' prop`, () => {
+    const Link = ({ children }) => <a>{children}</a>;
 
-      class LinkClass extends React.Component {
-        render() {
-          return <a>{this.props.children}</a>;
-        }
+    class LinkClass extends React.Component {
+      render() {
+        return <a>{this.props.children}</a>;
       }
+    }
 
-      it('should be defined in proptypes', async () => {
-        expect(!!IconButton.propTypes.as).toBe(true);
-      });
+    it('should be defined in proptypes', async () => {
+      expect(!!IconButton.propTypes.as).toBe(true);
+    });
 
-      it('should render without errors when html element is passed', async () => {
-        const { driver } = render(<IconButton as="a" />);
-        expect(await driver.exists()).toBe(true);
-      });
+    it('should render without errors when html element is passed', async () => {
+      const { driver } = render(<IconButton as="a" />);
+      expect(await driver.exists()).toBe(true);
+    });
 
-      it('should render without errors when function reference is passed', async () => {
-        const { driver } = render(<IconButton as={Link} />);
-        expect(await driver.exists()).toBe(true);
-      });
+    it('should render without errors when function reference is passed', async () => {
+      const { driver } = render(<IconButton as={Link} />);
+      expect(await driver.exists()).toBe(true);
+    });
 
-      it('should render without errors when class is passed', async () => {
-        const { driver } = render(<IconButton as={LinkClass} />);
-        expect(await driver.exists()).toBe(true);
-      });
+    it('should render without errors when class is passed', async () => {
+      const { driver } = render(<IconButton as={LinkClass} />);
+      expect(await driver.exists()).toBe(true);
     });
   });
 });
