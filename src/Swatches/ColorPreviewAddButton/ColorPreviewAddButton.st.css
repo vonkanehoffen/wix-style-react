@@ -1,0 +1,42 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-default: Focusable;
+}
+
+:import {
+  -st-from: "../../Foundation/stylable/colors.st.css";
+  -st-named:
+    B00,
+    B00-24, B00-42,
+    F00
+}
+
+.preview {
+  -st-extends: Focusable;
+  -st-states: noColorSelected;
+  flex: 0 0 24px;
+  border-radius: 6px;
+  border: solid 1px value(B00-24);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Disable native focus */
+  outline: none;
+}
+
+.preview:hover {
+  border-color: value(B00-42);
+}
+
+.preview:noColorSelected {
+  background-color: value(F00);
+}
+
+.preview:not(:disabled):focus-visible {
+  box-shadow: 0 0 0 3px value(F00);
+}

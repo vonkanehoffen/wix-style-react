@@ -117,6 +117,20 @@ export default {
             }),
           ]),
 
+          columns([
+            description({
+              title: 'Add button',
+              text:
+                'Pass `showAddButton` prop to get the Add Color button. In addition pass `onAdd` to handle newly selected color and `addButtonTooltip` to control tooltip of the add button',
+            }),
+
+            code({
+              compact: true,
+              source:
+                "<div style={{width: '100px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']}/ showAddButton addButtonTooltip=\"New Color\"></div>",
+            }),
+          ]),
+
           code({
             title: 'Full Interactive Preview',
             description: 'Here you have all available props',
@@ -129,6 +143,8 @@ export default {
                   return (
                     <Swatches
                       showClear
+                      showAddButton
+                      addButtonTooltip="New Color"
                       selected={this.state.color}
                       onClick={color => this.setState({color})}
                       colors={['red', 'cyan', '#f9f9f9']} />

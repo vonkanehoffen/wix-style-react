@@ -21,5 +21,8 @@ export const swatchesDriverFactory = base => {
       const swatch = await getSwatch(index);
       return (await stylableUtil.getStyleState(swatch, 'selected')) === 'true';
     },
+
+    addButtonExists: async () =>
+      base.$$('[data-hook="color-preview-add-button"]').count() === 1,
   };
 };

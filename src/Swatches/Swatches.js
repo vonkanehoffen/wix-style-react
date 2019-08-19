@@ -1,19 +1,25 @@
 import React from 'react';
-import { array, func, string, oneOf, bool, node } from 'prop-types';
+import { array, bool, func, node, oneOf, string } from 'prop-types';
 import resolveColor from 'color';
 import styles from './Swatches.st.css';
 import Swatch from './Swatch';
+import AddColorButton from './AddColorButton/AddColorButton';
+import { ColorPreviewAddIconSize } from './ColorPreviewAddButton/ColorPreviewAddIcon';
 
 /** Color swatches */
 const Swatches = props => {
   const {
     colors,
     onClick,
+    onAdd,
     selected,
     size,
     dataHook,
     showClear,
     showClearMessage,
+    showAddButton,
+    addButtonTooltip,
+    iconSize,
   } = props;
 
   const hexColors = colors.map(color => resolveColor(color).hex());
@@ -21,6 +27,14 @@ const Swatches = props => {
 
   return (
     <div {...styles('root', { size }, props)} data-hook={dataHook}>
+      {showAddButton && (
+        <AddColorButton
+          tooltip={addButtonTooltip}
+          iconSize={iconSize}
+          onAdd={onAdd}
+        />
+      )}
+
       {showClear && (
         <Swatch
           color=""
@@ -57,6 +71,9 @@ Swatches.propTypes = {
   /** Callback function when user clicks on a swatch. Returns color HEX string representation. */
   onClick: func,
 
+  /** Callback function when user clicks on Add button and selects a color to be added. Returns color HEX string representation. */
+  onAdd: func,
+
   /** Size of swatches */
   size: oneOf(['small', 'medium']),
 
@@ -65,6 +82,15 @@ Swatches.propTypes = {
 
   /** optional message to display in tooltip when showClear is true */
   showClearMessage: node,
+
+  /** If true shows add button which triggers colors picker*/
+  showAddButton: bool,
+
+  /** Tooltip of add button */
+  addButtonTooltip: string,
+
+  /** Size of Plus icon inside add button */
+  iconSize: ColorPreviewAddIconSize,
 };
 
 Swatches.defaultProps = {

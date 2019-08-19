@@ -1,8 +1,10 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
+import eventually from 'wix-eventually';
 
 import Swatches from '../Swatches';
 import { swatchesPrivateDriverFactory } from './Swatches.private.uni.driver';
+import SideMenu from '../../Deprecated/SideMenu';
 
 describe('Swatches', () => {
   let onClick;
@@ -87,6 +89,88 @@ describe('Swatches', () => {
       );
 
       expect(await driver.getTooltipText()).toBe(message);
+    });
+
+    describe('Add color button', () => {
+      it('should be rendered when showAddButton props is true', async () => {
+        const { driver } = render(
+          <Swatches colors={['#000000']} showAddButton />,
+        );
+
+        expect(await driver.addButtonExists()).toBe(false);
+      });
+
+      it('should not show color picker initially', async () => {
+        const { driver } = render(
+          <Swatches colors={['#000000']} showAddButton />,
+        );
+
+        expect(await driver.isColorPickerShown()).toBe(false);
+      });
+
+      it('should show color picker on add button click', async () => {
+        const { driver } = render(
+          <Swatches colors={['#000000']} showAddButton />,
+        );
+
+        await driver.clickAddColorButton();
+        await eventually(async () => {
+          expect(await driver.isColorPickerShown()).toBe(true);
+        });
+      });
+
+      it('should call onAdd callback when selecting a color in color picker', async () => {
+        const addSpy = jest.fn();
+        const { driver } = render(
+          <Swatches colors={['#000000']} showAddButton onAdd={addSpy} />,
+        );
+
+        await driver.clickAddColorButton();
+        await driver.confirmSelectedColor();
+
+        expect(addSpy).toHaveBeenCalledTimes(1);
+        expect(addSpy).toBeCalledWith('#3899EB');
+      });
+
+      it('should close color picker when clicking cancel button', async () => {
+        const addSpy = jest.fn();
+        const { driver } = render(
+          <Swatches colors={['#000000']} showAddButton onAdd={addSpy} />,
+        );
+
+        await driver.clickAddColorButton();
+        await eventually(async () => {
+          expect(await driver.isColorPickerShown()).toBe(true);
+        });
+        await driver.cancelColorPicker();
+
+        expect(addSpy).not.toBeCalled();
+
+        await eventually(async () => {
+          expect(await driver.isColorPickerShown()).toBe(false);
+        });
+      });
+
+      it('should not add tooltip if addButtonTooltip is not given', async () => {
+        const { driver } = render(
+          <Swatches colors={['#000000']} showAddButton />,
+        );
+
+        expect(await driver.hasAddButtonTooltip()).toBe(false);
+      });
+
+      it('should accept showClearMessage and show in tooltip', async () => {
+        const message = 'no color selected';
+        const { driver } = render(
+          <Swatches
+            colors={['#000000']}
+            showAddButton
+            addButtonTooltip={message}
+          />,
+        );
+
+        expect(await driver.getAddButtonTooltipText()).toBe(message);
+      });
     });
   });
 });
