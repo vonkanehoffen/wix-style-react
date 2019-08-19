@@ -32,6 +32,7 @@ Types of changes:
 ### Docs
 - `<ModalPreviewLayout/>` - add playground [#3966](https://github.com/wix/wix-style-react/pull/3966)
 - `Cheatsheet`- Adding links to `InputsFamily` documentations [#3933](https://github.com/wix/wix-style-react/pull/3933)
+- `Cheatsheet`- Adding links to `LayoutFamily` documentations [#3968](https://github.com/wix/wix-style-react/pull/3968)
 
 
 ## 6.49.0 - 2019-08-15
