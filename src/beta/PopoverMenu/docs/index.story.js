@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import React from 'react';
-import LinkTo from '@storybook/addon-links/react';
 
 import {
   api,
@@ -20,6 +19,7 @@ import { storySettings } from '../test/storySettings';
 import allComponents from '../../../../stories/utils/allComponents';
 
 import PopoverMenu from '..';
+
 import IconButton from '../../../IconButton';
 import More from '../../../new-icons/More';
 import Add from '../../../new-icons/Add';
@@ -28,16 +28,13 @@ import Delete from '../../../new-icons/Delete';
 
 import { placements } from '../../../Popover';
 import testkitDesc from './testkit.md';
-import usage from './usage.md';
+import compound from './compound.md';
 
 import * as examples from './examples';
 
 const liveCode = config =>
   baseLiveCode({ components: { ...allComponents, PopoverMenu }, ...config });
-const example = ({ source, ...rest }) =>
-  columns({
-    items: [description(rest), liveCode({ compact: true, source })],
-  });
+const example = props => liveCode(props);
 
 const commonProps = {
   appendTo: 'window',
@@ -111,37 +108,24 @@ export default {
 
           divider(),
 
-          columns([
-            description({
-              title: 'Usage',
-              text: usage,
-            }),
-          ]),
-
-          divider(),
-
           title('Examples'),
 
           ...[
             {
-              title: 'Trigger',
-              text: 'Trigger element can be an icon button or a text button.',
+              title: 'Element (Trigger)',
+              subtitle:
+                'Any component that is meant for triggering an action can be used as trigger element.',
               source: examples.trigger,
             },
             {
-              title: 'Menu item styling',
-              text:
-                'Each menu item can be styled differently with the following props - skin, prefixIcon, text size, disabled.',
-              source: examples.menuItemStyling,
-            },
-            {
-              title: 'Divider',
-              text: 'Menu can have a divider between items.',
-              source: examples.divider,
+              title: 'Render props (Trigger)',
+              subtitle:
+                'Trigger events can be access through triggerElement prop render props. ',
+              source: examples.renderprops,
             },
             {
               title: 'Text Wrap',
-              text:
+              subtitle:
                 'By default all menu items text gets ellipsed when reaches boundaries limit. Passing `textWrap` disables ellipsis and wrap text to new line.',
               source: examples.wrap,
             },
@@ -150,7 +134,11 @@ export default {
       }),
 
       ...[
-        { title: 'API', sections: [api()] },
+        { title: 'PopoverMenu API', sections: [api()] },
+        {
+          title: 'Compound Components API',
+          sections: [description(compound)],
+        },
         { title: 'Testkit', sections: [description(testkitDesc)] },
         { title: 'Playground', sections: [playground()] },
       ].map(tab),
