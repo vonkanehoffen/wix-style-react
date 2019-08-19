@@ -4,8 +4,10 @@ import PageExamples from './examples/PageExamples';
 import CardExamples from './examples/CardExamples';
 import TableExamples from './examples/TableExamples';
 
+import { symbolsGroup } from '../../../../symbolsComponentsMapping/symbols';
+
 const LayoutFamily = () => (
-  <FamilyStructure title="2. Layout" showPreview={false}>
+  <FamilyStructure title={symbolsGroup.layout} showPreview={false}>
     <PageExamples />
     <CardExamples />
     <TableExamples />

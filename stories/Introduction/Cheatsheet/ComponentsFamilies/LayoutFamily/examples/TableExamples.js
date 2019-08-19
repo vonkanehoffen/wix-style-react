@@ -1,5 +1,10 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { SingleComponentStacked, Preview } from '../../../sharedComponents';
+import { createLinkedComponentsNames } from '../../../sharedComponents/utils';
+
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/LayoutFamily';
+import { layoutSymbols } from '../../../../../symbolsComponentsMapping/symbols';
 
 import Table from 'wix-style-react/Table';
 import TableActionCell from 'wix-style-react/TableActionCell';
@@ -47,15 +52,16 @@ class TablePageExample extends Component {
   };
 
   render() {
+    const { data } = this.state;
     return (
       <Table
-        data={this.state.data}
+        data={data}
         columns={[
           {
             title: '',
             width: '10%',
             minWidth: '50px',
-            render: () => <Avatar size="size60" imgProps />,
+            render: () => <Avatar size="size60" />,
           },
           { title: 'Name', render: row => row.name },
           { title: 'SKU', render: row => row.SKU },
@@ -66,6 +72,7 @@ class TablePageExample extends Component {
             render: rowData => (
               <TableActionCell
                 primaryAction={{
+                  onClick: () => console.log('primaryAction'),
                   text: 'Edit',
                   theme: 'fullblue',
                   onActionTrigger: rowData =>
@@ -112,15 +119,22 @@ const TableToolbarExample = () => (
   </Card>
 );
 
-const TableExamples = () => (
-  <SingleComponentStacked
-    name="2.3 Table Layout"
-    componentsNames={['<Table/>']}
-  >
-    <Preview>
-      <TablePageExample />
-    </Preview>
-  </SingleComponentStacked>
-);
+const TableExamples = () => {
+  const symbol = layoutSymbols.tableLayout;
+  const components = layoutSymbolsToComponents[symbol];
+
+  const tableLayoutProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentStacked {...tableLayoutProps}>
+      <Preview>
+        <TablePageExample />
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
 
 export default TableExamples;

@@ -1,5 +1,6 @@
 export const sharedComponents = {
   FormField: 'FormField',
+  EmptyState: 'EmptyState',
 };
 
 export const inputComponentsNames = {
@@ -14,4 +15,19 @@ export const inputComponentsNames = {
   DateInput: 'DateInput',
   Search: 'Search',
   ImageViewer: 'ImageViewer',
+};
+
+export const layoutComponentsNames = {
+  Page: 'Page',
+  PageHeader: 'Page.Header',
+  Grid: 'Grid',
+  Layout: 'Layout',
+  Card: 'Card',
+  CardHeader: 'Card.Header',
+  CardSubheader: 'Card.Subheader',
+  CardContent: 'Card.Content',
+  CardDivider: 'Card.Divider',
+  Table: 'Table',
+  TableActionCell: 'TableActionCell',
+  TableToolbar: 'TableToolbar',
 };

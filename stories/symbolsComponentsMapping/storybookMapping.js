@@ -1,5 +1,5 @@
 import { linkTo } from '@storybook/addon-links';
-import { inputComponentsNames } from './components';
+import { inputComponentsNames, layoutComponentsNames } from './components';
 import { inputsSymbols, symbolsGroup } from './symbols';
 
 export const getComponentUrl = ({ componentName }) =>
@@ -12,6 +12,8 @@ const componentActualUrl = {
   [inputComponentsNames.TimeInput]: linkTo('Components', 'TimePicker'),
   [inputComponentsNames.DateInput]: linkTo('WIP', 'DateInput'),
   [inputComponentsNames.MultiSelect]: linkTo('Components', 'Multiselect'),
+  [layoutComponentsNames.PageHeader]: linkTo('Components', 'PageHeader'),
+  [layoutComponentsNames.Layout]: linkTo('Components/Layout', 'Usage'),
 };
 
 const symbolActualUrl = {
@@ -21,4 +23,7 @@ const symbolActualUrl = {
 
 export const componentsWithoutDocumentation = {
   [inputComponentsNames.ColorInput]: inputComponentsNames.ColorInput,
+  [layoutComponentsNames.CardHeader]: layoutComponentsNames.CardHeader,
+  [layoutComponentsNames.CardContent]: layoutComponentsNames.CardContent,
+  [layoutComponentsNames.CardDivider]: layoutComponentsNames.CardDivider,
 };

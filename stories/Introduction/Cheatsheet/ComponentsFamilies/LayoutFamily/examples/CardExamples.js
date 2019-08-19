@@ -1,5 +1,17 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { SingleComponentStacked, Preview } from '../../../sharedComponents';
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../../../sharedComponents/utils';
+
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/LayoutFamily';
+import {
+  layoutSymbols,
+  symbolsGroup,
+} from '../../../../../symbolsComponentsMapping/symbols';
+
 import Card from 'wix-style-react/Card';
 
 import Box from 'wix-style-react/Box';
@@ -8,37 +20,40 @@ import TextButton from 'wix-style-react/TextButton';
 
 import Add from 'wix-style-react/new-icons/Add';
 
-const CardExamples = () => (
-  <SingleComponentStacked
-    name="2.2 Card Layout"
-    componentsNames={[
-      '<Card/>',
-      '<Card.Header/>',
-      '<Card.Content/>',
-      '<Card.Divider/>',
-    ]}
-  >
-    <Preview stretch>
-      <Card>
-        <Card.Header
-          title="Card title"
-          subtitle="This is how a subtitle looks like"
-          suffix={
-            <TextButton
-              onClick={() => alert('Clicked!')}
-              size="medium"
-              theme="fullblue"
-              prefixIcon={<Add />}
-              children="Text Button"
-            />
-          }
-        />
-        <Card.Content>
-          <Box minHeight="200px" />
-        </Card.Content>
-      </Card>
-    </Preview>
-  </SingleComponentStacked>
-);
+const groupSymbol = symbolsGroup.layout;
+
+const CardExamples = () => {
+  const symbol = layoutSymbols.cardLayout;
+  const components = layoutSymbolsToComponents[symbol];
+
+  const cardLayoutProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentStacked {...cardLayoutProps}>
+      <Preview stretch>
+        <Card>
+          <Card.Header
+            title="Card title"
+            subtitle="This is how a subtitle looks like"
+            suffix={
+              <TextButton
+                onClick={() => console.log('TextButton clicked!')}
+                size="medium"
+                prefixIcon={<Add />}
+                children="Text Button"
+              />
+            }
+          />
+          <Card.Content>
+            <Box minHeight="200px" />
+          </Card.Content>
+        </Card>
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
 
 export default CardExamples;

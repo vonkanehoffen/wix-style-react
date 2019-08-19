@@ -42,8 +42,8 @@ class ComponentsCheatsheet extends React.Component {
         <Page.Content>
           <Container>
             {componentsFamiliesArr.map((Family, i) => (
-              <Row key={i}>
-                <Family />
+              <Row key={`family-row-${i}`}>
+                <Family key={`family-${i}`} />
               </Row>
             ))}
           </Container>

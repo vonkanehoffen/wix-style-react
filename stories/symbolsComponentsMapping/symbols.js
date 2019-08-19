@@ -31,3 +31,9 @@ export const inputsSymbols = {
   searchInput: '3.14 Search Input',
   mediaInput: '3.15 Media Input',
 };
+
+export const layoutSymbols = {
+  pageLayout: '2.1 Page Layout',
+  cardLayout: '2.2 Card Layout',
+  tableLayout: '2.3 Table Layout',
+};
