@@ -28,7 +28,7 @@ Types of changes:
 - `<Search/>` - improve dataHook usage and prepare for inputwithoptions usage [#3961](https://github.com/wix/wix-style-react/pull/3961)
 - `<MultiSelectCheckbox/>` - improve tests and prepare for inputWithOptions migration to Popover [#3963](https://github.com/wix/wix-style-react/pull/3963)
 - `<Popover/>` - add a request animation frame polyfill on testing [#3972](https://github.com/wix/wix-style-react/pull/3972)
-- `<Multiselect/>` - fix propTypes [#3878](https://github.com/wix/wix-style-react/pull/3878)
+- `<MultiSelect/>` - fix propTypes [#3878](https://github.com/wix/wix-style-react/pull/3878)
 
 ### Docs
 - `<ModalPreviewLayout/>` - add playground [#3966](https://github.com/wix/wix-style-react/pull/3966)
