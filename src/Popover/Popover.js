@@ -1,9 +1,20 @@
 import React from 'react';
 import { Popover as CorePopover } from 'wix-ui-core/dist/src/components/popover';
 import { buildChildrenObject } from 'wix-ui-core/dist/src/utils';
+import { requestAnimationFramePolyfill } from '../../testkit/polyfills';
 import PropTypes from 'prop-types';
 
 import style from './Popover.st.css';
+
+/**
+ *  This has been added in order to fix jsdom not having requestAnimation frame
+ *  installed. Jest by default has this polyfilled, but mocha fails on it.
+ *  Decided with Shlomi to get rid of this on next major version 7, where we will support
+ *  only jest.
+ */
+if (process.env.NODE_ENV === 'test') {
+  requestAnimationFramePolyfill.install();
+}
 
 export const placements = [
   'auto-start',
