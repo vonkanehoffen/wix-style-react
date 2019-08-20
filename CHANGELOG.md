@@ -36,6 +36,8 @@ Types of changes:
 - `Cheatsheet`- Adding links to `LayoutFamily` documentations [#3968](https://github.com/wix/wix-style-react/pull/3968)
 - `<PopoverMenu/>` - beta - improve docs [#3959](https://github.com/wix/wix-style-react/pull/3959)
 - `<ModalPreviewLayout/>` - improve docs with examples [#3971](https://github.com/wix/wix-style-react/pull/3971)
+- `Cheatsheet`- Adding links to `SelectionFamily` documentations [#3973](https://github.com/wix/wix-style-react/pull/3973)
+
 
 ## 6.49.0 - 2019-08-15
 
