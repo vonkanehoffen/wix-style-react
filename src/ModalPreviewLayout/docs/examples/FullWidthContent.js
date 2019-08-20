@@ -8,7 +8,7 @@ import IconButton from 'wix-style-react/IconButton';
 
 import ModalPreviewLayout from '../..';
 
-class ScrollableContentExample extends React.Component {
+class FullWidthContentExample extends React.Component {
   state = {
     isModalOpened: false,
   };
@@ -27,7 +27,7 @@ class ScrollableContentExample extends React.Component {
         <Button onClick={() => this.openModal()}>Open</Button>
         <Modal isOpen={this.state.isModalOpened}>
           <ModalPreviewLayout
-            title="Modal with Scrollable Content"
+            title="Modal with Full-Width Content"
             actions={
               <Box verticalAlign="middle">
                 <Box marginRight={2}>
@@ -47,16 +47,8 @@ class ScrollableContentExample extends React.Component {
             }
             onClose={() => this.closeModal()}
           >
-            <Box
-              align="center"
-              verticalAlign="middle"
-              backgroundColor="D80"
-              padding={3}
-              borderRadius={3}
-              width="750px"
-              height="150vh"
-            >
-              This is a content that overflows!
+            <Box verticalAlign="middle" height="100%">
+              <img src="https://i.ibb.co/C8HHTJx/rectangle-2x.png" width="100%" height="550px" />
             </Box>
           </ModalPreviewLayout>
         </Modal>

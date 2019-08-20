@@ -5,19 +5,27 @@ import {
   tab,
   description,
   importExample,
+  title,
   columns,
   divider,
+  code as baseCode,
+  playground,
   api,
   testkit,
-  playground,
 } from 'wix-storybook-utils/Sections';
+
 import LinkTo from '@storybook/addon-links/react';
 import Box from 'wix-style-react/Box';
 
 import ModalPreviewLayout from '..';
 import { storySettings } from '../test/storySettings';
 import { ModalWrapperExample } from './examples/ModalWrapper';
-import { ScrollableContentExample } from './examples/ScrollableContent';
+import SimpleExample from '!raw-loader!./examples/Simple';
+import FullWidthContentExample from '!raw-loader!./examples/FullWidthContent';
+import ScrollableContentExample from '!raw-loader!./examples/ScrollableContent';
+import allComponents from '../../../stories/utils/allComponents';
+
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -48,13 +56,10 @@ export default {
 
   sections: [
     header({
-      component: (
-        <ModalWrapperExample>
-          {({ onClose }) => <ScrollableContentExample onClose={onClose} />}
-        </ModalWrapperExample>
-      ),
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/ModalPreviewLayout/',
     }),
-
     tabs([
       tab({
         title: 'Description',
@@ -77,6 +82,47 @@ export default {
           ]),
 
           divider(),
+
+          title('Examples'),
+
+          columns([
+            description({
+              title: 'Plain Example',
+              text:
+                'A simple example for preview layout modal with title, actions and inner content',
+            }),
+
+            code({
+              compact: true,
+              source: SimpleExample,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Example with Full-Width Content',
+              text:
+                'An example for preview layout modal with title, actions and content that takes the full width',
+            }),
+
+            code({
+              compact: true,
+              source: FullWidthContentExample,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Example with Scrollable Content',
+              text:
+                'An example for preview layout modal with title, actions and content that overflows the height',
+            }),
+
+            code({
+              compact: true,
+              source: ScrollableContentExample,
+            }),
+          ]),
         ],
       }),
 
