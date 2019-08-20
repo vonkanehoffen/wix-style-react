@@ -15,6 +15,12 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## 6.50.2 - 2019-08-20
+No Changes (Patch version, only to re-publish package, after failed publish)
+
+## 6.50.1 - 2019-08-20
+No Changes (Patch version, only to re-publish package, after failed publish)
+
+## 6.50.0 - 2019-08-20
 
 ### Changed
 - `<StatisticsWidget />` - rename properties [#3954](https://github.com/wix/wix-style-react/pull/3954)
@@ -37,12 +43,6 @@ Types of changes:
 - `<PopoverMenu/>` - beta - improve docs [#3959](https://github.com/wix/wix-style-react/pull/3959)
 - `<ModalPreviewLayout/>` - improve docs with examples [#3971](https://github.com/wix/wix-style-react/pull/3971)
 - `Cheatsheet`- Adding links to `SelectionFamily` documentations [#3973](https://github.com/wix/wix-style-react/pull/3973)
-
-## 6.50.1 - 2019-08-20
-No Changes (Patch version, only to re-publish package, after failed publish)
-
-## 6.50.0 - 2019-08-20
-No Changes (Patch version, only to re-publish package, after failed publish)
 
 ## 6.49.0 - 2019-08-15
 
