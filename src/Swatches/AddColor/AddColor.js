@@ -1,20 +1,36 @@
 import React from 'react';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import { func, string } from 'prop-types';
-import color from 'color';
+import { func, oneOf, string } from 'prop-types';
 import Tooltip from '../../Tooltip/index';
 import ColorPicker from '../../ColorPicker/index';
-import ColorPreviewAddButton from '../ColorPreviewAddButton/ColorPreviewAddButton';
-import { ColorPreviewAddIconSize } from '../ColorPreviewAddButton/ColorPreviewAddIcon';
+import Color from 'color';
 import Popover from '../../Popover';
+import styles from './AddColor.st.css';
+import IconAdd from '../../new-icons/Add';
+import IconAddSmall from '../../new-icons/AddSmall';
 
-const DEFAULT_INITIAL__COLOR = color('#3899eb');
-const EMPTY__COLOR = color('#00000000');
+const EMPTY_COLOR = Color('#00000000');
 
-class AddColorButton extends React.PureComponent {
+export const AddColorIconSize = oneOf(['small', 'normal']);
+
+function getContrastColor(color, light = '#ffffff', dark = '#162d3d') {
+  if (!color) {
+    return light;
+  }
+  try {
+    const luminosity = color.luminosity();
+
+    if (luminosity > 0.5) {
+      return dark;
+    } else {
+      return light;
+    }
+  } catch (err) {}
+}
+
+class AddColor extends React.PureComponent {
   static propTypes = {
     tooltip: string,
-    iconSize: ColorPreviewAddIconSize,
+    iconSize: AddColorIconSize,
     onAdd: func,
   };
 
@@ -23,7 +39,7 @@ class AddColorButton extends React.PureComponent {
   };
 
   state = {
-    color: DEFAULT_INITIAL__COLOR,
+    color: EMPTY_COLOR,
     isColorPickerShown: false,
   };
 
@@ -36,6 +52,7 @@ class AddColorButton extends React.PureComponent {
   hideColorPicker = () => {
     this.setState({
       isColorPickerShown: false,
+      color: EMPTY_COLOR,
     });
   };
 
@@ -50,9 +67,27 @@ class AddColorButton extends React.PureComponent {
     this.props.onAdd(this.state.color.hex());
   };
 
+  getIconComponent = () => {
+    switch (this.props.iconSize) {
+      case 'normal':
+        return IconAdd;
+
+      case 'small':
+      default:
+        return IconAddSmall;
+    }
+  };
+
   render() {
-    const { iconSize, tooltip } = this.props;
+    const { tooltip } = this.props;
     const { isColorPickerShown, color } = this.state;
+    const isEmptyColor = color.alpha() === 0;
+    const noColorSelected = !isColorPickerShown || isEmptyColor;
+    const styleProps = {
+      noColorSelected,
+    };
+    const buttonColor = noColorSelected ? undefined : color;
+    const IconComponent = this.getIconComponent();
 
     return (
       <Popover
@@ -72,26 +107,32 @@ class AddColorButton extends React.PureComponent {
             dataHook="add-color-button-tooltip"
             content={tooltip}
           >
-            <ColorPreviewAddButton
+            <button
+              style={{
+                backgroundColor: buttonColor ? buttonColor.hex() : buttonColor,
+              }}
+              data-hook="color-preview-add-button"
+              {...styles('preview', styleProps, this.props)}
               onClick={this.toggleColorPicker}
-              color={isColorPickerShown ? color : EMPTY__COLOR}
-              iconSize={iconSize}
-            />
+            >
+              <IconComponent style={{ color: getContrastColor(buttonColor) }} />
+            </button>
           </Tooltip>
         </Popover.Element>
         <Popover.Content>
           <ColorPicker
+            allowEmpty={false}
             dataHook="swatches-color-picker"
             onCancel={this.hideColorPicker}
             onChange={this.setColor}
             onConfirm={this.confirm}
             showConverter={false}
             showInput={false}
-            value={color}
+            value={isEmptyColor ? '' : color}
           />
         </Popover.Content>
       </Popover>
     );
   }
 }
-export default withFocusable(AddColorButton);
+export default AddColor;

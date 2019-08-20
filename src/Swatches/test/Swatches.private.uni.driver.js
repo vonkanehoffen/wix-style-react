@@ -41,6 +41,7 @@ export const swatchesPrivateDriverFactory = (base, body) => {
 
     confirmSelectedColor: colorPickerTestkit.confirm,
     cancelColorPicker: colorPickerTestkit.cancel,
+    selectBlackColor: colorPickerTestkit.selectBlackColor,
 
     hasAddButtonTooltip: async () => addButtonTooltipTestkit.tooltipExists(),
     getAddButtonTooltipText: async () =>

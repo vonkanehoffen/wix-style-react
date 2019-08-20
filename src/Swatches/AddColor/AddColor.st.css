@@ -1,9 +1,4 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
-  -st-default: Focusable;
-}
-
-:import {
   -st-from: "../../Foundation/stylable/colors.st.css";
   -st-named:
     B00,
@@ -12,7 +7,6 @@
 }
 
 .preview {
-  -st-extends: Focusable;
   -st-states: noColorSelected;
   flex: 0 0 24px;
   border-radius: 6px;

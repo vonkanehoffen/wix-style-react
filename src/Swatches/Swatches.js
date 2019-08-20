@@ -3,8 +3,7 @@ import { array, bool, func, node, oneOf, string } from 'prop-types';
 import resolveColor from 'color';
 import styles from './Swatches.st.css';
 import Swatch from './Swatch';
-import AddColorButton from './AddColorButton/AddColorButton';
-import { ColorPreviewAddIconSize } from './ColorPreviewAddButton/ColorPreviewAddIcon';
+import AddColor, { AddColorIconSize } from './AddColor/AddColor';
 
 /** Color swatches */
 const Swatches = props => {
@@ -18,7 +17,7 @@ const Swatches = props => {
     showClear,
     showClearMessage,
     showAddButton,
-    addButtonTooltip,
+    addButtonMessage,
     iconSize,
   } = props;
 
@@ -28,8 +27,8 @@ const Swatches = props => {
   return (
     <div {...styles('root', { size }, props)} data-hook={dataHook}>
       {showAddButton && (
-        <AddColorButton
-          tooltip={addButtonTooltip}
+        <AddColor
+          tooltip={addButtonMessage}
           iconSize={iconSize}
           onAdd={onAdd}
         />
@@ -86,11 +85,11 @@ Swatches.propTypes = {
   /** If true shows add button which triggers colors picker*/
   showAddButton: bool,
 
-  /** Tooltip of add button */
-  addButtonTooltip: string,
+  /** Text for add button tooltip*/
+  addButtonMessage: string,
 
   /** Size of Plus icon inside add button */
-  iconSize: ColorPreviewAddIconSize,
+  iconSize: AddColorIconSize,
 };
 
 Swatches.defaultProps = {

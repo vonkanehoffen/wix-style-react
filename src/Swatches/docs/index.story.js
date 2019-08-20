@@ -121,13 +121,13 @@ export default {
             description({
               title: 'Add button',
               text:
-                'Pass `showAddButton` prop to get the Add Color button. In addition pass `onAdd` to handle newly selected color and `addButtonTooltip` to control tooltip of the add button',
+                'Pass `showAddButton` prop to get the Add Color button. In addition pass `onAdd` to handle newly selected color and `addButtonMessage` to control tooltip of the add button',
             }),
 
             code({
               compact: true,
               source:
-                "<div style={{width: '100px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']}/ showAddButton addButtonTooltip=\"New Color\"></div>",
+                "<div style={{width: '100px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']} showAddButton addButtonMessage=\"New Color\"/></div>",
             }),
           ]),
 
@@ -144,10 +144,11 @@ export default {
                     <Swatches
                       showClear
                       showAddButton
-                      addButtonTooltip="New Color"
+                      addButtonMessage="New Color"
                       selected={this.state.color}
                       onClick={color => this.setState({color})}
-                      colors={['red', 'cyan', '#f9f9f9']} />
+                      colors={['red', 'cyan', '#f9f9f9']} 
+                    />
                   );
                 }
               }`,
