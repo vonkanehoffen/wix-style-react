@@ -15,7 +15,6 @@
   -st-states: noColorSelected;
   flex: 1 1;
   border-radius: 6px;
-  border: solid 1px value(B00-24);
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -33,7 +32,12 @@
 }
 
 .preview:noColorSelected {
+  border: 0px;
   background-color: value(F00);
+}
+
+.preview:not(:noColorSelected) {
+  border: solid 1px value(B00-24);
 }
 
 .preview:not(:disabled):focus-visible {
