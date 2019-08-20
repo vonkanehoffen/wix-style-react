@@ -59,7 +59,11 @@ export default {
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/Swatches/',
-      component: <Swatches colors={colors6} />,
+      component: (
+        <div style={{ width: '204px' }}>
+          <Swatches colors={colors6} />
+        </div>
+      ),
     }),
 
     tabs([
@@ -87,7 +91,8 @@ export default {
 
             code({
               compact: true,
-              source: "<Swatches colors={['red', '#fff', 'magenta']}/>",
+              source:
+                "<div style={{width: '204px'}}><Swatches colors={['red', '#fff', 'magenta']}/></div>",
             }),
           ]),
 
@@ -99,21 +104,23 @@ export default {
 
             code({
               compact: true,
-              source: "<Swatches showClear colors={['#fff', 'magenta']}/>",
+              source:
+                "<div style={{width: '204px'}}><Swatches showClear colors={['#fff', 'magenta']}/></div>",
             }),
           ]),
 
           columns([
             description({
-              title: 'Grid',
+              title: 'Columns and gap',
               text:
-                'Swatches uses `grid` layout with pre-defined `12px` gap. Takes all available space. Here the container is `100px` width.',
+                "Swatches uses `grid` layout with default `12px` gap. Each swatch preserves square proportion and adjust based on the number of columns, grid gap and container's width. " +
+                'Takes all available space. Here the container is `144px` width, `columns` prop set to 4, `gap` prop set to 10. Minimum swatch width is `12px`, minimum gap value is `6px`.',
             }),
 
             code({
               compact: true,
               source:
-                "<div style={{width: '100px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']}/></div>",
+                "<div style={{width: '144px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige', 'yellow', '#f9f9f9']} showAddButton showClear columns={4} gap={10}/></div>",
             }),
           ]),
 
@@ -121,13 +128,13 @@ export default {
             description({
               title: 'Add button',
               text:
-                'Pass `showAddButton` prop to get the Add Color button. In addition pass `onAdd` to handle newly selected color and `addButtonMessage` to control tooltip of the add button',
+                'Pass `showAddButton` prop to get the Add Color button. In addition pass `onAdd` to handle newly selected color and `addButtonMessage` to control tooltip of the Add button. ' +
+                '`addIconSize` prop controls the size of the Plus icon rendered inside Add button. Possible values are: `normal`, `small`. Default value is `small`.',
             }),
 
             code({
               compact: true,
-              source:
-                "<div style={{width: '100px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']} showAddButton addButtonMessage=\"New Color\"/></div>",
+              source: `<div style={{width: '300px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']} addIconSize="normal" showAddButton addButtonMessage="New Color"/></div>`,
             }),
           ]),
 
@@ -137,18 +144,22 @@ export default {
             source: `
               class SwatchesExamples extends React.Component {
                 state = {
-                  color: null,
+                  selectedColor: null,
+                  colors: ['red', 'cyan', '#f9f9f9'],
                 }
                 render() {
+                  const { selectedColor, colors } = this.state;
                   return (
                     <Swatches
                       showClear
                       showAddButton
+                      showClearMessage="Clear Color"
                       addButtonMessage="New Color"
-                      selected={this.state.color}
-                      onClick={color => this.setState({color})}
-                      colors={['red', 'cyan', '#f9f9f9']} 
-                    />
+                      addIconSize="normal"
+                      selected={selectedColor}
+                      onAdd={color => this.setState({colors: [color, ...this.state.colors]})}
+                      onClick={selectedColor => this.setState({ selectedColor })}
+                      colors={colors} />
                   );
                 }
               }`,

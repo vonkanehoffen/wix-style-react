@@ -1,9 +1,11 @@
 import React from 'react';
-import { array, bool, func, node, oneOf, string } from 'prop-types';
+import { array, bool, func, node, number, string } from 'prop-types';
 import resolveColor from 'color';
 import styles from './Swatches.st.css';
 import Swatch from './Swatch';
 import AddColor, { AddColorIconSize } from './AddColor/AddColor';
+
+const MINIMUM_GRID_GAP = 6;
 
 /** Color swatches */
 const Swatches = props => {
@@ -12,24 +14,32 @@ const Swatches = props => {
     onClick,
     onAdd,
     selected,
-    size,
     dataHook,
     showClear,
     showClearMessage,
     showAddButton,
     addButtonMessage,
-    iconSize,
+    addIconSize,
+    columns,
+    gap,
   } = props;
 
   const hexColors = colors.map(color => resolveColor(color).hex());
   const uniqueColors = Array.from(new Set(hexColors));
 
   return (
-    <div {...styles('root', { size }, props)} data-hook={dataHook}>
+    <div
+      {...styles('root', {}, props)}
+      data-hook={dataHook}
+      style={{
+        gridTemplateColumns: `repeat(${Math.max(1, columns)}, 1fr)`,
+        gridGap: Math.max(MINIMUM_GRID_GAP, gap),
+      }}
+    >
       {showAddButton && (
         <AddColor
           tooltip={addButtonMessage}
-          iconSize={iconSize}
+          iconSize={addIconSize}
           onAdd={onAdd}
         />
       )}
@@ -40,7 +50,6 @@ const Swatches = props => {
           tooltipContent={showClearMessage}
           onClick={onClick}
           selected={selected === ''}
-          size={size}
         />
       )}
 
@@ -50,7 +59,6 @@ const Swatches = props => {
           color={color}
           onClick={onClick}
           selected={selected === color}
-          size={size}
         />
       ))}
     </div>
@@ -73,9 +81,6 @@ Swatches.propTypes = {
   /** Callback function when user clicks on Add button and selects a color to be added. Returns color HEX string representation. */
   onAdd: func,
 
-  /** Size of swatches */
-  size: oneOf(['small', 'medium']),
-
   /** If true shows no color option */
   showClear: bool,
 
@@ -89,14 +94,22 @@ Swatches.propTypes = {
   addButtonMessage: string,
 
   /** Size of Plus icon inside add button */
-  iconSize: AddColorIconSize,
+  addIconSize: AddColorIconSize,
+
+  /** Number of maximum columns. Default value is 6 */
+  columns: number,
+
+  /** Gap between swatches. Default value is 12 */
+  gap: number,
 };
 
 Swatches.defaultProps = {
   colors: [],
-  size: 'small',
+  onClick: () => {},
   selected: '',
   showClearMessage: '',
+  columns: 6,
+  gap: 12,
 };
 
 export default Swatches;

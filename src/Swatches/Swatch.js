@@ -2,6 +2,7 @@ import React from 'react';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import styles from './Swatches.st.css';
 import Tooltip from '../Tooltip';
+import SwatchProportion from './SwatchProportion';
 
 class Swatch extends React.PureComponent {
   static propTypes = {};
@@ -31,22 +32,19 @@ class Swatch extends React.PureComponent {
       focusableOnFocus,
       onClick,
       selected,
-      size,
     } = this.props;
     const button = (
-      <button
-        type="button"
-        data-hook="color-swatches-swatch"
-        onFocus={focusableOnFocus}
-        onBlur={focusableOnBlur}
-        onClick={() => onClick(color)}
-        {...styles(
-          'swatch',
-          { selected, size, transparent: !color },
-          this.props,
-        )}
-        style={{ backgroundColor: color }}
-      />
+      <SwatchProportion>
+        <button
+          type="button"
+          data-hook="color-swatches-swatch"
+          onFocus={focusableOnFocus}
+          onBlur={focusableOnBlur}
+          onClick={() => onClick(color)}
+          {...styles('swatch', { selected, transparent: !color }, this.props)}
+          style={{ backgroundColor: color }}
+        />
+      </SwatchProportion>
     );
     return color ? button : this.addTooltip(button);
   }

@@ -7,6 +7,7 @@ import Popover from '../../Popover';
 import styles from './AddColor.st.css';
 import IconAdd from '../../new-icons/Add';
 import IconAddSmall from '../../new-icons/AddSmall';
+import SwatchProportion from '../SwatchProportion';
 
 const EMPTY_COLOR = Color('#00000000');
 
@@ -94,6 +95,7 @@ class AddColor extends React.PureComponent {
         appendTo="parent"
         placement="top"
         showArrow
+        className={styles.popover}
         shown={isColorPickerShown}
         onClickOutside={this.hideColorPicker}
       >
@@ -107,16 +109,22 @@ class AddColor extends React.PureComponent {
             dataHook="add-color-button-tooltip"
             content={tooltip}
           >
-            <button
-              style={{
-                backgroundColor: buttonColor ? buttonColor.hex() : buttonColor,
-              }}
-              data-hook="color-preview-add-button"
-              {...styles('preview', styleProps, this.props)}
-              onClick={this.toggleColorPicker}
-            >
-              <IconComponent style={{ color: getContrastColor(buttonColor) }} />
-            </button>
+            <SwatchProportion>
+              <button
+                style={{
+                  backgroundColor: buttonColor
+                    ? buttonColor.hex()
+                    : buttonColor,
+                }}
+                data-hook="color-preview-add-button"
+                {...styles('preview', styleProps, this.props)}
+                onClick={this.toggleColorPicker}
+              >
+                <IconComponent
+                  style={{ color: getContrastColor(buttonColor) }}
+                />
+              </button>
+            </SwatchProportion>
           </Tooltip>
         </Popover.Element>
         <Popover.Content>
