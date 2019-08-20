@@ -31,3 +31,14 @@ export const layoutComponentsNames = {
   TableActionCell: 'TableActionCell',
   TableToolbar: 'TableToolbar',
 };
+
+export const selectionComponentsNames = {
+  Dropdown: 'Dropdown',
+  MultiSelectCheckbox: 'MultiSelectCheckbox',
+  Checkbox: 'Checkbox',
+  RadioGroup: 'RadioGroup',
+  ToggleSwitch: 'ToggleSwitch',
+  SegmentedToggle: 'SegmentedToggle',
+  Thumbnail: 'Thumbnail',
+  Slider: 'Slider',
+};

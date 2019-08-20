@@ -32,8 +32,21 @@ export const inputsSymbols = {
   mediaInput: '3.15 Media Input',
 };
 
-export const layoutSymbols = {
+
+export const layoutSymbols ={
   pageLayout: '2.1 Page Layout',
   cardLayout: '2.2 Card Layout',
   tableLayout: '2.3 Table Layout',
+};
+
+export const selectionSymbols = {
+  dropdown: '4.1 Dropdown',
+  multiSelectDropdown: '4.2 Multi Select Dropdown',
+  checkbox: '4.3 Checkbox',
+  radio: '4.4 Radio',
+  toggle: '4.5 Toggle',
+  segmentedToggle: '4.6 Segmented Toggle',
+  thumbnailSelect: '4.7 Thumbnail Select',
+  slider: '4.8 Slider',
+  checkToggle: '4.9 Check Toggle',
 };

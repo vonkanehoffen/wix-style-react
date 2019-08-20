@@ -6,8 +6,17 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { Layout, Cell } from 'wix-style-react/Layout';
-import Box from 'wix-style-react/Box';
+import { selectionSymbolsToComponents } from '../../../symbolsComponentsMapping/SelectionFamily';
+
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../sharedComponents/utils';
+
+import {
+  selectionSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
 
 //4. Selection
 import Dropdown from 'wix-style-react/Dropdown';
@@ -20,27 +29,37 @@ import Thumbnail from 'wix-style-react/Thumbnail';
 import Slider from 'wix-style-react/Slider';
 import FormField from 'wix-style-react/FormField';
 
+//Assets
 import LockLocked from 'wix-style-react/new-icons/LockLocked';
 import LockUnlocked from 'wix-style-react/new-icons/LockUnlocked';
+import { Layout, Cell } from 'wix-style-react/Layout';
+import Box from 'wix-style-react/Box';
 
-const DropdownExample = () => (
-  <SingleComponentSideBySide
-    name="4.1 Dropdown"
-    componentsNames={['<FormField/>', '<Dropdown/>']}
-    size={singleComponentSizes.compact}
-  >
-    <FormField id="formfieldDropdownId" label="Dropdown">
-      <Dropdown
-        id="formfieldDropdownId"
-        options={[
-          { id: 0, value: 0 },
-          { id: 1, value: 1 },
-          { id: 2, value: 2 },
-        ]}
-      />
-    </FormField>
-  </SingleComponentSideBySide>
-);
+const groupSymbol = symbolsGroup.selection;
+
+const DropdownExample = () => {
+  const symbol = selectionSymbols.dropdown;
+  const components = selectionSymbolsToComponents[symbol];
+
+  const dropdownProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  const dropdownOptions = [1, 2, 3].map(val => ({
+    id: val,
+    value: val,
+  }));
+
+  return (
+    <SingleComponentSideBySide {...dropdownProps}>
+      <FormField id="formfieldDropdownId" label="Dropdown">
+        <Dropdown id="formfieldDropdownId" options={dropdownOptions} />
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
 
 class MultiSelectDropdownExample extends PureComponent {
   state = { selectedOptions: [] };
@@ -58,20 +77,24 @@ class MultiSelectDropdownExample extends PureComponent {
   };
 
   render() {
-    const multiSelectOptions = [
-      { id: 'a', value: 'a' },
-      { id: 'b', value: 'b' },
-      { id: 'c', value: 'c' },
-    ];
+    const multiSelectOptions = ['a', 'b', 'c'].map(val => ({
+      id: val,
+      value: val,
+    }));
 
     const { selectedOptions } = this.state;
 
+    const symbol = selectionSymbols.multiSelectDropdown;
+    const components = selectionSymbolsToComponents[symbol];
+
+    const multiSelectProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+      size: singleComponentSizes.compact,
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="4.2 Multi Select Dropdown"
-        componentsNames={['<FormField/>', '<MultiSelectCheckbox/>']}
-        size={singleComponentSizes.compact}
-      >
+      <SingleComponentSideBySide {...multiSelectProps}>
         <FormField
           id="formfieldMultiSelectDropdownId"
           label="Multi Select Dropdown"
@@ -97,11 +120,16 @@ class CheckboxExample extends PureComponent {
   render() {
     const { value } = this.state;
 
+    const symbol = selectionSymbols.checkbox;
+    const components = selectionSymbolsToComponents[symbol];
+
+    const checkboxProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="4.3 Checkbox"
-        componentsNames={['<FormField/>', '<Checkbox/>']}
-      >
+      <SingleComponentSideBySide {...checkboxProps}>
         <FormField
           id="formfieldCheckboxId"
           infoContent="I help you to fill info"
@@ -126,11 +154,17 @@ class RadioExample extends PureComponent {
 
   render() {
     const { value } = this.state;
+
+    const symbol = selectionSymbols.radio;
+    const components = selectionSymbolsToComponents[symbol];
+
+    const radioProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="4.4 Radio"
-        componentsNames={['<FormField/>', '<RadioGroup/>']}
-      >
+      <SingleComponentSideBySide {...radioProps}>
         <FormField id="formfieldRadioGroupId" label="Radio Group">
           <RadioGroup
             id="formfieldRadioGroupId"
@@ -155,11 +189,17 @@ class ToggleExample extends PureComponent {
 
   render() {
     const { value } = this.state;
+
+    const symbol = selectionSymbols.toggle;
+    const components = selectionSymbolsToComponents[symbol];
+
+    const toggleProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="4.5 Toggle"
-        componentsNames={['<FormField/>', '<ToggleSwitch/>']}
-      >
+      <SingleComponentSideBySide {...toggleProps}>
         <FormField
           id="formfieldToggleSwitchId"
           infoContent="I help you to fill info"
@@ -179,30 +219,37 @@ class ToggleExample extends PureComponent {
   }
 }
 
-const SegmentedToggleExample = () => (
-  <SingleComponentSideBySide
-    name="4.6 Segmented Toggle"
-    componentsNames={['<FormField/>', '<SegmentedToggle/>']}
-  >
-    <FormField id="formfieldSegmentedToggleId" label="Segmented Toggle">
-      <Box>
-        <SegmentedToggle
-          defaultSelected="option 1"
-          id="formfieldSegmentedToggleId"
-        >
-          <SegmentedToggle.Icon value="option" tooltipText="Locked">
-            <LockLocked />
-          </SegmentedToggle.Icon>
-          <SegmentedToggle.Icon value="option2" tooltipText="Unlocked">
-            <LockUnlocked />
-          </SegmentedToggle.Icon>
-        </SegmentedToggle>
-      </Box>
-    </FormField>
-  </SingleComponentSideBySide>
-);
+const SegmentedToggleExample = () => {
+  const symbol = selectionSymbols.segmentedToggle;
+  const components = selectionSymbolsToComponents[symbol];
 
-class ThumbnailWithTitleExmaple extends PureComponent {
+  const segmentedToggleProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...segmentedToggleProps}>
+      <FormField id="formfieldSegmentedToggleId" label="Segmented Toggle">
+        <Box>
+          <SegmentedToggle
+            defaultSelected="option 1"
+            id="formfieldSegmentedToggleId"
+          >
+            <SegmentedToggle.Icon value="option" tooltipText="Locked">
+              <LockLocked />
+            </SegmentedToggle.Icon>
+            <SegmentedToggle.Icon value="option2" tooltipText="Unlocked">
+              <LockUnlocked />
+            </SegmentedToggle.Icon>
+          </SegmentedToggle>
+        </Box>
+      </FormField>
+    </SingleComponentSideBySide>
+  );
+};
+
+class ThumbnailWithTitleExample extends PureComponent {
   state = { selected: 1 };
 
   render() {
@@ -211,8 +258,9 @@ class ThumbnailWithTitleExmaple extends PureComponent {
     return (
       <Layout gap="12px">
         {[1, 2, 3].map(n => (
-          <Cell key={`title-thumbnail-${n}`} span={3}>
+          <Cell key={`title-thumbnail-cell-${n}`} span={3}>
             <Thumbnail
+              key={`title-thumbnail-${n}`}
               title="Thumbnail"
               selected={selected === n}
               onClick={() => this.setState({ selected: n })}
@@ -232,8 +280,9 @@ class ListSmallThumbnailaExmaple extends PureComponent {
     return (
       <Layout gap="12px">
         {[1, 2, 3].map(n => (
-          <Cell key={`list-thumbnail-${n}`} span={1}>
+          <Cell key={`list-thumbnail-cell-${n}`} span={1}>
             <Thumbnail
+              key={`list-thumbnail-${n}`}
               title="Thumbnail Title"
               selected={selected === n}
               description="Description here"
@@ -248,39 +297,50 @@ class ListSmallThumbnailaExmaple extends PureComponent {
   }
 }
 
-const ThumbnailSelectExamples = () => (
-  <SingleComponentSideBySide
-    name="4.7 Thumbnail Select"
-    componentsNames={['<Thumbnail/>']}
-  >
-    <Box marginBottom="20px" />
-    <ThumbnailWithTitleExmaple />
-    <Box marginBottom="30px" />
-    <ListSmallThumbnailaExmaple />
-  </SingleComponentSideBySide>
-);
+const ThumbnailSelectExamples = () => {
+  const symbol = selectionSymbols.thumbnailSelect;
+  const components = selectionSymbolsToComponents[symbol];
+
+  const thumbnailProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...thumbnailProps}>
+      <Box marginBottom="30px">
+        <ThumbnailWithTitleExample />
+      </Box>
+      <ListSmallThumbnailaExmaple />
+    </SingleComponentSideBySide>
+  );
+};
 
 /* This Box component was added due to an issue with the Slider */
 /* https://github.com/wix/wix-style-react/issues/3741 */
 class SliderExample extends PureComponent {
   state = { value: [2, 4] };
 
-  change = value => {
-    this.setState({ value });
-  };
+  onSliderChange = value => this.setState({ value });
 
   render() {
     const { value } = this.state;
+
+    const symbol = selectionSymbols.slider;
+    const components = selectionSymbolsToComponents[symbol];
+
+    const sliderProps = {
+      name: createLinkedSymbolName({ groupSymbol, symbol }),
+      componentsNames: createLinkedComponentsNames(components),
+      size: singleComponentSizes.compact,
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="4.8 Slider"
-        componentsNames={['<FormField/>', '<Slider/>']}
-        size={singleComponentSizes.compact}
-      >
+      <SingleComponentSideBySide {...sliderProps}>
         <FormField id="formfieldSliderId" label="Slider Label">
           <Slider
             id="formfieldSliderId"
-            onChange={this.change}
+            onChange={this.onSliderChange}
             min={1}
             max={10}
             value={value}
@@ -293,14 +353,24 @@ class SliderExample extends PureComponent {
   }
 }
 
-const CheckToggleExample = () => (
-  <SingleComponentSideBySide name="4.9 Check Toggle">
-    <NotDeveloped />
-  </SingleComponentSideBySide>
-);
+const CheckToggleExample = () => {
+  const symbol = selectionSymbols.checkToggle;
+  const components = selectionSymbolsToComponents[symbol];
+
+  const checkToggleProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentSideBySide {...checkToggleProps}>
+      <NotDeveloped />
+    </SingleComponentSideBySide>
+  );
+};
 
 const SelectionFamily = () => (
-  <FamilyStructure title="4. Selection">
+  <FamilyStructure title={groupSymbol}>
     <DropdownExample />
     <MultiSelectDropdownExample />
     <CheckboxExample />
