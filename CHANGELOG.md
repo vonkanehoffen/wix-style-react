@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Docs
+- `Cheatsheet`- Adding links to `ButtonsFamily` & `NavigationFamily` documentations [#3982](https://github.com/wix/wix-style-react/pull/3982)
+
 ## 6.50.2 - 2019-08-20
 No Changes (Patch version, only to re-publish package, after failed publish)
 
