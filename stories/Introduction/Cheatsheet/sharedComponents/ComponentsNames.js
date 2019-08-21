@@ -6,7 +6,7 @@ import TextButton from 'wix-style-react/TextButton';
 import Box from 'wix-style-react/Box';
 
 const ComponentsNames = ({ componentsNames }) => (
-  <Box>
+  <Box flexWrap="wrap">
     {componentsNames.map((name, i) => {
       let componentName;
 
@@ -26,6 +26,7 @@ const ComponentsNames = ({ componentsNames }) => (
 
       return (
         <Box
+          marginBottom="4px"
           marginRight={i !== componentsNames.length - 1 ? '6px' : null}
           key={`component-name-${i}`}
         >

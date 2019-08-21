@@ -1,7 +1,6 @@
-//3. Inputs
 import { inputsSymbols } from './symbols';
 import {
-  inputComponentsNames as componentsNames,
+  inputsComponentsNames as componentsNames,
   sharedComponents,
 } from './components';
 

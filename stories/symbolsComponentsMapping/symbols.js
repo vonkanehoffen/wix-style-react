@@ -14,6 +14,12 @@ export const symbolsGroup = {
   contentWidgets: '12. Content Widgets',
 };
 
+export const layoutSymbols ={
+  pageLayout: '2.1 Page Layout',
+  cardLayout: '2.2 Card Layout',
+  tableLayout: '2.3 Table Layout',
+};
+
 export const inputsSymbols = {
   textInput: '3.1 Text Input',
   textArea: '3.2 Text Area',
@@ -32,14 +38,7 @@ export const inputsSymbols = {
   mediaInput: '3.15 Media Input',
 };
 
-
-export const layoutSymbols ={
-  pageLayout: '2.1 Page Layout',
-  cardLayout: '2.2 Card Layout',
-  tableLayout: '2.3 Table Layout',
-};
-
-export const selectionSymbols = {
+export const selectionSymbols ={
   dropdown: '4.1 Dropdown',
   multiSelectDropdown: '4.2 Multi Select Dropdown',
   checkbox: '4.3 Checkbox',
@@ -49,4 +48,21 @@ export const selectionSymbols = {
   thumbnailSelect: '4.7 Thumbnail Select',
   slider: '4.8 Slider',
   checkToggle: '4.9 Check Toggle',
+};
+
+export const buttonsSymbols = {
+  button: '5.1 Button',
+  iconButton: '5.2 Icon Button',
+  textButton: '5.3 Text Button',
+  closeButton: '5.4 Close Button',
+  addItem: '5.5 Add Item',
+};
+
+export const navigationSymbols = {
+  sidebarMenu: '6.1 Sidebar Menu',
+  treeNavigation: '6.2 Tree Navigation',
+  textTabs: '6.3 Text Tabs',
+  verticalTabs: '6.4 Vertical Tabs',
+  topBar: '6.5 Top Bar',
+  stepper: '6.6 Stepper',
 };

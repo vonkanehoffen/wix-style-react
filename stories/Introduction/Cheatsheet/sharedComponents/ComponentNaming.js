@@ -6,14 +6,12 @@ import ComponentsNames from './ComponentsNames';
 import ComponentStorybookName from './ComponentStorybookName';
 
 const ComponentNaming = ({ name, componentsNames }) => (
-  <Box inline direction="vertical">
+  <Box direction="vertical">
     <ComponentStorybookName
       name={name}
       isDeveloped={componentsNames && componentsNames.length > 0}
     />
-    <Box>
-      {componentsNames && <ComponentsNames componentsNames={componentsNames} />}
-    </Box>
+    {componentsNames && <ComponentsNames componentsNames={componentsNames} />}
   </Box>
 );
 
