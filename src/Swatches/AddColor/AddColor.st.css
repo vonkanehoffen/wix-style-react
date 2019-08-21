@@ -5,12 +5,16 @@
 
 :import {
   -st-from: "../../Foundation/stylable/colors.st.css";
-  -st-named:B00,B00-24,B00-42,B40,B10, F00;
+  -st-named:B00,B00-24,B00-42,B40,B10, F00, D80;
 }
 
+:import {
+  -st-from: "../../Foundation/stylable/mixins/calc_rgba.js";
+  -st-default: calc_rgba;
+}
 
 .root {
-  -st-states: noColorSelected;
+  -st-states: selected;
   -st-extends: Focusable;
 
   flex: 0 0 24px;
@@ -31,6 +35,11 @@
 
 .root:hover {
   border-color: value(B00-42);
+}
+
+.root:not(:disabled):selected {
+  border: 1px solid calc_rgba(value(B00),0.48);
+  color: value(D80);
 }
 
 .root:not(:disabled):focus-visible {

@@ -26,7 +26,7 @@ const Button = withFocusable(
     const backgroundColor = buttonColor ? buttonColor.hex() : buttonColor;
     return (
       <button
-        {...styles('root', {}, rest)}
+        {...styles('root', { selected: !!backgroundColor }, rest)}
         data-hook="color-preview-add-button"
         style={{ backgroundColor }}
         onFocus={focusableOnFocus}
@@ -104,7 +104,7 @@ class AddColor extends React.PureComponent {
             content={tooltip}
           >
             <Button
-              backgroundColor={buttonColor}
+              buttonColor={buttonColor}
               iconSize={iconSize}
               onClick={this.toggleColorPicker}
             />
