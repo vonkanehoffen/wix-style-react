@@ -1,5 +1,7 @@
 import React from 'react';
 import { func, oneOf, string } from 'prop-types';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+
 import Tooltip from '../../Tooltip/index';
 import ColorPicker from '../../ColorPicker/index';
 import Color from 'color';
@@ -12,20 +14,30 @@ const EMPTY_COLOR = Color('#00000000');
 
 export const AddColorIconSize = oneOf(['small', 'normal']);
 
-function getContrastColor(color, light = '#ffffff', dark = '#162d3d') {
-  if (!color) {
-    return light;
-  }
-  try {
-    const luminosity = color.luminosity();
-
-    if (luminosity > 0.5) {
-      return dark;
-    } else {
-      return light;
-    }
-  } catch (err) {}
-}
+const Button = withFocusable(
+  ({
+    focusableOnBlur,
+    focusableOnFocus,
+    onClick,
+    buttonColor,
+    iconSize = 'small',
+    ...rest
+  }) => {
+    const backgroundColor = buttonColor ? buttonColor.hex() : buttonColor;
+    return (
+      <button
+        {...styles('root', {}, rest)}
+        data-hook="color-preview-add-button"
+        style={{ backgroundColor }}
+        onFocus={focusableOnFocus}
+        onBlur={focusableOnBlur}
+        onClick={onClick}
+      >
+        {iconSize === 'small' ? <IconAddSmall /> : <IconAdd />}
+      </button>
+    );
+  },
+);
 
 class AddColor extends React.PureComponent {
   static propTypes = {
@@ -67,27 +79,12 @@ class AddColor extends React.PureComponent {
     this.props.onAdd(this.state.color.hex());
   };
 
-  getIconComponent = () => {
-    switch (this.props.iconSize) {
-      case 'normal':
-        return IconAdd;
-
-      case 'small':
-      default:
-        return IconAddSmall;
-    }
-  };
-
   render() {
-    const { tooltip } = this.props;
+    const { tooltip, iconSize } = this.props;
     const { isColorPickerShown, color } = this.state;
     const isEmptyColor = color.alpha() === 0;
     const noColorSelected = !isColorPickerShown || isEmptyColor;
-    const styleProps = {
-      noColorSelected,
-    };
     const buttonColor = noColorSelected ? undefined : color;
-    const IconComponent = this.getIconComponent();
 
     return (
       <Popover
@@ -101,22 +98,16 @@ class AddColor extends React.PureComponent {
           <Tooltip
             upgrade
             disabled={!tooltip || isColorPickerShown}
-            hideDelay={0}
             appendTo="window"
             size="small"
             dataHook="add-color-button-tooltip"
             content={tooltip}
           >
-            <button
-              style={{
-                backgroundColor: buttonColor ? buttonColor.hex() : buttonColor,
-              }}
-              data-hook="color-preview-add-button"
-              {...styles('preview', styleProps, this.props)}
+            <Button
+              backgroundColor={buttonColor}
+              iconSize={iconSize}
               onClick={this.toggleColorPicker}
-            >
-              <IconComponent style={{ color: getContrastColor(buttonColor) }} />
-            </button>
+            />
           </Tooltip>
         </Popover.Element>
         <Popover.Content>
