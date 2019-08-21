@@ -5,7 +5,7 @@ import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
 import { SIZES } from './constants';
 
-import { closeButton } from 'wix-ui-core/themes/backoffice';
+import { closeButton } from 'wix-ui-core/dist/src/themes/backoffice';
 
 import {
   oneOfType,

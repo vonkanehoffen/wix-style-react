@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Avatar as CoreAvatar } from 'wix-ui-core/avatar';
-import { avatar as avatarStyle } from 'wix-ui-core/themes/backoffice';
+import { avatar as avatarStyle } from 'wix-ui-core/dist/src/themes/backoffice';
 
 import style from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
