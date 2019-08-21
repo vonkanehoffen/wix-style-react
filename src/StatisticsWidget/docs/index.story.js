@@ -28,6 +28,8 @@ import CustomLongText from '!raw-loader!./examples/CustomLongText';
 import Trends from '!raw-loader!./examples/Trends';
 import InvertedTrends from '!raw-loader!./examples/InvertedTrends';
 import onClick from '!raw-loader!./examples/onClick';
+import Card from '!raw-loader!./examples/Card';
+import InteractiveCard from '!raw-loader!./examples/InteractiveCard';
 
 const code = config =>
   baseCode({
@@ -169,6 +171,23 @@ export default {
             description:
               "It is possible to specify an 'onClick' handler for every statistic. The items with this property are focusable with Tab button. Also, the handler will be called on Space or Enter press.",
             source: onClick,
+          }),
+
+          code({
+            compact: true,
+            autoRender: false,
+            title: 'Inside a card',
+            description: 'Statistics widget inside a card.',
+            source: Card,
+          }),
+
+          code({
+            compact: true,
+            autoRender: false,
+            title: 'Inside a stateful component',
+            description:
+              'Statistics widget inside a card with multiple filters.',
+            source: InteractiveCard,
           }),
         ],
       }),
