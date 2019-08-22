@@ -1,8 +1,8 @@
-import { layoutSymbols } from './symbols';
+import { layoutSymbols } from '../symbols';
 import {
   layoutComponentsNames as componentsNames,
   sharedComponents,
-} from './components';
+} from '../components';
 
 export const layoutSymbolsToComponents = {
   [layoutSymbols.pageLayout]: [

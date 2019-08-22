@@ -1,8 +1,8 @@
-import { inputsSymbols } from './symbols';
+import { inputsSymbols } from '../symbols';
 import {
   inputsComponentsNames as componentsNames,
   sharedComponents,
-} from './components';
+} from '../components';
 
 export const inputsSymbolsToComponents = {
   [inputsSymbols.textInput]: [

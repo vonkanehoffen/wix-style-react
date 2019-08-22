@@ -1,8 +1,21 @@
+/* eslint-disable no-console */
 import React, { PureComponent } from 'react';
 import {
   FamilyStructure,
   SingleComponentSideBySide,
 } from '../sharedComponents';
+
+import { notificationsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/NotificationsFamily';
+
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../sharedComponents/utils';
+
+import {
+  notificationsSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
 
 //8. Notifications
 import Notification from 'wix-style-react/Notification';
@@ -13,6 +26,8 @@ import SectionHelper from 'wix-style-react/SectionHelper';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import StatusComplete from 'wix-ui-icons-common/StatusComplete';
 import TextButton from 'wix-style-react/TextButton';
+
+const groupSymbol = symbolsGroup.notificationBars;
 
 class NotificationsExamples extends PureComponent {
   renderNotification = props => {
@@ -47,11 +62,17 @@ class NotificationsExamples extends PureComponent {
       'error',
       'premium',
     ];
+
+    const symbol = notificationsSymbols.notification;
+    const components = notificationsSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: createLinkedSymbolName({ groupSymbol, symbol }),
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="8.1 Notification"
-        componentsNames={['<Notification/>']}
-      >
+      <SingleComponentSideBySide {...singleComponentProps}>
         <Layout>
           <Cell key={`remount-button`}>
             <TextButton onClick={() => this.forceUpdate()}>Reset</TextButton>
@@ -98,17 +119,23 @@ const FloatingNotificationsExamples = () => {
     'warning',
     'destructive',
     'premium',
+    'preview',
   ];
 
   const renderNotification = props => (
     <FloatingNotification showCloseButton {...props} />
   );
 
+  const symbol = notificationsSymbols.floatingNotification;
+  const components = notificationsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
   return (
-    <SingleComponentSideBySide
-      name="8.2 Floating Notification"
-      componentsNames={['<FloatingNotification/>']}
-    >
+    <SingleComponentSideBySide {...singleComponentProps}>
       <Layout>
         {floatingNotificationTypes.map((type, i) => (
           <Cell key={`type-cell-${i}`}>
@@ -153,14 +180,23 @@ const SectionsHelperExamples = () => {
   ];
 
   const renderSectionHelper = props => (
-    <SectionHelper {...props} showCloseButton onClose={() => 'onClose'} />
+    <SectionHelper
+      {...props}
+      showCloseButton
+      onClose={() => console.log('onClose')}
+    />
   );
 
+  const symbol = notificationsSymbols.sectionHelper;
+  const components = notificationsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
   return (
-    <SingleComponentSideBySide
-      name="8.3 Section Helper"
-      componentsNames={['<SectionHelper/>']}
-    >
+    <SingleComponentSideBySide {...singleComponentProps}>
       <Layout>
         {sectionHelperAppearance.map((appearance, i) => (
           <Cell key={`appearance-${appearance}-${i}`}>
@@ -187,7 +223,7 @@ const SectionsHelperExamples = () => {
 };
 
 const NotificationFamily = () => (
-  <FamilyStructure title="8. Notifications">
+  <FamilyStructure title={groupSymbol}>
     <NotificationsExamples />
     <FloatingNotificationsExamples />
     <SectionsHelperExamples />

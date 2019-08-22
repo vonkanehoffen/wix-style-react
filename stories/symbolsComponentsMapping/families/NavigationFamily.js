@@ -1,5 +1,5 @@
-import { navigationSymbols } from './symbols';
-import { navigationComponentsNames as componentsNames } from './components';
+import { navigationSymbols } from '../symbols';
+import { navigationComponentsNames as componentsNames } from '../components';
 
 export const navigationSymbolsToComponents = {
   [navigationSymbols.sidebarMenu]: [

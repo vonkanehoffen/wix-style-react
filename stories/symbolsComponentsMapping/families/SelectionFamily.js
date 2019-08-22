@@ -1,8 +1,8 @@
-import { selectionSymbols } from './symbols';
+import { selectionSymbols } from '../symbols';
 import {
   selectionComponentsNames as componentsNames,
   sharedComponents,
-} from './components';
+} from '../components';
 
 export const selectionSymbolsToComponents = {
   [selectionSymbols.dropdown]: [

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
 import { SingleComponentStacked } from '../../../sharedComponents';
-import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/LayoutFamily';
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/LayoutFamily';
 
 import {
   layoutSymbols,

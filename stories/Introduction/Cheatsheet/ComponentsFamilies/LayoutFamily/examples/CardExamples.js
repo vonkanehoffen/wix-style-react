@@ -6,7 +6,7 @@ import {
   createLinkedComponentsNames,
 } from '../../../sharedComponents/utils';
 
-import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/LayoutFamily';
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/LayoutFamily';
 import {
   layoutSymbols,
   symbolsGroup,

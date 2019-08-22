@@ -7,7 +7,7 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { navigationSymbolsToComponents } from '../../../symbolsComponentsMapping/NavigationFamily';
+import { navigationSymbolsToComponents } from '../../../symbolsComponentsMapping/families/NavigationFamily';
 
 import {
   createLinkedSymbolName,

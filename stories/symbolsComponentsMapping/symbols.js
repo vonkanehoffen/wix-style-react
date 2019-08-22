@@ -66,3 +66,16 @@ export const navigationSymbols = {
   topBar: '6.5 Top Bar',
   stepper: '6.6 Stepper',
 };
+
+export const tooltipPopoverSymbols = {
+  tooltip: '7.1 Tooltip',
+  popover: '7.2 Popover',
+  popoverMenu: '7.3 Popover Menu',
+  floatingHelper: '7.4 Floating Helper',
+};
+
+export const notificationsSymbols = {
+  notification: '8.1 Notification',
+  floatingNotification: '8.2 Floating Notification',
+  sectionHelper: '8.3 Section Helper',
+};

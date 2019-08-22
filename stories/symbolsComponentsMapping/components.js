@@ -60,3 +60,17 @@ export const navigationComponentsNames = {
   Tabs: 'Tabs',
   Stepper: 'Stepper',
 };
+
+export const tooltipPopoverComponentsNames = {
+  Tooltip: 'Tooltip',
+  Popover: 'Popover',
+  PopoverMenu: 'PopoverMenu',
+  FloatingHelper: 'FloatingHelper',
+  FloatingHelperContent: 'FloatingHelper.Content',
+};
+
+export const notificationsComponentsNames = {
+  Notification: 'Notification',
+  FloatingNotification: 'FloatingNotification',
+  SectionHelper: 'SectionHelper',
+};

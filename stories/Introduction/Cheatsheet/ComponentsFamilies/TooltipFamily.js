@@ -4,6 +4,18 @@ import {
   SingleComponentSideBySide,
 } from '../sharedComponents';
 
+import { tooltipPopoverSymbolsToComponents } from '../../../symbolsComponentsMapping/families/TooltipPopoverFamily';
+
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../sharedComponents/utils';
+
+import {
+  tooltipPopoverSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
+
 //7. Tooltip
 import Tooltip from 'wix-style-react/Tooltip';
 import Popover from 'wix-style-react/Popover';
@@ -26,95 +38,118 @@ import EditSmall from 'wix-style-react/new-icons/EditSmall';
 import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
 import Image from 'wix-ui-icons-common/Image';
 
-const TooltipExample = () => (
-  <SingleComponentSideBySide
-    name="7.1 Tooltip"
-    componentsNames={['<Tooltip/>']}
-  >
-    <Layout cols={2}>
-      <Box>
-        <Tooltip
-          upgrade
-          fixed
-          size="small"
-          appendTo="viewport"
-          content="Small Tooltip"
-        >
-          <TextButton size="small">Hover Me</TextButton>
-        </Tooltip>
-      </Box>
-      <Box>
-        <Tooltip upgrade fixed appendTo="viewport" content="Medium Tooltip">
-          <TextButton>Hover Me</TextButton>
-        </Tooltip>
-      </Box>
-    </Layout>
-  </SingleComponentSideBySide>
-);
+const groupSymbol = symbolsGroup.tooltipPopovers;
 
-const PopoverExample = () => (
-  <SingleComponentSideBySide
-    name="7.2 Popover"
-    componentsNames={['<Popover/>']}
-  >
-    <Popover animate appendTo="parent" placement="right" showArrow shown>
-      <Popover.Element>
-        <Box paddingRight="10px">
-          <Text>Popover on the right</Text>
-        </Box>
-      </Popover.Element>
-      <Popover.Content>
-        <Box padding="12px 24px">
-          <Text size="small">Popover</Text>
-        </Box>
-      </Popover.Content>
-    </Popover>
-  </SingleComponentSideBySide>
-);
+const TooltipExample = () => {
+  const symbol = tooltipPopoverSymbols.tooltip;
+  const components = tooltipPopoverSymbolsToComponents[symbol];
 
-const PopoverMenuExample = () => (
-  <SingleComponentSideBySide
-    name="7.3 Popover Menu"
-    componentsNames={['<PopoverMenu/>', '<PopoverMenu.MenuItem/>']}
-  >
-    <Layout cols={2}>
-      <Box minHeight="100px">
-        <PopoverMenu
-          textSize="small"
-          placement="bottom"
-          triggerElement={
-            <TextButton suffixIcon={<ChevronDown />}>Small Menu</TextButton>
-          }
-        >
-          <PopoverMenu.MenuItem text="Add" prefixIcon={<AddSmall />} />
-          <PopoverMenu.MenuItem text="Edit" prefixIcon={<EditSmall />} />
-          <PopoverMenu.MenuItem
-            text="Delete"
-            prefixIcon={<DeleteSmall />}
-            skin="destructive"
-          />
-        </PopoverMenu>
-      </Box>
-      <Box minHeight="150px">
-        <PopoverMenu
-          textSize="medium"
-          placement="bottom"
-          triggerElement={
-            <TextButton suffixIcon={<ChevronDown />}>Medium Menu</TextButton>
-          }
-        >
-          <PopoverMenu.MenuItem text="Add" prefixIcon={<Add />} />
-          <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />
-          <PopoverMenu.MenuItem
-            text="Delete"
-            prefixIcon={<Delete />}
-            skin="destructive"
-          />
-        </PopoverMenu>
-      </Box>
-    </Layout>
-  </SingleComponentSideBySide>
-);
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={2}>
+        <Box>
+          <Tooltip
+            upgrade
+            fixed
+            size="small"
+            appendTo="viewport"
+            content="Small Tooltip"
+          >
+            <TextButton size="small">Hover Me</TextButton>
+          </Tooltip>
+        </Box>
+        <Box>
+          <Tooltip upgrade fixed appendTo="viewport" content="Medium Tooltip">
+            <TextButton>Hover Me</TextButton>
+          </Tooltip>
+        </Box>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
+
+const PopoverExample = () => {
+  const symbol = tooltipPopoverSymbols.popover;
+  const components = tooltipPopoverSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Popover animate appendTo="parent" placement="right" showArrow shown>
+        <Popover.Element>
+          <Box paddingRight="10px">
+            <Text>Popover on the right</Text>
+          </Box>
+        </Popover.Element>
+        <Popover.Content>
+          <Box padding="12px 24px">
+            <Text size="small">Popover</Text>
+          </Box>
+        </Popover.Content>
+      </Popover>
+    </SingleComponentSideBySide>
+  );
+};
+
+const PopoverMenuExample = () => {
+  const symbol = tooltipPopoverSymbols.popoverMenu;
+  const components = tooltipPopoverSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={2}>
+        <Box minHeight="100px">
+          <PopoverMenu
+            textSize="small"
+            placement="bottom"
+            triggerElement={
+              <TextButton suffixIcon={<ChevronDown />}>Small Menu</TextButton>
+            }
+          >
+            <PopoverMenu.MenuItem text="Add" prefixIcon={<AddSmall />} />
+            <PopoverMenu.MenuItem text="Edit" prefixIcon={<EditSmall />} />
+            <PopoverMenu.MenuItem
+              text="Delete"
+              prefixIcon={<DeleteSmall />}
+              skin="destructive"
+            />
+          </PopoverMenu>
+        </Box>
+        <Box minHeight="150px">
+          <PopoverMenu
+            textSize="medium"
+            placement="bottom"
+            triggerElement={
+              <TextButton suffixIcon={<ChevronDown />}>Medium Menu</TextButton>
+            }
+          >
+            <PopoverMenu.MenuItem text="Add" prefixIcon={<Add />} />
+            <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />
+            <PopoverMenu.MenuItem
+              text="Delete"
+              prefixIcon={<Delete />}
+              skin="destructive"
+            />
+          </PopoverMenu>
+        </Box>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
 
 class FloatingHelperExample extends PureComponent {
   state = { showFloatingHelper: true };
@@ -127,11 +162,16 @@ class FloatingHelperExample extends PureComponent {
   render() {
     const { showFloatingHelper } = this.state;
 
+    const symbol = tooltipPopoverSymbols.floatingHelper;
+    const components = tooltipPopoverSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="7.4 Floating Helper"
-        componentsNames={['<FloatingHelper/>', '<FloatingHelper.Content/>']}
-      >
+      <SingleComponentSideBySide {...singleComponentProps}>
         <Box verticalAlign="middle" height="200px">
           <Box paddingRight="10px">
             <TextButton onClick={this.toggle}>Click Me</TextButton>
@@ -159,7 +199,7 @@ class FloatingHelperExample extends PureComponent {
 }
 
 const TooltipFamily = () => (
-  <FamilyStructure title="7. Tooltips and Popovers">
+  <FamilyStructure title={groupSymbol}>
     <TooltipExample />
     <PopoverExample />
     <PopoverMenuExample />

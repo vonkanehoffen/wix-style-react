@@ -1,5 +1,5 @@
-import { buttonsSymbols } from './symbols';
-import { buttonsComponentsNames as componentsNames } from './components';
+import { buttonsSymbols } from '../symbols';
+import { buttonsComponentsNames as componentsNames } from '../components';
 
 export const buttonsSymbolsToComponents = {
   [buttonsSymbols.button]: [componentsNames.Button],
