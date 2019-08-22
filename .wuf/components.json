@@ -176,6 +176,9 @@
   "IconButton": {
     "path": "src/IconButton"
   },
+  "ToggleButton": {
+    "path": "src/ToggleButton"
+  },
   "ImageViewer": {
     "path": "src/ImageViewer"
   },

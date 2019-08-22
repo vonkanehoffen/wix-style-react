@@ -221,6 +221,12 @@ export const iconButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(
   iconButtonDriverFactory,
 );
 
+import { toggleButtonDriverFactory } from '../src/ToggleButton/ToggleButton.uni.driver';
+
+export const toggleButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  toggleButtonDriverFactory,
+);
+
 import { imageViewerUniDriverFactory } from '../src/ImageViewer/ImageViewer.uni.driver';
 
 export const imageViewerTestkitFactory = puppeteerUniTestkitFactoryCreator(

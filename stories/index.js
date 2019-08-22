@@ -34,6 +34,7 @@ require('../src/Button/docs/index.story'); // 5.1 Standard
 require('../src/IconButton/docs/index.story'); // 5.2 Icon Button
 require('../src/TextButton/docs/index.story'); // 5.3 Text Button
 require('../src/CloseButton/docs/index.story'); // 5.4 Close Button
+require('../src/ToggleButton/docs/index.story'); // 5.5 Toggle Button
 
 // 6. Navigation
 require('./Sidebar/index.story'); // 6.1 Sidebar

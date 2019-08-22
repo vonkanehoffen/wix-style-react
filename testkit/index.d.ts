@@ -68,6 +68,7 @@ declare namespace VanillaTestkit {
   export const headingTestkitFactory: any;
   export const highlighterTestkitFactory: any;
   export const iconButtonTestkitFactory: any;
+  export const toggleButtonTestkitFactory: any;
   export const imageViewerTestkitFactory: any;
   export const inputTestkitFactory: any;
   export const inputAreaTestkitFactory: any;

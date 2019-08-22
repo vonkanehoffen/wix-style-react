@@ -281,6 +281,12 @@ export const iconButtonTestkitFactory = protractorUniTestkitFactoryCreator(
   iconButtonDriverFactory,
 );
 
+import { toggleButtonDriverFactory } from '../src/ToggleButton/ToggleButton.uni.driver';
+
+export const toggleButtonTestkitFactory = protractorUniTestkitFactoryCreator(
+  toggleButtonDriverFactory,
+);
+
 import imageViewerDriverFactory from '../src/ImageViewer/ImageViewer.protractor.driver';
 
 export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(

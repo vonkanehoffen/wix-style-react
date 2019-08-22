@@ -85,6 +85,7 @@ export const googlePreviewTestkitFactory = enzymeUniTestkitFactoryCreator(load(r
 export const headingTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Heading/Heading.driver')));
 export const highlighterTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Highlighter/Highlighter.driver')));
 export const iconButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/IconButton/IconButton.uni.driver')));
+export const toggleButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/ToggleButton/ToggleButton.uni.driver')));
 export const imageViewerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/ImageViewer/ImageViewer.driver')));
 export const inputTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Input/Input.driver')));
 export const inputAreaTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/InputArea/InputArea.driver')));

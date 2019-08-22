@@ -14,7 +14,7 @@ export const symbolsGroup = {
   contentWidgets: '12. Content Widgets',
 };
 
-export const layoutSymbols ={
+export const layoutSymbols = {
   pageLayout: '2.1 Page Layout',
   cardLayout: '2.2 Card Layout',
   tableLayout: '2.3 Table Layout',
@@ -38,7 +38,7 @@ export const inputsSymbols = {
   mediaInput: '3.15 Media Input',
 };
 
-export const selectionSymbols ={
+export const selectionSymbols = {
   dropdown: '4.1 Dropdown',
   multiSelectDropdown: '4.2 Multi Select Dropdown',
   checkbox: '4.3 Checkbox',

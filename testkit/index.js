@@ -85,6 +85,7 @@ export const googlePreviewTestkitFactory = uniTestkitFactoryCreator(load(require
 export const headingTestkitFactory = testkitFactoryCreator(load(require('../src/Heading/Heading.driver')));
 export const highlighterTestkitFactory = testkitFactoryCreator(load(require('../src/Highlighter/Highlighter.driver')));
 export const iconButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/IconButton/IconButton.uni.driver')));
+export const toggleButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ToggleButton/ToggleButton.uni.driver')));
 export const imageViewerTestkitFactory = testkitFactoryCreator(load(require('../src/ImageViewer/ImageViewer.driver')));
 export const inputTestkitFactory = testkitFactoryCreator(load(require('../src/Input/Input.driver')));
 export const inputAreaTestkitFactory = testkitFactoryCreator(load(require('../src/InputArea/InputArea.driver')));

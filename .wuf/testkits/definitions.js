@@ -179,6 +179,13 @@ module.exports = {
     namedPuppeteerTestkitExport: true
   },
 
+  ToggleButton: {
+    unidriver: true,
+    testkitPath: "../src/ToggleButton/ToggleButton.uni.driver",
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
+  },
+
   CardGalleryItem: {
     unidriver: true,
     testkitPath: "../src/CardGalleryItem/CardGalleryItem.uni.driver"
