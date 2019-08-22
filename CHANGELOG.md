@@ -19,6 +19,9 @@ Types of changes:
 ### Docs
 - `Cheatsheet`- Adding links to `ButtonsFamily` & `NavigationFamily` documentations [#3982](https://github.com/wix/wix-style-react/pull/3982)
 
+### Added
+- `<ToggleButton/>` - new component [#3953](https://github.com/wix/wix-style-react/pull/3953)
+
 ## 6.50.2 - 2019-08-20
 No Changes (Patch version, only to re-publish package, after failed publish)
 
