@@ -19,6 +19,7 @@ Types of changes:
 ### Docs
 - `Cheatsheet`- Adding links to `ButtonsFamily` & `NavigationFamily` documentations [#3982](https://github.com/wix/wix-style-react/pull/3982)
 - `<Sidebar/>`- fixing the links to the sidebar components documentation [#3980](https://github.com/wix/wix-style-react/issues/3980)
+- `Cheatsheet`- Adding links to `TooltipFamily` & `NotificationFamily` documentations [#3984](https://github.com/wix/wix-style-react/pull/3984)
 
 
 ### Added
