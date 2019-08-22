@@ -43,28 +43,28 @@ export default {
           ],
           [
             <LinkTo
-              kind="WIP"
+              kind="Components"
               story="SidebarHeader"
             >{`<SidebarHeader/>`}</LinkTo>,
             'A header within the sidebar with title, subtitle and custom content at the bottom',
           ],
           [
             <LinkTo
-              kind="WIP"
+              kind="Components"
               story="SidebarDivider"
             >{`<SidebarDivider/>`}</LinkTo>,
             'A divider within the sidebar that supports inner and full mode',
           ],
           [
             <LinkTo
-              kind="WIP"
+              kind="Components"
               story="SidebarSectionTitle"
             >{`<SidebarSectionTitle/>`}</LinkTo>,
             'A title for the section within the sidebar',
           ],
           [
             <LinkTo
-              kind="WIP"
+              kind="Components"
               story="SidebarSectionItem"
             >{`<SidebarSectionItem/>`}</LinkTo>,
             'An item for the section within the sidebar',
