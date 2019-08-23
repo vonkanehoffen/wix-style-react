@@ -199,8 +199,7 @@ describe('MultiSelect - Focus behaviour', () => {
     expect(await driver.isFocused()).toEqual(true);
   }
 
-  it.skip('should move out focus of multiselect only after 2 tab press when selecting an item', async () => {
-    //broken, should be fixed
+  it('should move out focus of multiselect only after 2 tab press when selecting an item', async () => {
     await focusOnMultiSelect();
 
     await driver.click();
