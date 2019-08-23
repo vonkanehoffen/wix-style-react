@@ -9,7 +9,7 @@ const multiSelectDriverFactory = ({ element }) => {
     dropdownLayoutDriver,
   } = inputWithOptionsDriverFactory({ element });
 
-  const inputWrapper = driver.inputWrapper().childNodes[0];
+  const inputWrapper = driver.inputWrapper();
 
   const tags = [...inputWrapper.querySelectorAll('[data-hook="tag"]')];
 
