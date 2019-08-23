@@ -10,12 +10,11 @@ const driverFactory = component => {
 
   const dropdownLayoutDriver = async () =>
     dropdownLayoutDriverFactory(
-      await popoverDriverFactory.querySelector(dropdownLayoutSelector)
-        .childNodes[0],
+      (await popoverTestkit.getContentElement()).$(dropdownLayoutSelector),
     );
 
   const dropdownLayoutDummy = dropdownLayoutDriverFactory({
-    element: document.body,
+    element: component,
   });
 
   const input = component.$(`input`);
@@ -25,7 +24,7 @@ const driverFactory = component => {
     ...Object.keys(dropdownLayoutDummy).reduce((prev, current) => {
       return {
         ...prev,
-        [current]: args => {
+        [current]: async args => {
           if (current === 'isShown' || current === 'exists') {
             return popoverTestkit.isContentElementExists();
           }
@@ -33,7 +32,7 @@ const driverFactory = component => {
           !popoverTestkit.isContentElementExists() &&
             inputDriver.keyDown('ArrowDown');
 
-          return dropdownLayoutDriver()[current](args);
+          return (await dropdownLayoutDriver())[current](args);
         },
       };
     }, {}),
@@ -42,10 +41,7 @@ const driverFactory = component => {
     isFocused: () => isFocused(input),
     element: () => component,
     /** Check whether the options dropdown is open */
-    isOptionsShown: () =>
-      dropdownLayoutDriver()
-        .getDropdown()
-        .isDisplayed(),
+    isOptionsShown: () => popoverTestkit.isContentElementExists(),
     enterText: text => input.clear().sendKeys(text),
     selectOptionAt: async index => {
       await input.click();
