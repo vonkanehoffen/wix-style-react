@@ -1,28 +1,25 @@
+import { ReactBase } from '../../test/utils/unidriver';
 import { testkit as inputUniDriverFactory } from '../Input/Input.uni.driver';
 import { dropdownLayoutDriverFactory } from '../DropdownLayout/DropdownLayout.uni.driver';
-import testkit from '../Popover/Popover.uni.driver';
-import { CommonDriver } from 'wix-ui-core/dist/src/components/popover/Popover.common.uni.driver';
-import { ReactBase } from '../../test/utils/unidriver';
 
-export const inputWithOptionsUniDriverFactory = (base, body) => {
+export const inputWithOptionsUniDriverFactory = base => {
   const inputWrapperSelector = '[data-input-parent]';
-  const dropdownLayoutSelector = `[data-hook="inputwithoptions-dropdownlayout"]`;
-
   const inputWrapper = base.$(inputWrapperSelector);
-
-  const popoverTestkit = testkit(base, body);
-  const popoverCommonTestkit = CommonDriver(base, body);
-
   const inputDriver = inputUniDriverFactory(
     base.$(`${inputWrapperSelector} > *:first-child `),
   );
+  const dropdownLayoutDriver = dropdownLayoutDriverFactory(
+    base.$(`[data-hook=dropdown-layout-wrapper] > *:first-child`),
+  );
 
-  const dropdownLayoutDriver = async () => {
-    const content = await popoverCommonTestkit.getContentElement();
-    return dropdownLayoutDriverFactory(content.$(dropdownLayoutSelector));
+  const assertOptionsOpen = async () => {
+    if (!(await dropdownLayoutDriver.isShown())) {
+      await inputDriver.click();
+      if (!(await dropdownLayoutDriver.isShown())) {
+        throw new Error('Options dropdown should be open!');
+      }
+    }
   };
-
-  const dropdownLayoutDummy = dropdownLayoutDriverFactory(base);
 
   const driver = {
     exists: () => base.exists(),
@@ -35,12 +32,13 @@ export const inputWithOptionsUniDriverFactory = (base, body) => {
         const option = await base.$(`[data-hook*=${dataHookPrefix}]`);
         const selectedIndex = await option.attr('data-index');
 
-        return await ReactBase(nativeSelect).select(selectedIndex);
+        await ReactBase(nativeSelect).select(selectedIndex);
+      } else {
+        // Although it is not necessary for options to be shown in order to simulate an option click.
+        // We assert that the options ARE shown, so to simulate real user behavior.
+        await assertOptionsOpen();
+        await (await dropdownLayoutDriver.optionById(id)).click();
       }
-
-      await driver.focus();
-      await driver.pressKey('ArrowDown');
-      await (await (await dropdownLayoutDriver()).optionById(id)).click();
     },
     isReadOnly: async () => await inputDriver.getReadOnly(),
     isEditable: async () =>
@@ -49,15 +47,14 @@ export const inputWithOptionsUniDriverFactory = (base, body) => {
     /** @deprecated  Should be private */
     inputWrapper: () => inputWrapper.getNative(), // eslint-disable-line no-restricted-properties
     focus: () => inputDriver.focus(),
-    blur: async () => await (await dropdownLayoutDriver()).mouseClickOutside(),
+    blur: () => dropdownLayoutDriver.mouseClickOutside(),
     // TODO: use pressKey instead of keyDown
     pressKey: async key => await inputDriver.keyDown({ key }),
-    outsideClick: async () => await popoverTestkit.clickOutside(),
+    outsideClick: () => ReactBase.clickBody(),
     isOptionWrappedToHighlighter: async optionId => {
-      await driver.pressKey('ArrowDown');
-      const {
-        element: optionElm,
-      } = await (await dropdownLayoutDriver()).optionById(optionId);
+      const { element: optionElm } = await dropdownLayoutDriver.optionById(
+        optionId,
+      );
       return (
         (await optionElm().exists()) &&
         (await optionElm()
@@ -71,23 +68,6 @@ export const inputWithOptionsUniDriverFactory = (base, body) => {
     exists: () => driver.exists(),
     driver,
     inputDriver,
-    dropdownLayoutDriver: Object.keys(dropdownLayoutDummy).reduce(
-      (prev, current) => {
-        return {
-          ...prev,
-          [current]: async args => {
-            if (current === 'isShown' || current === 'exists') {
-              return await popoverTestkit.isContentElementExists();
-            }
-
-            !(await popoverTestkit.isContentElementExists()) &&
-              (await driver.pressKey('ArrowDown'));
-
-            return await (await dropdownLayoutDriver())[current](args);
-          },
-        };
-      },
-      {},
-    ),
+    dropdownLayoutDriver,
   };
 };

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
+import WixComponent from '../BaseComponents/WixComponent';
 import Input from '../Input';
 import omit from 'omit';
 import DropdownLayout, {
@@ -8,14 +8,11 @@ import DropdownLayout, {
 } from '../DropdownLayout/DropdownLayout';
 import Highlighter from '../Highlighter/Highlighter';
 import { chainEventHandlers } from '../utils/ChainEventHandlers';
-import styles from './InputWithOptions.st.css';
-import nativeStyles from './InputWithOptions.scss';
-
-import Popover from '../Popover';
+import styles from './InputWithOptions.scss';
 
 export const DEFAULT_VALUE_PARSER = option => option.value;
 
-class InputWithOptions extends Component {
+class InputWithOptions extends WixComponent {
   // Abstraction
   inputClasses() {}
   dropdownClasses() {}
@@ -59,6 +56,7 @@ class InputWithOptions extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    super.componentDidUpdate(prevProps);
     if (
       !this.props.showOptionsIfEmptyInput &&
       ((!prevProps.value && this.props.value) ||
@@ -72,7 +70,9 @@ class InputWithOptions extends Component {
     this.setState({ isComposing });
   }
 
-  onClickOutside = () => this.hideOptions();
+  onClickOutside() {
+    this.hideOptions();
+  }
 
   renderInput() {
     const inputAdditionalProps = this.inputAdditionalProps();
@@ -95,6 +95,7 @@ class InputWithOptions extends Component {
       ...inputProps,
       onKeyDown: chainEventHandlers(
         inputAdditionalProps && inputAdditionalProps.onKeyDown,
+        this._onKeyDown,
       ),
       theme: this.props.theme,
       onChange: this._onChange,
@@ -155,14 +156,12 @@ class InputWithOptions extends Component {
         <DropdownLayout
           ref={dropdownLayout => (this.dropdownLayout = dropdownLayout)}
           {...dropdownProps}
-          dataHook="inputwithoptions-dropdownlayout"
           options={this._processOptions(dropdownProps.options)}
           theme={this.props.theme}
-          visible
+          visible={this.isDropdownLayoutVisible()}
           onClose={this.hideOptions}
           onSelect={this._onSelect}
           isComposing={this.state.isComposing}
-          inContainer
           tabIndex={-1}
         />
       </div>
@@ -171,12 +170,13 @@ class InputWithOptions extends Component {
 
   _renderNativeSelect() {
     const { options, onSelect } = this.props;
+
     return (
-      <div className={nativeStyles.nativeSelectWrapper}>
+      <div className={styles.nativeSelectWrapper}>
         {this.renderInput()}
         <select
           data-hook="native-select"
-          className={nativeStyles.nativeSelect}
+          className={styles.nativeSelect}
           onChange={event => {
             this._onChange(event);
 
@@ -190,7 +190,7 @@ class InputWithOptions extends Component {
               data-index={index}
               key={option.id}
               value={option.value}
-              className={nativeStyles.nativeOption}
+              className={styles.nativeOption}
             >
               {option.value}
             </option>
@@ -201,29 +201,25 @@ class InputWithOptions extends Component {
   }
 
   render() {
-    const { native, dataHook, popoverProps, dropDirectionUp } = this.props;
-    const placement = dropDirectionUp ? 'top' : popoverProps.placement;
+    const { dropDirectionUp, native } = this.props;
 
     return !native ? (
-      <Popover
-        {...styles('root', {}, this.props)}
-        {...popoverProps}
-        placement={placement}
-        dataHook={dataHook}
-        onKeyDown={this._onKeyDown}
-        onClickOutside={this.onClickOutside}
-        shown={this.isDropdownLayoutVisible()}
-      >
-        <Popover.Element>
-          <div data-input-parent className={this.inputClasses()}>
-            {this.renderInput()}
-          </div>
-        </Popover.Element>
-        <Popover.Content>{this._renderDropdownLayout()}</Popover.Content>
-      </Popover>
+      <div>
+        {dropDirectionUp ? this._renderDropdownLayout() : null}
+        <div data-input-parent className={this.inputClasses()}>
+          {this.renderInput()}
+        </div>
+        {!dropDirectionUp ? this._renderDropdownLayout() : null}
+      </div>
     ) : (
       this._renderNativeSelect()
     );
+  }
+
+  hideOptions() {
+    if (this.state.showOptions) {
+      this.setState({ showOptions: false });
+    }
   }
 
   showOptions() {
@@ -311,12 +307,6 @@ class InputWithOptions extends Component {
     }
   }
 
-  hideOptions() {
-    if (this.state.showOptions) {
-      this.setState({ showOptions: false });
-    }
-  }
-
   _onChange(event) {
     this.setState({ inputValue: event.target.value });
 
@@ -386,24 +376,18 @@ class InputWithOptions extends Component {
 
     if (this.shouldDelegateKeyDown(key)) {
       // Delegate event and get result
+      const eventWasHandled = this.dropdownLayout._onKeyDown(event);
+      if (eventWasHandled || this.isReadOnly) {
+        return;
+      }
 
       // For editing mode, we want to *submit* only for specific keys.
       if (this.shouldPerformManualSubmit(key)) {
         this._onManuallyInput(this.state.inputValue, event);
         const inputIsEmpty = !event.target.value;
-
         if (this.closeOnSelect() || (key === 'Tab' && inputIsEmpty)) {
           this.hideOptions();
         }
-      }
-
-      if (!this.dropdownLayout) {
-        return;
-      }
-
-      const eventWasHandled = this.dropdownLayout._onKeyDown(event);
-      if (eventWasHandled || this.isReadOnly) {
-        return;
       }
     }
   }
@@ -430,12 +414,6 @@ InputWithOptions.defaultProps = {
   inputElement: <Input />,
   valueParser: DEFAULT_VALUE_PARSER,
   dropdownWidth: null,
-  popoverProps: {
-    appendTo: 'parent',
-    flip: false,
-    fixed: true,
-    placement: 'bottom',
-  },
   dropdownOffsetLeft: '0',
   showOptionsIfEmptyInput: true,
   magnifyingGlass: false,
@@ -459,8 +437,6 @@ InputWithOptions.propTypes = {
   highlight: PropTypes.bool,
   /** Indicates whether to render using the native select element */
   native: PropTypes.bool,
-  /* common popover props */
-  popoverProps: PropTypes.object,
 };
 
 InputWithOptions.displayName = 'InputWithOptions';
