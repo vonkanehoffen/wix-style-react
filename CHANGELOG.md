@@ -16,31 +16,36 @@ Types of changes:
 
 ## Next
 
+### 6.51.0 - 2019-08-25
+
+- `<ToggleButton/>` - new component [#3953](https://github.com/wix/wix-style-react/pull/3953)
+
 ### Docs
+
 - `Cheatsheet`- Adding links to `ButtonsFamily` & `NavigationFamily` documentations [#3982](https://github.com/wix/wix-style-react/pull/3982)
 - `<Sidebar/>`- fixing the links to the sidebar components documentation [#3980](https://github.com/wix/wix-style-react/issues/3980)
 - `Cheatsheet`- Adding links to `TooltipFamily` & `NotificationFamily` documentations [#3984](https://github.com/wix/wix-style-react/pull/3984)
 
-
-### Added
-- `<ToggleButton/>` - new component [#3953](https://github.com/wix/wix-style-react/pull/3953)
-
 ## 6.50.2 - 2019-08-20
+
 No Changes (Patch version, only to re-publish package, after failed publish)
 
 ## 6.50.1 - 2019-08-20
+
 No Changes (Patch version, only to re-publish package, after failed publish)
 
 ## 6.50.0 - 2019-08-20
 
 ### Changed
+
 - `<StatisticsWidget />` - rename properties [#3954](https://github.com/wix/wix-style-react/pull/3954)
 - `<ModalPreviewLayout/>` - refactor to use `<Text/>` in the header [#3964](https://github.com/wix/wix-style-react/pull/3964)
 
 ### Fixed
+
 - `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
 - `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
-- `<MultiSelect/>` -  preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
+- `<MultiSelect/>` - preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
 - `<AutoComplete/> , <MultiSelect/>, <Dropdown/>` - remove testkit checking tests [#3960](https://github.com/wix/wix-style-react/pull/3960)
 - `<Search/>` - improve dataHook usage and prepare for inputwithoptions usage [#3961](https://github.com/wix/wix-style-react/pull/3961)
 - `<MultiSelectCheckbox/>` - improve tests and prepare for inputWithOptions migration to Popover [#3963](https://github.com/wix/wix-style-react/pull/3963)
@@ -48,6 +53,7 @@ No Changes (Patch version, only to re-publish package, after failed publish)
 - `<MultiSelect/>` - fix propTypes [#3878](https://github.com/wix/wix-style-react/pull/3878)
 
 ### Docs
+
 - `<ModalPreviewLayout/>` - add playground [#3966](https://github.com/wix/wix-style-react/pull/3966)
 - `Cheatsheet`- Adding links to `InputsFamily` documentations [#3933](https://github.com/wix/wix-style-react/pull/3933)
 - `Cheatsheet`- Adding links to `LayoutFamily` documentations [#3968](https://github.com/wix/wix-style-react/pull/3968)
@@ -64,33 +70,39 @@ No Changes (Patch version, only to re-publish package, after failed publish)
 - `<StatisticsWidget />` - add examples [#3905](https://github.com/wix/wix-style-react/pull/3905)
 
 ### Changed
+
 - `<StatisticsWidget />` - improve drivers API [#3908](https://github.com/wix/wix-style-react/pull/3908)
 
 ### Fixed
+
 - `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
 - `<Stepper/>` - added keyboard focusability only [#3949](https://github.com/wix/wix-style-react/pull/3949)
 - `<RichTextInputArea/>` - keep newlines of empty html elements in initial value [#3935](https://github.com/wix/wix-style-react/pull/3935)
 
 ### Docs
+
 - `<Dropdown/>` - improve documentation [#3917](https://github.com/wix/wix-style-react/pull/3917)
-`<AutoComplete/>` - refactor autocomplete documentation & move tests to test folder [#3926](https://github.com/wix/wix-style-react/pull/3926)
+  `<AutoComplete/>` - refactor autocomplete documentation & move tests to test folder [#3926](https://github.com/wix/wix-style-react/pull/3926)
 
 ## 6.48.1 - 2019-08-12
 
 ### Fixed
+
 - `<RichTextInputArea>` - `Revert` Keep newlines of empty html elements in initial value [#3930](https://github.com/wix/wix-style-react/pull/3930)
 
 ## 6.48.0 - 2019-08-12
 
 ### Fixed
+
 - `<RichTextInputArea>` - Keep newlines of empty html elements in initial value [#3922](https://github.com/wix/wix-style-react/pull/3922)
 
 ### Docs
+
 - `Cheatsheet`- Adding examples to `PickerFamily`[#3884](https://github.com/wix/wix-style-react/pull/3884)
 
 ### Added
-- `<CardGalleryItem/>` - support background image as node element [#3913](https://github.com/wix/wix-style-react/pull/3913)
 
+- `<CardGalleryItem/>` - support background image as node element [#3913](https://github.com/wix/wix-style-react/pull/3913)
 
 ## 6.47.1 - 2019-08-11
 
