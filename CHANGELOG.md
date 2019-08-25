@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Docs
+- `Cheatsheet`- Adding links to `ModalsFamily` & `PickerFamily` documentations [#3992](https://github.com/wix/wix-style-react/pull/3992)
+
+
 ### 6.51.0 - 2019-08-25
 
 - `<ToggleButton/>` - new component [#3953](https://github.com/wix/wix-style-react/pull/3953)
