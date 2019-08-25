@@ -16,9 +16,8 @@ Types of changes:
 
 ## Next
 
-### Docs
-- `Cheatsheet`- Adding links to `ModalsFamily` & `PickerFamily` documentations [#3992](https://github.com/wix/wix-style-react/pull/3992)
-
+### 6.51.1 - 2019-08-25
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
 
 ### 6.51.0 - 2019-08-25
 
@@ -29,6 +28,7 @@ Types of changes:
 - `Cheatsheet`- Adding links to `ButtonsFamily` & `NavigationFamily` documentations [#3982](https://github.com/wix/wix-style-react/pull/3982)
 - `<Sidebar/>`- fixing the links to the sidebar components documentation [#3980](https://github.com/wix/wix-style-react/issues/3980)
 - `Cheatsheet`- Adding links to `TooltipFamily` & `NotificationFamily` documentations [#3984](https://github.com/wix/wix-style-react/pull/3984)
+- `Cheatsheet`- Adding links to `ModalsFamily` & `PickerFamily` documentations [#3992](https://github.com/wix/wix-style-react/pull/3992)
 
 ## 6.50.2 - 2019-08-20
 
