@@ -1,6 +1,8 @@
 export const sharedComponents = {
   FormField: 'FormField',
   EmptyState: 'EmptyState',
+  Tag: 'Tag',
+  Icon: 'Icon',
 };
 
 export const inputsComponentsNames = {
@@ -10,7 +12,6 @@ export const inputsComponentsNames = {
   NumberInput: 'NumberInput',
   ColorInput: 'ColorInput',
   MultiSelect: 'MultiSelect',
-  Tag: 'Tag',
   TimeInput: 'TimeInput',
   DateInput: 'DateInput',
   Search: 'Search',
@@ -90,4 +91,21 @@ export const pickerComponentsNames = {
   CalendarPanel: 'CalendarPanel',
   CalendarPanelFooter: 'CalendarPanelFooter',
   Swatches: 'Swatches',
+};
+
+export const otherComponentsNames = {
+  Avatar: 'Avatar',
+  Badge: 'Badge',
+  BadgeSelect: 'BadgeSelect',
+  CounterBadge: 'CounterBadge',
+  Loader: 'Loader',
+  LinearProgressBar: 'LinearProgressBar',
+  CircularProgressBar: 'CircularProgressBar',
+};
+
+export const contentWidgetsComponentsNames = {
+  StatsWidget: 'StatsWidget',
+  Carousel: 'Carousel',
+  Accordion: 'Accordion',
+  CardGalleryItem: 'CardGalleryItem',
 };

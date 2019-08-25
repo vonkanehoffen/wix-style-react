@@ -8,6 +8,15 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
+import { contentWidgetsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/ContentWidgetsFamily';
+
+import { createLinkedComponentsNames } from '../sharedComponents/utils';
+
+import {
+  contentWidgetsSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
+
 //Assets
 import Text from 'wix-style-react/Text';
 import Box from 'wix-style-react/Box';
@@ -23,33 +32,52 @@ import StatsWidget from 'wix-style-react/StatsWidget';
 import Carousel from 'wix-style-react/Carousel';
 import Accordion from 'wix-style-react/Accordion';
 
-const ImageWidgetExample = () => (
-  <SingleComponentStacked name="12.1 Image Widget">
-    <NotDefined />
-  </SingleComponentStacked>
-);
+const groupSymbol = symbolsGroup.contentWidgets;
 
-const EmptyStateExample = () => (
-  <SingleComponentStacked
-    name="12.2 Empty State"
-    componentsNames={['<EmptyState/>']}
-  >
-    <Preview wrapWithCard stretch>
-      <EmptyState
-        image={
-          <Box
-            height="120px"
-            width="120px"
-            backgroundColor="D60"
-            borderRadius="50%"
-          />
-        }
-        subtitle="Create your product item in an easy & fast way to display it on your site"
-        title="You don't have any items yet"
-      />
-    </Preview>
-  </SingleComponentStacked>
-);
+const ImageWidgetExample = () => {
+  const symbol = contentWidgetsSymbols.imageWidget;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <NotDefined />
+    </SingleComponentStacked>
+  );
+};
+
+const EmptyStateExample = () => {
+  const symbol = contentWidgetsSymbols.emptyState;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <Preview wrapWithCard stretch>
+        <EmptyState
+          image={
+            <Box
+              height="120px"
+              width="120px"
+              backgroundColor="D60"
+              borderRadius="50%"
+            />
+          }
+          subtitle="Create your product item in an easy & fast way to display it on your site"
+          title="You don't have any items yet"
+        />
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
 
 const StatsWidgetExamples = () => {
   const statistics = [
@@ -87,11 +115,16 @@ const StatsWidgetExamples = () => {
 
   const onFilterChange = () => alert('hi');
 
+  const symbol = contentWidgetsSymbols.statsWidget;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
   return (
-    <SingleComponentStacked
-      name="12.3 Stats Widget"
-      componentsNames={['<StatsWidget/>']}
-    >
+    <SingleComponentStacked {...singleComponentProps}>
       <Preview wrapWithCard stretch>
         <StatsWidget
           title="Let's see what's going on with your store"
@@ -118,12 +151,17 @@ const CarouselExample = () => {
     </Card>
   ));
 
+  const symbol = contentWidgetsSymbols.carousel;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
   return (
-    <SingleComponentStacked
-      name="12.4 Carousel"
-      componentsNames={['<Carousel/>']}
-      size={singleComponentSizes.compact}
-    >
+    <SingleComponentStacked {...singleComponentProps}>
       <Preview stretch>
         <Carousel>{carouselItems}</Carousel>
       </Preview>
@@ -158,13 +196,18 @@ const AccordionExample = () => {
     },
   ];
 
+  const symbol = contentWidgetsSymbols.accordion;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
   return (
-    <SingleComponentStacked
-      name="12.5 Accordion"
-      componentsNames={['<Accordion/>']}
-      size={singleComponentSizes.compact}
-    >
-      <Preview>
+    <SingleComponentStacked {...singleComponentProps}>
+      <Preview stretch>
         <Accordion multiple items={accordionItems} />
       </Preview>
     </SingleComponentStacked>
@@ -175,12 +218,17 @@ const CardGalleryItemExample = () => {
   const backgroundImageUrl =
     'https://static.wixstatic.com/media/89ea07a19c3d415e99a8a8a3c0ab1de8.jpg/v1/fill/w_343,h_343,al_c,q_80,usm_0.66_1.00_0.01/89ea07a19c3d415e99a8a8a3c0ab1de8.jpg';
 
+  const symbol = contentWidgetsSymbols.cardGalleryItem;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
   return (
-    <SingleComponentStacked
-      name="12.6 Card Gallery Item"
-      componentsNames={['<CardGalleryItem/>']}
-      size={singleComponentSizes.tiny}
-    >
+    <SingleComponentStacked {...singleComponentProps}>
       <Preview stretch>
         <CardGalleryItem
           title="Card title"
@@ -209,14 +257,24 @@ const CardGalleryItemExample = () => {
   );
 };
 
-const PreviewExample = () => (
-  <SingleComponentStacked name="12.7 Preview">
-    <NotDeveloped />
-  </SingleComponentStacked>
-);
+const PreviewExample = () => {
+  const symbol = contentWidgetsSymbols.preview;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: components,
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <NotDeveloped />
+    </SingleComponentStacked>
+  );
+};
 
 const ContentWidgetsFamily = () => (
-  <FamilyStructure title="12. Content Widgets Family" showPreview={false}>
+  <FamilyStructure title={groupSymbol} showPreview={false}>
     <ImageWidgetExample />
     <EmptyStateExample />
     <StatsWidgetExamples />

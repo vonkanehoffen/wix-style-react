@@ -51,7 +51,7 @@ export const inputsSymbolsToComponents = {
   [inputsSymbols.tagsInput]: [
     sharedComponents.FormField,
     componentsNames.MultiSelect,
-    componentsNames.Tag,
+    sharedComponents.Tag,
   ],
 
   [inputsSymbols.googleAddressInput]: [],

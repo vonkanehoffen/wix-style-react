@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Docs
+- `Cheatsheet`- Adding links to `OtherFamily` & `ContentWidgetsFamily` documentations [#4007](https://github.com/wix/wix-style-react/pull/4007)
+
+
 ## 6.51.1 - 2019-08-25
 
 No Changes (Patch version, only to re-publish Storybook, after failed publish)
