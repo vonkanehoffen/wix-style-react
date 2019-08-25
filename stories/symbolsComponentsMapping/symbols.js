@@ -95,3 +95,24 @@ export const pickerSymbols = {
   calendarPanel: '10.6 Calendar Panel',
   swatches: '10.7 Swatches',
 };
+
+export const otherSymbols = {
+  avatar: '11.1 Avatar',
+  badge: '11.2 Badge',
+  badgeSelect: '11.3 Badge Select',
+  counterBadge: '11.4 Counter Badge',
+  tag: '11.5 Tag',
+  loader: '11.6 Loader',
+  linearProgressBar: '11.7 Linear Progress Bar',
+  circularProgressBar: '11.8 Circular Progress Bar',
+};
+
+export const contentWidgetsSymbols = {
+  imageWidget: '12.1 Image Widget',
+  emptyState: '12.2 Empty State',
+  statsWidget: '12.3 Stats Widget',
+  carousel: '12.4 Carousel',
+  accordion: '12.5 Accordion',
+  cardGalleryItem: '12.6 Card Gallery Item',
+  preview: '12.7 Preview',
+};
