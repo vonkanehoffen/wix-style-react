@@ -12,6 +12,7 @@ import deprecationLog from '../utils/deprecationLog';
 
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 class Input extends Component {
   static Ticker = Ticker;
@@ -30,10 +31,12 @@ class Input extends Component {
 
   constructor(props) {
     super(props);
+    this._isMounted = false;
     this.logDeprecations(props);
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const { autoFocus, value } = this.props;
 
     if (autoFocus) {
@@ -42,6 +45,10 @@ class Input extends Component {
       // Opera sometimes sees a carriage return as 2 characters.
       value && this.input.setSelectionRange(value.length * 2, value.length * 2);
     }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   onCompositionChange = isComposing => {
@@ -55,7 +62,9 @@ class Input extends Component {
   logDeprecations(props) {
     if (props.unit) {
       deprecationLog(
-        `Input's unit prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix>${props.unit}</Input.Affix>}/>' instead`,
+        `Input's unit prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix>${
+          props.unit
+        }</Input.Affix>}/>' instead`,
       );
     }
     if (props.magnifyingGlass) {
@@ -138,8 +147,8 @@ class Input extends Component {
     } = this.props;
     const onIconClicked = e => {
       if (!disabled) {
-        this.input.focus();
-        this._onFocus();
+        this.input && this.input.focus();
+        this._isMounted && this._onFocus();
         this._onClick(e);
       }
     };
@@ -198,7 +207,7 @@ class Input extends Component {
       step,
       'data-hook': 'wsr-input',
       style: { textOverflow },
-      dataRef: this.extractRef,
+      ref: this.extractRef,
       className: inputClassNames,
       id,
       name,
@@ -401,11 +410,12 @@ class Input extends Component {
   };
 
   _renderInput = props => {
-    const { customInput: CustomInputComponent, dataRef, ...rest } = props;
+    const { customInput: CustomInputComponent, ref, ...rest } = props;
+    const refKey = SUPPORT_REF_FORWARD ? 'ref' : 'data-ref';
     const inputProps = {
       ...(CustomInputComponent
-        ? { 'data-ref': dataRef, ...rest, 'data-hook': 'wsr-custom-input' }
-        : { ref: dataRef, ...rest }),
+        ? { [refKey]: ref, ...rest, 'data-hook': 'wsr-custom-input' }
+        : { ref, ...rest }),
     };
 
     return React.cloneElement(
@@ -571,7 +581,7 @@ Input.propTypes = {
   rtl: PropTypes.bool,
 
   /** Specifies the size of the input */
-  size: PropTypes.oneOf(['small', 'normal', 'large']),
+  size: PropTypes.oneOf(['small', 'normal', 'medium', 'large']),
 
   /** Component you want to show as the suffix of the input */
   suffix: PropTypes.node,
@@ -615,7 +625,13 @@ Input.propTypes = {
   step: PropTypes.number,
 
   /** Use a customized input component instead of the default html input tag */
-  customInput: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  customInput: PropTypes.elementType
+    ? PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.node,
+        PropTypes.elementType,
+      ])
+    : PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
 
   /** Don't call onChange on a controlled Input when user clicks the clear button.
    *  See https://github.com/wix/wix-style-react/issues/3122

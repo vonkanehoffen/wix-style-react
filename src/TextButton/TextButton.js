@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/standalone/src/components/button-next';
 import cx from 'classnames';
-import { textButton } from 'wix-ui-core/themes/backoffice';
+import { textButton } from 'wix-ui-core/dist/src/themes/backoffice';
 import {
   oneOfType,
   string,

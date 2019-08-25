@@ -11,9 +11,9 @@ class PopoverMenu extends React.PureComponent {
 
   static MenuItem = () => ({});
 
-  static Divider = () => {
+  static Divider = ({ dataHook }) => {
     return (
-      <div style={{ padding: `6px 24px 6px 18px` }}>
+      <div data-hook={dataHook} style={{ padding: `6px 24px 6px 18px` }}>
         <div className={styles.divider} />
       </div>
     );
@@ -33,7 +33,8 @@ class PopoverMenu extends React.PureComponent {
     moveBy: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
 
     /** Element to trigger the popover */
-    triggerElement: PropTypes.element.isRequired,
+    triggerElement: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+      .isRequired,
 
     /** The Popover's placement:
      *  * auto-start
@@ -177,7 +178,7 @@ class PopoverMenu extends React.PureComponent {
       if (displayName && displayName === 'PopoverMenu.Divider') {
         return {
           id: id,
-          value: child,
+          value: React.cloneElement(child, { dataHook: child.props.dataHook }),
           divider: true,
           overrideStyle: true,
         };
@@ -189,6 +190,7 @@ class PopoverMenu extends React.PureComponent {
           title: child.props.text,
           onClick: child.props.onClick,
           skin: child.props.skin,
+          dataHook: child.props.dataHook,
           prefixIcon: child.props.prefixIcon,
           disabled: child.props.disabled,
         };
@@ -214,7 +216,7 @@ class PopoverMenu extends React.PureComponent {
       if (option.divider || option.custom) {
         return option;
       }
-      const { id, disabled, onClick, ...rest } = option;
+      const { id, disabled, onClick, dataHook, ...rest } = option;
 
       const { focused } = this.state;
 
@@ -232,7 +234,7 @@ class PopoverMenu extends React.PureComponent {
             {...rest}
             as="button"
             autoFocus={id === this.focusableList[0]}
-            dataHook={`popover-menu-${id}`}
+            dataHook={dataHook ? dataHook : `popover-menu-${id}`}
             ref={ref => (this.children[id] = ref)}
             tabIndex={id === focused && !disabled ? '0' : '-1'}
             onKeyDown={e => this._onKeyDown(e, id)}
@@ -246,7 +248,7 @@ class PopoverMenu extends React.PureComponent {
     });
   };
 
-  _renderTriggerElement = toggle => {
+  _renderTriggerElement = ({ toggle, open, close }) => {
     const { triggerElement } = this.props;
     if (!triggerElement) {
       return null;
@@ -258,6 +260,9 @@ class PopoverMenu extends React.PureComponent {
         })
       : triggerElement({
           onClick: toggle,
+          toggle,
+          open,
+          close,
         });
   };
 
@@ -287,10 +292,12 @@ class PopoverMenu extends React.PureComponent {
         flip={flip}
         fixed={fixed}
         showArrow={showArrow}
-        tabIndex="-1"
+        tabIndex={-1}
         moveBy={moveBy}
       >
-        {({ toggle }) => this._renderTriggerElement(toggle)}
+        {({ toggle, open, close }) =>
+          this._renderTriggerElement({ toggle, open, close })
+        }
       </DropdownBase>
     );
   }

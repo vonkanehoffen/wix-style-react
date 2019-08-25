@@ -1,5 +1,22 @@
 import React from 'react';
-import { GeneralStructure, SingleComponent } from '../sharedComponents';
+import {
+  FamilyStructure,
+  SingleComponentSideBySide,
+  singleComponentSizes,
+} from '../sharedComponents';
+
+import { buttonsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/ButtonsFamily';
+
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../sharedComponents/utils';
+
+import {
+  buttonsSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
+
 //Assets
 import More from 'wix-style-react/new-icons/More';
 
@@ -12,6 +29,8 @@ import IconButton from 'wix-style-react/IconButton';
 import TextButton from 'wix-style-react/TextButton';
 import CloseButton from 'wix-style-react/CloseButton';
 import AddItem from 'wix-style-react/AddItem';
+
+const groupSymbol = symbolsGroup.buttons;
 
 const PrimarySkinsExamples = () => (
   <Layout cols={6} gap="10px" alignItems="center">
@@ -77,91 +96,142 @@ const SecondarySkinsExamples = () => {
   );
 };
 
-const ButtonsExamples = () => (
-  <SingleComponent name="5.1 Button" componentsNames={['<Button/>']}>
-    <Layout>
-      <Cell>
-        <PrimarySkinsExamples />
-      </Cell>
-      <Cell>
-        <SecondarySkinsExamples />
-      </Cell>
-    </Layout>
-  </SingleComponent>
-);
+const ButtonsExamples = () => {
+  const symbol = buttonsSymbols.button;
+  const components = buttonsSymbolsToComponents[symbol];
 
-const IconButtonExamples = () => (
-  <SingleComponent name="5.2 Icon Button" componentsNames={['<IconButton/>']}>
-    <Layout cols={6} gap={0} justifyItems="center" alignItems="center">
-      <IconButton>
-        <More />
-      </IconButton>
-      <IconButton skin="premium">
-        <More />
-      </IconButton>
-      <Box padding={1} backgroundColor="D10">
-        <IconButton skin="light">
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout>
+        <Cell>
+          <PrimarySkinsExamples />
+        </Cell>
+        <Cell>
+          <SecondarySkinsExamples />
+        </Cell>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
+
+const IconButtonExamples = () => {
+  const symbol = buttonsSymbols.iconButton;
+  const components = buttonsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={6} gap={0} justifyItems="center" alignItems="center">
+        <IconButton>
           <More />
         </IconButton>
-      </Box>
-      <IconButton skin="transparent">
-        <More />
-      </IconButton>
-      <IconButton skin="inverted">
-        <More />
-      </IconButton>
-    </Layout>
-  </SingleComponent>
-);
+        <IconButton skin="premium">
+          <More />
+        </IconButton>
+        <Box padding={1} backgroundColor="D10">
+          <IconButton skin="light">
+            <More />
+          </IconButton>
+        </Box>
+        <IconButton skin="transparent">
+          <More />
+        </IconButton>
+        <IconButton skin="inverted">
+          <More />
+        </IconButton>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
 
-const TextButtonExamples = () => (
-  <SingleComponent name="5.3 Text Button" componentsNames={['<TextButton/>']}>
-    <Layout cols={6} justifyItems="center">
-      <TextButton>Standard</TextButton>
-      <TextButton skin="premium">Premium</TextButton>
-      <Box backgroundColor="D10">
-        <TextButton skin="light">Light</TextButton>
-      </Box>
-      <Box backgroundColor="Y30">
-        <TextButton skin="dark">Dark</TextButton>
-      </Box>
-    </Layout>
-  </SingleComponent>
-);
+const TextButtonExamples = () => {
+  const symbol = buttonsSymbols.textButton;
+  const components = buttonsSymbolsToComponents[symbol];
 
-const CloseButtonExamples = () => (
-  <SingleComponent name="5.4 Close Button" componentsNames={['<CloseButton/>']}>
-    <Layout cols={6} justifyItems="center" alignItems="center">
-      <CloseButton />
-      <CloseButton skin="standardFilled" />
-      <Box backgroundColor="D10">
-        <CloseButton skin="light" />
-      </Box>
-      <CloseButton skin="transparent" />
-      <Box backgroundColor="Y30">
-        <CloseButton skin="dark" />
-      </Box>
-      <Box backgroundColor="B20">
-        <CloseButton skin="lightFilled" />
-      </Box>
-    </Layout>
-  </SingleComponent>
-);
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
 
-const AddItemExample = () => (
-  <SingleComponent name="5.5 Add Item" componentsNames={['<AddItem/>']} compact>
-    <AddItem>Add New Item</AddItem>
-  </SingleComponent>
-);
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={6} justifyItems="center">
+        <TextButton>Standard</TextButton>
+        <TextButton skin="premium">Premium</TextButton>
+        <Box backgroundColor="D10">
+          <TextButton skin="light">Light</TextButton>
+        </Box>
+        <Box backgroundColor="Y30">
+          <TextButton skin="dark">Dark</TextButton>
+        </Box>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
+
+const CloseButtonExamples = () => {
+  const symbol = buttonsSymbols.closeButton;
+  const components = buttonsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout cols={6} justifyItems="center" alignItems="center">
+        <CloseButton />
+        <CloseButton skin="standardFilled" />
+        <Box backgroundColor="D10">
+          <CloseButton skin="light" />
+        </Box>
+        <CloseButton skin="transparent" />
+        <Box backgroundColor="Y30">
+          <CloseButton skin="dark" />
+        </Box>
+        <Box backgroundColor="B20">
+          <CloseButton skin="lightFilled" />
+        </Box>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
+
+const AddItemExample = () => {
+  const symbol = buttonsSymbols.addItem;
+  const components = buttonsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+    size: singleComponentSizes.compact,
+  };
+
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <AddItem>Add New Item</AddItem>
+    </SingleComponentSideBySide>
+  );
+};
 
 const ButtonFamily = () => (
-  <GeneralStructure title="5. Button">
+  <FamilyStructure title={groupSymbol}>
     <ButtonsExamples />
     <IconButtonExamples />
     <TextButtonExamples />
     <CloseButtonExamples />
     <AddItemExample />
-  </GeneralStructure>
+  </FamilyStructure>
 );
 
 export default ButtonFamily;

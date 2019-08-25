@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SidebarSectionTitle from '../SidebarSectionTitle';
-import Sidebar from '../../Sidebar';
+import Box from '../../Box';
 
 const tests = [
   {
@@ -25,12 +25,14 @@ const tests = [
   },
 ];
 
-tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
-    storiesOf(`SidebarSectionTitle/${describe}`, module).add(it, () => (
-      <Sidebar>
-        <SidebarSectionTitle {...props} />
-      </Sidebar>
-    ));
-  });
-});
+tests.forEach(({ describe, its }) =>
+  storiesOf(`SidebarSectionTitle`, module).add(describe, () => (
+    <div>
+      {its.map(({ props }) => (
+        <Box direction="vertical" marginBottom={5}>
+          <SidebarSectionTitle {...props} />
+        </Box>
+      ))}
+    </div>
+  )),
+);

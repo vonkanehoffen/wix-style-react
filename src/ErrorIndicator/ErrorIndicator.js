@@ -2,26 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormFieldError from '../new-icons/system/FormFieldError';
 import Tooltip from '../Tooltip';
-import styles from './ErrorIndicator.scss';
+import styles from './ErrorIndicator.st.css';
 
-// This component was exported out of <InputArea/>
-// TODO: Add tests and docs
-const ErrorIndicator = ({ dataHook, errorMessage, tooltipPlacement }) => (
-  <div data-hook={dataHook} className={styles.suffix}>
-    <Tooltip
-      upgrade
-      dataHook="error-indicator-tooltip"
-      appendTo="window"
-      placement={tooltipPlacement}
-      exitDelay={100}
-      content={errorMessage}
-      maxWidth={250}
-    >
-      <div disabled={errorMessage.length === 0} className={styles.errorIcon}>
-        <FormFieldError />
-      </div>
-    </Tooltip>
-  </div>
+const ErrorIndicator = ({
+  dataHook,
+  errorMessage,
+  tooltipPlacement,
+  ...rest
+}) => (
+  <Tooltip
+    upgrade
+    dataHook={dataHook}
+    appendTo="window"
+    placement={tooltipPlacement}
+    exitDelay={100}
+    content={errorMessage}
+    maxWidth={250}
+  >
+    <div {...styles('root', {}, rest)} disabled={errorMessage.length === 0}>
+      <FormFieldError size="10px" />
+    </div>
+  </Tooltip>
 );
 
 ErrorIndicator.defaultProps = {

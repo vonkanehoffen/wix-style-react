@@ -53,8 +53,8 @@ class InteractiveEyeTest extends React.Component {
       <div style={{ marginLeft: '300px', marginTop: '200px' }}>
         <PopoverMenu
           dataHook={interactiveDataHook}
-          triggerElement={({ onClick }) => (
-            <IconButton dataHook={menuButtonDataHook} onClick={onClick}>
+          triggerElement={({ toggle }) => (
+            <IconButton dataHook={menuButtonDataHook} onClick={toggle}>
               <More />
             </IconButton>
           )}
@@ -291,11 +291,11 @@ const interactiveTests = [
         props: {
           children: menuItems,
           showArrow: false,
-          triggerElement: ({ onClick }) => (
+          triggerElement: ({ toggle }) => (
             <TextButton
               priority="secondary"
               dataHook={menuButtonDataHook}
-              onClick={onClick}
+              onClick={toggle}
             >
               Actions
             </TextButton>

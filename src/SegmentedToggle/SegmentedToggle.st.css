@@ -1,6 +1,6 @@
 :import {
   -st-from: "wix-ui-core/src/themes/backoffice/colors.st.css";
-  -st-named: F00, B30, D80, D55;
+  -st-named: F00, B30, D10-30, D80, D55;
 }
 
 .root {
@@ -19,7 +19,7 @@
 }
 
 .root:disabled {
-  box-shadow: 0 0 0 1px value(D55);
+  box-shadow: 0 0 0 1px value(D10-30);
 }
 
 .divider {
@@ -33,7 +33,7 @@
 }
 
 .divider:disabled {
-  background-color: value(D55);
+  background-color: value(D10-30);
 }
 
 .divider:transparent {

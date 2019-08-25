@@ -1,11 +1,15 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
-import { SingleLayoutComponent } from '../../../sharedComponents';
+import { SingleComponentStacked, Preview } from '../../../sharedComponents';
+import { createLinkedComponentsNames } from '../../../sharedComponents/utils';
+
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/LayoutFamily';
+import { layoutSymbols } from '../../../../../symbolsComponentsMapping/symbols';
 
 import Table from 'wix-style-react/Table';
 import TableActionCell from 'wix-style-react/TableActionCell';
 import Card from 'wix-style-react/Card';
 import Search from 'wix-style-react/Search';
-import Box from 'wix-style-react/Box';
 import Star from 'wix-style-react/new-icons/Star';
 import Avatar from 'wix-style-react/Avatar';
 
@@ -48,52 +52,52 @@ class TablePageExample extends Component {
   };
 
   render() {
+    const { data } = this.state;
     return (
-      <Card>
-        <Table
-          data={this.state.data}
-          columns={[
-            {
-              title: '',
-              width: '10%',
-              minWidth: '50px',
-              render: () => <Avatar size="size60" imgProps />,
-            },
-            { title: 'Name', render: row => row.name },
-            { title: 'SKU', render: row => row.SKU },
-            { title: 'Price', render: row => row.price },
-            { title: 'Inventory', render: row => row.inventory },
-            {
-              title: '',
-              render: rowData => (
-                <TableActionCell
-                  primaryAction={{
-                    text: 'Edit',
-                    theme: 'fullblue',
-                    onActionTrigger: rowData =>
-                      window.alert(`Editing ${rowData.name}`),
-                  }}
-                  secondaryActions={[
-                    {
-                      text: 'Star',
-                      icon: <Star />,
-                      onClick: () => window.alert(`Starring ${rowData.name}`),
-                    },
-                  ]}
-                  numOfVisibleSecondaryActions={0}
-                  alwaysShowSecondaryActions={false}
-                />
-              ),
-            },
-          ]}
-          showSelection
-        >
-          <Table.ToolbarContainer>
-            {() => <TableToolbarExample />}
-          </Table.ToolbarContainer>
-          <Table.Content />
-        </Table>
-      </Card>
+      <Table
+        data={data}
+        columns={[
+          {
+            title: '',
+            width: '10%',
+            minWidth: '50px',
+            render: () => <Avatar size="size60" />,
+          },
+          { title: 'Name', render: row => row.name },
+          { title: 'SKU', render: row => row.SKU },
+          { title: 'Price', render: row => row.price },
+          { title: 'Inventory', render: row => row.inventory },
+          {
+            title: '',
+            render: rowData => (
+              <TableActionCell
+                primaryAction={{
+                  onClick: () => console.log('primaryAction'),
+                  text: 'Edit',
+                  theme: 'fullblue',
+                  onActionTrigger: rowData =>
+                    window.alert(`Editing ${rowData.name}`),
+                }}
+                secondaryActions={[
+                  {
+                    text: 'Star',
+                    icon: <Star />,
+                    onClick: () => window.alert(`Starring ${rowData.name}`),
+                  },
+                ]}
+                numOfVisibleSecondaryActions={0}
+                alwaysShowSecondaryActions={false}
+              />
+            ),
+          },
+        ]}
+        showSelection
+      >
+        <Table.ToolbarContainer>
+          {() => <TableToolbarExample />}
+        </Table.ToolbarContainer>
+        <Table.Content />
+      </Table>
     );
   }
 }
@@ -115,12 +119,22 @@ const TableToolbarExample = () => (
   </Card>
 );
 
-const TableExamples = () => (
-  <SingleLayoutComponent name="2.3 Table Layout" componentsNames={['<Table/>']}>
-    <Box padding="30px" backgroundColor="D70">
-      <TablePageExample />
-    </Box>
-  </SingleLayoutComponent>
-);
+const TableExamples = () => {
+  const symbol = layoutSymbols.tableLayout;
+  const components = layoutSymbolsToComponents[symbol];
+
+  const tableLayoutProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentStacked {...tableLayoutProps}>
+      <Preview>
+        <TablePageExample />
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
 
 export default TableExamples;

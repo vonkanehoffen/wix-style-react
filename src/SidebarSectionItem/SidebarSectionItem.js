@@ -4,6 +4,7 @@ import { withFocusable } from 'wix-ui-core/dist/standalone/src/hocs/Focusable';
 import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 
 import styles from './SidebarSectionItem.st.css';
+import { dataHooks } from './constants';
 import Text from '../Text';
 
 /** An item for the section within the sidebar */
@@ -23,6 +24,8 @@ class SidebarSectionItem extends React.PureComponent {
     selected: PropTypes.bool,
     /** Indicates whether to display the item as disabled */
     disabled: PropTypes.bool,
+    /** Indicates whether to display an icon for drilling in on hover */
+    drillable: PropTypes.bool,
     /** A callback to be triggered on click */
     onClick: PropTypes.func,
   };
@@ -33,6 +36,7 @@ class SidebarSectionItem extends React.PureComponent {
       children,
       selected,
       disabled,
+      drillable,
       prefix,
       suffix,
       onClick,
@@ -41,15 +45,27 @@ class SidebarSectionItem extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        onClick={!disabled && onClick}
-        {...styles('root', { selected, disabled }, this.props)}
+        onClick={!disabled ? onClick : undefined}
+        {...styles(
+          'root',
+          { selected, disabled, prefix, suffix, drillable },
+          this.props,
+        )}
       >
-        {prefix && <span className={styles.prefix}>{prefix}</span>}
-        <Text className={styles.text} size="small" weight="bold" light ellipsis>
+        {prefix && (
+          <span data-hook={dataHooks.prefix} className={styles.prefix}>
+            {prefix}
+          </span>
+        )}
+        <Text className={styles.text} size="small" weight="bold" light>
           {children}
         </Text>
-        {!disabled && <ChevronRight className={styles.chevron} />}
-        {!disabled && suffix && <span className={styles.suffix}>{suffix}</span>}
+        {!disabled && !suffix && drillable && (
+          <ChevronRight className={styles.chevron} />
+        )}
+        {!disabled && suffix && (
+          <span data-hook={dataHooks.suffix}>{suffix}</span>
+        )}
       </div>
     );
   }

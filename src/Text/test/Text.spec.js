@@ -85,17 +85,6 @@ describe('Text', () => {
         const { driver } = render(<Text light>Hello</Text>);
         expect(await driver.isLight()).toBe(true);
       });
-
-      [SKINS.error, SKINS.success, SKINS.premium].forEach(skin => {
-        it(`should be dark when skin is ${skin}`, async () => {
-          const { driver } = render(
-            <Text skin={skin} light>
-              Hello
-            </Text>,
-          );
-          expect(await driver.isLight()).toBe(false);
-        });
-      });
     });
 
     describe('tagName', () => {
@@ -114,14 +103,14 @@ describe('Text', () => {
       it(`should have the html passed as children`, async () => {
         const { driver } = render(
           <Text>
-            Hello<bold>World</bold>
+            Hello<b>World</b>
           </Text>,
         );
         expect(await driver.getText()).toEqual(
           expect.stringContaining('Hello'),
         );
         expect(await driver.getText()).toEqual(
-          expect.stringContaining('<bold>World</bold>'),
+          expect.stringContaining('<b>World</b>'),
         );
       });
     });

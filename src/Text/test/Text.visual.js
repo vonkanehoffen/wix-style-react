@@ -74,7 +74,13 @@ storiesOf('Text/Styles', module).add('styles variations', () => (
             {Object.keys(SKINS).map(skin =>
               [false, true].map(light =>
                 [false, true].map(secondary => (
-                  <span style={{ margin: '12px' }}>
+                  <span
+                    style={{
+                      margin: '12px',
+                      backgroundColor:
+                        light && skin === 'disabled' ? 'black' : 'transparent',
+                    }}
+                  >
                     <Text
                       key={`${weight} ${size} ${skin} ${light} ${secondary}`}
                       size={size}

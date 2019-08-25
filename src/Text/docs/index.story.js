@@ -1,24 +1,33 @@
 import React from 'react';
-import CodeExample from 'wix-storybook-utils/CodeExample';
-
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  columns,
+  playground,
+  api,
+  importExample,
+  divider,
+  testkit,
+  code as baseLiveCode,
+  title,
+} from 'wix-storybook-utils/Sections';
 import Text, { SIZES, SKINS, WEIGHTS } from '..';
-
-import TypographyExample from './ExampleTextTypography';
-import TypographyExampleRaw from '!raw-loader!./ExampleTextTypography';
-
-import MultilineExample from './ExampleMultiline';
-import MultilineExampleRaw from '!raw-loader!./ExampleMultiline';
-
-import EllipsisExample from './ExampleEllipsis';
-import EllipsisExampleRaw from '!raw-loader!./ExampleEllipsis';
-
-import H1TagNameExample from './ExampleH1TagName';
-import H1TagNameExampleRaw from '!raw-loader!./ExampleH1TagName';
-
-import LinkExample from './ExampleLink';
-import LinkExampleRaw from '!raw-loader!./ExampleLink';
+import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
 
 import { storySettings } from '../test/storySettings';
+import { Layout, Cell } from '../../Layout';
+import SectionHelper from '../../SectionHelper';
+
+const liveCode = config =>
+  baseLiveCode({ components: { ...allComponents }, ...config });
+
+const example = ({ source, ...rest }) =>
+  columns({
+    items: [description(rest), liveCode({ compact: true, source })],
+  });
 
 export default {
   category: storySettings.category,
@@ -38,27 +47,113 @@ export default {
     ellipsis: false,
   },
 
-  examples: (
-    <div>
-      <CodeExample title="Multiline Example" code={MultilineExampleRaw}>
-        <MultilineExample />
-      </CodeExample>
+  sections: [
+    header({
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl: 'https://github.com/wix/wix-style-react/tree/master/src/Text',
+      component: (
+        <Layout>
+          <Cell span={8}>
+            <Text>
+              The Life and Strange Surprizing Adventures of Robinson Crusoe, Of
+              York, Mariner: Who lived Eight and Twenty Years, all alone in an
+              un-inhabited Island on the Coast of America, near the Mouth of the
+              Great River of Oroonoque; Having been cast on Shore by Shipwreck,
+              wherein all the Men perished but himself. With An Account how he
+              was at last as strangely deliver'd by Pyrates.
+            </Text>
+          </Cell>
+        </Layout>
+      ),
+    }),
 
-      <CodeExample title="Ellipsis Example" code={EllipsisExampleRaw}>
-        <EllipsisExample />
-      </CodeExample>
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'Text is a a component that makes general text appear in Wix Style. It supports three sizes, three weigths and has multiple skin colors. Use it to build any text content.',
+            }),
+          ]),
 
-      <CodeExample title="Custom TagName Example" code={H1TagNameExampleRaw}>
-        <H1TagNameExample />
-      </CodeExample>
+          importExample("import Text from 'wix-style-react/Text';"),
 
-      <CodeExample title="Link Example" code={LinkExampleRaw}>
-        <LinkExample />
-      </CodeExample>
+          columns([
+            description({
+              text: (
+                <SectionHelper title="Load Wix fonts from CDN:">{`<link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css"></link>`}</SectionHelper>
+              ),
+            }),
+          ]),
 
-      <CodeExample title="Typography Examples" code={TypographyExampleRaw}>
-        <TypographyExample />
-      </CodeExample>
-    </div>
-  ),
+          divider(),
+
+          title('Examples'),
+
+          ...[
+            {
+              title: 'Skins',
+              text:
+                'Text component supports four different styles of skins. Each skin is represents a specific use case. `Standard` skin can be placed on colored backrounds, while other skins should be used only on white or grey.',
+              source: examples.skins,
+            },
+            {
+              title: 'Light',
+              text:
+                'Text can appear on dark or light backrounds. Use `light` prop to keep text in a high contrast.',
+              source: examples.light,
+            },
+            {
+              title: 'Secondary',
+              text:
+                'Text component supports secondary styling for `standard` and `light` skins. ',
+              source: examples.secondary,
+            },
+            {
+              title: 'Weight',
+              text:
+                'Text component supports three weights – `thin`, `normal` and `bold`. Each weight represents a specific use case.',
+              source: examples.weight,
+            },
+            {
+              title: 'Size',
+              text:
+                'Text component supports three sizes – `medium`, `small` and `tiny`. Default size is `medium`.',
+              source: examples.size,
+            },
+            {
+              title: 'Inline Link',
+              text:
+                'Text component will color in link style html based links. Use them when texts links are multiline or inline.',
+              source: examples.link,
+            },
+            {
+              title: 'Ellipsis',
+              text:
+                'Text component can wrap the text or show ellipsis. Hidden text appears on hover in a tooltip.',
+              source: examples.ellipsis,
+            },
+            {
+              title: `Tooltip's maxWidth`,
+              text: `When text component uses ellipis tooltip's width can be adjusted.`,
+              source: examples.maxwidth,
+            },
+            {
+              title: 'TagName',
+              text: 'Control the rendered HTML tag.',
+              source: examples.custom,
+            },
+          ].map(example),
+        ],
+      }),
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };

@@ -35,9 +35,7 @@ export const tabsUniDriverFactory = base => {
     getItemsWidth: async () => {
       const items = await getItems();
       const itemsWidthArrayPromise = items.map(item =>
-        ReactBase(item)
-          .getStyle()
-          .then(style => style.width),
+        item._prop('style').then(style => style.width),
       );
       const itemsWidthArray = await Promise.all(itemsWidthArrayPromise);
       return new Set(itemsWidthArray);
@@ -49,9 +47,7 @@ export const tabsUniDriverFactory = base => {
     getSideContent: async () => findFirst(`.${styles.sideContent}`),
     getItemsMaxWidths: async () =>
       (await getItems()).map(item =>
-        ReactBase(item)
-          .getStyle()
-          .then(style => style.maxWidth),
+        item._prop('style').then(style => style.maxWidth),
       ),
   };
 };

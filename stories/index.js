@@ -26,7 +26,6 @@ require('../src/ColorInput/docs/index.story'); // 3.11 ColorInput
 require('./MultiSelect/index.story'); // 3.12 Tags
 
 // 4. Selection
-require('./Dropdown/DropdownStory'); // 4.1 Dropdown
 require('./SegmentedToggle/index.story'); // 4.5 SegmentedToggle
 require('./Slider/index.story'); // 4.8 Slider
 
@@ -35,6 +34,10 @@ require('../src/Button/docs/index.story'); // 5.1 Standard
 require('../src/IconButton/docs/index.story'); // 5.2 Icon Button
 require('../src/TextButton/docs/index.story'); // 5.3 Text Button
 require('../src/CloseButton/docs/index.story'); // 5.4 Close Button
+require('../src/ToggleButton/docs/index.story'); // 5.5 Toggle Button
+
+// 6. Navigation
+require('./Sidebar/index.story'); // 6.1 Sidebar
 
 // 7. Tooltips
 require('./Tooltip/index.story'); // 7.1 Tooltip
@@ -50,7 +53,7 @@ require('../src/MessageBox/docs');
 // Components API
 require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
-require('../src/AutoComplete/docs');
+require('../src/AutoComplete/docs/index.story');
 require('../src/AutoCompleteComposite/docs');
 require('../src/Avatar/docs/index.story');
 require('../src/Badge/docs/index.story');
@@ -119,8 +122,6 @@ require('../src/SectionHelper/docs/index.story');
 require('../src/SegmentedToggle/docs/index.story');
 require('../src/Sidebar/docs/index.story');
 require('../src/Slider/docs/index.story');
-require('../src/SideMenu/docs');
-require('../src/SideMenu/docs/SideMenu');
 require('../src/Skeleton/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
 require('../src/StatsWidget/docs/index.story');
@@ -137,7 +138,8 @@ require('../src/ToggleSwitch/docs/index.story');
 require('../src/Tooltip/TooltipNext/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
-require('../src/SidebarSectionDivider/docs/index.story');
+require('../src/SidebarDivider/docs/index.story');
+require('../src/SidebarHeader/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
@@ -149,6 +151,10 @@ require('../src/BadgeSelectItemBuilder/docs');
 require('../src/ContactItemBuilder/docs');
 require('../src/DateInput/docs/index.story');
 require('../src/Stepper/docs/index.story');
+require('../src/NoBorderInput/docs/index.story');
+require('../src/EditableTitle/docs/index.story');
+require('../src/ModalPreviewLayout/docs/index.story');
+require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 
 // Tests
 require('../src/Typography/test/TestStory');
@@ -187,9 +193,11 @@ require('../src/DateInput/test/testStories');
 require('./FieldWithSelectionComposite');
 require('./Deprecated/RichTextArea/index.story');
 require('./Deprecated/RichTextArea/testStory');
-
-require('../src/NoBorderInput/docs/index.story');
-require('../src/EditableTitle/docs/index.story');
+require('../src/Deprecated/SideMenu/docs');
+require('../src/Deprecated/SideMenu/docs/SideMenu');
 
 // TODO: move to correct position
 require('../src/beta/PopoverMenu/docs/index.story');
+
+// TODO: move to correct position
+require('../src/StatisticsWidget/docs/index.story');

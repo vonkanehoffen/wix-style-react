@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import DropdownLayout from '../DropdownLayout';
 import InputWithTags from './InputWithTags';
 import last from 'lodash/last';
 import difference from 'difference';
 
 import styles from './MultiSelect.scss';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 class MultiSelect extends InputWithOptions {
   constructor(props) {
@@ -184,21 +186,20 @@ class MultiSelect extends InputWithOptions {
     const inputClassName = classNames(className, styles.autoSizeInput);
     return <input {...rest} ref={dataRef} className={inputClassName} />;
   };
-}
 
-function inputWithOptionsPropTypes() {
-  const {
-    // The following props are overridden in dropdownAdditionalProps()
-    selectedId,
-    closeOnSelect,
-    selectedHighlight,
-    ...rest
-  } = InputWithOptions.propTypes;
-  return rest;
+  static autoSizeInputWithRef = () =>
+    React.forwardRef((props, ref) =>
+      (({ className, ref, ...rest }) => {
+        const inputClassName = classNames(className, styles.autoSizeInput);
+        return <input {...rest} ref={ref} className={inputClassName} />;
+      })({ ...props, ref }),
+    );
 }
 
 MultiSelect.propTypes = {
-  ...inputWithOptionsPropTypes(),
+  selectedId: DropdownLayout.propTypes.selectedId,
+  closeOnSelect: DropdownLayout.propTypes.closeOnSelect,
+  selectedHighlight: DropdownLayout.propTypes.selectedHighlight,
   predicate: PropTypes.func,
   tags: PropTypes.array,
   maxNumRows: PropTypes.number,
@@ -215,7 +216,9 @@ MultiSelect.propTypes = {
    * `onSelect(option: Option): void` - Option is the original option from the provided `options` prop.
    */
   onSelect: PropTypes.func,
-  customInput: PropTypes.func,
+  customInput: PropTypes.elementType
+    ? PropTypes.oneOfType([PropTypes.func, PropTypes.elementType])
+    : PropTypes.oneOfType([PropTypes.func]),
   customSuffix: PropTypes.node,
 };
 
@@ -226,7 +229,9 @@ MultiSelect.defaultProps = {
   predicate: () => true,
   tags: [],
   delimiters: [','],
-  customInput: MultiSelect.autoSizeInput,
+  customInput: SUPPORT_REF_FORWARD
+    ? MultiSelect.autoSizeInputWithRef()
+    : MultiSelect.autoSizeInput,
 };
 
 export default MultiSelect;

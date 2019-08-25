@@ -363,24 +363,5 @@ describe('InputArea', () => {
         expect(await driver.getAriaDescribedby()).toBeNull;
       });
     });
-
-    describe('test tooltip', () => {
-      describe('onTooltipShow attribute', () => {
-        it('should not display the tooltip by default', async () => {
-          const driver = createDriver(
-            <InputAreaForTesting error errorMessage="I'm the error message" />,
-          );
-          expect(await driver.isErrorMessageShown()).toBe(false);
-        });
-
-        it('should display the tooltip on mouse hover', async () => {
-          const driver = createDriver(
-            <InputAreaForTesting error errorMessage="I'm the error message" />,
-          );
-          await driver.mouseEnterErrorIndicator();
-          expect(await driver.getErrorMessage()).toBe("I'm the error message");
-        });
-      });
-    });
   }
 });

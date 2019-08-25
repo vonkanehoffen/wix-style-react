@@ -25,10 +25,20 @@ export const inputWithOptionsUniDriverFactory = base => {
     exists: () => base.exists(),
     /** Select an option by id. (If dropdown options is not opened yet, this will open it and click on the option) */
     selectOptionById: async id => {
-      // Although it is not necessary for options to be shown in order to simulate an option click.
-      // We assert that the options ARE shown, so to simulate real user behavior.
-      await assertOptionsOpen();
-      await (await dropdownLayoutDriver.optionById(id)).click();
+      const nativeSelect = await base.$('[data-hook=native-select]');
+
+      if (await nativeSelect.exists()) {
+        const dataHookPrefix = `native-option-${id}`;
+        const option = await base.$(`[data-hook*=${dataHookPrefix}]`);
+        const selectedIndex = await option.attr('data-index');
+
+        await ReactBase(nativeSelect).select(selectedIndex);
+      } else {
+        // Although it is not necessary for options to be shown in order to simulate an option click.
+        // We assert that the options ARE shown, so to simulate real user behavior.
+        await assertOptionsOpen();
+        await (await dropdownLayoutDriver.optionById(id)).click();
+      }
     },
     isReadOnly: async () => await inputDriver.getReadOnly(),
     isEditable: async () =>

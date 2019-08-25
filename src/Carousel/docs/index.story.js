@@ -11,7 +11,13 @@ import {
 
 import Carousel from '..';
 import { storySettings } from './storySettings';
-import { InfoChild, buttonSkinExample, autoplayExample } from './examples';
+import {
+  InfoChild,
+  buttonSkinExample,
+  autoplayExample,
+  withoutDotsExample,
+  variableWidthExample,
+} from './examples';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 
 const code = config =>
@@ -82,6 +88,8 @@ export default {
         ...[
           { title: 'Button Skin', source: buttonSkinExample },
           { title: 'Autoplay', source: autoplayExample },
+          { title: 'Without Dots', source: withoutDotsExample },
+          { title: 'Variable Width', source: variableWidthExample },
         ].map(code),
       ],
     }),

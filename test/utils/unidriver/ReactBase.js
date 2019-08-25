@@ -49,6 +49,10 @@ export function ReactBase(base) {
       return document.activeElement === (await htmlElement());
     },
     paste: async () => Simulate.paste(await htmlElement()),
+    select: async selectedIndex =>
+      Simulate.change(await htmlElement(), {
+        target: { selectedIndex, value: '' },
+      }),
   };
 
   const unidriverRejected = {
@@ -63,20 +67,6 @@ export function ReactBase(base) {
       elm.blur();
       Simulate.blur(elm); // TODO: Is this redundant?
     },
-
-    // Access Element Properties
-    tagName: async () => (await htmlElement()).tagName,
-    disabled: async () => (await htmlElement()).disabled,
-    tabIndex: async () => (await htmlElement()).tabIndex,
-    readOnly: async () => (await htmlElement()).readOnly,
-    innerHtml: async () => (await htmlElement()).innerHTML,
-    required: async () => (await htmlElement()).required,
-    nodeType: async () => (await htmlElement()).nodeType,
-    defaultValue: async () => (await htmlElement()).defaultValue,
-    // TODO: Remove this. use unidriver.text()
-    textContent: async () => (await htmlElement()).textContent,
-    getStyle: async () => (await htmlElement()).style,
-    width: async () => (await htmlElement()).width,
   };
 
   // These could be BAD implementations. We should have a deprecation log and provide a better alternative.
@@ -112,12 +102,6 @@ export function ReactBase(base) {
       Simulate.mouseOver(await htmlElement(), eventData),
     mouseOut: async eventData =>
       Simulate.mouseOut(await htmlElement(), eventData),
-
-    /* Access Element Props */
-    // TODO: remove selectionStart and use 'prop' method
-    selectionStart: async () => (await htmlElement()).selectionStart,
-    /** Get a property of the HTMLElement by name */
-    prop: async propName => (await htmlElement())[propName],
   };
 
   return {

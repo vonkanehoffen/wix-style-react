@@ -71,7 +71,7 @@ describe('Stepper', () => {
 
     describe('and enter press', () => {
       eyes.it(
-        'should skip disabled and selected steps and activate the next step in line',
+        'should skip disabled and activate the next step in line',
         async () => {
           await pressTab();
           await pressEnter();
@@ -81,7 +81,7 @@ describe('Stepper', () => {
 
     describe('and backspace press', () => {
       eyes.it(
-        'should skip disabled and selected steps and activate the next step in line',
+        'should skip disabled activate the next step in line',
         async () => {
           await pressTab();
           await pressSpace();

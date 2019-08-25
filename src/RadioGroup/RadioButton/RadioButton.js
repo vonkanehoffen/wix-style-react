@@ -124,7 +124,6 @@ class RadioButton extends WixComponent {
               size="medium"
               weight="thin"
               secondary
-              light={disabled}
             >
               {children}
             </Text>

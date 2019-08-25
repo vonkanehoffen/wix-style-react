@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import richTextAreaDriverFactory from './RichTextArea.driver';
@@ -10,8 +11,14 @@ const mockGetSelection = () => {
   window.getSelection = fn;
 };
 
+const consoleErrorRealFunc = console.error;
+
 describe('RichTextArea', () => {
   let currentValue;
+
+  beforeAll(() => {
+    console.error = jest.fn(); // we want to ignore 'autoCorrect' bool type warning which fail the tests
+  });
 
   beforeEach(() => {
     mockGetSelection();
@@ -19,6 +26,10 @@ describe('RichTextArea', () => {
 
   afterEach(() => {
     window.getSelection.restore();
+  });
+
+  afterAll(() => {
+    console.error = consoleErrorRealFunc;
   });
 
   describe('makeHrefAbsolute method', () => {

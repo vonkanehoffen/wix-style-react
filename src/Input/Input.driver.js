@@ -81,7 +81,9 @@ const inputDriverFactory = ({ element }) => {
       !!element.querySelector(`.${styles.suffix} ${style}`),
     isMenuArrowLast: () =>
       element.querySelectorAll(
-        `.${styles.suffixes} .${styles.suffix}:last-child > .${styles.menuArrow}`,
+        `.${styles.suffixes} .${styles.suffix}:last-child > .${
+          styles.menuArrow
+        }`,
       ).length === 1,
     hasExclamation: () => !!element.querySelector(`.${styles.exclamation}`),
     isNarrowError: () => !!element.querySelector(`.${styles.narrow}`),
@@ -103,6 +105,7 @@ const inputDriverFactory = ({ element }) => {
     isDisabled: () => element.classList.contains(styles.disabled),
     isOfStyle: style => element.classList.contains(styles[`theme-${style}`]),
     isOfSize: size => element.classList.contains(styles[`size-${size}`]),
+    getSize: () => element.getAttribute('data-size'),
     isFocus: () => document.activeElement === input,
     exists: () => !!(element && element.querySelector('input')),
     startComposing: () => ReactTestUtils.Simulate.compositionStart(input),

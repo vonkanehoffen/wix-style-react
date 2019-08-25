@@ -1,7 +1,10 @@
 @import '../common';
 @import '../typography-helpers';
 
-$headerShadow: inset 0 1px 0 0 $B30, inset 0 -1px 0 0 $B30;
+$headerShadowStandard: inset 0 1px 0 0 $B30, inset 0 -1px 0 0 $B30;
+$headerShadowNeutral: inset 0 1px 0 0 $D60, inset 0 -1px 0 0 $D60;
+$headerShadowFirstChildNeutral: inset 1px 1px 0 0 $D60, inset 0 -1px 0 0 $D60;
+$headerShadowLastChildNeutral: inset -1px 1px 0 0 $D60, inset 0 -1px 0 0 $D60;
 $columnShadow: inset 0 -1px 0 0 $D60;
 $activeColumnShadow: inset 0 -1px 0 0 $D70;
 $rowShadow: inset 0 1px 0 0 $D70;
@@ -64,13 +67,29 @@ $rowShadow: inset 0 1px 0 0 $D70;
 }
 
 .table th {
-  background-color: $B40;
   padding-top: 9px;
   padding-bottom: 9px;
   height: 24px;
   color: $D10;
   font-weight: normal;
-  box-shadow: $headerShadow;
+
+  &.thSkinStandard {
+    background-color: $B40;
+    box-shadow: $headerShadowStandard;
+  }
+
+  &.thSkinNeutral {
+    background-color: $D70;
+    box-shadow: $headerShadowNeutral;
+
+    &:first-child {
+      box-shadow: $headerShadowFirstChildNeutral;
+    }
+
+    &:last-child {
+      box-shadow: $headerShadowLastChildNeutral;
+    }
+  }
 
   .th-container {
 

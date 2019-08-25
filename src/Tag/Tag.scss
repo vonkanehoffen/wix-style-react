@@ -152,6 +152,22 @@
       background-color: $D10;
     }
   }
+
+  &.neutral-theme {
+    background-color: $D70;
+
+    &.clickable:hover {
+      background-color: $D60;
+    }
+  }
+
+  &.light-theme {
+    background-color: $D80;
+
+    &.clickable:hover {
+      background-color: $B50;
+    }
+  }
 }
 
 .disabled {

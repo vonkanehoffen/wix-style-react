@@ -27,9 +27,8 @@ const code = config => baseCode({ components: allComponents, ...config });
 const childrenExamples = [
   { label: 'Text', value: 'Some text' },
   {
-    label: 'Long text',
-    value:
-      'This is a very long text which exceeds the maximum width of its container',
+    label: 'Multiple lines',
+    value: 'This is an example of multiple lines',
   },
 ];
 
@@ -55,7 +54,7 @@ export default {
             height="8px"
             borderRadius="50%"
             backgroundColor="G10"
-          ></Box>
+          />
         ),
       },
     ],
@@ -98,7 +97,7 @@ export default {
           columns([
             description({
               title: 'Plain Example',
-              text: 'A simple example within the sidebar',
+              text: 'A simple example for section item',
             }),
 
             code({
@@ -110,8 +109,7 @@ export default {
           columns([
             description({
               title: 'Selected Item',
-              text:
-                'An example that demonstrates a selected item within the sidebar',
+              text: 'An example that demonstrates a selected item',
             }),
 
             code({
@@ -123,8 +121,7 @@ export default {
           columns([
             description({
               title: 'Disabled Item',
-              text:
-                'An example that demonstrates a disabled item within the sidebar',
+              text: 'An example that demonstrates a disabled item',
             }),
 
             code({
@@ -135,14 +132,26 @@ export default {
 
           columns([
             description({
-              title: 'Item with Ellipsis',
+              title: 'Drillable Item',
               text:
-                'An example that demonstrates an item with a very long text which exceeds the maximum width of its container',
+                'An example that demonstrates an icon for drilling in when hovering the item',
             }),
 
             code({
               compact: true,
-              source: examples.ellipsis,
+              source: examples.drillable,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Item with Multiple Lines',
+              text: 'An example that demonstrates an item with multiple lines',
+            }),
+
+            code({
+              compact: true,
+              source: examples.multipleLines,
             }),
           ]),
 

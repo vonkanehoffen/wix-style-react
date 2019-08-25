@@ -8,7 +8,7 @@ import {
 } from 'wix-ui-test-utils/protractor';
 import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
 import { storySettings, testStories } from './docs/storySettings';
-import { placements } from './Popover';
+import { placements } from './constants';
 
 describe('Popover', () => {
   const eyes = eyesItInstance({

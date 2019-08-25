@@ -3,6 +3,7 @@
 All notable changes are documented in this file.
 
 Types of changes:
+
 1. **Added** for new features.
 1. **Changed** for changes in existing functionality.
 1. **Deprecated** for soon-to-be removed features.
@@ -13,7 +14,239 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.51.1 - 2019-08-25
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
+## 6.51.0 - 2019-08-25
+
+### Added
+- `<ToggleButton/>` - new component [#3953](https://github.com/wix/wix-style-react/pull/3953)
+
+### Docs
+
+- `Cheatsheet`- Adding links to `ButtonsFamily` & `NavigationFamily` documentations [#3982](https://github.com/wix/wix-style-react/pull/3982)
+- `<Sidebar/>`- fixing the links to the sidebar components documentation [#3980](https://github.com/wix/wix-style-react/issues/3980)
+- `Cheatsheet`- Adding links to `TooltipFamily` & `NotificationFamily` documentations [#3984](https://github.com/wix/wix-style-react/pull/3984)
+- `Cheatsheet`- Adding links to `ModalsFamily` & `PickerFamily` documentations [#3992](https://github.com/wix/wix-style-react/pull/3992)
+
+## 6.50.2 - 2019-08-20
+
+No Changes (Patch version, only to re-publish package, after failed publish)
+
+## 6.50.1 - 2019-08-20
+
+No Changes (Patch version, only to re-publish package, after failed publish)
+
+## 6.50.0 - 2019-08-20
+
+### Changed
+
+- `<StatisticsWidget />` - rename properties [#3954](https://github.com/wix/wix-style-react/pull/3954)
+- `<ModalPreviewLayout/>` - refactor to use `<Text/>` in the header [#3964](https://github.com/wix/wix-style-react/pull/3964)
+
+### Fixed
+
+- `<Dropdown/>` - prepare for inputwithoptions migration [#3957](https://github.com/wix/wix-style-react/pull/3957)
+- `<AutoComplete/>` - prepare changes for inputwithoptions migration [#3956](https://github.com/wix/wix-style-react/pull/3956)
+- `<MultiSelect/>` - preparation for inputwithoptions migration to popover [#3958](https://github.com/wix/wix-style-react/pull/3958)
+- `<AutoComplete/> , <MultiSelect/>, <Dropdown/>` - remove testkit checking tests [#3960](https://github.com/wix/wix-style-react/pull/3960)
+- `<Search/>` - improve dataHook usage and prepare for inputwithoptions usage [#3961](https://github.com/wix/wix-style-react/pull/3961)
+- `<MultiSelectCheckbox/>` - improve tests and prepare for inputWithOptions migration to Popover [#3963](https://github.com/wix/wix-style-react/pull/3963)
+- `<Popover/>` - add a request animation frame polyfill on testing [#3972](https://github.com/wix/wix-style-react/pull/3972)
+- `<MultiSelect/>` - fix propTypes [#3878](https://github.com/wix/wix-style-react/pull/3878)
+
+### Docs
+
+- `<ModalPreviewLayout/>` - add playground [#3966](https://github.com/wix/wix-style-react/pull/3966)
+- `Cheatsheet`- Adding links to `InputsFamily` documentations [#3933](https://github.com/wix/wix-style-react/pull/3933)
+- `Cheatsheet`- Adding links to `LayoutFamily` documentations [#3968](https://github.com/wix/wix-style-react/pull/3968)
+- `<PopoverMenu/>` - beta - improve docs [#3959](https://github.com/wix/wix-style-react/pull/3959)
+- `<ModalPreviewLayout/>` - improve docs with examples [#3971](https://github.com/wix/wix-style-react/pull/3971)
+- `Cheatsheet`- Adding links to `SelectionFamily` documentations [#3973](https://github.com/wix/wix-style-react/pull/3973)
+
+## 6.49.0 - 2019-08-15
+
+### Added
+
+- `<StatisticsWidget />` - add handlers for mouse and keyboard actions [#3915](https://github.com/wix/wix-style-react/pull/3915)
+- `<StatisticsWidget />` - add short text when title doesn't fit [#3909](https://github.com/wix/wix-style-react/pull/3909)
+- `<StatisticsWidget />` - add examples [#3905](https://github.com/wix/wix-style-react/pull/3905)
+
+### Changed
+
+- `<StatisticsWidget />` - improve drivers API [#3908](https://github.com/wix/wix-style-react/pull/3908)
+
+### Fixed
+
+- `<RichTextInputArea/>` - support value reset [#3923](https://github.com/wix/wix-style-react/pull/3923)
+- `<Stepper/>` - added keyboard focusability only [#3949](https://github.com/wix/wix-style-react/pull/3949)
+- `<RichTextInputArea/>` - keep newlines of empty html elements in initial value [#3935](https://github.com/wix/wix-style-react/pull/3935)
+
+### Docs
+
+- `<Dropdown/>` - improve documentation [#3917](https://github.com/wix/wix-style-react/pull/3917)
+  `<AutoComplete/>` - refactor autocomplete documentation & move tests to test folder [#3926](https://github.com/wix/wix-style-react/pull/3926)
+
+## 6.48.1 - 2019-08-12
+
+### Fixed
+
+- `<RichTextInputArea>` - `Revert` Keep newlines of empty html elements in initial value [#3930](https://github.com/wix/wix-style-react/pull/3930)
+
+## 6.48.0 - 2019-08-12
+
+### Fixed
+
+- `<RichTextInputArea>` - Keep newlines of empty html elements in initial value [#3922](https://github.com/wix/wix-style-react/pull/3922)
+
+### Docs
+
+- `Cheatsheet`- Adding examples to `PickerFamily`[#3884](https://github.com/wix/wix-style-react/pull/3884)
+
+### Added
+
+- `<CardGalleryItem/>` - support background image as node element [#3913](https://github.com/wix/wix-style-react/pull/3913)
+
+## 6.47.1 - 2019-08-11
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
+## 6.47.0 - 2019-08-11
+
+### Added
+
+- `<ModalPreviewLayout/>` - create the component [#3773](https://github.com/wix/wix-style-react/pull/3773)
+- `<StatisticsWidget/>` - `WIP` - Add new component [#3893](https://github.com/wix/wix-style-react/pull/3893)
+- `<InputWithOptions/>` - add `native` prop [#3900](https://github.com/wix/wix-style-react/pull/3900)
+
+### Changed
+
+- `<Input/> <ColorInput/>` - support "medium" size [#3891](https://github.com/wix/wix-style-react/pull/3891/files)
+
+### Fixed
+
+- `<Text/>` - extract HOC from the render function [#3881](https://github.com/wix/wix-style-react/pull/3881)
+- `<AddItem/>` - fix text color [#3872](https://github.com/wix/wix-style-react/pull/3872)
+- `<Popover/>` - expose uni driver [#3890](https://github.com/wix/wix-style-react/pull/3890)
+- `<Text/>` - change text color for `light && skin=disabled` [#3861](https://github.com/wix/wix-style-react/pull/3861)
+- `<FloatingNotification/>` - support node based labels for buttons [#3916](https://github.com/wix/wix-style-react/pull/3916)
+- `<ModalPreviewLayout/>` - fix scrollbar to not hide the header [#3898](https://github.com/wix/wix-style-react/pull/3898)
+
+### Docs
+
+- `Cheatsheet`- Adding examples to `NotificationFamily`[#3882](https://github.com/wix/wix-style-react/pull/3882)
+
+## 6.46.0 - 2019-08-02
+
+### Changed
+
+- `<Notification/>` - allow usage without `<Notification.CloseButton/>` [#3865](https://github.com/wix/wix-style-react/pull/3865)
+
+### Fixed
+
+- `<Tooltip/>` - fix page jump issues on hover [#3851](https://github.com/wix/wix-style-react/pull/3851)
+- FIX(protractor typings & testkit exports) - update protractor testkit export definition [#3875](https://github.com/wix/wix-style-react/pull/3875)
+
+## 6.45.1 - 2019-08-01
+
+### Fixed
+
+- `testkit/protractor` - fix .d.ts file to not have duplicate entries [#3867](https://github.com/wix/wix-style-react/pull/3867)
+- remove `jscodeshift` dev to avoid deprecation warning - [#3868](https://github.com/wix/wix-style-react/pull/3868)
+
+## 6.45.0 - 2019-08-01
+
+### Fixed
+
+- `<Card.Subheader/>` -fix top/bottom padding to match designs [#3860](https://github.com/wix/wix-style-react/pull/3860)
+
+### Changed
+
+- `<ColorInput/>` - add popoverProps prop [#3858](https://github.com/wix/wix-style-react/pull/3858)
+
+## 6.44.2 - 2019-07-31
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
+## 6.44.1 - 2019-07-30
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
+## 6.44.0 - 2019-07-30
+
+### Added
+
+- `<Sidebar/>` - add `isHidden` prop [#3640](https://github.com/wix/wix-style-react/pull/3640)
+
+### Changed
+
+- `<DatePicker/>` - support string width [#3803](https://github.com/wix/wix-style-react/pull/3803)
+- `<Tooltip/>` - change default appendTo value to `window` and some extra internal changes [#3848](https://github.com/wix/wix-style-react/pull/3848)
+- `<Input/>` - error indicator. Migrate to new tooltip [#3854](https://github.com/wix/wix-style-react/pull/3854)
+
+### Fixed
+
+- `Disabled State Styling` - styling alignments for the following components: `<ToggleButton/>, <AddItem/>, <Text/>, <InputArea/>, <InputWithOptions/>, <SegmentedToggle/>, <RadioButton/>, <Thumbnail/>` [#3776](https://github.com/wix/wix-style-react/pull/3776)
+- `<SectionHelper/>, <FloatingNotification/>, <Tag/>` - change/add themes colors [#3786](https://github.com/wix/wix-style-react/pull/3786)
+
+### Docs
+
+- `<Sidebar/>` - create story page with example for Business Manager sidebar [#3817](https://github.com/wix/wix-style-react/pull/3817)
+- `<Sidebar/>` - remove WIP category from the sidebar visual components [#3842](https://github.com/wix/wix-style-react/pull/3842)
+
+### Deprecated
+
+- `<SideMenu/>` - deprecated component, you should use `<Sidebar/>` instead [#3847](https://github.com/wix/wix-style-react/pull/3847)
+
+## 6.43.1 - 2019-07-24
+
+- `<PopoverMenu/>` - beta - add back the onClick render prop [#3835](https://github.com/wix/wix-style-react/pull/3835)
+
+## 6.43.0 - 2019-07-24
+
+### Docs
+
+- `Cheatsheet`- Adding examples to `TooltipFamily`[#3804](https://github.com/wix/wix-style-react/pull/3804)
+- `Cheatsheet`- Adding examples to `NavigationFamily`[#3802](https://github.com/wix/wix-style-react/pull/3802)
+
+### Added
+
+- POC(Perfer) - add perfer to run through our components bundles [#3798](https://github.com/wix/wix-style-react/pull/3798)
+- `<Table>`, `<DataTable>` add `skin` prop for table header styles [#3813](https://github.com/wix/wix-style-react/pull/3813)
+- `<PopoverMenu.MenuItem/>`, `<PopoverMenu.Divider/>` - beta - allow overwriting internal dataHook [#3822](https://github.com/wix/wix-style-react/pull/3822)
+
+### Fixed
+
+- `<Text/>` - add default zIndex for ellipsis [#3828](https://github.com/wix/wix-style-react/pull/3828)
+
+## 6.42.0 - 2019-07-24
+
+### Added
+
+- `<SidebarHeader/>` - create the component (WIP) [#3787](https://github.com/wix/wix-style-react/pull/3787)
+- `<Carousel/>` - add `dots` & `variableWidth` props [#3760](https://github.com/wix/wix-style-react/pull/3760)
+
+### Docs
+
+- `<Text/>` - migrate text component to sections with new examples [#3702](https://github.com/wix/wix-style-react/pull/3702)
+- `<CardGalleryItem/>` - examples refactored to support new PopoverMenu [#3744](https://github.com/wix/wix-style-react/pull/3744)
+- `Cheatsheet`- Adding examples to `ContentWidgetsFamily`[#3793](https://github.com/wix/wix-style-react/pull/3793)
+- `<CardGalleryitem/>` - popovermenu example should use render prop toggle instead of open [#3809](https://github.com/wix/wix-style-react/pull/3809)
+- `Cheatsheet`- Adding examples to `OtherFamily`[#3797](https://github.com/wix/wix-style-react/pull/3797)
+
+### Fixed
+
+- `<PopoverMenu/>` - beta - fix typing for getTrriggerElement [#3791](https://github.com/wix/wix-style-react/pull/3791)
+- `<PopoverMenu/>` - beta - tabIndex should be of type number [#3789](https://github.com/wix/wix-style-react/pull/3789)
+- `<PopoverMenu/>` - beta - fix triggerElement proptype [#3812](https://github.com/wix/wix-style-react/pull/3812)
+- `<DropdownLayout/>` - add stopPropagation() to list items [#3818](https://github.com/wix/wix-style-react/pull/3818)
+- `testkit/*.d.ts` - add missing entries of testkits [#3816](https://github.com/wix/wix-style-react/pull/3816)
+
+### Changed
+
+- `<PopoverMenu/>` - beta - expose more control on render props [#3792](https://github.com/wix/wix-style-react/pull/3792)
+- `<SidebarDivider/>` - improve component (WIP) [#3799](https://github.com/wix/wix-style-react/pull/3799)
 
 ## 6.41.0 - 2019-07-20
 
@@ -34,21 +267,24 @@ Types of changes:
 ## 6.40.0 - 2019-07-17
 
 ### Added
+
 - `<SidebarSectionItem/>` - create the component (WIP) [#3751](https://github.com/wix/wix-style-react/pull/3751)
 - `<SidebarSectionDivider/>` - create the component (WIP) [#3758](https://github.com/wix/wix-style-react/pull/3758)
 - `<Multiselect/>` - add `customSuffix` prop [#3759](https://github.com/wix/wix-style-react/pull/3759)
 
 ### Fixed
+
 - `beta/<PopoverMenu/>` - fix `moveBy` prop for [#3755](https://github.com/wix/wix-style-react/pull/3755)
 
 ### Docs
+
 - `Cheatsheet`- Adding examples to `ModalFamily`[#3731](https://github.com/wix/wix-style-react/pull/3731)
 - `Cheatsheet`- Adding examples to `ButtonsFamily`[#3748](https://github.com/wix/wix-style-react/pull/3748)
-
 
 ## 6.39.0 - 2019-07-14
 
 ### Docs
+
 - `Cheatsheet`- Adding examples to `LayoutFamily` [#3714](https://github.com/wix/wix-style-react/pull/3714)
 - `Cheatsheet`- Adding examples to `SelectionFamily` [#3727](https://github.com/wix/wix-style-react/pull/3727)
 - `<Stepper>` - changes to docs [#3712](https://github.com/wix/wix-style-react/pull/3712)
@@ -56,25 +292,28 @@ Types of changes:
 - `<Thumbnail/>` - Added example with disabled mode [#3723](https://github.com/wix/wix-style-react/pull/3723)
 
 ### Added
+
 - `<PopoverMenu/>` - BETA - UX story [#3626](https://github.com/wix/wix-style-react/pull/3626)
 - `<ListItemAction/>` - add RTL support [#3737](https://github.com/wix/wix-style-react/pull/3737)
 - `<PopoverMenu/>` - add deprecation log [#3743](https://github.com/wix/wix-style-react/pull/3743)
 - `<Slider/>` - added disabled prop [#3723](https://github.com/wix/wix-style-react/pull/3723)
 
 ### Changed
+
 - `<PopoverMenu/>` - beta - change wrapText to ellipsis [#3740](https://github.com/wix/wix-style-react/pull/3740)
 - `<NumberInput/>` - reduce bundle size [#3739](https://github.com/wix/wix-style-react/pull/3739)
 - `<Listitemaction/>` - change wrapText to ellipsis prop [#3700](https://github.com/wix/wix-style-react/pull/3700)
-- `Disabled State Color Scheme` - changed colors scheme of components on disabled state to new colors having opacity (rgba) [#3718](https://github.com/wix/wix-style-react/pull/3718) [#3723](https://github.com/wix/wix-style-react/pull/3723) 
+- `Disabled State Color Scheme` - changed colors scheme of components on disabled state to new colors having opacity (rgba) [#3718](https://github.com/wix/wix-style-react/pull/3718) [#3723](https://github.com/wix/wix-style-react/pull/3723)
 
 ### Fixed
+
 - `<InputWithTags/>` - removed Input overlay on disabled state [#3718](https://github.com/wix/wix-style-react/pull/3718)
 - `<InputWithOptions/>` - Fixing dropdown textOverflow propagate to the input [#3735](https://github.com/wix/wix-style-react/pull/3735)
-
 
 ## 6.38.0 - 2019-07-10
 
 ### Added
+
 - `<SidebarSectionTitle/>` - create component for displaying title within the sidebar (WIP) [#3722](https://github.com/wix/wix-style-react/pull/3722)
 
 ### Changed
@@ -84,6 +323,7 @@ Types of changes:
 ## 6.37.0 - 2019-07-08
 
 ### Added
+
 - `<Text/>` - expose tooltip props [#3701](https://github.com/wix/wix-style-react/pull/3701)
 - Add Puppeteer & Protractor driver exports for components with UniDriver [#3695](https://github.com/wix/wix-style-react/pull/3695)
 - `Cheatsheet`- Adding examples to `InputFamily` [#3682](https://github.com/wix/wix-style-react/pull/3682)
@@ -93,104 +333,119 @@ Types of changes:
 - `<Table/>` - Given only one column exists, treat it as first instead of last style-wise [#3705](https://github.com/wix/wix-style-react/pull/3705)
 
 ### Deprecated
-- `<Table/>` - deprecate `clickRowChecbox` driver method, you should use `clickRowCheckbox` instead [#3678](https://github.com/wix/wix-style-react/pull/3678)
 
+- `<Table/>` - deprecate `clickRowChecbox` driver method, you should use `clickRowCheckbox` instead [#3678](https://github.com/wix/wix-style-react/pull/3678)
 
 ## 6.36.0 - 2019-07-07
 
 ### Added
+
 - `<Button/>` - Teskit - add hasSkin function [#3652](https://github.com/wix/wix-style-react/pull/3652)
 - `<Stepper/>` - Export testkit types [#3690](https://github.com/wix/wix-style-react/pull/3690)
 - `<PopoverMenu/>` - beta - make sure that beta folder is included in the release [#3698](https://github.com/wix/wix-style-react/pull/3698)
--  `npm run components-size` - compiles components to bundles and opens source map explorer [#3622](https://github.com/wix/wix-style-react/pull/3622)
+- `npm run components-size` - compiles components to bundles and opens source map explorer [#3622](https://github.com/wix/wix-style-react/pull/3622)
 
 ### Docs
+
 - `<Stepper />` - add stepper testkit docs [#3667](https://github.com/wix/wix-style-react/pull/3667)
 
 ### Changed
+
 - `<PopoverMenu/>` - change `appendTo` propType [#3662](https://github.com/wix/wix-style-react/pull/3662)
 - `<Text/>` - expose tooltip props [#3701](https://github.com/wix/wix-style-react/pull/3701)
-
 
 ## 6.35.0 - 2019-07-03
 
 ### Added
+
 - `<Stepper/>` - focus & enter step [#3649](https://github.com/wix/wix-style-react/pull/3649)
 - `<Badge/>` - support ellipsis in case of long text [#3628](https://github.com/wix/wix-style-react/pull/3628)
 
 ### Changed
+
 - `<Button/>`- migrating `<Button/>` styles from `wix-ui-core` to `wix-style-react` and updating Button.js to use the styles directly from `wix-style-react`.[#3648](https://github.com/wix/wix-style-react/pull/3648)
 
 ### Fixed
-- infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
 
+- infra: fix typing issue - move common types from index.d.ts [#3645](https://github.com/wix/wix-style-react/pull/3645)
 
 ## 6.34.1 - 2019-06-27
 
 ### Changed
+
 - `<Stepper/>` - resize steps [#3634](https://github.com/wix/wix-style-react/pull/3634)
 
 ### Fixed
-- transpile `import` keyword in `dist` for dynamically loadable components [#3644](https://github.com/wix/wix-style-react/pull/3644)
 
+- transpile `import` keyword in `dist` for dynamically loadable components [#3644](https://github.com/wix/wix-style-react/pull/3644)
 
 ## 6.34.0 - 2019-06-26
 
 ### Added
-- `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
 
+- `<IconButton/>`- adding a `transparent` & `premium` skins to icon button. [#3624](https://github.com/wix/wix-style-react/pull/3624)
 
 ## 6.33.0 - 2019-06-26
 
 ### Docs
+
 - `<Table/>` - simplify `<Page/>` example [#3621](https://github.com/wix/wix-style-react/pull/3621)
 - `<Button/>`- adding an example of a transparent button (secondary)[#3623](https://github.com/wix/wix-style-react/pull/3623)
 
 ### Fixed
+
 - `<Calendar/>` - FilterDate should not affect calendar if date is modified [#3630](https://github.com/wix/wix-style-react/pull/3630)
 - `<PopoverMenu.MenuItem/>` - Fixes double invocation of `onClick` [#3636](https://github.com/wix/wix-style-react/pull/3636)
 - `<InputArea/>` - fix error indicator tooltip width [#3638](https://github.com/wix/wix-style-react/pull/3638)
 
 ### Added
+
 - `<PopoverMenu/>` - BETA - add types definition [#3578](https://github.com/wix/wix-style-react/pull/3578)
 - `<CloseButton/>`- adding a `transparent` skin to close button [#3617](https://github.com/wix/wix-style-react/pull/3617)
 
 ### Changed
+
 - `<Loader/>` `<CircularProgressBar/>` `<LinearProgressBar/>` - support dynamic imports on demand [#3097](https://github.com/wix/wix-style-react/pull/3097)
 
 ## 6.32.0 - 2019-06-24
 
 ### Fixed
+
 - `<Stepper/>` - WIP fix border [3616](https://github.com/wix/wix-style-react/pull/3616)
 
 ### Added
+
 - `<NestableList/>` - pass `item` that was dragged to onUpdate api [3600](https://github.com/wix/wix-style-react/pull/3600)
 
 ### Changed
+
 - `<Page/>` - migrate E2Es to visual tests [3612](https://github.com/wix/wix-style-react/pull/3612)
 - `<Box/>` - migrate E2Es to visual tests [3613](https://github.com/wix/wix-style-react/pull/3613)
 - `<Text/>` - migrate E2Es to visual tests [3605](https://github.com/wix/wix-style-react/pull/3605)
 - `<Checkbox/>` - migrate E2Es to visual tests [3614](https://github.com/wix/wix-style-react/pull/3614)
 
-
 ## 6.31.0 - 2019-06-21
 
 ### Added
+
 - `<Tag/>` - Add new theme [#3599](https://github.com/wix/wix-style-react/pull/3599)
 
 ### Fixed
+
 - `<Card>` - CardHeader text ellipsis width propagate parent width [#3601](https://github.com/wix/wix-style-react/pull/3601)
 - `<RichTextInputArea/>` - add missing `target` attribute for rendered links [#3602](https://github.com/wix/wix-style-react/pull/3602)
 
 ## 6.30.0 - 2019-06-20
 
 ### Docs
+
 - `<Carousel/>` - move to "Components" section [#3587](https://github.com/wix/wix-style-react/pull/3587)
 - `<Table/>` - add example with virtualization [#3585](https://github.com/wix/wix-style-react/pull/3585)
 - `<Table/>` - add example with EmptyState [#3590](https://github.com/wix/wix-style-react/pull/3590)
 - `<Table/>` - migrate existing examples to new docs [#3592](https://github.com/wix/wix-style-react/pull/3592)
 
 ### Fixed
+
 - `<Stepper/>` - Testkits export for protractor & puppetter [#3591](https://github.com/wix/wix-style-react/pull/3591)
 - `<Stepper>` - WIP - fix text colors according to design spec [#3598](https://github.com/wix/wix-style-react/pull/3575)
 - `<Steper>` - WIP - fix disabled hover state color [#3595](https://github.com/wix/wix-style-react/pull/3575)
@@ -201,15 +456,18 @@ Types of changes:
 ## 6.29.0 - 2019-06-18
 
 ### Added
+
 - `<Stepper>` - WIP basic stepper component [#3571](https://github.com/wix/wix-style-react/pull/3571)
 - `<Thumbnail/>` — allow custom children [#3568](https://github.com/wix/wix-style-react/pull/3568)
 
 ### Docs
+
 - `<Table/>` - add example with infinite scroll [#3584](https://github.com/wix/wix-style-react/pull/3584)
 
 ## 6.28.0 - 2019-06-17
 
 ### Added
+
 - `<Thumbnail/>` - add title below thumbnail [#3560](https://github.com/wix/wix-style-react/pull/3560)
 - `<Button/>`- add primary dark theme [#3565](https://github.com/wix/wix-style-react/pull/3565)
 - `<PopoverMenu/>` - BETA - add arrow keys focus navigation [#3522](https://github.com/wix/wix-style-react/pull/3522)
@@ -217,40 +475,48 @@ Types of changes:
 - `<PopoverMenu/>` - BETA - add text wrap & ellipsis support for menu items [#3577](https://github.com/wix/wix-style-react/pull/3577)
 
 ### Changed
+
 - `<Table/>` - migrate to visual grid [#3559](https://github.com/wix/wix-style-react/pull/3559)
 - `<Text/>` - set default ellipsis appendTo to window [#3573](https://github.com/wix/wix-style-react/pull/3573)
 
 ### Fixed
+
 - `<InputWithOptions/>` - prevent Enter key from triggering form submit [#3562](https://github.com/wix/wix-style-react/pull/3562)
 
 ## 6.27.0 - 2019-06-12
 
 ### Changed
+
 - `<ColorPicker/>`, `<ColorInput/>` - align with spec, support Swatches [#3544](https://github.com/wix/wix-style-react/pull/3544)
 - `<InputArea/>` - change test driver to support for uncontrolled components [#3495](https://github.com/wix/wix-style-react/pull/3495)
 
 ### Added
+
 - `<PageHeader/>` Testkit - expose puppeteer testkit [#3536](https://github.com/wix/wix-style-react/pull/3536)
 - `<ListItemAction/>` - add classname prop for extensibility [#3543](https://github.com/wix/wix-style-react/pull/3543)
 - `<EmptyState/>` add image container className [#3530](https://github.com/wix/wix-style-react/pull/3530)
-- `<TextButton/>`- add tiny styling [#3553](https://github.com/wix/wix-style-react/pull/3553) 
+- `<TextButton/>`- add tiny styling [#3553](https://github.com/wix/wix-style-react/pull/3553)
 - `<SectionHelper/>` - add `fullWidth` to support unlimited width content [#3557](https://github.com/wix/wix-style-react/pull/3557)
 
 ### Docs
+
 - `<Table/>` - explain compound components [#3538](https://github.com/wix/wix-style-react/pull/3538)
 - `<Table/>` - document missing props [#3546](https://github.com/wix/wix-style-react/pull/3546)
 
 ## 6.26.0 - 2019-06-06
 
 ### Added
+
 - `<IconButton/>`- adding`tiny` & `large` sizes [#3520](https://github.com/wix/wix-style-react/pull/3520)
 - `<Sidebar/>` - add new component [#3386](https://github.com/wix/wix-style-react/pull/3386)
 - `<DropdownBase/> & <DropdownLayout/>`- support overflow prop [#3541](https://github.com/wix/wix-style-react/pull/3541)
 
 ### Fixed
+
 - `<DropdownLayout/>` fix `onOptionMarked` not called on default marked option [#3535](https://github.com/wix/wix-style-react/pull/3535)
 
 ### Added
+
 - `<Table/>` - add `deselectRowsByDefault` prop [#3526](https://github.com/wix/wix-style-react/pull/3526)
 
 ### Changed
@@ -268,15 +534,18 @@ Types of changes:
 ## 6.25.1 - 2019-06-04
 
 ### Changed
+
 - `<DataTable/>` - remove redundant checking of items by ref [#3457](https://github.com/wix/wix-style-react/pull/3457)
 
 ### Fixed
+
 - Foundation - fix stylable calcrgba mixin to use alpha channel values to 0.1 - 1 [#3516](https://github.com/wix/wix-style-react/pull/3516)
 - downgrade internal jscodeshift dependency, which uses babel@6, for compatibility [#3511](https://github.com/wix/wix-style-react/pull/3511)
 
 ## 6.25.0 - 2019-06-03
 
 ### Added
+
 - `<Carousel/>` - add disabled button in non-infinite mode [#3473](https://github.com/wix/wix-style-react/pull/3473)
 - `<DropdownBase/>` - add missing testkit method optionsCount [#3508](https://github.com/wix/wix-style-react/pull/3508)
 - `<FormField/>` - support ellipsis on top labelPlacement [#3506](https://github.com/wix/wix-style-react/pull/3506)
@@ -284,12 +553,14 @@ Types of changes:
 - `<DropdownBase/>` - expose 'flip', 'fixed' params and pass it down to popover
 
 ### Changed
+
 - `<DropdownLayout>` - changed option `onMouseDown` to `onClick` [#3507](https://github.com/wix/wix-style-react/pull/3507)
 - Infra: replace `react-testing-library` with `@testing-library/react` [#3501](https://github.com/wix/wix-style-react/pull/3501)
 - Infra: update `jscodeshift` (now does not use deprecated `nomnom` package [#3502](https://github.com/wix/wix-style-react/pull/3502)
 - Infra: update husky version [#3503](https://github.com/wix/wix-style-react/pull/3503)
 
 ### Fixed
+
 - `<SegmentedToggle/>` - fix selected option border [#3505](https://github.com/wix/wix-style-react/pull/3505)
 
 ## 6.24.0 - 2019-05-30

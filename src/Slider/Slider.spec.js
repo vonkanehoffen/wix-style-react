@@ -74,6 +74,15 @@ describe('Slider', () => {
       await driver.unHoverHandle({ handleIndex: 0 });
     });
 
+    it('should display a disabled slider', async () => {
+      const onChange = jest.fn(value => this.setState({ value }));
+      const props = { value: [3], onChange, disabled: true };
+
+      const { driver } = render(<Slider {...props} />);
+
+      expect(await driver.isDisabled()).toBe(true);
+    });
+
     describe(`Range mode`, () => {
       it('should be enabled when array is given to value prop', async () => {
         const onChange = jest.fn();

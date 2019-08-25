@@ -19,16 +19,21 @@
   -st-named: focus-box;
 }
 
+:vars {
+  paddingWithoutSuffix: 6px 42px 6px 24px;
+  paddingWithSuffix: 6px 18px 6px 24px;
+}
+
 .root {
   -st-extends: Focusable;
-  -st-states: selected, disabled;
+  -st-states: selected, disabled, prefix, suffix, drillable;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 9px 30px;
+  padding: value(paddingWithoutSuffix);
   max-width: 222px;
-  min-height: 42px;
+  min-height: 36px;
   box-sizing: border-box;
   background-color: value(sidebarBackgroundColor);
   color: value(D80);
@@ -47,7 +52,7 @@
   cursor: pointer;
 }
 
-.root:hover .text:size(small), .root:hover:selected:not(:disabled) .text:size(small)  {
+.root:hover .text:size(small), .root:hover:selected:not(:disabled) .text:size(small) {
   color: value(B30);
 }
 
@@ -64,25 +69,28 @@
   -st-mixin: focus-box;
 }
 
-.chevron {
-  visibility: hidden; 
+.root:drillable:hover {
+  padding: value(paddingWithSuffix);
+}
+
+.root:drillable .chevron {
+  position: absolute;
   opacity: 0;
-  transition: opacity .5s;
 }
 
-.root:hover .chevron {
-  visibility: visible;
+.root:drillable:hover .chevron {
+  position: static;
   opacity: 1; 
+  transition: all .5s;
+  color: value(B30);
 }
 
-.root:hover .suffix {
-  display: none;
-  opacity: 0; 
+.root:prefix:hover:not(:suffix) {
+  padding: value(paddingWithoutSuffix);
 }
 
-.suffix {
-  display: inline-flex;
-  opacity: 1; 
+.root:suffix, .root:prefix:drillable:hover {
+  padding: value(paddingWithSuffix);
 }
 
 .prefix {
@@ -94,5 +102,6 @@
 
   display: block;
   flex-grow: 1;
-  max-width: 132px;
+  max-width: 154px;
+  word-break: break-word;
 }

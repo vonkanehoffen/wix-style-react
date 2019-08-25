@@ -23,8 +23,7 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
     getConfirmationButton: () => getElement(confirmationButton()),
     getCancellationButton: () => getElement(cancellationButton()),
     getHeaderCloseButton: () => getElement(headerCloseButton()),
-    getCancellationButtonText: () =>
-      ReactBase(cancellationButton()).textContent(),
+    getCancellationButtonText: () => cancellationButton().text(),
     isCancellationButtonPrefixIconExists: async () =>
       (await cancellationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isCancellationButtonSuffixIconExists: async () =>
@@ -33,8 +32,7 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
     clickOnHeaderCloseButton: () => ReactBase(headerCloseButton()).click(),
     isThemeExist: theme => base.$(`.${theme}`).exists(),
     getFooter: () => getElement(base.$('[data-hook="message-box-footer"]')),
-    getTitle: () =>
-      ReactBase(base.$('[data-hook="header-layout-title"]')).textContent(),
+    getTitle: () => base.$('[data-hook="header-layout-title"]').text(),
     getChildBySelector: selector => getElement(base.$(selector)),
     isCancelEnable: async () =>
       Array.from(await cancellationButtonReactBase.getClassList()).indexOf(

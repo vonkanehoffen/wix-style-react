@@ -1,9 +1,13 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import styles from './Input.scss';
 import { ReactBase } from '../../test/utils/unidriver';
+import DATA_ATTR from './DataAttr';
 
 export const testkit = base => {
-  const input = base.$('input');
+  // single $ throws an exception for more than 1 match, so we use the first matching result with $$
+  // to support cases of multiple inputs, e.g cases where this driver is used inside other drivers with popovers
+  // which includes an input
+  const input = base.$$('input').get(0);
 
   const reactBase = ReactBase(base);
   const reactBaseInput = ReactBase(input);
@@ -31,7 +35,9 @@ export const testkit = base => {
     clickCustomAffix: async () =>
       await base.$(`[data-hook="custom-affix"]`).click(),
     isMenuArrowLast: async () => {
-      const selector = `.${styles.suffixes} .${styles.suffix}:last-child > .${styles.menuArrow}`;
+      const selector = `.${styles.suffixes} .${styles.suffix}:last-child > .${
+        styles.menuArrow
+      }`;
       return (await base.$$(selector).count()) === 1;
     },
     hasSuffixesClass: async () =>
@@ -50,23 +56,24 @@ export const testkit = base => {
     getText: async () => await input.value(),
     getPlaceholder: async () => await input.attr('placeholder'),
     isOfStyle: async style => await base.hasClass(styles[`theme-${style}`]),
+    isOfSize: async size => await base.hasClass(styles[`size-${size}`]),
+    getSize: async () => await base.attr(DATA_ATTR.DATA_SIZE),
     isDisabled: async () => await base.hasClass(styles.disabled),
     isHoveredStyle: async () => await base.hasClass(styles.hasHover),
     isFocusedStyle: async () => await base.hasClass(styles.hasFocus),
-    getRequired: async () => await reactBaseInput.required(),
+    getRequired: async () => await input._prop('required'),
     enterText: async value => await reactBaseInput.enterValue(value),
     getAutocomplete: async () => await input.attr('autocomplete'),
-    getDefaultValue: async () => await reactBaseInput.defaultValue(),
+    getDefaultValue: async () => await input._prop('defaultValue'),
     getUnit: async () => {
-      return await ReactBase(unitNode).textContent();
+      return await unitNode.text();
     },
-    getTabIndex: async () => await reactBaseInput.tabIndex(),
+    getTabIndex: async () => await input._prop('tabIndex'),
     isCustomInput: async () =>
       (await input.attr('data-hook')) === 'wsr-custom-input',
-    getReadOnly: async () => await reactBaseInput.readOnly(),
-    getDisabled: async () => await reactBaseInput.disabled(),
-    getTextOverflow: async () =>
-      (await reactBaseInput.getStyle())['text-overflow'],
+    getReadOnly: async () => await input._prop('readOnly'),
+    getDisabled: async () => await input._prop('disabled'),
+    getTextOverflow: async () => (await input._prop('style'))['text-overflow'],
     hasExclamation: async () => await base.$(`.${styles.exclamation}`).exists(),
     hasError: async () => await base.hasClass(styles.hasError),
     hasWarning: async () => await base.hasClass(styles.hasWarning),
@@ -109,10 +116,11 @@ export const testkit = base => {
     hasMenuArrow: async () => await menuArrowNode.exists(),
     isNarrowError: async () => await base.$(`.${styles.narrow}`).exists(),
     isRTL: async () => await base.hasClass(styles.rtl),
-    getCursorLocation: async () => await reactBaseInput.selectionStart(),
+    getCursorLocation: async () => await input._prop('selectionStart'),
     startComposing: () => reactBaseInput.compositionStart(),
     endComposing: () => reactBaseInput.compositionEnd(),
     clearText: () => driver.enterText(''),
+    clickOutside: () => ReactBase.clickDocument(),
   };
 
   return driver;

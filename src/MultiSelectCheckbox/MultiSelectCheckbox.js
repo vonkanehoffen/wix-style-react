@@ -5,7 +5,7 @@ import Input from '../Input';
 import Checkbox from '../Checkbox/Checkbox';
 import styles from './MultiSelectCheckbox.scss';
 
-const OPEN_DROPDOWN_CHARS = [13 /*Enter*/, 40 /*ArrowDown*/, 32 /*Spacebar*/];
+const OPEN_DROPDOWN_CHARS = ['Enter', 'ArrowDown', 'Space', ' '];
 
 class MultiSelectCheckbox extends InputWithOptions {
   wrapOptionsWithCheckbox(options) {
@@ -86,13 +86,12 @@ class MultiSelectCheckbox extends InputWithOptions {
   }
 
   _onKeyDown(event) {
-    if (
-      !this.dropdownLayout._onKeyDown(event) &&
-      OPEN_DROPDOWN_CHARS.indexOf(event.keyCode) !== -1
-    ) {
+    if (OPEN_DROPDOWN_CHARS.includes(event.key)) {
       event.preventDefault();
       this.showOptions();
     }
+
+    this.dropdownLayout && this.dropdownLayout._onKeyDown(event);
   }
 
   _onFocus(e) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/standalone/src/components/button-next';
 import cx from 'classnames';
-import { iconButton } from 'wix-ui-core/themes/backoffice';
+import { iconButton } from 'wix-ui-core/dist/src/themes/backoffice';
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
 import { iconChildSize } from './constants';
 

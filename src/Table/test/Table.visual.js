@@ -69,6 +69,21 @@ const tests = [
         },
       },
       {
+        it: 'Should display the table with "standard" skin',
+        props: {
+          data,
+          columns,
+        },
+      },
+      {
+        it: 'Should display the table with "neutral" skin',
+        props: {
+          data,
+          columns,
+          skin: 'neutral',
+        },
+      },
+      {
         it: 'Should display the table with aligned columns',
         props: {
           data: [

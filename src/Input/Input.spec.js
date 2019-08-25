@@ -13,6 +13,7 @@ import {
 } from '../../test/utils/unit';
 import inputDriverFactory from './Input.driver';
 import { testkit } from './Input.uni.driver';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 describe('Input', () => {
   describe('[sync]', () => {
@@ -264,21 +265,6 @@ describe('Input', () => {
     });
 
     describe('status attribute', () => {
-      it('deprecated - should display an error icon if error is true', async () => {
-        const { driver } = render(<Input error />);
-
-        expect(await driver.hasExclamation()).toBeTruthy();
-        expect(await driver.hasError()).toBeTruthy();
-      });
-
-      it('should display an error icon if status is error', async () => {
-        // change
-        const { driver } = render(<Input status={'error'} />);
-
-        expect(await driver.hasExclamation()).toBeTruthy();
-        expect(await driver.hasError()).toBeTruthy();
-      });
-
       it('should display a loader icon if status is loading', async () => {
         // change
         const { driver } = render(<Input status={'loading'} />);
@@ -368,17 +354,6 @@ describe('Input', () => {
       it('should not display a menu arrow icon if menuArrow is false', async () => {
         const { driver } = render(<Input menuArrow={false} />);
         expect(await driver.hasMenuArrow()).toBeFalsy();
-      });
-
-      it('should display a menu arrow icon if error is true', async () => {
-        const { driver } = render(<Input menuArrow error />);
-        expect(await driver.hasMenuArrow()).toBeTruthy();
-      });
-
-      it('should have a narrow error style of arrow is shown', async () => {
-        const { driver } = render(<Input menuArrow error />);
-        expect(await driver.isNarrowError()).toBeTruthy();
-        expect(await driver.hasExclamation()).toBeTruthy();
       });
 
       it('should not display a menu arrow icon if magnifyingGlass is true', async () => {
@@ -929,13 +904,32 @@ describe('Input', () => {
         const customInput = props => {
           return <input {...props} className={className} />;
         };
-        const { driver } = render(<Input customInput={customInput} />);
+        const customInputWithRef = () =>
+          React.forwardRef((props, ref) => customInput({ ...props, ref }));
+        const { driver } = render(
+          <Input
+            customInput={
+              SUPPORT_REF_FORWARD ? customInputWithRef() : customInput
+            }
+          />,
+        );
         expect(await driver.isCustomInput()).toEqual(true);
       });
 
       it('should render input html by default', async () => {
         const { driver } = render(<Input />);
         expect(await driver.isCustomInput()).toEqual(false);
+      });
+    });
+
+    describe(`'size' prop`, () => {
+      it('should be equal to given', async () => {
+        const props = {
+          size: 'large',
+        };
+
+        const { driver } = render(<Input {...props} />);
+        expect(await driver.getSize()).toEqual('' + props.size);
       });
     });
   }

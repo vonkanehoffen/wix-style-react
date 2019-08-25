@@ -14,6 +14,7 @@ import NotificationFamily from './ComponentsFamilies/NotificationFamily';
 import ModalFamily from './ComponentsFamilies/ModalFamily';
 import PickerFamily from './ComponentsFamilies/PickerFamily';
 import OtherFamily from './ComponentsFamilies/OtherFamily';
+import ContentWidgetsFamily from './ComponentsFamilies/ContentWidgetsFamily';
 
 class ComponentsCheatsheet extends React.Component {
   render() {
@@ -29,6 +30,7 @@ class ComponentsCheatsheet extends React.Component {
       ModalFamily,
       PickerFamily,
       OtherFamily,
+      ContentWidgetsFamily,
     ];
 
     return (
@@ -40,8 +42,8 @@ class ComponentsCheatsheet extends React.Component {
         <Page.Content>
           <Container>
             {componentsFamiliesArr.map((Family, i) => (
-              <Row key={i}>
-                <Family />
+              <Row key={`family-row-${i}`}>
+                <Family key={`family-${i}`} />
               </Row>
             ))}
           </Container>

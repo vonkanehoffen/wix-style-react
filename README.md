@@ -29,10 +29,12 @@ in order to use `wix-style-react`, your module bundler should be configured acco
 -  Enhance `webpack` configuration
 
     ```js
-    // config/webpack.config.js
+    // config/webpack.config.js    
+    const {StylableWebpackPlugin} = require('@stylable/webpack-plugin');
+    //...
     {
       //...
-      modules: {
+      module: {
         rules: [
           {
             exclude: /\.st.css$/, //This must appear before the "oneOf" property

@@ -29,6 +29,9 @@ class CardGalleryItem extends React.Component {
     /** Background image of CardGalleryItem */
     backgroundImageUrl: PropTypes.string,
 
+    /** Background image node of CardGalleryItem */
+    backgroundImageNode: PropTypes.node,
+
     /** Properties for primary action button */
     primaryActionProps: PropTypes.shape({
       /** Label of primary action button */
@@ -138,12 +141,35 @@ class CardGalleryItem extends React.Component {
     );
   }
 
+  _renderBackground(footerExists) {
+    const { backgroundImageUrl, backgroundImageNode, badge } = this.props;
+    return (
+      <div
+        className={classNames(styles.content, {
+          [styles.backgroundImageNode]:
+            !backgroundImageUrl && backgroundImageNode,
+          [styles.contentWithFooter]: footerExists,
+        })}
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+        }}
+        data-hook={
+          backgroundImageUrl
+            ? DataHooks.backgroundImage
+            : backgroundImageNode && DataHooks.backgroundImageNode
+        }
+      >
+        {backgroundImageNode && !backgroundImageUrl && backgroundImageNode}
+        {badge && this._renderBadge(badge)}
+      </div>
+    );
+  }
+
   render() {
     const {
       title,
       subtitle,
       badge,
-      backgroundImageUrl,
       primaryActionProps,
       className,
       dataHook,
@@ -165,18 +191,7 @@ class CardGalleryItem extends React.Component {
               hoveredContent={hoveredContent}
               dataHook={DataHooks.hoverComponent}
             >
-              <div
-                className={classNames(styles.content, {
-                  [styles.contentWithFooter]: footerExists,
-                })}
-                style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
-                }}
-                data-hook={DataHooks.backgroundImage}
-              >
-                {badge && this._renderBadge(badge)}
-              </div>
-
+              {this._renderBackground(footerExists)}
               {footerExists && this._renderFooter(title, subtitle)}
             </Hover>
           </Card>

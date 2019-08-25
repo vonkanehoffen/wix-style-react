@@ -4,7 +4,6 @@ import eventually from 'wix-eventually';
 import Modal from './Modal';
 import ModalFactory from './Modal.driver';
 import { modalUniDriverFactory } from './Modal.uni.driver';
-import { resolveIn } from '../../test/utils';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
@@ -165,6 +164,12 @@ describe('Modal', () => {
       });
 
       describe('timeout', () => {
+        beforeAll(() => {
+          jest.useFakeTimers();
+        });
+        afterAll(() => {
+          jest.useRealTimers();
+        });
         it(`should wait closeTimeoutMS before removing the modal`, async () => {
           props.closeTimeoutMS = 100;
 
@@ -172,9 +177,10 @@ describe('Modal', () => {
           expect(await driver.isOpen()).toBeTruthy();
           rerender(<Modal {...props} isOpen={false} />);
 
-          await resolveIn(props.closeTimeoutMS - 50);
+          jest.advanceTimersByTime(props.closeTimeoutMS - 50);
           expect(await driver.isOpen()).toBeTruthy();
-          await resolveIn(100);
+
+          jest.advanceTimersByTime(100);
           expect(await driver.isOpen()).toBeFalsy();
         });
       });

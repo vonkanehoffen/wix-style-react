@@ -25,6 +25,10 @@ $dividerHeight: 1px;
   background-position: center;
 }
 
+.backgroundImageNode {
+  overflow: hidden;
+}
+
 .hoveredContent {
   display: flex;
   justify-content: center;

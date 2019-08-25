@@ -1,5 +1,18 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
-import { SingleLayoutComponent } from '../../../sharedComponents';
+import { SingleComponentStacked } from '../../../sharedComponents';
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/LayoutFamily';
+
+import {
+  layoutSymbols,
+  symbolsGroup,
+} from '../../../../../symbolsComponentsMapping/symbols';
+
+import {
+  createLinkedSymbolName,
+  createLinkedComponentsNames,
+} from '../../../sharedComponents/utils';
+
 import Card from 'wix-style-react/Card';
 import Page from 'wix-style-react/Page';
 import Box from 'wix-style-react/Box';
@@ -11,6 +24,8 @@ import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
 import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
 import EmptyState from 'wix-style-react/EmptyState';
+
+const groupSymbol = symbolsGroup.layout;
 
 class ExamplePageWithCard extends Component {
   renderHeader() {
@@ -24,8 +39,14 @@ class ExamplePageWithCard extends Component {
               size="normal"
               appendToParent
             >
-              <PopoverMenuItem onClick={() => {}} text="Refresh" />
-              <PopoverMenuItem onClick={() => {}} text="Trash" />
+              <PopoverMenuItem
+                onClick={() => console.log('PopoverMenuItem onClick')}
+                text="Refresh"
+              />
+              <PopoverMenuItem
+                onClick={() => console.log('PopoverMenuItem onClick')}
+                text="Trash"
+              />
             </PopoverMenu>
           </Box>
           <Box marginLeft="small" marginRight="small">
@@ -47,7 +68,7 @@ class ExamplePageWithCard extends Component {
             activeId="3"
             size="medium"
             theme="onGrayBackground"
-            onClick={() => {}}
+            onClick={() => console.log('Breadcrumbs onClick')}
           />
         }
         actionsBar={<ActionBar />}
@@ -80,13 +101,7 @@ class ExamplePageWithCard extends Component {
 
 class ExamplePageEmptyState extends Component {
   renderHeader() {
-    const ActionBar = () => {
-      return (
-        <Button withNewIcons prefixIcon={<Add />}>
-          New Item
-        </Button>
-      );
-    };
+    const ActionBar = () => <Button prefixIcon={<Add />}>New Item</Button>;
 
     return (
       <Page.Header
@@ -97,7 +112,7 @@ class ExamplePageEmptyState extends Component {
             activeId="3"
             size="medium"
             theme="onGrayBackground"
-            onClick={() => {}}
+            onClick={() => console.log('Breadcrumbs onClick')}
           />
         }
         actionsBar={<ActionBar />}
@@ -137,21 +152,22 @@ class ExamplePageEmptyState extends Component {
   }
 }
 
-const PageExamples = () => (
-  <SingleLayoutComponent
-    name="2.1 Page Layout"
-    componentsNames={[
-      '<Page/>',
-      '<Page.Header/>',
-      '<Grid/>',
-      '<Card/>',
-      '<EmptyState/>',
-    ]}
-  >
-    <ExamplePageWithCard />
-    <Box height={'30px'} backgroundColor={'WHITE'} />
-    <ExamplePageEmptyState />
-  </SingleLayoutComponent>
-);
+const PageExamples = () => {
+  const symbol = layoutSymbols.pageLayout;
+  const components = layoutSymbolsToComponents[symbol];
+
+  const pageLayoutProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentStacked {...pageLayoutProps}>
+      <ExamplePageWithCard />
+      <Box height="30px" backgroundColor="D80" />
+      <ExamplePageEmptyState />
+    </SingleComponentStacked>
+  );
+};
 
 export default PageExamples;

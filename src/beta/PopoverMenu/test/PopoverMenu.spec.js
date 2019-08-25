@@ -20,8 +20,8 @@ describe('PopoverMenu', () => {
   const renderPopoverMenu = (props = {}) => (
     <PopoverMenu
       dataHook="random"
-      triggerElement={({ onClick }) => (
-        <IconButton dataHook="iconbutton" onClick={onClick}>
+      triggerElement={({ toggle }) => (
+        <IconButton dataHook="iconbutton" onClick={toggle}>
           <More />
         </IconButton>
       )}
@@ -56,8 +56,8 @@ describe('PopoverMenu', () => {
     it('should open menu [when] render props function is used', async () => {
       const { driver } = render(
         renderPopoverMenu({
-          triggerElement: ({ onClick }) => (
-            <IconButton onClick={onClick} dataHook="iconbutton-custom" />
+          triggerElement: ({ toggle }) => (
+            <IconButton onClick={toggle} dataHook="iconbutton-custom" />
           ),
         }),
       );
@@ -107,6 +107,21 @@ describe('PopoverMenu', () => {
           await option.click(); // Imitates real user click; Using driver.clickAtChild(0) does not simulate real click
           expect(onClick).toHaveBeenCalledTimes(1);
         });
+
+        it('should allow passing `dataHook` prop', async () => {
+          const { driver } = render(
+            renderPopoverMenu({
+              children: [renderPopoverMenuItem({ dataHook: 'random' })],
+            }),
+          );
+
+          await driver.keyDownTrigger('Enter');
+          expect(await driver.isMenuOpen()).toBe(true);
+
+          expect(
+            (await driver.getMenuItem(0, 'random')).getAttribute('data-hook'),
+          ).toBe('random');
+        });
       });
     });
 
@@ -126,6 +141,21 @@ describe('PopoverMenu', () => {
         expect(await driver.isMenuOpen()).toBe(true);
         await driver.clickAtChild(0);
         expect(onClick).not.toHaveBeenCalled();
+      });
+
+      it('should allow passing `dataHook` prop', async () => {
+        const { driver } = render(
+          renderPopoverMenu({
+            children: [renderPopoverDivider({ dataHook: 'random' })],
+          }),
+        );
+
+        await driver.keyDownTrigger('Enter');
+        expect(await driver.isMenuOpen()).toBe(true);
+
+        expect(
+          (await driver.getDivider('random')).getAttribute('data-hook'),
+        ).toBe('random');
       });
     });
 
@@ -168,6 +198,52 @@ describe('PopoverMenu', () => {
 
         expect(await driver.isMenuOpen()).toBe(true);
         expect(await driver.childrenCount()).toBe(3);
+      });
+    });
+
+    describe('Controlled behaviour', () => {
+      it('should allow controlling the behaviour using the `toggle` render prop', async () => {
+        let _args;
+        const { driver } = render(
+          renderPopoverMenu({
+            triggerElement: args => {
+              _args = args;
+              return <IconButton dataHook="iconbutton" />;
+            },
+          }),
+        );
+
+        _args.open();
+
+        expect(await driver.isMenuOpen()).toBe(true);
+      });
+
+      it('should allow controlling the behaviour using the `open` render prop', async () => {
+        let _args;
+        const { driver } = render(
+          renderPopoverMenu({
+            triggerElement: args => {
+              _args = args;
+              return <IconButton dataHook="iconbutton" />;
+            },
+          }),
+        );
+
+        _args.open();
+        expect(await driver.isMenuOpen()).toBe(true);
+      });
+      it('should allow controlling the behaviour using the `close` render prop', async () => {
+        let _args;
+        const { driver } = render(
+          renderPopoverMenu({
+            triggerElement: args => {
+              _args = args;
+              return <IconButton dataHook="iconbutton" />;
+            },
+          }),
+        );
+        _args.close();
+        expect(await driver.isMenuOpen()).toBe(false);
       });
     });
 

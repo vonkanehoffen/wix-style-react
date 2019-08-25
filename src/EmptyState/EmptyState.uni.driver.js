@@ -32,7 +32,7 @@ export const emptyStateUniDriverFactory = base => {
     hasTheme: themeName => base.hasClass(themeName),
 
     /** Returns the URL of the image element (if persist) */
-    getImageUrl: () => ReactBase(getImageElement()).prop('src') || '',
+    getImageUrl: () => getImageElement()._prop('src') || '',
 
     getImageContainerClassName: async () => {
       const classList = await ReactBase(getImageContainer()).getClassList();

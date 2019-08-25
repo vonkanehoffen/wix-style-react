@@ -2,8 +2,7 @@ import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
 export const errorIndicatorDriverFactory = (base, body) => {
-  const tooltipSelector = '[data-hook="error-indicator-tooltip"]';
-  const tooltipTestkit = tooltipDriverFactory(base.$(tooltipSelector), body);
+  const tooltipTestkit = tooltipDriverFactory(base, body);
 
   return {
     ...baseUniDriverFactory(base, body),

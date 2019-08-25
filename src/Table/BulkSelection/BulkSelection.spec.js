@@ -1,9 +1,19 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { mount } from 'enzyme';
 import { BulkSelectionConsumer } from './BulkSelectionConsumer';
 import { BulkSelection } from './BulkSelection';
 
 describe('BulkSelection', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'error');
+    console.error.mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    console.error.mockRestore();
+  });
+
   describe('BulkSelectionConsumer error', () => {
     it('should throw error when consumer is not within a BulkSelection', () => {
       const create = () =>

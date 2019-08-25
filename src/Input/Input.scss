@@ -98,6 +98,10 @@ $material-gap: 8px;
   &.size-normal {
     @include BorderRadius(18px);
   }
+  // `medium` is the new `normal` by Zeplin. For now supporting both
+  &.size-medium {
+    @include BorderRadius(18px);
+  }
   &.size-small {
     @include BorderRadius(15px);
   }
@@ -126,7 +130,15 @@ $material-gap: 8px;
   &-normal {
     @include Size($height: 36px, $fontSize: 16px);
   }
+  // `medium` is the new `normal` by Zeplin. For now supporting both
+  &-medium {
+    @include Size($height: 36px, $fontSize: 16px);
+  }
   &-normal-with-selection {
+    @include Size($height: 34px, $fontSize: 16px);
+  }
+  // `medium` is the new `normal` by Zeplin. For now supporting both
+  &-medium-with-selection {
     @include Size($height: 34px, $fontSize: 16px);
   }
   &-large {
@@ -139,6 +151,23 @@ $material-gap: 8px;
 
 .theme {
   &-normal {
+    @include ThemeDefault(
+      $color: $D10,
+      $borderColor: $B30,
+      $backgroundColor: $D80
+    );
+    @include ThemeHover($backgroundColor: $B50);
+    @include ThemeFocus($borderColor: $B10, $boxShadow: 0 0 0 3px $F00);
+    @include ThemeError($borderColor: $paletteR1);
+    @include ThemeWarning($borderColor: $paletteR5);
+    @include ThemeDisable(
+      $color: $D10-30,
+      $backgroundColor: $D10-05,
+      $borderColor: $D10-30
+    );
+  }
+  // `medium` is the new `normal` by Zeplin. For now supporting both
+  &-medium {
     @include ThemeDefault(
       $color: $D10,
       $borderColor: $B30,
@@ -203,6 +232,10 @@ $material-gap: 8px;
 
     border: 0;
     &.size-normal {
+      padding-bottom: 4px;
+      @include Size($height: 34px, $fontSize: 20px);
+    }
+    &.size-medium { // `medium` is the new `normal` by Zeplin. For now supporting both
       padding-bottom: 4px;
       @include Size($height: 34px, $fontSize: 20px);
     }
@@ -320,6 +353,10 @@ $material-gap: 8px;
       padding: 0 4px;
     }
     &.size-normal {
+      @include Size($height: 34px, $fontSize: 18px);
+    }
+    // `medium` is the new `normal` by Zeplin. For now supporting both
+    &.size-medium {
       @include Size($height: 34px, $fontSize: 18px);
     }
     .input {
@@ -492,20 +529,9 @@ $material-gap: 8px;
 
 .exclamation {
   margin: 0 $gap;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
 
   &.narrow {
     margin: 0;
-  }
-
-  > svg {
-    color: $paletteR1;
-    width: 18px;
-    height: 18px;
   }
 }
 
@@ -574,10 +600,7 @@ $material-gap: 8px;
 
   &[disabled] {
     path {
-      fill: $GR40;
-    }
-    line {
-      stroke: $GR40;
+      fill: $D10-30;
     }
   }
 }

@@ -74,7 +74,7 @@
 
   &.disabled,
   &.disabled.skinStandard {
-    color: $D55;
+    color: $D10-30;
   }
 
   &.light,
@@ -109,6 +109,6 @@
   }
 
   &.skinDisabled {
-    color: $D55;
+    color: $D10-30;
   }
 }

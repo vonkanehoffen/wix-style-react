@@ -14,17 +14,5 @@ module.exports = [
     codemod: "testkit-definitions.js",
     dist: ".wuf/testkits/definitions.js",
     description: "Update testkit-definitions.js file"
-  },
-
-  {
-    codemod: "testkit-exports.js",
-    dist: "testkit/protractor.js",
-    description: "Add Protractor testkit export"
-  },
-
-  {
-    codemod: "testkit-exports.js",
-    dist: "testkit/puppeteer.js",
-    description: "Add Puppeteer testkit export"
   }
 ];

@@ -30,6 +30,7 @@
 .root {
   -st-extends: Tooltip;
   -st-states: size(enum(small, medium));
+  display: block;
 }
 
 .root[data-hook*="popover-portal"] {

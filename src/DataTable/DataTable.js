@@ -9,6 +9,7 @@ import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../common/InfoIcon';
 import { VariableSizeList as List } from 'react-window';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 export const DataTableHeader = props => {
   const { dataHook } = props;
@@ -303,6 +304,11 @@ class DataTable extends React.Component {
 
   getVirtualRowHeight = () => this.props.virtualizedLineHeight;
 
+  renderVirtualizedTableElementWithRefForward = () =>
+    React.forwardRef((props, ref) =>
+      this.renderVirtualizedTableElement({ ...props, ref }),
+    );
+
   renderVirtualizedTableElement = ({ children, ...rest }) => {
     return (
       <table {...rest}>
@@ -322,7 +328,11 @@ class DataTable extends React.Component {
           itemCount={data.length}
           width={'100%'}
           itemSize={this.getVirtualRowHeight}
-          outerElementType={this.renderVirtualizedTableElement}
+          outerElementType={
+            SUPPORT_REF_FORWARD
+              ? this.renderVirtualizedTableElementWithRefForward()
+              : this.renderVirtualizedTableElement
+          }
           innerElementType={'tbody'}
         >
           {this.renderVirtualizedRow}
@@ -344,6 +354,7 @@ class TableHeader extends Component {
     thLetterSpacing: PropTypes.string,
     thBoxShadow: PropTypes.string,
     columns: PropTypes.array,
+    skin: PropTypes.oneOf(['standard', 'neutral']),
   };
 
   get style() {
@@ -406,7 +417,11 @@ class TableHeader extends Component {
       <th
         style={style}
         key={colNum}
-        className={this.style.thText}
+        className={classNames(this.style.thText, {
+          [this.style.thSkinStandard]:
+            !this.props.skin || this.props.skin === 'standard',
+          [this.style.thSkinNeutral]: this.props.skin === 'neutral',
+        })}
         {...optionalHeaderCellProps}
       >
         <div
@@ -464,6 +479,7 @@ DataTable.defaultProps = {
   rowVerticalPadding: 'medium',
   showLastRowDivider: true,
   virtualizedLineHeight: 60,
+  skin: 'standard',
 };
 
 /* eslint-disable no-unused-vars */
@@ -508,6 +524,8 @@ DataTable.propTypes = {
   itemsPerPage: PropTypes.number,
   /** The width of the fixed table. Can be in percentages or pixels. */
   width: PropTypes.string,
+  /** Table styling. Supports `standard` and `neutral`. */
+  skin: PropTypes.oneOf(['standard', 'neutral']),
   /** A callback when more items are requested by the user. */
   loadMore: PropTypes.func,
   /** Whether there are more items to be loaded. Event listeners are removed if false. */

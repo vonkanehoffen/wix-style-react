@@ -16,7 +16,9 @@ describe('SidebarSectionItem', () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<SidebarSectionItem></SidebarSectionItem>);
+    const { driver } = render(
+      <SidebarSectionItem>{sampleText}</SidebarSectionItem>,
+    );
 
     expect(await driver.exists()).toBeTruthy();
     expect(await driver.hasPrefix()).toBe(false);
@@ -42,9 +44,9 @@ describe('SidebarSectionItem', () => {
     expect(onClick).toBeCalled();
   });
 
-  it('should render the chevron when hovering', async () => {
+  it('should render the chevron when passing `drillable` and hovering', async () => {
     const { driver } = render(
-      <SidebarSectionItem>{sampleText}</SidebarSectionItem>,
+      <SidebarSectionItem drillable>{sampleText}</SidebarSectionItem>,
     );
 
     await driver.hover();
@@ -66,9 +68,11 @@ describe('SidebarSectionItem', () => {
       expect(onClick).not.toBeCalled();
     });
 
-    it('should not render the chevron when hovering', async () => {
+    it('should not render the chevron when passing `drillable` hovering', async () => {
       const { driver } = render(
-        <SidebarSectionItem disabled>{sampleText}</SidebarSectionItem>,
+        <SidebarSectionItem disabled drillable>
+          {sampleText}
+        </SidebarSectionItem>,
       );
 
       await driver.hover();
@@ -85,11 +89,27 @@ describe('SidebarSectionItem', () => {
     expect(await driver.hasPrefix()).toBe(true);
   });
 
-  it('should render the suffix', async () => {
-    const { driver } = render(
-      <SidebarSectionItem suffix={<Badge />}>{sampleText}</SidebarSectionItem>,
-    );
+  describe('Suffix', () => {
+    it('should render the suffix', async () => {
+      const { driver } = render(
+        <SidebarSectionItem suffix={<Badge />}>
+          {sampleText}
+        </SidebarSectionItem>,
+      );
 
-    expect(await driver.hasSuffix()).toBe(true);
+      expect(await driver.hasSuffix()).toBe(true);
+    });
+
+    it('should not render the chevron when hovering', async () => {
+      const { driver } = render(
+        <SidebarSectionItem suffix={<Badge />}>
+          {sampleText}
+        </SidebarSectionItem>,
+      );
+
+      await driver.hover();
+
+      expect(await driver.hasChevron()).toBe(false);
+    });
   });
 });

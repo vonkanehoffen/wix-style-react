@@ -46,6 +46,17 @@ describe('RichTextInputArea', () => {
       expect(await driver.getContent()).toBe(expectedText);
     });
 
+    it('should keep newlines when `initialValue` prop contains empty HTML elements', async () => {
+      const driver = createDriver(
+        <RichTextInputArea
+          initialValue={`<p>hello<br/></br><p></p>world</p>`}
+        />,
+      );
+
+      const content = await driver.getContent();
+      expect(content).toEqual('hello\n\n\nworld');
+    });
+
     it('should invoke `onChange` with parsed HTML value after typing text', async () => {
       const callback = jest.fn();
       const text = 'Some text';
@@ -321,6 +332,42 @@ describe('RichTextInputArea', () => {
       await eventually(async () => {
         expect(await driver.isFormDisplayed()).toBe(false);
       });
+    });
+
+    it('should set value to given value', async () => {
+      const onChange = jest.fn();
+      let myRef = null;
+      const driver = createDriver(
+        <RichTextInputArea
+          initialValue={'something old'}
+          ref={ref => {
+            myRef = ref;
+          }}
+          onChange={onChange}
+        />,
+      );
+
+      expect(await driver.getContent()).toEqual('something old');
+      myRef.setValue('something new');
+      expect(await driver.getContent()).toEqual('something new');
+    });
+
+    it('should set value to empty value', async () => {
+      const onChange = jest.fn();
+      let myRef = null;
+      const driver = createDriver(
+        <RichTextInputArea
+          initialValue={'something old'}
+          ref={ref => {
+            myRef = ref;
+          }}
+          onChange={onChange}
+        />,
+      );
+
+      expect(await driver.getContent()).toEqual('something old');
+      myRef.setValue('');
+      expect(await driver.getContent()).toEqual('');
     });
   });
 });

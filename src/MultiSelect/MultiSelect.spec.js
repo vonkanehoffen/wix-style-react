@@ -280,7 +280,7 @@ describe('MultiSelect', () => {
 
           describe('Controlled', () => {
             it('should submit when text entered and Enter is pressed', async () => {
-              testCase({
+              await testCase({
                 Component: ControlledMultiSelect,
                 props: { options },
                 enteredText: 'custom value',
@@ -337,7 +337,7 @@ describe('MultiSelect', () => {
 
           describe('Uncontrolled', () => {
             it('should submit when text entered and Enter is pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: 'custom value',
                 keyPressed: 'Enter',
@@ -346,7 +346,7 @@ describe('MultiSelect', () => {
             });
 
             it('should submit when text entered and delimiter is pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: 'custom value',
                 keyPressed: ',',
@@ -355,7 +355,7 @@ describe('MultiSelect', () => {
             });
 
             it('should NOT submit when spaces-only text is entered and Enter pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: '   ',
                 keyPressed: 'Enter',
@@ -364,7 +364,7 @@ describe('MultiSelect', () => {
             });
 
             it('should NOT submit when delimited-spaces text is entered and Enter pressed', async () => {
-              testCase({
+              await testCase({
                 props: { options },
                 enteredText: ' ,  ',
                 keyPressed: 'Enter',
@@ -594,7 +594,7 @@ describe('MultiSelect', () => {
           expect(inputDriver.isFocus()).toBeTruthy();
         });
 
-        it('should not lose Focus or close the options when options selected by pressing Tab', async () => {
+        it.skip('should not lose Focus or close the options when options selected by pressing Tab', async () => {
           const onSelect = jest.fn();
           const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
             <MultiSelect options={options} onSelect={onSelect} />,
@@ -695,49 +695,6 @@ describe('MultiSelect', () => {
 
         expect(getTagLabelAt(0)).toBe('California3');
         expect(getTagLabelAt(2)).toBe('Alabama');
-      });
-    });
-
-    describe('testkit', () => {
-      it('should exist', async () => {
-        const div = document.createElement('div');
-        const dataHook = 'myDataHook';
-        const tags = [{ id: 'Alabama', label: 'Alabama' }];
-        const wrapper = div.appendChild(
-          ReactTestUtils.renderIntoDocument(
-            <div>
-              <MultiSelect dataHook={dataHook} tags={tags} />
-            </div>,
-          ),
-        );
-        const multiSelectTestkit = multiSelectTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(multiSelectTestkit.driver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-        expect(
-          multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
-        ).toBeTruthy();
-      });
-    });
-
-    describe('enzyme testkit', () => {
-      it('should exist', async () => {
-        const dataHook = 'myDataHook';
-        const tags = [{ id: 'Alabama', label: 'Alabama' }];
-        const wrapper = mount(<MultiSelect dataHook={dataHook} tags={tags} />);
-        const multiSelectTestkit = enzymeMultiSelectTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(multiSelectTestkit.driver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.inputDriver.exists()).toBeTruthy();
-        expect(multiSelectTestkit.dropdownLayoutDriver.exists()).toBeTruthy();
-        expect(
-          multiSelectTestkit.driver.getTagDriverByTagId('Alabama').exists(),
-        ).toBeTruthy();
       });
     });
   }

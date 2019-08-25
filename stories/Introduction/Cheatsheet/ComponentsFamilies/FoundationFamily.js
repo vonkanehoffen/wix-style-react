@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { GeneralStructure } from '../sharedComponents';
+import { FamilyStructure } from '../sharedComponents';
 
 //TODO
-const FoundationFamily = () => (
-  <GeneralStructure title="1. Foundation - TODO" />
-);
+const FoundationFamily = () => <FamilyStructure title="1. Foundation - TODO" />;
 export default FoundationFamily;

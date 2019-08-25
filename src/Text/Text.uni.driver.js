@@ -1,14 +1,12 @@
 import {
   baseUniDriverFactory,
   StylableUnidriverUtil,
-  ReactBase,
 } from '../../test/utils/unidriver';
 
 import style from './Text.st.css';
 
 export const textUniDriverFactory = base => {
   const stylableUtil = new StylableUnidriverUtil(style);
-  const reactBase = ReactBase(base);
 
   return {
     ...baseUniDriverFactory(base),
@@ -17,13 +15,13 @@ export const textUniDriverFactory = base => {
      * @ReactDOMOnly
      * @returns {string} html tagName
      */
-    getTagName: async () => (await reactBase.tagName()).toLowerCase(),
+    getTagName: async () => (await base._prop('tagName')).toLowerCase(),
     /**
      * Get text content (innerHTML)
      * @ReactDOMOnly
      * @returns {string} innerHTML content
      */
-    getText: () => reactBase.innerHtml(),
+    getText: () => base._prop('innerHTML'),
     /**
      * Get size
      * @returns { 'tiny' | 'small' | 'medium' }

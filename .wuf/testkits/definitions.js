@@ -8,16 +8,16 @@
 module.exports = {
   SideMenuDrill: {
     skipSanityTest: true,
-    testkitPath: "../src/SideMenu/DrillView/DrillView.driver",
+    testkitPath: "../src/Deprecated/SideMenu/DrillView/DrillView.driver",
     protractorTestkitPath:
-      "../src/SideMenu/DrillView/DrillView.protractor.driver",
+      "../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver",
     protractorTestkitExportName: "drillViewTestkitFactory",
 
     puppeteerUnidriver: true,
     namedPuppeteerTestkitExport: true,
     puppeteerTestkitImportName: 'drillViewUniDriverFactory',
     puppeteerTestkitPath:
-      "../src/SideMenu/DrillView/DrillView.uni.driver",
+      "../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver",
     puppeteerTestkitExportName: "drillViewTestkitFactory",
   },
 
@@ -114,6 +114,7 @@ module.exports = {
     puppeteerTestkitImportName: 'pageHeaderUniDriverFactory',
     puppeteerTestkitPath: '../src/PageHeader/PageHeader.uni.driver'
   },
+
   Popover: {
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
@@ -132,6 +133,7 @@ module.exports = {
   FullTextView: { skipSanityTest: true, noTestkit: true },
 
   RichTextArea: {
+    skipSanityTest: true,
     beforeAllHook: () => (window.getSelection = () => ({})),
     testkitPath: "../src/Deprecated/RichTextArea/RichTextArea.driver",
     protractorTestkitPath:
@@ -140,6 +142,7 @@ module.exports = {
   },
 
   RichTextAreaComposite: {
+    skipSanityTest: true,
     beforeAllHook: () => (window.getSelection = () => ({})),
     testkitPath:
       "../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver",
@@ -176,22 +179,29 @@ module.exports = {
     namedPuppeteerTestkitExport: true
   },
 
+  ToggleButton: {
+    unidriver: true,
+    testkitPath: "../src/ToggleButton/ToggleButton.uni.driver",
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true
+  },
+
   CardGalleryItem: {
     unidriver: true,
     testkitPath: "../src/CardGalleryItem/CardGalleryItem.uni.driver"
   },
 
   SideMenu: {
-    testkitPath: "../src/SideMenu/core/SideMenu.driver",
+    testkitPath: "../src/Deprecated/SideMenu/core/SideMenu.driver",
 
     namedProtractorTestkitExport: true,
     protractorTestkitImportName: "sideMenuUniDriverFactory",
-    protractorTestkitPath: "../src/SideMenu/core/SideMenu.uni.driver",
+    protractorTestkitPath: "../src/Deprecated/SideMenu/core/SideMenu.uni.driver",
 
     puppeteerUnidriver: true,
     namedPuppeteerTestkitExport: true,
     puppeteerTestkitImportName: 'sideMenuUniDriverFactory',
-    puppeteerTestkitPath: '../src/SideMenu/core/SideMenu.uni.driver'
+    puppeteerTestkitPath: '../src/Deprecated/SideMenu/core/SideMenu.uni.driver'
   },
 
   Button: {
@@ -513,9 +523,15 @@ module.exports = {
     namedPuppeteerTestkitExport: true,
   },
 
-  SidebarSectionDivider: {
+  SidebarDivider: {
     unidriver: true,
-    testkitPath: "../src/SidebarSectionDivider/SidebarSectionDivider.uni.driver",
+    testkitPath: "../src/SidebarDivider/SidebarDivider.uni.driver",
+    namedPuppeteerTestkitExport: true,
+  },
+
+  SidebarHeader: {
+    unidriver: true,
+    testkitPath: "../src/SidebarHeader/SidebarHeader.uni.driver",
     namedPuppeteerTestkitExport: true,
   },
 
@@ -589,26 +605,22 @@ module.exports = {
   Badge: {
     puppeteerUnidriver: true,
     puppeteerTestkitImportName: 'badgeUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
+    namedPuppeteerTestkitExport: true
   },
 
   CounterBadge: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   FloatingHelper: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   ToggleSwitch: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
   Label: {
-    noProtractorTestkit: true, // it is exported manually in `.wuf/testkits/protractor.template.ejs`
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
@@ -746,4 +758,15 @@ module.exports = {
     noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
   },
 
+  ModalPreviewLayout: {
+    unidriver: true,
+    testkitPath: "../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver",
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
+  },
+
+  StatisticsWidget: {
+    unidriver: true,
+    testkitPath: "../src/StatisticsWidget/StatisticsWidget.uni.driver"
+  }
 };

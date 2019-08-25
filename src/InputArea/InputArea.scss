@@ -27,6 +27,10 @@ $gap: 6px;
   border-radius: 6px;
   @include BoxSizing();
   @include FontRoman();
+
+  &.disabled textarea::placeholder {
+    color: $D10-30;
+  }
 }
 
 .inputArea {

@@ -1,5 +1,6 @@
 import ReactTestUtils from 'react-dom/test-utils';
 import { iconButtonTestkitFactory } from 'wix-style-react/dist/testkit';
+import { isClassExists } from '../../test/utils';
 
 import { carouselDriverFactory as publicDriver } from './Carousel.driver';
 
@@ -12,6 +13,7 @@ export default ({ element }) => {
 
   return {
     ...publicDriver({ element }),
+    hasClass: className => isClassExists(element, className),
     getCurrentImageIndex: () => {
       const currentSlide = element.querySelector('.slick-current');
       return Number(currentSlide.dataset.index);
@@ -45,6 +47,8 @@ export default ({ element }) => {
       );
       ReactTestUtils.Simulate.click(pageNavigator);
     },
+    isPageNavigationDotExists: () =>
+      !!element.querySelector(`[data-hook^="page-navigation-"]`),
     getChildText: child => child.textContent,
   };
 };

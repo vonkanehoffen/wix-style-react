@@ -63,13 +63,12 @@ export default {
           columns([
             description({
               title: 'Plain Example',
-              text: 'A simple example within the sidebar',
+              text: 'A simple example for section title',
             }),
 
             code({
               compact: true,
-              source:
-                '<Sidebar><SidebarSectionTitle>Some Title</SidebarSectionTitle></Sidebar>',
+              source: '<SidebarSectionTitle>Some Title</SidebarSectionTitle>',
             }),
           ]),
 
@@ -82,7 +81,7 @@ export default {
             code({
               compact: true,
               source:
-                '<Sidebar><SidebarSectionTitle>This is a very long text which exceeds the maximum width of its container</SidebarSectionTitle></Sidebar>',
+                '<SidebarSectionTitle>This is a very long text which exceeds the maximum width of its container</SidebarSectionTitle>',
             }),
           ]),
         ],

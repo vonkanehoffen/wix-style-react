@@ -2,7 +2,7 @@
   -st-from: "wix-ui-core/src/themes/backoffice/colors.st.css";
   -st-named:
     B10, B20, B30, B40, B50,
-    D55, D60, D70,
+    D60, D70,
     D10-05, D10-30,
     F00,
 }
@@ -109,7 +109,7 @@
 .root:theme(filled):disabled {
   cursor: not-allowed;
   background-color: value(D70);
-  color: value(D55);
+  color: value(D10-30);
 }
 
 /** Theme image **/
@@ -161,7 +161,7 @@
 .content:disabled:theme(image) {
   cursor: not-allowed;
   background-color: value(D70);
-  color: value(D55);
+  color: value(D10-30);
   border: dashed 1px value(D60);
 }
 

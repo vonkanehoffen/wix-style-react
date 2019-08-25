@@ -1,12 +1,9 @@
 import React from 'react';
-import ReactTestUtils from 'react-dom/test-utils';
 import MultiSelectCheckbox from './MultiSelectCheckbox';
-import { multiSelectCheckboxTestkitFactory } from '../../testkit';
-import { multiSelectCheckboxTestkitFactory as enzymeMultiSelectCheckboxTestkitFactory } from '../../testkit/enzyme';
-import { mount } from 'enzyme';
 
 import { multiSelectCheckboxUniDriverFactory } from './MultiSelectCheckbox.uni.driver';
 import {
+  cleanup,
   createRendererWithDriver,
   createRendererWithUniDriver,
 } from '../../test/utils/react';
@@ -22,6 +19,7 @@ describe('multiSelectCheckbox', () => {
   });
 
   function runTests(render) {
+    afterEach(() => cleanup());
     const createDriver = jsx => render(jsx).driver;
 
     const options = [
@@ -88,7 +86,9 @@ describe('multiSelectCheckbox', () => {
       { key: 'Space', keyCode: 32, which: 32 },
     ];
     OPEN_DROPDOWN_CHARS.forEach(charData => {
-      it(`should show dropdown on input focus and press on ${charData.key}`, async () => {
+      it(`should show dropdown on input focus and press on ${
+        charData.key
+      }`, async () => {
         const { inputDriver, dropdownLayoutDriver } = createDriver(
           <MultiSelectCheckbox options={options} />,
         );
@@ -100,12 +100,13 @@ describe('multiSelectCheckbox', () => {
     });
 
     it('should not lose Focus or close the list on selection with a mouse click', async () => {
-      const { inputDriver, dropdownLayoutDriver } = createDriver(
+      const { inputDriver, dropdownLayoutDriver, driver } = createDriver(
         <MultiSelectCheckbox options={options} />,
       );
 
       await inputDriver.focus();
-      await dropdownLayoutDriver.clickAtOption(0);
+      await driver.selectOptionById('Alabama-1');
+      expect(await dropdownLayoutDriver.isShown()).toBe(true);
 
       expect(await inputDriver.isFocus()).toBe(true);
     });
@@ -222,57 +223,6 @@ describe('multiSelectCheckbox', () => {
       );
       await dropdownLayoutDriver.clickAtOption(0);
       expect(onDeselect).toHaveBeenCalledWith(options[0].id, options[0]);
-    });
-
-    describe('testkit', () => {
-      it('should exist', async () => {
-        const div = document.createElement('div');
-        const dataHook = 'myDataHook';
-        const selectedOptions = [options[0].id];
-        const wrapper = div.appendChild(
-          ReactTestUtils.renderIntoDocument(
-            <div>
-              <MultiSelectCheckbox
-                dataHook={dataHook}
-                selectedOptions={selectedOptions}
-                options={options}
-              />
-            </div>,
-          ),
-        );
-        const multiSelectCheckboxTestkit = multiSelectCheckboxTestkitFactory({
-          wrapper,
-          dataHook,
-        });
-        expect(multiSelectCheckboxTestkit.driver.exists()).toBe(true);
-        expect(multiSelectCheckboxTestkit.inputDriver.exists()).toBe(true);
-        expect(
-          multiSelectCheckboxTestkit.dropdownLayoutDriver.exists(),
-        ).toBeTruthy();
-      });
-    });
-
-    describe('enzyme testkit', () => {
-      it('should exist', async () => {
-        const dataHook = 'myDataHook';
-        const selectedOptions = [options[0].id];
-        const wrapper = mount(
-          <MultiSelectCheckbox
-            dataHook={dataHook}
-            selectedOptions={selectedOptions}
-            options={options}
-          />,
-        );
-        const multiSelectCheckboxTestkit = enzymeMultiSelectCheckboxTestkitFactory(
-          { wrapper, dataHook },
-        );
-        expect(multiSelectCheckboxTestkit.driver.exists()).toBe(true);
-        expect(multiSelectCheckboxTestkit.inputDriver.exists()).toBe(true);
-
-        expect(
-          multiSelectCheckboxTestkit.dropdownLayoutDriver.exists(),
-        ).toBeTruthy();
-      });
     });
   }
 });

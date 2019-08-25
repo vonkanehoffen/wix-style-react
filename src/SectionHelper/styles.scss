@@ -19,7 +19,7 @@
 }
 
 .fullWidth.content {
-  max-width: none
+  max-width: none;
 }
 
 .close {
@@ -34,7 +34,7 @@
     margin: 0;
   }
 
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     right: initial;
     left: 16px;
   }
@@ -47,7 +47,7 @@
 /* Themes */
 .warning {
   background-color: $Y50;
-  border-color: $Y20;
+  border-color: $Y30;
 }
 
 .standard {
@@ -72,7 +72,7 @@
 
 .preview {
   background-color: $D70;
-  border-color: $D50;
+  border-color: $D60;
 }
 
 .experimental-dark {

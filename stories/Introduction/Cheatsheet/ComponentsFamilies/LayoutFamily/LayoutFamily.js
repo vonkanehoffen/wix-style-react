@@ -1,15 +1,17 @@
 import React from 'react';
-import { GeneralStructure } from '../../sharedComponents';
+import { FamilyStructure } from '../../sharedComponents';
 import PageExamples from './examples/PageExamples';
 import CardExamples from './examples/CardExamples';
 import TableExamples from './examples/TableExamples';
 
+import { symbolsGroup } from '../../../../symbolsComponentsMapping/symbols';
+
 const LayoutFamily = () => (
-  <GeneralStructure title="2. Layout" showPreview={false}>
+  <FamilyStructure title={symbolsGroup.layout} showPreview={false}>
     <PageExamples />
     <CardExamples />
     <TableExamples />
-  </GeneralStructure>
+  </FamilyStructure>
 );
 
 export default LayoutFamily;

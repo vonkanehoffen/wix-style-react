@@ -9,6 +9,7 @@ import setDate from 'date-fns/set_date';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Calendar from '../Calendar';
+import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 import styles from './DatePicker.scss';
 import DateInput from '../DateInput';
@@ -30,6 +31,7 @@ import deprecationLog from '../utils/deprecationLog';
  * * `Enter`/`Esc`/`Tab`: close the calendar. (`Enter` & `Esc` calls `preventDefault`)
  *
  */
+
 export default class DatePicker extends WixComponent {
   static displayName = 'DatePicker';
 
@@ -146,6 +148,9 @@ export default class DatePicker extends WixComponent {
     this.closeCalendar();
   }
 
+  _renderInputWithRefForward = () =>
+    React.forwardRef((props, ref) => this._renderInput({ ...props, ref }));
+
   _renderInput = () => {
     const {
       inputDataHook,
@@ -220,7 +225,14 @@ export default class DatePicker extends WixComponent {
     return (
       <div style={{ width }} className={styles.root}>
         <div ref={this._setInputRef}>
-          <DayPickerInput component={this._renderInput} keepFocus={false} />
+          <DayPickerInput
+            component={
+              SUPPORT_REF_FORWARD
+                ? this._renderInputWithRefForward()
+                : this._renderInput
+            }
+            keepFocus={false}
+          />
         </div>
 
         <div
@@ -317,7 +329,7 @@ DatePicker.propTypes = {
   errorMessage: PropTypes.node,
 
   /** set desired width of DatePicker input */
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** set desired z-index of DatePicker popover */
   zIndex: PropTypes.number,

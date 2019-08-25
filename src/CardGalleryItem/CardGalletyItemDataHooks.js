@@ -9,4 +9,5 @@ export default {
   hoverComponent: 'hover-component',
   settingsMenu: 'settings-menu',
   dropdownBaseMenu: 'dropdown-base-menu',
+  backgroundImageNode: 'background-image-node',
 };

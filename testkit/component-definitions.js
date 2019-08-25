@@ -248,4 +248,36 @@ export default {
       title: 'something',
     },
   },
+
+  Stepper: {
+    props: {
+      activeStep: 0,
+      steps: [{ text: 'first' }, { text: 'second' }],
+    },
+  },
+
+  SidebarHeader: {
+    props: {
+      title: 'test',
+    },
+  },
+
+  SidebarSectionItem: {
+    props: {
+      children: 'test',
+    },
+  },
+
+  SidebarSectionTitle: {
+    props: {
+      children: 'test',
+    },
+  },
+
+  ModalPreviewLayout: {
+    props: {
+      children: <div />,
+      onClose: () => {},
+    },
+  },
 };

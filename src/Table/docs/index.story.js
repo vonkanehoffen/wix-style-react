@@ -23,6 +23,7 @@ import contextReadmeApi from './CONTEXT_README.API.md';
 import testkitReadme from './README.TESTKIT.md';
 
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
+import TableSkinNeutralExample from '!raw-loader!./examples/TableSkinNeutralExample';
 import TableToolbarExampleRaw from '!raw-loader!./examples/TableToolbarExample';
 import TableEmptyStateExampleRaw from '!raw-loader!./examples/TableEmptyStateExample';
 import TableActionCellExampleRaw from '!raw-loader!./examples/TableActionCellExample';
@@ -134,6 +135,12 @@ export default {
               title: 'Plain Example',
               description: 'A basic table with data.',
               source: TableExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table Skin',
+              description: 'Supports standard and neutral.',
+              source: TableSkinNeutralExample,
               compact: true,
             },
             {

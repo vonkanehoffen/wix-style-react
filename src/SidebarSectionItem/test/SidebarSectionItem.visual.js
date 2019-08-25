@@ -10,7 +10,7 @@ const baseProps = {
 };
 
 const SamplePrefix = () => (
-  <Box width="8px" height="8px" borderRadius="50%" backgroundColor="G10"></Box>
+  <Box width="8px" height="8px" borderRadius="50%" backgroundColor="G10" />
 );
 
 const SampleSuffix = () => <Sound />;
@@ -26,7 +26,7 @@ const tests = [
         },
       },
       {
-        it: 'Should display an ellipsis for long text',
+        it: 'Should display multiple lines for long text',
         props: {
           children:
             'This is a very long text which exceeds the maximum width of its container',
@@ -77,7 +77,7 @@ const tests = [
         },
       },
       {
-        it: 'Should display prefix and ellipsis',
+        it: 'Should display prefix and multiple lines',
         props: {
           children:
             'This is a very long text which exceeds the maximum width of its container',
@@ -97,7 +97,7 @@ const tests = [
         },
       },
       {
-        it: 'Should display suffix and ellipsis',
+        it: 'Should display suffix and multiple lines',
         props: {
           children:
             'This is a very long text which exceeds the maximum width of its container',
@@ -105,7 +105,7 @@ const tests = [
         },
       },
       {
-        it: 'Should display suffix with prefix and ellipsis',
+        it: 'Should display suffix with prefix and multiple lines',
         props: {
           children:
             'This is a very long text which exceeds the maximum width of its container',
@@ -120,12 +120,9 @@ const tests = [
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarSectionItem`, module).add(describe, () => (
     <div>
-      {its.map(({ it, props }) => (
-        <Box direction="vertical" marginBottom={3}>
-          <h3>{it}:</h3>
-          <div style={{ width: '222px' }}>
-            <SidebarSectionItem {...props} />
-          </div>
+      {its.map(({ props }) => (
+        <Box direction="vertical" marginBottom={5}>
+          <SidebarSectionItem {...props} />
         </Box>
       ))}
     </div>

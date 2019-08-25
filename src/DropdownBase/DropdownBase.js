@@ -81,7 +81,7 @@ class DropdownBase extends React.PureComponent {
     overflow: PropTypes.string,
 
     /** Dropdown container tabindex value */
-    tabIndex: PropTypes.string,
+    tabIndex: PropTypes.number,
 
     /**
      * The `id` of the **initial** selected option in the list, will be used when the selection

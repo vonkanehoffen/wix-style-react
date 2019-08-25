@@ -31,5 +31,9 @@ export const sliderUniDriverFactory = base => {
       const handle = $sliderHandles().get(handleIndex);
       ReactBase(handle).mouseLeave();
     },
+    /** returns if the slider is disabled */
+    isDisabled: async () => {
+      return !!(await base.$('.rc-slider-disabled'));
+    },
   };
 };

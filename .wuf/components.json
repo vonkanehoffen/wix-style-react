@@ -6,10 +6,7 @@
     "path": "src/AddItem"
   },
   "AutoComplete": {
-    "path": "src/AutoComplete",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/AutoComplete"
   },
   "AutoCompleteComposite": {
     "path": "src/AutoCompleteComposite",
@@ -178,6 +175,9 @@
   },
   "IconButton": {
     "path": "src/IconButton"
+  },
+  "ToggleButton": {
+    "path": "src/ToggleButton"
   },
   "ImageViewer": {
     "path": "src/ImageViewer"
@@ -374,7 +374,16 @@
   "SidebarSectionItem": {
     "path": "src/SidebarSectionItem"
   },
-  "SidebarSectionDivider": {
-    "path": "src/SidebarSectionDivider"
+  "SidebarDivider": {
+    "path": "src/SidebarDivider"
+  },
+  "SidebarHeader": {
+    "path": "src/SidebarHeader"
+  },
+  "ModalPreviewLayout": {
+    "path": "src/ModalPreviewLayout"
+  },
+  "StatisticsWidget": {
+    "path": "src/StatisticsWidget"
   }
 }

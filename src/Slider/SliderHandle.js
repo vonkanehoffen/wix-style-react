@@ -7,6 +7,7 @@ import styles from './SliderHandle.st.css';
 class SliderHandle extends Component {
   constructor(props) {
     super(props);
+    this._isMounted = false;
 
     this.state = {
       showTooltip: false,
@@ -21,10 +22,12 @@ class SliderHandle extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     document.addEventListener('mouseup', this.handleMouseUp);
   }
 
   componentWillUnmount() {
+    this._isMounted = false;
     document.removeEventListener('mouseup', this.handleMouseUp);
   }
 
@@ -52,7 +55,10 @@ class SliderHandle extends Component {
 
   toggleTooltip(showTooltip) {
     const { displayTooltip, disabled } = this.props;
-    this.setState({ showTooltip: displayTooltip && !disabled && showTooltip });
+    this._isMounted &&
+      this.setState({
+        showTooltip: displayTooltip && !disabled && showTooltip,
+      });
   }
 
   render() {

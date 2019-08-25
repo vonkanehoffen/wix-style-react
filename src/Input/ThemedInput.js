@@ -1,10 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
 import Input from './Input';
+import DATA_ATTR from './DataAttr';
 
 import styles from './Input.scss';
 
 class ThemedInput extends Input {
+  getDataAttr = ({ dataHook, size }) => {
+    return {
+      'data-hook': dataHook,
+      [DATA_ATTR.DATA_SIZE]: size,
+    };
+  };
+
   render() {
     const {
       id,
@@ -65,7 +73,7 @@ class ThemedInput extends Input {
           className,
           { [styles.readOnly]: readOnly },
         )}
-        data-hook={dataHook}
+        {...this.getDataAttr({ dataHook, size })}
       >
         {theme === 'amaterial' && (
           <label className={styles.materialTitle} htmlFor={id}>

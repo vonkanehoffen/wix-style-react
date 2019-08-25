@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 // This is here and not in the test setup because we don't want consumers to need to run it as well
 import '../common/match-media-register';
 import Slider from 'react-slick';
@@ -34,6 +35,8 @@ class Carousel extends React.Component {
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used in the tests */
     dataHook: PropTypes.string,
+    /** A single CSS class name to be appended to the Carousel's wrapper element. */
+    className: PropTypes.string,
     /** Array of strings where each string is a src of an image (in \<img src="your_src" /\>) */
     images: PropTypes.array,
     /** Any element to render inside */
@@ -44,6 +47,10 @@ class Carousel extends React.Component {
     infinite: PropTypes.bool,
     /** Auto-playing of images */
     autoplay: PropTypes.bool,
+    /** Show dots */
+    dots: PropTypes.bool,
+    /** Variable width of children */
+    variableWidth: PropTypes.bool,
     /** An index of the slide to start on */
     initialSlideIndex: PropTypes.number,
     /** Index change callback. `index => ...` */
@@ -54,6 +61,8 @@ class Carousel extends React.Component {
 
   static defaultProps = {
     infinite: true,
+    dots: true,
+    variableWidth: false,
     initialSlideIndex: 0,
     images: [],
     buttonSkin: 'standard',
@@ -68,12 +77,12 @@ class Carousel extends React.Component {
   }
 
   render() {
-    const { dataHook, images, children } = this.props;
+    const { dataHook, className, images, children } = this.props;
     const { sliderSettings } = this.state;
     const hasImages = !children && images.length > 0;
 
     return (
-      <div data-hook={dataHook} className={styles.root}>
+      <div data-hook={dataHook} className={classNames(styles.root, className)}>
         <Slider {...sliderSettings}>
           {children}
           {hasImages && this._renderImages(images)}
@@ -85,6 +94,8 @@ class Carousel extends React.Component {
   _resolveSliderSettings = ({
     infinite,
     autoplay,
+    dots,
+    variableWidth,
     buttonSkin,
     initialSlideIndex,
     afterChange,
@@ -96,9 +107,10 @@ class Carousel extends React.Component {
       speed: TRANSITION_SPEED,
       autoplaySpeed: AUTOPLAY_SPEED,
       initialSlide: initialSlideIndex,
-      dots: true,
+      dots,
       slidesToShow: 1,
       slidesToScroll: 1,
+      variableWidth,
       afterChange,
       beforeChange,
       nextArrow: (

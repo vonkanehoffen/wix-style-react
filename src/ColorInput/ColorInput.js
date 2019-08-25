@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool, string, func, oneOf, oneOfType } from 'prop-types';
+import { node, bool, string, func, oneOf, oneOfType, object } from 'prop-types';
 
 import { polyfill } from 'react-lifecycles-compat';
 
@@ -57,6 +57,8 @@ class ColorInput extends React.Component {
     onAddColor: func,
     /** Content to show in color picker add button tooltip */
     addTooltipContent: node,
+    /** Popover props */
+    popoverProps: object,
   };
 
   static defaultProps = {
@@ -68,6 +70,7 @@ class ColorInput extends React.Component {
     onChange: () => {},
     onConfirm: () => {},
     onCancel: () => {},
+    popoverProps: {},
   };
 
   constructor(props) {
@@ -82,10 +85,10 @@ class ColorInput extends React.Component {
   static getDerivedStateFromProps(props, state) {
     if (!state.active && props.value !== state.value) {
       return {
-        ...state,
         value: extractHex(props.value),
       };
     }
+    return {};
   }
 
   _renderPrefix = () => {
@@ -93,7 +96,7 @@ class ColorInput extends React.Component {
     const { active, value } = this.state;
     const hash = (
       <Input.Affix>
-        <Hash disabled={disabled} size={this._sizeMapping(size)} />
+        <Hash disabled={disabled} size={size} />
       </Input.Affix>
     );
     return active || value ? hash : undefined;
@@ -110,13 +113,14 @@ class ColorInput extends React.Component {
       onAddColor,
       addTooltipContent,
       placeholder,
+      popoverProps,
     } = this.props;
     return (
       <ColorViewer
         value={value}
         active={active}
         disabled={disabled}
-        size={this._sizeMapping(size)}
+        size={size}
         placement={popoverPlacement}
         appendTo={popoverAppendTo}
         onClick={this.click}
@@ -128,11 +132,10 @@ class ColorInput extends React.Component {
         onAddColor={onAddColor}
         addTooltipContent={addTooltipContent}
         placeholder={placeholder}
+        popoverProps={popoverProps}
       />
     );
   };
-
-  _sizeMapping = size => (size === 'medium' ? 'normal' : size);
 
   _onChange = evt => {
     const { onChange } = this.props;
@@ -186,8 +189,8 @@ class ColorInput extends React.Component {
         ref={input => (this.input = input)}
         status={this.props.error ? 'error' : undefined}
         statusMessage={errorMessage}
-        placeholder={active ? undefined : placeholder}
-        size={this._sizeMapping(size)}
+        placeholder={active ? '' : placeholder}
+        size={size}
         onKeyDown={this._keyDown}
         onChange={this._onChange}
         onFocus={this._onFocus}

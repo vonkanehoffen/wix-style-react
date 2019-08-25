@@ -24,13 +24,13 @@ export const formFieldUniDriverFactory = base => {
     getLengthLeft: async () => {
       const counter = charactersCounter();
       return (await counter.exists())
-        ? parseInt(await ReactBase(counter).innerHtml(), 10)
+        ? parseInt(await counter._prop('innerHTML'), 10)
         : null;
     },
     isLengthExceeded: async () => {
       const counter = charactersCounter();
       if (await counter.exists()) {
-        const length = parseInt(await ReactBase(counter).innerHtml(), 10);
+        const length = parseInt(await counter._prop('innerHTML'), 10);
         return length < 0;
       }
       return false;

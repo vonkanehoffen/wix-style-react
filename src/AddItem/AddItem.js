@@ -14,6 +14,7 @@ import TooltipHOC from './components/TooltipHOC';
 import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 
 import style from './AddItem.st.css';
+import colors from 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
 
 const ICONS = {
   large: <AddItemLarge />,
@@ -77,28 +78,33 @@ class AddItem extends Component {
     alignItems: 'center',
   };
 
+  _getTextColor = () => (this.props.disabled ? colors['D10-30'] : colors.B10);
+
   _renderIcon = () => {
     const { size, theme } = this.props;
+
     const image = theme === 'image';
-    return ICONS[image ? 'custom' : size];
+    const color = this._getTextColor();
+    const iconElement = ICONS[image ? 'custom' : size];
+
+    return React.cloneElement(iconElement, { style: { color } });
   };
 
   _renderText = () => {
-    const { children, disabled, theme, size } = this.props;
-
-    const textSize = size === 'tiny' ? 'small' : 'medium';
-    const textColor = disabled ? '#CBD3DC' : '#3899EC';
+    const { children, theme, size } = this.props;
 
     if (!children || theme === 'image') {
       return null;
     }
 
+    const textSize = size === 'tiny' ? 'small' : 'medium';
+
     return (
       <div {...style('text', { size }, this.props)}>
         <Text
+          style={{ color: this._getTextColor() }}
           weight="thin"
           size={textSize}
-          style={{ color: textColor }}
           dataHook="additem-text"
           ellipsis
         >
@@ -133,6 +139,7 @@ class AddItem extends Component {
       focusableOnFocus,
       focusableOnBlur,
     } = this.props;
+
     return (
       <button
         {...style('root', { theme }, this.props)}

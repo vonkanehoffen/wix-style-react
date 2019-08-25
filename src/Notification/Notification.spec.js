@@ -172,6 +172,16 @@ describe('Notification', () => {
           expect(await driver.hasActionButton()).toBeFalsy();
           expect(await driver.hasCloseButton()).toBeTruthy();
         });
+
+        it('should allow no CloseButton', async () => {
+          const labelText = 'Label Text';
+          const driver = createDriver(
+            <Notification show>
+              <Notification.TextLabel>{labelText}</Notification.TextLabel>
+            </Notification>,
+          );
+          expect(await driver.hasCloseButton()).toBeFalsy();
+        });
       });
     });
 
