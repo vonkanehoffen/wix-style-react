@@ -79,3 +79,19 @@ export const notificationsSymbols = {
   floatingNotification: '8.2 Floating Notification',
   sectionHelper: '8.3 Section Helper',
 };
+
+export const modalsSymbols = {
+  alert: '9.1 Alert',
+  content: '9.2 Content',
+  marketing: '9.3 Marketing',
+  preview: '9.4 Preview',
+};
+
+export const pickerSymbols = {
+  editableSelector: '10.2 Editable Selector',
+  modalSelector: '10.3 Modal Selector',
+  colorPicker: '10.4 Color Picker',
+  calendar: '10.5 Calendar',
+  calendarPanel: '10.6 Calendar Panel',
+  swatches: '10.7 Swatches',
+};

@@ -1,10 +1,12 @@
 import { linkTo } from '@storybook/addon-links';
+
 import {
   inputsComponentsNames,
   layoutComponentsNames,
   buttonsComponentsNames,
   notificationsComponentsNames,
   tooltipPopoverComponentsNames,
+  modalsComponentsNames,
 } from './components';
 
 import {
@@ -12,7 +14,8 @@ import {
   symbolsGroup,
   buttonsSymbols,
   navigationSymbols,
-  tooltipPopoverSymbols
+  tooltipPopoverSymbols,
+  modalsSymbols,
 } from './symbols';
 
 export const getComponentUrl = ({ componentName }) =>
@@ -34,14 +37,22 @@ const symbolActualUrl = {
   [inputsSymbols.colorInput]: linkTo(symbolsGroup.inputs, '3.11 ColorInput'),
   [inputsSymbols.tagsInput]: linkTo(symbolsGroup.inputs, '3.12 Tags'),
 
-
   [buttonsSymbols.iconButton]: linkTo(symbolsGroup.buttons, '5.2 IconButton'),
   [buttonsSymbols.textButton]: linkTo(symbolsGroup.buttons, '5.3 TextButton'),
   [buttonsSymbols.closeButton]: linkTo(symbolsGroup.buttons, '5.4 CloseButton'),
 
-  [navigationSymbols.sidebarMenu]: linkTo(symbolsGroup.navigation, '6.1 Sidebar'),
+  [navigationSymbols.sidebarMenu]: linkTo(
+    symbolsGroup.navigation,
+    '6.1 Sidebar',
+  ),
 
-  [tooltipPopoverSymbols.popoverMenu]: linkTo(symbolsGroup.tooltipPopovers, '7.3 PopoverMenu'),
+  [tooltipPopoverSymbols.popoverMenu]: linkTo(
+    symbolsGroup.tooltipPopovers,
+    '7.3 PopoverMenu',
+  ),
+
+  [modalsSymbols.content]: linkTo(symbolsGroup.modals, '9.3 Custom Modal'),
+  [modalsSymbols.marketing]: linkTo(symbolsGroup.modals, '9.4 Announcement'),
 };
 
 export const componentsWithoutDocumentation = {
@@ -56,6 +67,11 @@ export const componentsWithoutDocumentation = {
   [buttonsComponentsNames.TextButton]: buttonsComponentsNames.TextButton,
   [buttonsComponentsNames.CloseButton]: buttonsComponentsNames.CloseButton,
 
-  [notificationsComponentsNames.Notification]: notificationsComponentsNames.Notification,
-  [notificationsComponentsNames.FloatingNotification]: notificationsComponentsNames.FloatingNotification,
+  [notificationsComponentsNames.Notification]:
+    notificationsComponentsNames.Notification,
+  [notificationsComponentsNames.FloatingNotification]:
+    notificationsComponentsNames.FloatingNotification,
+
+  [modalsComponentsNames.MessageBoxMarketerialLayout]:
+    modalsComponentsNames.MessageBoxMarketerialLayout,
 };

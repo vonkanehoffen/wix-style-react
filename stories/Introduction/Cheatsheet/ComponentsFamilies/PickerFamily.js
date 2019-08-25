@@ -8,6 +8,15 @@ import {
   Preview,
 } from '../sharedComponents';
 
+import { pickerSymbolsToComponents } from '../../../symbolsComponentsMapping/families/PickerFamily';
+
+import { createLinkedComponentsNames } from '../sharedComponents/utils';
+
+import {
+  pickerSymbols,
+  symbolsGroup,
+} from '../../../symbolsComponentsMapping/symbols';
+
 import times from '../../../../src/utils/operators/times';
 
 //10. Picker
@@ -21,6 +30,8 @@ import Swatches from 'wix-style-react/Swatches';
 
 //Assets
 import { Layout, Cell } from 'wix-style-react/Layout';
+
+const groupSymbol = symbolsGroup.pickers;
 
 const DropdownLayoutExamples = () => (
   <SingleComponentSideBySide name="10.1 Should be re-indexed">
@@ -132,11 +143,16 @@ const EditableSelectorExamples = () => {
     toggleType: editableSelectorTypes.radio,
   };
 
+  const symbol = pickerSymbols.editableSelector;
+  const components = pickerSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
   return (
-    <SingleComponentSideBySide
-      name="10.2 Editable Selector"
-      componentsNames={['<EditableSelector/>']}
-    >
+    <SingleComponentSideBySide {...singleComponentProps}>
       <Layout cols={2}>
         <EditableSelectorExample {...radioEditableSelectorProps} />
         <EditableSelectorExample {...checkboxEditableSelectorProps} />
@@ -175,11 +191,16 @@ const ModalSelectorExample = () => {
       }, 2000),
     );
 
+  const symbol = pickerSymbols.modalSelector;
+  const components = pickerSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
   return (
-    <SingleComponentSideBySide
-      name="10.3 Modal Selector"
-      componentsNames={['<ModalSelectorLayout/>']}
-    >
+    <SingleComponentSideBySide {...singleComponentProps}>
       <ModalSelectorLayout
         dataSource={dataSourceFunc}
         height="540px"
@@ -198,11 +219,17 @@ class ColorPickerExample extends PureComponent {
 
   render() {
     const { color } = this.state;
+
+    const symbol = pickerSymbols.colorPicker;
+    const components = pickerSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="10.4 Color Picker"
-        componentsNames={['<ColorPicker/>']}
-      >
+      <SingleComponentSideBySide {...singleComponentProps}>
         <Preview>
           <ColorPicker
             onCancel={() => console.log('Cancelled')}
@@ -233,17 +260,22 @@ class CalendarExample extends PureComponent {
   render() {
     const { value } = this.state;
 
+    const symbol = pickerSymbols.calendar;
+    const components = pickerSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="10.5 Calendar"
-        componentsNames={['<Calendar/>']}
-      >
+      <SingleComponentSideBySide {...singleComponentProps}>
         <Preview>
           <Calendar
             autoFocus={false}
             onChange={this.changeSelectedDate}
             value={value}
-            selectionMode={'day'}
+            selectionMode="day"
           />
         </Preview>
       </SingleComponentSideBySide>
@@ -403,11 +435,16 @@ class CalendarPanelExample extends PureComponent {
 
     const { value } = this.state;
 
+    const symbol = pickerSymbols.calendarPanel;
+    const components = pickerSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="10.6 Calendar Panel"
-        componentsNames={['<CalendarPanel/>', '<CalendarPanelFooter/>']}
-      >
+      <SingleComponentSideBySide {...singleComponentProps}>
         <Preview stretch>
           <CalendarPanel
             autoFocus={false}
@@ -431,11 +468,16 @@ class SwatchesExample extends PureComponent {
   render() {
     const { color } = this.state;
 
+    const symbol = pickerSymbols.swatches;
+    const components = pickerSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: symbol,
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
     return (
-      <SingleComponentSideBySide
-        name="10.7 Swatches"
-        componentsNames={['<Swatches/>']}
-      >
+      <SingleComponentSideBySide {...singleComponentProps}>
         <Swatches
           showClear
           selected={color}
@@ -448,7 +490,7 @@ class SwatchesExample extends PureComponent {
 }
 
 const PickerFamily = () => (
-  <FamilyStructure title="10. Picker">
+  <FamilyStructure title={groupSymbol}>
     <DropdownLayoutExamples />
     <EditableSelectorExamples />
     <ModalSelectorExample />

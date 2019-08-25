@@ -74,3 +74,20 @@ export const notificationsComponentsNames = {
   FloatingNotification: 'FloatingNotification',
   SectionHelper: 'SectionHelper',
 };
+
+export const modalsComponentsNames = {
+  MessageBoxFunctionalLayout: 'MessageBoxFunctionalLayout',
+  Modal: 'Modal',
+  MessageBoxMarketerialLayout: 'MessageBoxMarketerialLayout',
+  ModalPreviewLayout: 'ModalPreviewLayout',
+};
+
+export const pickerComponentsNames = {
+  EditableSelector: 'EditableSelector',
+  ModalSelectorLayout: 'ModalSelectorLayout',
+  ColorPicker: 'ColorPicker',
+  Calendar: 'Calendar',
+  CalendarPanel: 'CalendarPanel',
+  CalendarPanelFooter: 'CalendarPanelFooter',
+  Swatches: 'Swatches',
+};
