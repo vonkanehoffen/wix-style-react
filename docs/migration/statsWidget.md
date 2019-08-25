@@ -1,10 +1,10 @@
 # Deprecating `<StatsWidget/>` component
 
 `<StatisticsWidget/>` is the new replacement.
-1. In contrast to old`<StatsWidget/>`, new <StatisticsWidget/> does not render the statistics inside a card. If needed it should be composed in one.
+1. In contrast to the old `<StatsWidget/>`, the new `<StatisticsWidget/>` does not render the statistics inside a card. If needed it should be composed inside one.
 2. In addition to the existing features, it adds the following:
-    * keyboard & mouse accesibility features
-    * hover state & click functionality
+    * keyboard and mouse accesibility features
+    * hover state and click functionality
     * description tooltip
     * customized text instead of elipssis
     
