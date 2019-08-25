@@ -21,7 +21,7 @@ import { storySettings } from './storySettings';
 
 export default () => (
   <Container>
-    <div data-hook="card-example" className={styles.statsWidgetWrapper}>
+    <div>
       <StatsWidget
         title="Let's see what's going on with your store"
         statistics={[
