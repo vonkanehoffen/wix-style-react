@@ -123,6 +123,7 @@
     "@storybook/addon-options": "^4.1.11",
     "@storybook/react": "^4.1.11",
     "@stylable/dom-test-kit": "^0.1.6",
+    "@stylable/webpack-plugin": "^2.1.8",
     "@testing-library/react": "^8.0.1",
     "@types/enzyme": "^3.9.1",
     "@types/react": "16.8.4",
