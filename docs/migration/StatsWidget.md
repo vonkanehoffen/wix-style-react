@@ -1,6 +1,6 @@
 # Deprecating `<StatsWidget/>` component
 
-[`<StatisticsWidget/>`](https://wix-wix-style-react.surge.sh/?selectedKind=WIP&selectedStory=StatisticsWidget&full=0&addons=0&stories=1&panelRight=0) is the new replacement.
+[`<StatisticsWidget/>`](https://wix-wix-style-react.surge.sh/?selectedKind=Components&selectedStory=StatisticsWidget&full=0&addons=0&stories=1&panelRight=0) is the new replacement.
 
 Below you have full detailed examples on how to migrate your components.
 
@@ -16,7 +16,7 @@ Below you have full detailed examples on how to migrate your components.
 3. Description tooltip
 4. Customized text instead of elipssis 
     
-Examples for all features can be viewed [here](https://wix-wix-style-react.surge.sh/?selectedKind=WIP&selectedStory=StatisticsWidget&full=0&addons=0&stories=1&panelRight=0) 
+Examples for all features can be viewed [here](https://wix-wix-style-react.surge.sh/?selectedKind=Components&selectedStory=StatisticsWidget&full=0&addons=0&stories=1&panelRight=0) 
 
 ## Migration
 
