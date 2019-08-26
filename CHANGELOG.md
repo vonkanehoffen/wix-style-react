@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Change
-- `<StatsWidget/>` - deprecating in favor of <StatisticsWidget/> [#4015](https://github.com/wix/wix-style-react/pull/4015)
+- `<StatsWidget/>` - deprecating in favor of `<StatisticsWidget/>` [#4015](https://github.com/wix/wix-style-react/pull/4015)
 
 ### Docs
 - `Cheatsheet`- Adding links to `OtherFamily` & `ContentWidgetsFamily` documentations [#4007](https://github.com/wix/wix-style-react/pull/4007)
