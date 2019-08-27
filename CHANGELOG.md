@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.52.0 - 2019-08-27
+
 ### Added
 - `<ModalSelectorLayout/>` - add maxHeight prop [#4011](https://github.com/wix/wix-style-react/pull/4011)
 
