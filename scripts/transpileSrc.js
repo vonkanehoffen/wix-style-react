@@ -74,8 +74,9 @@ const run = () => {
     dist: './dist/es/src',
     withESTransform: true,
   });
+
   const srcCopied = copyAsync({
-    src: './src/**/!(*.js)',
+    src: './src/**/*.scss',
     dist: './dist/src',
   });
 

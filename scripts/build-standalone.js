@@ -2,17 +2,10 @@
 const path = require('path');
 const execa = require('execa');
 
-const outDir = path.join('dist', 'standalone');
+const outDir = path.join('dist');
 
 function buildStandalone() {
   console.log('Creating "standalone" version');
-  console.log('running tsc...');
-
-  // https://www.typescriptlang.org/docs/handbook/compiler-options.html
-  execa.sync('tsc', ['--outDir', outDir], { stdio: 'inherit' });
-
-  console.log('✔︎');
-
   console.log('running stc...');
 
   // https://github.com/wix/stylable/tree/master/packages/cli#usage
