@@ -19,8 +19,8 @@ module.exports = (config, env, defaultConfig) => {
     generate: {
       runtimeStylesheetId: 'namespace',
     },
-    legacyRuntime: false,
-    unsafeBuildNamespace: true
+    legacyRuntime: true,
+    unsafeBuildNamespace: true 
   });
 
   newConfig.plugins.push(stylableWebpackPlugin);
