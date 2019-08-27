@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+## 6.52.1 - 2019-08-27
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
 ## 6.52.0 - 2019-08-27
 
 ### Added
