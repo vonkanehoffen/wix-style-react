@@ -436,6 +436,41 @@ describe('SortableList', () => {
     ).toBeFalsy();
   });
 
+  it('should handle prop to set custom class (`isItemHovered`) when item is hovered, dragged and dropped', () => {
+    const renderItem = ({ item, isItemHovered }) => (
+      <div
+        className={isItemHovered ? 'isItemHovered' : null}
+        data-hook={item.id}
+      >
+        {item.text}
+      </div>
+    );
+    const wrapper = configureWrapper({ renderItem });
+    const driver = createDriver(wrapper);
+    const elem = ReactDOM.findDOMNode(wrapper);
+
+    expect(
+      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
+    ).toBeFalsy();
+    ReactTestUtils.Simulate.mouseOver(elem.querySelector('[data-hook="1"]'));
+    expect(
+      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
+    ).toBeTruthy();
+    ReactTestUtils.Simulate.mouseOut(elem.querySelector('[data-hook="1"]'));
+    expect(
+      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
+    ).toBeFalsy();
+
+    driver.beginDrag('1');
+    expect(
+      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
+    ).toBeFalsy();
+    driver.endDrag();
+    expect(
+      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
+    ).toBeTruthy();
+  });
+
   describe('with delay prop', () => {
     let privateDriver, onDragStart, onDragEnd;
     const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];

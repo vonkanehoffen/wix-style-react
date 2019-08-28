@@ -23,6 +23,8 @@ class SortableList extends WixComponent {
     items: this.props.items || [],
     animationShifts: {},
     draggedId: null,
+    hoveredId: null,
+    dragEnd: false,
   };
 
   wrapperNodes = [];
@@ -228,17 +230,54 @@ class SortableList extends WixComponent {
   };
 
   handleDragStart = data => {
-    this.reSetAnimationState({ draggedId: data.id });
+    this.reSetAnimationState({ draggedId: data.id, hoveredId: null });
     if (this.props.onDragStart) {
       this.props.onDragStart(data);
     }
   };
 
   handleDragEnd = data => {
-    this.reSetAnimationState();
+    this.reSetAnimationState({ dragEnd: true, hoveredId: data.id });
     if (this.props.onDragEnd) {
       this.props.onDragEnd(data);
     }
+  };
+
+  handleMouseOver = itemId => {
+    const { hoveredId, dragEnd } = this.state;
+    const itemIdString = itemId.toString();
+    const dropped = this.context.dragDropManager.monitor.didDrop();
+    const dragging = this.context.dragDropManager.monitor.isDragging();
+
+    if (itemIdString.indexOf(this.props.containerId) === 0) {
+      return;
+    }
+
+    if ((dragging && !dropped) || dragEnd) {
+      this.reSetAnimationState({
+        dragEnd: false,
+        hoveredId: hoveredId || itemId,
+      });
+
+      return;
+    }
+
+    this.reSetAnimationState({
+      hoveredId: itemId,
+    });
+  };
+
+  handleMouseOut = () => {
+    const dropped = this.context.dragDropManager.monitor.didDrop();
+    const dragging = this.context.dragDropManager.monitor.isDragging();
+
+    if (dragging && !dropped) {
+      return;
+    }
+
+    this.reSetAnimationState({
+      hoveredId: null,
+    });
   };
 
   renderPreview() {
@@ -268,6 +307,7 @@ class SortableList extends WixComponent {
     return this.props.renderItem({
       ...args,
       isListInDragState: dragging && !dropped,
+      isItemHovered: args.id === this.state.hoveredId,
     });
   };
 
@@ -284,11 +324,13 @@ class SortableList extends WixComponent {
       animationTiming,
       droppable,
     } = this.props;
-    const { items, animationShifts, draggedId } = this.state;
+    const { items, animationShifts, draggedId, hoveredId } = this.state;
+
     const common = {
       groupName,
       droppable,
       containerId,
+      hoveredId,
       onHover: this.handleHover,
       onMoveOut: this.handleMoveOut,
     };
@@ -305,33 +347,31 @@ class SortableList extends WixComponent {
         {...common}
       >
         <div className={contentClassName}>
-          {items.map((item, index) => {
-            return (
-              <Draggable
-                key={`${item.id}-${containerId}`}
-                shift={animationShifts[index]}
-                hasDragged={!!draggedId && draggedId !== item.id}
-                setWrapperNode={this.setWrapperNode}
-                animationDuration={animationDuration}
-                animationTiming={animationTiming}
-                {...common}
-                id={item.id}
-                index={index}
-                item={item}
-                renderItem={this.renderItem}
-                withHandle={withHandle}
-                usePortal={usePortal}
-                onDrop={this.handleDrop}
-                onDragStart={this.handleDragStart}
-                onDragEnd={this.handleDragEnd}
-                canDrag={this.props.canDrag}
-                delay={this.props.delay}
-                listOfPropsThatAffectItems={
-                  this.props.listOfPropsThatAffectItems
-                }
-              />
-            );
-          })}
+          {items.map((item, index) => (
+            <Draggable
+              key={`${item.id}-${containerId}`}
+              shift={animationShifts[index]}
+              hasDragged={!!draggedId && draggedId !== item.id}
+              setWrapperNode={this.setWrapperNode}
+              animationDuration={animationDuration}
+              animationTiming={animationTiming}
+              {...common}
+              id={item.id}
+              index={index}
+              item={item}
+              renderItem={this.renderItem}
+              withHandle={withHandle}
+              usePortal={usePortal}
+              onDrop={this.handleDrop}
+              onDragStart={this.handleDragStart}
+              onDragEnd={this.handleDragEnd}
+              canDrag={this.props.canDrag}
+              delay={this.props.delay}
+              listOfPropsThatAffectItems={this.props.listOfPropsThatAffectItems}
+              onMouseOver={this.handleMouseOver}
+              onMouseOut={this.handleMouseOut}
+            />
+          ))}
         </div>
       </Container>
     );

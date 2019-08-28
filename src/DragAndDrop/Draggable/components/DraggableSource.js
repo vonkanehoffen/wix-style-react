@@ -210,8 +210,20 @@ class DraggableSource extends React.Component {
           }),
         );
 
-    return <div style={this._getWrapperStyles()}>{content}</div>;
+    return (
+      <div
+        style={this._getWrapperStyles()}
+        onMouseOver={this.handleMouseOver}
+        onMouseOut={this.handleMouseOut}
+      >
+        {content}
+      </div>
+    );
   }
+
+  handleMouseOver = () => this.props.onMouseOver(this.props.id);
+
+  handleMouseOut = () => this.props.onMouseOut();
 
   _setRootNode = node => {
     // Don't need to reset the values if node remains the same
@@ -276,6 +288,8 @@ DraggableSource.propTypes = {
   onMoveOut: PropTypes.func,
   onDragStart: PropTypes.func,
   onDragEnd: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  onMouseOut: PropTypes.func,
 
   /** visual positioning shifting for an element (transform: translate) without moving it from its real position at DOM (left, top) */
   shift: PropTypes.arrayOf(PropTypes.number),

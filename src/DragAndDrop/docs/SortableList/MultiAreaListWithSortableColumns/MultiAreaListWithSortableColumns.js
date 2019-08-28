@@ -70,6 +70,7 @@ export default class MultiAreaListWithSortableColumns extends React.Component {
     item,
     previewStyles,
     isListInDragState,
+    isItemHovered,
   }) => {
     const classes = classNames(
       {
@@ -82,6 +83,7 @@ export default class MultiAreaListWithSortableColumns extends React.Component {
           styles.itemPreview,
         )]: isPreview,
         [styles.isListInDragState]: isListInDragState,
+        [styles.hover]: isItemHovered,
       },
       classNames(defaultDndStyles.item, styles.item),
     );

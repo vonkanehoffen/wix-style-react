@@ -93,6 +93,8 @@ Some details about complex props
   so you able to style your item by checking isPreview.
 - `id` - an id from item that you render
 - `previewStyles` - styles that coming from SortableList, `you always need to apply` them on your root div, inside of renderItem
+- `isItemHovered` - if an item is in hover state you can apply styles to it by using isItemHovered.
+- `previewStyles` - styles that coming from SortableList, `you always need to apply` them on your root div, inside of renderItem
   You can add item width as `style={{...previewStyles, width: your_width }}`. By default previewStyles contain original items `width` in pixels
 - `item` - item that you are render
 
@@ -286,12 +288,11 @@ handleDrop = ({
       </div>
     )
 
-    render() {
       /*
-        To achieve our goal from renderItem callback, we need to tell SortableList,
-        that this.state.isListInDragState can affect our items view and that SortableList need to
-        call renderItem again when this.state.isListInDragState changed.
-        To do this we use `listOfPropsThatAffectItems`
+        GOAL:
+        inside of render item callback we use `isListInDragState` from state,
+        so we expect, that when we will do setState({ isListInDragState: someValue }),
+        the renderItem will call again and render updated state in dom
       */
       return (
         <div>
@@ -308,7 +309,32 @@ handleDrop = ({
             listOfPropsThatAffectItems={[this.state.isListInDragState]}
           />
         </div>
-      );
+      )
+
+      render() {
+        /*
+          To achieve our goal from renderItem callback, we need to tell SortableList,
+          that this.state.isListInDragState can affect our items view and that SortableList need to
+          call renderItem again when this.state.isListInDragState changed.
+          To do this we use `listOfPropsThatAffectItems`
+        */
+        return (
+          <div>
+            <SortableList
+              contentClassName="cl"
+              dataHook={dataHook}
+              containerId="sortable-list-1"
+              groupName="group1"
+              items={items}
+              renderItem={this.renderItem}
+              onDrop={onDrop}
+              onDragStart={this.handleDragStart}
+              onDragEnd={this.handleDragEnd}
+              listOfPropsThatAffectItems={[this.state.isListInDragState]}
+            />
+          </div>
+        );
+      }
     }
   }
 ```

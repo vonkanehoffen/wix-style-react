@@ -151,6 +151,10 @@ Draggable.propTypes = {
   onDragStart: PropTypes.func,
   /** callback for drag end */
   onDragEnd: PropTypes.func,
+  /** callback for mouse over */
+  onMouseOver: PropTypes.func,
+  /** callback for mouse out */
+  onMouseOut: PropTypes.func,
 
   /** visual positioning shifting for an element (transform: translate) without moving it from its real position at DOM (left, top) */
   shift: PropTypes.arrayOf(PropTypes.number),
@@ -166,7 +170,7 @@ Draggable.propTypes = {
   canDrag: PropTypes.func,
 
   delay: PropTypes.number,
-  /** 
+  /**
     In case that you are using some external props inside of renderItems method,
     you need to define them here.
 
