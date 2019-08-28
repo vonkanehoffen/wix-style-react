@@ -448,27 +448,18 @@ describe('SortableList', () => {
     const wrapper = configureWrapper({ renderItem });
     const driver = createDriver(wrapper);
     const elem = ReactDOM.findDOMNode(wrapper);
+    const element = elem.querySelector('[data-hook="1"]');
 
-    expect(
-      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
-    ).toBeFalsy();
-    ReactTestUtils.Simulate.mouseOver(elem.querySelector('[data-hook="1"]'));
-    expect(
-      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
-    ).toBeTruthy();
-    ReactTestUtils.Simulate.mouseOut(elem.querySelector('[data-hook="1"]'));
-    expect(
-      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
-    ).toBeFalsy();
+    expect(element.classList.contains('isItemHovered')).toBeFalsy();
+    ReactTestUtils.Simulate.mouseOver(element);
+    expect(element.classList.contains('isItemHovered')).toBeTruthy();
+    ReactTestUtils.Simulate.mouseOut(element);
+    expect(element.classList.contains('isItemHovered')).toBeFalsy();
 
     driver.beginDrag('1');
-    expect(
-      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
-    ).toBeFalsy();
+    expect(element.classList.contains('isItemHovered')).toBeFalsy();
     driver.endDrag();
-    expect(
-      elem.querySelector('[data-hook="1"]').classList.contains('isItemHovered'),
-    ).toBeTruthy();
+    expect(element.classList.contains('isItemHovered')).toBeTruthy();
   });
 
   describe('with delay prop', () => {
