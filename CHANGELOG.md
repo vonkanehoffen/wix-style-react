@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Avatar/>` - add `presence` & `indication` props [#4019](https://github.com/wix/wix-style-react/pull/4019)
+
 ## 6.52.1 - 2019-08-27
 
 No Changes (Patch version, only to re-publish Storybook, after failed publish)
