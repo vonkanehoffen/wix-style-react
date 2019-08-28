@@ -41,10 +41,10 @@ export const autoCompleteTestkitFactory = puppeteerUniTestkitFactoryCreator(
   autoCompleteUniDriverFactory,
 );
 
-import { avatarUniDriverFactory } from '../src/Avatar/Avatar.uni.driver';
+import avatarDriverFactory from '../src/Avatar/Avatar.uni.driver';
 
 export const avatarTestkitFactory = puppeteerUniTestkitFactoryCreator(
-  avatarUniDriverFactory,
+  avatarDriverFactory,
 );
 
 import { badgeUniDriverFactory } from '../src/Badge/Badge.uni.driver';

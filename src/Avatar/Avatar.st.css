@@ -2,7 +2,15 @@
 
 :import {
   -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
-  -st-named: F00;
+  -st-named: F00, D80,
+    G10,
+    R10,
+    Y10,
+}
+
+:import {
+  -st-from: "wix-ui-backoffice/src/shadows.st.css";
+  -st-named: shadow10;
 }
 
 .placeholder {
@@ -10,4 +18,147 @@
   height: inherit;
   width: inherit;
   border-radius: inherit;
+}
+
+/**
+  in order to fix the gap underneath the avatar, when render with image.
+*/
+.externalContainer{
+  line-height: 0;
+}
+
+.avatarContainer {
+  -st-states:
+  size(enum(size90, size72, size60, size48,
+  size36, size30, size24, size18)), indication, 
+  presenceType(enum(busy, online, offline)), presence;
+  position: relative;
+  display: inline-block;
+}
+
+.avatarContainer:presence .coreAvatar {
+  padding-right: 2px;
+}
+
+.presence {
+  border: 2px solid value(D80);
+  position: absolute;
+  border-radius: 50px;
+  top: 0;
+  right: 0;
+}
+
+.indication {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.iconButtonShadow{
+  border-radius: 50%;
+  box-shadow: value(shadow10);
+}
+
+.avatarContainer:size(size90) .indication,
+.avatarContainer:size(size72) .indication{
+  width: 30px;
+  height: 30px;
+}
+
+.avatarContainer:size(size60) .indication,
+.avatarContainer:size(size48) .indication{
+  width: 24px;
+  height: 24px;
+}
+
+.avatarContainer:size(size18) .presence,
+.avatarContainer:size(size24) .presence{
+  width: 6px;
+  height: 6px;
+}
+
+.avatarContainer:size(size30) .presence,
+.avatarContainer:size(size36) .presence{
+  width: 8px;
+  height: 8px;
+}
+
+.avatarContainer:size(size48) .presence,
+.avatarContainer:size(size60) .presence{
+  width: 10px;
+  height: 10px;
+}
+
+.avatarContainer:size(size72) .presence{
+  width: 12px;
+  height: 12px;
+  top: 1px;
+}
+
+.avatarContainer:size(size90) .presence{
+  width: 12px;
+  height: 12px;
+  top: 1px;
+  right: 4px;
+}
+
+.avatarContainer:size(size90):presence .coreAvatar{
+  padding-right: 0px;
+}
+.avatarContainer:size(size48):presence .coreAvatar,
+.avatarContainer:size(size36):presence .coreAvatar,
+.avatarContainer:size(size30):presence .coreAvatar,
+.avatarContainer:size(size18):presence .coreAvatar{
+  padding-top: 1px;
+  padding-right: 5px;
+}
+
+.avatarContainer:size(size24):presence .coreAvatar{
+  padding-right: 4px;
+}
+ 
+.avatarContainer:presenceType(online) .presence{
+  background-color: value(G10);
+}
+.avatarContainer:presenceType(offline) .presence{
+  background-color: value(R10);
+}
+.avatarContainer:presenceType(busy) .presence{
+  background-color: value(Y10);
+}
+
+.avatarContainer:size(size90):indication,
+.avatarContainer:size(size72):indication,
+.avatarContainer:size(size60):indication {
+  padding-right:6px;
+}
+
+.avatarContainer:size(size48):indication {
+  padding-right:12px;
+}
+
+.avatarContainer:size(size90):indication:presence {
+  padding-right:6px;
+}
+
+.avatarContainer:size(size72):indication:presence,
+.avatarContainer:size(size60):indication:presence {
+  padding-right:4px;
+}
+
+.avatarContainer:size(size48):indication:presence {
+  padding-right:7px;
+}
+
+.avatarContainer:size(size48):indication .presence{
+  right: 10px;
+}
+
+.avatarContainer:size(size60):indication .presence,
+.avatarContainer:size(size72):indication .presence{
+  right: 6px;
+}
+
+.avatarContainer:size(size90):indication .presence{
+  right: 16px;
 }

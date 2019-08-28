@@ -151,11 +151,7 @@ module.exports = {
 
   Avatar: {
     unidriver: true,
-    puppeteerUnidriver: true,
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-    protractorTestkitPath: "../src/Avatar/Avatar.driver",
-    puppeteerTestkitImportName: "avatarUniDriverFactory"
+    testkitPath: "../src/Avatar/Avatar.uni.driver"
   },
 
   TextButton: {
