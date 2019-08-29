@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Avatar/>` - add `presence` & `indication` props [#4019](https://github.com/wix/wix-style-react/pull/4019)
+- `<Table/>` - add `showSelectAll` prop [#4027](https://github.com/wix/wix-style-react/pull/4027)
 
 ## 6.52.1 - 2019-08-27
 
