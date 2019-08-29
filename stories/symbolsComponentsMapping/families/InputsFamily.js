@@ -1,27 +1,27 @@
 import { inputsSymbols } from '../symbols';
 import {
   inputsComponentsNames as componentsNames,
-  sharedComponents,
+  sharedComponentsNames,
 } from '../components';
 
 export const inputsSymbolsToComponents = {
   [inputsSymbols.textInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.Input,
   ],
 
   [inputsSymbols.textArea]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.InputArea,
   ],
 
   [inputsSymbols.richTextArea]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.RichTextInputArea,
   ],
 
   [inputsSymbols.numberInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.NumberInput,
   ],
 
@@ -32,34 +32,34 @@ export const inputsSymbolsToComponents = {
   [inputsSymbols.durationInput]: [],
 
   [inputsSymbols.timeInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.TimeInput,
   ],
 
   [inputsSymbols.dateInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.DateInput,
   ],
 
   [inputsSymbols.dateRangeInput]: [],
 
   [inputsSymbols.colorInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.ColorInput,
   ],
 
   [inputsSymbols.tagsInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.MultiSelect,
-    sharedComponents.Tag,
+    sharedComponentsNames.Tag,
   ],
 
-  [inputsSymbols.googleAddressInput]: [],
+  [inputsSymbols.googleAddressInput]: [componentsNames.GoogleAddressInput],
 
   [inputsSymbols.searchInput]: [componentsNames.Search],
 
   [inputsSymbols.mediaInput]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.ImageViewer,
   ],
 };

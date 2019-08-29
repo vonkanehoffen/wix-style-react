@@ -7,7 +7,7 @@ import {
   notificationsComponentsNames,
   tooltipPopoverComponentsNames,
   modalsComponentsNames,
-  sharedComponents,
+  sharedComponentsNames,
 } from './components';
 
 import {
@@ -32,7 +32,11 @@ const componentActualUrl = {
   [layoutComponentsNames.PageHeader]: linkTo('Components', 'PageHeader'),
   [layoutComponentsNames.Layout]: linkTo('Components/Layout', 'Usage'),
   [tooltipPopoverComponentsNames.PopoverMenu]: linkTo('BETA', 'PopoverMenu'),
-  [sharedComponents.Icon]: linkTo('1. Foundation', '1.4 Icons'),
+  [sharedComponentsNames.Icon]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
+  [modalsComponentsNames.ModalPreviewLayout]: linkTo(
+    'WIP',
+    modalsComponentsNames.ModalPreviewLayout,
+  ),
 };
 
 const symbolActualUrl = {

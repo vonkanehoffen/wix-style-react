@@ -41,7 +41,7 @@ const DropdownExample = () => {
   const symbol = selectionSymbols.dropdown;
   const components = selectionSymbolsToComponents[symbol];
 
-  const dropdownProps = {
+  const singleComponentProps = {
     name: symbol,
     componentsNames: createLinkedComponentsNames(components),
     size: singleComponentSizes.compact,
@@ -53,7 +53,7 @@ const DropdownExample = () => {
   }));
 
   return (
-    <SingleComponentSideBySide {...dropdownProps}>
+    <SingleComponentSideBySide {...singleComponentProps}>
       <FormField id="formfieldDropdownId" label="Dropdown">
         <Dropdown id="formfieldDropdownId" options={dropdownOptions} />
       </FormField>
@@ -87,14 +87,14 @@ class MultiSelectDropdownExample extends PureComponent {
     const symbol = selectionSymbols.multiSelectDropdown;
     const components = selectionSymbolsToComponents[symbol];
 
-    const multiSelectProps = {
+    const singleComponentProps = {
       name: symbol,
       componentsNames: createLinkedComponentsNames(components),
       size: singleComponentSizes.compact,
     };
 
     return (
-      <SingleComponentSideBySide {...multiSelectProps}>
+      <SingleComponentSideBySide {...singleComponentProps}>
         <FormField
           id="formfieldMultiSelectDropdownId"
           label="Multi Select Dropdown"
@@ -158,13 +158,13 @@ class RadioExample extends PureComponent {
     const symbol = selectionSymbols.radio;
     const components = selectionSymbolsToComponents[symbol];
 
-    const radioProps = {
+    const singleComponentProps = {
       name: symbol,
       componentsNames: createLinkedComponentsNames(components),
     };
 
     return (
-      <SingleComponentSideBySide {...radioProps}>
+      <SingleComponentSideBySide {...singleComponentProps}>
         <FormField id="formfieldRadioGroupId" label="Radio Group">
           <RadioGroup
             id="formfieldRadioGroupId"
@@ -193,13 +193,13 @@ class ToggleExample extends PureComponent {
     const symbol = selectionSymbols.toggle;
     const components = selectionSymbolsToComponents[symbol];
 
-    const toggleProps = {
+    const singleComponentProps = {
       name: symbol,
       componentsNames: createLinkedComponentsNames(components),
     };
 
     return (
-      <SingleComponentSideBySide {...toggleProps}>
+      <SingleComponentSideBySide {...singleComponentProps}>
         <FormField
           id="formfieldToggleSwitchId"
           infoContent="I help you to fill info"
@@ -223,13 +223,13 @@ const SegmentedToggleExample = () => {
   const symbol = selectionSymbols.segmentedToggle;
   const components = selectionSymbolsToComponents[symbol];
 
-  const segmentedToggleProps = {
+  const singleComponentProps = {
     name: createLinkedSymbolName({ groupSymbol, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
-    <SingleComponentSideBySide {...segmentedToggleProps}>
+    <SingleComponentSideBySide {...singleComponentProps}>
       <FormField id="formfieldSegmentedToggleId" label="Segmented Toggle">
         <Box>
           <SegmentedToggle
@@ -301,13 +301,13 @@ const ThumbnailSelectExamples = () => {
   const symbol = selectionSymbols.thumbnailSelect;
   const components = selectionSymbolsToComponents[symbol];
 
-  const thumbnailProps = {
+  const singleComponentProps = {
     name: symbol,
     componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
-    <SingleComponentSideBySide {...thumbnailProps}>
+    <SingleComponentSideBySide {...singleComponentProps}>
       <Box marginBottom="30px">
         <ThumbnailWithTitleExample />
       </Box>
@@ -329,14 +329,14 @@ class SliderExample extends PureComponent {
     const symbol = selectionSymbols.slider;
     const components = selectionSymbolsToComponents[symbol];
 
-    const sliderProps = {
+    const singleComponentProps = {
       name: createLinkedSymbolName({ groupSymbol, symbol }),
       componentsNames: createLinkedComponentsNames(components),
       size: singleComponentSizes.compact,
     };
 
     return (
-      <SingleComponentSideBySide {...sliderProps}>
+      <SingleComponentSideBySide {...singleComponentProps}>
         <FormField id="formfieldSliderId" label="Slider Label">
           <Slider
             id="formfieldSliderId"
@@ -357,13 +357,13 @@ const CheckToggleExample = () => {
   const symbol = selectionSymbols.checkToggle;
   const components = selectionSymbolsToComponents[symbol];
 
-  const checkToggleProps = {
+  const singleComponentProps = {
     name: symbol,
     componentsNames: components,
   };
 
   return (
-    <SingleComponentSideBySide {...checkToggleProps}>
+    <SingleComponentSideBySide {...singleComponentProps}>
       <NotDeveloped />
     </SingleComponentSideBySide>
   );

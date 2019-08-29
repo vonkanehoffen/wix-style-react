@@ -1,4 +1,4 @@
-export const sharedComponents = {
+export const sharedComponentsNames = {
   FormField: 'FormField',
   EmptyState: 'EmptyState',
   Tag: 'Tag',
@@ -16,6 +16,7 @@ export const inputsComponentsNames = {
   DateInput: 'DateInput',
   Search: 'Search',
   ImageViewer: 'ImageViewer',
+  GoogleAddressInput: 'GoogleAddressInput',
 };
 
 export const layoutComponentsNames = {

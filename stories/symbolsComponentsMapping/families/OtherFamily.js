@@ -1,22 +1,22 @@
 import { otherSymbols } from '../symbols';
 import {
   otherComponentsNames as componentsNames,
-  sharedComponents,
+  sharedComponentsNames,
 } from '../components';
 
 export const otherSymbolsToComponents = {
   [otherSymbols.avatar]: [componentsNames.Avatar],
 
-  [otherSymbols.badge]: [componentsNames.Badge, sharedComponents.Icon],
+  [otherSymbols.badge]: [componentsNames.Badge, sharedComponentsNames.Icon],
 
   [otherSymbols.badgeSelect]: [componentsNames.BadgeSelect],
 
   [otherSymbols.counterBadge]: [
     componentsNames.CounterBadge,
-    sharedComponents.Icon,
+    sharedComponentsNames.Icon,
   ],
 
-  [otherSymbols.tag]: [sharedComponents.Tag],
+  [otherSymbols.tag]: [sharedComponentsNames.Tag],
 
   [otherSymbols.loader]: [componentsNames.Loader],
 

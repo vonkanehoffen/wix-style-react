@@ -156,13 +156,13 @@ const PageExamples = () => {
   const symbol = layoutSymbols.pageLayout;
   const components = layoutSymbolsToComponents[symbol];
 
-  const pageLayoutProps = {
+  const singleComponentProps = {
     name: createLinkedSymbolName({ groupSymbol, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
-    <SingleComponentStacked {...pageLayoutProps}>
+    <SingleComponentStacked {...singleComponentProps}>
       <ExamplePageWithCard />
       <Box height="30px" backgroundColor="D80" />
       <ExamplePageEmptyState />

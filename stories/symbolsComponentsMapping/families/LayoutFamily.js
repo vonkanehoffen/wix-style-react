@@ -1,7 +1,7 @@
 import { layoutSymbols } from '../symbols';
 import {
   layoutComponentsNames as componentsNames,
-  sharedComponents,
+  sharedComponentsNames,
 } from '../components';
 
 export const layoutSymbolsToComponents = {
@@ -11,14 +11,14 @@ export const layoutSymbolsToComponents = {
     componentsNames.Grid,
     componentsNames.Layout,
     componentsNames.Card,
-    sharedComponents.EmptyState,
+    sharedComponentsNames.EmptyState,
   ],
   [layoutSymbols.cardLayout]: [
     componentsNames.Card,
     componentsNames.CardHeader,
     componentsNames.CardSubheader,
     componentsNames.Grid,
-    sharedComponents.EmptyState,
+    sharedComponentsNames.EmptyState,
   ],
   [layoutSymbols.tableLayout]: [
     componentsNames.Table,
