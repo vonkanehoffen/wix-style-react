@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
 
 import { Avatar as CoreAvatar } from 'wix-ui-core/dist/src/components/avatar';
-import { avatar as avatarStyle } from 'wix-ui-core/dist/src/themes/backoffice';
 
 import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
@@ -45,7 +44,8 @@ const Avatar = props => {
           <CoreAvatar
             {...rest}
             className={classNames(
-              avatarStyle(size, color && `color${capitalize(color)}`),
+              styles.avatar,
+              color && styles[`color${capitalize(color)}`],
             )}
           />
         </div>
