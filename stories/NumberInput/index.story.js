@@ -46,7 +46,7 @@ export default {
       items: [
         description({
           title: 'Description',
-          text: `Number Input is a composition of 2 individual components – &lt;FormField/&gt; and &lt;NumberInput /&gt;. This composition is used to build various forms.`,
+          text: `Number Input is a composition of two individual components – &lt;FormField/&gt; and &lt;NumberInput /&gt;. This composition is used to build various forms.`,
         }),
       ],
     }),
