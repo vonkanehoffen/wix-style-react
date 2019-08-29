@@ -20,6 +20,9 @@ Types of changes:
 - `<Avatar/>` - add `presence` & `indication` props [#4019](https://github.com/wix/wix-style-react/pull/4019)
 - `<Table/>` - add `showSelectAll` prop [#4027](https://github.com/wix/wix-style-react/pull/4027)
 
+## Changed
+- `<Avatar/>` - migrate theme from `wix-ui-core` [#4030](https://github.com/wix/wix-style-react/pull/4030)
+
 ## 6.52.1 - 2019-08-27
 
 No Changes (Patch version, only to re-publish Storybook, after failed publish)
