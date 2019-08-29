@@ -70,6 +70,28 @@ describe('Table', () => {
       });
     });
 
+    describe('showSelectAll prop', () => {
+      it('should display selection checkbox in header by default', async () => {
+        const { driver } = render(
+          <Table {...defaultProps} selectedIds={firstSelected()} />,
+        );
+        const rowCheckboxDriver = await driver.getRowCheckboxDriver(1);
+        expect(await rowCheckboxDriver.exists()).toBeTruthy();
+        const bulkSelectionCheckboxDriver = await driver.getBulkSelectionCheckboxDriver();
+        expect(await bulkSelectionCheckboxDriver.exists()).toBeTruthy();
+      });
+
+      it('should not display selection checkbox in header when set to false', async () => {
+        const { driver } = render(
+          <Table {...defaultProps} showSelectAll={false} />,
+        );
+        const rowCheckboxDriver = await driver.getRowCheckboxDriver(1);
+        expect(await rowCheckboxDriver.exists()).toBeTruthy();
+        const bulkSelectionCheckboxDriver = await driver.getBulkSelectionCheckboxDriver();
+        expect(await bulkSelectionCheckboxDriver.exists()).toBeFalsy();
+      });
+    });
+
     describe('selectedIds prop', () => {
       it('should select rows according to selectedIds prop given string ids', async () => {
         const { driver } = render(

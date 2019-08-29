@@ -146,7 +146,8 @@ export default {
             {
               title: 'Table with Toolbar',
               description:
-                'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there are no selected rows, and an actions toolbar when some rows are selected.',
+                'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there are no selected rows, and an actions toolbar when some rows are selected.' +
+                'If you want to manually create the Select All UX in the table toolbar (or anywhere else), you can set `showSelectAll` prop to `false` so it will not be rendered in the table header.',
               source: TableToolbarExampleRaw,
               compact: true,
             },

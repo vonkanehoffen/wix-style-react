@@ -26,7 +26,7 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
     deselectRowsByDefault,
   }) => {
     return {
-      title: (
+      title: tableProps.showSelectAll ? (
         <Checkbox
           dataHook="table-select"
           checked={bulkSelectionState === BulkSelectionState.ALL}
@@ -34,6 +34,8 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
           disabled={disabled}
           onChange={() => toggleAll(deselectRowsByDefault)}
         />
+      ) : (
+        ''
       ),
       render: (row, rowNum) => {
         const id = defaultTo(row.id, rowNum);
@@ -139,6 +141,7 @@ Table.displayName = 'Table';
 Table.defaultProps = {
   ...DataTable.defaultProps,
   showSelection: false,
+  showSelectAll: true,
   children: [<Table.Content key="content" />],
   withWrapper: true,
   showLastRowDivider: false,
@@ -161,6 +164,9 @@ Table.propTypes = {
 
   /** Indicates whether to show a selection column (with checkboxes) */
   showSelection: PropTypes.bool,
+
+  /** Indicates whether to show a Select All checkbox in the table header when showing the selection column */
+  showSelectAll: PropTypes.bool,
 
   /** Array of selected row ids.
    *  Ideally, id should be a property on the data row object.
