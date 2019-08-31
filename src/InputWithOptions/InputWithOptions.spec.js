@@ -67,9 +67,9 @@ describe('InputWithOptions', () => {
       const { inputDriver, dropdownLayoutDriver } = createDriver(
         <InputWithOptions options={options} />,
       );
-      expect(await inputDriver.exists()).toBeTruthy();
-      expect(await dropdownLayoutDriver.exists()).toBeTruthy();
-      expect(await dropdownLayoutDriver.isShown()).toBeFalsy();
+      expect(await inputDriver.exists()).toBe(true);
+      expect(await dropdownLayoutDriver.exists()).toBe(false);
+      expect(await dropdownLayoutDriver.isShown()).toBe(false);
     });
 
     it('should show DropdownLayout when input get focused', async () => {
