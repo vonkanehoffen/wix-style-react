@@ -22,6 +22,7 @@ Types of changes:
 
 ### Changed
 - `<Avatar/>` - migrate theme from `wix-ui-core` [#4030](https://github.com/wix/wix-style-react/pull/4030)
+- `<Inputwithoptions/>` - migrate to use popover mechanism [#4001](https://github.com/wix/wix-style-react/pull/4001)
 
 ### Docs
 - `Cheatsheet` - adding and improving existing examples (Modals, Navigation & Inputs families) [#4016](https://github.com/wix/wix-style-react/pull/4016)
