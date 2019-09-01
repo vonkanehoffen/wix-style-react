@@ -298,6 +298,7 @@ const MarketingExample = () => {
         </Cell>
         <Cell>
           <MessageBoxMarketerialLayout
+            onClose={() => console.log('onClose')}
             title="Looking good! Your site is on Google"
             content="All of your pages are indexed and now come up as separate search results on Google. This is great for your visibility!"
             confirmText="Preview"

@@ -24,13 +24,12 @@ import SectionHelper from 'wix-style-react/SectionHelper';
 
 //Assets
 import { Layout, Cell } from 'wix-style-react/Layout';
-import StatusComplete from 'wix-ui-icons-common/StatusComplete';
-import TextButton from 'wix-style-react/TextButton';
+import Delete from 'wix-ui-icons-common/Delete';
 
 const groupSymbol = symbolsGroup.notificationBars;
 
-class NotificationsExamples extends PureComponent {
-  renderNotification = props => {
+const NotificationsExamples = () => {
+  const renderNotification = props => {
     const {
       textLabel,
       actionButton,
@@ -54,72 +53,67 @@ class NotificationsExamples extends PureComponent {
     );
   };
 
-  render() {
-    const notificationThemes = [
-      'standard',
-      'success',
-      'warning',
-      'error',
-      'premium',
-    ];
+  const notificationVariations = [
+    { theme: 'standard', textLabel: 'You have enabled new functionality' },
+    { theme: 'success', textLabel: 'Your changes were successfully saved' },
+    { theme: 'warning', textLabel: 'Your payment methods are not set up' },
+    { theme: 'error', textLabel: 'File Upload failed!' },
+    { theme: 'premium', textLabel: 'This feature is for premium users only' },
+  ];
 
-    const symbol = notificationsSymbols.notification;
-    const components = notificationsSymbolsToComponents[symbol];
+  const symbol = notificationsSymbols.notification;
+  const components = notificationsSymbolsToComponents[symbol];
 
-    const singleComponentProps = {
-      name: createLinkedSymbolName({ groupSymbol, symbol }),
-      componentsNames: createLinkedComponentsNames(components),
-    };
+  const singleComponentProps = {
+    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    componentsNames: createLinkedComponentsNames(components),
+  };
 
-    return (
-      <SingleComponentSideBySide {...singleComponentProps}>
-        <Layout>
-          <Cell key={`remount-button`}>
-            <TextButton onClick={() => this.forceUpdate()}>Reset</TextButton>
-          </Cell>
-          {notificationThemes.map((theme, i) => (
-            <Cell key={`theme-cell-${i}`}>
-              {this.renderNotification({
-                theme,
-                key: `notification-${theme}-${i}`,
-                textLabel: `This is a ${theme} notification`,
-              })}
-            </Cell>
-          ))}
-          <Cell key={`action-notification-cell-text-link`}>
-            {this.renderNotification({
-              key: `notification-with-text-link`,
-              textLabel: `This notification has`,
-              actionButton: true,
-              actionButtonType: 'textLink',
-              onClick: () => alert('text link action'),
-              actionButtonText: 'Text Link Action',
+  return (
+    <SingleComponentSideBySide {...singleComponentProps}>
+      <Layout>
+        {notificationVariations.map((variation, i) => (
+          <Cell key={`theme-cell-${i}`}>
+            {renderNotification({
+              theme: variation.theme,
+              key: `notification-${variation.theme}-${i}`,
+              textLabel: variation.textLabel,
             })}
           </Cell>
-          <Cell key={`action-notification-cell-button`}>
-            {this.renderNotification({
-              key: `notification-with-button`,
-              textLabel: `This notification has`,
-              actionButton: true,
-              actionButtonType: 'button',
-              onClick: () => alert('button action'),
-              actionButtonText: 'Button',
-            })}
-          </Cell>
-        </Layout>
-      </SingleComponentSideBySide>
-    );
-  }
-}
+        ))}
+        <Cell key={`action-notification-cell-text-link`}>
+          {renderNotification({
+            key: `notification-with-text-link`,
+            textLabel: 'You have enabled new functionality',
+            actionButton: true,
+            actionButtonType: 'textLink',
+            onClick: () => alert('text link action'),
+            actionButtonText: 'Undo',
+          })}
+        </Cell>
+        <Cell key={`action-notification-cell-button`}>
+          {renderNotification({
+            key: `notification-with-button`,
+            textLabel: 'You have enabled new functionality',
+            actionButton: true,
+            actionButtonType: 'button',
+            onClick: () => alert('button action'),
+            actionButtonText: 'Button',
+          })}
+        </Cell>
+      </Layout>
+    </SingleComponentSideBySide>
+  );
+};
 
 const FloatingNotificationsExamples = () => {
-  const floatingNotificationTypes = [
-    'standard',
-    'success',
-    'warning',
-    'destructive',
-    'premium',
-    'preview',
+  const floatingNotificationVariations = [
+    { type: 'standard', text: '"Image.jpg" was moved to trash' },
+    { type: 'success', text: '"Image.jpg" was successfully uploaded' },
+    { type: 'warning', text: 'Your payments are not set up' },
+    { type: 'destructive', text: '"Image.jpg" failed to upload' },
+    { type: 'premium', text: 'This feature is for premium users only' },
+    { type: 'preview', text: 'A new feature has been enabled' },
   ];
 
   const renderNotification = props => (
@@ -137,19 +131,19 @@ const FloatingNotificationsExamples = () => {
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
       <Layout>
-        {floatingNotificationTypes.map((type, i) => (
+        {floatingNotificationVariations.map((variation, i) => (
           <Cell key={`type-cell-${i}`}>
             {renderNotification({
-              type,
-              key: `notification-${type}-${i}`,
-              text: `This is a ${type} floating notification`,
+              type: variation.type,
+              key: `notification-${variation.type}-${i}`,
+              text: variation.text,
             })}
           </Cell>
         ))}
         <Cell key={`link-button-cell`}>
           {renderNotification({
             key: 'notification-with-buttons',
-            text: 'This is some text',
+            text: '"Image.jpg" was moved to',
             showButton: true,
             buttonProps: {
               label: 'Undo',
@@ -160,7 +154,7 @@ const FloatingNotificationsExamples = () => {
               label: 'Trash',
               onClick: () => alert('text button action'),
             },
-            prefixIcon: <StatusComplete />,
+            prefixIcon: <Delete />,
           })}
         </Cell>
       </Layout>
@@ -169,14 +163,47 @@ const FloatingNotificationsExamples = () => {
 };
 
 const SectionsHelperExamples = () => {
-  const sectionHelperAppearance = [
-    'standard',
-    'success',
-    'warning',
-    'danger',
-    'premium',
-    'preview',
-    'experimentalDark',
+  const sectionHelperVariations = [
+    {
+      appearance: 'standard',
+      title: "Don't forget setup payments",
+      children:
+        'In order to sell your music you need to choose a payment method',
+    },
+    {
+      appearance: 'success',
+      title: 'Your SEO is good',
+      children:
+        'Congratulations, your website appears at the top of the list in search results.',
+    },
+    {
+      appearance: 'warning',
+      title: "Don't forget setup payments",
+      children:
+        'In order to sell your music you need to choose a payment method',
+    },
+    {
+      appearance: 'danger',
+      title: 'Your data got corrupted!',
+      children:
+        'Go to settings and update your contact details in order to let your clients reach you',
+    },
+    {
+      appearance: 'premium',
+      title: 'Upgrade to Premium',
+      children:
+        'In order to sell your music you need to choose a payment method',
+    },
+    {
+      appearance: 'preview',
+      title: 'Total $9.99',
+      children: 'Your yearly subscription will auto renew on January 1st, 2019',
+    },
+    {
+      appearance: 'experimentalDark',
+      title: 'Total $9.99',
+      children: 'Your yearly subscription will auto renew on January 1st, 2019',
+    },
   ];
 
   const renderSectionHelper = props => (
@@ -198,22 +225,24 @@ const SectionsHelperExamples = () => {
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
       <Layout>
-        {sectionHelperAppearance.map((appearance, i) => (
-          <Cell key={`appearance-${appearance}-${i}`}>
+        {sectionHelperVariations.map((variation, i) => (
+          <Cell key={`appearance-${variation.appearance}-${i}`}>
             {renderSectionHelper({
-              appearance,
+              appearance: variation.appearance,
               key: `section-helper-${i}`,
-              title: `This is ${appearance} appearance`,
-              children: 'This is a very important message',
+              title: variation.title,
+              children: variation.children,
             })}
           </Cell>
         ))}
         <Cell key={`section-helper-with-action`}>
           {renderSectionHelper({
             key: `section-helper-action-text`,
-            actionText: `action text`,
-            title: `This is SectionHelper with action`,
-            children: `This is section helper text`,
+            appearance: 'standard',
+            actionText: `Ok, take me there`,
+            title: "Don't forget setup payments",
+            children:
+              'In order to sell your music you need to choose a payment method',
             onAction: () => alert('action text'),
           })}
         </Cell>

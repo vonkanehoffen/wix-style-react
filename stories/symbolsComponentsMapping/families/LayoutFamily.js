@@ -9,7 +9,6 @@ export const layoutSymbolsToComponents = {
     componentsNames.Page,
     componentsNames.PageHeader,
     componentsNames.Grid,
-    componentsNames.Layout,
     componentsNames.Card,
     sharedComponentsNames.EmptyState,
   ],
