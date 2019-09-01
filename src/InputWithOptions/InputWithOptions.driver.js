@@ -1,7 +1,6 @@
 import inputDriverFactory from '../Input/Input.driver';
 import dropdownLayoutDriverFactory from '../DropdownLayout/DropdownLayout.driver';
 import popoverDriverFactory from '../Popover/Popover.driver';
-import { dropdownLayoutDriverProxy } from './InputWithOptions.proxy.driver';
 
 const inputWithOptionsDriverFactory = ({ element }) => {
   const dropdownLayoutSelector = `[data-hook="dropdown-layout-wrapper"]`;
@@ -57,23 +56,38 @@ const inputWithOptionsDriverFactory = ({ element }) => {
     },
   };
 
-  const dropdownLayoutDummy = () =>
-    dropdownLayoutDriverFactory({
-      element: document.body,
-    });
-
-  const dropdownLayoutDriver = dropdownLayoutDriverProxy(
-    dropdownLayoutDummy,
-    dropdownLayoutTestkit,
-    popoverTestkit,
-    driver,
-  );
+  const dropdownLayoutDummy = dropdownLayoutDriverFactory({
+    element: document.body,
+  });
 
   return {
     exists: () => driver.exists(),
     driver,
     inputDriver,
-    dropdownLayoutDriver,
+    dropdownLayoutDriver: Object.keys(dropdownLayoutDummy).reduce(
+      (prev, current) => {
+        return {
+          ...prev,
+          [current]: args => {
+            if (current === 'isShown' || current === 'exists') {
+              return popoverTestkit().isContentElementExists();
+            }
+
+            if (current === 'getDropdown' || current === 'getDropdownItem') {
+              return popoverTestkit().isContentElementExists()
+                ? dropdownLayoutTestkit()[current](args)
+                : undefined;
+            }
+
+            !popoverTestkit().isContentElementExists() &&
+              inputDriver.keyDown('ArrowDown');
+
+            return dropdownLayoutTestkit()[current](args);
+          },
+        };
+      },
+      {},
+    ),
   };
 };
 
