@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.54.0 - 2019-09-01
 
 ### Added
 - `<Table/>` - add ability to make rows unselectable [#4028](https://github.com/wix/wix-style-react/pull/4028)
