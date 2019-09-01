@@ -14,7 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## 6.51.1 - 2019-09-01
+
+### Next
+- `Cheatsheet` - Fixes of the "Notifications" and "Tooltip" examples. [#4023](https://github.com/wix/wix-style-react/pull/4023)
+
+## 6.54.1 - 2019-09-01
 
 ### Fixed
 
