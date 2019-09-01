@@ -182,7 +182,7 @@ export class BulkSelection extends React.Component {
 BulkSelection.propTypes = {
   /** Array of item selection boolean states. Should correspond in length to the data prop */
   selectedIds: oneOfType([arrayOf(string), arrayOf(number)]),
-  /** An array of all item ids (string ids) */
+  /** An array of all selectable item ids (string ids) */
   allIds: oneOfType([arrayOf(string), arrayOf(number)]).isRequired,
   /** Called when item selection changes.
    * Receives 2 arguments, the updated selectedIds array, and a `change` object.

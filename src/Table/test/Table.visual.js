@@ -162,6 +162,23 @@ const tests = [
         },
       },
       {
+        it: 'Should display the table with selection with unselectable row',
+        props: {
+          data: [
+            ...data,
+            {
+              name: 'Unselectable Product',
+              SKU: '123123',
+              price: '$6.00',
+              inventory: 'In stock',
+              unselectable: true,
+            },
+          ],
+          columns,
+          showSelection: true,
+        },
+      },
+      {
         it:
           'Should display the table with selection but without Select All column title',
         props: {

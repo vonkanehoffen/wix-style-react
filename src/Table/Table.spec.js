@@ -70,7 +70,24 @@ describe('Table', () => {
       });
     });
 
-    describe('showSelectAll prop', () => {
+    describe('unselectable prop', () => {
+      it('should not display selection checkbox when row.unselectable is true', async () => {
+        const { data, ...otherDefaultProps } = defaultProps;
+        const dataWithUnselectable = [
+          { a: 'value 3', b: 'value 4', unselectable: true },
+          ...data,
+        ];
+        const { driver } = render(
+          <Table data={dataWithUnselectable} {...otherDefaultProps} />,
+        );
+        const firstRowCheckboxDriver = await driver.getRowCheckboxDriver(0);
+        expect(await firstRowCheckboxDriver.exists()).toBeFalsy();
+        const secondRowCheckboxDriver = await driver.getRowCheckboxDriver(1);
+        expect(await secondRowCheckboxDriver.exists()).toBeTruthy();
+      });
+    });
+
+  describe('showSelectAll prop', () => {
       it('should display selection checkbox in header by default', async () => {
         const { driver } = render(
           <Table {...defaultProps} selectedIds={firstSelected()} />,
@@ -292,6 +309,38 @@ describe('Table', () => {
           await driver.clickBulkSelectionCheckbox();
           expect(await driver.isRowSelected(0)).toBeTruthy();
           expect(await driver.isRowSelected(1)).toBeTruthy();
+        });
+
+        it('should select only selectable rows when bulk-selection checkbox clicked given no checkboxes are checked', async () => {
+          const { data, ...otherDefaultProps } = defaultProps;
+          const dataWithUnselectable = [
+            { a: 'value 3', b: 'value 4', unselectable: true },
+            ...data,
+          ];
+          let tableSelectionContext;
+          const { driver } = render(
+            <Table
+              data={dataWithUnselectable}
+              selectedIds={noneSelected()}
+              {...otherDefaultProps}
+            >
+              <Table.ToolbarContainer>
+                {selectionContext => {
+                  tableSelectionContext = selectionContext;
+                  return null;
+                }}
+              </Table.ToolbarContainer>
+              <Table.Content />
+            </Table>,
+          );
+          await driver.clickBulkSelectionCheckbox();
+          expect(await driver.isRowSelected(1)).toBeTruthy();
+          expect(await driver.isRowSelected(2)).toBeTruthy();
+          expect(tableSelectionContext.selectedCount).toBe(data.length);
+          expect(tableSelectionContext.bulkSelectionState).toBe('ALL');
+          expect(tableSelectionContext.getSelectedIds()).toEqual(
+            data.map(row => row.id),
+          );
         });
 
         it('should select all rows when bulk-selection checkbox clicked given some checkboxes are checked', async () => {
