@@ -81,13 +81,13 @@ export default {
               }),
             ]),
 
-            importExample({
-              source: "import IconButton from 'wix-style-react/IconButton';",
-            }),
+            importExample(
+              "import IconButton from 'wix-style-react/IconButton';",
+            ),
 
             divider(),
 
-            columns([title('Examples')]),
+            title('Examples'),
 
             ...[
               {
@@ -124,20 +124,9 @@ export default {
           ],
         }),
 
-        tab({
-          title: 'API',
-          sections: [api()],
-        }),
-
-        tab({
-          title: 'Testkit',
-          sections: [description({ text: testkit })],
-        }),
-
-        tab({
-          title: 'Playground',
-          sections: [playground()],
-        }),
+        tab({ title: 'API', sections: [api()] }),
+        tab({ title: 'Testkit', sections: [description(testkit)] }),
+        tab({ title: 'Playground', sections: [playground()] }),
       ],
     }),
   ],

@@ -30,9 +30,7 @@ export default {
     tab({
       title: 'Usage',
       sections: [
-        importExample({
-          source: "import NumberInput from 'wix-style-react/NumberInput';",
-        }),
+        importExample("import NumberInput from 'wix-style-react/NumberInput';"),
         code({ title: 'Standard', source: examples.standard }),
         code({ title: 'Error', source: examples.error }),
         code({ title: 'Affix', source: examples.affix }),

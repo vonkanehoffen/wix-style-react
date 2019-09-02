@@ -44,12 +44,10 @@ export default {
               'Card is a compound component for any content to be displayed in a styled block. This is one of the basic building blocks and combined well with Grid component',
           }),
 
-          importExample({
-            source: `
+          importExample(`
 import Card from 'wix-style-react/Card';
 const { Header, Subheader, Content, Divider} = Card;
-            `,
-          }),
+            `),
 
           divider(),
 

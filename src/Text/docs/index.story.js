@@ -10,7 +10,7 @@ import {
   importExample,
   divider,
   testkit,
-  code as baseLiveCode,
+  code as baseCode,
   title,
 } from 'wix-storybook-utils/Sections';
 import Text, { SIZES, SKINS, WEIGHTS } from '..';
@@ -21,13 +21,8 @@ import { storySettings } from '../test/storySettings';
 import { Layout, Cell } from '../../Layout';
 import SectionHelper from '../../SectionHelper';
 
-const liveCode = config =>
-  baseLiveCode({ components: { ...allComponents }, ...config });
-
-const example = ({ source, ...rest }) =>
-  columns({
-    items: [description(rest), liveCode({ compact: true, source })],
-  });
+const code = config =>
+  baseCode({ components: allComponents, compact: true, ...config });
 
 export default {
   category: storySettings.category,
@@ -146,9 +141,12 @@ export default {
               text: 'Control the rendered HTML tag.',
               source: examples.custom,
             },
-          ].map(example),
+          ].map(({ title, text, source }) =>
+            columns([description({ title, text }), code({ source })]),
+          ),
         ],
       }),
+
       ...[
         { title: 'API', sections: [api()] },
         { title: 'Testkit', sections: [testkit()] },

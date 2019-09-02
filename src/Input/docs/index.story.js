@@ -44,9 +44,7 @@ export default {
       tab({
         title: 'Usage',
         sections: [
-          importExample({
-            source: "import Input from 'wix-style-react/Input';",
-          }),
+          importExample("import Input from 'wix-style-react/Input';"),
 
           divider(),
 
