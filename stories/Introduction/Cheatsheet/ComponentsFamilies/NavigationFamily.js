@@ -185,9 +185,10 @@ class TextTabsExample extends PureComponent {
   onTabClick = ({ id }) => this.setState({ activeTab: id });
 
   render() {
-    const tabItems = ['First', 'Second', 'Third'].map((tabText, i) => {
-      return { title: `${tabText} Item`, id: i + 1 };
-    });
+    const tabItems = ['First', 'Second', 'Third'].map((tabText, i) => ({
+      title: `${tabText} Item`,
+      id: i + 1,
+    }));
 
     const { activeTab } = this.state;
 

@@ -14,6 +14,11 @@ export const symbolsGroup = {
   contentWidgets: '12. Content Widgets',
 };
 
+export const foundationSymbols = {
+  typography: '1.2 Typography',
+  icons: '1.4 Icons',
+};
+
 export const layoutSymbols = {
   pageLayout: '2.1 Page Layout',
   cardLayout: '2.2 Card Layout',
@@ -110,9 +115,10 @@ export const otherSymbols = {
 export const contentWidgetsSymbols = {
   imageWidget: '12.1 Image Widget',
   emptyState: '12.2 Empty State',
-  statsWidget: '12.3 Stats Widget',
+  statisticsWidget: '12.3 Statistics Widget',
   carousel: '12.4 Carousel',
   accordion: '12.5 Accordion',
   cardGalleryItem: '12.6 Card Gallery Item',
   preview: '12.7 Preview',
+  omniSetup: '12.8 Omni Setup',
 };

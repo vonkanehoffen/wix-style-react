@@ -28,6 +28,7 @@ import CircularProgressBar from 'wix-style-react/CircularProgressBar';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 import InfoSmall from 'wix-ui-icons-common/InfoSmall';
+import PhotoCamera from 'wix-ui-icons-common/PhotoCamera';
 
 const groupSymbol = symbolsGroup.other;
 
@@ -48,10 +49,16 @@ const AvatarExample = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout cols={5} justifyItems="center" alignItems="center">
+      <Layout cols={6} justifyItems="center" alignItems="center">
         {avatarColors.map((color, i) =>
           renderAvatar({ color, name: avatarName, key: `avatar-${i + 1}` }),
         )}
+        {renderAvatar({
+          imgProps: { src: 'https://randomuser.me/api/portraits/women/39.jpg' },
+          indication: <PhotoCamera size="24" />,
+          onClick: () => 'Clicked!',
+          presence: 'online',
+        })}
       </Layout>
     </SingleComponentSideBySide>
   );
@@ -81,15 +88,18 @@ const BadgeExample = () => {
 
   const renderBadge = props => <Badge {...props}>Badge</Badge>;
 
-  const renderTypes = props =>
-    badgeTypes.map((type, i) => (
-      <Cell key={`badge-type-${i + 1}`}>{renderBadge({ type, ...props })}</Cell>
-    ));
+  const renderTypes = props => (
+    <Layout cols={8}>
+      {badgeTypes.map((type, i) =>
+        renderBadge({ type, ...props, key: `badge-${i}` }),
+      )}
+    </Layout>
+  );
 
   const renderSkinLayout = (skin, i) => (
-    <Layout key={`skin-layout-${i + 1}`} gap="5px">
+    <Cell key={`cell-${skin}-${i}`}>
       {renderTypes({ uppercase: false, skin })}
-    </Layout>
+    </Cell>
   );
 
   const symbol = otherSymbols.badge;
@@ -102,7 +112,7 @@ const BadgeExample = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout cols={8}>
+      <Layout>
         {badgeSkins.map(renderSkinLayout)}
         {badgeSkinsLight.map(renderSkinLayout)}
       </Layout>
@@ -228,6 +238,18 @@ const TagExample = () => {
       id: '3',
       label: 'Yellow',
       thumb: <Box height="100%" backgroundColor="Y10" />,
+    },
+    {
+      id: '4',
+      label: 'Avatar',
+      thumb: (
+        <Avatar
+          imgProps={{
+            src: 'https://randomuser.me/api/portraits/women/39.jpg',
+          }}
+          size="size18"
+        />
+      ),
     },
   ];
 

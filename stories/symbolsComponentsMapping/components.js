@@ -105,7 +105,7 @@ export const otherComponentsNames = {
 };
 
 export const contentWidgetsComponentsNames = {
-  StatsWidget: 'StatsWidget',
+  StatisticsWidget: 'StatisticsWidget',
   Carousel: 'Carousel',
   Accordion: 'Accordion',
   CardGalleryItem: 'CardGalleryItem',

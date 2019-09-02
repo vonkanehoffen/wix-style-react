@@ -9,8 +9,8 @@ export const contentWidgetsSymbolsToComponents = {
 
   [contentWidgetsSymbols.emptyState]: [sharedComponentsNames.EmptyState],
 
-  [contentWidgetsSymbols.statsWidget]: [
-    contentWidgetsComponentsNames.StatsWidget,
+  [contentWidgetsSymbols.statisticsWidget]: [
+    contentWidgetsComponentsNames.StatisticsWidget,
   ],
 
   [contentWidgetsSymbols.carousel]: [contentWidgetsComponentsNames.Carousel],
@@ -22,4 +22,6 @@ export const contentWidgetsSymbolsToComponents = {
   ],
 
   [contentWidgetsSymbols.preview]: [],
+
+  [contentWidgetsSymbols.omniSetup]: [],
 };
