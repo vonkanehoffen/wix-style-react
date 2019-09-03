@@ -142,10 +142,6 @@ class InputWithOptions extends Component {
 
     const customStyle = { marginLeft: this.props.dropdownOffsetLeft };
 
-    if (this.props.dropdownWidth) {
-      customStyle.width = this.props.dropdownWidth;
-    }
-
     return (
       <div
         className={this.dropdownClasses()}
@@ -201,13 +197,20 @@ class InputWithOptions extends Component {
   }
 
   render() {
-    const { native, dataHook, popoverProps, dropDirectionUp } = this.props;
+    const {
+      native,
+      dataHook,
+      popoverProps,
+      dropDirectionUp,
+      dropdownWidth,
+    } = this.props;
     const placement = dropDirectionUp ? 'top' : popoverProps.placement;
 
     return !native ? (
       <Popover
         {...styles('root', {}, this.props)}
         {...popoverProps}
+        width={dropdownWidth}
         placement={placement}
         dataHook={dataHook}
         onKeyDown={this._onKeyDown}
