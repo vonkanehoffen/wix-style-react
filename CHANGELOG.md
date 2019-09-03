@@ -18,7 +18,7 @@ Types of changes:
 ## Next
 - `Cheatsheet` - Fixes of the "Notifications" and "Tooltip" examples. [#4023](https://github.com/wix/wix-style-react/pull/4023)
 - `Cheatsheet` - Links and examples fixes [#4029](https://github.com/wix/wix-style-react/pull/4029)
-
+- `<InputWithOptions/>` - fix dropdownWidth prop [#4040](https://github.com/wix/wix-style-react/pull/4040)
 
 ## 6.54.1 - 2019-09-01
 
