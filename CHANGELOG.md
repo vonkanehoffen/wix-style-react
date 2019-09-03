@@ -15,7 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
-## Next
+## 6.54.2 - 2019-09-03
+
 - `Cheatsheet` - Fixes of the "Notifications" and "Tooltip" examples. [#4023](https://github.com/wix/wix-style-react/pull/4023)
 - `Cheatsheet` - Links and examples fixes [#4029](https://github.com/wix/wix-style-react/pull/4029)
 - `<InputWithOptions/>` - fix dropdownWidth prop [#4040](https://github.com/wix/wix-style-react/pull/4040)
