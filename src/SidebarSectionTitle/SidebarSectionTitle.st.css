@@ -9,7 +9,7 @@
 }
 
 :import {
-    -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
+    -st-from: "wix-ui-backoffice/src/colors.st.css";
     -st-named: D40
 }
 

@@ -126,7 +126,8 @@
     "@storybook/addon-options": "^4.1.11",
     "@storybook/react": "^4.1.11",
     "@stylable/cli": "^2.2.7",
-    "@stylable/dom-test-kit": "^0.1.6",
+    "@stylable/dom-test-kit": "^2.1.4",
+    "@stylable/jest": "^2.1.7",
     "@stylable/node": "^2.1.7",
     "@stylable/webpack-plugin": "^2.1.8",
     "@testing-library/react": "^8.0.1",
@@ -266,7 +267,7 @@
       "wix-ui-test-utils/jest-setup"
     ],
     "moduleNameMapper": {
-      "\\.(?!\\st).(css|less|scss)$": "identity-obj-proxy"
+      "(?<!st)\\.(css|less|scss)$": "identity-obj-proxy"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/dist/",

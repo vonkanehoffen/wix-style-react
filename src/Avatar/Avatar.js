@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { Avatar as CoreAvatar } from 'wix-ui-core/dist/src/components/avatar';
+import { Avatar as CoreAvatar } from 'wix-ui-core/dist/standalone/src/components/avatar';
 import { avatar as avatarStyle } from 'wix-ui-core/dist/standalone/src/themes/backoffice';
 
 import style from './Avatar.st.css';

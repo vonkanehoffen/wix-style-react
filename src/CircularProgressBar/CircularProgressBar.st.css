@@ -1,10 +1,10 @@
 :import {
-    -st-from: "wix-ui-core/index.st.css";
-    -st-named: CircularProgressBar;
+    -st-from: "wix-ui-core/src/components/circular-progress-bar/CircularProgressBar.st.css";
+    -st-default: CircularProgressBar;
 }
 
 :import {
-    -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
+    -st-from: "wix-ui-backoffice/src/colors.st.css";
     -st-named:
             B00, B30,
             D20,
@@ -13,7 +13,7 @@
 }
 
 :import {
-    -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
+    -st-from: "wix-ui-backoffice/src/typography.st.css";
     -st-named: fontMedium;
 }
 

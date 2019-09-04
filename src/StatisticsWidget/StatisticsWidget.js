@@ -41,9 +41,7 @@ class StatisticsWidget extends React.PureComponent {
     if (statistics.length > 5) {
       // eslint-disable-next-line
       console.warn(
-        `${
-          statistics.length
-        } items were passed in statistics array. StatisticsWidget will display only the first 5.`,
+        `${statistics.length} items were passed in statistics array. StatisticsWidget will display only the first 5.`,
       );
     }
     const firstFive = statistics.slice(0, 5);

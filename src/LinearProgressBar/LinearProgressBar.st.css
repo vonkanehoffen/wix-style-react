@@ -1,15 +1,15 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
-  -st-named: LinearProgressBar;
+  -st-from: "wix-ui-core/src/components/linear-progress-bar/LinearProgressBar.st.css";
+  -st-default: LinearProgressBar;
 }
 
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
+  -st-from: "wix-ui-backoffice/src/typography.st.css";
   -st-named: fontMedium;
 }
 
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
+  -st-from: "wix-ui-backoffice/src/colors.st.css";
   -st-named:
           B00, B10, B30,
           D20,

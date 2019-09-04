@@ -3,7 +3,7 @@ import { bool, func, node, object, oneOf, oneOfType, string } from 'prop-types';
 import { iconChildSize, SIZES } from './constants';
 import styles from './ToggleButton.st.css';
 import Tooltip from '../Tooltip';
-import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
+import { ButtonNext } from 'wix-ui-core/dist/standalone/src/components/button-next';
 
 const childSize = iconChildSize[SIZES.medium];
 

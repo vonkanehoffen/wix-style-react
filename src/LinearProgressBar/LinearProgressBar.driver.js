@@ -1,5 +1,5 @@
 import { linearProgressBarDriverFactory as coreLinearProgressBarDriverFactory } from 'wix-ui-core/drivers/vanilla';
-import { tooltipDriverFactory } from 'wix-ui-backoffice/dist/src/components/Tooltip/Tooltip.driver';
+import { tooltipDriverFactory } from 'wix-ui-backoffice/dist/standalone/src/components/Tooltip/Tooltip.driver';
 import { dataHooks } from './constants';
 
 const linearProgressBarDriverFactory = ({ element, eventTrigger, wrapper }) => {

@@ -1,6 +1,6 @@
 import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
-import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.uni.driver';
+import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/standalone/src/components/Label/Label.uni.driver';
 import { testkitTooltip as tooltipUniDriverFactory } from '../Tooltip/Tooltip.uni.driver';
 
 import * as DATA_ATTR from './DataAttr';

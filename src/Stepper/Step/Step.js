@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../../Text';
 import StepCircle from './StepCircle/StepCircle';
 import DataHooks from '../dataHooks';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import { withFocusable } from 'wix-ui-core/dist/standalone/src/hocs/Focusable/FocusableHOC';
 
 import { ACTIVE_STEP, STEP_TYPES } from '../Consts';
 

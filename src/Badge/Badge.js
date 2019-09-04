@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
-import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
+import { withFocusable } from 'wix-ui-core/dist/standalone/src/hocs/Focusable';
+import { withEllipsedTooltip } from 'wix-ui-core/dist/standalone/src/hocs/EllipsedTooltip';
 
 import { SKIN, TYPE, SIZE } from './constants';
 import style from './Badge.st.css';

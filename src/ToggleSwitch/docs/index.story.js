@@ -3,7 +3,7 @@ import ToggleSwitch from '..';
 import {
   SKINS,
   SIZES,
-} from 'wix-ui-backoffice/dist/src/components/ToggleSwitch/constants';
+} from 'wix-ui-backoffice/dist/standalone/src/components/ToggleSwitch/constants';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
 import ExampleFormField from './ExampleFormField';
