@@ -136,11 +136,8 @@ export default {
       tab({
         title: 'Usage',
         sections: [
-          columns([
-            importExample({
-              source: "import FormField from 'wix-style-react/FormField';",
-            }),
-          ]),
+          importExample("import FormField from 'wix-style-react/FormField';"),
+
           divider(),
 
           title('Examples'),

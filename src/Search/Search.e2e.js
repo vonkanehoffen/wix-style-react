@@ -25,30 +25,30 @@ describe('Search', () => {
     autoExampleDriver.reset();
   });
 
-  eyes.it('should filter search options by input', () => {
-    expect(driver.getSearchDropdown().isDisplayed()).toBe(false);
-    driver.clickOnInput();
-    driver.enterText('fox');
-    expect(driver.getSearchDropdown().isDisplayed()).toBe(true);
+  eyes.it('should filter search options by input', async () => {
+    expect((await driver.getSearchDropdown()).isDisplayed()).toBe(false);
+    await driver.clickOnInput();
+    await driver.enterText('fox');
+    expect((await driver.getSearchDropdown()).isDisplayed()).toBe(true);
     expect(driver.getSearchOptionsCount()).toBe(1);
     expect(driver.getSearchOptionAt(0)).toBe('fox');
   });
 
-  eyes.it('should choose one of search options', () => {
-    driver.clickOnInput();
-    driver.enterText('the');
-    driver.clickSearchOptionAt(0);
-    expect(driver.getText()).toBe('The quick');
+  eyes.it('should choose one of search options', async () => {
+    await driver.clickOnInput();
+    await driver.enterText('the');
+    await driver.clickSearchOptionAt(0);
+    expect(await driver.getText()).toBe('The quick');
   });
 
   eyes.it(
     'should clear input and show all search options after clear button click',
-    () => {
+    async () => {
       driver.clickOnInput();
       driver.enterText('fox');
       expect(driver.hasClearButton()).toBe(true);
       driver.clickClear();
-      expect(driver.getSearchDropdown().isDisplayed()).toBe(false);
+      expect((await driver.getSearchDropdown()).isDisplayed()).toBe(false);
       expect(driver.getText()).toBe('');
     },
   );

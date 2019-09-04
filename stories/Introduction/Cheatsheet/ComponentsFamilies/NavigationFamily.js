@@ -20,11 +20,21 @@ import {
 } from '../../../symbolsComponentsMapping/symbols';
 
 //Assets
-import Text from 'wix-style-react/Text';
+import Button from 'wix-style-react/Button';
+import TextButton from 'wix-style-react/TextButton';
 import Box from 'wix-style-react/Box';
+import CounterBadge from 'wix-style-react/CounterBadge';
+import Edit from 'wix-style-react/new-icons/Edit';
+import ChevronLeft from 'wix-style-react/new-icons/ChevronLeft';
+import FormFieldErrorSmall from 'wix-style-react/new-icons/system/FormFieldErrorSmall';
 
 //6. Navigation
-import Sidebar from 'wix-style-react/Sidebar';
+import Sidebar, { SidebarItemContextConsumer } from 'wix-style-react/Sidebar';
+
+import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';
+import SidebarSectionTitle from 'wix-style-react/SidebarSectionTitle';
+import SidebarHeader from 'wix-style-react/SidebarHeader';
+import SidebarDivider from 'wix-style-react/SidebarDivider';
 import Tabs from 'wix-style-react/Tabs';
 import Stepper from 'wix-style-react/Stepper';
 
@@ -39,28 +49,116 @@ const SidebarExample = () => {
     componentsNames: createLinkedComponentsNames(components),
   };
 
+  const renderUpgradeButton = () => (
+    <Box align="center" margin="24px 30px">
+      <Button size="small" skin="premium">
+        Upgrade
+      </Button>
+    </Box>
+  );
+
+  const renderBackButton = text => (
+    <Box margin="18px 24px">
+      <TextButton
+        prefixIcon={<ChevronLeft />}
+        skin="light"
+        size="small"
+        weight="normal"
+      >
+        {text}
+      </TextButton>
+    </Box>
+  );
+
+  const renderEditButton = () => (
+    <Box align="center" margin="18px 0">
+      <TextButton
+        prefixIcon={<Edit />}
+        skin="light"
+        size="small"
+        weight="normal"
+      >
+        Edit Site
+      </TextButton>
+    </Box>
+  );
+
+  const sidebarInnerMenu = [
+    <Sidebar.BackButton>{renderBackButton('Main menu')}</Sidebar.BackButton>,
+
+    <SidebarSectionTitle>Apps</SidebarSectionTitle>,
+
+    <Sidebar.Item itemKey={'app-market'}>
+      <SidebarItemContextConsumer>
+        {({ selected }) => (
+          <SidebarSectionItem selected={selected}>
+            App Market
+          </SidebarSectionItem>
+        )}
+      </SidebarItemContextConsumer>
+    </Sidebar.Item>,
+
+    <SidebarSectionItem
+      suffix={
+        <CounterBadge skin="danger">
+          <FormFieldErrorSmall />
+        </CounterBadge>
+      }
+    >
+      Manage Apps
+    </SidebarSectionItem>,
+  ];
+
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Sidebar selectedKey="item1">
-        <Sidebar.PersistentHeader>
-          <Box direction="vertical" padding="30px">
-            <Text light weight="bold">
-              Site Name
-            </Text>
-            <Text light size="tiny">
-              Role: Owner
-            </Text>
-          </Box>
-        </Sidebar.PersistentHeader>
+      <Box height="700px">
+        <Sidebar selectedKey={'dashboard'}>
+          <Sidebar.PersistentHeader>
+            <Box direction="vertical">
+              <SidebarHeader title="Site Name" subtitle="Role: Owner" />
+              <SidebarDivider fullWidth />
+            </Box>
+          </Sidebar.PersistentHeader>
 
-        <Sidebar.Item itemKey="item1">
-          <Box direction="vertical" padding="9px 30px">
-            <Text size="small" light>
-              Action
-            </Text>
-          </Box>
-        </Sidebar.Item>
-      </Sidebar>
+          <Sidebar.Item itemKey={'dashboard'}>
+            <SidebarSectionItem>Dashboard</SidebarSectionItem>
+          </Sidebar.Item>
+
+          <Sidebar.Item itemKey={'video-library'}>
+            <SidebarSectionItem>Video Library</SidebarSectionItem>
+          </Sidebar.Item>
+
+          <SidebarDivider />
+
+          <SidebarSectionTitle>Ascend by Wix</SidebarSectionTitle>
+
+          <Sidebar.Item itemKey={'customer-management'}>
+            <SidebarSectionItem>Customer Management</SidebarSectionItem>
+          </Sidebar.Item>
+
+          <Sidebar.Item itemKey={'marketing-tools'}>
+            <SidebarSectionItem>Marketing Tools</SidebarSectionItem>
+          </Sidebar.Item>
+
+          <SidebarDivider />
+
+          <Sidebar.Item itemKey={'settings'}>
+            <SidebarSectionItem>Settings</SidebarSectionItem>
+          </Sidebar.Item>
+
+          <Sidebar.Item itemKey={'apps'} innerMenu={sidebarInnerMenu}>
+            <SidebarSectionItem drillable>Apps</SidebarSectionItem>
+          </Sidebar.Item>
+
+          <Sidebar.PersistentFooter>
+            <Box direction="vertical">
+              {renderUpgradeButton()}
+              <SidebarDivider fullWidth />
+              {renderEditButton()}
+            </Box>
+          </Sidebar.PersistentFooter>
+        </Sidebar>
+      </Box>
     </SingleComponentSideBySide>
   );
 };
@@ -87,9 +185,10 @@ class TextTabsExample extends PureComponent {
   onTabClick = ({ id }) => this.setState({ activeTab: id });
 
   render() {
-    const tabItems = ['First', 'Second', 'Third'].map((tabText, i) => {
-      return { title: `${tabText} Item`, id: i + 1 };
-    });
+    const tabItems = ['First', 'Second', 'Third'].map((tabText, i) => ({
+      title: `${tabText} Item`,
+      id: i + 1,
+    }));
 
     const { activeTab } = this.state;
 

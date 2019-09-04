@@ -81,7 +81,7 @@ export default {
           sections: [
             columns([
               description({
-                text: `Control Button is used when action is lower priority than a regular action or there’s no space available to place a button with text.`,
+                text: `Toggle Button is used when action is lower priority than a regular action or there’s no space available to place a button with text.`,
               }),
             ]),
 
@@ -97,7 +97,7 @@ export default {
               {
                 title: 'Skin',
                 text:
-                  'Control Button supports 2 skin styles: `standard` and `dark`',
+                  'Toggle Button supports 2 skin styles: `standard` and `dark`',
                 source: examples.skins,
               },
               {

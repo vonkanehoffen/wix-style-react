@@ -6,7 +6,10 @@ export const pickerSymbolsToComponents = {
 
   [pickerSymbols.modalSelector]: [componentsNames.ModalSelectorLayout],
 
-  [pickerSymbols.colorPicker]: [componentsNames.ColorPicker],
+  [pickerSymbols.colorPicker]: [
+    componentsNames.ColorPicker,
+    componentsNames.Swatches,
+  ],
 
   [pickerSymbols.calendar]: [componentsNames.Calendar],
 

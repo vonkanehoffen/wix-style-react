@@ -83,13 +83,6 @@ export default {
           source: examples.footnote,
         }),
         code({
-          title: 'Footnote',
-          description:
-            'an extra message can be displayed in a footnote node called "footerBottomChildren"',
-          compact: true,
-          source: examples.footnote,
-        }),
-        code({
           title: 'Side Actions',
           description:
             'A side action such as checkbox can be supplied by passing "sideActions" node',

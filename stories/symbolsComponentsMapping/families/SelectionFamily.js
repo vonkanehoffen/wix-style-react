@@ -1,44 +1,44 @@
 import { selectionSymbols } from '../symbols';
 import {
   selectionComponentsNames as componentsNames,
-  sharedComponents,
+  sharedComponentsNames,
 } from '../components';
 
 export const selectionSymbolsToComponents = {
   [selectionSymbols.dropdown]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.Dropdown,
   ],
 
   [selectionSymbols.multiSelectDropdown]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.MultiSelectCheckbox,
   ],
 
   [selectionSymbols.checkbox]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.Checkbox,
   ],
 
   [selectionSymbols.radio]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.RadioGroup,
   ],
 
   [selectionSymbols.toggle]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.ToggleSwitch,
   ],
 
   [selectionSymbols.segmentedToggle]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.SegmentedToggle,
   ],
 
   [selectionSymbols.thumbnailSelect]: [componentsNames.Thumbnail],
 
   [selectionSymbols.slider]: [
-    sharedComponents.FormField,
+    sharedComponentsNames.FormField,
     componentsNames.Slider,
   ],
 

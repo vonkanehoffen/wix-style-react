@@ -26,9 +26,9 @@ describe('MultiSelectCheckbox', () => {
         'Cannot find <MultiSelectCheckbox/>',
       );
 
-      driver.clickInput();
-      driver.selectItemById('Arkansas');
-      driver.selectItemById('California');
+      await driver.clickInput();
+      await driver.selectItemById('Arkansas');
+      await driver.selectItemById('California');
 
       expect(driver.getInput().getAttribute('value')).toBe(
         'Arkansas, California',
@@ -39,16 +39,10 @@ describe('MultiSelectCheckbox', () => {
   eyes.it(
     'should open or close drop down when clicking on the input',
     async () => {
-      await waitForVisibilityOf(
-        driver.element(),
-        'Cannot find <MultiSelectCheckbox/>',
-      );
-
-      driver.clickInput();
-      expect(driver.getDropdown().isDisplayed()).toBe(true);
-
-      driver.clickInput();
-      expect(driver.getDropdown().isDisplayed()).toBe(false);
+      await driver.clickInput();
+      expect((await driver.getDropdown()).isDisplayed()).toBe(true);
+      await driver.clickInput();
+      expect((await driver.getDropdown()).isDisplayed()).toBe(false);
     },
   );
 });

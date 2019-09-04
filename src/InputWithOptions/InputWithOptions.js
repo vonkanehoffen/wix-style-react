@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import WixComponent from '../BaseComponents/WixComponent';
+
 import Input from '../Input';
 import omit from 'omit';
 import DropdownLayout, {
@@ -8,11 +8,14 @@ import DropdownLayout, {
 } from '../DropdownLayout/DropdownLayout';
 import Highlighter from '../Highlighter/Highlighter';
 import { chainEventHandlers } from '../utils/ChainEventHandlers';
-import styles from './InputWithOptions.scss';
+import styles from './InputWithOptions.st.css';
+import nativeStyles from './InputWithOptions.scss';
+
+import Popover from '../Popover';
 
 export const DEFAULT_VALUE_PARSER = option => option.value;
 
-class InputWithOptions extends WixComponent {
+class InputWithOptions extends Component {
   // Abstraction
   inputClasses() {}
   dropdownClasses() {}
@@ -56,7 +59,6 @@ class InputWithOptions extends WixComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    super.componentDidUpdate(prevProps);
     if (
       !this.props.showOptionsIfEmptyInput &&
       ((!prevProps.value && this.props.value) ||
@@ -70,9 +72,7 @@ class InputWithOptions extends WixComponent {
     this.setState({ isComposing });
   }
 
-  onClickOutside() {
-    this.hideOptions();
-  }
+  onClickOutside = () => this.hideOptions();
 
   renderInput() {
     const inputAdditionalProps = this.inputAdditionalProps();
@@ -95,7 +95,6 @@ class InputWithOptions extends WixComponent {
       ...inputProps,
       onKeyDown: chainEventHandlers(
         inputAdditionalProps && inputAdditionalProps.onKeyDown,
-        this._onKeyDown,
       ),
       theme: this.props.theme,
       onChange: this._onChange,
@@ -143,10 +142,6 @@ class InputWithOptions extends WixComponent {
 
     const customStyle = { marginLeft: this.props.dropdownOffsetLeft };
 
-    if (this.props.dropdownWidth) {
-      customStyle.width = this.props.dropdownWidth;
-    }
-
     return (
       <div
         className={this.dropdownClasses()}
@@ -156,12 +151,14 @@ class InputWithOptions extends WixComponent {
         <DropdownLayout
           ref={dropdownLayout => (this.dropdownLayout = dropdownLayout)}
           {...dropdownProps}
+          dataHook="inputwithoptions-dropdownlayout"
           options={this._processOptions(dropdownProps.options)}
           theme={this.props.theme}
-          visible={this.isDropdownLayoutVisible()}
+          visible
           onClose={this.hideOptions}
           onSelect={this._onSelect}
           isComposing={this.state.isComposing}
+          inContainer
           tabIndex={-1}
         />
       </div>
@@ -170,13 +167,12 @@ class InputWithOptions extends WixComponent {
 
   _renderNativeSelect() {
     const { options, onSelect } = this.props;
-
     return (
-      <div className={styles.nativeSelectWrapper}>
+      <div className={nativeStyles.nativeSelectWrapper}>
         {this.renderInput()}
         <select
           data-hook="native-select"
-          className={styles.nativeSelect}
+          className={nativeStyles.nativeSelect}
           onChange={event => {
             this._onChange(event);
 
@@ -190,7 +186,7 @@ class InputWithOptions extends WixComponent {
               data-index={index}
               key={option.id}
               value={option.value}
-              className={styles.nativeOption}
+              className={nativeStyles.nativeOption}
             >
               {option.value}
             </option>
@@ -201,25 +197,36 @@ class InputWithOptions extends WixComponent {
   }
 
   render() {
-    const { dropDirectionUp, native } = this.props;
+    const {
+      native,
+      dataHook,
+      popoverProps,
+      dropDirectionUp,
+      dropdownWidth,
+    } = this.props;
+    const placement = dropDirectionUp ? 'top' : popoverProps.placement;
 
     return !native ? (
-      <div>
-        {dropDirectionUp ? this._renderDropdownLayout() : null}
-        <div data-input-parent className={this.inputClasses()}>
-          {this.renderInput()}
-        </div>
-        {!dropDirectionUp ? this._renderDropdownLayout() : null}
-      </div>
+      <Popover
+        {...styles('root', {}, this.props)}
+        {...popoverProps}
+        width={dropdownWidth}
+        placement={placement}
+        dataHook={dataHook}
+        onKeyDown={this._onKeyDown}
+        onClickOutside={this.onClickOutside}
+        shown={this.isDropdownLayoutVisible()}
+      >
+        <Popover.Element>
+          <div data-input-parent className={this.inputClasses()}>
+            {this.renderInput()}
+          </div>
+        </Popover.Element>
+        <Popover.Content>{this._renderDropdownLayout()}</Popover.Content>
+      </Popover>
     ) : (
       this._renderNativeSelect()
     );
-  }
-
-  hideOptions() {
-    if (this.state.showOptions) {
-      this.setState({ showOptions: false });
-    }
   }
 
   showOptions() {
@@ -307,6 +314,12 @@ class InputWithOptions extends WixComponent {
     }
   }
 
+  hideOptions() {
+    if (this.state.showOptions) {
+      this.setState({ showOptions: false });
+    }
+  }
+
   _onChange(event) {
     this.setState({ inputValue: event.target.value });
 
@@ -376,15 +389,19 @@ class InputWithOptions extends WixComponent {
 
     if (this.shouldDelegateKeyDown(key)) {
       // Delegate event and get result
-      const eventWasHandled = this.dropdownLayout._onKeyDown(event);
-      if (eventWasHandled || this.isReadOnly) {
-        return;
+
+      if (this.dropdownLayout) {
+        const eventWasHandled = this.dropdownLayout._onKeyDown(event);
+        if (eventWasHandled || this.isReadOnly) {
+          return;
+        }
       }
 
       // For editing mode, we want to *submit* only for specific keys.
       if (this.shouldPerformManualSubmit(key)) {
         this._onManuallyInput(this.state.inputValue, event);
         const inputIsEmpty = !event.target.value;
+
         if (this.closeOnSelect() || (key === 'Tab' && inputIsEmpty)) {
           this.hideOptions();
         }
@@ -414,6 +431,12 @@ InputWithOptions.defaultProps = {
   inputElement: <Input />,
   valueParser: DEFAULT_VALUE_PARSER,
   dropdownWidth: null,
+  popoverProps: {
+    appendTo: 'parent',
+    flip: false,
+    fixed: true,
+    placement: 'bottom',
+  },
   dropdownOffsetLeft: '0',
   showOptionsIfEmptyInput: true,
   magnifyingGlass: false,
@@ -437,6 +460,8 @@ InputWithOptions.propTypes = {
   highlight: PropTypes.bool,
   /** Indicates whether to render using the native select element */
   native: PropTypes.bool,
+  /* common popover props */
+  popoverProps: PropTypes.object,
 };
 
 InputWithOptions.displayName = 'InputWithOptions';

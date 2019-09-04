@@ -1,27 +1,70 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { Avatar as CoreAvatar } from 'wix-ui-core/dist/standalone/src/components/avatar';
-import { avatar as avatarStyle } from 'wix-ui-core/dist/standalone/src/themes/backoffice';
+import IconButton from '../IconButton';
 
-import style from './Avatar.st.css';
+import { Avatar as CoreAvatar } from 'wix-ui-core/dist/standalone/src/components/avatar';
+
+import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
 
+const getSizeNumber = size => Number(size.substring(4));
+const minIndicationRenderSize = 36;
+const minSmallIconButton = 60;
 /**
  * Avatar is a type of element that visually represents a user, either as an image, name initials or placeholder icon.
  */
 const Avatar = props => {
-  const { size, color, dataHook, className, ...rest } = props;
-
+  const {
+    size,
+    presence,
+    indication,
+    color,
+    onClick,
+    dataHook,
+    className,
+    ...rest
+  } = props;
+  const sizeNumber = getSizeNumber(size);
+  const renderIndication = indication && sizeNumber > minIndicationRenderSize;
   return (
-    <CoreAvatar
-      {...rest}
+    <div
       data-hook={dataHook}
-      className={classNames(
-        className,
-        avatarStyle(size, color && `color${capitalize(color)}`),
-      )}
-    />
+      className={classNames(className, styles.externalContainer)}
+    >
+      <div
+        {...styles('avatarContainer', {
+          size,
+          indication,
+          presence,
+          presenceType: presence,
+        })}
+      >
+        <div className={styles.coreAvatar}>
+          <CoreAvatar
+            {...rest}
+            className={classNames(
+              styles.avatar,
+              color && styles[`color${capitalize(color)}`],
+            )}
+          />
+        </div>
+        {presence && <div className={styles.presence} />}
+        {renderIndication && (
+          <div className={styles.indication}>
+            <IconButton
+              className={styles.iconButtonShadow}
+              dataHook="avatar-indication"
+              onClick={onClick}
+              skin="inverted"
+              size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
+            >
+              {indication}
+            </IconButton>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
@@ -60,13 +103,19 @@ Avatar.propTypes = {
   className: PropTypes.string,
   /** Applied as data-hook HTML attribute that can be used to create an Avatar driver in testing */
   dataHook: PropTypes.string,
+  /** Avatar presence. Options like 'online' mean that the conatct is online */
+  presence: PropTypes.oneOf(['online', 'offline', 'busy']),
+  /** A node to be rendered as Indication.*/
+  indication: PropTypes.node,
+  /** function which triggered on indication click. Notice it will be clickable just in case `indication` is provided */
+  onClick: PropTypes.func,
 };
 
 // Extracted icon as a component, in order to AutoDocs API to show a nice default value.
 function AvatarDefaultPlaceholder() {
   return (
     <svg
-      className={style.placeholder}
+      className={styles.placeholder}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
     >
@@ -77,6 +126,7 @@ function AvatarDefaultPlaceholder() {
 
 Avatar.defaultProps = {
   placeholder: <AvatarDefaultPlaceholder />,
+  size: 'size48',
 };
 
 export default Avatar;

@@ -16,5 +16,8 @@ export const modalsSymbolsToComponents = {
     componentsNames.MessageBoxMarketerialLayout,
     componentsNames.Modal,
   ],
-  [modalsSymbols.preview]: [],
+  [modalsSymbols.preview]: [
+    componentsNames.ModalPreviewLayout,
+    componentsNames.Modal,
+  ],
 };

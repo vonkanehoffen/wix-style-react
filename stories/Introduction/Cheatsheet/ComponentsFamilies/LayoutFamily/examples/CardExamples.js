@@ -26,13 +26,13 @@ const CardExamples = () => {
   const symbol = layoutSymbols.cardLayout;
   const components = layoutSymbolsToComponents[symbol];
 
-  const cardLayoutProps = {
+  const singleComponentProps = {
     name: createLinkedSymbolName({ groupSymbol, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
-    <SingleComponentStacked {...cardLayoutProps}>
+    <SingleComponentStacked {...singleComponentProps}>
       <Preview stretch>
         <Card>
           <Card.Header

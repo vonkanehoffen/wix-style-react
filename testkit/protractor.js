@@ -53,7 +53,7 @@ export const autoCompleteCompositeTestkitFactory = protractorTestkitFactoryCreat
   autoCompleteCompositeDriverFactory,
 );
 
-import { avatarDriverFactory } from '../src/Avatar/Avatar.driver';
+import avatarDriverFactory from '../src/Avatar/Avatar.uni.driver';
 
 export const avatarTestkitFactory = protractorUniTestkitFactoryCreator(
   avatarDriverFactory,

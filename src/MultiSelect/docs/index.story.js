@@ -63,9 +63,9 @@ export default {
       tab({
         title: 'Usage',
         sections: [
-          importExample({
-            source: "import MultiSelect from 'wix-style-react/MultiSelect';",
-          }),
+          importExample(
+            "import MultiSelect from 'wix-style-react/MultiSelect';",
+          ),
 
           divider(),
 

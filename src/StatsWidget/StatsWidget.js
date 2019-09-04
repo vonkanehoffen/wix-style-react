@@ -10,6 +10,7 @@ import Badge from '../Badge';
 import DropdownBase from '../DropdownBase';
 import TextButton from '../TextButton';
 import ChevronDown from '../new-icons/ChevronDown';
+import deprecationLog from '../utils/deprecationLog';
 
 function renderTrend(percent, invertPercentColor) {
   const badgeProps = {
@@ -89,6 +90,14 @@ class StatsWidget extends WixComponent {
     },
     emptyState: PropTypes.node,
   };
+
+  constructor(props) {
+    super(props);
+
+    deprecationLog(
+      `Using "<StatsWidget/>" is deprecated. Instead, we advise you to use the newer "<StatisticsWidget/>" component. For more information see https://github.com/wix/wix-style-react/blob/master/docs/migration/StatsWidget.md.`,
+    );
+  }
 
   _renderColumn(statistics, index) {
     return (

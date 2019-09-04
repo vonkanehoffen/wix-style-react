@@ -41,9 +41,9 @@ export default {
     tab({
       title: 'Usage',
       sections: [
-        importExample({
-          source: "import RichTextArea from 'wix-style-react/RichTextArea';",
-        }),
+        importExample(
+          "import RichTextArea from 'wix-style-react/RichTextArea';",
+        ),
 
         title('Examples'),
 
@@ -57,20 +57,9 @@ export default {
     }),
 
     ...[
-      {
-        title: 'API',
-        sections: [api()],
-      },
-
-      {
-        title: 'TestKit',
-        sections: [testkit()],
-      },
-
-      {
-        title: 'Playground',
-        sections: [playground()],
-      },
+      { title: 'API', sections: [api()] },
+      { title: 'TestKit', sections: [testkit()] },
+      { title: 'Playground', sections: [playground()] },
     ].map(tab),
   ],
 };

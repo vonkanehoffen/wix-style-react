@@ -140,7 +140,7 @@ describe('GoogleAddressInput', () => {
 
   describe('when `props.poweredByGoogle`', () => {
     describe('is `true`', () => {
-      it('should show google footer', () => {
+      it.skip('should show google footer', () => {
         const component = createMount({
           Client: GmapsTestClient,
           poweredByGoogle: true,

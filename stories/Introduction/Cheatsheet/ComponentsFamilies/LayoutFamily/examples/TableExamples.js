@@ -123,13 +123,13 @@ const TableExamples = () => {
   const symbol = layoutSymbols.tableLayout;
   const components = layoutSymbolsToComponents[symbol];
 
-  const tableLayoutProps = {
+  const singleComponentProps = {
     name: symbol,
     componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
-    <SingleComponentStacked {...tableLayoutProps}>
+    <SingleComponentStacked {...singleComponentProps}>
       <Preview>
         <TablePageExample />
       </Preview>

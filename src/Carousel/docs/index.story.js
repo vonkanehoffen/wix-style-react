@@ -79,9 +79,7 @@ export default {
     tab({
       title: 'Usage',
       sections: [
-        importExample({
-          source: "import Carousel from 'wix-style-react/Carousel';",
-        }),
+        importExample("import Carousel from 'wix-style-react/Carousel';"),
 
         title('Examples'),
 

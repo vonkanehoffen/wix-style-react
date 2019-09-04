@@ -14,7 +14,54 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+
+## 6.54.2 - 2019-09-03
+
+- `Cheatsheet` - Fixes of the "Notifications" and "Tooltip" examples. [#4023](https://github.com/wix/wix-style-react/pull/4023)
+- `Cheatsheet` - Links and examples fixes [#4029](https://github.com/wix/wix-style-react/pull/4029)
+- `<InputWithOptions/>` - fix dropdownWidth prop [#4040](https://github.com/wix/wix-style-react/pull/4040)
+
+## 6.54.1 - 2019-09-01
+
+### Fixed
+
+`<InputWithoptios/>` - move away from using the common proxy for regular driver [#4036](https://github.com/wix/wix-style-react/pull/4036)
+
+## 6.54.0 - 2019-09-01
+
+### Added
+- `<Table/>` - add ability to make rows unselectable [#4028](https://github.com/wix/wix-style-react/pull/4028)
+
+## 6.53.1 - 2019-09-01
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
+## 6.53.0 - 2019-09-01
+
+### Added
+- `<Avatar/>` - add `presence` & `indication` props [#4019](https://github.com/wix/wix-style-react/pull/4019)
+- `<Table/>` - add `showSelectAll` prop [#4027](https://github.com/wix/wix-style-react/pull/4027)
+
+### Changed
+- `<Avatar/>` - migrate theme from `wix-ui-core` [#4030](https://github.com/wix/wix-style-react/pull/4030)
+- `<Inputwithoptions/>` - migrate to use popover mechanism [#4001](https://github.com/wix/wix-style-react/pull/4001)
+
+### Docs
+- `Cheatsheet` - adding and improving existing examples (Modals, Navigation & Inputs families) [#4016](https://github.com/wix/wix-style-react/pull/4016)
+
+
+## 6.52.1 - 2019-08-27
+
+No Changes (Patch version, only to re-publish Storybook, after failed publish)
+
+## 6.52.0 - 2019-08-27
+
+### Added
+- `<ModalSelectorLayout/>` - add maxHeight prop [#4011](https://github.com/wix/wix-style-react/pull/4011)
+
+### Change
+- `<StatsWidget/>` - deprecating in favor of `<StatisticsWidget/>` [#4015](https://github.com/wix/wix-style-react/pull/4015)
+
 ### Docs
 - `Cheatsheet`- Adding links to `OtherFamily` & `ContentWidgetsFamily` documentations [#4007](https://github.com/wix/wix-style-react/pull/4007)
 

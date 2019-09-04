@@ -203,6 +203,7 @@ describe('MultiSelect - Focus behaviour', () => {
     await focusOnMultiSelect();
 
     await driver.click();
+    expect(await driver.isOptionsShown()).toEqual(true);
     await driver.hoverItemById('AL');
     await pressTab();
     expect(await driver.isFocused()).toEqual(true);

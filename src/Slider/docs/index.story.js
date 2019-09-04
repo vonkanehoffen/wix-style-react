@@ -78,9 +78,7 @@ export default {
             `Sliders allow users to make selections from a range of values.`,
           ),
 
-          importExample({
-            source: "import Slider from 'wix-style-react/Slider';",
-          }),
+          importExample("import Slider from 'wix-style-react/Slider';"),
 
           description({
             title: 'Usage',

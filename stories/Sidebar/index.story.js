@@ -73,11 +73,7 @@ export default {
       }),
     ]),
 
-    columns([
-      importExample({
-        source: examples.importExample,
-      }),
-    ]),
+    importExample(examples.importExample),
 
     title('Examples'),
 

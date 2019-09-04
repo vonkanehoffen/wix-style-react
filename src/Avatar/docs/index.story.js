@@ -3,13 +3,32 @@ import * as icons from 'wix-ui-icons-common';
 
 import Avatar from '..';
 import { storySettings } from './storySettings';
-import styles from './AvatarStory.scss';
 
 import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
 import { Layout, Cell } from '../../Layout';
 
 const IMG_REAL_URL = 'https://randomuser.me/api/portraits/women/39.jpg';
 const IMG_INVALID_URL = 'https://1234.me/4321.jpg';
+
+const PhotoCamera = icons.PhotoCamera;
+
+const indicationExamples = [
+  {
+    label: 'Icon',
+    value: <PhotoCamera size="24" />,
+  },
+  {
+    label: 'SVG',
+    value: (
+      <svg viewBox="0 0 18 18" fill="currentColor" width="18" height="18">
+        <path
+          id="addsmall-a"
+          d="M10 9L10 5 9 5 9 9 5 9 5 10 9 10 9 14 10 14 10 10 14 10 14 9z"
+        ></path>
+      </svg>
+    ),
+  },
+];
 
 export default {
   category: storySettings.category,
@@ -27,8 +46,12 @@ export default {
     text: undefined,
     title: 'Wix Account: John Doe (johndoe@gmail.com)',
     ariaLabel: 'Avatar for John Doe',
+    indication: indicationExamples[0].value,
+    presence: undefined,
   },
   exampleProps: {
+    onClick: () => 'Clicked!',
+    indication: indicationExamples,
     size: [
       'size90',
       'size72',
@@ -85,10 +108,9 @@ export default {
       <Cell>
         <LiveCodeExample
           compact
-          scope={{ styles }}
           title="Sizes"
           initialCode={`
-<div className={styles.container}>
+<Box align="space-between" width="500">
   <Avatar size="size90" name={'John Doe'} />
   <Avatar size="size72" name={'John Doe'} />
   <Avatar size="size60" name={'John Doe'} />
@@ -97,23 +119,22 @@ export default {
   <Avatar size="size30" name={'John Doe'} />
   <Avatar size="size24" name={'John Doe'} />
   <Avatar size="size18" name={'John Doe'} />
-</div>  
+</Box>  
   `}
         />
       </Cell>
       <Cell>
         <LiveCodeExample
           compact
-          scope={{ styles }}
           title="Colors"
           initialCode={`
-<div className={styles.container}>
+<Box align="space-between" width="300">
   <Avatar color="blue"   name={'John Doe'} />
   <Avatar color="green"  name={'John Doe'} />
   <Avatar color="grey"   name={'John Doe'} />
   <Avatar color="red"    name={'John Doe'} />
   <Avatar color="orange" name={'John Doe'} />  
-</div>  
+</Box>  
   `}
         />
       </Cell>
@@ -130,6 +151,37 @@ export default {
           compact
           title="Custom text"
           initialCode={`<Avatar name="John H. Doe" text="JhD"/>`}
+        />
+      </Cell>
+
+      <Cell>
+        <LiveCodeExample
+          compact
+          title="Presence"
+          initialCode={`
+          <Box align="space-between" width="180">
+            <Avatar presence={'online'} name={'John Doe'} />
+            <Avatar presence={'offline'} name={'John Doe'} />
+            <Avatar presence={'busy'} name={'John Doe'} />
+          </Box> `}
+        />
+      </Cell>
+
+      <Cell>
+        <LiveCodeExample
+          compact
+          title="Indication"
+          initialCode={`
+          <Box align="space-between" width="350">
+            <Avatar indication={<Icons.PhotoCamera size="24"/>}
+             name={'John Doe'} size="size90" /> 
+            <Avatar indication={<Icons.PhotoCamera size="24"/>}
+             name={'John Doe'} size="size72" />
+            <Avatar indication={<Icons.PhotoCamera size="24"/>}
+               name={'John Doe'} size="size60" />
+            <Avatar indication={<Icons.PhotoCamera size="24"/>}
+             name={'John Doe'} />
+        </Box>  `}
         />
       </Cell>
     </Layout>

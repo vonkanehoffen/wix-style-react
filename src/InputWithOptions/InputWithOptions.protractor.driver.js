@@ -1,26 +1,58 @@
 import dropdownLayoutDriverFactory from '../DropdownLayout/DropdownLayout.protractor.driver';
-import { isFocused } from 'wix-ui-test-utils/protractor';
+import popoverDriverFactory from '../Popover/Popover.uni.driver';
+import {
+  isFocused,
+  protractorUniTestkitFactoryCreator,
+} from 'wix-ui-test-utils/protractor';
+import { dropdownLayoutDriverProxy } from './InputWithOptions.proxy.driver';
 import inputDriverFactory from '../Input/Input.private.protractor.driver';
 
+const popoverTestkitFactory = protractorUniTestkitFactoryCreator(
+  popoverDriverFactory,
+);
+
+const getPopoverTestkit = async component => {
+  return popoverTestkitFactory({
+    dataHook: await component.getAttribute('data-hook'),
+  });
+};
+
+const dropdownLayoutSelector = `[data-hook="inputwithoptions-dropdownlayout"]`;
+
 const driverFactory = component => {
-  const dropdownLayoutDriver = dropdownLayoutDriverFactory(
-    component.$('[data-hook="dropdown-layout-wrapper"]'),
-  );
+  const getDropdownLayoutDriver = async () => {
+    const popoverTestkit = await getPopoverTestkit(component);
+    const contentElement = await popoverTestkit.getContentElement();
+    return dropdownLayoutDriverFactory(
+      contentElement.$(dropdownLayoutSelector),
+    );
+  };
+  const dropdownLayoutDummy = () => dropdownLayoutDriverFactory(component);
   const input = component.$(`input`);
   const inputDriver = inputDriverFactory(component.$('[data-input-parent]'));
 
+  const dropdownLayoutDriver = dropdownLayoutDriverProxy(
+    dropdownLayoutDummy,
+    getDropdownLayoutDriver,
+    () => getPopoverTestkit(component),
+    { pressKey: key => inputDriver.keyDown(key) },
+  );
   return {
     ...dropdownLayoutDriver,
-    click: () => component.click(),
+    click: () => inputDriver.click(),
     getInput: () => input,
     isFocused: () => isFocused(input),
     element: () => component,
     /** Check whether the options dropdown is open */
-    isOptionsShown: () => dropdownLayoutDriver.getDropdown().isDisplayed(),
+    isOptionsShown: async () => {
+      const popoverTestkit = await getPopoverTestkit(component);
+      return await popoverTestkit.isContentElementExists();
+    },
     enterText: text => input.clear().sendKeys(text),
     selectOptionAt: async index => {
+      const dropdownLayoutTestkit = await getDropdownLayoutDriver();
       await input.click();
-      await dropdownLayoutDriver.selectOptionAt(index);
+      return dropdownLayoutTestkit.selectOptionAt(index);
     },
     pressEnter: () => inputDriver.pressEnter(),
   };

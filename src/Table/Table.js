@@ -16,6 +16,8 @@ import {
   TableEmptyState,
 } from './components';
 
+const hasUnselectablesSymbol = Symbol('hasUnselectables');
+
 export function createColumns({ tableProps, bulkSelectionContext }) {
   const createCheckboxColumn = ({
     toggleAll,
@@ -26,7 +28,7 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
     deselectRowsByDefault,
   }) => {
     return {
-      title: (
+      title: tableProps.showSelectAll ? (
         <Checkbox
           dataHook="table-select"
           checked={bulkSelectionState === BulkSelectionState.ALL}
@@ -34,10 +36,12 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
           disabled={disabled}
           onChange={() => toggleAll(deselectRowsByDefault)}
         />
+      ) : (
+        ''
       ),
       render: (row, rowNum) => {
         const id = defaultTo(row.id, rowNum);
-        return (
+        return row.unselectable ? null : (
           <div onClick={e => e.stopPropagation()}>
             <Checkbox
               disabled={disabled}
@@ -111,6 +115,17 @@ export class Table extends React.Component {
   }
 
   render() {
+    let hasUnselectables = null;
+    let allIds = this.props.data.map((rowData, rowIndex) =>
+      rowData.unselectable
+        ? (hasUnselectables = hasUnselectablesSymbol)
+        : defaultTo(rowData.id, rowIndex),
+    );
+
+    if (hasUnselectables === hasUnselectablesSymbol) {
+      allIds = allIds.filter(rowId => rowId !== hasUnselectablesSymbol);
+    }
+
     return (
       <TableContext.Provider value={this.props}>
         {this.props.showSelection ? (
@@ -119,9 +134,7 @@ export class Table extends React.Component {
             selectedIds={this.props.selectedIds}
             deselectRowsByDefault={this.props.deselectRowsByDefault}
             disabled={this.props.selectionDisabled}
-            allIds={this.props.data.map((rowData, rowIndex) =>
-              defaultTo(rowData.id, rowIndex),
-            )}
+            allIds={allIds}
             onSelectionChanged={this.props.onSelectionChanged}
           >
             {this.renderChildren()}
@@ -139,6 +152,7 @@ Table.displayName = 'Table';
 Table.defaultProps = {
   ...DataTable.defaultProps,
   showSelection: false,
+  showSelectAll: true,
   children: [<Table.Content key="content" />],
   withWrapper: true,
   showLastRowDivider: false,
@@ -159,8 +173,12 @@ Table.propTypes = {
    * and a `value` prop with the new boolean selection state of the item. */
   onSelectionChanged: PropTypes.func,
 
-  /** Indicates whether to show a selection column (with checkboxes) */
+  /** Indicates whether to show a selection column (with checkboxes).<br>
+   * To hide the selection checkbox from a specific row, set its `row.unselectable` (in the `data` prop) to `true`. */
   showSelection: PropTypes.bool,
+
+  /** Indicates whether to show a Select All checkbox in the table header when showing the selection column */
+  showSelectAll: PropTypes.bool,
 
   /** Array of selected row ids.
    *  Ideally, id should be a property on the data row object.
@@ -189,9 +207,11 @@ Table.propTypes = {
   // The following props are derived directly from <DataTable/> component
   /** Allows to open multiple row details */
   allowMultiDetailsExpansion: PropTypes.bool,
-  /** The data to display. (If data.id exists then it will be used as the React key value for each row, otherwise, the rowIndex will be used) */
+  /** The data to display.<br>
+   * For each `row` in `data`, If `row.id` exists then it will be used as the React `key` value for each row, otherwise, the row index will be used.<br>
+   * When `showSelection` prop is set, if `row.unselectable` is truthy for a `row` in `data`, no checkbox will be displayed for the row in the selection column.  */
   data: PropTypes.array, // Not performing any shape validation to not hurt performance.
-  /** Configuration of the table's columns. See table below */
+  /** Configuration of the table's columns */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,

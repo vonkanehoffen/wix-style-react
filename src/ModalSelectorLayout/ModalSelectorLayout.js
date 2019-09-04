@@ -115,7 +115,11 @@ export default class ModalSelectorLayout extends WixComponent {
     /** Search debounce in milliseconds */
     searchDebounceMs: number,
 
+    /** Height CSS property, sets the height of the modal */
     height: string,
+
+    /** Max-height CSS property, sets the maximum height of the modal. */
+    maxHeight: string,
 
     /** display checkbox and allow multi selection */
     multiple: bool,
@@ -137,6 +141,7 @@ export default class ModalSelectorLayout extends WixComponent {
     itemsPerPage: 50,
     withSearch: true,
     height: '100%',
+    maxHeight: '100%',
     emptyState: DEFAULT_EMPTY,
     noResultsFoundStateFactory: searchValue => (
       <div className={css.defaultNoResultsFoundStateWrapper}>
@@ -167,6 +172,7 @@ export default class ModalSelectorLayout extends WixComponent {
       noResultsFoundStateFactory,
       withSearch,
       height,
+      maxHeight,
       searchDebounceMs,
     } = this.props;
 
@@ -180,7 +186,7 @@ export default class ModalSelectorLayout extends WixComponent {
     } = this.state;
 
     return (
-      <div className={css.modalContent} style={{ height }}>
+      <div className={css.modalContent} style={{ height, maxHeight }}>
         <HeaderLayout title={title} onCancel={onClose} />
 
         {isLoaded && !isEmpty && (

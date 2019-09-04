@@ -86,9 +86,9 @@ export default {
           'A sticky toast bar that appears on top of the screen notifying about system changes.',
         ),
 
-        importExample({
-          source: "import Notification from 'wix-style-react/Notification';",
-        }),
+        importExample(
+          "import Notification from 'wix-style-react/Notification';",
+        ),
 
         description(readme),
 

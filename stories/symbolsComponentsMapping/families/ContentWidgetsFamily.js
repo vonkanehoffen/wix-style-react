@@ -1,13 +1,16 @@
 import { contentWidgetsSymbols } from '../symbols';
-import { contentWidgetsComponentsNames, sharedComponents } from '../components';
+import {
+  contentWidgetsComponentsNames,
+  sharedComponentsNames,
+} from '../components';
 
 export const contentWidgetsSymbolsToComponents = {
   [contentWidgetsSymbols.imageWidget]: [],
 
-  [contentWidgetsSymbols.emptyState]: [sharedComponents.EmptyState],
+  [contentWidgetsSymbols.emptyState]: [sharedComponentsNames.EmptyState],
 
-  [contentWidgetsSymbols.statsWidget]: [
-    contentWidgetsComponentsNames.StatsWidget,
+  [contentWidgetsSymbols.statisticsWidget]: [
+    contentWidgetsComponentsNames.StatisticsWidget,
   ],
 
   [contentWidgetsSymbols.carousel]: [contentWidgetsComponentsNames.Carousel],
@@ -19,4 +22,6 @@ export const contentWidgetsSymbolsToComponents = {
   ],
 
   [contentWidgetsSymbols.preview]: [],
+
+  [contentWidgetsSymbols.omniSetup]: [],
 };
