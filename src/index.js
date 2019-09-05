@@ -141,3 +141,4 @@ export { default as SidebarDivider } from './SidebarDivider';
 export { default as SidebarHeader } from './SidebarHeader';
 export { default as ModalPreviewLayout } from './ModalPreviewLayout';
 export { default as StatisticsWidget } from './StatisticsWidget';
+export { default as LabelledElement } from './LabelledElement';
