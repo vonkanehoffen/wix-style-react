@@ -27,6 +27,28 @@ export default {
 
   componentProps: {
     theme: 'normal',
+    status: undefined,
+  },
+
+  exampleProps: {
+    status: [
+      {
+        label: 'Valid',
+        value: undefined,
+      },
+      {
+        label: 'Loading',
+        value: Input.StatusLoading,
+      },
+      {
+        label: 'Warning',
+        value: Input.StatusWarning,
+      },
+      {
+        label: 'Error',
+        value: Input.StatusError,
+      },
+    ],
   },
 
   sections: [
