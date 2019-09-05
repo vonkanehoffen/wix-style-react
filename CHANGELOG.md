@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+- `<LabelledElement/>` - create the component [#4045](https://github.com/wix/wix-style-react/pull/4045)
 
 ## 6.54.2 - 2019-09-03
 
