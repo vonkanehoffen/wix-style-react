@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<LabelledElement/>` - create the component [#4045](https://github.com/wix/wix-style-react/pull/4045)
+- `<Input/>` - allow hiding status suffix [#4054](https://github.com/wix/wix-style-react/pull/4054)
 
 ## 6.54.2 - 2019-09-03
 
