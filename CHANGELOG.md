@@ -20,6 +20,9 @@ Types of changes:
 - `<LabelledElement/>` - create the component [#4045](https://github.com/wix/wix-style-react/pull/4045)
 - `<Input/>` - allow hiding status suffix [#4054](https://github.com/wix/wix-style-react/pull/4054)
 
+### Changed
+- `<MessageBoxFunctionalLayout/>` - add `height: 100%` when `fullscreen` prop is used [#4055](https://github.com/wix/wix-style-react/pull/4055)
+
 ## 6.54.2 - 2019-09-03
 
 - `Cheatsheet` - Fixes of the "Notifications" and "Tooltip" examples. [#4023](https://github.com/wix/wix-style-react/pull/4023)
