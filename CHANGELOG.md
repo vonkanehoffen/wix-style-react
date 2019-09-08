@@ -21,11 +21,13 @@ Types of changes:
 - `<Input/>` - allow hiding status suffix [#4054](https://github.com/wix/wix-style-react/pull/4054)
 - `<FloatingNotification/>` - add `width` prop [#4031](https://github.com/wix/wix-style-react/pull/4031)
 - `Cheatshhet`- adding links and examples of the `FoundationFamily` [#4038](https://github.com/wix/wix-style-react/pull/4038)
+- `<Table/>` - create `Table.BulkSelectionCheckbox` component [#4032](https://github.com/wix/wix-style-react/pull/4032)
 
 ### Changed
 - `<MessageBoxFunctionalLayout/>` - add `height: 100%` when `fullscreen` prop is used [#4055](https://github.com/wix/wix-style-react/pull/4055)
 - `<Dropdown/>` - clear selection when option has `selectedId: null` [#4047](https://github.com/wix/wix-style-react/pull/4047)
 - `<Avatar/>` - change prop name to `onIndicationClick` [#4059](https://github.com/wix/wix-style-react/pull/4059)
+- `<Table/>` - change `showSelectAll` prop to `hideBulkSelectionCheckbox` [#4032](https://github.com/wix/wix-style-react/pull/4032)
 
 ### Docs
 - `<ModalPreviewLayout/>` - move docs to "Components" category [#4058](https://github.com/wix/wix-style-react/pull/4058)
@@ -46,9 +48,6 @@ Types of changes:
 
 ### Added
 - `<Table/>` - add ability to make rows unselectable [#4028](https://github.com/wix/wix-style-react/pull/4028)
-
-### Changed
-- `<Table/>` - renamed `showSelectAll` prop to `hideBulkSelectionCheckbox` and `Table.BulkSelectionCheckbox` component [#4032](https://github.com/wix/wix-style-react/pull/4032)
 
 ## 6.53.1 - 2019-09-01
 
