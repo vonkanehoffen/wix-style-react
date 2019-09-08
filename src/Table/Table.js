@@ -204,15 +204,31 @@ Table.propTypes = {
    * For each `row` in `data`, If `row.id` exists then it will be used as the React `key` value for each row, otherwise, the row index will be used.<br>
    * When `showSelection` prop is set, if `row.unselectable` is truthy for a `row` in `data`, no checkbox will be displayed for the row in the selection column.  */
   data: PropTypes.array, // Not performing any shape validation to not hurt performance.
-  /** Configuration of the table's columns */
+  /** Configuration of the table's columns.<br>
+   *  Each column needs to specify:
+   *    * `title`: a string or an element to display in the table header for this column
+   *    * `render`: a function which will be called for every row in `data` to display this row's value for this column<br>
+   *
+   *  Each column can also specify these fields:
+   *    * `sortable`: Sets whether this field is sortable. If `true` clicking the header will call `onSortClick`
+   *    * `sortDescending`: Sets what sort icon to display in the column header. `true` will show an up arrow, `false` will show a down arrow, `undefined' will show no icon
+   *    * `infoTooltipProps`: Props object for column header's [tooltip](https://wix-wix-style-react.surge.sh/?selectedKind=7.%20Tooltips&selectedStory=7.1.%20Tooltip&full=0&addons=0&stories=1&panelRight=0). Note: `dataHook`, `moveBy` and `children` will not be passed to tooltip.
+   *    * `style`: Sets the column inline style. Vertical padding cannot be set here, please use table's `rowVerticalPadding` prop
+   *    * `align`: Sets the alignment of the column content
+   *    * `width`: CSS value to set the width to use for this column. No value means column will try to contain its children, if possible
+   *    * `important`: Sets whether font color of the column should be stronger, more dominant
+   *    */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
       render: PropTypes.func.isRequired,
       sortable: PropTypes.bool,
-      infoTooltipProps: PropTypes.shape(Tooltip.propTypes),
       sortDescending: PropTypes.bool,
+      infoTooltipProps: PropTypes.shape(Tooltip.propTypes),
+      style: PropTypes.string,
       align: PropTypes.oneOf(['start', 'center', 'end']),
+      width: PropTypes.string,
+      important: PropTypes.bool,
     }),
   ).isRequired,
   /** A func that gets row data and returns a class(es) to apply to that specific row */
