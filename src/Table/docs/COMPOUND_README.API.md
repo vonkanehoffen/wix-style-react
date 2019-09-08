@@ -18,6 +18,19 @@ The `<ToolbarContainer/>` is a consumer of the Table's SelectionContext (React 1
 | -------- | -------- | ------------ | ---------- | --------------------------- |
 | children | any      |              | false      | A container for the toolbar |
 
+### `<Table.BulkSelectionCheckbox/>`
+
+You can render `<Table.BulkSelectionCheckbox/>` anywhere inside a `<Table/>` to display a checkbox that enabled bulk selection (`Select All`/`Unselect All`).
+
+If you render your own `<Table.BulkSelectionCheckbox/>`, you should set `<Table>`'s `hideBulkSelectionCheckbox` prop to `true` so the bulk selection checkbox is not displayed in the table's header.
+
+#### Props
+
+| propName | propType | defaultValue | isRequired | description                                 |
+| -------- | -------- | ------------ | ---------- | ------------------------------------------- |
+| children | any      |              | false      | The bulk selection checkbox content         |
+| dataHook | any      |              | false      | A data-hook for the bulk selection checkbox |
+
 ### `<Table.Titlebar/>`
 
 The `<Table/>` title bar (or "header"). Can be useful when setting `titleBarVisible` to `false`, so

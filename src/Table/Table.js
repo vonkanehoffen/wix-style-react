@@ -7,37 +7,29 @@ import style from './Table.st.css';
 import DataTable from '../DataTable';
 import Checkbox from '../Checkbox';
 import { TableContext } from './TableContext';
-import { BulkSelection, BulkSelectionState } from './BulkSelection';
+import { BulkSelection } from './BulkSelection';
 import Tooltip from '../Tooltip/Tooltip';
 import {
   TableToolbarContainer,
   TableTitleBar,
   TableContent,
   TableEmptyState,
+  TableBulkSelectionCheckbox,
 } from './components';
 
 const hasUnselectablesSymbol = Symbol('hasUnselectables');
 
 export function createColumns({ tableProps, bulkSelectionContext }) {
   const createCheckboxColumn = ({
-    toggleAll,
-    bulkSelectionState,
     toggleSelectionById,
     isSelected,
     disabled,
-    deselectRowsByDefault,
   }) => {
     return {
-      title: tableProps.showSelectAll ? (
-        <Checkbox
-          dataHook="table-select"
-          checked={bulkSelectionState === BulkSelectionState.ALL}
-          indeterminate={bulkSelectionState === BulkSelectionState.SOME}
-          disabled={disabled}
-          onChange={() => toggleAll(deselectRowsByDefault)}
-        />
-      ) : (
+      title: tableProps.hideBulkSelectionCheckbox ? (
         ''
+      ) : (
+        <TableBulkSelectionCheckbox dataHook="table-select" />
       ),
       render: (row, rowNum) => {
         const id = defaultTo(row.id, rowNum);
@@ -86,6 +78,7 @@ export class Table extends React.Component {
   static Titlebar = TableTitleBar;
   static Content = TableContent;
   static EmptyState = TableEmptyState;
+  static BulkSelectionCheckbox = TableBulkSelectionCheckbox;
 
   shouldComponentUpdate() {
     // Table is not really a PureComponent
@@ -152,7 +145,7 @@ Table.displayName = 'Table';
 Table.defaultProps = {
   ...DataTable.defaultProps,
   showSelection: false,
-  showSelectAll: true,
+  hideBulkSelectionCheckbox: false,
   children: [<Table.Content key="content" />],
   withWrapper: true,
   showLastRowDivider: false,
@@ -177,8 +170,8 @@ Table.propTypes = {
    * To hide the selection checkbox from a specific row, set its `row.unselectable` (in the `data` prop) to `true`. */
   showSelection: PropTypes.bool,
 
-  /** Indicates whether to show a Select All checkbox in the table header when showing the selection column */
-  showSelectAll: PropTypes.bool,
+  /** Indicates whether to hide the bulk selection ("Select All") checkbox in the table header when showing the selection column */
+  hideBulkSelectionCheckbox: PropTypes.bool,
 
   /** Array of selected row ids.
    *  Ideally, id should be a property on the data row object.

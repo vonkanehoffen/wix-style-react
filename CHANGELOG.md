@@ -46,6 +46,9 @@ Types of changes:
 ### Added
 - `<Table/>` - add ability to make rows unselectable [#4028](https://github.com/wix/wix-style-react/pull/4028)
 
+### Changed
+- `<Table/>` - renamed `showSelectAll` prop to `hideBulkSelectionCheckbox` and `Table.BulkSelectionCheckbox` component [#4032](https://github.com/wix/wix-style-react/pull/4032)
+
 ## 6.53.1 - 2019-09-01
 
 No Changes (Patch version, only to re-publish Storybook, after failed publish)

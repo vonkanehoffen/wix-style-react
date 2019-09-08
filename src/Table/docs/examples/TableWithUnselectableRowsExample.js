@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-class TableToolbarExample extends React.Component {
+class TableWithUnselectableRowsExample extends React.Component {
   state = {
     data: [
       { type: 'Folder', name: 'In Progress', unselectable: true },
