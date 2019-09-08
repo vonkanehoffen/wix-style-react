@@ -11,10 +11,13 @@ describe('Avatar', () => {
     expect(Avatar.displayName).toEqual('Avatar');
   });
 
-  it('should invoke onClick prop', async () => {
+  it('should invoke onIndicationClick prop', async () => {
     const onClick = jest.fn();
     const { driver } = createDriver(
-      <Avatar onClick={onClick} indication={<PhotoCamera size={24} />} />,
+      <Avatar
+        onIndicationClick={onClick}
+        indication={<PhotoCamera size={24} />}
+      />,
     );
 
     await driver.clickIndication();

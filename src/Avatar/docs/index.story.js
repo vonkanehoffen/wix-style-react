@@ -50,7 +50,7 @@ export default {
     presence: undefined,
   },
   exampleProps: {
-    onClick: () => 'Clicked!',
+    onIndicationClick: () => 'Clicked!',
     indication: indicationExamples,
     size: [
       'size90',
