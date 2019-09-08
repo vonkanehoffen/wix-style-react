@@ -15,6 +15,7 @@ Please create a pull request with the solution if it worth sharing.
   - [I getting a weird error when using some components' TestKit?](#i-getting-a-weird-error-when-using-some-components-testkit)
     - [`TypeError: document.x is not a function`](#typeerror-documentx-is-not-a-function)
   - [How can I get colors and fonts to use in my project?](#how-can-i-get-colors-and-fonts-to-use-in-my-project)
+  - [How does look the Dropdown family?](#how-does-look-the-dropdown-family)
 - [Contributing issues](#%f0%9f%92%81%e2%80%8d%e2%99%82%ef%b8%8f-contributing-issues)
   - [Created a PR but the build is failing on CI, should I do something?](#created-a-pr-but-the-build-is-failing-on-ci-should-i-do-something)
   - [How can I run only one test locally?](#how-can-i-run-only-one-test-locally)
