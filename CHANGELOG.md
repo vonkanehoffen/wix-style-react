@@ -20,6 +20,7 @@ Types of changes:
 - `<LabelledElement/>` - create the component [#4045](https://github.com/wix/wix-style-react/pull/4045)
 - `<Input/>` - allow hiding status suffix [#4054](https://github.com/wix/wix-style-react/pull/4054)
 - `<FloatingNotification/>` - add `width` prop [#4031](https://github.com/wix/wix-style-react/pull/4031)
+- `Cheatshhet`- adding links and examples of the `FoundationFamily` [#4038](https://github.com/wix/wix-style-react/pull/4038)
 
 ### Changed
 - `<MessageBoxFunctionalLayout/>` - add `height: 100%` when `fullscreen` prop is used [#4055](https://github.com/wix/wix-style-react/pull/4055)
