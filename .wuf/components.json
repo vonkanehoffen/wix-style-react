@@ -189,10 +189,7 @@
     "path": "src/InputArea"
   },
   "InputWithOptions": {
-    "path": "src/InputWithOptions",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/InputWithOptions"
   },
   "Label": {
     "path": "src/Label"
