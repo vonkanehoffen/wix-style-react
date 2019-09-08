@@ -28,7 +28,7 @@ class TableBulkSelectionCheckboxExample extends React.Component {
           data={this.state.data}
           columns={[
             { title: 'Element Name', render: row => row.elementName },
-            { title: 'Atomic Weight', render: row => row.atomicWeight, align: 'end' },
+            { title: 'Atomic Weight', render: row => row.atomicWeight },
           ]}
           showSelection
           hideBulkSelectionCheckbox

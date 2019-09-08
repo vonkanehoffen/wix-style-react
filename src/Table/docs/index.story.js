@@ -154,20 +154,6 @@ export default {
               compact: true,
             },
             {
-              title: 'Table with Custom Bulk Selection Checkbox',
-              description:
-                'This is an example of having a custom bulk selection checkbox in the table toolbar using the `<Table.BulkSelectionCheckbox>` component',
-              source: TableBulkSelectionCheckboxExampleRaw,
-              compact: true,
-            },
-            {
-              title: 'Table with unselectable rows',
-              description:
-                'You can make a table row unselectable (so no checkbox appears for it in the selection column) by setting `unselectable: true` for the row. ',
-              source: TableWithUnselectableRowsExampleRaw,
-              compact: true,
-            },
-            {
               title: 'Table with EmptyState',
               description:
                 'This example shows the usage for displaying an empty state message. Notice that `<Card/>` and `<TableToolbar/>` are optional - we should use them as necessary.',
@@ -207,6 +193,20 @@ export default {
               description:
                 'This example demonstrates how to align the cells horizontally and vertically. Each column accepts `align` prop that aligns the text of the cells within this column horizontally. In case we want to align vertically - it should be done within the `render` method explicitly. Notice that we also define a width for the columns, which is optional.',
               source: TableAlignedColumnsExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Custom Bulk Selection Checkbox',
+              description:
+                'This is an example of having a custom bulk selection checkbox in the table toolbar using the `<Table.BulkSelectionCheckbox>` component.',
+              source: TableBulkSelectionCheckboxExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with unselectable rows',
+              description:
+                'You can make a table row unselectable (so no checkbox appears for it in the selection column) by setting `unselectable: true` for the row.',
+              source: TableWithUnselectableRowsExampleRaw,
               compact: true,
             },
           ].map(code),
