@@ -24,6 +24,9 @@ Types of changes:
 - `<MessageBoxFunctionalLayout/>` - add `height: 100%` when `fullscreen` prop is used [#4055](https://github.com/wix/wix-style-react/pull/4055)
 - `<Dropdown/>` - clear selection when option has `selectedId: null` [#4047](https://github.com/wix/wix-style-react/pull/4047)
 
+### Docs
+- `<ModalPreviewLayout/>` - move docs to "Components" category [#4058](https://github.com/wix/wix-style-react/pull/4058)
+
 ## 6.54.2 - 2019-09-03
 
 - `Cheatsheet` - Fixes of the "Notifications" and "Tooltip" examples. [#4023](https://github.com/wix/wix-style-react/pull/4023)
