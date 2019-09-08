@@ -5,7 +5,7 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { otherSymbolsToComponents } from '../../../symbolsComponentsMapping/families/OtherFamily';
+import { otherSymbolsToComponents } from '../../../symbolsComponentsMapping/families/otherFamily';
 
 import { createLinkedComponentsNames } from '../sharedComponents/utils';
 

@@ -4,7 +4,7 @@ import {
   SingleComponentSideBySide,
 } from '../sharedComponents';
 
-import { tooltipPopoverSymbolsToComponents } from '../../../symbolsComponentsMapping/families/TooltipPopoverFamily';
+import { tooltipPopoverSymbolsToComponents } from '../../../symbolsComponentsMapping/families/tooltipPopoverFamily';
 
 import {
   createLinkedSymbolName,

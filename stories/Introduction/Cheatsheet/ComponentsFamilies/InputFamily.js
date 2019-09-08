@@ -8,7 +8,7 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { inputsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/InputsFamily';
+import { inputsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/inputsFamily';
 
 import {
   createLinkedSymbolName,

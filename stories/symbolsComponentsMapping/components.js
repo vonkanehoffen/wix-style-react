@@ -1,3 +1,8 @@
+export const foundationComponentsNames = {
+  Text: 'Text',
+  Heading: 'Heading',
+};
+
 export const sharedComponentsNames = {
   FormField: 'FormField',
   EmptyState: 'EmptyState',

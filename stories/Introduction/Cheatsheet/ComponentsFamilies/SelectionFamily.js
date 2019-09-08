@@ -6,7 +6,7 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { selectionSymbolsToComponents } from '../../../symbolsComponentsMapping/families/SelectionFamily';
+import { selectionSymbolsToComponents } from '../../../symbolsComponentsMapping/families/selectionFamily';
 
 import {
   createLinkedSymbolName,

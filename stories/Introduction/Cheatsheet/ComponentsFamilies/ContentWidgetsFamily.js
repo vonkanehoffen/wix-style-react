@@ -8,7 +8,7 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { contentWidgetsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/ContentWidgetsFamily';
+import { contentWidgetsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/contentWidgetsFamily';
 
 import { createLinkedComponentsNames } from '../sharedComponents/utils';
 
