@@ -7,7 +7,7 @@ Please create a pull request with the solution if it worth sharing.
 
 <br/>
 
-## Usage issues
+## 👨‍🏫 Usage issues
 
 ### How should I import a component properly?
 
@@ -107,7 +107,7 @@ component for using correct colors and fonts.
 
 <br/>
 
-## Contributing issues
+## 💁‍♂️ Contributing issues
 
 ### Created a PR but the build is failing on CI, should I do something?
 
