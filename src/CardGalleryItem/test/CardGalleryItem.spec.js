@@ -2,13 +2,7 @@ import React from 'react';
 import CardGalleryItem from '..';
 import Badge from '../../Badge';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
-import cardGalleryItemDriverFactory from '../CardGalleryItem.uni.driver';
-import ReactTestUtils from 'react-dom/test-utils';
-
-const hover = async driver =>
-  ReactTestUtils.SimulateNative.mouseOver(
-    await driver.getHoverComponent().getNative(),
-  );
+import cardGalleryItemDriverFactory from '../CardGalleryItem.private.uni.driver';
 
 describe('CardGalleryItem', () => {
   const createDriver = createUniDriverFactory(cardGalleryItemDriverFactory);
@@ -129,7 +123,7 @@ describe('CardGalleryItem', () => {
     it('should render hovered content', async () => {
       const driver = createDriver(<CardGalleryItem />);
 
-      await hover(driver);
+      await driver.hover();
 
       expect(await driver.getHoveredContent().exists()).toBeTruthy();
     });
@@ -163,8 +157,6 @@ describe('CardGalleryItem', () => {
         />,
       );
 
-      await hover(driver);
-
       expect(await driver.getPrimaryActionLabel()).toBe('Primary');
     });
 
@@ -182,7 +174,6 @@ describe('CardGalleryItem', () => {
         />,
       );
 
-      await hover(driver);
       await driver.clickOnPrimaryAction();
 
       expect(primaryActionOnClick).toHaveBeenCalledTimes(1);
@@ -197,8 +188,6 @@ describe('CardGalleryItem', () => {
           }}
         />,
       );
-
-      await hover(driver);
 
       expect(await driver.getSecondaryActionLabel()).toBe('Secondary');
     });
@@ -217,7 +206,6 @@ describe('CardGalleryItem', () => {
         />,
       );
 
-      await hover(driver);
       await driver.clickOnSecondaryAction();
 
       expect(secondaryActionOnClick).toHaveBeenCalledTimes(1);
