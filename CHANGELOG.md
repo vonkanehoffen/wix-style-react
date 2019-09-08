@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<CardGalleryItem/>` - encapsulate hover in cardGalleryItem testkit [#4061](https://github.com/wix/wix-style-react/pull/4061)
+
 ### Added
 - `<LabelledElement/>` - create the component [#4045](https://github.com/wix/wix-style-react/pull/4045)
 - `<Input/>` - allow hiding status suffix [#4054](https://github.com/wix/wix-style-react/pull/4054)
