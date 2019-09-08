@@ -52,6 +52,9 @@ class FloatingNotification extends React.PureComponent {
 
     /** The text content of the notification */
     text: PropTypes.node,
+
+    /** The width of the content container of the notification */
+    width: PropTypes.string,
   };
 
   static defaultProps = {
@@ -62,17 +65,21 @@ class FloatingNotification extends React.PureComponent {
   };
 
   render() {
-    const { type, className, dataHook } = this.props;
+    const { type, className, dataHook, width } = this.props;
     const icon = this._getIcon();
     const content = this._getContent();
     const textButton = this._getTextButton();
     const button = this._getButton();
     const close = this._getClose();
 
+    const style = { width };
+    width && (style.maxWidth = width);
+
     return (
       <div
         data-hook={dataHook}
         className={classNames(styles.root, styles[type], className)}
+        style={style}
       >
         {icon}
         {content}

@@ -85,6 +85,11 @@ export default {
           title: `Set buttons as anchors with href`,
           source: examples.ExampleHref,
         }),
+
+        code({
+          title: `Defining the width`,
+          source: examples.ExampleFullWidth,
+        }),
       ],
     }),
 
