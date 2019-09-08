@@ -34,6 +34,7 @@ Types of changes:
 
 ### Docs
 - `<ModalPreviewLayout/>` - move docs to "Components" category [#4058](https://github.com/wix/wix-style-react/pull/4058)
+- `<Table/>` - improve column fields documentation [#4064](https://github.com/wix/wix-style-react/pull/4064)
 
 ## 6.54.2 - 2019-09-03
 
