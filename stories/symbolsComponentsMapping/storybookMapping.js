@@ -35,6 +35,8 @@ export const getSymbolUrl = ({ groupSymbol, symbol }) =>
   symbolActualUrl[symbol] || linkTo(groupSymbol, symbol);
 
 const componentActualUrl = {
+  [sharedComponentsNames.Icon]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
+
   [inputsComponentsNames.TimeInput]: linkTo(Category.COMPONENTS, 'TimePicker'),
   [inputsComponentsNames.DateInput]: linkTo(Category.WIP, 'DateInput'),
   [inputsComponentsNames.MultiSelect]: linkTo(
@@ -60,10 +62,6 @@ const componentActualUrl = {
     'PopoverMenu',
   ),
 
-  [sharedComponentsNames.Icon]: linkTo(
-    symbolsGroup.foundation,
-    foundationSymbols.icons,
-  ),
   [modalsComponentsNames.ModalPreviewLayout]: linkTo(
     Category.WIP,
     modalsComponentsNames.ModalPreviewLayout,
@@ -102,6 +100,8 @@ const componentActualUrl = {
 };
 
 const symbolActualUrl = {
+  [foundationSymbols.icons]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
+
   [inputsSymbols.colorInput]: linkTo(symbolsGroup.inputs, '3.11 ColorInput'),
   [inputsSymbols.tagsInput]: linkTo(symbolsGroup.inputs, '3.12 Tags'),
 

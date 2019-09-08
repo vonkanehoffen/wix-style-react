@@ -67,11 +67,10 @@ class Dropdown extends InputWithOptions {
       if (option) {
         const value = props.valueParser(option) || '';
         return { value, selectedId };
-      } else {
-        return { value: '', selectedId: NO_SELECTED_ID };
       }
     }
-    return {};
+
+    return { value: '', selectedId: NO_SELECTED_ID };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -82,7 +81,8 @@ class Dropdown extends InputWithOptions {
       this.setState(
         Dropdown.getNextState(
           nextProps,
-          defaultTo(nextProps.selectedId, this.state.selectedId),
+          nextProps.selectedId,
+          this.state.selectedId,
         ),
       );
     }

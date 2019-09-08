@@ -20,7 +20,7 @@ const Avatar = props => {
     presence,
     indication,
     color,
-    onClick,
+    onIndicationClick,
     dataHook,
     className,
     ...rest
@@ -55,7 +55,7 @@ const Avatar = props => {
             <IconButton
               className={styles.iconButtonShadow}
               dataHook="avatar-indication"
-              onClick={onClick}
+              onClick={onIndicationClick}
               skin="inverted"
               size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
             >
@@ -108,7 +108,7 @@ Avatar.propTypes = {
   /** A node to be rendered as Indication.*/
   indication: PropTypes.node,
   /** function which triggered on indication click. Notice it will be clickable just in case `indication` is provided */
-  onClick: PropTypes.func,
+  onIndicationClick: PropTypes.func,
 };
 
 // Extracted icon as a component, in order to AutoDocs API to show a nice default value.

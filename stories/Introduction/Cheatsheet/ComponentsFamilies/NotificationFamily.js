@@ -5,7 +5,7 @@ import {
   SingleComponentSideBySide,
 } from '../sharedComponents';
 
-import { notificationsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/NotificationsFamily';
+import { notificationsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/notificationsFamily';
 
 import {
   createLinkedSymbolName,

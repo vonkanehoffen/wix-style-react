@@ -86,6 +86,20 @@ describe('Dropdown', () => {
         expect(await driver.isEditable()).toBe(false);
       });
 
+      it('should have no selection when initialSelectedId is null', async () => {
+        const { driver: _driver } = render(
+          <Dropdown
+            options={[{ id: 0, value: 'Option 1' }]}
+            initialSelectedId={null}
+          />,
+        );
+        const { dropdownLayoutDriver, inputDriver } = _driver;
+
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(false);
+
+        expect(await inputDriver.getValue()).toBe('');
+      });
+
       describe('initiallySelected', () => {
         it('should keep selectedId and value when initialSelectedId changed', async () => {
           const { driver: _driver, rerender } = render(
@@ -220,6 +234,20 @@ describe('Dropdown', () => {
 
         expect(await inputDriver.getValue()).toBe('Option 2');
       });
+
+      it('should have no selection when selectedId is null', async () => {
+        const { driver: _driver } = render(
+          <Dropdown
+            options={[{ id: 0, value: 'Option 1' }]}
+            selectedId={null}
+          />,
+        );
+        const { dropdownLayoutDriver, inputDriver } = _driver;
+
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(false);
+
+        expect(await inputDriver.getValue()).toBe('');
+      });
     });
 
     describe('Rerender', () => {
@@ -234,6 +262,21 @@ describe('Dropdown', () => {
         rerender(<Dropdown options={getOptions()} status="error" />);
 
         expect(await inputDriver.getValue()).toBe('foo');
+      });
+
+      it('should clear selection when selectedId is updated to null', async () => {
+        const { driver: _driver, rerender } = render(
+          <Dropdown options={getOptions()} selectedId={0} />,
+        );
+        const { dropdownLayoutDriver, inputDriver } = _driver;
+
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(true);
+        expect(await inputDriver.getValue()).toBe('Option 1');
+
+        rerender(<Dropdown options={getOptions()} selectedId={null} />);
+        expect(await dropdownLayoutDriver.isOptionSelected(0)).toBe(false);
+
+        expect(await inputDriver.getValue()).toBe('');
       });
     });
   }

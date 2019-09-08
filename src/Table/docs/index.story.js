@@ -25,6 +25,7 @@ import testkitReadme from './README.TESTKIT.md';
 import TableExampleRaw from '!raw-loader!./examples/TableExample';
 import TableSkinNeutralExample from '!raw-loader!./examples/TableSkinNeutralExample';
 import TableToolbarExampleRaw from '!raw-loader!./examples/TableToolbarExample';
+import TableBulkSelectionCheckboxExampleRaw from '!raw-loader!./examples/TableBulkSelectionCheckboxExample';
 import TableWithUnselectableRowsExampleRaw from '!raw-loader!./examples/TableWithUnselectableRowsExample';
 import TableEmptyStateExampleRaw from '!raw-loader!./examples/TableEmptyStateExample';
 import TableActionCellExampleRaw from '!raw-loader!./examples/TableActionCellExample';
@@ -148,15 +149,8 @@ export default {
               title: 'Table with Toolbar',
               description:
                 'This is a basic table that implements a toolbar using `<Table.ToolbarContainer/>` - which receives the SelectionContext (`showSelection` is true in order to enable the selection). Notice that the whole table is wrapped by `<Card/>` so that the toolbar seems like part of the table. In addition, we render the main toolbar when there are no selected rows, and an actions toolbar when some rows are selected. ' +
-                'If you want to manually create the Select All UX in the table toolbar (or anywhere else), you can set `showSelectAll` prop to `false` so it will not be rendered in the table header.',
+                'If you want to manually create the bulk selection ("Select All") UX in the table toolbar (or anywhere else), set `hideBulkSelectionCheckbox` prop and use `<Table.BulkSelectionCheckbox>` component to add bulk selection in another location (under `<Table>`) - see `Table with custom bulk selection checkbox` example.',
               source: TableToolbarExampleRaw,
-              compact: true,
-            },
-            {
-              title: 'Table with unselectable rows',
-              description:
-                'You can make a table row unselectable (so no checkbox appears for it in the selection column) by setting `unselectable: true` for the row. ',
-              source: TableWithUnselectableRowsExampleRaw,
               compact: true,
             },
             {
@@ -199,6 +193,20 @@ export default {
               description:
                 'This example demonstrates how to align the cells horizontally and vertically. Each column accepts `align` prop that aligns the text of the cells within this column horizontally. In case we want to align vertically - it should be done within the `render` method explicitly. Notice that we also define a width for the columns, which is optional.',
               source: TableAlignedColumnsExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Custom Bulk Selection Checkbox',
+              description:
+                'This is an example of having a custom bulk selection checkbox in the table toolbar using the `<Table.BulkSelectionCheckbox>` component.',
+              source: TableBulkSelectionCheckboxExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with unselectable rows',
+              description:
+                'You can make a table row unselectable (so no checkbox appears for it in the selection column) by setting `unselectable: true` for the row.',
+              source: TableWithUnselectableRowsExampleRaw,
               compact: true,
             },
           ].map(code),

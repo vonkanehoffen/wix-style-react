@@ -279,6 +279,22 @@ describe('Input', () => {
       });
     });
 
+    describe('hideStatusSuffix attribute', () => {
+      it('should display suffix if hideStatusSuffix is falsy', async () => {
+        const { driver } = render(
+          <Input status={'error'} hideStatusSuffix={false} />,
+        );
+
+        expect(await driver.hasSuffix()).toBeTruthy();
+      });
+
+      it('should hide suffix if hideStatusSuffix is true', async () => {
+        const { driver } = render(<Input status={'error'} hideStatusSuffix />);
+
+        expect(await driver.hasSuffix()).toBeFalsy();
+      });
+    });
+
     describe('help attribute', () => {
       it('should display an help icon if help is true', async () => {
         const { driver } = render(<Input help />);

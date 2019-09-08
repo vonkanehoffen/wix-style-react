@@ -140,6 +140,7 @@ require('../src/SidebarSectionTitle/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
 require('../src/SidebarDivider/docs/index.story');
 require('../src/SidebarHeader/docs/index.story');
+require('../src/StatisticsWidget/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
@@ -155,6 +156,7 @@ require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
+require('../src/LabelledElement/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');
@@ -196,8 +198,5 @@ require('./Deprecated/RichTextArea/testStory');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');
 
-// TODO: move to correct position
+// BETA
 require('../src/beta/PopoverMenu/docs/index.story');
-
-// TODO: move to correct position
-require('../src/StatisticsWidget/docs/index.story');

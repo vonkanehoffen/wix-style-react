@@ -8,7 +8,7 @@ import {
   Preview,
 } from '../sharedComponents';
 
-import { pickerSymbolsToComponents } from '../../../symbolsComponentsMapping/families/PickerFamily';
+import { pickerSymbolsToComponents } from '../../../symbolsComponentsMapping/families/pickerFamily';
 
 import { createLinkedComponentsNames } from '../sharedComponents/utils';
 

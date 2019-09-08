@@ -5,7 +5,7 @@ import {
   singleComponentSizes,
 } from '../sharedComponents';
 
-import { buttonsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/ButtonsFamily';
+import { buttonsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/buttonsFamily';
 
 import {
   createLinkedSymbolName,

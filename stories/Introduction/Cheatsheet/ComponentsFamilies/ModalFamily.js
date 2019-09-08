@@ -6,7 +6,7 @@ import {
   NotDeveloped,
 } from '../sharedComponents';
 
-import { modalsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/ModalsFamily';
+import { modalsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/modalsFamily';
 
 import {
   createLinkedSymbolName,
@@ -208,7 +208,7 @@ const MarketingExample = () => {
   };
 
   const marketingModalSvg = (
-    <div style={{ marginTop: '120' }}>
+    <div style={{ marginTop: '120px' }}>
       <svg
         width="100px"
         height="100px"

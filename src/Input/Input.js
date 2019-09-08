@@ -141,6 +141,7 @@ class Input extends Component {
       required,
       error,
       errorMessage,
+      hideStatusSuffix,
       customInput,
     } = this.props;
     const onIconClicked = e => {
@@ -151,7 +152,7 @@ class Input extends Component {
       }
     };
 
-    let suffixStatus = status;
+    let suffixStatus = hideStatusSuffix ? undefined : status;
     let suffixStatusMessage =
       statusMessage && statusMessage !== '' ? statusMessage : '';
 
@@ -438,6 +439,7 @@ Input.defaultProps = {
   withSelection: false,
   clearButton: false,
   updateControlledOnClear: false,
+  hideStatusSuffix: false,
 };
 
 const borderRadiusValidator = (props, propName) => {
@@ -485,6 +487,9 @@ Input.propTypes = {
 
   /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
   statusMessage: PropTypes.node,
+
+  /** When set to true, this input won't display status suffix */
+  hideStatusSuffix: PropTypes.bool,
 
   /** Is input has errors
    * @deprecated

@@ -87,7 +87,7 @@ describe('Table', () => {
       });
     });
 
-    describe('showSelectAll prop', () => {
+    describe('hideBulkSelectionCheckbox prop', () => {
       it('should display selection checkbox in header by default', async () => {
         const { driver } = render(
           <Table {...defaultProps} selectedIds={firstSelected()} />,
@@ -98,9 +98,9 @@ describe('Table', () => {
         expect(await bulkSelectionCheckboxDriver.exists()).toBeTruthy();
       });
 
-      it('should not display selection checkbox in header when set to false', async () => {
+      it('should not display selection checkbox in header when set to true', async () => {
         const { driver } = render(
-          <Table {...defaultProps} showSelectAll={false} />,
+          <Table {...defaultProps} hideBulkSelectionCheckbox />,
         );
         const rowCheckboxDriver = await driver.getRowCheckboxDriver(1);
         expect(await rowCheckboxDriver.exists()).toBeTruthy();

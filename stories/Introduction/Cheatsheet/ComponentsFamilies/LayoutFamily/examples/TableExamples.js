@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { SingleComponentStacked, Preview } from '../../../sharedComponents';
 import { createLinkedComponentsNames } from '../../../sharedComponents/utils';
 
-import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/LayoutFamily';
+import { layoutSymbolsToComponents } from '../../../../../symbolsComponentsMapping/families/layoutFamily';
 import { layoutSymbols } from '../../../../../symbolsComponentsMapping/symbols';
 
 import Table from 'wix-style-react/Table';

@@ -16,7 +16,7 @@ export const symbolsGroup = {
 
 export const foundationSymbols = {
   typography: '1.2 Typography',
-  icons: '1.4 Icons',
+  icons: '1.4 General Use Icons',
 };
 
 export const layoutSymbols = {

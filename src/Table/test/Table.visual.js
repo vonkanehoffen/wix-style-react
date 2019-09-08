@@ -5,7 +5,11 @@ import Table from '..';
 import Card from '../../Card';
 import Checkbox from '../../Checkbox';
 import ToggleSwitch from '../../ToggleSwitch';
-import { ToolbarExample, EmptyStateExample } from './testExamples';
+import {
+  ToolbarExample,
+  ToolbarWithBulSelectionCheckboxExample,
+  EmptyStateExample,
+} from './testExamples';
 
 const data = [
   {
@@ -185,7 +189,7 @@ const tests = [
           data,
           columns,
           showSelection: true,
-          showSelectAll: false,
+          hideBulkSelectionCheckbox: true,
         },
       },
       {
@@ -204,7 +208,7 @@ const tests = [
           data,
           columns,
           showSelection: true,
-          showSelectAll: false,
+          hideBulkSelectionCheckbox: true,
           selectionDisabled: true,
         },
       },
@@ -222,6 +226,22 @@ const tests = [
           children: [
             <Table.ToolbarContainer>
               {() => <ToolbarExample />}
+            </Table.ToolbarContainer>,
+            <Table.Content />,
+          ],
+        },
+      },
+      {
+        it:
+          'Should display the table with toolbar with bulk selection checkbox',
+        props: {
+          data,
+          columns,
+          showSelection: true,
+          hideBulkSelectionCheckbox: true,
+          children: [
+            <Table.ToolbarContainer>
+              {() => <ToolbarWithBulSelectionCheckboxExample />}
             </Table.ToolbarContainer>,
             <Table.Content />,
           ],

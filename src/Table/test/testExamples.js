@@ -60,6 +60,18 @@ export const ToolbarExample = () => {
   );
 };
 
+export const ToolbarWithBulSelectionCheckboxExample = () => {
+  return (
+    <TableToolbar>
+      <TableToolbar.ItemGroup position="start">
+        <TableToolbar.Item>
+          <Table.BulkSelectionCheckbox>Select All</Table.BulkSelectionCheckbox>
+        </TableToolbar.Item>
+      </TableToolbar.ItemGroup>
+    </TableToolbar>
+  );
+};
+
 export const EmptyStateExample = () => (
   <Table.EmptyState
     title="You haven't added any items yet"

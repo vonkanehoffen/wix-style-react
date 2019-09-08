@@ -764,5 +764,10 @@ module.exports = {
   StatisticsWidget: {
     unidriver: true,
     testkitPath: "../src/StatisticsWidget/StatisticsWidget.uni.driver"
+  },
+
+  LabelledElement: {
+    unidriver: true,
+    testkitPath: "../src/LabelledElement/LabelledElement.uni.driver"
   }
 };
