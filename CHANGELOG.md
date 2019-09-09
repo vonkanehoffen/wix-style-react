@@ -16,9 +16,6 @@ Types of changes:
 
 ## Next
 
-### Changed
-- `<CardGalleryItem/>` - encapsulate hover in cardGalleryItem testkit [#4061](https://github.com/wix/wix-style-react/pull/4061)
-
 ### Added
 - `<LabelledElement/>` - create the component [#4045](https://github.com/wix/wix-style-react/pull/4045)
 - `<Input/>` - allow hiding status suffix [#4054](https://github.com/wix/wix-style-react/pull/4054)
@@ -31,6 +28,11 @@ Types of changes:
 - `<Dropdown/>` - clear selection when option has `selectedId: null` [#4047](https://github.com/wix/wix-style-react/pull/4047)
 - `<Avatar/>` - change prop name to `onIndicationClick` [#4059](https://github.com/wix/wix-style-react/pull/4059)
 - `<Table/>` - change `showSelectAll` prop to `hideBulkSelectionCheckbox` [#4032](https://github.com/wix/wix-style-react/pull/4032)
+- `<CardGalleryItem/>` - encapsulate hover in cardGalleryItem testkit [#4061](https://github.com/wix/wix-style-react/pull/4061)
+
+### Fixed
+
+- `<SegmentedToggle/>` - remove rogue z-index [#4067](https://github.com/wix/wix-style-react/pull/4067)
 
 ### Docs
 - `<ModalPreviewLayout/>` - move docs to "Components" category [#4058](https://github.com/wix/wix-style-react/pull/4058)
