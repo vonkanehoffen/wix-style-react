@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: center;
   position:relative;
- 
+
   /* Sizing */
   flex-grow: 1;
   width: 100%;
@@ -65,12 +65,11 @@
   color: value(D55);
   cursor: not-allowed;
 }
-/* Selected styles */ 
+/* Selected styles */
 
 .button:selected:not(:disabled) {
   border: 1px solid value(B10);
   box-shadow: 0 0 0 1px value(B10);
-  z-index: 1000;
 }
 
 .button:selected:not(:disabled):focus-visible{
@@ -88,7 +87,7 @@
   background-color: value(D80);
 }
 
-/* Additional styles */ 
+/* Additional styles */
 
 .textWrapper {
   padding: 12px 24px;
