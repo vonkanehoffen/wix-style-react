@@ -10,10 +10,18 @@ import Highlighter from '../Highlighter/Highlighter';
 import { chainEventHandlers } from '../utils/ChainEventHandlers';
 import styles from './InputWithOptions.st.css';
 import nativeStyles from './InputWithOptions.scss';
+import { placements } from '../Popover/constants';
 
 import Popover from '../Popover';
 
 export const DEFAULT_VALUE_PARSER = option => option.value;
+
+const DEFAULT_POPOVER_PROPS = {
+  appendTo: 'parent',
+  flip: false,
+  fixed: true,
+  placement: 'bottom',
+};
 
 class InputWithOptions extends Component {
   // Abstraction
@@ -205,10 +213,12 @@ class InputWithOptions extends Component {
       dropdownWidth,
     } = this.props;
     const placement = dropDirectionUp ? 'top' : popoverProps.placement;
-
+    const body = popoverProps.appendTo === 'window';
     return !native ? (
       <Popover
         {...styles('root', {}, this.props)}
+        {...DEFAULT_POPOVER_PROPS}
+        dynamicWidth={body}
         {...popoverProps}
         width={dropdownWidth}
         placement={placement}
@@ -431,12 +441,7 @@ InputWithOptions.defaultProps = {
   inputElement: <Input />,
   valueParser: DEFAULT_VALUE_PARSER,
   dropdownWidth: null,
-  popoverProps: {
-    appendTo: 'parent',
-    flip: false,
-    fixed: true,
-    placement: 'bottom',
-  },
+  popoverProps: DEFAULT_POPOVER_PROPS,
   dropdownOffsetLeft: '0',
   showOptionsIfEmptyInput: true,
   magnifyingGlass: false,
@@ -460,8 +465,16 @@ InputWithOptions.propTypes = {
   highlight: PropTypes.bool,
   /** Indicates whether to render using the native select element */
   native: PropTypes.bool,
-  /* common popover props */
-  popoverProps: PropTypes.object,
+  /** common popover props */
+  popoverProps: PropTypes.shape({
+    appendTo: PropTypes.oneOf(['window', 'scrollParent', 'parent', 'viewport']),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    flip: PropTypes.bool,
+    fixed: PropTypes.bool,
+    placement: PropTypes.oneOf(placements),
+    dynamicWidth: PropTypes.bool,
+  }),
 };
 
 InputWithOptions.displayName = 'InputWithOptions';

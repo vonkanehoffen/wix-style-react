@@ -57,6 +57,7 @@ export default {
           <Cell span={3}>
             <Dropdown
               placeholder="Select dominant hand"
+              popoverProps={{ appendTo: 'window' }}
               options={[
                 { id: 0, value: 'Left' },
                 { id: 1, value: 'Right' },
@@ -126,6 +127,12 @@ export default {
               title: 'Dropdown states',
               subtitle: 'Two available states: disabled and error.',
               source: examples.states,
+            },
+            {
+              title: 'Dynamic width',
+              subtitle:
+                'For options that are too long - dropdown component can be detached from parent container width to document body by passing popover prop `appendTo="window"`. Just make sure to control the growth of the dropdown with maxWidth prop.',
+              source: examples.dynamicWidth,
             },
             {
               title: 'Native support',
