@@ -1,13 +1,18 @@
 import React, { PureComponent } from 'react';
-import { node, string } from 'prop-types';
+import { node, string, oneOf } from 'prop-types';
 import Text from '../../Text';
 import Box from '../../Box';
 import styles from './Subheader.st.css';
+import classNames from 'classnames';
 
 const isString = a => typeof a === 'string';
 
 class Subheader extends PureComponent {
   static displayName = 'Card.Subheader';
+
+  static defaultProps = {
+    skin: 'standard',
+  };
 
   static propTypes = {
     /** card title */
@@ -18,13 +23,22 @@ class Subheader extends PureComponent {
 
     /** data hook */
     dataHook: string,
+
+    /** skin  */
+    skin: oneOf(['standard', 'neutral']),
   };
 
   render() {
-    const { title, suffix, dataHook } = this.props;
+    const { title, suffix, dataHook, skin } = this.props;
 
     return (
-      <div className={styles.container} data-hook={dataHook}>
+      <div
+        className={classNames(styles.container, {
+          [styles.standard]: skin === 'standard',
+          [styles.neutral]: skin === 'neutral',
+        })}
+        data-hook={dataHook}
+      >
         <Box verticalAlign="middle" flexGrow={1} overflow="hidden">
           {isString(title) ? (
             <Text ellipsis weight="normal" size="medium" dataHook="title">

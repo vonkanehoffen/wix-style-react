@@ -45,6 +45,11 @@ const Subheader = Card.Subheader;
           source: examples.textTitle,
         }),
         code({
+          title: 'Neutral skin',
+          compact: true,
+          source: examples.neutralSkin,
+        }),
+        code({
           title: 'With custom node as title',
           compact: true,
           source: examples.nodeTitle,
