@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 6.56.0 - 2019-09-11
 
 ### Added
 - `<Card.Subheader/>` - added neutral skin [#4071](https://github.com/wix/wix-style-react/pull/4071)
