@@ -20,6 +20,9 @@ Types of changes:
 - `<Card.Subheader/>` - added neutral skin [#4071](https://github.com/wix/wix-style-react/pull/4071)
 - `<InputWithOptions/>` - supports dynamic dropdown width [#4050](https://github.com/wix/wix-style-react/pull/4050)
 
+### Fixed 
+- `<Button/>`- fixing isButtonDisabled testkit function [#4063](https://github.com/wix/wix-style-react/pull/4063)
+
 ## 6.55.0 - 2019-09-09
 
 ### Added
