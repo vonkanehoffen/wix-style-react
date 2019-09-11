@@ -5,12 +5,15 @@ import FormFieldSpinnerUp from 'wix-ui-icons-common/system/FormFieldSpinnerUp';
 import FormFieldSpinnerDown from 'wix-ui-icons-common/system/FormFieldSpinnerDown';
 import styles from './Ticker.scss';
 import InputConsumer from '../InputConsumer';
+import { dataHooks } from './constants';
 
 const Ticker = ({ onUp, onDown, upDisabled, downDisabled, dataHook }) => (
   <InputConsumer consumerCompName={Ticker.displayName}>
     {({ disabled }) => (
       <div className={styles.root} data-hook={dataHook}>
         <div
+          data-hook={dataHooks.tickerUp}
+          data-disabled={upDisabled || disabled}
           className={classnames(styles.up, {
             [styles.disabled]: upDisabled || disabled,
           })}
@@ -19,6 +22,8 @@ const Ticker = ({ onUp, onDown, upDisabled, downDisabled, dataHook }) => (
           <FormFieldSpinnerUp />
         </div>
         <div
+          data-hook={dataHooks.tickerDown}
+          data-disabled={downDisabled || disabled}
           className={classnames(styles.down, {
             [styles.disabled]: downDisabled || disabled,
           })}

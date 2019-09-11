@@ -1,13 +1,16 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
-
-import styles from './Ticker.scss';
+import { dataHooks } from './constants';
 
 export const tickerDriverFactory = base => {
+  const upTicker = base.$(`[data-hook="${dataHooks.tickerUp}"]`);
+  const downTicker = base.$(`[data-hook="${dataHooks.tickerDown}"]`);
+
   return {
     ...baseUniDriverFactory(base),
-    clickUp: () => base.$(`.${styles.up}`).click(),
-    clickDown: () => base.$(`.${styles.down}`).click(),
-    isUpDisabled: () => base.$(`.${styles.up}`).hasClass(styles.disabled),
-    isDownDisabled: () => base.$(`.${styles.down}`).hasClass(styles.disabled),
+    clickUp: () => upTicker.click(),
+    clickDown: () => downTicker.click(),
+    isUpDisabled: async () => (await upTicker.attr('data-disabled')) === 'true',
+    isDownDisabled: async () =>
+      (await downTicker.attr('data-disabled')) === 'true',
   };
 };
