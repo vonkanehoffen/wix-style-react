@@ -6,8 +6,7 @@
 
 `wix-style-react` is a collection of [React](https://facebook.github.io/react/) components that conform to Wix Style created by Wix UX guild.
 
-#### [Demo](https://wix-wix-style-react.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
-* Use [version 5 demo pages](https://wix-wix-style-react-v5.surge.sh/) to find demos of the previous version of the library - version 5.
+#### [Docs](https://wix-wix-style-react.surge.sh/) | [V5 Docs](https://wix-wix-style-react-v5.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
 
 ## Installation
 * Install with `npm` or `yarn`:
@@ -25,6 +24,13 @@ yarn add wix-style-react
     ```html
     <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
     ```
+* Enable font smoothing with browser specific css properties, for example:
+    ```css
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ```
 ### Example
 
 ```jsx
@@ -38,20 +44,10 @@ const App = () => (
 );
 ```
 
-### Tips
-
-* Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. Otherwise follow [webpack setup instructions here](https://github.com/wix/wix-style-react/blob/master/docs/usage-without-yoshi.md)
-* Enable font smoothing with browser specific css properties, for example:
-    ```css
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    ```
-
-## Prerequisites
+## Build Configuration Prerequisites
 `wix-style-react` uses [Stylable](https://stylable.io/), [SASS](https://sass-lang.com/) and [CSS Modules](https://github.com/css-modules/css-modules) configuration by default. 
-in order to use `wix-style-react`, your module bundler should be configured accordingly.  
+in order to use `wix-style-react`, your module bundler should be configured accordingly.
+Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. Otherwise, you should configure it on your own.
 
 ### Example of `create-react-app` configuration
 - Run 
