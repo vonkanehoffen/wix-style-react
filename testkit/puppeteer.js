@@ -311,6 +311,11 @@ export const pageHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   pageHeaderUniDriverFactory,
 );
 
+import { pageUniDriverFactory } from '../src/Page/Page.uni.driver';
+export const pageTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  pageUniDriverFactory,
+);
+
 import { proportionDriverFactory } from '../src/Proportion/Proportion.uni.driver';
 
 export const proportionTestkitFactory = puppeteerUniTestkitFactoryCreator(
