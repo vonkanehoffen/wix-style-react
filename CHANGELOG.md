@@ -23,6 +23,7 @@ Types of changes:
 ### Fixed
 
 - `<Tooltip/>` - fix content positioning issues [#3962](https://github.com/wix/wix-style-react/pull/3962)
+- `<DropdownBase/>` - add support for dynamicWidth [#4074](https://github.com/wix/wix-style-react/pull/4074)
 
 ## 6.56.0 - 2019-09-11
 
