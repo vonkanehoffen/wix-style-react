@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+
+- `<Tooltip/>` - adding missing transition [#3989](https://github.com/wix/wix-style-react/pull/3989)
+
 ## 6.56.0 - 2019-09-11
 
 ### Added
