@@ -20,6 +20,10 @@ Types of changes:
 
 - `<Tooltip/>` - adding missing transition [#3989](https://github.com/wix/wix-style-react/pull/3989)
 
+### Fixed
+
+- `<Tooltip/>` - fix content positioning issues [#3962](https://github.com/wix/wix-style-react/pull/3962)
+
 ## 6.56.0 - 2019-09-11
 
 ### Added
