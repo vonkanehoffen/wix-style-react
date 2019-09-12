@@ -15,7 +15,6 @@ import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
-import {LabelledElementDriver} from '../src/LabelledElement/LabelledElement.uni.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -126,7 +125,7 @@ declare namespace EnzymeTestkit {
   export const sidebarHeaderTestkitFactory: any;
   export const modalPreviewLayoutTestkitFactory: any;
   export const statisticsWidgetTestkitFactory: any;
-  export const labelledElementTestkitFactory: EnzymeUniTestkitFactory<LabelledElementDriver>;
+  export const labelledElementTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const richTextAreaTestkitFactory: any;
