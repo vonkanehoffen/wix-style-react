@@ -1,9 +1,4 @@
 :import {
-  -st-from: "../../Tooltip/TooltipNext/Tooltip.st.css";
-  -st-default: Tooltip;
-}
-
-:import {
   -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
   -st-default: Focusable;
 }
@@ -114,10 +109,4 @@
 
 .headerFull {
   flex-basis: 100%;
-}
-
-
-.tooltip {
- -st-extends: Tooltip;
- width: auto;
 }

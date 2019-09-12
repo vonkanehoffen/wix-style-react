@@ -11,7 +11,7 @@ import {
 import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
 
 import OriginalText from './Text';
-import tooltip from '../common/EllipsedTooltip/EllipsedTooltip.st.css';
+import tooltip from './Ellipsis.st.css';
 import { ZIndex } from '../ZIndex';
 
 class Text extends React.PureComponent {

@@ -51,11 +51,7 @@ class StatisticsItem extends React.PureComponent {
     return (
       <Heading appearance="H1" className={styles.headerWrapper}>
         <div className={styles.headerShort}>
-          <Tooltip
-            upgrade
-            {...styles('tooltip', {}, this.props)}
-            content={value}
-          >
+          <Tooltip upgrade content={value} theme="dark">
             <span
               data-hook={DataHooks.shortValue}
               aria-hidden="true"
@@ -85,7 +81,6 @@ class StatisticsItem extends React.PureComponent {
         {subtitleContentInfo && (
           <Tooltip
             upgrade
-            {...styles('tooltip', {}, this.props)}
             dataHook={DataHooks.tooltip}
             content={subtitleContentInfo}
           >
