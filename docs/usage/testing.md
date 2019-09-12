@@ -68,7 +68,7 @@ There are many testing platforms available and wix-style-react supports a few. F
 
 For example:
 
-**ReactTestUtils**
+**ReactTestUtils / react-testing-library**
 ```js
 import { inputTestkitFactory } from 'wix-style-react/dist/testkit'
 ```
@@ -93,17 +93,21 @@ import { inputTestkitFactory } from 'wix-style-react/dist/testkit/puppeteer'
 Once you have imported the `TestkitFactory` (let's say, `inputTestkitFactory`) you need to initialize it:
 
 ```js
+// in this example we use testkit compatible with react-testing-library
 import { inputTestkitFactory } from 'wix-style-react/dist/testkit';
+import { render } from 'react-testing-library';
+
+import App from './App';
 
 const inputDriver = inputTestkitFactory({
-  wrapper: <MyFormWithInput/>,
+  wrapper: render(<App />).baseElement,
   dataHook: 'title-changer-input',
 });
 ```
 
 `inputTestkitFactory` and all other testkits require two things:
 
-1. `wrapper` - a platform specific React node. That node somewhere inside should have a component, which has a specific `dataHook` (`title-changer-input` in our example)
+1. `wrapper` - a platform specific React node. (In this example we use `react-testing-library`). Inside node there should be a component, which has `dataHook="title-changer-input"`.
 2. `dataHook` - a string that matches `dataHook` of component
 
 This is a way of telling `inputTestkitFactory`: hey, here's a `wrapper`, please find component with `dataHook` in there and return me a testkit.
@@ -154,11 +158,9 @@ import {
 
 describe('App', () => {
   it('should update the title', async () => {
-    const { baseElement } = render(<App />);
-
     // 2. initializing testkits
     const inputDriver = inputTestkitFactory({
-      wrapper: baseElement,
+      wrapper: render(<App />).baseElement,
       dataHook: 'title-changer-input',
     });
 
