@@ -65,7 +65,7 @@ const NotificationsExamples = () => {
   const components = notificationsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: symbol,
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -124,7 +124,7 @@ const FloatingNotificationsExamples = () => {
   const components = notificationsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: symbol,
     componentsNames: createLinkedComponentsNames(components),
   };
 

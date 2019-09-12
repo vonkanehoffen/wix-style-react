@@ -43,10 +43,6 @@ const componentActualUrl = {
     Category.COMPONENTS,
     'Multiselect',
   ),
-  [inputsComponentsNames.ColorInput]: linkTo(
-    symbolsGroup.inputs,
-    '3.11 ColorInput',
-  ),
 
   [layoutComponentsNames.PageHeader]: linkTo(Category.COMPONENTS, 'PageHeader'),
   [layoutComponentsNames.Layout]: linkTo(
@@ -62,37 +58,6 @@ const componentActualUrl = {
     'PopoverMenu',
   ),
 
-  [modalsComponentsNames.ModalPreviewLayout]: linkTo(
-    Category.WIP,
-    modalsComponentsNames.ModalPreviewLayout,
-  ),
-
-  [buttonsComponentsNames.Button]: linkTo(
-    symbolsGroup.buttons,
-    buttonsSymbols.button,
-  ),
-  [buttonsComponentsNames.IconButton]: linkTo(
-    symbolsGroup.buttons,
-    '5.2 IconButton',
-  ),
-  [buttonsComponentsNames.TextButton]: linkTo(
-    symbolsGroup.buttons,
-    '5.3 TextButton',
-  ),
-  [buttonsComponentsNames.CloseButton]: linkTo(
-    symbolsGroup.buttons,
-    '5.4 CloseButton',
-  ),
-
-  [notificationsComponentsNames.Notification]: linkTo(
-    symbolsGroup.notificationBars,
-    notificationsSymbols.notification,
-  ),
-  [notificationsComponentsNames.FloatingNotification]: linkTo(
-    symbolsGroup.notificationBars,
-    notificationsSymbols.floatingNotification,
-  ),
-
   [modalsComponentsNames.MessageBoxMarketerialLayout]: linkTo(
     symbolsGroup.modals,
     '9.4 Announcement',
@@ -102,12 +67,7 @@ const componentActualUrl = {
 const symbolActualUrl = {
   [foundationSymbols.icons]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
 
-  [inputsSymbols.colorInput]: linkTo(symbolsGroup.inputs, '3.11 ColorInput'),
   [inputsSymbols.tagsInput]: linkTo(symbolsGroup.inputs, '3.12 Tags'),
-
-  [buttonsSymbols.iconButton]: linkTo(symbolsGroup.buttons, '5.2 IconButton'),
-  [buttonsSymbols.textButton]: linkTo(symbolsGroup.buttons, '5.3 TextButton'),
-  [buttonsSymbols.closeButton]: linkTo(symbolsGroup.buttons, '5.4 CloseButton'),
 
   [navigationSymbols.sidebarMenu]: linkTo(
     symbolsGroup.navigation,
