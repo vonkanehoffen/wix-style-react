@@ -27,7 +27,11 @@ class DropdownBase extends React.PureComponent {
     onMouseLeave: PropTypes.func,
     /** Callback function to be called when selecting an option. It's signature is `onSelect(selectedOption)` */
     onSelect: PropTypes.func,
-
+    /**
+     * popovers content is set to minnimum width of trigger element,
+     * but it can expand up to the value of maxWidth.
+     */
+    dynamicWidth: PropTypes.bool,
     /** The minimum width applied to the list */
     minWidth: PropTypes.number,
     /** The maximum width applied to the list */
@@ -314,6 +318,7 @@ class DropdownBase extends React.PureComponent {
       flip,
       tabIndex,
       overflow,
+      dynamicWidth,
     } = this.props;
 
     const { open, selectedId } = this.state;
@@ -323,6 +328,7 @@ class DropdownBase extends React.PureComponent {
         dataHook={dataHook}
         shown={open}
         placement={placement}
+        dynamicWidth={dynamicWidth}
         appendTo={appendTo}
         showArrow={showArrow}
         zIndex={zIndex}
@@ -347,8 +353,8 @@ class DropdownBase extends React.PureComponent {
         <Popover.Content>
           <div
             style={{
-              maxWidth,
               minWidth,
+              maxWidth,
             }}
           >
             <DropdownLayout
