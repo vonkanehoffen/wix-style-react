@@ -31,11 +31,18 @@
   -st-extends: Tooltip;
   -st-states: size(enum(small, medium));
   display: block;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  height: -moz-max-content;
+  height: -webkit-max-content;
 }
+
 
 .root[data-hook*="popover-portal"] {
   /* This will cause the container's height to stay the same */
   display: block;
+  display: -ms-grid;
+  -ms-grid-columns: max-content;
 }
 
 /** Popover Content */
