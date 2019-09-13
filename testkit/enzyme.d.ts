@@ -125,6 +125,7 @@ declare namespace EnzymeTestkit {
   export const sidebarHeaderTestkitFactory: any;
   export const modalPreviewLayoutTestkitFactory: any;
   export const statisticsWidgetTestkitFactory: any;
+  export const fillPreviewTestkitFactory: any;
   export const labelledElementTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;

@@ -575,6 +575,12 @@ export const statisticsWidgetTestkitFactory = protractorUniTestkitFactoryCreator
   statisticsWidgetDriverFactory,
 );
 
+import fillPreviewDriverFactory from '../src/FillPreview/FillPreview.uni.driver';
+
+export const fillPreviewTestkitFactory = protractorUniTestkitFactoryCreator(
+  fillPreviewDriverFactory,
+);
+
 import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
 
 export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(

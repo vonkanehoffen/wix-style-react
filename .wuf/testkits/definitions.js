@@ -769,5 +769,10 @@ module.exports = {
   LabelledElement: {
     unidriver: true,
     testkitPath: "../src/LabelledElement/LabelledElement.uni.driver"
+  },
+
+  FillPreview: {
+    unidriver: true,
+    testkitPath: "../src/FillPreview/FillPreview.uni.driver"
   }
 };

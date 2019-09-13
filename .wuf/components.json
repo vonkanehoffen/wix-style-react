@@ -383,6 +383,9 @@
   "StatisticsWidget": {
     "path": "src/StatisticsWidget"
   },
+  "FillPreview": {
+    "path": "src/FillPreview"
+  },
   "LabelledElement": {
     "path": "src/LabelledElement"
   }

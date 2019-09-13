@@ -455,6 +455,12 @@ export const statisticsWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(
   statisticsWidgetDriverFactory,
 );
 
+import fillPreviewDriverFactory from '../src/FillPreview/FillPreview.uni.driver';
+
+export const fillPreviewTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  fillPreviewDriverFactory,
+);
+
 import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
 
 export const labelledElementTestkitFactory = puppeteerUniTestkitFactoryCreator(

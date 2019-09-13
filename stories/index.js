@@ -72,6 +72,7 @@ require('../src/EditableSelector/docs/index.story');
 require('../src/EmptyState/docs/index.story');
 require('../src/EndorseContentLayout/docs');
 require('../src/FilePicker/docs/index.story');
+require('../src/FillPreview/docs/index.story');
 require('../src/FloatingHelper/FloatingHelperContent/docs/index.story');
 require('../src/FloatingHelper/docs/index.story');
 require('../src/FloatingNotification/docs/index.story');

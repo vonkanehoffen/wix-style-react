@@ -1,0 +1,20 @@
+import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
+import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+
+export const fillPreviewDriverFactory = (base, body) => {
+  const tooltipTestkit = tooltipDriverFactory(base, body);
+
+  return {
+    ...baseUniDriverFactory(base),
+
+    clickButton: async () =>
+      base.$('[data-hook="fill-preview-button"]').click(),
+
+    hasTooltip: async () => {
+      await tooltipTestkit.mouseEnter();
+      return tooltipTestkit.tooltipExists();
+    },
+
+    getTooltipText: async () => tooltipTestkit.getTooltipText(),
+  };
+};
