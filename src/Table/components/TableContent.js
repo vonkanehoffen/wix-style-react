@@ -1,5 +1,6 @@
 import React from 'react';
 import { bool, string } from 'prop-types';
+import defaultTo from 'lodash/defaultTo';
 import DataTable from '../../DataTable';
 import { getDataTableProps, createColumns } from '../Table';
 import { TableContext } from '../TableContext';
@@ -27,7 +28,11 @@ export const TableContent = ({ titleBarVisible, dataHook }) => {
               {bulkSelectionContext => (
                 <DataTable
                   {...dataTableProps}
-                  selectedRowsIds={bulkSelectionContext.getSelectedIds()}
+                  isRowSelected={(rowData, rowIndex) =>
+                    bulkSelectionContext.isSelected(
+                      defaultTo(rowData.id, rowIndex),
+                    )
+                  }
                   columns={createColumns({ tableProps, bulkSelectionContext })}
                 />
               )}

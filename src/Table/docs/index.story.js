@@ -31,6 +31,7 @@ import TableEmptyStateExampleRaw from '!raw-loader!./examples/TableEmptyStateExa
 import TableActionCellExampleRaw from '!raw-loader!./examples/TableActionCellExample';
 import TablePageExampleRaw from '!raw-loader!./examples/TablePageExample';
 import TableInfiniteScrollExampleRaw from '!raw-loader!./examples/TableInfiniteScrollExample';
+import TableInfiniteScrollWithBulkSelectionExampleRaw from '!raw-loader!./examples/TableInfiniteScrollWithBulkSelectionExample';
 import TableHighlightedRowsExampleRaw from '!raw-loader!./examples/TableHighlightedRowsExample';
 import TableAlignedColumnsExampleRaw from '!raw-loader!./examples/TableAlignedColumnsExample';
 import TableVirtualizationExampleRaw from '!raw-loader!./examples/TableVirtualizationExample';
@@ -177,8 +178,15 @@ export default {
             {
               title: 'Table with Infinite Scroll',
               description:
-                'As opposed to pagination - infinite scroll means that new pages are loaded automatically, when the scrollbar reaches to the end (assuming there is more data to load). The `infiniteScroll` prop instructs the table to not render all data on startup, but rather gradually. Notice that the infinite scroll should listen to some scroll events (in order to determine when to render new items). In this example, we pass a container with limited height - but it could be any element that triggers scroll events.',
+                'As opposed to pagination - infinite scroll means that new pages are loaded automatically when the scrollbar reaches to the end (assuming there is more data to load). The `infiniteScroll` prop instructs the table to not render all data on startup, but rather gradually. Notice that the infinite scroll should listen to some scroll events (in order to determine when to render new items). In this example, we pass a container with limited height - but it could be any element that triggers scroll events.',
               source: TableInfiniteScrollExampleRaw,
+              compact: true,
+            },
+            {
+              title: 'Table with Infinite Scroll and Bulk Selection',
+              description:
+                'When `infiniteScroll` (see the previous example) and `showSelection` are set, and the data is not fully loaded yet (`hasMore` is `true`), and then the user clicks the bulk selection checkbox, by default only loaded items are selected. If `totalSelectableCount` is set, then when the bulk selection checkbox is clicked before all the data is loaded, the grid enters an "infinite bulk selection" mode. It assumes all items are selected, and it only keeps track of the items manually unselected by the user. Newly loaded items are being selected by default. `SelectionContext.selectedCount` will be updated based on the `totalSelectableCount` prop.',
+              source: TableInfiniteScrollWithBulkSelectionExampleRaw,
               compact: true,
             },
             {

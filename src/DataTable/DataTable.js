@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './DataTable.scss';
 import classNames from 'classnames';
+import defaultTo from 'lodash/defaultTo';
 import InfiniteScroll from '../utils/InfiniteScroll';
 import SortByArrowUp from '../new-icons/system/SortByArrowUp';
 import SortByArrowDown from '../new-icons/system/SortByArrowDown';
@@ -154,8 +155,13 @@ class DataTable extends React.Component {
       dynamicRowClass,
       isRowHighlight,
       rowDetails,
+      rowClass,
+      columns,
+      selectedRowsIds,
+      isRowSelected,
     } = this.props;
-    const rowClasses = [this.props.rowClass];
+    const rowClasses = [rowClass];
+    const key = defaultTo(rowData.id, rowNum);
     const optionalRowProps = {};
 
     const handlers = [
@@ -200,16 +206,15 @@ class DataTable extends React.Component {
     }
 
     if (
-      this.props.selectedRowsIds.includes(
-        rowData.id !== undefined ? rowData.id : rowNum,
-      )
+      isRowSelected
+        ? isRowSelected(rowData, rowNum)
+        : selectedRowsIds && selectedRowsIds.includes(key)
     ) {
       rowClasses.push(this.style.selected);
     }
 
     optionalRowProps.className = classNames(rowClasses);
 
-    const key = rowData.id === undefined ? rowNum : rowData.id;
     const rowsToRender = [
       <tr
         data-table-row="dataTableRow"
@@ -217,7 +222,7 @@ class DataTable extends React.Component {
         key={key}
         {...optionalRowProps}
       >
-        {this.props.columns.map((column, colNum) =>
+        {columns.map((column, colNum) =>
           this.renderCell(rowData, column, rowNum, colNum),
         )}
       </tr>,
@@ -237,7 +242,7 @@ class DataTable extends React.Component {
               this.style.details,
               showDetails ? this.style.active : '',
             )}
-            colSpan={this.props.columns.length}
+            colSpan={columns.length}
           >
             <div className={classNames(this.style.rowDetailsInner)}>
               <Animator show={showDetails} height>
@@ -467,6 +472,7 @@ DataTable.defaultProps = {
   data: [],
   columns: [],
   selectedRowsIds: [],
+  isRowSelected: null,
   showHeaderWhenEmpty: false,
   infiniteScroll: false,
   itemsPerPage: 20,
@@ -510,6 +516,8 @@ DataTable.propTypes = {
   rowClass: PropTypes.string,
   /** A func that gets row data and returns a class(es) to apply to that specific row */
   dynamicRowClass: PropTypes.func,
+  /** A func that gets row data and returns boolean if row is selected or not */
+  isRowSelected: PropTypes.func,
   /** A func that gets row data and returns boolean if row is highlighted or not */
   isRowHighlight: PropTypes.func,
   /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)` */
@@ -584,7 +592,7 @@ DataTable.propTypes = {
   virtualizedTableHeight: PropTypes.number,
   /** ++EXPERIMENTAL++ Set virtualized table row height */
   virtualizedLineHeight: PropTypes.number,
-  /** array of selected ids in the table */
+  /** array of selected ids in the table. Note that `isRowSelected` prop provides greater selection logic flexibility and is recommended to use instead. */
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),

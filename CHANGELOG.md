@@ -42,6 +42,7 @@ Types of changes:
 - `<FloatingNotification/>` - add `width` prop [#4031](https://github.com/wix/wix-style-react/pull/4031)
 - `Cheatshhet`- adding links and examples of the `FoundationFamily` [#4038](https://github.com/wix/wix-style-react/pull/4038)
 - `<Table/>` - create `Table.BulkSelectionCheckbox` component [#4032](https://github.com/wix/wix-style-react/pull/4032)
+- `<Table/>` - add `totalSelectableCount` prop to better deal with bulk selection in `infiniteScroll` [#4046](https://github.com/wix/wix-style-react/pull/4046)
 
 ### Changed
 - `<MessageBoxFunctionalLayout/>` - add `height: 100%` when `fullscreen` prop is used [#4055](https://github.com/wix/wix-style-react/pull/4055)
