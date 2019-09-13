@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<Tooltip/>` - adding missing transition [#3989](https://github.com/wix/wix-style-react/pull/3989)
+- `<Table/>` - add`totalSelectableCount` prop [#4046](https://github.com/wix/wix-style-react/pull/4046)
 
 ### Fixed
 
