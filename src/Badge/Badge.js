@@ -8,7 +8,10 @@ import { SKIN, TYPE, SIZE } from './constants';
 import style from './Badge.st.css';
 import ellipsedStyle from '../common/EllipsedTooltip/EllipsedTooltip.st.css';
 
-const WrapWithEllipsis = withEllipsedTooltip({ showTooltip: true });
+const WrapWithEllipsis = withEllipsedTooltip({
+  tooltipProps: { className: ellipsedStyle.root },
+  showTooltip: true,
+});
 
 const BadgeContent = ({ children, className, ...restProps }) => {
   return (
@@ -88,11 +91,7 @@ class Badge extends React.PureComponent {
   };
 
   _renderContent = children => {
-    return (
-      <EllipsedBadgeContent {...ellipsedStyle('root', {})}>
-        {children}
-      </EllipsedBadgeContent>
-    );
+    return <EllipsedBadgeContent>{children}</EllipsedBadgeContent>;
   };
 
   _getDataAttributes = () => {
