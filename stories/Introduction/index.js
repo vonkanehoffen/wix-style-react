@@ -5,6 +5,7 @@ import Markdown from 'wix-storybook-utils/Markdown';
 
 import Readme from '../../README.md';
 import TestingReadme from '../../docs/usage/testing.md';
+import TroubleshootingReadme from '../../docs/usage/Troubleshooting.md';
 import UsageWithoutYoshiReadme from '../../docs/usage-without-yoshi.md';
 
 import ComponentsCheatsheet from './Cheatsheet/ComponentsCheatsheet';
@@ -18,6 +19,11 @@ storiesOf('Introduction', module)
   .add('Testing', () => (
     <div style={{ margin: '0 48px', width: '100%', maxWidth: 1161 }}>
       <Markdown source={TestingReadme} />
+    </div>
+  ))
+  .add('Troubleshooting', () => (
+    <div style={{ margin: '0 48px', width: '100%', maxWidth: 1161 }}>
+      <Markdown source={TroubleshootingReadme} />
     </div>
   ));
 
