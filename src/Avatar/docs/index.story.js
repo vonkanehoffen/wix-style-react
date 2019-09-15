@@ -43,6 +43,7 @@ export default {
     imgProps: undefined,
     size: undefined,
     color: undefined,
+    shape: undefined,
     text: undefined,
     title: 'Wix Account: John Doe (johndoe@gmail.com)',
     ariaLabel: 'Avatar for John Doe',
@@ -63,6 +64,10 @@ export default {
       'size18',
     ],
     color: ['blue', 'green', 'grey', 'red', 'orange'],
+    shape: [
+      { label: 'circle (default)', value: 'circle' },
+      { label: 'square', value: 'square' },
+    ],
     imgProps: [
       { label: 'With Image', value: { src: IMG_REAL_URL } },
       { label: 'With Invalid Image URL', value: { src: IMG_INVALID_URL } },
@@ -120,6 +125,24 @@ export default {
   <Avatar size="size24" name={'John Doe'} />
   <Avatar size="size18" name={'John Doe'} />
 </Box>  
+  `}
+        />
+      </Cell>
+      <Cell>
+        <LiveCodeExample
+          compact
+          title="Square Shape"
+          initialCode={`
+<Box align="space-between" width="500">
+  <Avatar shape="square" presence={'online'} size="size90" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size72" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size60" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size48" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size36" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size30" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size24" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size18" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+</Box>
   `}
         />
       </Cell>

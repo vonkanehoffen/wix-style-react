@@ -23,6 +23,7 @@ const Avatar = props => {
     onIndicationClick,
     dataHook,
     className,
+    shape,
     ...rest
   } = props;
   const sizeNumber = getSizeNumber(size);
@@ -34,6 +35,7 @@ const Avatar = props => {
     >
       <div
         {...styles('avatarContainer', {
+          shape,
           size,
           indication,
           presence,
@@ -57,6 +59,7 @@ const Avatar = props => {
               dataHook="avatar-indication"
               onClick={onIndicationClick}
               skin="inverted"
+              shape={shape}
               size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
             >
               {indication}
@@ -99,6 +102,8 @@ Avatar.propTypes = {
   ]),
   /** Background color when text (initials) content is displayed */
   color: PropTypes.oneOf(['blue', 'green', 'grey', 'red', 'orange']),
+  /** Shape of the image, can be square or circle */
+  shape: PropTypes.oneOf(['circle', 'square']),
   /** classes to be applied to the root element */
   className: PropTypes.string,
   /** Applied as data-hook HTML attribute that can be used to create an Avatar driver in testing */
@@ -127,6 +132,7 @@ function AvatarDefaultPlaceholder() {
 Avatar.defaultProps = {
   placeholder: <AvatarDefaultPlaceholder />,
   size: 'size48',
+  shape: 'circle',
 };
 
 export default Avatar;

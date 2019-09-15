@@ -6,13 +6,13 @@ import { PhotoCamera } from 'wix-ui-icons-common';
 
 const allSizesAvatarWithProps = props => (
   <div style={{ display: 'flex' }}>
-    <Avatar size="size18" {...props} />
-    <Avatar size="size24" {...props} />
-    <Avatar size="size30" {...props} />
-    <Avatar size="size36" {...props} />
-    <Avatar size="size48" {...props} />
-    <Avatar size="size60" {...props} />
-    <Avatar size="size72" {...props} />
+    <Avatar size="size18" {...props} /> &nbsp;
+    <Avatar size="size24" {...props} /> &nbsp;
+    <Avatar size="size30" {...props} /> &nbsp;
+    <Avatar size="size36" {...props} /> &nbsp;
+    <Avatar size="size48" {...props} /> &nbsp;
+    <Avatar size="size60" {...props} /> &nbsp;
+    <Avatar size="size72" {...props} /> &nbsp;
     <Avatar size="size90" {...props} />
   </div>
 );
@@ -31,6 +31,10 @@ storiesOf(`Avatar/Props`, module).add('Presence', () => (
     </div>
     {allSizesAvatarWithProps({ presence: 'online', ...baseProps })}
   </div>
+));
+
+storiesOf(`Avatar/Props`, module).add('Square', () => (
+  <div>{allSizesAvatarWithProps({ shape: 'square', ...baseProps })}</div>
 ));
 
 storiesOf(`Avatar/Props`, module).add('Indication', () => (
@@ -59,6 +63,13 @@ storiesOf(`Avatar/Props`, module).add('Presence and Indication', () => (
   <div>
     {allSizesAvatarWithProps({
       presence: 'online',
+      indication: <PhotoCamera size="24" />,
+      ...baseProps,
+    })}
+    <br />
+    {allSizesAvatarWithProps({
+      presence: 'online',
+      shape: 'square',
       indication: <PhotoCamera size="24" />,
       ...baseProps,
     })}

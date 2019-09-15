@@ -24,7 +24,7 @@
 :import {
   -st-from: "wix-ui-core/dist/src/themes/backoffice/text.st.css";
   -st-named: sizeMedium, sizeSmall, sizeTiny, weightNormal, weightBold, light;
-} 
+}
 
 .placeholder {
   fill: value(F00);
@@ -42,9 +42,11 @@
 
 .avatarContainer {
   -st-states:
-  size(enum(size90, size72, size60, size48,
-  size36, size30, size24, size18)), indication, 
-  presenceType(enum(busy, online, offline)), presence;
+      size(enum(size90, size72, size60, size48, size36, size30, size24, size18)),
+      indication,
+      shape(enum(circle,square)),
+      presenceType(enum(busy, online, offline)),
+      presence;
   position: relative;
   display: inline-block;
 }
@@ -129,7 +131,7 @@
 .avatarContainer:size(size24):presence .coreAvatar{
   padding-right: 4px;
 }
- 
+
 .avatarContainer:presenceType(online) .presence{
   background-color: value(G10);
 }
@@ -172,9 +174,24 @@
   right: 6px;
 }
 
-.avatarContainer:size(size90):indication .presence{
-  right: 16px;
-}
+/* Square Shape Presence*/
+
+.avatarContainer:size(size90):shape(square) .presence { top: -5px; right: 1px; }
+.avatarContainer:size(size72):shape(square) .presence { top: -5px; right: 1px; }
+.avatarContainer:size(size60):shape(square) .presence { top: -4px; right: 2px; }
+.avatarContainer:size(size48):shape(square) .presence { top: -3px; right: 8px; }
+.avatarContainer:size(size36):shape(square) .presence { top: -3px; right: 1px; }
+.avatarContainer:size(size30):shape(square) .presence { top: -3px; right: 1px; }
+.avatarContainer:size(size24):shape(square) .presence { top: -4px; right: 0px; }
+.avatarContainer:size(size18):shape(square) .presence { top: -3px; right: 1px; }
+
+
+/* Square Shape Indication*/
+
+.avatarContainer:size(size90):shape(square) .indication { right: 0px; bottom: -3px; }
+.avatarContainer:size(size72):shape(square) .indication { right: 0px; bottom: -3px; }
+.avatarContainer:size(size60):shape(square) .indication { right: 0px; bottom: -2px; }
+.avatarContainer:size(size48):shape(square) .indication { right: 3px; bottom: -2px; }
 
 .avatar {
   -st-extends: Avatar;
@@ -187,7 +204,7 @@
 
   height: 48px;
   width: 48px;
-  border-radius: 30px; 
+  border-radius: 30px;
 }
 
 .avatar:contentType(image)::content {
@@ -271,6 +288,16 @@
   height: 18px;
   width: 18px;
   border-radius: 12px;
+}
+
+/* Shapes */
+.avatarContainer:shape(square) .avatar {
+  border-radius: 4px;
+}
+
+.avatarContainer:size(size72):shape(square) .avatar,
+.avatarContainer:size(size90):shape(square) .avatar {
+    border-radius: 6px;
 }
 
 /* Sizes text */
