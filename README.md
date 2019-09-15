@@ -109,6 +109,10 @@ Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. 
 ## Test drivers
 All of `wix-style-react` components are 100% tested and supplies test drivers for easy interactions in your tests. Read more about [Components Drivers](./docs/usage/COMPONENTS_DRIVERS.md)
 
+## Troubleshooting
+
+Please refer to the [Troubleshooting page](https://github.com/wix/wix-style-react/blob/master/docs/usage/Troubleshooting.md)
+
 ## Contributing
 
 Please refer to the [Contributing page](./CONTRIBUTING.md)
