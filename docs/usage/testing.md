@@ -175,3 +175,8 @@ describe('App', () => {
   });
 });
 ```
+ For concrete examples for each one of the testing platforms click [here](https://github.com/wix/wix-style-react/blob/master/docs/usage/testing_examples.md)
+
+### Pitfalls
+
+For common issues click [here](https://github.com/wix/wix-style-react/blob/master/docs/usage/testing_pitfalls.md)
