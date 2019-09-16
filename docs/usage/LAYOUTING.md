@@ -174,7 +174,7 @@ Notice the following constraints:
 - In order to make `<Container/>` be fluid, regardless the viewport width, we should use the `fluid` prop
 - We have to use `<Row/>` to break the rows explicitly (which means we cannot just shed the items within the `<Container/>`)
 - Our data collection should be suitable to the grid structure as much as possible (apparently sort of two-dimensional array), so we can iterate through that collection easily (without getting in trouble with complicated loops)
-- We cannot control the gutters between the columns
+- We cannot control the gaps between the columns
 
 However, what if we look for a solution that allows overcoming the constraints above?
 
@@ -190,7 +190,7 @@ Mostly would be useful for larger-scale areas, much like the Grid's family, when
 
 * As we already mentioned, there is no need to deal with explicit rows - just adding the `<Cell/>`s into the container
 * More suitable for iterating through one-dimensional data collection
-* The gutters between the cells are controllable
+* The gaps between the cells are controllable
 * The amount of the maximum columns is adjustable (could be 12 or lower)
 
 ### Examples
