@@ -29,7 +29,7 @@ Mostly would be useful for layouting small-scale areas.
 
 This example uses `<Box/>`s to pad and align the icon vertically beside the text:
 
-```html
+```jsx
 <Box verticalAlign="middle">
   <Box marginRight="1">
     <Icons.HintSmall />
@@ -44,7 +44,7 @@ This example uses `<Box/>`s to pad and align the icon vertically beside the text
 
 This example uses `<Box/>`s to spread the child elements horizontally over the whole width:
 
-```html
+```jsx
 <Box align="space-between" verticalAlign="middle">
   <Heading>My Title</Heading>
   <Box verticalAlign="middle">
@@ -72,7 +72,7 @@ Mostly would be useful for larger-scale areas compared to the `<Box/>` component
 
 This example uses Grid's family to display a list of labels beside aligned inputs:
 
-```html
+```jsx
 <Container>
 	<Row>
 		<Col span={1}>
@@ -105,7 +105,7 @@ This example uses Grid's family to display a list of labels beside aligned input
 
 This example uses Grid's family to divide a list of cards between rows and columns:
 
-```html
+```jsx
 <Container fluid>
 	<Row>
 		<Col span={6}>
@@ -136,7 +136,7 @@ This example uses Grid's family to divide a list of cards between rows and colum
 
 Also, we can iterate through an array that holds the items:
 
-```html
+```jsx
 class GridViewExample extends React.Component {
   state = {
     list: Array(3).fill([
@@ -199,7 +199,7 @@ Mostly would be useful for larger-scale areas, much like the Grid's family, when
 
 This example uses Layout's family to divide a list of cards between rows and columns:
 
-```html
+```jsx
 class GridViewExample extends React.Component {
   state = {
     list: Array(6).fill({ title: 'Title', subtitle: 'Subtitle' }),
