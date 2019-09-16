@@ -197,6 +197,20 @@ describe('Page', () => {
     });
   });
 
+  it('should render the height as inline style when `height` prop is provided', async () => {
+    const height = '40vh';
+    const driver = PagePrivateDriver.fromJsxElement(
+      <Page height={height}>
+        <Page.Header title="title" />
+        <Page.Content>
+          <Content />
+        </Page.Content>
+      </Page>,
+    );
+
+    expect(await driver.getStyle()['height']).toBe(height);
+  });
+
   describe('zIndex', () => {
     it('should NOT have zIndex in inline style by default', async () => {
       const driver = PagePrivateDriver.fromJsxElement(

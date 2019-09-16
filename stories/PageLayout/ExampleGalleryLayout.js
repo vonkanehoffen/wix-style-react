@@ -57,35 +57,29 @@ class ExampleSplitLayout extends React.Component {
   }
 
   render() {
-    const ExamplePageContainer = ({ children }) => (
-      <div style={{ height: '372px' }}>{children}</div>
-    );
-
     return (
-      <ExamplePageContainer>
-        <Page upgrade>
-          {this.renderHeader()}
-          <Page.Content>
-            <Container>
-              {Array(2).fill(
-                <Row>
-                  {Array(3).fill(
-                    <Col span={4}>{this.renderCardGalleryItem()}</Col>,
-                  )}
-                </Row>,
-              )}
+      <Page upgrade height="372px">
+        {this.renderHeader()}
+        <Page.Content>
+          <Container>
+            {Array(2).fill(
               <Row>
-                <Col span={4}>
-                  {/* We use <Proportion/> to stretch <AddItem/> vertically (it doesn't stretch automatically because its height is 100%, whereas the row doesn't have a defined height) */}
-                  <Proportion>
-                    <AddItem>Add Item</AddItem>
-                  </Proportion>
-                </Col>
-              </Row>
-            </Container>
-          </Page.Content>
-        </Page>
-      </ExamplePageContainer>
+                {Array(3).fill(
+                  <Col span={4}>{this.renderCardGalleryItem()}</Col>,
+                )}
+              </Row>,
+            )}
+            <Row>
+              <Col span={4}>
+                {/* We use <Proportion/> to stretch <AddItem/> vertically (it doesn't stretch automatically because its height is 100%, whereas the row doesn't have a defined height) */}
+                <Proportion>
+                  <AddItem>Add Item</AddItem>
+                </Proportion>
+              </Col>
+            </Row>
+          </Container>
+        </Page.Content>
+      </Page>
     );
   }
 }
