@@ -123,7 +123,7 @@ class FillPreview extends React.Component {
         disabled={!tooltipEnabled}
         appendTo="window"
         size="small"
-        dataHook="fill-preview-tooltip"
+        dataHook={dataHook}
         content={addModeTooltipContent}
       >
         <Proportion className={styles.proportion}>
@@ -133,7 +133,7 @@ class FillPreview extends React.Component {
               { selected, mode, noColor, clickable: !!onClick },
               rest,
             )}
-            data-hook={dataHook}
+            data-hook="fill-preview-button"
             style={buttonStyle}
             onFocus={focusableOnFocus}
             onBlur={focusableOnBlur}
@@ -180,7 +180,6 @@ FillPreview.defaultProps = {
   selected: false,
   addIconSize: 'small',
   mode: 'fill',
-  dataHook: 'fill-preview-button',
 };
 
 export default withFocusable(FillPreview);
