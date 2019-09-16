@@ -21,6 +21,10 @@ Types of changes:
 - `<Avatar/>` - Add shape property to support square shape [#4105](https://github.com/wix/wix-style-react/pull/4105)
 - `<Page/>` - add `height` prop [#4098](https://github.com/wix/wix-style-react/pull/4098)
 
+### Fixed
+
+- `<FillPreview/>` - move dataHook to tooltip instead [#4110](https://github.com/wix/wix-style-react/pull/4110)
+
 ## 6.57.0 - 2019-09-13
 
 ### Added
