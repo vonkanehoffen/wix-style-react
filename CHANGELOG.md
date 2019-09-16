@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<Avatar/>` - Add shape property to support square shape [#4105](https://github.com/wix/wix-style-react/pull/4105)
+- `<Page/>` - add `height` prop [#4098](https://github.com/wix/wix-style-react/pull/4098)
 
 ## 6.57.0 - 2019-09-13
 
