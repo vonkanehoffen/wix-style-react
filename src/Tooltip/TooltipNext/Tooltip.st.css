@@ -30,7 +30,6 @@
 .root {
   -st-extends: Tooltip;
   -st-states: size(enum(small, medium));
-  display: inline;
 }
 
 
