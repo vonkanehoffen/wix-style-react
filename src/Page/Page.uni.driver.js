@@ -15,7 +15,7 @@ export const pageUniDriverFactory = base => {
     gradientClassNameExists: () =>
       base.$('[data-hook="page-gradient-class-name"]').exists(),
 
-    /** true if title exist in DOM */
+    /** true if tail exist in DOM */
     tailExists: () => base.$('[data-hook="page-tail"]').exists(),
 
     /** return container height */
