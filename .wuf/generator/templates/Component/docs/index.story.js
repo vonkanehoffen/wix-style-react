@@ -39,7 +39,6 @@ export default {
 
   sections: [
     header({
-      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/{%ComponentName%}/',
       component: <{%ComponentName%} buttonText="Click me!" />,
