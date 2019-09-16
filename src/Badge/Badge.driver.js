@@ -1,8 +1,8 @@
-import { StylableDOMUtil } from '@stylable/dom-test-kit';
+import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './Badge.st.css';
 
 const badgeDriverFactory = ({ element, eventTrigger }) => {
-  const stylableDOMUtil = new StylableDOMUtil(style, element);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
 
   return {
     /** checks if element exists */

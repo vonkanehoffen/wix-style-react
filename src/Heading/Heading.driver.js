@@ -1,8 +1,8 @@
-import { StylableDOMUtil } from '@stylable/dom-test-kit';
+import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './Heading.st.css';
 
 const headingDriverFactory = factoryParams => {
-  const stylableDOMUtil = new StylableDOMUtil(style);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style);
   const { element } = factoryParams;
 
   return {

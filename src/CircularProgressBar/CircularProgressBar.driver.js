@@ -1,6 +1,6 @@
 import { circularProgressBarDriverFactory as coreCircularProgressBarDriverFactory } from 'wix-ui-core/drivers/vanilla';
 import { tooltipDriverFactory } from 'wix-ui-backoffice/dist/src/components/Tooltip/Tooltip.driver';
-import { StylableDOMUtil } from '@stylable/dom-test-kit';
+import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './CircularProgressBar.st.css';
 import { dataHooks } from './constants';
 
@@ -26,7 +26,7 @@ export const circularProgressBarDriverFactory = ({
     element.querySelector(`[data-hook='${dataHooks.successIcon}']`);
   const progressBar = () =>
     element.querySelector(`[data-hook='${dataHooks.circularProgressBar}']`);
-  const stylableDOMUtil = new StylableDOMUtil(style, element);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style, element);
 
   const getTooltip = () => createTooltipDriver();
 

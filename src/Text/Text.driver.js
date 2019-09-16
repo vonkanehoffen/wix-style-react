@@ -1,8 +1,8 @@
-import { StylableDOMUtil } from '@stylable/dom-test-kit';
+import { StylableDOMUtilCompat } from '@stylable/dom-test-kit';
 import style from './Text.st.css';
 
 const textDriverFactory = ({ element }) => {
-  const stylableDOMUtil = new StylableDOMUtil(style);
+  const stylableDOMUtil = new StylableDOMUtilCompat(style);
 
   return {
     exists: () => !!element,
