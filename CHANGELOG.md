@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 6.58.0 - 2019-09-17
+
 ### Added
 
 - `<Avatar/>` - Add shape property to support square shape [#4105](https://github.com/wix/wix-style-react/pull/4105)
