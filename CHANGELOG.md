@@ -22,6 +22,7 @@ Types of changes:
 - `<Page/>` - add `height` prop [#4098](https://github.com/wix/wix-style-react/pull/4098)
 - `<FillButton/>` - new component [#4087](https://github.com/wix/wix-style-react/pull/4087)
 - `<ImageViewer/>` - add disabled state [#4117](https://github.com/wix/wix-style-react/pull/4117)
+- `<FillPreview/>` - add isSelected testkit method [#4120](https://github.com/wix/wix-style-react/pull/4120)
 
 ### Fixed
 
