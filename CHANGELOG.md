@@ -20,6 +20,7 @@ Types of changes:
 
 - `<Avatar/>` - Add shape property to support square shape [#4105](https://github.com/wix/wix-style-react/pull/4105)
 - `<Page/>` - add `height` prop [#4098](https://github.com/wix/wix-style-react/pull/4098)
+- `<FillButton/>` - new component [#4087](https://github.com/wix/wix-style-react/pull/4087)
 
 ### Fixed
 
