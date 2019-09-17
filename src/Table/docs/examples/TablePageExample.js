@@ -13,64 +13,62 @@ class TablePageExample extends React.Component {
     const filteredData = this._getFilteredData();
 
     return (
-      <div style={{ height: '600px' }}>
-        <Page upgrade>
-          <Page.Header title="My Table" />
-          <Page.Content>
-            <Table
-              data={filteredData}
-              columns={[
-                {
-                  title: 'Name',
-                  render: row => (
-                    <Highlighter match={this.state.searchTerm}>{row.name}</Highlighter>
-                  ),
-                  width: '30%',
-                  minWidth: '150px',
-                },
-                {
-                  title: 'SKU',
-                  render: row => row.SKU,
-                  width: '20%',
-                  minWidth: '100px',
-                },
-                {
-                  title: 'Price',
-                  render: row => row.price,
-                  width: '20%',
-                  minWidth: '100px',
-                },
-                {
-                  title: 'Inventory',
-                  render: row => row.inventory,
-                  width: '20%',
-                  minWidth: '100px',
-                },
-              ]}
-              onSelectionChange={selectedIds =>
-                console.log('Table.onSelectionChange(): selectedIds=', selectedIds)
-              }
-              showSelection
-            >
-              <Page.Sticky>
-                <Card>
-                  <Table.ToolbarContainer>
-                    {selectionContext =>
-                      selectionContext.selectedCount === 0
-                        ? this._renderMainToolbar()
-                        : this._renderActionsToolbar({ ...selectionContext })
-                    }
-                  </Table.ToolbarContainer>
-                  {filteredData.length ? <Table.Titlebar /> : this._renderEmptyState()}
-                </Card>
-              </Page.Sticky>
+      <Page upgrade height='600px'>
+        <Page.Header title="My Table" />
+        <Page.Content>
+          <Table
+            data={filteredData}
+            columns={[
+              {
+                title: 'Name',
+                render: row => (
+                  <Highlighter match={this.state.searchTerm}>{row.name}</Highlighter>
+                ),
+                width: '30%',
+                minWidth: '150px',
+              },
+              {
+                title: 'SKU',
+                render: row => row.SKU,
+                width: '20%',
+                minWidth: '100px',
+              },
+              {
+                title: 'Price',
+                render: row => row.price,
+                width: '20%',
+                minWidth: '100px',
+              },
+              {
+                title: 'Inventory',
+                render: row => row.inventory,
+                width: '20%',
+                minWidth: '100px',
+              },
+            ]}
+            onSelectionChange={selectedIds =>
+              console.log('Table.onSelectionChange(): selectedIds=', selectedIds)
+            }
+            showSelection
+          >
+            <Page.Sticky>
               <Card>
-                <Table.Content titleBarVisible={false} />
+                <Table.ToolbarContainer>
+                  {selectionContext =>
+                    selectionContext.selectedCount === 0
+                      ? this._renderMainToolbar()
+                      : this._renderActionsToolbar({ ...selectionContext })
+                  }
+                </Table.ToolbarContainer>
+                {filteredData.length ? <Table.Titlebar /> : this._renderEmptyState()}
               </Card>
-            </Table>
-          </Page.Content>
-        </Page>
-      </div>
+            </Page.Sticky>
+            <Card>
+              <Table.Content titleBarVisible={false} />
+            </Card>
+          </Table>
+        </Page.Content>
+      </Page>
     );
   }
 
