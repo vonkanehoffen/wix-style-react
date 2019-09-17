@@ -3,8 +3,16 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.scss';
 
-const Layout = ({ children, gap, cols, justifyItems, alignItems }) => (
+const Layout = ({
+  children,
+  gap,
+  cols,
+  justifyItems,
+  alignItems,
+  dataHook,
+}) => (
   <div
+    data-hook={dataHook}
     style={{
       gridGap: gap,
       justifyItems,
@@ -19,6 +27,9 @@ const Layout = ({ children, gap, cols, justifyItems, alignItems }) => (
 Layout.displayName = 'Layout';
 
 Layout.propTypes = {
+  /** hook for testing purposes */
+  dataHook: PropTypes.string,
+
   /** one or more Cell components. Other nodes are accepted although not recommended */
   children: PropTypes.node,
 
