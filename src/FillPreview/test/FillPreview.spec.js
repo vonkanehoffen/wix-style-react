@@ -29,7 +29,7 @@ describe('FillPreview', () => {
     const onClick = jest.fn();
 
     const { driver } = render(<FillPreview onClick={onClick} />);
-    await driver.clickButton();
+    await driver.click();
 
     expect(onClick).toBeCalledTimes(1);
   });

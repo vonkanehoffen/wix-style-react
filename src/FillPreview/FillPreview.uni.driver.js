@@ -6,17 +6,12 @@ export const fillPreviewDriverFactory = (base, body) => {
 
   return {
     ...baseUniDriverFactory(base),
-
-    clickButton: async () =>
-      base.$('[data-hook="fill-preview-button"]').click(),
-
+    click: () => base.$('[data-hook="fill-preview-button"]').click(),
     hasTooltip: async () => {
       await tooltipTestkit.mouseEnter();
       return tooltipTestkit.tooltipExists();
     },
-
     isSelected: async () => base.attr('data-selected').then(x => x === 'true'),
-
     getTooltipText: async () => tooltipTestkit.getTooltipText(),
   };
 };
