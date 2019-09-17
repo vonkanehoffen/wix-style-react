@@ -197,3 +197,6 @@ require('../src/Deprecated/SideMenu/docs/SideMenu');
 
 // BETA
 require('../src/beta/PopoverMenu/docs/index.story');
+
+// TODO: move to correct position
+require('../src/FillButton/docs/index.story');

@@ -773,6 +773,11 @@ module.exports = {
 
   FillPreview: {
     unidriver: true,
-    testkitPath: "../src/FillPreview/FillPreview.uni.driver"
+    testkitPath: "../src/FillPreview/FillPreview.uni.driver",
+  },
+  
+  FillButton: {
+    unidriver: true,
+    testkitPath: "../src/FillButton/FillButton.uni.driver"
   }
 };

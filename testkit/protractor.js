@@ -579,6 +579,10 @@ import fillPreviewDriverFactory from '../src/FillPreview/FillPreview.uni.driver'
 
 export const fillPreviewTestkitFactory = protractorUniTestkitFactoryCreator(
   fillPreviewDriverFactory,
+import fillButtonDriverFactory from '../src/FillButton/FillButton.uni.driver';
+
+export const fillButtonTestkitFactory = protractorUniTestkitFactoryCreator(
+  fillButtonDriverFactory,
 );
 
 import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';

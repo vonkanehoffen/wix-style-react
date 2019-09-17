@@ -386,6 +386,9 @@
   "FillPreview": {
     "path": "src/FillPreview"
   },
+  "FillButton": {
+    "path": "src/FillButton"
+  },
   "LabelledElement": {
     "path": "src/LabelledElement"
   }
