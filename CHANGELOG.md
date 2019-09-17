@@ -28,6 +28,7 @@ Types of changes:
 ### Fixed
 
 - `<FillPreview/>` - move dataHook to tooltip instead [#4110](https://github.com/wix/wix-style-react/pull/4110)
+- `<FillPreview/>` - fix testkit click handler [#4122](https://github.com/wix/wix-style-react/pull/4122)
 
 
 ## 6.57.0 - 2019-09-13
