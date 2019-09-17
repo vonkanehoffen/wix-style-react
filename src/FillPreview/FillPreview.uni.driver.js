@@ -15,6 +15,8 @@ export const fillPreviewDriverFactory = (base, body) => {
       return tooltipTestkit.tooltipExists();
     },
 
+    isSelected: async () => base.attr('data-selected').then(x => x === 'true'),
+
     getTooltipText: async () => tooltipTestkit.getTooltipText(),
   };
 };

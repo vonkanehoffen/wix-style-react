@@ -133,6 +133,7 @@ class FillPreview extends React.Component {
               { selected, mode, noColor, clickable: !!onClick },
               rest,
             )}
+            data-selected={selected}
             data-hook="fill-preview-button"
             style={buttonStyle}
             onFocus={focusableOnFocus}

@@ -61,4 +61,12 @@ describe('FillPreview', () => {
 
     expect(await driver.hasTooltip()).toBe(false);
   });
+
+  describe('`selected` prop', () => {
+    it('should be selected [when] given', async () => {
+      const { driver } = render(<FillPreview selected />);
+
+      expect(await driver.isSelected()).toBe(true);
+    });
+  });
 });
