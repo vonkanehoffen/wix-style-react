@@ -23,10 +23,12 @@ Types of changes:
 - `<FillButton/>` - new component [#4087](https://github.com/wix/wix-style-react/pull/4087)
 - `<ImageViewer/>` - add disabled state [#4117](https://github.com/wix/wix-style-react/pull/4117)
 - `<FillPreview/>` - add isSelected testkit method [#4120](https://github.com/wix/wix-style-react/pull/4120)
+- `<Layout/>` - add support for dataHook [#4119](https://github.com/wix/wix-style-react/pull/4119)
 
 ### Fixed
 
 - `<FillPreview/>` - move dataHook to tooltip instead [#4110](https://github.com/wix/wix-style-react/pull/4110)
+
 
 ## 6.57.0 - 2019-09-13
 
