@@ -1,8 +1,6 @@
 import React from 'react';
 import { node, bool, string, func, oneOf, oneOfType, object } from 'prop-types';
 
-import { polyfill } from 'react-lifecycles-compat';
-
 import Input from '../Input';
 import { Hash } from './components/Hash';
 import { ColorViewer } from './components/ColorViewer';
@@ -202,7 +200,5 @@ class ColorInput extends React.Component {
     );
   }
 }
-
-polyfill(ColorInput);
 
 export default ColorInput;

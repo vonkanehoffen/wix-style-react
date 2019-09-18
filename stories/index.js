@@ -20,7 +20,6 @@ require('./CardLayout/index.story'); // 2.1 Card Layout
 // 3. Inputs
 require('./TextInput/index.story'); // 3.1. Text Input
 require('./TextArea/index.story'); // 3.2 Text Area
-require('./RichTextArea/index.story'); // 3.3 Rich Text Area
 require('./NumberInput/index.story'); // 3.4 NumberInput
 require('./MultiSelect/index.story'); // 3.12 Tags
 
@@ -190,8 +189,6 @@ require('../src/DateInput/test/testStories');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
-require('./Deprecated/RichTextArea/index.story');
-require('./Deprecated/RichTextArea/testStory');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');
 

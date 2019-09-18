@@ -407,7 +407,7 @@ class DropdownLayout extends WixComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.visible !== nextProps.visible) {
       this._markOption(NOT_HOVERED_INDEX);
     }

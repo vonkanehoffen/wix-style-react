@@ -58,7 +58,7 @@ storiesOf(`CloseButton/Skins`, module).add('skins- medium', () => (
           size={SIZES.medium}
         />
       </Box>
-      <Box backgroundColor="BLACK" width={25} margin="3px 0" padding="3px">
+      <Box backgroundColor="BLACK" width={'25px'} margin="3px 0" padding="3px">
         <CloseButton {...defaultProps} skin={SKINS.light} size={SIZES.medium} />
       </Box>
       <Box padding="3px">

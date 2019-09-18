@@ -237,16 +237,16 @@ class Tooltip extends WixComponent {
     }
   }
 
-  componentWillMount() {
-    super.componentWillMount && super.componentWillMount();
+  UNSAFE_componentWillMount() {
+    super.UNSAFE_componentWillMount && super.UNSAFE_componentWillMount();
     if (this.props.active) {
       this.show();
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    super.componentWillReceiveProps &&
-      super.componentWillReceiveProps(nextProps);
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    super.UNSAFE_componentWillReceiveProps &&
+      super.UNSAFE_componentWillReceiveProps(nextProps);
     if (
       nextProps.active !== this.props.active ||
       nextProps.disabled !== this.props.disabled

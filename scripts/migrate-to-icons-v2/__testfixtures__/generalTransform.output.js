@@ -34,7 +34,7 @@ class DataTable extends WixComponent {
     this.state = state;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let isLoadingMore = false;
     if (this.props.infiniteScroll && nextProps.data !== this.props.data) {
       if (nextProps.data instanceof Array && this.props.data instanceof Array) {

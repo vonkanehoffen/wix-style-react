@@ -603,18 +603,6 @@ export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(
   headerUniDriverFactory,
 );
 
-import richTextAreaDriverFactory from '../src/Deprecated/RichTextArea/RichTextArea.protractor.driver';
-
-export const richTextAreaTestkitFactory = protractorTestkitFactoryCreator(
-  richTextAreaDriverFactory,
-);
-
-import richTextAreaCompositeDriverFactory from '../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver';
-
-export const richTextAreaCompositeTestkitFactory = protractorTestkitFactoryCreator(
-  richTextAreaCompositeDriverFactory,
-);
-
 import { sideMenuUniDriverFactory } from '../src/Deprecated/SideMenu/core/SideMenu.uni.driver';
 
 export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(

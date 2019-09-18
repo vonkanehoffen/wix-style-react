@@ -32,7 +32,7 @@ class SideMenuDrill extends React.Component {
     this.isAnimating = false;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const state = {
       menus: {},
     };

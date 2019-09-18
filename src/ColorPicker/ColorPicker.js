@@ -147,7 +147,7 @@ export default class ColorPicker extends WixComponent {
     return children;
   };
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     const _color = safeColor(props.value, props.allowEmpty);
     if (
       _color &&

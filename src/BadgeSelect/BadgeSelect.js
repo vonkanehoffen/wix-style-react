@@ -113,7 +113,7 @@ export default class BadgeSelect extends React.Component {
     return Array.isArray(options) ? options.map(badgeSelectItemBuilder) : [];
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.selectedId !== nextProps.selectedId) {
       this.setState({
         selectedBadge: this.getSelectedOption(nextProps),

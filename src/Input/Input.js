@@ -12,7 +12,6 @@ import deprecationLog from '../utils/deprecationLog';
 
 import styles from './Input.scss';
 import { InputContext } from './InputContext';
-import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 class Input extends Component {
   static Ticker = Ticker;
@@ -410,10 +409,9 @@ class Input extends Component {
 
   _renderInput = props => {
     const { customInput: CustomInputComponent, ref, ...rest } = props;
-    const refKey = SUPPORT_REF_FORWARD ? 'ref' : 'data-ref';
     const inputProps = {
       ...(CustomInputComponent
-        ? { [refKey]: ref, ...rest, 'data-hook': 'wsr-custom-input' }
+        ? { ref: ref, ...rest, 'data-hook': 'wsr-custom-input' }
         : { ref, ...rest }),
     };
 

@@ -25,7 +25,7 @@ const tests = [
             </Box>
           ),
           actions: (
-            <Box align="space-between" width={276}>
+            <Box align="space-between" width={'276px'}>
               <Button prefixIcon={<Print />} skin="dark">
                 Print
               </Button>

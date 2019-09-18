@@ -17,7 +17,7 @@ class NumberInput extends React.PureComponent {
     };
   }
 
-  componentWillReceiveProps({ value }) {
+  UNSAFE_componentWillReceiveProps({ value }) {
     this.setState({
       value: this._defaultValueNullIfEmpty(value),
     });

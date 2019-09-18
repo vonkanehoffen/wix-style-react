@@ -106,8 +106,6 @@ export const fillButtonTestkitFactory: any;
 export const labelledElementTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
-export const richTextAreaTestkitFactory: any;
-export const richTextAreaCompositeTestkitFactory: any;
 export const sideMenuTestkitFactory: any;
 export const draggableTestkitFactory: any;
 export const editableRowTestkitFactory: any;

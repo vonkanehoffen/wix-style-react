@@ -10,7 +10,6 @@ import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../common/InfoIcon';
 import { VariableSizeList as List } from 'react-window';
-import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 export const DataTableHeader = props => {
   const { dataHook } = props;
@@ -41,7 +40,7 @@ class DataTable extends React.Component {
     return styles;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let isLoadingMore = false;
     if (this.props.infiniteScroll && nextProps.data !== this.props.data) {
       if (nextProps.data instanceof Array && this.props.data instanceof Array) {
@@ -333,11 +332,7 @@ class DataTable extends React.Component {
           itemCount={data.length}
           width={'100%'}
           itemSize={this.getVirtualRowHeight}
-          outerElementType={
-            SUPPORT_REF_FORWARD
-              ? this.renderVirtualizedTableElementWithRefForward()
-              : this.renderVirtualizedTableElement
-          }
+          outerElementType={this.renderVirtualizedTableElementWithRefForward()}
           innerElementType={'tbody'}
         >
           {this.renderVirtualizedRow}

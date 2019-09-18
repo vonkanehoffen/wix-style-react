@@ -37,7 +37,9 @@ const spacingValues = {
  *   2. Space-separated values that are represented by a string (for example: "3px 3px")
  * */
 const formatSpacingValue = value =>
-  isFinite(value) ? value * spacingUnit : spacingValues[value] || `${value}`;
+  isFinite(value)
+    ? `${value * spacingUnit}px`
+    : spacingValues[value] || `${value}`;
 
 const Box = ({
   dataHook,

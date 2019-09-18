@@ -265,7 +265,7 @@ class DropdownBase extends React.PureComponent {
     return this._dropdownLayoutRef._onKeyDown(e);
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     // Keep internal state updated if needed
     if (
       this._isControllingOpen(nextProps) &&

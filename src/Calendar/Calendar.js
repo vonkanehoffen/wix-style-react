@@ -38,7 +38,7 @@ export default class Calendar extends WixComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       const month = Calendar.getUpdatedMonth(
         nextProps.value,

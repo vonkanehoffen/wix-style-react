@@ -59,7 +59,7 @@ export class BulkSelection extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (
       nextProps.selectedIds &&
       !this.areSelectedIdsEqual(nextProps.selectedIds, this.state.selectedIds)

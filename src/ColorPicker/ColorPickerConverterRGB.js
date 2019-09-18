@@ -59,7 +59,7 @@ export default class ColorPickerConverterRGB extends WixComponent {
     );
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState(getRgbOrEmpty(props.current));
   }
 

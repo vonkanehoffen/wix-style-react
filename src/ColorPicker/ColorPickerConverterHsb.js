@@ -59,7 +59,7 @@ export default class ColorPickerConverterHsb extends WixComponent {
     );
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState(getHsbOrEmpty(props.current));
   }
 

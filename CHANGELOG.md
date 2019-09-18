@@ -16,6 +16,13 @@ Types of changes:
 
 ## Next
 
+## 7.0.0 - 2019-09-18
+
+See [Migrating From v6 to v7](https://github.com/wix/wix-style-react/blob/master/docs/migration/v6-v7.md)
+
+- `React` dev dependencies upgraded to v16. [#4106](https://github.com/wix/wix-style-react/pull/4106)
+- `<RichTextArea/> <RichTextAreaComposite/>` - Removed, replaced by `<RichTextInputArea/>` [#4106](https://github.com/wix/wix-style-react/pull/4106)
+
 ## 6.58.0 - 2019-09-17
 
 ### Added

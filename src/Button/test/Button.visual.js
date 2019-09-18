@@ -67,7 +67,7 @@ const testWithBoxWrapper = [
 
 testWithBoxWrapper.forEach(({ skin, boxBackground }) => {
   storiesOf(`Button/Secondary Skins`, module).add(skin, () => (
-    <Box backgroundColor={boxBackground} width={100} padding="3px">
+    <Box backgroundColor={boxBackground} width={'100px'} padding="3px">
       <Button {...defaultProps} priority={PRIORITY.secondary} skin={skin} />
     </Box>
   ));

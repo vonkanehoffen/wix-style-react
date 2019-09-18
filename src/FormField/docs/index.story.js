@@ -20,7 +20,7 @@ import {
 import FormField from '..';
 import Input from '../../Input';
 import InputArea from '../../InputArea';
-import RichTextArea from '../../RichTextArea';
+import RichTextInputArea from '../../RichTextInputArea';
 import DatePicker from '../../DatePicker';
 import Dropdown from '../../Dropdown';
 import Checkbox from '../../Checkbox';
@@ -55,7 +55,10 @@ const childrenExamples = [
     ),
   },
 
-  { label: 'RichTextArea', value: <RichTextArea placeholder={placeholder} /> },
+  {
+    label: 'RichTextInputArea',
+    value: <RichTextInputArea placeholder={placeholder} />,
+  },
 
   { label: 'DatePicker', value: <DatePicker value={new Date()} /> },
 

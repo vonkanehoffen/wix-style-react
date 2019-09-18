@@ -130,8 +130,6 @@ declare namespace EnzymeTestkit {
   export const labelledElementTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
-  export const richTextAreaTestkitFactory: any;
-  export const richTextAreaCompositeTestkitFactory: any;
   export const sideMenuTestkitFactory: any;
   export const draggableTestkitFactory: any;
   export const editableRowTestkitFactory: any;
