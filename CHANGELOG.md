@@ -16,6 +16,14 @@ Types of changes:
 
 If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md).
 
+## Next
+
+### Added
+- `<Avatar/>` - add new colors [#4114](https://github.com/wix/wix-style-react/pull/4114)
+
+### Deprecated
+- `<Avatar/>` - deprecate old colors, you should use the new colors [#4114](https://github.com/wix/wix-style-react/pull/4114)
+
 ## 7.1.0 - 2019-09-18
 
 ### Added
