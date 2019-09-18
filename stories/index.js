@@ -197,3 +197,4 @@ require('../src/beta/PopoverMenu/docs/index.story');
 
 // TODO: move to correct position
 require('../src/FillButton/docs/index.story');
+require('../src/FillPreview/docs/index.story');

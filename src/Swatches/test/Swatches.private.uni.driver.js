@@ -1,27 +1,52 @@
 import { swatchesDriverFactory as publicDriverFactory } from '../Swatches.uni.driver';
-import { StylableUnidriverUtil } from '../../../test/utils/unidriver';
+import { fillPreviewDriverFactory } from '../../FillPreview/FillPreview.uni.driver';
+import { fillButtonDriverFactory } from '../../FillButton/FillButton.uni.driver';
+
 import { tooltipDriverFactory } from '../../Tooltip/TooltipNext/Tooltip.uni.driver';
-import style from '../Swatches.st.css';
+import testkit from '../../Popover/Popover.uni.driver';
+import { CommonDriver } from 'wix-ui-core/dist/src/components/popover/Popover.common.uni.driver';
+import { colorPickerUniDriverFactory } from '../../ColorPicker/ColorPicker.uni.driver';
+
+import { dataHooks } from '../constants';
 
 export const swatchesPrivateDriverFactory = (base, body) => {
-  const publicDriver = publicDriverFactory(base);
-  const stylableUtil = new StylableUnidriverUtil(style);
-  const tooltipSelector = '[data-hook="color-swatches-swatch-tooltip"]';
-  const tooltipTestkit = tooltipDriverFactory(base.$(tooltipSelector), body);
+  const byHook = dataHook => `[data-hook="${dataHook}"]`;
+
+  const popoverTestkit = testkit(
+    base.$(byHook(dataHooks.addButtonPopover)),
+    body,
+  );
+
+  const commonPopoverTestkit = CommonDriver(
+    base.$(byHook(dataHooks.addButtonPopover)),
+    body,
+  );
+
+  const colorPickerTestkit = async () => {
+    const colorPicker = (await commonPopoverTestkit.getContentElement()).$(
+      byHook(dataHooks.addButtonColorPicker),
+    );
+    return colorPickerUniDriverFactory(colorPicker);
+  };
 
   return {
-    ...publicDriver,
-
-    /** Test if swatch is transparent at given index */
-    isSwatchTransparentAt: async index => {
-      const swatch = await publicDriver.getSwatch(index);
-      return (
-        (await stylableUtil.getStyleState(swatch, 'transparent')) === 'true'
-      );
-    },
-
-    hasTooltip: async () => tooltipTestkit.exists(),
-
-    getTooltipText: async () => tooltipTestkit.getTooltipText(),
+    ...publicDriverFactory(base),
+    getEmptySwatch: () =>
+      fillPreviewDriverFactory(
+        base.$(`[data-hook="${dataHooks.empty}"]`),
+        body,
+      ),
+    getEmptySwatchTooltip: () =>
+      tooltipDriverFactory(
+        base.$(`[data-hook="${dataHooks.emptyTooltip}"]`),
+        body,
+      ),
+    getAddButton: () =>
+      fillButtonDriverFactory(
+        base.$(`[data-hook="${dataHooks.addButton}"]`),
+        body,
+      ),
+    isColorPickerShown: () => popoverTestkit.isContentElementExists(),
+    gerColorPicker: async () => colorPickerTestkit(),
   };
 };

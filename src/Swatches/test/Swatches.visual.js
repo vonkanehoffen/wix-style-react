@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Swatches from '../Swatches';
+import Box from '../../Box';
 
 const commonProps = {
   colors: [
@@ -16,34 +17,42 @@ const commonProps = {
 
 const tests = [
   {
-    describe: 'small', // prop name (e.g. size)
+    describe: 'sanity', // prop name (e.g. size)
+    its: [
+      {
+        it: 'works', //prop variation (e.g. small)
+        props: {},
+      },
+    ],
+  },
+  {
+    describe: 'columns', // prop name (e.g. size)
     its: [
       {
         it: '6 columns', //prop variation (e.g. small)
         props: {
-          width: 204,
+          columns: 6,
         },
       },
       {
         it: '4 columns', //prop variation (e.g. small)
         props: {
-          width: 144,
+          columns: 4,
         },
       },
       {
-        it: '1 column', //prop variation (e.g. small)
+        it: '2 columns', //prop variation (e.g. small)
         props: {
-          width: 24,
+          columns: 2,
         },
       },
+    ],
+  },
+  {
+    describe: 'No Color', // prop name (e.g. size)
+    its: [
       {
-        it: 'selected color', //prop variation (e.g. small)
-        props: {
-          selected: '#FFFFFF',
-        },
-      },
-      {
-        it: 'showClear',
+        it: '6 columns', //prop variation (e.g. small)
         props: {
           showClear: true,
         },
@@ -51,27 +60,23 @@ const tests = [
     ],
   },
   {
-    describe: 'medium', // prop name (e.g. size)
+    describe: 'No Color', // prop name (e.g. size)
     its: [
       {
-        it: '5 columns', //prop variation (e.g. small)
+        it: 'no color swatch', //prop variation (e.g. small)
         props: {
-          width: 248,
-          size: 'medium',
-        },
-      },
-      {
-        it: 'selected color', //prop variation (e.g. small)
-        props: {
-          selected: '#FFFFFF',
-          size: 'medium',
-        },
-      },
-      {
-        it: 'showClear',
-        props: {
-          size: 'medium',
           showClear: true,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'Add button', // prop name (e.g. size)
+    its: [
+      {
+        it: 'button', //prop variation (e.g. small)
+        props: {
+          showAddButton: true,
         },
       },
     ],
@@ -81,9 +86,9 @@ const tests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`Swatches/${describe}`, module).add(it, () => (
-      <div style={{ width: `${props.width}px` }}>
+      <Box width="204px">
         <Swatches {...commonProps} {...props} />
-      </div>
+      </Box>
     ));
   });
 });

@@ -1,8 +1,17 @@
 import React from 'react';
-import { array, func, string, oneOf, bool, node } from 'prop-types';
-import resolveColor from 'color';
-import styles from './Swatches.st.css';
-import Swatch from './Swatch';
+import { array, bool, func, node, number, oneOf, string } from 'prop-types';
+
+import AddColor from './AddColor';
+import Tooltip from '../Tooltip/TooltipNext/Tooltip';
+
+import { Layout } from '../Layout';
+import { FillPreviewAddIconSize } from '../FillPreview/FillPreview';
+import FillPreview from '../FillPreview';
+import { safeColor } from '../FillPreview/utils';
+
+import { dataHooks } from './constants';
+
+const MINIMUM_GRID_GAP = 6;
 
 /** Color swatches */
 const Swatches = props => {
@@ -10,37 +19,64 @@ const Swatches = props => {
     colors,
     onClick,
     selected,
-    size,
     dataHook,
     showClear,
     showClearMessage,
+    showAddButton,
+    addButtonMessage,
+    addButtonIconSize,
+    onAdd,
+    columns,
+    gap,
   } = props;
 
-  const hexColors = colors.map(color => resolveColor(color).hex());
+  const hexColors = colors.map(color => {
+    const maybeColor = safeColor(color, true);
+    return maybeColor ? maybeColor.hex() : color;
+  });
+
   const uniqueColors = Array.from(new Set(hexColors));
 
   return (
-    <div {...styles('root', { size }, props)} data-hook={dataHook}>
-      {showClear && (
-        <Swatch
-          color=""
-          tooltipContent={showClearMessage}
-          onClick={onClick}
-          selected={selected === ''}
-          size={size}
+    <Layout
+      dataHook={dataHook}
+      cols={columns}
+      gap={`${Math.max(MINIMUM_GRID_GAP, gap)}px`}
+    >
+      {showAddButton && (
+        <AddColor
+          tooltip={addButtonMessage}
+          iconSize={addButtonIconSize}
+          onAdd={onAdd}
         />
       )}
 
+      {showClear && (
+        <Tooltip
+          dataHook={dataHooks.emptyTooltip}
+          disabled={!showClearMessage}
+          appendTo="window"
+          size="small"
+          content={showClearMessage}
+        >
+          <FillPreview
+            dataHook={dataHooks.empty}
+            onClick={() => onClick('')}
+            selected={selected === ''}
+          />
+        </Tooltip>
+      )}
+
       {uniqueColors.map((color, index) => (
-        <Swatch
+        <FillPreview
+          dataHook={dataHooks.swatch}
           key={`${color}-${index}`}
-          color={color}
-          onClick={onClick}
+          fill={color}
+          onClick={() => onClick(color)}
           selected={selected === color}
-          size={size}
         />
       ))}
-    </div>
+    </Layout>
   );
 };
 
@@ -65,13 +101,33 @@ Swatches.propTypes = {
 
   /** optional message to display in tooltip when showClear is true */
   showClearMessage: node,
+
+  /** Callback function when user clicks on Add button and selects a color to be added. Returns color HEX string representation. */
+  onAdd: func,
+
+  /** If true shows add button which triggers colors picker*/
+  showAddButton: bool,
+
+  /** Text for add button tooltip*/
+  addButtonMessage: string,
+
+  /** Size of Plus icon inside add button */
+  addButtonIconSize: FillPreviewAddIconSize,
+
+  /** Number of maximum columns. Default value is 6 */
+  columns: number,
+
+  /** Gap between swatches. Default value is 12 */
+  gap: number,
 };
 
 Swatches.defaultProps = {
   colors: [],
-  size: 'small',
+  onClick: () => {},
   selected: '',
   showClearMessage: '',
+  columns: 6,
+  gap: 12,
 };
 
 export default Swatches;

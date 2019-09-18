@@ -11,7 +11,11 @@ export const fillPreviewDriverFactory = (base, body) => {
       await tooltipTestkit.mouseEnter();
       return tooltipTestkit.tooltipExists();
     },
-    isSelected: async () => base.attr('data-selected').then(x => x === 'true'),
+    isSelected: async () =>
+      base
+        .$('[data-hook="fill-preview-button"]')
+        .attr('data-selected')
+        .then(x => x === 'true'),
     getTooltipText: async () => tooltipTestkit.getTooltipText(),
   };
 };
