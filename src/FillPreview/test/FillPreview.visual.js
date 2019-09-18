@@ -2,38 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import FillPreview from '../FillPreview';
 
-const commonProps = {
-  //use for repeated props across the tests (e.g. {buttonText: 'example'})
-};
-
 const tests = [
-  {
-    describe: 'Add Icon',
-    its: [
-      {
-        it: 'Simple add icon',
-        props: {
-          mode: 'add',
-        },
-      },
-      {
-        it: 'Small Add icon',
-        props: {
-          mode: 'add',
-          addIconSize: 'small',
-          fill: '#28c197',
-        },
-      },
-      {
-        it: 'Normal Add icon',
-        props: {
-          mode: 'add',
-          addIconSize: 'normal',
-          fill: '#28c197',
-        },
-      },
-    ],
-  },
   {
     describe: 'Selected and disabled states',
     its: [
@@ -51,15 +20,7 @@ const tests = [
         },
       },
       {
-        it: 'Selected and disabled in add mode',
-        props: {
-          selected: true,
-          mode: 'add',
-          disabled: true,
-        },
-      },
-      {
-        it: 'Disabled state should work for fill mode',
+        it: 'Disabled state ',
         props: {
           fill: '#ffd7d7',
           disabled: true,
@@ -104,7 +65,7 @@ const tests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`FillPreview/${describe}`, module).add(it, () => (
-      <FillPreview {...commonProps} {...props} />
+      <FillPreview {...props} />
     ));
   });
 });

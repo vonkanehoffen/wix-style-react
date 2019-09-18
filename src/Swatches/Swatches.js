@@ -3,11 +3,11 @@ import { array, bool, func, node, number, oneOf, string } from 'prop-types';
 
 import AddColor from './AddColor';
 import Tooltip from '../Tooltip/TooltipNext/Tooltip';
+import parseColor from 'color';
 
 import { Layout } from '../Layout';
-import { FillPreviewAddIconSize } from '../FillPreview/FillPreview';
+
 import FillPreview from '../FillPreview';
-import { safeColor } from '../FillPreview/utils';
 
 import { dataHooks } from './constants';
 
@@ -31,7 +31,7 @@ const Swatches = props => {
   } = props;
 
   const hexColors = colors.map(color => {
-    const maybeColor = safeColor(color, true);
+    const maybeColor = parseColor(color);
     return maybeColor ? maybeColor.hex() : color;
   });
 
@@ -112,7 +112,7 @@ Swatches.propTypes = {
   addButtonMessage: string,
 
   /** Size of Plus icon inside add button */
-  addButtonIconSize: FillPreviewAddIconSize,
+  addButtonIconSize: oneOf(['small', 'medium']),
 
   /** Number of maximum columns. Default value is 6 */
   columns: number,

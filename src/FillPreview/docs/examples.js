@@ -21,8 +21,8 @@ export const states = `
 export const addIcon = `
 <Box height="24px">
   <Layout cols={2}>
-    <FillPreview mode="add" fill="#3399ff" />
-    <FillPreview mode="add" fill="#ffd06c" />
+    <FillPreview  fill="#3399ff" />
+    <FillPreview  fill="#ffd06c" />
   </Layout>
 </Box>
 `;
@@ -36,11 +36,10 @@ class FillPreviewExamples extends React.Component {
     const { selectedIndex } = this.state;
     return (
       <Box height="24px">
-        <Layout cols={4}>
-          <FillPreview mode="add" onClick={() => { console.log('Add clicked') }} addModeTooltipContent="Add color"/>
+        <Layout cols={3}>
+          <FillPreview selected={selectedIndex===0} onClick={() => this.setState({ selectedIndex: 0 })} />
           <FillPreview fill="#28c197" selected={selectedIndex===1}  onClick={() => this.setState({ selectedIndex: 1 }) } />
           <FillPreview fill="#ffd06c" selected={selectedIndex===2} onClick={() => this.setState({ selectedIndex: 2 }) }/>
-          <FillPreview mode="add" fill="#ffd06c" disabled onClick={() => this.setState({ selectedIndex: 3 })}/>
         </Layout>
       </Box>
     );

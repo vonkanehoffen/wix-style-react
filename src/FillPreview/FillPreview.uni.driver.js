@@ -1,21 +1,17 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
-import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
-export const fillPreviewDriverFactory = (base, body) => {
-  const tooltipTestkit = tooltipDriverFactory(base, body);
-
+export const fillPreviewDriverFactory = base => {
+  const { element, exists } = baseUniDriverFactory(base);
   return {
-    ...baseUniDriverFactory(base),
+    exists,
+    element,
+    /** clicks on button */
     click: () => base.$('[data-hook="fill-preview-button"]').click(),
-    hasTooltip: async () => {
-      await tooltipTestkit.mouseEnter();
-      return tooltipTestkit.tooltipExists();
-    },
+    /** returns true if item is selected */
     isSelected: async () =>
       base
         .$('[data-hook="fill-preview-button"]')
         .attr('data-selected')
         .then(x => x === 'true'),
-    getTooltipText: async () => tooltipTestkit.getTooltipText(),
   };
 };

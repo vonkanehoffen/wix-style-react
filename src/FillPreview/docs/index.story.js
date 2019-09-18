@@ -52,8 +52,6 @@ export default {
           }}
         >
           <FillPreview fill="#28c197" />
-          <FillPreview />
-          <FillPreview mode="add" />
         </div>
       ),
     }),
@@ -92,15 +90,8 @@ export default {
           }),
 
           liveCode({
-            title: 'Add Mode',
-            subtitle:
-              'When component is in add mode it can be used as a trigger element for invoking additional actions.',
-            source: examples.addIcon,
-          }),
-
-          liveCode({
-            title: 'Full Interactive Preview',
-            description: '`selected` prop is controlled by a parent component.',
+            title: 'Interactive',
+            description: 'Interactive example.',
             source: examples.fullInteractive,
           }),
         ],
