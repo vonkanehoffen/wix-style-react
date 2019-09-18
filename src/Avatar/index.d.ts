@@ -7,6 +7,7 @@ export interface AvatarProps {
   imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
   ariaLabel?: string;
   title?: string;
+  shape?: 'circle'|'square';
   size?:
     | 'size90'
     | 'size72'
