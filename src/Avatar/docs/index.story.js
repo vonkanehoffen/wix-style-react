@@ -6,6 +6,7 @@ import { storySettings } from './storySettings';
 
 import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
 import { Layout, Cell } from '../../Layout';
+import { avatarColorList } from '../Avatar.const';
 
 const IMG_REAL_URL = 'https://randomuser.me/api/portraits/women/39.jpg';
 const IMG_INVALID_URL = 'https://1234.me/4321.jpg';
@@ -63,7 +64,7 @@ export default {
       'size24',
       'size18',
     ],
-    color: ['blue', 'green', 'grey', 'red', 'orange'],
+    color: avatarColorList,
     shape: [
       { label: 'circle (default)', value: 'circle' },
       { label: 'square', value: 'square' },
@@ -152,12 +153,13 @@ export default {
           title="Colors"
           initialCode={`
 <Box align="space-between" width="300">
-  <Avatar color="blue"   name={'John Doe'} />
-  <Avatar color="green"  name={'John Doe'} />
-  <Avatar color="grey"   name={'John Doe'} />
-  <Avatar color="red"    name={'John Doe'} />
-  <Avatar color="orange" name={'John Doe'} />  
-</Box>  
+  <Avatar color="A1" name={'John Doe'} />
+  <Avatar color="A2" name={'John Doe'} />
+  <Avatar color="A3" name={'John Doe'} />
+  <Avatar color="A4" name={'John Doe'} />
+  <Avatar color="A5" name={'John Doe'} />
+  <Avatar color="A6" name={'John Doe'} />
+</Box>
   `}
         />
       </Cell>

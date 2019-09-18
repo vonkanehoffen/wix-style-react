@@ -30,7 +30,7 @@ function AvatarWithAllProps() {
       name="as"
       size="size90"
       ariaLabel="asasas"
-      color="blue"
+      color="A1"
       dataHook="sadasd"
       imgProps={{alt: 'asd'}}
       placeholder={<span>blalbal</span>}
