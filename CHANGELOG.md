@@ -20,6 +20,10 @@ Types of changes:
 
 - `<Swatches />` - new layout and add color button [#4079](https://github.com/wix/wix-style-react/pull/4079)
 
+### Changed
+
+- `<Fillpreview/>` - extract fillbutton functionality and refactor code [#4129](https://github.com/wix/wix-style-react/pull/4129)
+
 ## 7.0.0 - 2019-09-18
 
 See [Migrating From v6 to v7](https://github.com/wix/wix-style-react/blob/master/docs/migration/v6-v7.md)
