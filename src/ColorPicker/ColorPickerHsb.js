@@ -17,7 +17,11 @@ export default class ColorPickerHsb extends WixComponent {
   onMarkerDragStart = e => {
     e.preventDefault();
     window.addEventListener('mousemove', this.onMarkerDrag);
+    window.addEventListener('touchmove', this.onMarkerDrag);
     window.addEventListener('mouseup', this.onMarkerDragEnd);
+    window.addEventListener('touchend', this.onMarkerDragEnd);
+    window.addEventListener('touchcancel', this.onMarkerDragEnd);
+
     this.gradientRect = getBoundingRect(this.gradient);
     this.setNewColorByMouseEvent(e);
   };
@@ -27,13 +31,27 @@ export default class ColorPickerHsb extends WixComponent {
   };
 
   onMarkerDragEnd = () => {
+    window.removeEventListener('touchmove', this.onMarkerDrag);
     window.removeEventListener('mousemove', this.onMarkerDrag);
+    window.removeEventListener('touchcancel', this.onMarkerDragEnd);
+    window.addEventListener('touchend', this.onMarkerDragEnd);
     window.removeEventListener('mouseup', this.onMarkerDragEnd);
   };
 
   getSVByMouseEvent = e => {
-    const x = e.clientX - this.gradientRect.left;
-    const y = e.clientY - this.gradientRect.top;
+    let eventX = 0;
+    let eventY = 0;
+
+    if (e.clientX) {
+      eventX = e.clientX;
+      eventY = e.clientY;
+    } else {
+      eventX = e.touches[0].clientX;
+      eventY = e.touches[0].clientY;
+    }
+
+    const x = eventX - this.gradientRect.left;
+    const y = eventY - this.gradientRect.top;
 
     const s = clamp((100 * x) / this.gradientRect.width, 0, 100);
     const v = clamp(100 - (100 * y) / this.gradientRect.height, 0, 100);
@@ -64,6 +82,7 @@ export default class ColorPickerHsb extends WixComponent {
         data-hook="color-picker-hsb"
         ref={e => (this.gradient = e)}
         onMouseDown={this.onMarkerDragStart}
+        onTouchStart={this.onMarkerDragStart}
       >
         <div className={css.hue} style={{ background: hue.hex() }} />
         <div className={css.saturation} />

@@ -17,7 +17,11 @@ export default class ColorPickerHue extends WixComponent {
   onMarkerDragStart = e => {
     e.preventDefault();
     window.addEventListener('mousemove', this.onMarkerDrag);
+    window.addEventListener('touchmove', this.onMarkerDrag);
     window.addEventListener('mouseup', this.onMarkerDragEnd);
+    window.addEventListener('touchcancel', this.onMarkerDragEnd);
+    window.addEventListener('touchend', this.onMarkerDragEnd);
+
     this.sliderRect = getBoundingRect(this.slider);
     this.setNewColorByMouseEvent(e);
   };
@@ -27,12 +31,21 @@ export default class ColorPickerHue extends WixComponent {
   };
 
   onMarkerDragEnd = () => {
+    window.removeEventListener('touchmove', this.onMarkerDrag);
     window.removeEventListener('mousemove', this.onMarkerDrag);
+    window.removeEventListener('touchcancel', this.onMarkerDragEnd);
+    window.addEventListener('touchend', this.onMarkerDragEnd);
     window.removeEventListener('mouseup', this.onMarkerDragEnd);
   };
 
   getHueByMouseEvent = e => {
-    const x = e.clientX - this.sliderRect.left;
+    let eventX = 0;
+    if (e.clientX) {
+      eventX = e.clientX;
+    } else {
+      eventX = e.touches[0].clientX;
+    }
+    const x = eventX - this.sliderRect.left;
     return clamp((360 * x) / this.sliderRect.width, 0, 359);
   };
 
@@ -54,6 +67,7 @@ export default class ColorPickerHue extends WixComponent {
         className={css.root}
         ref={e => (this.slider = e)}
         onMouseDown={this.onMarkerDragStart}
+        onTouchStart={this.onMarkerDragStart}
       >
         <div className={css.handle} style={{ left: `${percentage}%` }} />
       </div>
