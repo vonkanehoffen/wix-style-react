@@ -1,14 +1,14 @@
 import React from 'react';
 import eventually from 'wix-eventually';
 
-import Modal from './Modal';
-import ModalFactory from './Modal.driver';
-import { modalUniDriverFactory } from './Modal.uni.driver';
+import Modal from '../Modal';
+import ModalFactory from '../Modal.driver';
+import { modalUniDriverFactory } from '../Modal.uni.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react/index';
 
 const MODAL_CLOSE_TIMEOUT = 10;
 
