@@ -1,6 +1,7 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { findBaseByHook } from '../../test/utils';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { adaptiveHeadingDriverFactory } from '../utils/AdaptiveHeading/AdaptiveHeading.uni.driver';
 
 import DataHooks from './dataHooks';
 import DataAttrs from './dataAttrs';
@@ -15,6 +16,13 @@ const statisticsWidgetDriverFactory = (base, body) => {
     const tooltip = await item.$(getHookSelector(DataHooks.tooltip));
 
     return tooltipDriverFactory(tooltip, body);
+  };
+
+  const getAdaptiveHeadingDriver = async index => {
+    const item = await getStatsItem(index);
+    const heading = await item.$(getHookSelector(DataHooks.value));
+
+    return adaptiveHeadingDriverFactory(heading);
   };
 
   const getStatsPartText = async (index, hook) => {
@@ -41,11 +49,18 @@ const statisticsWidgetDriverFactory = (base, body) => {
     },
 
     /** Get value of the statistic with index */
-    getValue: async index => getStatsPartText(index, DataHooks.value),
+    getValue: async index => {
+      const heading = await getAdaptiveHeadingDriver(index);
+
+      return heading.getText();
+    },
 
     /** Get short value of the stat with index */
-    getValueInShort: async index =>
-      getStatsPartText(index, DataHooks.shortValue),
+    getValueInShort: async index => {
+      const heading = await getAdaptiveHeadingDriver(index);
+
+      return heading.getShortText();
+    },
 
     /** Get description of the statistic with index */
     getDescription: async index =>
