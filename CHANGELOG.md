@@ -24,6 +24,9 @@ If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md
 ### Deprecated
 - `<Avatar/>` - deprecate old colors, you should use the new colors [#4114](https://github.com/wix/wix-style-react/pull/4114)
 
+### Docs
+- `<Modal/>`- improving Modal docs [#4104](https://github.com/wix/wix-style-react/pull/4104)
+
 ## 7.1.0 - 2019-09-18
 
 ### Added
