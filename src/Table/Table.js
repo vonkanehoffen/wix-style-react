@@ -198,7 +198,7 @@ Table.propTypes = {
   /** Is selection disabled for the table */
   selectionDisabled: PropTypes.bool,
 
-  /** Changes the default row selection behaviour. instead of SOME -> ALL, table now selects SOME -> NONE */
+  /** Indicates the `SelectionContext.toggleAll` behaviour when some rows are selected. `true` means SOME -> NONE, `false` means SOME -> ALL */
   deselectRowsByDefault: PropTypes.bool,
 
   /**

@@ -4,11 +4,13 @@
 
 ##### Properties
 
-| name                 | type   | description                                                                                                                             |
-| -------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| selectedCount        | number | Number of selected items                                                                                                                |
-| bulkSelectionState   | string | A string representing the BulkSelection state (not a React state). Possible values: ALL, SOME, NONE                                     |
-| infiniteBulkSelected | string | Indicates whether bulk selection was done by the user and the table is in "infinite bulk selection" mode and still has more items to load |
+| name                  | type    | description                                                                                                                               |
+| --------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| selectedCount         | number  | Number of selected items                                                                                                                  |
+| disabled              | boolean | Indicates whether selection checkboxes (including <TableBulkSelectionCheckbox>) are disabled                                              |
+| bulkSelectionState    | string  | A string representing the BulkSelection state (not a React state). Possible values: ALL, SOME, NONE                                       |
+| infiniteBulkSelected  | boolean | Indicates whether bulk selection was done by the user and the table is in "infinite bulk selection" mode and still has more items to load |
+| deselectRowsByDefault | boolean | Indicates the `toggleAll` behaviour when some rows are selected. `true` means SOME -> NONE, `false` means SOME -> ALL                                      |
 
 ##### Methods
 

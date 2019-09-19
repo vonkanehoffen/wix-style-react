@@ -78,6 +78,18 @@ export class BulkSelection extends React.Component {
         id => !this.state.notSelectedIds.includes(id),
       );
       this.setSelectedIds(selectedIds, undefined, nextProps);
+    } else if (
+      this.props.disabled !== nextProps.disabled ||
+      !this.areSelectedIdsEqual(this.props.allIds, nextProps.allIds)
+    ) {
+      const { selectedIds, notSelectedIds } = this.state;
+      this.setState({
+        helpers: this.createHelpers({
+          ...nextProps,
+          selectedIds,
+          notSelectedIds,
+        }),
+      });
     }
   }
 
@@ -188,6 +200,7 @@ export class BulkSelection extends React.Component {
     selectedIds,
     notSelectedIds,
     allIds,
+    disabled,
     deselectRowsByDefault,
     totalCount = 0,
   }) {
@@ -232,9 +245,10 @@ export class BulkSelection extends React.Component {
        * Possible values: ALL, SOME, NONE
        */
       bulkSelectionState,
-      /** Changes the default row selection behaviour. instead of SOME -> ALL, table now selects SOME -> NONE */
+      /** Indicates the `toggleAll` behaviour when some rows are selected. `true` means SOME -> NONE, `false` means SOME -> ALL  */
       deselectRowsByDefault,
-      disabled: this.props.disabled,
+      /** Indicates whether selection checkboxes (including <TableBulkSelectionCheckbox>) are disabled */
+      disabled: disabled || allIds.length === 0,
       // Modifiers
       /** Toggle the selection state (selected/not-selected) of an item by id */
       toggleSelectionById: this.toggleSelectionById,

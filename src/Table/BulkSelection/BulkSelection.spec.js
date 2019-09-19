@@ -14,6 +14,19 @@ describe('BulkSelection', () => {
     console.error.mockRestore();
   });
 
+  let _selectionContext;
+  const mountComponent = props =>
+    mount(
+      <BulkSelection {...props}>
+        <BulkSelectionConsumer>
+          {selectionContext => {
+            _selectionContext = selectionContext;
+            return <div />;
+          }}
+        </BulkSelectionConsumer>
+      </BulkSelection>,
+    );
+
   describe('BulkSelectionConsumer error', () => {
     it('should throw error when consumer is not within a BulkSelection', () => {
       const create = () =>
@@ -60,19 +73,6 @@ describe('BulkSelection', () => {
   });
 
   describe('hasMoreInBulkSelection (infinite bulk selection mode)', () => {
-    let _selectionContext;
-    const mountComponent = props =>
-      mount(
-        <BulkSelection {...props}>
-          <BulkSelectionConsumer>
-            {selectionContext => {
-              _selectionContext = selectionContext;
-              return <div />;
-            }}
-          </BulkSelectionConsumer>
-        </BulkSelection>,
-      );
-
     it('should return correct totalCount when in infinite bulk selection', () => {
       mountComponent({
         hasMoreInBulkSelection: true,
@@ -176,6 +176,49 @@ describe('BulkSelection', () => {
       component.setProps({ allIds: [1, 2, 3, 4, 5, 6] });
 
       expect(_selectionContext.bulkSelectionState).toEqual('ALL');
+    });
+  });
+
+  describe('disabled', () => {
+    it('should be false when there are items', () => {
+      mountComponent({ allIds: [1, 2, 3] });
+
+      expect(_selectionContext.disabled).toBe(false);
+    });
+
+    it('should be true when disabled is set', () => {
+      mountComponent({
+        allIds: [1, 2, 3],
+        disabled: true,
+      });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
+
+    it('should be true when there are no items', () => {
+      mountComponent({ allIds: [] });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
+
+    it('should update to true when disabled is updated', () => {
+      const component = mountComponent({ allIds: [1, 2, 3] });
+
+      expect(_selectionContext.disabled).toBe(false);
+
+      component.setProps({ disabled: true });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
+
+    it('should update to true when allIds is updated', () => {
+      const component = mountComponent({ allIds: [1, 2, 3] });
+
+      expect(_selectionContext.disabled).toBe(false);
+
+      component.setProps({ allIds: [] });
+
+      expect(_selectionContext.disabled).toBe(true);
     });
   });
 });
