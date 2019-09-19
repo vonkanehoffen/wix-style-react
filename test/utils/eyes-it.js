@@ -11,7 +11,7 @@ export const defaultConfig = {
 
 /**
  * Create an instance of eyes.it with a default configure options.
- * All instances share the same eyes singleton which is already initialized.
+ * ll instances share the same eyes singleton which is already initialized.
  */
 export function eyesItInstance(config) {
   /* eslint-disable no-restricted-globals */
