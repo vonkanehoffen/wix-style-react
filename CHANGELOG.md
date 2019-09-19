@@ -20,6 +20,7 @@ If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md
 
 ### Added
 - `<Avatar/>` - add new colors [#4114](https://github.com/wix/wix-style-react/pull/4114)
+- `<InputArea>` - added support for 'small' size [#4066](https://github.com/wix/wix-style-react/pull/4066)
 
 ### Changed 
 - `<Table/>` - improve `disabled` behavior [#4103](https://github.com/wix/wix-style-react/pull/4103)
