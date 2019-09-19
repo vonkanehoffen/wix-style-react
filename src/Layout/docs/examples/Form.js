@@ -36,7 +36,7 @@ export default () => (
 
                 {divider()}
 
-                <Layout gap="10">
+                <Layout gap="10px">
                   <Cell span={3} vertical>
                     <Text>Home Address:</Text>
                   </Cell>
@@ -47,7 +47,7 @@ export default () => (
 
                 {divider()}
 
-                <Layout gap="10">
+                <Layout gap="10px">
                   <Cell>
                     <Text>Get In Touch</Text>
                   </Cell>
@@ -122,7 +122,7 @@ function field(label, component = Input) {
 }
 
 function divider() {
-  return <div style={{ height: 30 }} />;
+  return <div style={{ height: '30px' }} />;
 }
 
 function card(title, children) {

@@ -6,6 +6,14 @@ export const textTitle = `
 </Card>
 `;
 
+export const neutralSkin = `
+<Card>
+<Card.Header withoutDivider title="Simple Card" />
+<Card.Subheader skin="neutral" title="Subheader Title" />
+<Card.Content>Card Content Goes Here</Card.Content>
+</Card>
+`;
+
 export const nodeTitle = `
 <Card>
 <Card.Header withoutDivider title="Simple Card" />

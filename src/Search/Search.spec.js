@@ -299,7 +299,7 @@ describe('Search', () => {
 
         expect(await driver.isExpandable()).toBeFalsy();
         expect(await driver.isCollapsed()).toBeFalsy();
-        inputDriver.click();
+        await inputDriver.click();
         expect(await driver.isCollapsed()).toBeFalsy();
       });
       it('should not be collapsed when specified with autoFocus', async () => {

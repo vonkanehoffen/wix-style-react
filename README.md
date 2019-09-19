@@ -6,7 +6,7 @@
 
 `wix-style-react` is a collection of [React](https://facebook.github.io/react/) components that conform to Wix Style created by Wix UX guild.
 
-#### [Demo](https://wix-wix-style-react.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
+#### [Docs](https://wix-wix-style-react.surge.sh/) | [V6 Docs](https://wix-wix-style-react-v6.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
 
 ## Installation
 * Install with `npm` or `yarn`:
@@ -16,9 +16,38 @@ npm i wix-style-react
 yarn add wix-style-react
 ```
 
-## Prerequisites
+## Usage
+
+### Requirements
+
+* Load Wix fonts from CDN
+    ```html
+    <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
+    ```
+* Enable font smoothing with browser specific css properties, for example:
+    ```css
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ```
+### Example
+
+```jsx
+import React from 'react';
+import Button from 'wix-style-react/Button';
+
+const App = () => (
+    <Button onClick={() => console.log('thanks for clicking :)')}>
+      Click me!
+    </Button>
+);
+```
+
+## Build Configuration Prerequisites
 `wix-style-react` uses [Stylable](https://stylable.io/), [SASS](https://sass-lang.com/) and [CSS Modules](https://github.com/css-modules/css-modules) configuration by default. 
-in order to use `wix-style-react`, your module bundler should be configured accordingly.  
+in order to use `wix-style-react`, your module bundler should be configured accordingly.
+Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. Otherwise, you should configure it on your own.
 
 ### Example of `create-react-app` configuration
 - Run 
@@ -76,44 +105,13 @@ in order to use `wix-style-react`, your module bundler should be configured acco
     ```
 ### Typescript support
 - Refer to [Stylable Docs](https://stylable.io/docs/getting-started/install-configure#types) regarding Typescript configuration
-        
-## Usage
-
-### Requirements
-
-* Load Wix fonts from CDN
-    ```html
-    <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
-    ```
-### Usage   
-
-
-```jsx
-import React from 'react';
-import Button from 'wix-style-react/Button';
-
-const App = () => (
-    <Button onClick={() => console.log('thanks for clicking :)')}>
-      Click me!
-    </Button>
-);
-```
-
-## Tips
-
-* Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. Otherwise follow [webpack setup instructions here](https://github.com/wix/wix-style-react/blob/master/docs/usage-without-yoshi.md)
-* Enable font smoothing with browser specific css properties, for example:
-    ```css
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    ```
-* Use [demo pages](https://wix-wix-style-react.surge.sh/) to find all available components with examples.
-* Use [version 5 demo pages](https://wix-wix-style-react-v5.surge.sh/) to find demos of the previous version of the library - version 5.
 
 ## Test drivers
 All of `wix-style-react` components are 100% tested and supplies test drivers for easy interactions in your tests. Read more about [Components Drivers](./docs/usage/COMPONENTS_DRIVERS.md)
+
+## Troubleshooting
+
+Please refer to the [Troubleshooting page](https://github.com/wix/wix-style-react/blob/master/docs/usage/Troubleshooting.md)
 
 ## Contributing
 

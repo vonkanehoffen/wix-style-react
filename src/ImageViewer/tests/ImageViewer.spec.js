@@ -25,6 +25,33 @@ describe('ImageViewer', () => {
     afterEach(() => cleanup());
     const imageUrl = 'some-image-url.png';
 
+    describe('`disabled` prop', () => {
+      it('should render enabled component by default', async () => {
+        const { driver } = render(renderComponent({}));
+        expect(await driver.isDisabled()).toBe(false);
+      });
+      it('should render enabled component', async () => {
+        const { driver } = render(renderComponent({ disabled: false }));
+        expect(await driver.isDisabled()).toBe(false);
+      });
+      it('should render disabled component', async () => {
+        const { driver } = render(renderComponent({ disabled: true }));
+        expect(await driver.isDisabled()).toBe(true);
+      });
+      it('should not render error once component disabled', async () => {
+        const props = { disabled: true, error: true, errorMessage: 'Oops!' };
+        const { driver } = render(renderComponent(props));
+        expect(await driver.isDisabled()).toBe(true);
+        expect(await driver.isErrorVisible()).toBe(false);
+      });
+      it('should not render update/remove buttons', async () => {
+        const props = { disabled: true, imageUrl };
+        const { driver } = render(renderComponent(props));
+        expect(await driver.updateButtonExists()).toBe(false);
+        expect(await driver.removeButtonExists()).toBe(false);
+      });
+    });
+
     describe('`imageUrl` prop', () => {
       it('should display image url [when] given', async () => {
         const { driver } = render(renderComponent({ imageUrl }));

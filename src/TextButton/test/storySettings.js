@@ -1,8 +1,8 @@
 import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
-  category: Category.BUTTONS,
-  storyName: '5.3 TextButton',
+  category: Category.COMPONENTS,
+  storyName: 'TextButton',
 };
 
 export const testStories = {

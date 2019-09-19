@@ -30,8 +30,9 @@
 .root {
   -st-extends: Tooltip;
   -st-states: size(enum(small, medium));
-  display: block;
+  display: inline;
 }
+
 
 .root[data-hook*="popover-portal"] {
   /* This will cause the container's height to stay the same */
@@ -164,4 +165,21 @@
 
   margin-left: value(contentArrowSize);
   margin-right: value(contentArrowSize);
+}
+
+/*
+ * Entrance and exit animation
+ */
+
+.root::popoverAnimation-enter {
+  opacity: 0.85;
+  transform: scale(0.9);
+}
+
+.root::popoverAnimation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+
+  transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }

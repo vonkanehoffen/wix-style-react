@@ -464,13 +464,13 @@ class Page extends WixComponent {
   }
 
   render() {
-    const { className, minWidth, zIndex } = this.props;
+    const { className, minWidth, zIndex, height } = this.props;
 
     return (
       <div
         data-hook="wsr-page-wrapper"
         className={classNames(s.pageWrapper, className)}
-        style={{ zIndex }}
+        style={{ zIndex, height }}
       >
         <div
           data-hook="page"
@@ -514,6 +514,8 @@ Page.propTypes = {
   maxWidth: PropTypes.number,
   /** Sets the min width of the content (Both in header and body) NOT including the page padding */
   minWidth: PropTypes.number,
+  /** Sets the height of the page (in px/vh/etc.) */
+  height: PropTypes.string,
   /** Sets padding of the sides of the page */
   sidePadding: PropTypes.number,
   /** A css class to be applied to the component's root element */

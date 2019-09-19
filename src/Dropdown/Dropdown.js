@@ -73,7 +73,7 @@ class Dropdown extends InputWithOptions {
     return { value: '', selectedId: NO_SELECTED_ID };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (
       nextProps.selectedId !== this.props.selectedId ||
       !Dropdown.isOptionsEqual(this.props.options, nextProps.options)

@@ -99,7 +99,7 @@ describe('Popover', () => {
     });
   });
 
-  describe('test stories', () => {
+  xdescribe('test stories', () => {
     const checkTestStory = async testName => {
       await browser.get(testStoryUrl(testName));
       eyes.checkWindow(testName);

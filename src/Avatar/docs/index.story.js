@@ -6,6 +6,7 @@ import { storySettings } from './storySettings';
 
 import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
 import { Layout, Cell } from '../../Layout';
+import { avatarColorList } from '../Avatar.const';
 
 const IMG_REAL_URL = 'https://randomuser.me/api/portraits/women/39.jpg';
 const IMG_INVALID_URL = 'https://1234.me/4321.jpg';
@@ -43,6 +44,7 @@ export default {
     imgProps: undefined,
     size: undefined,
     color: undefined,
+    shape: undefined,
     text: undefined,
     title: 'Wix Account: John Doe (johndoe@gmail.com)',
     ariaLabel: 'Avatar for John Doe',
@@ -62,7 +64,11 @@ export default {
       'size24',
       'size18',
     ],
-    color: ['blue', 'green', 'grey', 'red', 'orange'],
+    color: avatarColorList,
+    shape: [
+      { label: 'circle (default)', value: 'circle' },
+      { label: 'square', value: 'square' },
+    ],
     imgProps: [
       { label: 'With Image', value: { src: IMG_REAL_URL } },
       { label: 'With Invalid Image URL', value: { src: IMG_INVALID_URL } },
@@ -126,15 +132,34 @@ export default {
       <Cell>
         <LiveCodeExample
           compact
+          title="Square Shape"
+          initialCode={`
+<Box align="space-between" width="500">
+  <Avatar shape="square" presence={'online'} size="size90" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size72" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size60" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size48" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size36" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size30" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size24" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+  <Avatar shape="square" presence={'online'} size="size18" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
+</Box>
+  `}
+        />
+      </Cell>
+      <Cell>
+        <LiveCodeExample
+          compact
           title="Colors"
           initialCode={`
 <Box align="space-between" width="300">
-  <Avatar color="blue"   name={'John Doe'} />
-  <Avatar color="green"  name={'John Doe'} />
-  <Avatar color="grey"   name={'John Doe'} />
-  <Avatar color="red"    name={'John Doe'} />
-  <Avatar color="orange" name={'John Doe'} />  
-</Box>  
+  <Avatar color="A1" name={'John Doe'} />
+  <Avatar color="A2" name={'John Doe'} />
+  <Avatar color="A3" name={'John Doe'} />
+  <Avatar color="A4" name={'John Doe'} />
+  <Avatar color="A5" name={'John Doe'} />
+  <Avatar color="A6" name={'John Doe'} />
+</Box>
   `}
         />
       </Cell>

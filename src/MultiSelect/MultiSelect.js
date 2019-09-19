@@ -9,7 +9,6 @@ import last from 'lodash/last';
 import difference from 'difference';
 
 import styles from './MultiSelect.scss';
-import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 class MultiSelect extends InputWithOptions {
   constructor(props) {
@@ -229,9 +228,7 @@ MultiSelect.defaultProps = {
   predicate: () => true,
   tags: [],
   delimiters: [','],
-  customInput: SUPPORT_REF_FORWARD
-    ? MultiSelect.autoSizeInputWithRef()
-    : MultiSelect.autoSizeInput,
+  customInput: MultiSelect.autoSizeInputWithRef(),
 };
 
 export default MultiSelect;

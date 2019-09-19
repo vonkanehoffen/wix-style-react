@@ -72,6 +72,7 @@ class InputArea extends WixComponent {
       hasCounter,
       theme,
       errorMessage,
+      size,
       tooltipPlacement,
       onTooltipShow,
     } = this.props;
@@ -113,6 +114,10 @@ class InputArea extends WixComponent {
           ]),
       );
 
+    const inputAreaClasses = classNames(styles.inputArea, {
+      [styles.sizeSmall]: size === 'small',
+    });
+
     return (
       <div className={styles.wrapper}>
         <div className={classes}>
@@ -120,7 +125,7 @@ class InputArea extends WixComponent {
             rows={rowsAttr}
             maxLength={maxLength}
             ref={ref => (this.textArea = ref)}
-            className={styles.inputArea}
+            className={inputAreaClasses}
             id={id}
             name={name}
             style={inlineStyle}
@@ -274,6 +279,7 @@ InputArea.displayName = 'InputArea';
 InputArea.defaultProps = {
   theme: 'normal',
   minRowsAutoGrow: InputArea.MIN_ROWS,
+  size: 'normal',
 };
 
 InputArea.propTypes = {
@@ -287,6 +293,9 @@ InputArea.propTypes = {
   /** Standard React Input autoSelect (select the entire text of the element on focus) */
   autoSelect: PropTypes.bool,
   dataHook: PropTypes.string,
+
+  /** Specifies the size of the input */
+  size: PropTypes.oneOf(['small', 'normal']),
 
   /** Default value for those who wants to use this component un-controlled */
   defaultValue: PropTypes.string,

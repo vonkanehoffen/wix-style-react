@@ -57,7 +57,6 @@ export function getDataTableProps(tableProps) {
   /* eslint-disable no-unused-vars */
   const {
     showSelection,
-    selectedIds,
     onSelectionChanged,
     dataHook,
     hideHeader,
@@ -108,8 +107,19 @@ export class Table extends React.Component {
   }
 
   render() {
+    const {
+      data,
+      selectedIds,
+      showSelection,
+      deselectRowsByDefault,
+      selectionDisabled,
+      infiniteScroll,
+      totalSelectableCount,
+      onSelectionChanged,
+      hasMore,
+    } = this.props;
     let hasUnselectables = null;
-    let allIds = this.props.data.map((rowData, rowIndex) =>
+    let allIds = data.map((rowData, rowIndex) =>
       rowData.unselectable
         ? (hasUnselectables = hasUnselectablesSymbol)
         : defaultTo(rowData.id, rowIndex),
@@ -121,14 +131,18 @@ export class Table extends React.Component {
 
     return (
       <TableContext.Provider value={this.props}>
-        {this.props.showSelection ? (
+        {showSelection ? (
           <BulkSelection
             ref={_ref => (this.bulkSelection = _ref)}
-            selectedIds={this.props.selectedIds}
-            deselectRowsByDefault={this.props.deselectRowsByDefault}
-            disabled={this.props.selectionDisabled}
+            selectedIds={selectedIds}
+            deselectRowsByDefault={deselectRowsByDefault}
+            disabled={selectionDisabled}
+            hasMoreInBulkSelection={
+              infiniteScroll && Boolean(totalSelectableCount) && hasMore
+            }
+            totalCount={totalSelectableCount}
             allIds={allIds}
-            onSelectionChanged={this.props.onSelectionChanged}
+            onSelectionChanged={onSelectionChanged}
           >
             {this.renderChildren()}
           </BulkSelection>
@@ -184,7 +198,7 @@ Table.propTypes = {
   /** Is selection disabled for the table */
   selectionDisabled: PropTypes.bool,
 
-  /** Changes the default row selection behaviour. instead of SOME -> ALL, table now selects SOME -> NONE */
+  /** Indicates the `SelectionContext.toggleAll` behaviour when some rows are selected. `true` means SOME -> NONE, `false` means SOME -> ALL */
   deselectRowsByDefault: PropTypes.bool,
 
   /**
@@ -243,6 +257,11 @@ Table.propTypes = {
   id: PropTypes.string,
   /** If true, table will not render all data to begin with, but will gradually render the data as the user scrolls */
   infiniteScroll: PropTypes.bool,
+  /** Indicates the total number of selectable items in the table, including those not yet loaded.
+   * When `infiniteScroll` and this prop are set and the user does bulk selection ("Select All"), and there are still unloaded items (`hasMore` is 'true`),
+   * the table enters an "Infinite Bulk Selection" mode, where newly loaded items get selected by default and `SelectionContext` holds the not-selected items rather than the selected items.
+   * In this case, `SelectionContext.infiniteBulkSelected` is `true` and  `SelectionContext.selectedCount` is the value of `totalSelectableCount` minus the count of unselected items. */
+  totalSelectableCount: PropTypes.number,
   /** If infiniteScroll is on, this prop will determine how many rows will be rendered on each load */
   itemsPerPage: PropTypes.number,
   /** The loader to show when loading more items. */

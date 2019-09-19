@@ -108,7 +108,7 @@ class Notification extends WixComponent {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.show) {
       this.bypassCloseFlags();
       this.clearCloseTimeout();

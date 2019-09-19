@@ -36,6 +36,7 @@ export const inputAreaUniDriverFactory = (base, body) => {
     hasExclamation: () => base.$$(`.${styles.exclamation}`).length === 1,
     hasError: () => textAreaElement.hasClass(styles.hasError),
     isFocusedStyle: () => textAreaElement.hasClass(styles.hasFocus),
+    isSizeSmall: () => textArea.hasClass(styles.sizeSmall),
     isHoveredStyle: () => textAreaElement.hasClass(styles.hasHover),
     isOfStyle: style => textAreaElement.hasClass(styles[`theme-${style}`]),
     isFocus: () => textAreaBase.isFocus(),

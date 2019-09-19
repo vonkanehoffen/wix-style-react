@@ -102,11 +102,11 @@ class Sidebar extends Component {
 
   sidebarContext = this._getSidebarContext();
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this._setInnerMenus(this.props);
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this._setInnerMenus(props);
   }
 

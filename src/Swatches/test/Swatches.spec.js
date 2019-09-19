@@ -5,12 +5,7 @@ import Swatches from '../Swatches';
 import { swatchesPrivateDriverFactory } from './Swatches.private.uni.driver';
 
 describe('Swatches', () => {
-  let onClick;
   const render = createRendererWithUniDriver(swatchesPrivateDriverFactory);
-
-  beforeEach(() => {
-    onClick = jest.fn();
-  });
 
   afterEach(() => {
     cleanup();
@@ -24,10 +19,14 @@ describe('Swatches', () => {
   });
 
   it('should call callback with color', async () => {
+    const onClick = jest.fn();
+
     const { driver } = render(
       <Swatches onClick={onClick} colors={['#ffffff', '#000000']} />,
     );
+
     const swatch = await driver.getSwatch(1);
+
     await swatch.click();
 
     expect(onClick).toBeCalledWith('#000000');
@@ -54,16 +53,20 @@ describe('Swatches', () => {
     it('should add no color option if prop given', async () => {
       const { driver } = render(<Swatches showClear colors={['#000000']} />);
 
-      expect(await driver.getSwatchCount()).toBe(2);
-      expect(await driver.isSwatchTransparentAt(0)).toBe(true);
+      const emptySwatch = await driver.getEmptySwatch();
+
+      expect(await emptySwatch.exists()).toBe(true);
     });
 
     it('should return empty string if clicked', async () => {
+      const onClick = jest.fn();
+
       const { driver } = render(
         <Swatches showClear onClick={onClick} colors={['#000000']} />,
       );
-      const swatch = await driver.getSwatch(0);
-      await swatch.click();
+
+      const emptySwatch = await driver.getEmptySwatch();
+      await emptySwatch.click();
 
       expect(onClick).toBeCalledWith('');
     });
@@ -71,22 +74,123 @@ describe('Swatches', () => {
     it('should be selected if selected prop is not passed', async () => {
       const { driver } = render(<Swatches showClear colors={['#000000']} />);
 
-      expect(await driver.isSwatchSelectedAt(0)).toBe(true);
+      const emptySwatch = await driver.getEmptySwatch();
+
+      expect(await emptySwatch.isSelected()).toBe(true);
     });
 
     it('should not add tooltip if showClearMessage is not given', async () => {
       const { driver } = render(<Swatches showClear colors={['#000000']} />);
 
-      expect(await driver.hasTooltip()).toBe(false);
+      const emptySwatchTooltip = await driver.getEmptySwatchTooltip();
+
+      expect(await emptySwatchTooltip.tooltipExists()).toBe(false);
+    });
+
+    it('should accept showClearMessage and show in tooltip', async () => {
+      const message = 'no color selected';
+
+      const { driver } = render(
+        <Swatches showClear showClearMessage={message} colors={['#000000']} />,
+      );
+
+      const emptySwatchTooltip = await driver.getEmptySwatchTooltip();
+
+      expect(await emptySwatchTooltip.getTooltipText()).toBe(message);
+    });
+  });
+
+  describe('Add color button', () => {
+    it('should be rendered when showAddButton props is true', async () => {
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton />,
+      );
+
+      expect(await driver.addButtonExists()).toBe(false);
+    });
+
+    it('should not show color picker initially', async () => {
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton />,
+      );
+
+      expect(await driver.isColorPickerShown()).toBe(false);
+    });
+
+    it('should show color picker on add button click', async () => {
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+
+      expect(await driver.isColorPickerShown()).toBe(true);
+    });
+
+    it('should not call onAdd callback when no color is selected in color picker', async () => {
+      const onAdd = jest.fn();
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton onAdd={onAdd} />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+
+      const colorpicker = await driver.gerColorPicker();
+      await colorpicker.confirm();
+
+      expect(onAdd).not.toHaveBeenCalled();
+    });
+
+    it('should call onAdd callback when selecting a color in color picker', async () => {
+      const addSpy = jest.fn();
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton onAdd={addSpy} />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+
+      const colorpicker = await driver.gerColorPicker();
+      await colorpicker.selectBlackColor();
+      await colorpicker.confirm();
+
+      expect(addSpy).toHaveBeenCalledTimes(1);
+      expect(addSpy).toBeCalledWith('#000000');
+    });
+
+    it('should close color picker when clicking cancel button', async () => {
+      const addSpy = jest.fn();
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton onAdd={addSpy} />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+
+      const colorpicker = await driver.gerColorPicker();
+      await colorpicker.selectBlackColor();
+      await colorpicker.cancel();
+
+      expect(addSpy).not.toBeCalled();
+
+      expect(await driver.isColorPickerShown()).toBe(false);
     });
 
     it('should accept showClearMessage and show in tooltip', async () => {
       const message = 'no color selected';
       const { driver } = render(
-        <Swatches showClear showClearMessage={message} colors={['#000000']} />,
+        <Swatches
+          colors={['#000000']}
+          showAddButton
+          addButtonMessage={message}
+        />,
       );
 
-      expect(await driver.getTooltipText()).toBe(message);
+      const addButton = await driver.getAddButton();
+
+      expect(await addButton.getTooltipText()).toBe(message);
     });
   });
 });

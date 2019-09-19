@@ -48,7 +48,7 @@ describe('MultiSelect', () => {
     class ControlledMultiSelect extends React.Component {
       state = { inputValue: this.props.value || '' };
 
-      componentWillReceiveProps(nextProps) {
+      UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({ inputValue: nextProps.value });
       }
 

@@ -9,12 +9,12 @@ const multipleBoxes = [
   <Box
     align="center"
     verticalAlign="middle"
-    margin={1}
-    width={80}
-    height={80}
+    margin={'1px'}
+    width={'80px'}
+    height={'80px'}
     color="D70"
     backgroundColor="B10"
-    borderRadius={3}
+    borderRadius={'3px'}
     key={1}
   >
     Blue
@@ -22,12 +22,12 @@ const multipleBoxes = [
   <Box
     align="center"
     verticalAlign="middle"
-    margin={1}
-    width={80}
-    height={80}
+    margin={'1px'}
+    width={'80px'}
+    height={'80px'}
     color="D70"
     backgroundColor="R10"
-    borderRadius={3}
+    borderRadius={'3px'}
     key={2}
   >
     Red
@@ -35,12 +35,12 @@ const multipleBoxes = [
   <Box
     align="center"
     verticalAlign="middle"
-    margin={1}
-    width={80}
-    height={80}
+    margin={'1px'}
+    width={'80px'}
+    height={'80px'}
     color="D70"
     backgroundColor="G10"
-    borderRadius={3}
+    borderRadius={'3px'}
     key={3}
   >
     Green
@@ -52,8 +52,8 @@ const baseProps = {
   direction: 'horizontal',
   align: 'center',
   verticalAlign: 'middle',
-  padding: 1,
-  minHeight: 200,
+  padding: '1',
+  minHeight: '200px',
   color: 'P00',
   backgroundColor: 'B50',
   children: simpleChild,
@@ -104,7 +104,7 @@ const tests = [
         it: 'Should be rendered with margin',
         props: {
           ...baseProps,
-          margin: 2,
+          margin: '2px',
         },
       },
       {

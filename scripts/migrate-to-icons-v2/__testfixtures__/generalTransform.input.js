@@ -1,51 +1,57 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import s from './DataTable.scss';
 import classNames from 'classnames';
 import InfiniteScroll from './InfiniteScroll';
 import WixComponent from '../BaseComponents/WixComponent';
 import ArrowVertical from '../Icons/dist/components/ArrowVertical';
-import {Add, Check, ArrowDown} from '../Icons/dist/index';
-import {Browser} from '../Icons';
+import { Add, Check, ArrowDown } from '../Icons/dist/index';
+import { Browser } from '../Icons';
 import * as Icons from '../Icons';
-import {Bulb} from 'wix-style-react/Icons';
+import { Bulb } from 'wix-style-react/Icons';
 import Close from 'wix-style-react/Icons/dist/components/Close';
-import {Animator} from 'wix-animations';
+import { Animator } from 'wix-animations';
 
 export const DataTableHeader = props => (
   <div>
-    <table style={{width: props.width}} className={s.table}>
-      <TableHeader {...props}/>
+    <table style={{ width: props.width }} className={s.table}>
+      <TableHeader {...props} />
     </table>
   </div>
 );
 
 DataTableHeader.propTypes = {
-  width: PropTypes.number
+  width: PropTypes.number,
 };
 
 class DataTable extends WixComponent {
   constructor(props) {
     super(props);
-    let state = {selectedRows: {}};
+    let state = { selectedRows: {} };
     if (props.infiniteScroll) {
-      state = {...state, ...this.createInitialScrollingState(props)};
+      state = { ...state, ...this.createInitialScrollingState(props) };
     }
     this.state = state;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let isLoadingMore = false;
     if (this.props.infiniteScroll && nextProps.data !== this.props.data) {
       if (nextProps.data instanceof Array && this.props.data instanceof Array) {
-        if (this.props.data.every((elem, index) => {
-          return nextProps.data.length > index && nextProps.data[index] === elem;
-        })) {
+        if (
+          this.props.data.every((elem, index) => {
+            return (
+              nextProps.data.length > index && nextProps.data[index] === elem
+            );
+          })
+        ) {
           isLoadingMore = true;
           const lastPage = this.calcLastPage(nextProps);
           const currentPage =
-            this.state.currentPage < lastPage ? this.state.currentPage + 1 : this.state.currentPage;
-          this.setState({lastPage, currentPage});
+            this.state.currentPage < lastPage
+              ? this.state.currentPage + 1
+              : this.state.currentPage;
+          this.setState({ lastPage, currentPage });
         }
       }
       if (!isLoadingMore) {
@@ -55,19 +61,24 @@ class DataTable extends WixComponent {
   }
 
   createInitialScrollingState(props) {
-    return {currentPage: 0, lastPage: this.calcLastPage(props)};
+    return { currentPage: 0, lastPage: this.calcLastPage(props) };
   }
 
   render() {
-    const {data, showHeaderWhenEmpty, infiniteScroll, itemsPerPage} = this.props;
+    const {
+      data,
+      showHeaderWhenEmpty,
+      infiniteScroll,
+      itemsPerPage,
+    } = this.props;
 
     if (!data.length && !showHeaderWhenEmpty) {
       return null;
     }
 
-    const rowsToRender = infiniteScroll ?
-      data.slice(0, ((this.state.currentPage + 1) * itemsPerPage)) :
-      data;
+    const rowsToRender = infiniteScroll
+      ? data.slice(0, (this.state.currentPage + 1) * itemsPerPage)
+      : data;
 
     const table = this.renderTable(rowsToRender);
 
@@ -83,59 +94,64 @@ class DataTable extends WixComponent {
       <InfiniteScroll
         pageStart={0}
         loadMore={this.loadMore}
-        hasMore={this.state.currentPage < this.state.lastPage || (this.props.hasMore)}
+        hasMore={
+          this.state.currentPage < this.state.lastPage || this.props.hasMore
+        }
         loader={this.props.loader}
         useWindow={this.props.useWindow}
         scrollElement={this.props.scrollElement}
-        >
+      >
         {table}
       </InfiniteScroll>
     );
   };
 
   renderTable = rowsToRender => {
-    const style = {width: this.props.width};
+    const style = { width: this.props.width };
     return (
       <div>
         <table id={this.props.id} style={style} className={s.table}>
-          {!this.props.hideHeader &&
-          <TableHeader {...this.props}/>}
+          {!this.props.hideHeader && <TableHeader {...this.props} />}
           {this.renderBody(rowsToRender)}
-          <Add/>
-          <Check/>
-          <ArrowDown/>
-          <Browser/>
-          <Bulb/>
-          <Icons.ArrowDownThin/>
-          <Close/>
+          <Add />
+          <Check />
+          <ArrowDown />
+          <Browser />
+          <Bulb />
+          <Icons.ArrowDownThin />
+          <Close />
         </table>
-      </div>);
+      </div>
+    );
   };
 
-  renderBody = rows => (
-    <tbody>
-      {rows.map(this.renderRow)}
-    </tbody>
-  );
+  renderBody = rows => <tbody>{rows.map(this.renderRow)}</tbody>;
 
   onRowClick = (rowData, rowNum) => {
-    const {onRowClick, rowDetails} = this.props;
+    const { onRowClick, rowDetails } = this.props;
     onRowClick && onRowClick(rowData, rowNum);
     rowDetails && this.toggleRowDetails(rowNum);
-  }
+  };
 
   renderRow = (rowData, rowNum) => {
-    const {onRowClick, onMouseEnterRow, onMouseLeaveRow, rowDataHook, dynamicRowClass, rowDetails} = this.props;
+    const {
+      onRowClick,
+      onMouseEnterRow,
+      onMouseLeaveRow,
+      rowDataHook,
+      dynamicRowClass,
+      rowDetails,
+    } = this.props;
     const rowClasses = [this.props.rowClass];
     const optionalRowProps = {};
 
     const handlers = [
-      {rowEventHandler: this.onRowClick, eventHandler: 'onClick'},
-      {rowEventHandler: onMouseEnterRow, eventHandler: 'onMouseEnter'},
-      {rowEventHandler: onMouseLeaveRow, eventHandler: 'onMouseLeave'}
+      { rowEventHandler: this.onRowClick, eventHandler: 'onClick' },
+      { rowEventHandler: onMouseEnterRow, eventHandler: 'onMouseEnter' },
+      { rowEventHandler: onMouseLeaveRow, eventHandler: 'onMouseLeave' },
     ];
 
-    handlers.forEach(({rowEventHandler, eventHandler}) => {
+    handlers.forEach(({ rowEventHandler, eventHandler }) => {
       if (rowEventHandler) {
         optionalRowProps[eventHandler] = event => {
           if (event.isDefaultPrevented()) {
@@ -168,11 +184,13 @@ class DataTable extends WixComponent {
 
     optionalRowProps.className = classNames(rowClasses);
 
-    const rowsToRender = [(
+    const rowsToRender = [
       <tr data-table-row="dataTableRow" key={rowNum} {...optionalRowProps}>
-        {this.props.columns.map((column, colNum) => this.renderCell(rowData, column, rowNum, colNum))}
-      </tr>
-    )];
+        {this.props.columns.map((column, colNum) =>
+          this.renderCell(rowData, column, rowNum, colNum),
+        )}
+      </tr>,
+    ];
 
     if (rowDetails) {
       const showDetails = !!this.state.selectedRows[rowNum];
@@ -180,16 +198,17 @@ class DataTable extends WixComponent {
       rowsToRender.push(
         <tr key={`${rowNum}_details`} className={classNames(s.rowDetails)}>
           <td
-            data-hook={`${rowNum}_details`} className={classNames(s.details, showDetails ? s.active : '')}
+            data-hook={`${rowNum}_details`}
+            className={classNames(s.details, showDetails ? s.active : '')}
             colSpan={this.props.columns.length}
-            >
+          >
             <div className={classNames(s.rowDetailsInner)}>
               <Animator show={showDetails} height>
                 {rowDetails(rowData, rowNum)}
               </Animator>
             </div>
           </td>
-        </tr>
+        </tr>,
       );
     }
 
@@ -197,36 +216,37 @@ class DataTable extends WixComponent {
   };
 
   renderCell = (rowData, column, rowNum, colNum) => {
-    const classes = classNames({[s.important]: column.important});
-    const width = rowNum === 0 && this.props.hideHeader ? column.width : undefined;
+    const classes = classNames({ [s.important]: column.important });
+    const width =
+      rowNum === 0 && this.props.hideHeader ? column.width : undefined;
 
-    return (<td
-      style={column.style}
-      width={width}
-      className={classes}
-      key={colNum}
-      >
-      {column.render && column.render(rowData, rowNum)}
-    </td>);
+    return (
+      <td style={column.style} width={width} className={classes} key={colNum}>
+        {column.render && column.render(rowData, rowNum)}
+      </td>
+    );
   };
 
-  calcLastPage = ({data, itemsPerPage}) => Math.ceil(data.length / itemsPerPage) - 1;
+  calcLastPage = ({ data, itemsPerPage }) =>
+    Math.ceil(data.length / itemsPerPage) - 1;
 
   loadMore = () => {
     if (this.state.currentPage < this.state.lastPage) {
-      this.setState({currentPage: this.state.currentPage + 1});
+      this.setState({ currentPage: this.state.currentPage + 1 });
     } else {
       this.props.loadMore && this.props.loadMore();
     }
-  }
+  };
 
   toggleRowDetails = selectedRow => {
-    let selectedRows = {[selectedRow]: !this.state.selectedRows[selectedRow]};
+    let selectedRows = { [selectedRow]: !this.state.selectedRows[selectedRow] };
     if (this.props.allowMultiDetailsExpansion) {
-      selectedRows = Object.assign({}, this.state.selectedRows, {[selectedRow]: !this.state.selectedRows[selectedRow]});
+      selectedRows = Object.assign({}, this.state.selectedRows, {
+        [selectedRow]: !this.state.selectedRows[selectedRow],
+      });
     }
-    this.setState({selectedRows});
-  }
+    this.setState({ selectedRows });
+  };
 }
 
 class TableHeader extends Component {
@@ -239,15 +259,21 @@ class TableHeader extends Component {
     thColor: PropTypes.string,
     thOpacity: PropTypes.string,
     thLetterSpacing: PropTypes.string,
-    columns: PropTypes.array
+    columns: PropTypes.array,
   };
 
   renderSortingArrow = (sortDescending, colNum) => {
     if (sortDescending === undefined) {
       return null;
     }
-    const sortDirectionClassName = sortDescending ? s.sortArrowAsc : s.sortArrowDesc;
-    return <span data-hook={`${colNum}_title`} className={sortDirectionClassName}><ArrowVertical/></span>;
+    const sortDirectionClassName = sortDescending
+      ? s.sortArrowAsc
+      : s.sortArrowDesc;
+    return (
+      <span data-hook={`${colNum}_title`} className={sortDirectionClassName}>
+        <ArrowVertical />
+      </span>
+    );
   };
 
   renderHeaderCell = (column, colNum) => {
@@ -260,36 +286,38 @@ class TableHeader extends Component {
       color: this.props.thColor,
       opacity: this.props.thOpacity,
       letterSpacing: this.props.thLetterSpacing,
-      cursor: column.sortable === undefined ? 'arrow' : 'pointer'
+      cursor: column.sortable === undefined ? 'arrow' : 'pointer',
     };
 
     const optionalHeaderCellProps = {};
     if (column.sortable) {
-      optionalHeaderCellProps.onClick = () => this.props.onSortClick && this.props.onSortClick(column, colNum);
+      optionalHeaderCellProps.onClick = () =>
+        this.props.onSortClick && this.props.onSortClick(column, colNum);
     }
     return (
-      <th
-        style={style}
-        key={colNum}
-        {...optionalHeaderCellProps}
-        >
-        {column.title}{this.renderSortingArrow(column.sortDescending, colNum)}
-      </th>);
+      <th style={style} key={colNum} {...optionalHeaderCellProps}>
+        {column.title}
+        {this.renderSortingArrow(column.sortDescending, colNum)}
+      </th>
+    );
   };
 
   render() {
     return (
       <thead>
-        <tr>
-          {this.props.columns.map(this.renderHeaderCell)}
-        </tr>
-      </thead>);
+        <tr>{this.props.columns.map(this.renderHeaderCell)}</tr>
+      </thead>
+    );
   }
 }
 
 function validateData(props, propName) {
   if (props[propName]) {
-    if (props[propName].constructor && props[propName].constructor.name && props[propName].constructor.name.toLowerCase().indexOf('array') > -1) {
+    if (
+      props[propName].constructor &&
+      props[propName].constructor.name &&
+      props[propName].constructor.name.toLowerCase().indexOf('array') > -1
+    ) {
       return null;
     } else {
       return Error('Data element must be an array type');
@@ -312,26 +340,22 @@ DataTable.defaultProps = {
   useWindow: true,
   thPadding: '5px',
   thHeight: '36px',
-  thFontSize: '12px'
+  thFontSize: '12px',
 };
 
 DataTable.propTypes = {
   id: PropTypes.string,
   data: validateData,
-  columns: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.string
-    ]).isRequired,
-    render: PropTypes.func.isRequired,
-    sortable: PropTypes.bool,
-    sortDescending: PropTypes.bool
-  })),
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+      render: PropTypes.func.isRequired,
+      sortable: PropTypes.bool,
+      sortDescending: PropTypes.bool,
+    }),
+  ),
   showHeaderWhenEmpty: PropTypes.bool,
-  rowDataHook: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.string
-  ]),
+  rowDataHook: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   rowClass: PropTypes.string,
   dynamicRowClass: PropTypes.func,
   onRowClick: PropTypes.func,
@@ -354,7 +378,7 @@ DataTable.propTypes = {
   thLetterSpacing: PropTypes.string,
   rowDetails: PropTypes.func,
   allowMultiDetailsExpansion: PropTypes.bool,
-  hideHeader: PropTypes.bool
+  hideHeader: PropTypes.bool,
 };
 
 DataTable.displayName = 'DataTable';

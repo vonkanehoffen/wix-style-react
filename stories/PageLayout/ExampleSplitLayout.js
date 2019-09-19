@@ -7,7 +7,7 @@ import Card from 'wix-style-react/Card';
 import Box from 'wix-style-react/Box';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
 import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
-import { Breadcrumbs } from 'wix-style-react/Breadcrumbs';
+import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import { Row, Col, Container } from 'wix-style-react/Grid';
 
 class ExampleSplitLayout extends React.Component {
@@ -54,39 +54,34 @@ class ExampleSplitLayout extends React.Component {
   }
 
   render() {
-    const ExamplePageContainer = ({ children }) => (
-      <div style={{ height: '372px' }}>{children}</div>
-    );
     const ExampleLongContent = () => <div style={{ height: '550px' }} />;
     const ExampleShortContent = () => <div style={{ height: '250px' }} />;
 
     return (
-      <ExamplePageContainer>
-        <Page upgrade>
-          {this.renderHeader()}
-          <Page.Content>
-            <Container>
-              <Row stretchViewsVertically>
-                <Col span={8}>
-                  <Card>
-                    <Card.Header title="Card Title" />
-                    <Card.Content>
-                      <ExampleLongContent />
-                    </Card.Content>
-                  </Card>
-                </Col>
-                <Col span={4}>
-                  <Card stretchVertically>
-                    <Card.Content>
-                      <ExampleShortContent />
-                    </Card.Content>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </Page.Content>
-        </Page>
-      </ExamplePageContainer>
+      <Page upgrade height="372px">
+        {this.renderHeader()}
+        <Page.Content>
+          <Container>
+            <Row stretchViewsVertically>
+              <Col span={8}>
+                <Card>
+                  <Card.Header title="Card Title" />
+                  <Card.Content>
+                    <ExampleLongContent />
+                  </Card.Content>
+                </Card>
+              </Col>
+              <Col span={4}>
+                <Card stretchVertically>
+                  <Card.Content>
+                    <ExampleShortContent />
+                  </Card.Content>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </Page.Content>
+      </Page>
     );
   }
 }

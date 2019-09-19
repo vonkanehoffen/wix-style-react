@@ -49,13 +49,20 @@ const AvatarExample = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout cols={6} justifyItems="center" alignItems="center">
+      <Layout cols={7} justifyItems="center" alignItems="center">
         {avatarColors.map((color, i) =>
           renderAvatar({ color, name: avatarName, key: `avatar-${i + 1}` }),
         )}
         {renderAvatar({
           imgProps: { src: 'https://randomuser.me/api/portraits/women/39.jpg' },
           indication: <PhotoCamera size="24" />,
+          onClick: () => 'Clicked!',
+          presence: 'online',
+        })}
+        {renderAvatar({
+          imgProps: { src: 'https://randomuser.me/api/portraits/women/39.jpg' },
+          indication: <PhotoCamera size="24" />,
+          shape: 'square',
           onClick: () => 'Clicked!',
           presence: 'online',
         })}

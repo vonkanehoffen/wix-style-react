@@ -4,6 +4,7 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC'
 import Heading from '../../Heading';
 import Tooltip from '../../Tooltip';
 import Badge from '../../Badge';
+import AdaptiveHeading from '../../utils/AdaptiveHeading';
 import SortByArrowUp from '../../new-icons/system/SortByArrowUp';
 import SortByArrowDown from '../../new-icons/system/SortByArrowDown';
 import InfoCircleSmall from '../../new-icons/InfoCircleSmall';
@@ -39,34 +40,13 @@ class StatisticsItem extends React.PureComponent {
     }
   };
 
-  _renderValue = (value, valueInShort) => {
-    if (!valueInShort) {
-      return (
-        <Heading ellipsis appearance="H1" dataHook={DataHooks.value}>
-          {value}
-        </Heading>
-      );
-    }
-
-    return (
-      <Heading appearance="H1" className={styles.headerWrapper}>
-        <div className={styles.headerShort}>
-          <Tooltip upgrade content={value} theme="dark">
-            <span
-              data-hook={DataHooks.shortValue}
-              aria-hidden="true"
-              title={value}
-            >
-              {valueInShort}
-            </span>
-          </Tooltip>
-        </div>
-        <span data-hook={DataHooks.value} className={styles.headerFull}>
-          {value}
-        </span>
-      </Heading>
-    );
-  };
+  _renderValue = (value, valueInShort) => (
+    <AdaptiveHeading
+      text={value}
+      textInShort={valueInShort}
+      dataHook={DataHooks.value}
+    />
+  );
 
   _renderDescription = (description, subtitleContentInfo) => {
     if (!description) {
@@ -81,6 +61,7 @@ class StatisticsItem extends React.PureComponent {
         {subtitleContentInfo && (
           <Tooltip
             upgrade
+            {...styles('tooltip', {}, this.props)}
             dataHook={DataHooks.tooltip}
             content={subtitleContentInfo}
           >

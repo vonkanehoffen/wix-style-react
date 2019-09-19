@@ -132,23 +132,6 @@ module.exports = {
   Composite: { skipSanityTest: true, noTestkit: true },
   FullTextView: { skipSanityTest: true, noTestkit: true },
 
-  RichTextArea: {
-    skipSanityTest: true,
-    beforeAllHook: () => (window.getSelection = () => ({})),
-    testkitPath: "../src/Deprecated/RichTextArea/RichTextArea.driver",
-    protractorTestkitPath:
-      "../src/Deprecated/RichTextArea/RichTextArea.protractor.driver",
-    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
-  },
-
-  RichTextAreaComposite: {
-    skipSanityTest: true,
-    beforeAllHook: () => (window.getSelection = () => ({})),
-    testkitPath:
-      "../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver",
-    noPuppeteerTestkit: true // was not exported before automation, keeping that way for now
-  },
-
   Avatar: {
     unidriver: true,
     testkitPath: "../src/Avatar/Avatar.uni.driver"
@@ -769,5 +752,15 @@ module.exports = {
   LabelledElement: {
     unidriver: true,
     testkitPath: "../src/LabelledElement/LabelledElement.uni.driver"
+  },
+
+  FillPreview: {
+    unidriver: true,
+    testkitPath: "../src/FillPreview/FillPreview.uni.driver"
+  },
+
+  FillButton: {
+    unidriver: true,
+    testkitPath: "../src/FillButton/FillButton.uni.driver"
   }
 };

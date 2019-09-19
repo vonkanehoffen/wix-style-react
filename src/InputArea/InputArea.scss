@@ -47,6 +47,10 @@ $gap: 6px;
 
   @include Placeholder(getTextColor($light: true, $secondary: true));
   @include Selection($paletteB4);
+
+  &.sizeSmall{
+    @include TextSizeAndFontFamily($size: small, $weight: normal);
+  }
 }
 
 .counter {

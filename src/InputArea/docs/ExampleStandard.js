@@ -35,5 +35,10 @@ export default () => (
       <br />
       <InputArea disabled value="Text which is disabled" />
     </div>
+    <div style={style}>
+      Small
+      <br />
+      <InputArea size="small" value="Small Size" />
+    </div>
   </div>
 );

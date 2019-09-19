@@ -9,7 +9,6 @@ const {
   AutoComplete,
   Input,
   Label,
-  RichTextArea,
   Notification,
   FloatingHelper,
   GoogleAddressInput,
@@ -73,16 +72,6 @@ export default {
       content: <FloatingHelper.Content title="title" body="body" />,
       target: <div>target</div>,
       placement: 'left',
-    },
-  },
-
-  RichTextArea: {
-    beforeAllHook: () => (window.getSelection = () => ({})),
-  },
-
-  RichTextAreaComposite: {
-    props: {
-      children: [<Label key="0">Label text</Label>, <RichTextArea key="1" />],
     },
   },
 

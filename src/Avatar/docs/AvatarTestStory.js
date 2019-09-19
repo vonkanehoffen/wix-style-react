@@ -33,7 +33,7 @@ storiesOf(kind, module).add(storySettings.testStories.SIZES, () => {
 storiesOf(kind, module).add(storySettings.testStories.COLORS, () => {
   return (
     <div className={style.container}>
-      {['blue', 'green', 'grey', 'red', 'orange'].map(color => (
+      {['A1', 'A2', 'A3', 'A4', 'A5', 'A6'].map(color => (
         <Avatar name="John Doe" color={color} key={color} />
       ))}
     </div>

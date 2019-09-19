@@ -41,7 +41,7 @@ class GoogleAddressInput extends React.Component {
     this.onManuallyInput = this.onManuallyInput.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       this._getSuggestions(nextProps.value)
         .then(suggestions => {

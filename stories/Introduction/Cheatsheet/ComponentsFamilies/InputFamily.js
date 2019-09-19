@@ -232,7 +232,7 @@ const ColorInputExample = () => {
   const components = inputsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: symbol,
     componentsNames: createLinkedComponentsNames(components),
     size: singleComponentSizes.compact,
   };

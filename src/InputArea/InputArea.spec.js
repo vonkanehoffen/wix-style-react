@@ -168,6 +168,13 @@ describe('InputArea', () => {
       });
     });
 
+    describe('size attribute', () => {
+      it('should pass down small size', async () => {
+        const driver = createDriver(<InputAreaForTesting size="small" />);
+        expect(await driver.isSizeSmall()).toBeTruthy();
+      });
+    });
+
     describe('readOnly attribute', () => {
       it('should pass down to the wrapped input', async () => {
         const driver = createDriver(<InputAreaForTesting readOnly />);

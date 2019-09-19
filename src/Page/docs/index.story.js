@@ -140,14 +140,12 @@ export default {
               description:
                 'A Page stretches according to its container height. use `100vh` for a standalone page or `calc(100vh - 48px)` if top bar exists',
               source: `
-                <div style={{height: '40vh'}}>
-                  <Page upgrade>
-                    <Page.Header title="Page Header"/>
-                    <Page.Content>
-                      Page Content
-                    </Page.Content>
-                  </Page>
-                </div>
+                <Page upgrade height="40vh">
+                  <Page.Header title="Page Header"/>
+                  <Page.Content>
+                    Page Content
+                  </Page.Content>
+                </Page>
                 `,
               compact: false,
             },
@@ -156,25 +154,23 @@ export default {
               description:
                 'A common use case will be a Page containing Card components arranged by Grid components',
               source: `
-                <div style={{height: '40vh'}}>
-                  <Page upgrade>
-                    <Page.Header title="Page Header"/>
-                    <Page.Content>
-                      <Container>
-                        <Row>
-                          <Col span={6}>
-                            <Card>
-                              <Card.Header title="Card"/>
-                              <Card.Content>
-                                Some content
-                              </Card.Content>
-                            </Card>
-                          </Col>
-                        </Row>
-                      </Container>
-                    </Page.Content>
-                  </Page>
-                </div>
+                <Page upgrade height="40vh">
+                  <Page.Header title="Page Header"/>
+                  <Page.Content>
+                    <Container>
+                      <Row>
+                        <Col span={6}>
+                          <Card>
+                            <Card.Header title="Card"/>
+                            <Card.Content>
+                              Some content
+                            </Card.Content>
+                          </Card>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </Page.Content>
+                </Page>
                 `,
               compact: true,
             },
@@ -203,32 +199,30 @@ export default {
               description:
                 'The Page will automatically adjust its header to a minimized mode when scrolling through the content',
               source: `
-                <div style={{ height: '40vh' }}>
-                  <Page upgrade>
-                    <Page.Header title="Page Header" />
-                    <Page.Content>
-                      <Container>
-                        <Row>
-                          <Col span={8}>
-                            <Card>
-                              <Card.Content>
-                                <h3>Scroll Down</h3>
-                                {Array(20).fill(' ').map(item => 
-                                  (<div>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                    facilisis molestie magna vitae pellentesque. Ut elementum
-                                    accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
-                                  </div>)
-                                  )
-                                }
-                              </Card.Content>
-                            </Card>
-                          </Col>
-                        </Row>
-                      </Container>
-                    </Page.Content>
-                  </Page>
-                </div>
+                <Page upgrade height="40vh">
+                  <Page.Header title="Page Header" />
+                  <Page.Content>
+                    <Container>
+                      <Row>
+                        <Col span={8}>
+                          <Card>
+                            <Card.Content>
+                              <h3>Scroll Down</h3>
+                              {Array(20).fill(' ').map(item => 
+                                (<div>
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                  facilisis molestie magna vitae pellentesque. Ut elementum
+                                  accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
+                                </div>)
+                                )
+                              }
+                            </Card.Content>
+                          </Card>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </Page.Content>
+                </Page>
               `,
               compact: true,
             },
@@ -237,38 +231,36 @@ export default {
               description:
                 'elements can be sticked to the header when scrolled. Tabs are a good example for usage.',
               source: `
-                <div style={{ height: '40vh' }}>
-                  <Page upgrade>
-                    <Page.Header title="Page Header" />
-                    <Page.Tail>
-                      <Tabs
-                        activeId={1}
-                        hasDivider={false}
-                        items={[{id: 1, title: 'item 1'}, {id: 2, title: 'item 2'}]}
-                      />
-                    </Page.Tail>
-                    <Page.Content>
-                      <Container>
-                        <Row>
-                          <Col span={8}>
-                            <Card>
-                              <Card.Content>
-                                {Array(20).fill(' ').map(item => 
-                                  (<div>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                    facilisis molestie magna vitae pellentesque. Ut elementum
-                                    accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
-                                  </div>)
-                                  )
-                                }
-                              </Card.Content>
-                            </Card>
-                          </Col>
-                        </Row>
-                      </Container>
-                    </Page.Content>
-                  </Page>
-                </div>
+                <Page upgrade height="40vh">
+                  <Page.Header title="Page Header" />
+                  <Page.Tail>
+                    <Tabs
+                      activeId={1}
+                      hasDivider={false}
+                      items={[{id: 1, title: 'item 1'}, {id: 2, title: 'item 2'}]}
+                    />
+                  </Page.Tail>
+                  <Page.Content>
+                    <Container>
+                      <Row>
+                        <Col span={8}>
+                          <Card>
+                            <Card.Content>
+                              {Array(20).fill(' ').map(item => 
+                                (<div>
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                  facilisis molestie magna vitae pellentesque. Ut elementum
+                                  accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
+                                </div>)
+                                )
+                              }
+                            </Card.Content>
+                          </Card>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </Page.Content>
+                </Page>
               `,
               compact: true,
             },
@@ -277,39 +269,37 @@ export default {
               description:
                 'The Page provides <Page.Sticky/> container to attach elements to the scrolled container.',
               source: `
-                <div style={{ height: '40vh' }}>
-                  <Page upgrade>
-                    <Page.Header title="Page Header" />
-                    <Page.Content>
-                      <Container>
-                        <Row stretchViewsVertically>
-                          <Col span={8}>
+                <Page upgrade height="40vh">
+                  <Page.Header title="Page Header" />
+                  <Page.Content>
+                    <Container>
+                      <Row stretchViewsVertically>
+                        <Col span={8}>
+                          <Card>
+                            <Card.Content>
+                              {Array(20).fill(' ').map(item => 
+                                (<div>
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                                  facilisis molestie magna vitae pellentesque. Ut elementum
+                                  accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
+                                </div>)
+                                )
+                              }
+                            </Card.Content>
+                          </Card>
+                        </Col>
+                        <Col span={4}>
+                          <Page.Sticky>
                             <Card>
-                              <Card.Content>
-                                {Array(20).fill(' ').map(item => 
-                                  (<div>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                    facilisis molestie magna vitae pellentesque. Ut elementum
-                                    accumsan nibh, ut faucibus velit. Vestibulum at mollis justo.
-                                  </div>)
-                                  )
-                                }
-                              </Card.Content>
+                              <Card.Header title="Sticky" />
+                              <Card.Content>Some menu or other content</Card.Content>
                             </Card>
-                          </Col>
-                          <Col span={4}>
-                            <Page.Sticky>
-                              <Card>
-                                <Card.Header title="Sticky" />
-                                <Card.Content>Some menu or other content</Card.Content>
-                              </Card>
-                            </Page.Sticky>
-                          </Col>
-                        </Row>
-                      </Container>
-                    </Page.Content>
-                  </Page>
-                </div>
+                          </Page.Sticky>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </Page.Content>
+                </Page>
               `,
               compact: true,
             },

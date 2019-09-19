@@ -13,13 +13,20 @@ import AddItem from '../AddItem/AddItem';
 
 class ImageViewer extends Component {
   _renderAddImage = () => {
-    const { imageUrl, onAddImage, addImageInfo, tooltipProps } = this.props;
+    const {
+      imageUrl,
+      onAddImage,
+      addImageInfo,
+      tooltipProps,
+      disabled,
+    } = this.props;
     return (
       !imageUrl && (
         <AddItem
           onClick={onAddImage}
           theme="image"
           dataHook="add-image"
+          disabled={disabled}
           tooltipContent={addImageInfo}
           tooltipProps={{ ...tooltipProps, content: addImageInfo }}
         />
@@ -28,7 +35,12 @@ class ImageViewer extends Component {
   };
 
   _renderImage = () => {
-    const { imageUrl, showUpdateButton, removeRoundedBorders } = this.props;
+    const {
+      imageUrl,
+      disabled,
+      showUpdateButton,
+      removeRoundedBorders,
+    } = this.props;
     return (
       !!imageUrl && (
         <div className={styles.imageContainer}>
@@ -37,18 +49,20 @@ class ImageViewer extends Component {
             className={styles.image}
             src={imageUrl}
           />
-          <div
-            {...styles(
-              'imageBackground',
-              { removeRadius: removeRoundedBorders },
-              this.props,
-            )}
-          >
-            <div className={styles.buttons}>
-              {showUpdateButton && this._renderUpdateButton()}
-              {this._renderRemoveButton()}
+          {!disabled && (
+            <div
+              {...styles(
+                'imageBackground',
+                { removeRadius: removeRoundedBorders },
+                this.props,
+              )}
+            >
+              <div className={styles.buttons}>
+                {showUpdateButton && this._renderUpdateButton()}
+                {this._renderRemoveButton()}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )
     );
@@ -99,9 +113,10 @@ class ImageViewer extends Component {
   };
 
   _renderErrorIcon = () => {
-    const { error, errorMessage } = this.props;
+    const { error, disabled, errorMessage } = this.props;
+    const shouldRender = error && !disabled;
     return (
-      error && (
+      shouldRender && (
         <div className={styles.errorContainer}>
           <Tooltip
             upgrade
@@ -121,11 +136,13 @@ class ImageViewer extends Component {
   };
 
   render() {
-    const { width, height, error, dataHook } = this.props;
+    const { width, height, error, disabled, dataHook } = this.props;
+    const states = { disabled, error: !disabled && error };
     return (
       <div
-        {...styles('root', { error }, this.props)}
+        {...styles('root', states, this.props)}
         style={{ width, height }}
+        data-disabled={disabled || void 0}
         data-hook={dataHook}
       >
         {this._renderAddImage()}
@@ -179,6 +196,8 @@ ImageViewer.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Element height */
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** Applies disabled styles and disables editability options */
+  disabled: PropTypes.bool,
 };
 
 export default ImageViewer;

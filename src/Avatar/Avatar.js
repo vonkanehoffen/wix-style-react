@@ -2,15 +2,19 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
-
+import deprecationLog from '../utils/deprecationLog';
+import { avatarColorList } from './Avatar.const';
 import { Avatar as CoreAvatar } from 'wix-ui-core/dist/src/components/avatar';
 
 import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
+import stringToColor from './string-to-color';
 
 const getSizeNumber = size => Number(size.substring(4));
 const minIndicationRenderSize = 36;
 const minSmallIconButton = 60;
+const deprecatedColorList = ['blue', 'green', 'grey', 'red', 'orange'];
+
 /**
  * Avatar is a type of element that visually represents a user, either as an image, name initials or placeholder icon.
  */
@@ -19,12 +23,21 @@ const Avatar = props => {
     size,
     presence,
     indication,
-    color,
+    color: colorProp,
     onIndicationClick,
     dataHook,
     className,
+    shape,
+    text,
+    name,
     ...rest
   } = props;
+  if (deprecatedColorList.indexOf(colorProp) > -1) {
+    deprecationLog(
+      `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
+    );
+  }
+  const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
   const sizeNumber = getSizeNumber(size);
   const renderIndication = indication && sizeNumber > minIndicationRenderSize;
   return (
@@ -34,6 +47,7 @@ const Avatar = props => {
     >
       <div
         {...styles('avatarContainer', {
+          shape,
           size,
           indication,
           presence,
@@ -42,7 +56,7 @@ const Avatar = props => {
       >
         <div className={styles.coreAvatar}>
           <CoreAvatar
-            {...rest}
+            {...{ ...rest, text, name }}
             className={classNames(
               styles.avatar,
               color && styles[`color${capitalize(color)}`],
@@ -57,6 +71,7 @@ const Avatar = props => {
               dataHook="avatar-indication"
               onClick={onIndicationClick}
               skin="inverted"
+              shape={shape}
               size={sizeNumber > minSmallIconButton ? 'small' : 'tiny'}
             >
               {indication}
@@ -97,8 +112,10 @@ Avatar.propTypes = {
     'size24',
     'size18',
   ]),
-  /** Background color when text (initials) content is displayed */
-  color: PropTypes.oneOf(['blue', 'green', 'grey', 'red', 'orange']),
+  /** Background color of the avatar. When no color is provided the color is determined by the provided text or name so that each name will receive a different color. */
+  color: PropTypes.oneOf(['A1', 'A2', 'A3', 'A4', 'A5', 'A6']),
+  /** Shape of the image, can be square or circle */
+  shape: PropTypes.oneOf(['circle', 'square']),
   /** classes to be applied to the root element */
   className: PropTypes.string,
   /** Applied as data-hook HTML attribute that can be used to create an Avatar driver in testing */
@@ -127,6 +144,7 @@ function AvatarDefaultPlaceholder() {
 Avatar.defaultProps = {
   placeholder: <AvatarDefaultPlaceholder />,
   size: 'size48',
+  shape: 'circle',
 };
 
 export default Avatar;

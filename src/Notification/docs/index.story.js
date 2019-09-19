@@ -11,6 +11,8 @@ import {
   testkit,
 } from 'wix-storybook-utils/Sections';
 
+import { storySettings } from './storySettings';
+
 import Notification from '..';
 import Text from 'wix-style-react/Text';
 
@@ -51,8 +53,8 @@ const exampleChildren = [
 ];
 
 export default {
-  category: '8. Notification Bars',
-  storyName: '8.1 Notification',
+  category: storySettings.category,
+  storyName: storySettings.storyName,
   component: Notification,
   componentPath: '..',
 

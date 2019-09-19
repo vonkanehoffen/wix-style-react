@@ -71,6 +71,18 @@ const tests = [
     ],
   },
   {
+    describe: 'Height',
+    its: [
+      {
+        it: 'Should render with a limited height',
+        props: {
+          ...baseProps,
+          height: '60vh',
+        },
+      },
+    ],
+  },
+  {
     describe: 'Side Padding',
     its: [
       {

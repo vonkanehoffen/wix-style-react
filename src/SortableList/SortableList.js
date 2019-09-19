@@ -33,7 +33,7 @@ class SortableList extends WixComponent {
     this.setState({ animationShifts: {}, draggedId: null, ...overrides });
   };
 
-  componentWillReceiveProps({ items }) {
+  UNSAFE_componentWillReceiveProps({ items }) {
     // We clear state on drag end if element was dragged from another list,
     // `onDragEnd` will be called on "source" list, not "target" one.
     this.reSetAnimationState({ items: items ? items : this.state.items });

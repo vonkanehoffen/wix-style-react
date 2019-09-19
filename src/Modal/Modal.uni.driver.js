@@ -10,7 +10,9 @@ export const modalUniDriverFactory = (base, body) => {
 
   return {
     ...baseUniDriverFactory(base),
+    /** true when the module is open */
     isOpen,
+    /** true if theme <arg> exists in the modal */
     isThemeExist: theme =>
       getPortal()
         .$(`.${theme}`)
@@ -21,12 +23,15 @@ export const modalUniDriverFactory = (base, body) => {
         .exists())
         ? getPortal().$(selector)
         : null,
+    /** true if the modal is scrollable */
     isScrollable: async () =>
       !(await getPortal().hasClass('portalNonScrollable')),
     closeButtonExists: () => getCloseButton().exists(),
+    /** click on the modal overlay (helpful for testing if the modal is dismissed) */
     clickOnOverlay: () => getOverlay().click(),
     clickOnCloseButton: () => getCloseButton().click(),
     getContentStyle: async () => await getContent()._prop('style'),
+    /** returns the modal aria-label value as given in contentLabel property */
     getContentLabel: () => getContent().attr('aria-label'),
     getZIndex: async () => {
       const style = await getOverlay()._prop('style');

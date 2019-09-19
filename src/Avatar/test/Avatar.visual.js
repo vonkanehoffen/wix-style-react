@@ -5,7 +5,9 @@ import Avatar from '..';
 import { PhotoCamera } from 'wix-ui-icons-common';
 
 const allSizesAvatarWithProps = props => (
-  <div style={{ display: 'flex' }}>
+  <div
+    style={{ display: 'flex', width: '600px', justifyContent: 'space-around' }}
+  >
     <Avatar size="size18" {...props} />
     <Avatar size="size24" {...props} />
     <Avatar size="size30" {...props} />
@@ -31,6 +33,10 @@ storiesOf(`Avatar/Props`, module).add('Presence', () => (
     </div>
     {allSizesAvatarWithProps({ presence: 'online', ...baseProps })}
   </div>
+));
+
+storiesOf(`Avatar/Props`, module).add('Square', () => (
+  <div>{allSizesAvatarWithProps({ shape: 'square', ...baseProps })}</div>
 ));
 
 storiesOf(`Avatar/Props`, module).add('Indication', () => (
@@ -62,5 +68,34 @@ storiesOf(`Avatar/Props`, module).add('Presence and Indication', () => (
       indication: <PhotoCamera size="24" />,
       ...baseProps,
     })}
+    <br />
+    {allSizesAvatarWithProps({
+      presence: 'online',
+      shape: 'square',
+      indication: <PhotoCamera size="24" />,
+      ...baseProps,
+    })}
+  </div>
+));
+
+storiesOf(`Avatar/Props`, module).add('Colors', () => (
+  <div>
+    <div
+      style={{
+        display: 'flex',
+        width: '600px',
+        justifyContent: 'space-around',
+      }}
+    >
+      <Avatar name="Clifford Strickland" />
+      <Avatar name="Hallie Shelton" />
+      <Avatar name="Jennie Spencer" />
+      <Avatar name="Terry Myers" />
+      <Avatar name="Tillie Wilkins" />
+      <Avatar name="Douglas Page" />
+      <Avatar name="Daniel Christensen" />
+      <Avatar name="Cody Carr" />
+      <Avatar name="Evelyn Lindsey" />
+    </div>
   </div>
 ));

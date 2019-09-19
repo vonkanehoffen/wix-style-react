@@ -23,7 +23,7 @@ const options = [
         style={{
           height: '240px',
           padding: '20px',
-          fontSize: '20',
+          fontSize: '20px',
           backgroundColor: '#F0F',
         }}
       >

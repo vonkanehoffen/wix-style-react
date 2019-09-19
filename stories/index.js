@@ -20,21 +20,12 @@ require('./CardLayout/index.story'); // 2.1 Card Layout
 // 3. Inputs
 require('./TextInput/index.story'); // 3.1. Text Input
 require('./TextArea/index.story'); // 3.2 Text Area
-require('./RichTextArea/index.story'); // 3.3 Rich Text Area
 require('./NumberInput/index.story'); // 3.4 NumberInput
-require('../src/ColorInput/docs/index.story'); // 3.11 ColorInput
 require('./MultiSelect/index.story'); // 3.12 Tags
 
 // 4. Selection
 require('./SegmentedToggle/index.story'); // 4.5 SegmentedToggle
 require('./Slider/index.story'); // 4.8 Slider
-
-// 5. Buttons
-require('../src/Button/docs/index.story'); // 5.1 Standard
-require('../src/IconButton/docs/index.story'); // 5.2 Icon Button
-require('../src/TextButton/docs/index.story'); // 5.3 Text Button
-require('../src/CloseButton/docs/index.story'); // 5.4 Close Button
-require('../src/ToggleButton/docs/index.story'); // 5.5 Toggle Button
 
 // 6. Navigation
 require('./Sidebar/index.story'); // 6.1 Sidebar
@@ -42,10 +33,6 @@ require('./Sidebar/index.story'); // 6.1 Sidebar
 // 7. Tooltips
 require('./Tooltip/index.story'); // 7.1 Tooltip
 require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
-
-// 8. Notification Bars
-require('../src/Notification/docs/index.story');
-require('../src/FloatingNotification/docs/index.story');
 
 // 9. Modals
 require('../src/MessageBox/docs');
@@ -60,6 +47,7 @@ require('../src/Badge/docs/index.story');
 require('../src/BadgeSelect/docs/index.story');
 require('../src/Box/docs/index.story');
 require('../src/Breadcrumbs/docs/index.story');
+require('../src/Button/docs/index.story');
 require('../src/Calendar/docs/index.story');
 require('../src/CalendarPanel/docs/index.story');
 require('../src/CalendarPanelFooter/docs/index.story');
@@ -70,8 +58,10 @@ require('../src/Carousel/docs/index.story');
 require('../src/Checkbox/docs/index.story');
 require('../src/CircularProgressBar/docs/index.story');
 require('../src/Collapse/docs/index.story');
+require('../src/ColorInput/docs/index.story');
 require('../src/ColorPicker/docs/index.story');
 require('../src/CounterBadge/docs/index.story');
+require('../src/CloseButton/docs/index.story');
 require('../src/DataTable/docs');
 require('../src/DatePicker/docs/index.story');
 require('../src/Dropdown/docs/index.story');
@@ -81,8 +71,10 @@ require('../src/EditableSelector/docs/index.story');
 require('../src/EmptyState/docs/index.story');
 require('../src/EndorseContentLayout/docs');
 require('../src/FilePicker/docs/index.story');
+require('../src/FillPreview/docs/index.story');
 require('../src/FloatingHelper/FloatingHelperContent/docs/index.story');
 require('../src/FloatingHelper/docs/index.story');
+require('../src/FloatingNotification/docs/index.story');
 require('../src/FormField/docs/index.story');
 require('../src/FullTextView/docs/index.story');
 require('../src/GenericModalLayout/docs/index.story');
@@ -91,6 +83,7 @@ require('../src/GooglePreview/docs/index.story');
 require('../src/Grid/docs');
 require('../src/Heading/docs/index.story');
 require('../src/Highlighter/docs/index.story');
+require('../src/IconButton/docs/index.story');
 require('../src/ImageViewer/docs/index.story');
 require('../src/Input/docs/index.story');
 require('../src/InputArea/docs/index.story');
@@ -102,11 +95,12 @@ require('../src/LinearProgressBar/docs/index.story');
 require('../src/ListItemAction/docs/index.story');
 require('../src/Loader/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');
-require('../src/Modal/docs');
+require('../src/Modal/docs/index.story');
 require('../src/ModalSelectorLayout/docs/index.story');
 require('../src/MultiSelect/docs/index.story');
 require('../src/MultiSelectCheckbox/docs/index.story');
 require('../src/MultiSelectComposite/docs');
+require('../src/Notification/docs/index.story');
 require('../src/NumberInput/docs/index.story');
 require('../src/Page/docs/PageExampleStories');
 require('../src/Page/docs/index.story');
@@ -132,8 +126,10 @@ require('../src/TableToolbar/docs/ToolbarStory');
 require('../src/Tabs/docs');
 require('../src/Tag/docs/index.story');
 require('../src/Text/docs/index.story');
+require('../src/TextButton/docs/index.story');
 require('../src/Thumbnail/docs/index.story');
 require('../src/TimeInput/docs/index.story');
+require('../src/ToggleButton/docs/index.story');
 require('../src/ToggleSwitch/docs/index.story');
 require('../src/Tooltip/TooltipNext/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
@@ -193,10 +189,12 @@ require('../src/DateInput/test/testStories');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
-require('./Deprecated/RichTextArea/index.story');
-require('./Deprecated/RichTextArea/testStory');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');
 
 // BETA
 require('../src/beta/PopoverMenu/docs/index.story');
+
+// TODO: move to correct position
+require('../src/FillButton/docs/index.story');
+require('../src/FillPreview/docs/index.story');

@@ -42,6 +42,7 @@ const inputAreaDriverFactory = ({ element }) => {
       element.querySelectorAll(`.${styles.exclamation}`).length === 1,
     hasError: () => textAreaElement.classList.contains(styles.hasError),
     isFocusedStyle: () => textAreaElement.classList.contains(styles.hasFocus),
+    isSizeSmall: () => textArea.classList.contains(styles.sizeSmall),
     isHoveredStyle: () => textAreaElement.classList.contains(styles.hasHover),
     isOfStyle: style =>
       textAreaElement.classList.contains(styles[`theme-${style}`]),

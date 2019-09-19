@@ -56,7 +56,7 @@ export default class TimePicker extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.defaultValue !== this.props.defaultValue) {
       this.setState(this.getInitTime(nextProps.defaultValue));
     }

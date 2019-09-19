@@ -54,7 +54,7 @@ class NestableList extends WixComponent {
   // updated internally but props items stayed the same and it caused the new state to be
   // overridden with the old state
   // can be done if component is controlled but requires refactor
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (newProps.items !== this.state.items) {
       this.setState({ items: newProps.items });
     }

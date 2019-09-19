@@ -575,6 +575,18 @@ export const statisticsWidgetTestkitFactory = protractorUniTestkitFactoryCreator
   statisticsWidgetDriverFactory,
 );
 
+import fillPreviewDriverFactory from '../src/FillPreview/FillPreview.uni.driver';
+
+export const fillPreviewTestkitFactory = protractorUniTestkitFactoryCreator(
+  fillPreviewDriverFactory,
+);
+
+import fillButtonDriverFactory from '../src/FillButton/FillButton.uni.driver';
+
+export const fillButtonTestkitFactory = protractorUniTestkitFactoryCreator(
+  fillButtonDriverFactory,
+);
+
 import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
 
 export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(
@@ -591,18 +603,6 @@ import { headerUniDriverFactory } from '../src/Card/Header/Header.uni.driver';
 
 export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(
   headerUniDriverFactory,
-);
-
-import richTextAreaDriverFactory from '../src/Deprecated/RichTextArea/RichTextArea.protractor.driver';
-
-export const richTextAreaTestkitFactory = protractorTestkitFactoryCreator(
-  richTextAreaDriverFactory,
-);
-
-import richTextAreaCompositeDriverFactory from '../src/Deprecated/RichTextAreaComposite/RichTextAreaComposite.driver';
-
-export const richTextAreaCompositeTestkitFactory = protractorTestkitFactoryCreator(
-  richTextAreaCompositeDriverFactory,
 );
 
 import { sideMenuUniDriverFactory } from '../src/Deprecated/SideMenu/core/SideMenu.uni.driver';

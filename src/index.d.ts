@@ -72,7 +72,6 @@ export { HBox } from './HBox';
 export { VBox, VBoxProps } from './VBox';
 export { default as Heading } from './Heading';
 export { default as Highlighter } from './Highlighter';
-export { default as RichTextArea } from './RichTextArea';
 export { default as Search } from './Search';
 export { default as Tabs } from './Tabs';
 export { default as Tag } from './Tag';

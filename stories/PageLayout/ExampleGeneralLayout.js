@@ -54,31 +54,26 @@ class ExampleGeneralLayout extends React.Component {
   }
 
   render() {
-    const ExamplePageContainer = ({ children }) => (
-      <div style={{ height: '372px' }}>{children}</div>
-    );
     const ExampleContent = () => <div style={{ height: '550px' }} />;
 
     return (
-      <ExamplePageContainer>
-        <Page upgrade>
-          {this.renderHeader()}
-          <Page.Content>
-            <Container>
-              <Row>
-                <Col>
-                  <Card>
-                    <Card.Header title="Card Title" />
-                    <Card.Content>
-                      <ExampleContent />
-                    </Card.Content>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </Page.Content>
-        </Page>
-      </ExamplePageContainer>
+      <Page upgrade height="372px">
+        {this.renderHeader()}
+        <Page.Content>
+          <Container>
+            <Row>
+              <Col>
+                <Card>
+                  <Card.Header title="Card Title" />
+                  <Card.Content>
+                    <ExampleContent />
+                  </Card.Content>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </Page.Content>
+      </Page>
     );
   }
 }

@@ -9,7 +9,6 @@ import setDate from 'date-fns/set_date';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Calendar from '../Calendar';
-import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 import styles from './DatePicker.scss';
 import DateInput from '../DateInput';
@@ -161,19 +160,26 @@ export default class DatePicker extends WixComponent {
       error,
       errorMessage,
       customInput,
-      inputProps,
       dateFormat,
+      inputProps = {},
     } = this.props;
-
+    const { onFocus, ...inputPropsRest } = inputProps;
     return (
       <DateInput
         dataHook={inputDataHook}
         value={initialValue}
+        /* This line normally does nothing, because once clicked, component is already focused, hence onFocus
+        kicks in and open the calendar.
+        Why do we still keep this line? Backward compatibility for clients that test the component and simulate click
+        without simulating focus first. */
         onInputClicked={this.openCalendar}
         disabled={disabled}
         readOnly={readOnly}
         placeholder={placeholderText}
-        onFocus={this.openCalendar}
+        onFocus={e => {
+          onFocus && onFocus(e);
+          this.openCalendar(e);
+        }}
         onKeyDown={this._handleKeyDown}
         tabIndex={this.state.isDateInputFocusable ? 1 : -1}
         error={error}
@@ -182,7 +188,7 @@ export default class DatePicker extends WixComponent {
         dateFormat={dateFormat}
         customInput={customInput}
         {...(customInput ? customInput.props : {})}
-        {...inputProps}
+        {...inputPropsRest}
       />
     );
   };
@@ -226,11 +232,7 @@ export default class DatePicker extends WixComponent {
       <div style={{ width }} className={styles.root}>
         <div ref={this._setInputRef}>
           <DayPickerInput
-            component={
-              SUPPORT_REF_FORWARD
-                ? this._renderInputWithRefForward()
-                : this._renderInput
-            }
+            component={this._renderInputWithRefForward()}
             keepFocus={false}
           />
         </div>

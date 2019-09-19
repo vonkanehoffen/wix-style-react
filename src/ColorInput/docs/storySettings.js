@@ -1,8 +1,8 @@
 import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
-  category: Category.INPUTS,
-  storyName: '3.11 ColorInput',
+  category: Category.COMPONENTS,
+  storyName: 'ColorInput',
   dataHook: 'story-color-input',
 };
 

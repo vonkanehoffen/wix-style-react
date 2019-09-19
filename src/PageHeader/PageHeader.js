@@ -64,7 +64,7 @@ export default class PageHeader extends WixComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { breadcrumbs, title, hasBackgroundImage, minimized } = this.props;
     const newBreadcrumbs = nextProps.breadcrumbs;
     const newTitle = nextProps.title;

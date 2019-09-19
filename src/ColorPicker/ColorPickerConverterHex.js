@@ -45,7 +45,7 @@ export default class ColorPickerConverterHex extends WixComponent {
     );
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     const hex = getHexOrEmpty(props.current);
     if (!this.state.inFocus && this.state.hex !== hex) {
       this.setState({

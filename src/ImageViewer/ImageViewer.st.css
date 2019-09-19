@@ -1,7 +1,7 @@
 
 :import {
   -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: B50, B40, R10;
+  -st-named: B50, B40, R10, D50;
 }
 
 :import {
@@ -15,7 +15,7 @@
 }
 
 .root {
-  -st-states: error;
+  -st-states: error, disabled;
   position: relative;
   width: 204.7px;
   height: 144px;
@@ -127,4 +127,23 @@
 .error svg {
   width: 10px;
   height: 10px;
+}
+
+/** disabled styles */
+
+.root:disabled {
+  cursor: not-allowed;
+}
+
+.root:disabled .image {
+  opacity: .3;
+}
+
+.root:disabled .image:hover {
+  transform: none;
+}
+
+.root:disabled .imageContainer {
+  background-color: value(D50);
+  transition: none;
 }

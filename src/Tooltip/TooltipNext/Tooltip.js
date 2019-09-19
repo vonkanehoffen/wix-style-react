@@ -65,6 +65,7 @@ class Tooltip extends React.PureComponent {
 
   static defaultProps = {
     content: '',
+    timeout: 100,
     appendTo: 'window',
     placement: 'top',
     enterDelay: 0,

@@ -1,9 +1,9 @@
 import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
-  kind: Category.BUTTONS,
+  kind: Category.COMPONENTS,
   category: Category.BUTTONS,
-  storyName: '5.5 ToggleButton',
+  storyName: 'ToggleButton',
 };
 
 export const testStories = {

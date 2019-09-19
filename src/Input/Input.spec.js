@@ -13,7 +13,6 @@ import {
 } from '../../test/utils/unit';
 import inputDriverFactory from './Input.driver';
 import { testkit } from './Input.uni.driver';
-import { SUPPORT_REF_FORWARD } from '../utils/supportRefForward';
 
 describe('Input', () => {
   describe('[sync]', () => {
@@ -922,13 +921,7 @@ describe('Input', () => {
         };
         const customInputWithRef = () =>
           React.forwardRef((props, ref) => customInput({ ...props, ref }));
-        const { driver } = render(
-          <Input
-            customInput={
-              SUPPORT_REF_FORWARD ? customInputWithRef() : customInput
-            }
-          />,
-        );
+        const { driver } = render(<Input customInput={customInputWithRef()} />);
         expect(await driver.isCustomInput()).toEqual(true);
       });
 

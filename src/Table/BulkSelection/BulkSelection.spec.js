@@ -14,6 +14,19 @@ describe('BulkSelection', () => {
     console.error.mockRestore();
   });
 
+  let _selectionContext;
+  const mountComponent = props =>
+    mount(
+      <BulkSelection {...props}>
+        <BulkSelectionConsumer>
+          {selectionContext => {
+            _selectionContext = selectionContext;
+            return <div />;
+          }}
+        </BulkSelectionConsumer>
+      </BulkSelection>,
+    );
+
   describe('BulkSelectionConsumer error', () => {
     it('should throw error when consumer is not within a BulkSelection', () => {
       const create = () =>
@@ -57,5 +70,155 @@ describe('BulkSelection', () => {
     expect(_isSelected(1)).toBeTruthy();
     expect(_isSelected(2)).toBeTruthy();
     expect(_isSelected(3)).toBeFalsy();
+  });
+
+  describe('hasMoreInBulkSelection (infinite bulk selection mode)', () => {
+    it('should return correct totalCount when in infinite bulk selection', () => {
+      mountComponent({
+        hasMoreInBulkSelection: true,
+        allIds: [1, 2, 3],
+        totalCount: 100,
+      });
+
+      expect(_selectionContext.selectedCount).toEqual(0);
+
+      _selectionContext.toggleAll();
+
+      expect(_selectionContext.selectedCount).toEqual(100);
+
+      _selectionContext.toggleSelectionById(1);
+
+      expect(_selectionContext.selectedCount).toEqual(99);
+    });
+
+    it('should have context with correct info when in infinite bulk selection', () => {
+      mountComponent({
+        hasMoreInBulkSelection: true,
+        allIds: [1, 2, 3],
+        totalCount: 100,
+      });
+
+      expect(_selectionContext.getSelectedIds()).toEqual([]);
+      expect(_selectionContext.getNotSelectedIds()).toEqual(null);
+      expect(_selectionContext.infiniteBulkSelected).toEqual(false);
+      expect(_selectionContext.isSelected(1)).toEqual(false);
+      expect(_selectionContext.bulkSelectionState).toEqual('NONE');
+
+      _selectionContext.toggleAll();
+
+      expect(_selectionContext.getSelectedIds()).toEqual(null);
+      expect(_selectionContext.getNotSelectedIds()).toEqual([]);
+      expect(_selectionContext.infiniteBulkSelected).toEqual(true);
+      expect(_selectionContext.isSelected(1)).toEqual(true);
+      expect(_selectionContext.bulkSelectionState).toEqual('ALL');
+
+      _selectionContext.toggleSelectionById(1);
+
+      expect(_selectionContext.getSelectedIds()).toEqual(null);
+      expect(_selectionContext.getNotSelectedIds()).toEqual([1]);
+      expect(_selectionContext.infiniteBulkSelected).toEqual(true);
+      expect(_selectionContext.isSelected(1)).toEqual(false);
+      expect(_selectionContext.bulkSelectionState).toEqual('SOME');
+    });
+
+    it('should update selected ids when the list is fully loaded', () => {
+      const component = mountComponent({
+        hasMoreInBulkSelection: true,
+        allIds: [1, 2, 3],
+        totalCount: 100,
+      });
+
+      _selectionContext.toggleAll();
+      _selectionContext.toggleSelectionById(1);
+
+      expect(_selectionContext.getSelectedIds()).toEqual(null);
+      expect(_selectionContext.getNotSelectedIds()).toEqual([1]);
+      expect(_selectionContext.infiniteBulkSelected).toEqual(true);
+      expect(_selectionContext.isSelected(1)).toEqual(false);
+      expect(_selectionContext.isSelected(2)).toEqual(true);
+
+      component.setProps({ hasMoreInBulkSelection: false });
+
+      expect(_selectionContext.getSelectedIds()).toEqual([2, 3]);
+      expect(_selectionContext.getNotSelectedIds()).toEqual(null);
+      expect(_selectionContext.infiniteBulkSelected).toEqual(false);
+      expect(_selectionContext.isSelected(1)).toEqual(false);
+      expect(_selectionContext.isSelected(2)).toEqual(true);
+    });
+
+    it('should update bulkSelectionState after loading more when not in infinite bulk selection mode', () => {
+      const component = mountComponent({
+        hasMoreInBulkSelection: false,
+        allIds: [1, 2, 3],
+        totalCount: 100,
+      });
+
+      _selectionContext.toggleAll();
+
+      expect(_selectionContext.bulkSelectionState).toEqual('ALL');
+
+      component.setProps({ allIds: [1, 2, 3, 4, 5, 6] });
+
+      expect(_selectionContext.bulkSelectionState).toEqual('SOME');
+    });
+
+    it('should not change bulkSelectionState after loading more when in infinite bulk selection mode', () => {
+      const component = mountComponent({
+        hasMoreInBulkSelection: true,
+        allIds: [1, 2, 3],
+        totalCount: 100,
+      });
+
+      _selectionContext.toggleAll();
+
+      expect(_selectionContext.bulkSelectionState).toEqual('ALL');
+
+      component.setProps({ allIds: [1, 2, 3, 4, 5, 6] });
+
+      expect(_selectionContext.bulkSelectionState).toEqual('ALL');
+    });
+  });
+
+  describe('disabled', () => {
+    it('should be false when there are items', () => {
+      mountComponent({ allIds: [1, 2, 3] });
+
+      expect(_selectionContext.disabled).toBe(false);
+    });
+
+    it('should be true when disabled is set', () => {
+      mountComponent({
+        allIds: [1, 2, 3],
+        disabled: true,
+      });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
+
+    it('should be true when there are no items', () => {
+      mountComponent({ allIds: [] });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
+
+    it('should update to true when disabled is updated', () => {
+      const component = mountComponent({ allIds: [1, 2, 3] });
+
+      expect(_selectionContext.disabled).toBe(false);
+
+      component.setProps({ disabled: true });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
+
+    it('should update to true when allIds is updated', () => {
+      const component = mountComponent({ allIds: [1, 2, 3] });
+
+      expect(_selectionContext.disabled).toBe(false);
+
+      component.setProps({ allIds: [] });
+
+      expect(_selectionContext.disabled).toBe(true);
+    });
   });
 });

@@ -7,6 +7,7 @@ export interface AvatarProps {
   imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
   ariaLabel?: string;
   title?: string;
+  shape?: 'circle'|'square';
   size?:
     | 'size90'
     | 'size72'
@@ -16,7 +17,7 @@ export interface AvatarProps {
     | 'size30'
     | 'size24'
     | 'size18';
-  color?: 'blue' | 'green' | 'grey' | 'red' | 'orange';
+  color?: 'A1' | 'A2' | 'A3' | 'A4' | 'A5' | 'A6';
   className?: string;
   dataHook?: string;
 }

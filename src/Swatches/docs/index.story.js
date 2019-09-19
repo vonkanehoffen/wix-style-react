@@ -18,6 +18,7 @@ import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
 import Swatches from '..';
+import * as examples from './examples';
 
 const code = config => baseCode({ components: allComponents, ...config });
 const colors3 = ['cyan', 'yellow', 'pink'];
@@ -59,7 +60,11 @@ export default {
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/Swatches/',
-      component: <Swatches colors={colors6} />,
+      component: (
+        <div style={{ width: '204px' }}>
+          <Swatches colors={colors6} />
+        </div>
+      ),
     }),
 
     tabs([
@@ -79,62 +84,38 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'Pass color string array in `colors` prop.',
-            }),
+          code({
+            title: 'Simple Usage',
+            subtitle:
+              'Pass color string array in `colors` prop. Any css valid color works.',
+            source: examples.simple,
+          }),
 
-            code({
-              compact: true,
-              source: "<Swatches colors={['red', '#fff', 'magenta']}/>",
-            }),
-          ]),
+          code({
+            title: 'Columns',
+            subtitle:
+              "Swatches uses `grid` layout with default `12px` gap. Each swatch preserves square proportion and adjust based on the number of columns, grid gap and container's width. ",
+            source: examples.columns,
+          }),
 
-          columns([
-            description({
-              title: 'No color support',
-              text: 'Pass `showClear` prop to get no color option.',
-            }),
+          code({
+            title: 'No Color',
+            subtitle: 'Pass `showClear` prop to get no color option.',
+            source: examples.nocolor,
+          }),
 
-            code({
-              compact: true,
-              source: "<Swatches showClear colors={['#fff', 'magenta']}/>",
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Grid',
-              text:
-                'Swatches uses `grid` layout with pre-defined `12px` gap. Takes all available space. Here the container is `100px` width.',
-            }),
-
-            code({
-              compact: true,
-              source:
-                "<div style={{width: '100px'}}><Swatches colors={['#000', '#fff', 'magenta', 'turquoise', 'beige']}/></div>",
-            }),
-          ]),
+          code({
+            title: 'Add button',
+            subtitle:
+              'Pass `showAddButton` prop to get the Add Color button that includes color picker on click.',
+            source: examples.add,
+          }),
 
           code({
             title: 'Full Interactive Preview',
-            description: 'Here you have all available props',
-            source: `
-              class SwatchesExamples extends React.Component {
-                state = {
-                  color: null,
-                }
-                render() {
-                  return (
-                    <Swatches
-                      showClear
-                      selected={this.state.color}
-                      onClick={color => this.setState({color})}
-                      colors={['red', 'cyan', '#f9f9f9']} />
-                  );
-                }
-              }`,
+            description:
+              'Example with selectable items and working add button.',
+            source: examples.full,
           }),
         ],
       }),
