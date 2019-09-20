@@ -89,37 +89,40 @@ export default {
           ...[
             {
               title: 'Simple',
-              text: 'Simple example of usage.',
+              subtitle: 'Simple example of usage.',
               source: examples.simple,
             },
             {
               title: 'Grouping',
-              text: 'Any options list can be grouped to defined categories.',
+              subtitle:
+                'Any options list can be grouped to defined categories.',
               source: examples.group,
             },
             {
               title: 'Divider',
-              text: 'An example where divider is used to split the options.',
+              subtitle:
+                'An example where divider is used to split the options.',
               source: examples.divider,
             },
             {
               title: 'Sizes',
-              text: 'Dropdown supporst three sizes: small, medium and large.',
+              subtitle:
+                'Dropdown supporst three sizes: small, medium and large.',
               source: examples.sizes,
             },
             {
               title: 'Input Prefix',
-              text: 'An example where input can contain prefix value.',
+              subtitle: 'An example where input can contain prefix value.',
               source: examples.prefix,
             },
             {
               title: 'Input Suffix',
-              text: 'An example where input can contain suffix value.',
+              subtitle: 'An example where input can contain suffix value.',
               source: examples.suffix,
             },
             {
               title: 'Footer',
-              text:
+              subtitle:
                 'An example where fixed footer is always attached to the bottom of options.',
               source: examples.footer,
             },
@@ -145,6 +148,11 @@ export default {
               subtitle:
                 'An example where loading more options with infinite scroll is presented.',
               source: examples.infinite,
+            },
+            {
+              title: 'Handling overflow',
+              subtitle: `Some times we want dropdown to be detached from nearest overflow container. For this we can use popovers feature to set the overflow target to certain element in the DOM. By passing appendTo="window" we say that dropdowns overflow boundary is document.body itself.`,
+              source: examples.overflow,
             },
           ].map(example),
         ],
