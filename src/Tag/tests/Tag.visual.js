@@ -1,55 +1,109 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { storySettings } from '../docs/storySettings';
 import Tag from '../Tag';
-import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 
-const { dataHook } = storySettings;
+const commonProps = {
+  children: 'tag',
+};
 
 const tests = [
   {
-    describe: 'thumb variations',
+    describe: 'size',
     its: [
       {
-        it: 'LTR & RTL',
+        it: 'tiny',
         props: {
-          title: 'Card Title',
+          size: 'tiny',
+        },
+      },
+      {
+        it: 'small',
+        props: {
+          size: 'small',
+        },
+      },
+      {
+        it: 'medium',
+        props: {
+          size: 'medium',
+        },
+      },
+      {
+        it: 'large',
+        props: {
+          size: 'large',
         },
       },
     ],
   },
-];
-
-const renderThumbnails = () => {
-  return (
-    <div>
-      <div>
-        sizes:
-        <Tag size="tiny" children="tiny" />
-        <Tag size="small" children="small" />
-        <Tag size="medium" children="medium" />
-        <Tag size="large" children="large" />
-      </div>
-      <div>
-        themes:
-        <Tag children="default" />
-        <Tag children="error theme" theme="error" />
-        <Tag children="warning theme" theme="warning" />
-        <Tag children="dark theme" theme="dark" />
-        <Tag children="neutral theme" theme="neutral" />
-        <Tag children="light theme" theme="light" />
-      </div>
-      <div>
-        Removable / Disabled:
-        <Tag children="removable" />
-        <Tag children="non-removable" removable={false} />
-        <Tag children="disabled" disabled />
-      </div>
-      <div>
-        With Thumb:
-        <Tag
-          children="green"
-          thumb={
+  {
+    describe: 'theme',
+    its: [
+      {
+        it: 'error',
+        props: {
+          theme: 'error',
+        },
+      },
+      {
+        it: 'warning',
+        props: {
+          theme: 'warning',
+        },
+      },
+      {
+        it: 'dark',
+        props: {
+          theme: 'dark',
+        },
+      },
+      {
+        it: 'neutral',
+        props: {
+          theme: 'neutral',
+        },
+      },
+      {
+        it: 'light',
+        props: {
+          theme: 'light',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'removable',
+    its: [
+      {
+        it: 'removable',
+        props: {},
+      },
+      {
+        it: 'non-removable',
+        props: {
+          removable: false,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'States',
+    its: [
+      {
+        it: 'disabled',
+        props: {
+          disabled: true,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'Thumb',
+    its: [
+      {
+        it: 'Thumb',
+        props: {
+          thumb: (
             <div
               style={{
                 backgroundColor: 'green',
@@ -57,21 +111,27 @@ const renderThumbnails = () => {
                 width: '100%',
               }}
             />
-          }
-        />
-      </div>
-    </div>
-  );
-};
+          ),
+        },
+      },
+    ],
+  },
+  {
+    describe: 'ellipsis',
+    its: [
+      {
+        it: 'enabled',
+        props: { maxWidth: 55, wrap: true },
+      },
+    ],
+  },
+];
 
 tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
+  its.forEach(({ it, props, container }) => {
     storiesOf(`Tag/${describe}`, module).add(it, () => (
-      <div>
-        <div dir="rtl" className="rtl">
-          {renderThumbnails()}
-        </div>
-        {renderThumbnails()}
+      <div {...container}>
+        <Tag {...commonProps} {...props} />
       </div>
     ));
   });
