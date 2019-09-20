@@ -99,6 +99,11 @@ export default {
               subtitle: 'Component supports disabled and error states.',
               source: examples.states,
             },
+            {
+              title: 'Handling overflow',
+              subtitle: `Some times we want autocomplete to be detached from nearest overflow container. For this we can use popovers feature to set the overflow target to certain element in the DOM. By passing appendTo="window" we say that dropdowns overflow boundary is document.body itself.`,
+              source: examples.overflow,
+            },
           ].map(example),
         ],
       }),

@@ -58,3 +58,18 @@ export const states = `
   />
 </Layout>
 `;
+
+export const overflow = `
+<div style={{ display:'flex', justifyContent:'center', alignItems: 'center', width: '400px', height: '150px', background: 'rgba(240, 244, 247, 1)', overflow:'scroll'}}>
+ <AutoComplete 
+  popoverProps={{ appendTo:"window" }}
+  options={[
+    { id: 0, value: 'Option 1' },
+    { id: 1, value: 'Option 2' },
+    { id: 2, value: 'Option 3' },
+    { id: 3, value: 'Option 4' },
+  ]}
+placeholder={'Start typing'}
+/>
+</div>
+`;
