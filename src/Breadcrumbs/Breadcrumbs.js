@@ -15,9 +15,8 @@ import styles from './Breadcrumbs.scss';
 import classnames from 'classnames';
 import WixComponent from '../BaseComponents/WixComponent';
 import Text from '../Text';
-import BreadcrumbsPathFactory from './BreadcrumbsPathFactory';
 import BreadcrumbsChevronRight from 'wix-ui-icons-common/system/BreadcrumbsChevronRight';
-import * as DATA_ATTR from './DataAttr';
+import { DATA_HOOKS, DATA_ACTIVE, DATA_POSITION_ID } from './constnats';
 
 /**
  * a way to visualise current navigation path
@@ -70,7 +69,7 @@ class Breadcrumbs extends WixComponent {
   createItem({ item, isActive, onClick, className, id }) {
     const breadcrumbText = value => (
       <Text
-        dataHook={DATA_ATTR.DATA_HOOKS.BREADCRUMBS_ITEM}
+        dataHook={DATA_HOOKS.BREADCRUMBS_ITEM}
         {...this.getTextAppearance(isActive)}
       >
         {value}
@@ -80,7 +79,7 @@ class Breadcrumbs extends WixComponent {
     const defaultBreadcrumb = id => (
       <button
         type="button"
-        data-hook={`${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
+        data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
         className={classnames(styles.item, styles.button, className, {
           [styles.disabled]: item.disabled,
           [styles.active]: isActive,
@@ -93,7 +92,7 @@ class Breadcrumbs extends WixComponent {
     const linkBreadcrumb = id => (
       <a
         href={item.link}
-        data-hook={`${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
+        data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
         className={classnames(styles.item, styles.link, className, {
           [styles.disabled]: item.disabled,
           [styles.active]: isActive,
@@ -105,7 +104,7 @@ class Breadcrumbs extends WixComponent {
 
     const customBreadcrumb = id => (
       <span
-        data-hook={`${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
+        data-hook={`${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${id}`}
         className={classnames(styles.item, className)}
         onClick={onClick}
         children={breadcrumbText(item.customElement)}
@@ -129,9 +128,9 @@ class Breadcrumbs extends WixComponent {
 
   _getItemWrapperDataAttributes = ({ position, item }) => {
     return {
-      'data-hook': `${DATA_ATTR.DATA_HOOKS.ITEM_WRAPPER}-${position}`,
-      [DATA_ATTR.DATA_ACTIVE]: this._getIsActive(item),
-      [DATA_ATTR.DATA_POSITION_ID]: position,
+      'data-hook': `${DATA_HOOKS.ITEM_WRAPPER}-${position}`,
+      [DATA_ACTIVE]: this._getIsActive(item),
+      [DATA_POSITION_ID]: position,
     };
   };
 
@@ -167,5 +166,4 @@ class Breadcrumbs extends WixComponent {
   }
 }
 
-export const breadcrumbsPathFactory = BreadcrumbsPathFactory;
 export default Breadcrumbs;

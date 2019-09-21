@@ -3,13 +3,13 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
-import breadcrumbsDriverFactory from './Breadcrumbs.driver';
-import breadcrumbsPrivateDriverFactory from './Breadcrumbs.private.driver';
-import { breadcrumbsUniDriverFactory } from './Breadcrumbs.uni.driver';
+import breadcrumbsDriverFactory from '../Breadcrumbs.driver';
+import breadcrumbsPrivateDriverFactory from '../Breadcrumbs.private.driver';
+import { breadcrumbsUniDriverFactory } from '../Breadcrumbs.uni.driver';
 
-import Breadcrumbs from './Breadcrumbs';
+import Breadcrumbs from '../Breadcrumbs';
 
 const items = [{ id: 0, value: 'Option 1' }, { id: 1, value: 'Option 2' }];
 let onClick;

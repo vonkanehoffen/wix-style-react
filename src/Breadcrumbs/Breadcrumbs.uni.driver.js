@@ -1,18 +1,15 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
-
-import * as DATA_ATTR from './DataAttr';
+import { DATA_HOOKS, DATA_ACTIVE } from './constnats';
 
 export const breadcrumbsUniDriverFactory = base => {
   const optionAt = async position =>
-    base.$(`[data-hook="${DATA_ATTR.DATA_HOOKS.ITEM_WRAPPER}-${position}"]`);
+    base.$(`[data-hook="${DATA_HOOKS.ITEM_WRAPPER}-${position}"]`);
 
   return {
     ...baseUniDriverFactory(base),
     /** return the number of the items in the breadcrumbs */
     breadcrumbsLength: async () =>
-      await base
-        .$$(`[data-hook^="${DATA_ATTR.DATA_HOOKS.ITEM_WRAPPER}-"]`)
-        .count(),
+      await base.$$(`[data-hook^="${DATA_HOOKS.ITEM_WRAPPER}-"]`).count(),
 
     /** return the breadcrumb item content at position  */
     breadcrumbContentAt: async position =>
@@ -21,14 +18,12 @@ export const breadcrumbsUniDriverFactory = base => {
     /** click on breadcrumb item at position */
     clickBreadcrumbAt: async position =>
       base
-        .$(
-          `[data-hook^="${DATA_ATTR.DATA_HOOKS.BREADCRUMB_CLICKABLE}-${position}"]`,
-        )
+        .$(`[data-hook^="${DATA_HOOKS.BREADCRUMB_CLICKABLE}-${position}"]`)
         .click(),
 
     /** return the active breadcrumb item position or return null if no active item exists */
     getActiveItemId: async () => {
-      const activeItem = await base.$$(`[${DATA_ATTR.DATA_ACTIVE}="true"]`);
+      const activeItem = await base.$$(`[${DATA_ACTIVE}="true"]`);
       return (await activeItem.count()) === 1
         ? parseInt(await activeItem.get(0).attr('data-position-id'))
         : null;
@@ -53,7 +48,7 @@ export const breadcrumbsUniDriverFactory = base => {
     getLabelClassList: async position => {
       const breadcrumbAt = await optionAt(position);
       const breadcrumbItem = breadcrumbAt.$(
-        `[data-hook="${DATA_ATTR.DATA_HOOKS.BREADCRUMBS_ITEM}"]`,
+        `[data-hook="${DATA_HOOKS.BREADCRUMBS_ITEM}"]`,
       );
       const classList = await ReactBase(breadcrumbItem).getClassList();
       return Array.from(classList).join(' ');

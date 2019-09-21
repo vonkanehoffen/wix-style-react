@@ -1,39 +1,43 @@
 import React from 'react';
-import CodeExample from 'wix-storybook-utils/CodeExample';
-import Breadcrumbs from '..';
+import {
+  tab,
+  tabs,
+  api,
+  header,
+  divider,
+  columns,
+  title,
+  playground,
+  code as baseCode,
+  description,
+  importExample,
+  testkit,
+} from 'wix-storybook-utils/Sections';
 
-import ExampleStandardRow from '!raw-loader!./ExampleStandard';
-import ExampleStandard from './ExampleStandard';
+import { storySettings } from '../test/storySettings';
+import Breadcrumbs from 'wix-style-react/Breadcrumbs';
+import allComponents from '../../../stories/utils/allComponents';
 
-import ExampleSizesRow from '!raw-loader!./ExampleSizes';
-import ExampleSizes from './ExampleSizes';
+import BreadcrumbsThemes from '!raw-loader!./examples/BreadcrumbsThemes';
+import StandardBreadcrumbs from '!raw-loader!./examples/StandardBreadcrumbs';
+import BreadcrumbsSizes from '!raw-loader!./examples/BreadcrumbsSizes';
+import BreadcrumbsOnClickCallback from '!raw-loader!./examples/BreadcrumbsOnClickCallback';
+import ControlledBreadcrumbs from '!raw-loader!./examples/ControlledBreadcrumbs';
 
-import ExampleThemesRow from '!raw-loader!./ExampleThemes';
-import ExampleThemes from './ExampleThemes';
-
-import ExampleWithOnClickRow from '!raw-loader!./ExampleWithOnClick';
-import ExampleWithOnClick from './ExampleWithOnClick';
-
-import ExampleWithChosenActiveElementRaw from '!raw-loader!./ExampleWithChosenActiveElement';
-import ExampleWithChosenActiveElement from './ExampleWithChosenActiveElement';
-
-import ExampleUsingURLRaw from '!raw-loader!./ExampleUsingURL';
-import ExampleUsingURL from './ExampleUsingURL';
-
-import { storySettings } from './storySettings';
+const code = config => baseCode({ components: allComponents, ...config });
 
 const items = [
   {
-    id: '1',
+    id: 1,
     value: 'First item',
   },
   {
-    id: '2',
+    id: 2,
     link: 'http://www.wix.com',
     value: 'Linked item',
   },
   {
-    id: '3',
+    id: 3,
     value: 'Third item',
   },
 ];
@@ -43,46 +47,114 @@ export default {
   storyName: storySettings.storyName,
   component: Breadcrumbs,
   componentPath: '..',
+
   componentProps: {
-    activeId: '1',
+    activeId: 1,
     items,
     size: 'medium',
   },
   exampleProps: {
-    activeId: ['1', '2', '3'],
+    activeId: [1, 2, 3],
     items: [
-      { label: 'One item', value: [{ id: 0, value: 'Homepage' }] },
+      { label: 'One item', value: [{ id: 1, value: 'Homepage' }] },
       { label: 'Three items', value: items },
     ],
   },
-  examples: (
-    <div>
-      <CodeExample title="Standard" code={ExampleStandardRow}>
-        <ExampleStandard />
-      </CodeExample>
 
-      <CodeExample title="Sizes" code={ExampleSizesRow}>
-        <ExampleSizes />
-      </CodeExample>
+  sections: [
+    header({
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/Breadcrumbs.js',
+    }),
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'Breadcrumbs is a type of navigation scheme which reveals the user’s location in a website or Web application.',
+            }),
+          ]),
 
-      <CodeExample title="Example using path factory" code={ExampleUsingURLRaw}>
-        <ExampleUsingURL />
-      </CodeExample>
+          importExample(
+            "import Breadcrumbs from 'wix-style-react/Breadcrumbs';",
+          ),
 
-      <CodeExample title="Themes" code={ExampleThemesRow}>
-        <ExampleThemes />
-      </CodeExample>
+          divider(),
 
-      <CodeExample title="On click callback" code={ExampleWithOnClickRow}>
-        <ExampleWithOnClick />
-      </CodeExample>
+          title('Examples'),
 
-      <CodeExample
-        title="Chosen active element"
-        code={ExampleWithChosenActiveElementRaw}
-      >
-        <ExampleWithChosenActiveElement />
-      </CodeExample>
-    </div>
-  ),
+          columns([
+            description({
+              title: 'Standard',
+              text: 'Breadcrumbs items can be either with or without links.',
+            }),
+
+            code({
+              compact: true,
+              source: StandardBreadcrumbs,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Sizes',
+              text:
+                'Breadcrumbs supports 2 sizes: `medium` (default) and `large`.',
+            }),
+
+            code({
+              compact: true,
+              source: BreadcrumbsSizes,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Themes',
+              text:
+                'Breadcrumbs supports 3 themes: `onGrayBackground` (default), `onWhiteBackground` and `onDarkBackground`.',
+            }),
+
+            code({
+              compact: true,
+              source: BreadcrumbsThemes,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'On click callback',
+              text: 'Breadcrumbs supports an onClick callback.',
+            }),
+
+            code({
+              compact: true,
+              source: BreadcrumbsOnClickCallback,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Controlled Breadcrumbs',
+              text: '',
+            }),
+
+            code({
+              compact: true,
+              source: ControlledBreadcrumbs,
+            }),
+          ]),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
