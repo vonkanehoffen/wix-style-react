@@ -24,6 +24,7 @@ If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md
 
 ### Docs
 - `<Dropdown/>, <AutoComplete/>` - add overflow example [#4140](https://github.com/wix/wix-style-react/pull/4140)
+- `<Breadcrumbs/>`- improving Breadcrumbs docs and adding visual tests [#4121](https://github.com/wix/wix-style-react/pull/4121/files)
 
 ## 7.2.0 - 2019-09-19
 
