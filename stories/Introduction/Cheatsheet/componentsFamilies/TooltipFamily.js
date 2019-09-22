@@ -363,7 +363,7 @@ class FloatingHelperExample extends PureComponent {
 }
 
 const TooltipFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <TooltipExample />
     <PopoverExample />
     <PopoverMenuExample />

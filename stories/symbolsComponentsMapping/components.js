@@ -1,13 +1,13 @@
-export const foundationComponentsNames = {
-  Text: 'Text',
-  Heading: 'Heading',
-};
-
 export const sharedComponentsNames = {
   FormField: 'FormField',
   EmptyState: 'EmptyState',
   Tag: 'Tag',
   Icon: 'Icon',
+};
+
+export const foundationComponentsNames = {
+  Text: 'Text',
+  Heading: 'Heading',
 };
 
 export const inputsComponentsNames = {

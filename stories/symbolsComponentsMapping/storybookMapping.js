@@ -3,8 +3,6 @@ import { linkTo } from '@storybook/addon-links';
 import {
   inputsComponentsNames,
   layoutComponentsNames,
-  buttonsComponentsNames,
-  notificationsComponentsNames,
   tooltipPopoverComponentsNames,
   modalsComponentsNames,
   sharedComponentsNames,
@@ -14,11 +12,9 @@ import {
   foundationSymbols,
   inputsSymbols,
   symbolsGroup,
-  buttonsSymbols,
   navigationSymbols,
   tooltipPopoverSymbols,
   modalsSymbols,
-  notificationsSymbols,
 } from './symbols';
 
 const Category = {

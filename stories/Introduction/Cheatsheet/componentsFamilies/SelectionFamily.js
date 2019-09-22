@@ -288,7 +288,7 @@ class ListSmallThumbnailaExmaple extends PureComponent {
               description="Description here"
               image="https://static.wixstatic.com/media/c78d05b79ede429fb77c9d8ec4443b93.jpg/v1/fit/w_234,h_72/c78d05b79ede429fb77c9d8ec4443b93.jpg"
               onClick={() => this.setState({ selected: n })}
-              width={170}
+              width="170px"
             />
           </Cell>
         ))}
@@ -370,7 +370,7 @@ const CheckToggleExample = () => {
 };
 
 const SelectionFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <DropdownExample />
     <MultiSelectDropdownExample />
     <CheckboxExample />

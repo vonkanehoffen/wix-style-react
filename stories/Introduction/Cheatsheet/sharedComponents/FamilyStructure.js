@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'wix-style-react/Grid';
 import Card from 'wix-style-react/Card';
 import Heading from 'wix-style-react/Heading';
 
-const FamilyStructure = ({ title, children, showPreview = true }) => (
+const FamilyStructure = ({ title, children, showPreview }) => (
   <Card>
     <Card.Header title={title} />
     <Card.Content>

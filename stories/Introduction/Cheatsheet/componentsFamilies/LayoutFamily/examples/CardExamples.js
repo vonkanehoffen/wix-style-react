@@ -17,7 +17,6 @@ import Card from 'wix-style-react/Card';
 import Box from 'wix-style-react/Box';
 import { Row, Col, Container } from 'wix-style-react/Grid';
 import TextButton from 'wix-style-react/TextButton';
-
 import Add from 'wix-style-react/new-icons/Add';
 
 const groupSymbol = symbolsGroup.layout;

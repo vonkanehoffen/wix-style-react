@@ -7,7 +7,7 @@ import TableExamples from './examples/TableExamples';
 import { symbolsGroup } from '../../../../symbolsComponentsMapping/symbols';
 
 const LayoutFamily = () => (
-  <FamilyStructure title={symbolsGroup.layout} showPreview={false}>
+  <FamilyStructure title={symbolsGroup.layout}>
     <PageExamples />
     <CardExamples />
     <TableExamples />

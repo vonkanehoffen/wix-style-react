@@ -7,10 +7,7 @@ import {
 
 import { buttonsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/buttonsFamily';
 
-import {
-  createLinkedSymbolName,
-  createLinkedComponentsNames,
-} from '../sharedComponents/utils';
+import { createLinkedComponentsNames } from '../sharedComponents/utils';
 
 import {
   buttonsSymbols,
@@ -19,7 +16,6 @@ import {
 
 //Assets
 import More from 'wix-style-react/new-icons/More';
-
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 
@@ -225,7 +221,7 @@ const AddItemExample = () => {
 };
 
 const ButtonFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <ButtonsExamples />
     <IconButtonExamples />
     <TextButtonExamples />

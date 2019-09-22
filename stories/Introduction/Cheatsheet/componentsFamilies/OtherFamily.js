@@ -55,7 +55,6 @@ const AvatarExample = () => {
         )}
         {renderAvatar({
           imgProps: { src: 'https://randomuser.me/api/portraits/women/39.jpg' },
-          indication: <PhotoCamera size="24" />,
           onClick: () => 'Clicked!',
           presence: 'online',
         })}
@@ -64,7 +63,6 @@ const AvatarExample = () => {
           indication: <PhotoCamera size="24" />,
           shape: 'square',
           onClick: () => 'Clicked!',
-          presence: 'online',
         })}
       </Layout>
     </SingleComponentSideBySide>
@@ -356,7 +354,7 @@ const CircularProgressBarExample = () => {
     <SingleComponentSideBySide {...singleComponentProps}>
       <Layout cols={2}>
         <CircularProgressBar value={25} />
-        <Box height={54} width={54} backgroundColor="D10">
+        <Box height="54px" width="54px" backgroundColor="D10">
           <CircularProgressBar light value={25} />
         </Box>
       </Layout>
@@ -365,7 +363,7 @@ const CircularProgressBarExample = () => {
 };
 
 const OtherFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <AvatarExample />
     <BadgeExample />
     <BadgeSelectExample />

@@ -195,7 +195,7 @@ const IconsExamples = () => {
 };
 
 const FoundationFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <TypographyExamples />
     <IconsExamples />
   </FamilyStructure>

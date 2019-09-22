@@ -30,7 +30,6 @@ import FormFieldErrorSmall from 'wix-style-react/new-icons/system/FormFieldError
 
 //6. Navigation
 import Sidebar, { SidebarItemContextConsumer } from 'wix-style-react/Sidebar';
-
 import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';
 import SidebarSectionTitle from 'wix-style-react/SidebarSectionTitle';
 import SidebarHeader from 'wix-style-react/SidebarHeader';
@@ -266,7 +265,7 @@ const StepperExample = () => {
 };
 
 const NavigationFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <SidebarExample />
     <TreeNavigationExample />
     <TextTabsExample />

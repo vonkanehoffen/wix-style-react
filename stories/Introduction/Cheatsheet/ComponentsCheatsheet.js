@@ -3,18 +3,18 @@ import { Container, Row, Col } from 'wix-style-react/Grid';
 import Page from 'wix-style-react/Page';
 
 //importing components by family type
-import FoundationFamily from './ComponentsFamilies/FoundationFamily';
-import LayoutFamily from './ComponentsFamilies/LayoutFamily/LayoutFamily';
-import InputFamily from './ComponentsFamilies/InputFamily';
-import SelectionFamily from './ComponentsFamilies/SelectionFamily';
-import ButtonFamily from './ComponentsFamilies/ButtonFamily';
-import NavigationFamily from './ComponentsFamilies/NavigationFamily';
-import TooltipFamily from './ComponentsFamilies/TooltipFamily';
-import NotificationFamily from './ComponentsFamilies/NotificationFamily';
-import ModalFamily from './ComponentsFamilies/ModalFamily';
-import PickerFamily from './ComponentsFamilies/PickerFamily';
-import OtherFamily from './ComponentsFamilies/OtherFamily';
-import ContentWidgetsFamily from './ComponentsFamilies/ContentWidgetsFamily';
+import FoundationFamily from './componentsFamilies/FoundationFamily';
+import LayoutFamily from './componentsFamilies/LayoutFamily/LayoutFamily';
+import InputFamily from './componentsFamilies/InputFamily';
+import SelectionFamily from './componentsFamilies/SelectionFamily';
+import ButtonFamily from './componentsFamilies/ButtonFamily';
+import NavigationFamily from './componentsFamilies/NavigationFamily';
+import TooltipFamily from './componentsFamilies/TooltipFamily';
+import NotificationFamily from './componentsFamilies/NotificationFamily';
+import ModalFamily from './componentsFamilies/ModalFamily';
+import PickerFamily from './componentsFamilies/PickerFamily';
+import OtherFamily from './componentsFamilies/OtherFamily';
+import ContentWidgetsFamily from './componentsFamilies/ContentWidgetsFamily';
 
 class ComponentsCheatsheet extends React.Component {
   render() {

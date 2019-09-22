@@ -390,7 +390,7 @@ const MediaInputExample = () => {
 };
 
 const InputFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <TextInputExample />
     <TextAreaExample />
     <RichTextAreaExample />

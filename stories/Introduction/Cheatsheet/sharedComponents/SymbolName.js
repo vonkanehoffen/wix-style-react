@@ -4,11 +4,9 @@ import Text from 'wix-style-react/Text';
 import Box from 'wix-style-react/Box';
 import TextButton from 'wix-style-react/TextButton';
 
-const ComponentStorybookName = ({ name, isDeveloped }) => {
-  let storybookName;
-
-  if (typeof name === 'string') {
-    storybookName = (
+const SymbolName = ({ name, isDeveloped }) => (
+  <Box marginBottom="6px">
+    {typeof name === 'string' ? (
       <Text
         secondary={!isDeveloped}
         light={!isDeveloped}
@@ -17,9 +15,7 @@ const ComponentStorybookName = ({ name, isDeveloped }) => {
       >
         {name}
       </Text>
-    );
-  } else {
-    storybookName = (
+    ) : (
       <TextButton
         skin="dark"
         underline="onHover"
@@ -28,10 +24,8 @@ const ComponentStorybookName = ({ name, isDeveloped }) => {
       >
         {name.text}
       </TextButton>
-    );
-  }
+    )}
+  </Box>
+);
 
-  return <Box marginBottom="6px">{storybookName}</Box>;
-};
-
-export default ComponentStorybookName;
+export default SymbolName;

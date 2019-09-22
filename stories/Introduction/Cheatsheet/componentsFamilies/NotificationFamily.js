@@ -7,10 +7,7 @@ import {
 
 import { notificationsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/notificationsFamily';
 
-import {
-  createLinkedSymbolName,
-  createLinkedComponentsNames,
-} from '../sharedComponents/utils';
+import { createLinkedComponentsNames } from '../sharedComponents/utils';
 
 import {
   notificationsSymbols,
@@ -252,7 +249,7 @@ const SectionsHelperExamples = () => {
 };
 
 const NotificationFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <NotificationsExamples />
     <FloatingNotificationsExamples />
     <SectionsHelperExamples />

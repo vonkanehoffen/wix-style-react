@@ -453,7 +453,7 @@ const OmniSetupExample = () => {
 };
 
 const ContentWidgetsFamily = () => (
-  <FamilyStructure title={groupSymbol} showPreview={false}>
+  <FamilyStructure title={groupSymbol}>
     <ImageWidgetExample />
     <EmptyStateExample />
     <StatisticsWidgetExamples />

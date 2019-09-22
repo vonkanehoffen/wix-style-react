@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import {
   FamilyStructure,
   SingleComponentSideBySide,
-  NotDeveloped,
 } from '../sharedComponents';
 
 import { modalsSymbolsToComponents } from '../../../symbolsComponentsMapping/families/modalsFamily';
@@ -374,7 +373,7 @@ class ModalPreviewLayoutExample extends PureComponent {
 }
 
 const ModalFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <AlertExamples />
     <CustomModalExample />
     <MarketingExample />

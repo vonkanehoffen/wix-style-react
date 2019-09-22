@@ -3,11 +3,11 @@ import React from 'react';
 import Box from 'wix-style-react/Box';
 
 import ComponentsNames from './ComponentsNames';
-import ComponentStorybookName from './ComponentStorybookName';
+import SymbolName from './SymbolName';
 
 const ComponentNaming = ({ name, componentsNames }) => (
   <Box direction="vertical">
-    <ComponentStorybookName
+    <SymbolName
       name={name}
       isDeveloped={componentsNames && componentsNames.length > 0}
     />

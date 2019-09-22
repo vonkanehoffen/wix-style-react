@@ -30,6 +30,7 @@ import Swatches from 'wix-style-react/Swatches';
 
 //Assets
 import { Layout, Cell } from 'wix-style-react/Layout';
+import singleComponentSizes from '../sharedComponents/constants';
 
 const groupSymbol = symbolsGroup.pickers;
 
@@ -474,6 +475,7 @@ class SwatchesExample extends PureComponent {
     const singleComponentProps = {
       name: symbol,
       componentsNames: createLinkedComponentsNames(components),
+      size: singleComponentSizes.tiny,
     };
 
     return (
@@ -490,7 +492,7 @@ class SwatchesExample extends PureComponent {
 }
 
 const PickerFamily = () => (
-  <FamilyStructure title={groupSymbol}>
+  <FamilyStructure title={groupSymbol} showPreview>
     <DropdownLayoutExamples />
     <EditableSelectorExamples />
     <ModalSelectorExample />
