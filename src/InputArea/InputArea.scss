@@ -48,7 +48,7 @@ $gap: 6px;
   @include Placeholder(getTextColor($light: true, $secondary: true));
   @include Selection($paletteB4);
 
-  &.sizeSmall{
+  &.sizeSmall {
     @include TextSizeAndFontFamily($size: small, $weight: normal);
   }
 }
@@ -110,7 +110,11 @@ $gap: 6px;
     @include ThemeHover($backgroundColor: $B50);
     @include ThemeFocus;
     @include ThemeError($borderColor: $paletteR1);
-    @include ThemeDisabled($D10-30, $D10-05, $D10-30);
+    @include ThemeDisabled(
+      $borderColor: $D10-20,
+      $backgroundColor: $D80,
+      $color: $D10-30
+    );
   }
   &-paneltitle {
     @include ThemeDefault(

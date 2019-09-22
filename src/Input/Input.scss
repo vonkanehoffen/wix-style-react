@@ -95,10 +95,8 @@ $material-gap: 8px;
 }
 
 .roundInput {
-  &.size-normal {
-    @include BorderRadius(18px);
-  }
   // `medium` is the new `normal` by Zeplin. For now supporting both
+  &.size-normal,
   &.size-medium {
     @include BorderRadius(18px);
   }
@@ -127,17 +125,13 @@ $material-gap: 8px;
   &-small-with-selection {
     @include Size($height: 28px, $fontSize: 14px);
   }
-  &-normal {
-    @include Size($height: 36px, $fontSize: 16px);
-  }
   // `medium` is the new `normal` by Zeplin. For now supporting both
+  &-normal,
   &-medium {
     @include Size($height: 36px, $fontSize: 16px);
   }
-  &-normal-with-selection {
-    @include Size($height: 34px, $fontSize: 16px);
-  }
   // `medium` is the new `normal` by Zeplin. For now supporting both
+  &-normal-with-selection,
   &-medium-with-selection {
     @include Size($height: 34px, $fontSize: 16px);
   }
@@ -150,23 +144,8 @@ $material-gap: 8px;
 }
 
 .theme {
-  &-normal {
-    @include ThemeDefault(
-      $color: $D10,
-      $borderColor: $B30,
-      $backgroundColor: $D80
-    );
-    @include ThemeHover($backgroundColor: $B50);
-    @include ThemeFocus($borderColor: $B10, $boxShadow: 0 0 0 3px $F00);
-    @include ThemeError($borderColor: $paletteR1);
-    @include ThemeWarning($borderColor: $paletteR5);
-    @include ThemeDisable(
-      $color: $D10-30,
-      $backgroundColor: $D10-05,
-      $borderColor: $D10-30
-    );
-  }
   // `medium` is the new `normal` by Zeplin. For now supporting both
+  &-normal,
   &-medium {
     @include ThemeDefault(
       $color: $D10,
@@ -178,11 +157,12 @@ $material-gap: 8px;
     @include ThemeError($borderColor: $paletteR1);
     @include ThemeWarning($borderColor: $paletteR5);
     @include ThemeDisable(
-      $color: $D10-30,
-      $backgroundColor: $D10-05,
-      $borderColor: $D10-30
+      $borderColor: $D10-20,
+      $backgroundColor: $D80,
+      $color: $D10-30
     );
   }
+
   &-paneltitle {
     @include ThemeDefault(
       $color: white,
@@ -197,11 +177,12 @@ $material-gap: 8px;
     @include ThemeError($borderColor: $paletteR1);
     @include ThemeWarning($borderColor: $paletteR5);
     @include ThemeDisable(
-      $color: $D10-30,
-      $backgroundColor: $D10-05,
-      $borderColor: $D10-30
+      $borderColor: $D10-20,
+      $backgroundColor: $D80,
+      $color: $D10-30
     );
   }
+
   &-tags {
     @include ThemeDefault(
       $color: $D10,
@@ -219,11 +200,12 @@ $material-gap: 8px;
       $boxShadow: inset 0px 0px 5px 0px fade($R70, 60%)
     );
     @include ThemeDisable(
-      $color: $D10-30,
-      $backgroundColor: $D10-05,
-      $borderColor: $D10-30
+      $borderColor: $D10-20,
+      $backgroundColor: $D80,
+      $color: $D10-30
     );
   }
+
   &-amaterial {
     .errorIcon {
       padding: 0 6px 16px;
@@ -231,11 +213,9 @@ $material-gap: 8px;
     }
 
     border: 0;
-    &.size-normal {
-      padding-bottom: 4px;
-      @include Size($height: 34px, $fontSize: 20px);
-    }
-    &.size-medium { // `medium` is the new `normal` by Zeplin. For now supporting both
+    // `medium` is the new `normal` by Zeplin. For now supporting both
+    &.size-normal,
+    &.size-medium {
       padding-bottom: 4px;
       @include Size($height: 34px, $fontSize: 20px);
     }
@@ -347,15 +327,14 @@ $material-gap: 8px;
       }
     }
   }
+
   &-material {
     border-radius: 0;
     .suffixes {
       padding: 0 4px;
     }
-    &.size-normal {
-      @include Size($height: 34px, $fontSize: 18px);
-    }
     // `medium` is the new `normal` by Zeplin. For now supporting both
+    &.size-normal,
     &.size-medium {
       @include Size($height: 34px, $fontSize: 18px);
     }

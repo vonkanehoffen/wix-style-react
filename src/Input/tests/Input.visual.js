@@ -33,6 +33,17 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'disabled',
+    its: [
+      {
+        it: 'should display the input disabled',
+        props: {
+          disabled: true,
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {
