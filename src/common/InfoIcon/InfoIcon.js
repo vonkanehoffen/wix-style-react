@@ -7,7 +7,7 @@ import Tooltip from '../../Tooltip';
 
 import styles from './InfoIcon.st.css';
 
-const InfoIcon = ({ dataHook, tooltipProps, className }) => (
+const InfoIcon = ({ dataHook, tooltipProps, className, iconSize }) => (
   <div className={cx(styles.color, className)}>
     <Tooltip
       flip={false}
@@ -17,7 +17,7 @@ const InfoIcon = ({ dataHook, tooltipProps, className }) => (
       upgrade
       dataHook={dataHook}
     >
-      <InfoCircle size="24px" />
+      <InfoCircle size={iconSize} />
     </Tooltip>
   </div>
 );
@@ -28,6 +28,11 @@ InfoIcon.propTypes = {
   tooltipProps: PropTypes.shape(Tooltip.propTypes),
   dataHook: PropTypes.string,
   className: PropTypes.string,
+  iconSize: PropTypes.string,
+};
+
+InfoIcon.defaultProps = {
+  iconSize: '24px',
 };
 
 export default InfoIcon;

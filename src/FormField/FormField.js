@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Label from '../Label';
 import Tooltip from '../Tooltip';
-import Text, { SKINS } from '../Text';
-
+import Text, { SKINS, SIZES, WEIGHTS } from '../Text';
 import InfoIcon from '../common/InfoIcon';
 import styles from './FormField.scss';
 
-const labelPlacements = {
+const PLACEMENT = {
   top: 'top',
   right: 'right',
   left: 'left',
@@ -27,8 +25,8 @@ const charactersLeft = lengthLeft => {
     lengthLeft >= 0 ? { light: true, secondary: true } : { skin: SKINS.error };
   return (
     <Text
-      size="small"
-      weight="normal"
+      size={SIZES.small}
+      weight={WEIGHTS.normal}
       {...colorProps}
       data-hook="formfield-counter"
       className={styles.counter}
@@ -58,12 +56,12 @@ class FormField extends React.Component {
     label: PropTypes.node,
 
     /** setting label size (small, medium) */
-    labelSize: PropTypes.string,
+    labelSize: PropTypes.oneOf(['small', 'medium']),
 
     labelPlacement: PropTypes.oneOf([
-      labelPlacements.top,
-      labelPlacements.right,
-      labelPlacements.left,
+      PLACEMENT.top,
+      PLACEMENT.right,
+      PLACEMENT.left,
     ]),
 
     /** whether to display an asterisk (*) or not */
@@ -93,7 +91,7 @@ class FormField extends React.Component {
     labelSize: 'medium',
     required: false,
     stretchContent: true,
-    labelPlacement: labelPlacements.top,
+    labelPlacement: PLACEMENT.top,
   };
 
   state = {
@@ -116,7 +114,7 @@ class FormField extends React.Component {
   _hasCharCounter = () => typeof this.state.lengthLeft === 'number';
 
   _renderInfoIcon = () => {
-    const { infoContent, infoTooltipProps } = this.props;
+    const { infoContent, infoTooltipProps, labelSize } = this.props;
     return (
       infoContent && (
         <InfoIcon
@@ -126,13 +124,19 @@ class FormField extends React.Component {
             content: infoContent,
             ...infoTooltipProps,
           }}
+          iconSize={
+            {
+              [SIZES.small]: '18px',
+              [SIZES.medium]: '24px',
+            }[labelSize]
+          }
         />
       )
     );
   };
 
   _renderInlineSuffixes = () => {
-    const { label, required, id, children } = this.props;
+    const { required, children } = this.props;
 
     return (
       <div
@@ -151,8 +155,7 @@ class FormField extends React.Component {
 
   _hasInlineLabel = (label, labelPlacement) =>
     label &&
-    (labelPlacement === labelPlacements.left ||
-      labelPlacement === labelPlacements.right);
+    (labelPlacement === PLACEMENT.left || labelPlacement === PLACEMENT.right);
 
   _renderLabel = ({ trimLongText }) => {
     const { label, labelSize, id } = this.props;
@@ -170,6 +173,7 @@ class FormField extends React.Component {
       </Text>
     );
   };
+
   render() {
     const {
       label,
@@ -177,10 +181,8 @@ class FormField extends React.Component {
       required,
       infoContent,
       dataHook,
-      id,
       children,
       stretchContent,
-      labelSize,
     } = this.props;
     const { lengthLeft } = this.state;
 
@@ -188,16 +190,13 @@ class FormField extends React.Component {
       <div
         data-hook={dataHook}
         className={classnames(styles.root, {
-          [styles.labelFromTop]:
-            label && labelPlacement === labelPlacements.top,
-          [styles.labelFromLeft]:
-            label && labelPlacement === labelPlacements.left,
-          [styles.labelFromRight]:
-            label && labelPlacement === labelPlacements.right,
+          [styles.labelFromTop]: label && labelPlacement === PLACEMENT.top,
+          [styles.labelFromLeft]: label && labelPlacement === PLACEMENT.left,
+          [styles.labelFromRight]: label && labelPlacement === PLACEMENT.right,
           [styles.stretchContent]: stretchContent,
         })}
       >
-        {label && labelPlacement === labelPlacements.top && (
+        {label && labelPlacement === PLACEMENT.top && (
           <div
             className={classnames(styles.label, {
               [styles.minLabelHeight]: !children,
@@ -218,7 +217,7 @@ class FormField extends React.Component {
                 !label || this._hasInlineLabel(label, labelPlacement),
             })}
           >
-            {(!label || labelPlacement !== labelPlacements.top) &&
+            {(!label || labelPlacement !== PLACEMENT.top) &&
               this._hasCharCounter() &&
               charactersLeft(lengthLeft)}
             {this.renderChildren()}

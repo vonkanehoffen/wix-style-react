@@ -7,6 +7,7 @@ $childrenMargin: 6px;
 .root {
   display: inline-flex;
   flex-wrap: wrap;
+  font-size: initial;
 
   &.stretchContent {
     display: flex;
