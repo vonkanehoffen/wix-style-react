@@ -20,6 +20,7 @@ If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md
 
 ### Changed
 - `<FormField/> <InfoIcon/>` - Add size prop [#4123](https://github.com/wix/wix-style-react/pull/4123)
+- `<Input/>` - change disabled border and background colors [#4146](https://github.com/wix/wix-style-react/pull/4146)
 
 ### Fixed
 - `<Tag/>` - remove redundant e2e when we have .visual already [#4139](https://github.com/wix/wix-style-react/pull/4139)
