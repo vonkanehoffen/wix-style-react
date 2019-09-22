@@ -136,8 +136,19 @@ class ImageViewer extends Component {
   };
 
   render() {
-    const { width, height, error, disabled, dataHook } = this.props;
-    const states = { disabled, error: !disabled && error };
+    const {
+      width,
+      height,
+      error,
+      disabled,
+      dataHook,
+      removeRoundedBorders,
+    } = this.props;
+    const states = {
+      disabled,
+      error: !disabled && error,
+      removeRadius: removeRoundedBorders,
+    };
     return (
       <div
         {...styles('root', states, this.props)}

@@ -41,6 +41,13 @@ const tests = [
           disabled: true,
         },
       },
+      {
+        it: 'Without rounded borders',
+        props: {
+          imageUrl,
+          removeRoundedBorders: true,
+        },
+      },
     ],
   },
 ];

@@ -1,21 +1,20 @@
-
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
   -st-named: B50, B40, R10, D50;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/border.st.css";
+  -st-from: 'wix-ui-core/dist/src/themes/backoffice/border.st.css';
   -st-named: radius08;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-from: 'wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css';
   -st-default: Focusable;
 }
 
 .root {
-  -st-states: error, disabled;
+  -st-states: error, disabled, removeRadius;
   position: relative;
   width: 204.7px;
   height: 144px;
@@ -31,6 +30,10 @@
   overflow: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+}
+
+.root:removeRadius {
+  border-radius: 0;
 }
 
 .root:hover {
@@ -81,7 +84,7 @@
 .imageBackground {
   -st-states: removeRadius;
   transition: all 0.1s linear;
-  border-radius: 6px;
+  border-radius: value(radius08);
   background-color: rgba(32, 69, 94, 0);
   position: absolute;
   top: 0;
