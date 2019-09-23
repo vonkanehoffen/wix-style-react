@@ -30,6 +30,9 @@ export const getComponentUrl = ({ componentName }) =>
 export const getSymbolUrl = ({ groupSymbol, symbol }) =>
   symbolActualUrl[symbol] || linkTo(groupSymbol, symbol);
 
+/**
+ * For misspelled Components stories or Compound components (Card.Header story part of Card story)
+ */
 const componentActualUrl = {
   [sharedComponentsNames.Icon]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
 
@@ -60,6 +63,9 @@ const componentActualUrl = {
   ),
 };
 
+/**
+ * This is mapping the good names to the bad UX Story names that are actually in the storybook (9.4 Announcement instead of 9.3 Marketing)
+ */
 const symbolActualUrl = {
   [foundationSymbols.icons]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
 
