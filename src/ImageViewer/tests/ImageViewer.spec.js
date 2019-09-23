@@ -5,9 +5,9 @@ import ImageViewerDriverFactory from '../ImageViewer.driver';
 import { imageViewerUniDriverFactory } from '../ImageViewer.uni.driver';
 
 import {
+  cleanup,
   createRendererWithDriver,
   createRendererWithUniDriver,
-  cleanup,
 } from '../../../test/utils/react';
 
 describe('ImageViewer', () => {
@@ -124,6 +124,20 @@ describe('ImageViewer', () => {
           );
           await driver.clickRemove();
           expect(onRemoveImage).toHaveBeenCalled();
+        });
+
+        it('should NOT render remove button when prop "showRemoveButton" equals to "false"', async () => {
+          const props = { showRemoveButton: false, imageUrl };
+          const { driver } = render(renderComponent(props));
+
+          expect(await driver.removeButtonExists()).toBe(false);
+        });
+
+        it('should render remove button when prop "showRemoveButton" equals to "true"', async () => {
+          const props = { showRemoveButton: true, imageUrl };
+          const { driver } = render(renderComponent(props));
+
+          expect(await driver.removeButtonExists()).toBe(true);
         });
       });
 

@@ -40,6 +40,7 @@ class ImageViewer extends Component {
       disabled,
       showUpdateButton,
       removeRoundedBorders,
+      showRemoveButton,
     } = this.props;
     return (
       !!imageUrl && (
@@ -59,7 +60,7 @@ class ImageViewer extends Component {
             >
               <div className={styles.buttons}>
                 {showUpdateButton && this._renderUpdateButton()}
-                {this._renderRemoveButton()}
+                {showRemoveButton && this._renderRemoveButton()}
               </div>
             </div>
           )}
@@ -168,6 +169,7 @@ ImageViewer.displayName = 'ImageViewer';
 
 ImageViewer.defaultProps = {
   showUpdateButton: true,
+  showRemoveButton: true,
   addImageInfo: 'Add Image',
   updateImageInfo: 'Update',
   removeImageInfo: 'Remove',
@@ -189,6 +191,8 @@ ImageViewer.propTypes = {
   tooltipProps: PropTypes.object,
   /** Show update button */
   showUpdateButton: PropTypes.bool,
+  /** Show remove button */
+  showRemoveButton: PropTypes.bool,
   /** Add image click handler */
   onAddImage: PropTypes.func,
   /** Update image click handler */

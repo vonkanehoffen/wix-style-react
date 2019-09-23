@@ -67,8 +67,8 @@
   transition: opacity 0.1s linear;
 }
 
-.buttons > :first-child:not(:last-child) {
-  margin-right: 12px;
+.buttons > :last-child:not(:first-child) {
+  margin-left: 12px;
 }
 
 /** image styles **/
