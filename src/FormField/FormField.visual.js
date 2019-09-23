@@ -1,52 +1,102 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import FormField from './FormField';
+import Input from '../Input';
+import ToggleSwitch from '../ToggleSwitch';
 
-const test = (it, props) => ({ it, props });
-
-const tests = [
+const testGroups = [
   {
     describe: 'Label',
-    its: [
-      test('Long text should use ellipsis', {
-        label:
-          'a long label that should use ellipsis, you can see the whole sentence in the tooltip',
-      }),
-      test('Info Content should render', {
-        infoContent: 'hi',
-      }),
+    tests: [
+      {
+        describe: 'Long label',
+        labelPlacements: ['top'],
+        its: [
+          {
+            label:
+              'a long label that should use ellipsis, you can see the whole sentence in the tooltip',
+            children: [<Input />],
+          },
+        ],
+      },
+      {
+        describe: 'Label sizes',
+        labelPlacements: ['top', 'right', 'left'],
+        its: [
+          {
+            label: 'I am a medium label',
+            labelSize: 'medium',
+            children: [<Input />],
+          },
+          {
+            label: 'I am a small label',
+            labelSize: 'small',
+            children: [<Input />],
+          },
+        ],
+      },
     ],
   },
   {
-    describe: 'Label sizes',
-    its: [
-      test('Label should be medium', {
-        label: 'I am a medium label',
-        labelSize: 'medium',
-      }),
-      test('Label should be small', {
-        label: 'I am a small label',
-        labelSize: 'small',
-      }),
-      test('Label and info should be medium', {
-        label: 'I am a medium label',
-        labelSize: 'medium',
-        infoContent: 'I am an info content',
-      }),
-      test('Label and info should be small', {
-        label: 'I am a small label',
-        labelSize: 'small',
-        infoContent: 'I am an info content',
-      }),
+    describe: 'Info',
+    tests: [
+      {
+        describe: 'Info should be rendered',
+        its: [
+          {
+            infoContent: 'hi',
+            children: [<Input />],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    describe: 'Required',
+    tests: [
+      {
+        describe: 'The field should be required',
+        its: [
+          {
+            required: true,
+            children: [<Input />],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    describe: 'Children',
+    tests: [
+      {
+        describe: 'Should render children',
+        labelPlacements: ['top', 'right', 'left'],
+        its: [
+          {
+            label: 'I have an Input',
+            children: [<Input />],
+          },
+          {
+            label: 'I have a ToggleSwitch',
+            children: [<ToggleSwitch size={'small'} />],
+          },
+        ],
+      },
     ],
   },
 ];
 
-tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
-    storiesOf(`FormField/${describe}`, module).add(it, () => (
-      <div style={{ width: 250, padding: 50 }}>
-        <FormField {...props} />
+testGroups.forEach(group => {
+  group.tests.forEach(test => {
+    storiesOf(`FormField/${group.describe}`, module).add(test.describe, () => (
+      <div style={{ width: 500, padding: 50 }}>
+        {test.its.map(props =>
+          (test.labelPlacements || ['top']).map(labelPlacement => (
+            <div style={{ padding: 15 }}>
+              <FormField labelPlacement={labelPlacement} {...props} />
+            </div>
+          )),
+        )}
       </div>
     ));
   });
