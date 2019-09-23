@@ -83,6 +83,11 @@ const statisticsWidgetDriverFactory = (base, body) => {
       return text;
     },
 
+    /** Get children in section by hook */
+    getChildren: async (index, hook) => {
+      return findBaseByHook(await getStatsItem(index), hook);
+    },
+
     /** Get percentage of the statistic with index */
     getPercentage: async index => {
       const percents = await getStatsPartText(index, DataHooks.percentage);

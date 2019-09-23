@@ -124,6 +124,11 @@ class StatisticsItem extends React.PureComponent {
       percentage,
       invertedPercentage,
       onClick,
+      children,
+      focusableOnFocus,
+      focusableOnBlur,
+      className,
+      ...rest
     } = this.props;
 
     const attrs = {
@@ -132,6 +137,7 @@ class StatisticsItem extends React.PureComponent {
       'data-hook': DataHooks.stat,
       onKeyDown: onClick ? this._getSpaceOrEnterHandler(onClick) : undefined,
       onClick,
+      ...rest,
     };
 
     return (
@@ -139,6 +145,7 @@ class StatisticsItem extends React.PureComponent {
         {this._renderValue(value, valueInShort)}
         {this._renderDescription(description, descriptionInfo)}
         {this._renderPercents(percentage, invertedPercentage)}
+        {children}
       </div>
     );
   }

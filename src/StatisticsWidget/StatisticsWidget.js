@@ -19,6 +19,7 @@ class StatisticsWidget extends React.PureComponent {
      *  * `percentage` - Change in percents. Positive number - arrow up, negative - arrow down
      *  * `invertedPercentage` - When set to true renders positive percentage in red and negative in green.
      *  * `onClick` - Callback to be executed on click (also on Enter/Space key press)
+     *  * `children` - Node to render on bottom of section.
      */
     statistics: PropTypes.arrayOf(
       PropTypes.shape({
@@ -29,6 +30,7 @@ class StatisticsWidget extends React.PureComponent {
         percentage: PropTypes.number,
         invertedPercentage: PropTypes.bool,
         onClick: PropTypes.func,
+        children: PropTypes.node,
       }),
     ),
   };

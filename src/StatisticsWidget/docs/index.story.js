@@ -21,6 +21,7 @@ import StatisticsWidget from '..';
 
 import OneStatistic from '!raw-loader!./examples/OneStatistic';
 import OnlyValues from '!raw-loader!./examples/OnlyValues';
+import WithChildren from '!raw-loader!./examples/WithChildren';
 import Descriptions from '!raw-loader!./examples/Descriptions';
 import InfoIcons from '!raw-loader!./examples/InfoIcons';
 import LongText from '!raw-loader!./examples/LongText';
@@ -188,6 +189,14 @@ export default {
             description:
               'Statistics widget inside a card with multiple filters.',
             source: InteractiveCard,
+          }),
+
+          code({
+            compact: true,
+            autoRender: false,
+            title: 'With Children',
+            description: 'Appears below other info in section.',
+            source: WithChildren,
           }),
         ],
       }),

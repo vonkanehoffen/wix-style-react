@@ -259,6 +259,23 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'children',
+    its: [
+      {
+        it: 'renders children',
+        props: {
+          statistics: [
+            {
+              value: '100',
+              description: 'Money',
+              children: <div>That's a lot</div>,
+            },
+          ],
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

@@ -44,5 +44,7 @@ export const statisticsWidgetPrivateDriverFactory = (base, body) => {
 
       return tabIndex === 0;
     },
+
+    getStatsItem,
   };
 };

@@ -321,4 +321,41 @@ describe('StatisticsWidget', () => {
       expect(onClick1).toBeCalledTimes(0);
     });
   });
+
+  describe('children', () => {
+    it('should render children', async () => {
+      const content = 'That is a lot';
+      const dataHook = 'stats-widget-child';
+      const data = {
+        statistics: [
+          {
+            value: '100',
+            description: 'Money',
+            children: <div data-hook={dataHook}>{content}</div>,
+          },
+        ],
+      };
+      const { driver } = render(<StatisticsWidget {...data} />);
+      const node = await driver.getChildren(0, dataHook);
+
+      expect(await node.text()).toBe(content);
+    });
+
+    it('should support arbitrary props', async () => {
+      const dataHook = 'stats-widget-child';
+      const data = {
+        statistics: [
+          {
+            value: '100',
+            description: 'Money',
+            children: <div data-hook={dataHook} />,
+            'data-arbitrary-test-prop': 'exists!',
+          },
+        ],
+      };
+      const { driver } = render(<StatisticsWidget {...data} />);
+      const node = await driver.getStatsItem(0);
+      expect(await node.attr('data-arbitrary-test-prop')).toBe('exists!');
+    });
+  });
 });
