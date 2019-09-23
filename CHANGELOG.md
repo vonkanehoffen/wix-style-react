@@ -24,6 +24,7 @@ If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md
 
 ### Fixed
 - `<Tag/>` - remove redundant e2e when we have .visual already [#4139](https://github.com/wix/wix-style-react/pull/4139)
+- `<ImageViewer/>` - fix removeRoundedBorders property. [#4131](https://github.com/wix/wix-style-react/issues/4131)
 
 ### Docs
 - `<Dropdown/>, <AutoComplete/>` - add overflow example [#4140](https://github.com/wix/wix-style-react/pull/4140)
