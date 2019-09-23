@@ -1,4 +1,9 @@
 /* https://www.kizu.ru/flexible-overflow/ */
+:import {
+  -st-from: "../../Tooltip/TooltipNext/Tooltip.st.css";
+  -st-default: Tooltip;
+}
+
 .headerWrapper {
   -st-states: appearance(string);
   display: inline-flex;

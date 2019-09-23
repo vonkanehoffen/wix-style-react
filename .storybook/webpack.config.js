@@ -9,10 +9,11 @@ const testkitsWarning = `
 To learn how to initialize and use testkits, see <a href="/?selectedKind=Introduction&selectedStory=Testing" target="_blank">Testing guide</a>
 `;
 
-module.exports = (config, env, defaultConfig) => {
-  defaultConfig.module.rules[0].use[0].loader = require.resolve('babel-loader');
 
-  const newConfig = wixStorybookConfig(defaultConfig);
+module.exports = ({ config, mode }) => {
+  config.module.rules[0].use[0].loader = require.resolve('babel-loader');
+
+  const newConfig = wixStorybookConfig(config);
 
   return merge(newConfig, {
     context: path.resolve(__dirname, '..', 'src'),
