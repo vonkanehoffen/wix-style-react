@@ -14,12 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-If you're looking for changes from versions 3-6, go to [here](CHANGELOG-V3-V6.md).
-
 ## Next
 
 ### Added
 `<ImageViewer/>` - add a prop for render Remove Button [#4070](https://github.com/wix/wix-style-react/pull/4070)
+`<StatisticsWidget />` - add children support for stats [#4053](https://github.com/wix/wix-style-react/pull/4053)
 
 ### Changed
 - `<FormField/> <InfoIcon/>` - Add size prop [#4123](https://github.com/wix/wix-style-react/pull/4123)
@@ -67,3 +66,7 @@ See [Migrating From v6 to v7](https://github.com/wix/wix-style-react/blob/master
 
 - `React` dev dependencies upgraded to v16. [#4106](https://github.com/wix/wix-style-react/pull/4106)
 - `<RichTextArea/> <RichTextAreaComposite/>` - Removed, replaced by `<RichTextInputArea/>` [#4106](https://github.com/wix/wix-style-react/pull/4106)
+
+---
+
+For changelog of older version [see here](CHANGELOG-V3-V6.md)
