@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
-import LiveCodeExample from 'wix-storybook-utils/LiveCodeExample';
 
 import allComponents from '../allComponents';
 import styles from './styles.scss';
@@ -44,21 +43,25 @@ const Component = props => {
     '',
   );
 
+  const LiveCodeExample = lazy(() =>
+    import('wix-storybook-utils/LiveCodeExample'),
+  );
   return (
     <div>
       {title && <div className={styles.title}>{title}</div>}
 
-      <LiveCodeExample
-        scope={{ ...baseScope, ...scope }}
-        {...rest}
-        initialCode={filteredCode}
-      />
+      <Suspense fallback={<div>Loading</div>}>
+        <LiveCodeExample
+          scope={{ ...baseScope, ...scope }}
+          {...rest}
+          initialCode={filteredCode}
+        />
+      </Suspense>
     </div>
   );
 };
 
 Component.propTypes = {
-  ...LiveCodeExample.propTypes,
   title: PropTypes.string,
 };
 
