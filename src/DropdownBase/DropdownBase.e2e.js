@@ -45,7 +45,7 @@ describe('DropdownBase', () => {
   ].forEach(dataHook => {
     eyes.it(`should render ${dataHook}`, async () => {
       const driver = await createDriver(dataHook);
-      await driver.clickTargetElement();
+      await driver.clickTargetElement('drop-down-opener');
     });
   });
 });

@@ -14,7 +14,7 @@
   >
     {({ open, close }) => {
       return (
-        <IconButton skin="inverted" onMouseEnter={open} onMouseLeave={close}>
+        <IconButton dataHook={"drop-down-opener"} skin="inverted" onMouseEnter={open} onMouseLeave={close}>
           <Icons.Date />
         </IconButton>
       );

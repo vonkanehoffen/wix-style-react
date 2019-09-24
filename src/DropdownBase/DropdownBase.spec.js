@@ -5,6 +5,8 @@ import { createRendererWithUniDriver, cleanup } from '../../test/utils/unit';
 import { enzymeUniTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 
 import DropdownBase from './DropdownBase';
+import IconButton from '../IconButton';
+import ChevronDown from '../../new-icons/ChevronDown';
 import { dropdownBasePrivateDriverFactory } from './DropdownBase.private.uni.driver';
 
 describe('DropdownBase', () => {
@@ -159,6 +161,78 @@ describe('DropdownBase', () => {
 
     await driver.mouseLeave();
     expect(onMouseLeaveFn).toHaveBeenCalledTimes(1);
+  });
+
+  it('should show drop down when clicking on target element', async () => {
+    const onMouseLeaveFn = jest.fn();
+
+    const targetDataHook = 'myOpenButton';
+    const driver = createDriver(
+      <DropdownBase {...defaultProps} onMouseLeave={onMouseLeaveFn}>
+        {({ open }) => {
+          return (
+            <IconButton
+              skin="inverted"
+              dataHook={targetDataHook}
+              onClick={open}
+            >
+              <ChevronDown />
+            </IconButton>
+          );
+        }}
+      </DropdownBase>,
+    );
+
+    await driver.clickTargetElement(targetDataHook);
+    expect(await driver.isDropdownShown()).toEqual(true);
+  });
+
+  it('should show drop down when hover on target element', async () => {
+    const onMouseLeaveFn = jest.fn();
+
+    const targetDataHook = 'myOpenButton';
+    const driver = createDriver(
+      <DropdownBase {...defaultProps} onMouseLeave={onMouseLeaveFn}>
+        {({ open }) => {
+          return (
+            <IconButton
+              skin="inverted"
+              dataHook={targetDataHook}
+              onMouseEnter={open}
+            >
+              <ChevronDown />
+            </IconButton>
+          );
+        }}
+      </DropdownBase>,
+    );
+
+    await driver.hoverTargetElement(targetDataHook);
+    expect(await driver.isDropdownShown()).toEqual(true);
+  });
+
+  it('should return number of options according to given options', async () => {
+    const onMouseLeaveFn = jest.fn();
+
+    const targetDataHook = 'myOpenButton';
+    const driver = createDriver(
+      <DropdownBase {...defaultProps} onMouseLeave={onMouseLeaveFn}>
+        {({ open }) => {
+          return (
+            <IconButton
+              skin="inverted"
+              dataHook={targetDataHook}
+              onClick={open}
+            >
+              <ChevronDown />
+            </IconButton>
+          );
+        }}
+      </DropdownBase>,
+    );
+
+    await driver.clickTargetElement(targetDataHook);
+    expect(await driver.optionsCount()).toEqual(defaultProps.options.length);
   });
 
   describe('uncontrolled open behaviour', () => {

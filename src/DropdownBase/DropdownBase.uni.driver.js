@@ -7,7 +7,7 @@ import { dropdownLayoutDriverFactory } from '../DropdownLayout/DropdownLayout.un
 export const dropdownBaseDriverFactory = base => {
   const byDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
   const reactBase = ReactBase(base);
-  const getTargetElement = () => byDataHook('popover-element');
+  const getTargetElement = dataHook => byDataHook(dataHook);
   const getContentElement = () => byDataHook('popover-content');
 
   const createDropdownLayoutDriver = () => dropdownLayoutDriverFactory(base);
@@ -15,8 +15,11 @@ export const dropdownBaseDriverFactory = base => {
   return {
     ...baseUniDriverFactory(base),
 
-    /** Returns the native target element */
-    clickTargetElement: () => getTargetElement().click(),
+    /** Returns the target element */
+    clickTargetElement: dataHook => getTargetElement(dataHook).click(),
+
+    /** Hover the target element */
+    hoverTargetElement: dataHook => getTargetElement(dataHook).hover(),
 
     /** Returns `true` if the dropdown is being shown */
     isDropdownShown: async () => await getContentElement().exists(),

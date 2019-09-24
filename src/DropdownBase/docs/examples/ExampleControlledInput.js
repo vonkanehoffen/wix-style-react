@@ -92,6 +92,7 @@ class ExampleControlledInput extends React.Component {
           return (
             <Input
               menuArrow
+              dataHook={"drop-down-opener"}
               placeholder="Type something"
               value={value}
               onChange={this._onChange}

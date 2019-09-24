@@ -14,7 +14,7 @@
   >
     {({ toggle, selectedOption = {} }) => {
       return (
-        <TextButton upgrade skin="dark" suffixIcon={<Icons.ChevronDown />} onClick={toggle}>
+        <TextButton upgrade skin="dark" suffixIcon={<Icons.ChevronDown />} onClick={toggle} dataHook={"drop-down-opener"}>
           {selectedOption.value || 'Please choose'}
         </TextButton>
       );
