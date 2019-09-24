@@ -17,7 +17,9 @@ Types of changes:
 ## Next
 
 ### Fixed
+- `<DropdownBase/>` - fix clickTargetElement method in testkit [#4152](https://github.com/wix/wix-style-react/pull/4152)
 - `<Stepper/>` - Fix ellipsis problem with Safari [#4153](https://github.com/wix/wix-style-react/pull/4153)
+
 
 ## 7.3.0 - 2019-09-24
 
