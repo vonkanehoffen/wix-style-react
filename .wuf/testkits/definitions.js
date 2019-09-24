@@ -751,16 +751,21 @@ module.exports = {
 
   LabelledElement: {
     unidriver: true,
-    testkitPath: "../src/LabelledElement/LabelledElement.uni.driver"
+    testkitPath: '../src/LabelledElement/LabelledElement.uni.driver',
   },
 
   FillPreview: {
     unidriver: true,
-    testkitPath: "../src/FillPreview/FillPreview.uni.driver"
+    testkitPath: '../src/FillPreview/FillPreview.uni.driver',
   },
 
   FillButton: {
     unidriver: true,
-    testkitPath: "../src/FillButton/FillButton.uni.driver"
-  }
+    testkitPath: '../src/FillButton/FillButton.uni.driver',
+  },
+
+  InputWithLabel: {
+    unidriver: true,
+    testkitPath: '../src/InputWithLabel/InputWithLabel.uni.driver',
+  },
 };

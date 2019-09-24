@@ -153,6 +153,7 @@ require('../src/EditableTitle/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 require('../src/LabelledElement/docs/index.story');
+require('../src/InputWithLabel/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');
@@ -198,3 +199,4 @@ require('../src/beta/PopoverMenu/docs/index.story');
 // TODO: move to correct position
 require('../src/FillButton/docs/index.story');
 require('../src/FillPreview/docs/index.story');
+require('../src/StatisticsWidget/docs/index.story');

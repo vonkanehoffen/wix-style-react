@@ -1,0 +1,49 @@
+:import {
+  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
+  -st-named: D40;
+}
+:vars {
+  input-height: 54px;
+  status-message-height: 24px;
+}
+
+.groupIcon {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: value(input-height);
+}
+
+.groupIcon:not(:first-of-type) {
+  position: relative;
+}
+
+.groupIcon:not(:first-of-type)::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  width: 1px;
+  box-sizing: border-box;
+  border-left: 1px solid value(D40);
+  left: 0;
+}
+
+.inputContainer {
+  height: value(input-height) !important;
+}
+
+.inputContainer input {
+  height: value(input-height) !important;
+  padding-top: 18px !important;
+}
+
+.statusMessagePlaceholder {
+  padding-bottom: value(status-message-height);
+}
+
+.statusMessage {
+  display: block;
+  line-height: value(status-message-height) !important;
+}

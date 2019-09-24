@@ -22,9 +22,9 @@
 }
 
 .labelTop {
-  transform: translateY(10px);
+  transform: translateY(3px);
 
-  .labelText{
+  .labelText {
     transform: scale(0.75);
     /* override <Text> color to a color that is not in the <Text> design  */
     color: $D30 !important;

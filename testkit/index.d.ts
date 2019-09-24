@@ -14,11 +14,11 @@ import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
-    params: VanillaTeskitParams
+    params: VanillaTeskitParams,
   ) => T;
 
   type VanillaUniTestkitFactory<T extends BaseUniDriver> = (
-    params: VanillaTeskitParams
+    params: VanillaTeskitParams,
   ) => T;
 
   interface VanillaTeskitParams {
@@ -123,7 +123,10 @@ declare namespace VanillaTestkit {
   export const statisticsWidgetTestkitFactory: any;
   export const fillPreviewTestkitFactory: any;
   export const fillButtonTestkitFactory: any;
-  export const labelledElementTestkitFactory: any;
+  export const labelledElementTestkitFactory: VanillaUniTestkitFactory<
+    LabelledElementDriver
+  >;
+  export const inputWithLabelTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

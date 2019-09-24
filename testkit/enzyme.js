@@ -141,6 +141,7 @@ export const statisticsWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(loa
 export const fillPreviewTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FillPreview/FillPreview.uni.driver')));
 export const fillButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FillButton/FillButton.uni.driver')));
 export const labelledElementTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
+export const inputWithLabelTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/InputWithLabel/InputWithLabel.uni.driver')));
 export const sideMenuDrillTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

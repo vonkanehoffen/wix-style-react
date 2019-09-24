@@ -103,6 +103,8 @@ export const statisticsWidgetTestkitFactory: any;
 export const fillPreviewTestkitFactory: any;
 export const fillButtonTestkitFactory: any;
 export const labelledElementTestkitFactory: any;
+export const inputWithLabelTestkitFactory: any;
+export const labelledElementTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;
