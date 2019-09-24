@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<ImageViewer/>` - add a prop for render Remove Button [#4070](https://github.com/wix/wix-style-react/pull/4070)
 - `<StatisticsWidget />` - add children support for stats [#4053](https://github.com/wix/wix-style-react/pull/4053)
+- `<InputWithLabel/>` - create the component [#4051](https://github.com/wix/wix-style-react/pull/4051)
 
 ### Changed
 - `<FormField/> <InfoIcon/>` - Add size prop [#4123](https://github.com/wix/wix-style-react/pull/4123)
