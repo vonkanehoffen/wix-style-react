@@ -479,12 +479,6 @@ export const inputWithLabelTestkitFactory = puppeteerUniTestkitFactoryCreator(
   inputWithLabelDriverFactory,
 );
 
-import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
-
-export const labelledElementTestkitFactory = puppeteerUniTestkitFactoryCreator(
-  labelledElementDriverFactory,
-);
-
 import { drillViewUniDriverFactory } from '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver';
 
 export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(
