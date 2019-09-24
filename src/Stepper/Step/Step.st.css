@@ -37,7 +37,7 @@
 }
 
 .stepTextWrapper {
-    width: calc(100% - value(stepCircleWidth) - value(stepCircleMarginRight));
+    min-width: calc(100% - value(stepCircleWidth) - value(stepCircleMarginRight));
 }
 
 .stepText {
