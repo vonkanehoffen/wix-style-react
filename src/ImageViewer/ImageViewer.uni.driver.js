@@ -2,45 +2,71 @@ import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { iconButtonDriverFactory } from '../IconButton/IconButton.uni.driver';
 import { addItemUniDriverFactory } from '../AddItem/AddItem.uni.driver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { dataAttributes, dataHooks } from './ImageViewer.constants';
 
 export const imageViewerUniDriverFactory = (base, body) => {
   const find = dataHook => base.$(`[data-hook="${dataHook}"]`);
+  const hasDataAttribute = async (dataAttr, el) =>
+    (await el.attr(dataAttr)) === 'true';
 
-  const imageSelector = 'image-viewer-image';
-  const updateImageSelector = 'update-image';
-  const updateTooltipSelector = 'update-image-tooltip';
-  const removeTooltipSelector = 'remove-image-tooltip';
-  const errorTooltipSelector = 'error-image-tooltip';
-  const removeImageSelector = 'remove-image';
-  const addItemSelector = 'add-image';
+  const hoverElement = () => base.hover();
+  const showButtons = hoverElement;
+  const isImagesContainerElementVisible = () =>
+    hasDataAttribute(
+      dataAttributes.containerVisible,
+      find(dataHooks.imagesContainer),
+    );
+  const isImageElementVisible = imgElement =>
+    hasDataAttribute(dataAttributes.imageVisible, imgElement);
 
-  const addItemTestkit = addItemUniDriverFactory(find(addItemSelector), body);
+  const addItemTestkit = addItemUniDriverFactory(find(dataHooks.addItem), body);
   const tooltipTestkit = dataHook => tooltipDriverFactory(find(dataHook), body);
   const iconButtonTestkit = dataHook => iconButtonDriverFactory(find(dataHook));
-
-  const removeIconButton = iconButtonTestkit(removeImageSelector);
-  const updateIconButton = iconButtonTestkit(updateImageSelector);
-  const updateTooltip = tooltipTestkit(updateTooltipSelector);
-  const removeTooltip = tooltipTestkit(removeTooltipSelector);
-  const errorTooltip = tooltipTestkit(errorTooltipSelector);
+  const removeIconButton = iconButtonTestkit(dataHooks.remove);
+  const updateIconButton = iconButtonTestkit(dataHooks.update);
+  const updateTooltip = tooltipTestkit(dataHooks.updateTooltip);
+  const removeTooltip = tooltipTestkit(dataHooks.removeTooltip);
+  const errorTooltip = tooltipTestkit(dataHooks.errorTooltip);
 
   return {
     ...baseUniDriverFactory(base),
-    updateExists: () => !!find(updateImageSelector),
-    isImageVisible: () => find(imageSelector).exists(),
-    isAddItemVisible: () => find(addItemSelector).exists(),
-    isErrorVisible: () => errorTooltip.exists(),
-    isDisabled: () => base.attr('data-disabled').then(x => x === 'true'),
-    getImageUrl: () => find(imageSelector).attr('src'),
-    clickUpdate: () => updateIconButton.click(),
+    updateExists: () => !!find(dataHooks.update),
     updateButtonExists: () => updateIconButton.exists(),
-    clickRemove: () => removeIconButton.click(),
     removeButtonExists: () => removeIconButton.exists(),
     clickAdd: () => addItemTestkit.click(),
+    clickUpdate: () => showButtons().then(() => updateIconButton.click()),
+    clickRemove: () => showButtons().then(() => removeIconButton.click()),
+    getContainerStyles: () => base.attr('style'),
     getAddTooltipContent: () => addItemTestkit.getTooltipContent(),
     getUpdateTooltipContent: () => updateTooltip.getTooltipText(),
     getRemoveTooltipContent: () => removeTooltip.getTooltipText(),
     getErrorTooltipContent: () => errorTooltip.getTooltipText(),
-    getContainerStyles: () => base.attr('style'),
+    isDisabled: () =>
+      base.attr(dataAttributes.disabled).then(x => x === 'true'),
+    isAddItemVisible: () => find(dataHooks.addItem).exists(),
+    isLoaderVisible: () => find(dataHooks.loader).exists(),
+    isErrorVisible: () => errorTooltip.exists(),
+    isImageLoaded: () => base.$('[data-was-image-loaded]').exists(),
+    isImageVisible: async () => {
+      const image = find(dataHooks.image);
+
+      return (
+        !!(await image.attr('src')) &&
+        (await isImageElementVisible(image)) &&
+        (await isImagesContainerElementVisible())
+      );
+    },
+    isPreviousImageVisible: async () => {
+      const previousImage = find(dataHooks.previousImage);
+
+      return (
+        !!(await previousImage.attr('src')) &&
+        (await isImageElementVisible(previousImage)) &&
+        (await isImagesContainerElementVisible())
+      );
+    },
+    getImageUrl: () => find(dataHooks.image).attr('src'),
+    getPreviousImageUrl: () => find(dataHooks.previousImage).attr('src'),
+    hover: hoverElement,
   };
 };

@@ -587,12 +587,6 @@ export const fillButtonTestkitFactory = protractorUniTestkitFactoryCreator(
   fillButtonDriverFactory,
 );
 
-import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
-
-export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(
-  labelledElementDriverFactory,
-);
-
 import inputWithLabelDriverFactory from '../src/InputWithLabel/InputWithLabel.uni.driver';
 
 export const inputWithLabelTestkitFactory = protractorUniTestkitFactoryCreator(
@@ -664,4 +658,3 @@ import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.
 export const subheaderTestkitFactory = protractorUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
-

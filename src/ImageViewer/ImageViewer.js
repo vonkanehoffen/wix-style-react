@@ -1,71 +1,146 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Delete from 'wix-ui-icons-common/Delete';
+import Delete from '../new-icons/Delete';
 import Replace from 'wix-ui-icons-common/Replace';
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
-
+import Loader from '../Loader';
 import styles from './ImageViewer.st.css';
-
-import Tooltip from '../Tooltip/TooltipNext/Tooltip';
+import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
-
 import AddItem from '../AddItem/AddItem';
+import Box from '../Box';
+import classnames from 'classnames';
 
 class ImageViewer extends Component {
+  constructor(props) {
+    super(props);
+    const { imageUrl } = props;
+
+    this.state = {
+      imageLoading: !!imageUrl,
+      previousImageUrl: undefined,
+    };
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { imageUrl: currentImageUrl } = this.props;
+    const { imageUrl: nextImageUrl } = nextProps;
+
+    if (nextImageUrl && currentImageUrl !== nextImageUrl) {
+      this.setState({
+        imageLoading: true,
+        previousImageUrl: currentImageUrl,
+      });
+    }
+  }
+
   _renderAddImage = () => {
-    const {
-      imageUrl,
-      onAddImage,
-      addImageInfo,
-      tooltipProps,
-      disabled,
-    } = this.props;
+    const { onAddImage, addImageInfo, tooltipProps, disabled } = this.props;
+
     return (
-      !imageUrl && (
-        <AddItem
-          onClick={onAddImage}
-          theme="image"
-          dataHook="add-image"
-          disabled={disabled}
-          tooltipContent={addImageInfo}
-          tooltipProps={{ ...tooltipProps, content: addImageInfo }}
-        />
-      )
+      <AddItem
+        onClick={onAddImage}
+        theme="image"
+        dataHook="add-image"
+        disabled={disabled}
+        tooltipContent={addImageInfo}
+        tooltipProps={{ ...tooltipProps, content: addImageInfo }}
+      />
     );
   };
 
-  _renderImage = () => {
-    const {
-      imageUrl,
-      disabled,
-      showUpdateButton,
-      removeRoundedBorders,
-      showRemoveButton,
-    } = this.props;
+  /** `display: none` is used to prefetch an image == it fetches the image but doesn't show it */
+  _renderImageElement = ({
+    imageUrl,
+    shouldDisplay,
+    onLoad,
+    onError,
+    key,
+    dataHook,
+  }) => {
+    const dataAttributes = {
+      'data-hook': dataHook,
+      'data-image-visible': shouldDisplay,
+    };
+
     return (
-      !!imageUrl && (
-        <div className={styles.imageContainer}>
-          <img
-            data-hook="image-viewer-image"
-            className={styles.image}
-            src={imageUrl}
-          />
-          {!disabled && (
-            <div
-              {...styles(
-                'imageBackground',
-                { removeRadius: removeRoundedBorders },
-                this.props,
-              )}
-            >
-              <div className={styles.buttons}>
-                {showUpdateButton && this._renderUpdateButton()}
-                {showRemoveButton && this._renderRemoveButton()}
-              </div>
-            </div>
-          )}
-        </div>
-      )
+      <img
+        className={classnames([
+          styles.image,
+          styles.stretch,
+          shouldDisplay && styles.imageVisible,
+        ])}
+        src={imageUrl}
+        onLoad={onLoad}
+        onError={onError}
+        key={key}
+        {...dataAttributes}
+      />
+    );
+  };
+
+  _resetImageLoading = () => {
+    this.setState({
+      imageLoading: false,
+    });
+  };
+
+  _getCurrentAndPreviousImages = () => {
+    const { imageUrl: currentImageUrl } = this.props;
+    const { previousImageUrl } = this.state;
+
+    return {
+      currentImageUrl,
+      previousImageUrl,
+    };
+  };
+
+  _renderImage = () => {
+    const { imageLoading } = this.state;
+    const { onImageLoad } = this.props;
+
+    const {
+      currentImageUrl,
+      previousImageUrl,
+    } = this._getCurrentAndPreviousImages();
+
+    const currentImageName = 'image-viewer-current-image';
+    const previousImageName = 'image-viewer-previous-image';
+    const shouldDisplayContainer = !!(currentImageUrl || previousImageUrl);
+    const generateKey = (imageName, imageUrl) => `${imageName}-${imageUrl}`;
+
+    return (
+      <div
+        {...styles('imageContainer', {
+          /** hide container when no image provided, so AddItem behind it can be clickable */
+          shouldDisplay: shouldDisplayContainer,
+        })}
+        data-container-visible={shouldDisplayContainer}
+        data-hook="images-container"
+      >
+        {/** current image */}
+        {this._renderImageElement({
+          imageUrl: currentImageUrl,
+          shouldDisplay: !!currentImageUrl && !imageLoading,
+          onLoad: e => {
+            this._resetImageLoading();
+            onImageLoad && onImageLoad(e);
+          },
+          onError: () => {
+            this._resetImageLoading();
+          },
+          dataHook: currentImageName,
+          key: generateKey(currentImageName, currentImageUrl),
+        })}
+
+        {/** previous image */}
+        {this._renderImageElement({
+          imageUrl: previousImageUrl,
+          shouldDisplay: imageLoading && !!previousImageUrl,
+          dataHook: previousImageName,
+          key: generateKey(previousImageName, previousImageUrl),
+        })}
+      </div>
     );
   };
 
@@ -91,6 +166,8 @@ class ImageViewer extends Component {
     );
   };
 
+  _resetPreviousImage = () => this.setState({ previousImageUrl: undefined });
+
   _renderRemoveButton = () => {
     const { removeImageInfo, onRemoveImage, tooltipProps } = this.props;
     return (
@@ -105,7 +182,10 @@ class ImageViewer extends Component {
           dataHook="remove-image"
           skin="light"
           priority="secondary"
-          onClick={onRemoveImage}
+          onClick={e => {
+            this._resetPreviousImage();
+            onRemoveImage && onRemoveImage(e);
+          }}
         >
           <Delete />
         </IconButton>
@@ -136,6 +216,47 @@ class ImageViewer extends Component {
     );
   };
 
+  _renderLoader = () => (
+    <Box
+      align="center"
+      verticalAlign="middle"
+      height="100%"
+      dataHook="image-viewer-loader"
+    >
+      <Loader size="small" />
+    </Box>
+  );
+
+  _renderButtons = () => {
+    const { showUpdateButton } = this.props;
+
+    return (
+      <div className={styles.buttons}>
+        {showUpdateButton && this._renderUpdateButton()}
+        {this._renderRemoveButton()}
+      </div>
+    );
+  };
+
+  _renderOverlayWith = content => {
+    const { removeRoundedBorders } = this.props;
+
+    return (
+      <div
+        {...styles(
+          'overlay',
+          { removeRadius: removeRoundedBorders },
+          this.props,
+        )}
+        data-remove-radius={removeRoundedBorders}
+        data-hook="image-viewer-overlay"
+      >
+        {content}
+        <span />
+      </div>
+    );
+  };
+
   render() {
     const {
       width,
@@ -144,22 +265,46 @@ class ImageViewer extends Component {
       disabled,
       dataHook,
       removeRoundedBorders,
+      imageUrl,
     } = this.props;
-    const states = {
+    const { imageLoading, previousImageUrl } = this.state;
+
+    const hasImage = !!imageUrl;
+    const hasError = !!error;
+    const hasNoPreviousImageWhileLoading = imageLoading && !previousImageUrl;
+    const imageLoaded = hasImage && !imageLoading;
+
+    const cssStates = {
       disabled,
       error: !disabled && error,
       removeRadius: removeRoundedBorders,
+      hasImage,
     };
+
+    const rootDataAttributes = {
+      'data-disabled': disabled,
+      'data-image-loaded': imageLoaded,
+      'data-hook': dataHook,
+    };
+
     return (
       <div
-        {...styles('root', states, this.props)}
+        {...styles('root', cssStates, this.props)}
         style={{ width, height }}
-        data-disabled={disabled || void 0}
-        data-hook={dataHook}
+        {...rootDataAttributes}
       >
-        {this._renderAddImage()}
+        {(hasNoPreviousImageWhileLoading || !hasImage) &&
+          this._renderAddImage()}
+
         {this._renderImage()}
-        {this._renderErrorIcon()}
+
+        {this._renderOverlayWith(
+          imageLoading
+            ? this._renderLoader()
+            : hasImage && this._renderButtons(),
+        )}
+
+        {hasError && this._renderErrorIcon()}
       </div>
     );
   }
@@ -199,6 +344,8 @@ ImageViewer.propTypes = {
   onUpdateImage: PropTypes.func,
   /** Remove image click handler */
   onRemoveImage: PropTypes.func,
+  /** called right after image loads */
+  onImageLoad: PropTypes.func,
   /** Add image tooltip */
   addImageInfo: PropTypes.string,
   /** Update image tooltip */

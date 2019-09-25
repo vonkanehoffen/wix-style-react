@@ -1,19 +1,16 @@
 import addItemDriverFactory from '../AddItem/AddItem.driver';
 import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
+import { dataAttributes, dataHooks } from './ImageViewer.constants';
+import { fireEvent } from '@testing-library/react';
 
 const imageViewerDriverFactory = ({ element, eventTrigger }) => {
-  const addItemDataHook = 'add-image';
-  const updateDataHook = 'update-image';
-  const imageDataHook = 'image-viewer-image';
-  const updateTooltipDataHook = 'update-image-tooltip';
-  const removeTooltipDataHook = 'remove-image-tooltip';
-  const errorTooltipDataHook = 'error-image-tooltip';
-  const removeDataHook = 'remove-image';
-
   const byHook = dataHook => element.querySelector(`[data-hook="${dataHook}"]`);
 
+  const hasDataAttribute = (dataAttr, el) =>
+    el.getAttribute(dataAttr) === 'true';
+
   const addItemDriver = addItemDriverFactory({
-    element,
+    element: byHook(dataHooks.addItem),
     eventTrigger,
   });
 
@@ -23,43 +20,78 @@ const imageViewerDriverFactory = ({ element, eventTrigger }) => {
       dataHook,
     });
 
-  const updateTooltip = tooltipTestkit(updateTooltipDataHook);
-  const removeTooltip = tooltipTestkit(removeTooltipDataHook);
-  const errorTooltip = tooltipTestkit(errorTooltipDataHook);
-  const addItem = addItemDriverFactory({
-    element: byHook('add-image'),
-    eventTrigger,
-  });
+  const getImageElement = () => byHook(dataHooks.image);
+  const getPreviousImageElement = () => byHook(dataHooks.previousImage);
+
+  const isImagesContainerElementVisible = () =>
+    hasDataAttribute(
+      dataAttributes.containerVisible,
+      byHook(dataHooks.imagesContainer),
+    );
+  const isImageElementVisible = imgElement =>
+    hasDataAttribute(dataAttributes.imageVisible, imgElement);
+
+  const hoverElement = () => fireEvent.mouseOver(element);
+  const showButtons = hoverElement;
 
   return {
     exists: () => !!element,
-    getElement: () => element,
-    getAddItemDataHook: () => addItemDataHook,
-    getContainerStyles: () => element.getAttribute('style'),
-    getImageUrl: () => byHook(imageDataHook).getAttribute('src'),
-    getErrorTooltipContent: () => {
-      errorTooltip.mouseEnter();
-      return errorTooltip.getContentElement().textContent;
+    getElement: () => element, // for backward compatibility
+    element: () => element, // same as unidriver language
+    updateExists: () => !!byHook(dataHooks.update),
+    updateButtonExists: () => !!byHook(dataHooks.update),
+    removeButtonExists: () => !!byHook(dataHooks.remove),
+    clickAdd: () => addItemDriver.click(),
+    clickUpdate: () => {
+      showButtons();
+      fireEvent.click(byHook(dataHooks.update));
     },
+    clickRemove: () => {
+      showButtons();
+      fireEvent.click(byHook(dataHooks.remove));
+    },
+    getContainerStyles: () => element.getAttribute('style'),
     getAddTooltipContent: () => addItemDriver.getTooltipContent(),
     getUpdateTooltipContent: () => {
+      const updateTooltip = tooltipTestkit(dataHooks.updateTooltip);
+      showButtons();
       updateTooltip.mouseEnter();
       return updateTooltip.getContentElement().textContent;
     },
     getRemoveTooltipContent: () => {
+      const removeTooltip = tooltipTestkit(dataHooks.removeTooltip);
+      showButtons();
       removeTooltip.mouseEnter();
       return removeTooltip.getContentElement().textContent;
     },
-    isAddItemVisible: () => !!byHook(addItemDataHook),
-    isImageVisible: () => !!byHook(imageDataHook),
-    isErrorVisible: () => !!byHook(errorTooltipDataHook),
+    getErrorTooltipContent: () => {
+      const errorTooltip = tooltipTestkit(dataHooks.errorTooltip);
+      errorTooltip.mouseEnter();
+      return errorTooltip.getContentElement().textContent;
+    },
     isDisabled: () => element.getAttribute('data-disabled') === 'true',
-    clickAdd: () => addItem.click(),
-    clickUpdate: () => eventTrigger.click(byHook(updateDataHook)),
-    updateButtonExists: () => !!byHook(updateDataHook),
-    clickRemove: () => eventTrigger.click(byHook(removeDataHook)),
-    removeButtonExists: () => !!byHook(removeDataHook),
-    updateExists: () => !!byHook(updateDataHook),
+    isAddItemVisible: () => !!byHook(dataHooks.addItem),
+    isLoaderVisible: () => !!byHook(dataHooks.loader),
+    isErrorVisible: () => !!byHook(dataHooks.errorTooltip),
+    isImageLoaded: () => hasDataAttribute(dataAttributes.imageLoaded, element),
+    isImageVisible: () => {
+      const image = getImageElement();
+      return isImageElementVisible(image) && isImagesContainerElementVisible();
+    },
+    isPreviousImageVisible: () => {
+      const previousImage = getPreviousImageElement();
+      return (
+        isImageElementVisible(previousImage) &&
+        isImagesContainerElementVisible()
+      );
+    },
+    getImageUrl: () =>
+      getImageElement() && getImageElement().getAttribute('src'),
+    getPreviousImageUrl: () => {
+      const previousImage = getPreviousImageElement();
+      return previousImage.getAttribute('src');
+    },
+    hover: () => hoverElement(),
   };
 };
 

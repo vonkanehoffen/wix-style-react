@@ -13,8 +13,18 @@
   -st-default: Focusable;
 }
 
+:vars {
+  overlayColor: rgba(32, 69, 94, 0.8);
+}
+
 .root {
-  -st-states: error, disabled, removeRadius;
+  -st-states:
+    error,
+    disabled,
+    removeRadius,
+    hasImage,
+    imageLoading;
+
   position: relative;
   width: 204.7px;
   height: 144px;
@@ -25,7 +35,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   transition: background 0.2s linear;
   overflow: hidden;
   backface-visibility: hidden;
@@ -36,20 +45,8 @@
   border-radius: 0;
 }
 
-.root:hover {
-  background-color: value(B40);
-}
-
-.root:hover .buttons {
-  display: flex;
-}
-
-.root:hover .image {
-  transform: scale(1.1);
-}
-
-.root:hover .imageBackground {
-  background-color: rgba(32, 69, 94, 0.8);
+.root:hasImage {
+  background-color: transparent;
 }
 
 .root:error {
@@ -59,7 +56,7 @@
 /** buttons group style **/
 
 .buttons {
-  display: none;
+  display: flex;
   color: white;
   justify-content: center;
   margin: auto;
@@ -71,41 +68,72 @@
   margin-left: 12px;
 }
 
+.root:imageLoading .buttons {
+  display: none;
+}
+
 /** image styles **/
 
 .imageContainer {
+  -st-states: shouldDisplay;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.imageBackground {
+
+.imageContainer:not(:shouldDisplay) {
+  display: none;
+}
+
+.overlay {
   -st-states: removeRadius;
   transition: all 0.1s linear;
   border-radius: value(radius08);
-  background-color: rgba(32, 69, 94, 0);
+  background-color: value(overlayColor);
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: flex-end;
   cursor: auto;
 }
 
-.imageBackground:removeRadius {
+.root:hasImage:hover .overlay,
+.root:imageLoading .overlay {
+  display: flex;
+}
+
+.root:hasImage:not(:imageLoading) .overlay {
+  cursor: pointer;
+}
+
+.overlay:removeRadius {
   border-radius: 0;
 }
 
 .image {
+  display: none;
   height: 100%;
   width: 100%;
   object-fit: cover;
   transform: scale(1);
   transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.image.imageVisible {
+  display: flex;
+}
+
+.root:hover .image {
+  transform: scale(1.1);
 }
 
 /** error styles **/
@@ -149,4 +177,9 @@
 .root:disabled .imageContainer {
   background-color: value(D50);
   transition: none;
+}
+
+.stretch {
+  width: 100%;
+  height: 100%;
 }
