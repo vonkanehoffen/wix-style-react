@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Fixed
+
+- `<FormField/>` - fix label color [#4158](https://github.com/wix/wix-style-react/pull/4158)
+
 ## 7.3.0 - 2019-09-24
 
 ### Added
