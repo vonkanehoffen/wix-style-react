@@ -9,12 +9,15 @@ $childrenMargin: 6px;
   flex-wrap: wrap;
   font-size: initial;
 
+  .children {
+    margin: auto 0;
+  }
+
   &.stretchContent {
     display: flex;
 
     .children {
       flex-grow: 1;
-      margin: auto 0;
     }
   }
 }

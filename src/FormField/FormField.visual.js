@@ -75,6 +75,22 @@ const testGroups = [
           {
             label: 'I have an Input',
             children: [<Input />],
+            stretchContent: false,
+          },
+          {
+            label: 'I have a ToggleSwitch',
+            children: [<ToggleSwitch size={'small'} />],
+            stretchContent: false,
+          },
+        ],
+      },
+      {
+        describe: 'Should render children with stretch',
+        labelPlacements: ['top', 'right', 'left'],
+        its: [
+          {
+            label: 'I have an Input',
+            children: [<Input />],
           },
           {
             label: 'I have a ToggleSwitch',
