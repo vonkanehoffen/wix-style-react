@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<CardGalleryItem />` - added prop `disabled` for primaryAction [#4160](https://github.com/wix/wix-style-react/pull/4160)
+- `<ImageViewer/>` - show a `<Loader/>` and the previous image while an image is loading; do not render `<AddItem/>` behind the image since it's visible in the background of transparent images [#4099](https://github.com/wix/wix-style-react/pull/4099)
 
 ### Fixed
 
