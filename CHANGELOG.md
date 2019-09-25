@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<CardGalleryItem />` - added prop `disabled` for primaryAction [#4160](https://github.com/wix/wix-style-react/pull/4160)
+
 ### Fixed
 
 - `<FormField/>` - fix label color [#4158](https://github.com/wix/wix-style-react/pull/4158)
