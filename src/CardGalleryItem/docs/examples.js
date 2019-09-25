@@ -87,3 +87,13 @@ export const backgroundImageNode = `
   }
 />
 `;
+
+export const disabledPrimaryAction = `
+<CardGalleryItem
+title="Card title"
+subtitle="Card subtitle"
+primaryActionProps={{label: 'Button', onClick:() => console.log('hello'), disabled: true, disabledMessage: 'Message Example' }}
+secondaryActionProps={{label: 'Text link', onClick:() => console.log('hello')}}
+backgroundImageUrl="https://static.wixstatic.com/media/89ea07a19c3d415e99a8a8a3c0ab1de8.jpg/v1/fill/w_343,h_343,al_c,q_80,usm_0.66_1.00_0.01/89ea07a19c3d415e99a8a8a3c0ab1de8.jpg"
+/>
+`;

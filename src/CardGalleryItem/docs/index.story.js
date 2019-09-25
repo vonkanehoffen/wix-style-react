@@ -133,6 +133,11 @@ export default {
                 'Component can display with background image node component instead background image URL.',
               source: examples.backgroundImageNode,
             },
+            {
+              title: 'Disabled Primary Action',
+              text: 'Primary Action can be disabled',
+              source: examples.disabledPrimaryAction,
+            },
           ].map(example),
         ],
       }),

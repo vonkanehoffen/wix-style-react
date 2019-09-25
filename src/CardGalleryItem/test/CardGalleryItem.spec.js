@@ -160,6 +160,19 @@ describe('CardGalleryItem', () => {
       expect(await driver.getPrimaryActionLabel()).toBe('Primary');
     });
 
+    it('should render a disabled primary button', async () => {
+      const driver = createDriver(
+        <CardGalleryItem
+          primaryActionProps={{
+            label: 'Primary',
+            disabled: true,
+          }}
+        />,
+      );
+
+      expect(await driver.isPrimaryActionDisabled()).toBe(true);
+    });
+
     it('on click on primary button should call once only primary action', async () => {
       const primaryActionOnClick = jest.fn();
       const secondaryActionOnClick = jest.fn();

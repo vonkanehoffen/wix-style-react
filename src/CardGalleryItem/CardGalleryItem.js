@@ -10,6 +10,7 @@ import Text from '../Text';
 import Heading from '../Heading';
 import Proportion from '../Proportion';
 import DataHooks from './CardGalletyItemDataHooks';
+import Tooltip from '../Tooltip';
 
 import styles from './CardGalleryItem.scss';
 import animationStyles from './CardGalleryItemAnimation.scss';
@@ -38,6 +39,10 @@ class CardGalleryItem extends React.Component {
       label: PropTypes.node,
       /** On click handler of primary action button and of the whole card */
       onClick: PropTypes.func,
+      /** Disable the primary action button */
+      disabled: PropTypes.bool,
+      /** Message to be displayed when primary action button is disabled */
+      disabledMessage: PropTypes.string,
     }).isRequired,
 
     /** Properties for secondary action text button */
@@ -93,10 +98,20 @@ class CardGalleryItem extends React.Component {
 
   _hoveredContent = (footerExists, badge) => {
     const {
-      primaryActionProps,
+      primaryActionProps: { label, disabled, disabledMessage },
       secondaryActionProps,
       settingsMenu,
     } = this.props;
+    const isDisabled = disabled === true;
+    const primaryAction = (
+      <Button dataHook={DataHooks.primaryAction} disabled={isDisabled}>
+        {label}
+      </Button>
+    );
+    const primaryActionWithTooltip = (
+      <Tooltip content={disabledMessage}>{primaryAction}</Tooltip>
+    );
+
     return (
       <div
         className={classNames(styles.hoveredContent, {
@@ -106,9 +121,9 @@ class CardGalleryItem extends React.Component {
       >
         {this._renderSettingsMenu(settingsMenu)}
         <div className={styles.primaryAction}>
-          <Button dataHook={DataHooks.primaryAction}>
-            {primaryActionProps.label}
-          </Button>
+          {disabled && disabledMessage
+            ? primaryActionWithTooltip
+            : primaryAction}
 
           <div className={styles.secondaryAction}>
             <TextButton

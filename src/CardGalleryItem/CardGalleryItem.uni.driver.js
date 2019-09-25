@@ -40,6 +40,8 @@ const cardGalleryItemDriverFactory = base => {
       await (await getPrimaryAction(base)).click();
     },
     getPrimaryActionLabel: async () => (await getPrimaryAction(base)).text(),
+    isPrimaryActionDisabled: async () =>
+      (await getPrimaryAction(base))._prop('disabled'),
     clickOnPrimaryAction: async () => (await getPrimaryAction(base)).click(),
     getSecondaryActionLabel: async () =>
       (await getSecondaryAction(base)).text(),
