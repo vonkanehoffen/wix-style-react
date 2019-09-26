@@ -52,7 +52,8 @@ export default class DatePicker extends WixComponent {
       deprecationLog('DatePicker isOpen is deprecated. Please use initialOpen');
     }
 
-    const initialOpen = props.initialOpen || props.isOpen || false;
+    const initialOpen =
+      (!!props.initialOpen || !!props.isOpen) && !props.disabled;
 
     this.state = {
       value: props.value || new Date(),
