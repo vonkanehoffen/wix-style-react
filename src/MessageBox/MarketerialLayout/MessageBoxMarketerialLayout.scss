@@ -79,6 +79,10 @@ $headerImageHeight: 185px;
   padding-bottom: 44px;
 }
 
+.empty-buttons-container {
+  padding-bottom: 0.1px;
+}
+
 .primary-button-container {
   @include FontLight();
   font-size: 14px;

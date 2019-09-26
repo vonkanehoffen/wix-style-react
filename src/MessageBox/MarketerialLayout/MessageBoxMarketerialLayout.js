@@ -16,22 +16,23 @@ class MessageBoxMarketerialLayout extends WixComponent {
       title,
       content,
       primaryButtonLabel,
-      primaryButtonDisabled,
       secondaryButtonLabel,
-      onPrimaryButtonClick,
-      onSecondaryButtonClick,
       imageUrl,
       onClose,
       theme,
-      primaryButtonTheme,
       imageComponent,
       footerBottomChildren,
+      removeButtonsPadding,
     } = this.props;
 
     const headerClasses = classNames({
       [styles.header]: true,
       [styles[`header-${theme}`]]: true,
     });
+
+    // instead of introducing a breaking change for padding removal for non buttons existence, we add this prop
+    const shouldRemoveButtonsPadding =
+      removeButtonsPadding && !primaryButtonLabel & !secondaryButtonLabel;
 
     return (
       <div className={styles.root}>
@@ -60,30 +61,12 @@ class MessageBoxMarketerialLayout extends WixComponent {
             {content}
           </Text>
         </div>
-        <div className={styles.buttonsContainer}>
-          {primaryButtonLabel ? (
-            <div className={styles.primaryButtonContainer}>
-              <Button
-                theme={`full${primaryButtonTheme || theme}`}
-                onClick={onPrimaryButtonClick}
-                dataHook="primary-button"
-                disabled={primaryButtonDisabled}
-              >
-                {primaryButtonLabel}
-              </Button>
-            </div>
-          ) : null}
-          {secondaryButtonLabel && !footerBottomChildren ? (
-            <div className={styles.secondaryButtonContainer}>
-              <span
-                onClick={onSecondaryButtonClick}
-                data-hook="secondary-button"
-              >
-                {secondaryButtonLabel}
-              </span>
-            </div>
-          ) : null}
-        </div>
+
+        {shouldRemoveButtonsPadding ? (
+          <div className={styles.emptyButtonsContainer} />
+        ) : (
+          this._renderButtons()
+        )}
         {footerBottomChildren ? (
           <div
             data-hook="footer-layout-bottom-children"
@@ -94,6 +77,42 @@ class MessageBoxMarketerialLayout extends WixComponent {
       </div>
     );
   }
+
+  _renderButtons = () => {
+    const {
+      primaryButtonLabel,
+      primaryButtonTheme,
+      theme,
+      onPrimaryButtonClick,
+      primaryButtonDisabled,
+      secondaryButtonLabel,
+      footerBottomChildren,
+      onSecondaryButtonClick,
+    } = this.props;
+    return (
+      <div className={styles.buttonsContainer}>
+        {primaryButtonLabel ? (
+          <div className={styles.primaryButtonContainer}>
+            <Button
+              theme={`full${primaryButtonTheme || theme}`}
+              onClick={onPrimaryButtonClick}
+              dataHook="primary-button"
+              disabled={primaryButtonDisabled}
+            >
+              {primaryButtonLabel}
+            </Button>
+          </div>
+        ) : null}
+        {secondaryButtonLabel && !footerBottomChildren ? (
+          <div className={styles.secondaryButtonContainer}>
+            <span onClick={onSecondaryButtonClick} data-hook="secondary-button">
+              {secondaryButtonLabel}
+            </span>
+          </div>
+        ) : null}
+      </div>
+    );
+  };
 }
 
 MessageBoxMarketerialLayout.propTypes = {
@@ -110,10 +129,12 @@ MessageBoxMarketerialLayout.propTypes = {
   footerBottomChildren: PropTypes.node,
   theme: PropTypes.oneOf(['blue', 'purple', 'white']),
   primaryButtonTheme: PropTypes.oneOf(['blue', 'purple']),
+  removeButtonsPadding: PropTypes.bool,
 };
 
 MessageBoxMarketerialLayout.defaultProps = {
   theme: 'blue',
+  removeButtonsPadding: false,
 };
 
 export default MessageBoxMarketerialLayout;
