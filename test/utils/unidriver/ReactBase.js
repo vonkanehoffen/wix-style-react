@@ -25,23 +25,6 @@ export function ReactBase(base) {
         return base.enterValue(value);
       }
     },
-    /**
-     * Workaround Unidriver react adapter's implementation which dispatches a RAL event, that gets nullified by React.
-     * Pending fix in unidriver.
-     */
-    click: async eventData => {
-      if (base.type === 'react') {
-        // setting button 0 is now needed in React 16+ as it's not set by react anymore
-        // 15 - https://github.com/facebook/react/blob/v15.6.1/src/renderers/dom/client/syntheticEvents/SyntheticMouseEvent.js#L45
-        // 16 - https://github.com/facebook/react/blob/master/packages/react-dom/src/events/SyntheticMouseEvent.js#L33
-        const elm = await htmlElement();
-        Simulate.mouseDown(elm);
-        Simulate.mouseUp(elm);
-        Simulate.click(elm, eventData ? eventData : { button: 0 });
-      } else {
-        return base.click();
-      }
-    },
   };
 
   const pendingUnidriverFeatures = {

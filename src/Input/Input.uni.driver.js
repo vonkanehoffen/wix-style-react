@@ -49,7 +49,7 @@ export const testkit = base => {
       (await base.$$(`.${styles.prefix} ${style}`).count()) === 1,
     hasPrefix: async () => (await base.$$(`.${styles.prefix}`).count()) === 1,
     hasClearButton: async () => await clearButtonNode.exists(),
-    clickClear: async () => await ReactBase(clearButtonNode).click(),
+    clickClear: async () => await clearButtonNode.click(),
     getValue: async () => await input.value(),
     getText: async () => await input.value(),
     getPlaceholder: async () => await input.attr('placeholder'),

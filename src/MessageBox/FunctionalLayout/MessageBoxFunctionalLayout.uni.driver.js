@@ -19,7 +19,7 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
       (await confirmationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isConfirmationButtonSuffixIconExists: async () =>
       (await confirmationButton()._prop('innerHTML')).indexOf('suffix') !== -1,
-    clickOnConfirmationButton: () => confirmationButtonReactBase.click(),
+    clickOnConfirmationButton: () => confirmationButton().click(),
     getConfirmationButton: () => getElement(confirmationButton()),
     getCancellationButton: () => getElement(cancellationButton()),
     getHeaderCloseButton: () => getElement(headerCloseButton()),
@@ -28,8 +28,8 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
       (await cancellationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isCancellationButtonSuffixIconExists: async () =>
       (await cancellationButton()._prop('innerHTML')).indexOf('suffix') !== -1,
-    clickOnCancellationButton: () => cancellationButtonReactBase.click(),
-    clickOnHeaderCloseButton: () => ReactBase(headerCloseButton()).click(),
+    clickOnCancellationButton: () => cancellationButton().click(),
+    clickOnHeaderCloseButton: () => headerCloseButton().click(),
     isThemeExist: theme => base.$(`.${theme}`).exists(),
     getFooter: () => getElement(base.$('[data-hook="message-box-footer"]')),
     getTitle: () => base.$('[data-hook="header-layout-title"]').text(),
