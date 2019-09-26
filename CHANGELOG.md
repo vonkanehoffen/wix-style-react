@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Changed
+- `<Checkbox/>` - use new tooltip [#4170](https://github.com/wix/wix-style-react/pull/4170)
+
 ## 7.4.0 - 2019-09-26
 
 ### Added
@@ -22,9 +27,6 @@ Types of changes:
 
 ### Docs
 - `<DatePicker/>` - Added documentation [#4170](https://github.com/wix/wix-style-react/pull/4170)
-
-### Changed
-- `<Checkbox/>` - use new tooltip [#4170](https://github.com/wix/wix-style-react/pull/4170)
 
 ## 7.3.2  - 2019-09-25
 - Internal changes
