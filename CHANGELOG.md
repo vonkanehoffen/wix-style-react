@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<AddItem/>` - 2 new props: removeIcon and removePadding [#4166](https://github.com/wix/wix-style-react/pull/4166)
 - `<MessageBoxMarketerialLayout/>` - add buttons padding removal prop [#4168](https://github.com/wix/wix-style-react/pull/4168)
+- `<DatePicker/>` - Added documentation [#4170](https://github.com/wix/wix-style-react/pull/4170)
 
 ## 7.3.2  - 2019-09-25
 - Internal changes
