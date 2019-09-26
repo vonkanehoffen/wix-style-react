@@ -14,7 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.3.2  - 2019-09-25
+- Internal changes
+
+## 7.3.1 - 2019-09-25
 
 ### Added
 - `<CardGalleryItem />` - added prop `disabled` for primaryAction [#4160](https://github.com/wix/wix-style-react/pull/4160)
