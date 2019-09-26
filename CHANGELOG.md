@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<DatePicker/>` - prop initialOpen should not work when disabled [#4174](https://github.com/wix/wix-style-react/pull/4174)
+
 ### Changed
 - `<Checkbox/>` - use new tooltip [#4170](https://github.com/wix/wix-style-react/pull/4170)
 
