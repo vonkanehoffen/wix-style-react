@@ -60,3 +60,7 @@ export const content = `
     </div>
   </Layout>
 `;
+
+export const showIcon = `<AddItem showIcon={false}>Add Item</AddItem>`;
+
+export const removePadding = `<AddItem showIcon={false} removePadding={true}>Add Item</AddItem>`;

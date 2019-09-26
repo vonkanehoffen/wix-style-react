@@ -70,12 +70,20 @@ class AddItem extends Component {
 
     /** tooltip content placement in relation to target element */
     tooltipPlacement: PropTypes.string,
+
+    /** Displays the plus icon */
+    showIcon: PropTypes.bool,
+
+    /** Removes padding */
+    removePadding: PropTypes.bool,
   };
 
   static defaultProps = {
     theme: 'dashes',
     size: 'tiny',
     alignItems: 'center',
+    showIcon: true,
+    removePadding: false,
   };
 
   _getTextColor = () => (this.props.disabled ? colors['D10-30'] : colors.B10);
@@ -115,11 +123,11 @@ class AddItem extends Component {
   };
 
   _renderContent = () => {
-    const { theme, alignItems, size, disabled } = this.props;
+    const { theme, alignItems, size, disabled, showIcon } = this.props;
 
     const container = (
       <div {...style('content', { theme, size, alignItems, disabled })}>
-        {this._renderIcon()}
+        {showIcon && this._renderIcon()}
         {this._renderText()}
       </div>
     );
@@ -138,11 +146,12 @@ class AddItem extends Component {
       theme,
       focusableOnFocus,
       focusableOnBlur,
+      removePadding,
     } = this.props;
 
     return (
       <button
-        {...style('root', { theme }, this.props)}
+        {...style('root', { theme, removePadding }, this.props)}
         data-hook={dataHook}
         disabled={disabled}
         type="button"

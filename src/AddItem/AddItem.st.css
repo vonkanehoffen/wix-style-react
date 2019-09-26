@@ -24,7 +24,7 @@
 
 .root {
   -st-extends: Focusable;
-  -st-states: theme(enum(dashes, plain, filled, image));
+  -st-states: theme(enum(dashes, plain, filled, image)), removePadding;
   display: flex;
   height: 100%;
   width: 100%;
@@ -35,6 +35,10 @@
   justify-content: center;
   padding: 12px 30px;
   color: value(B10);
+}
+
+.root:removePadding {
+  padding: 0;
 }
 
 .root:not(:disabled):focus-visible {

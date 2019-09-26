@@ -94,6 +94,24 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'showIcon',
+    its: [
+      {
+        it: 'showIcon false',
+        props: { showIcon: false },
+      },
+    ],
+  },
+  {
+    describe: 'removePadding',
+    its: [
+      {
+        it: 'removePadding true',
+        props: { removePadding: true },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

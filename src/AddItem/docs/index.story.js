@@ -130,6 +130,16 @@ export default {
               text: 'AddItem can be disabled.',
               source: examples.states,
             },
+            {
+              title: 'Show Icon',
+              text: 'When set to false, icon is removed.',
+              source: examples.showIcon,
+            },
+            {
+              title: 'Remove Padding',
+              text: 'When set to true, padding is removed',
+              source: examples.removePadding,
+            },
           ].map(example),
         ],
       }),
