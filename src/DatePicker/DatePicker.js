@@ -41,6 +41,8 @@ export default class DatePicker extends WixComponent {
     rtl: false,
     width: 150,
     zIndex: 1,
+    disabled: false,
+    error: false,
   };
 
   constructor(props) {
@@ -321,13 +323,13 @@ DatePicker.propTypes = {
    * */
   isOpen: PropTypes.bool,
 
-  /** Controls the whether the calendar will be initially visible or not*/
+  /** Controls the whether the calendar will be initially visible or not */
   initialOpen: PropTypes.bool,
 
-  /** will show exclamation icon when true **/
+  /** will show exclamation icon when true */
   error: PropTypes.bool,
 
-  /** will display message when hovering error icon **/
+  /** will display message when hovering error icon */
   errorMessage: PropTypes.node,
 
   /** set desired width of DatePicker input */

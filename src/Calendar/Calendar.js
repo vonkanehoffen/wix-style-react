@@ -24,6 +24,11 @@ export default class Calendar extends WixComponent {
     shouldCloseOnSelect: true,
     onClose: () => {},
     autoFocus: true,
+    excludePastDates: false,
+    selectionMode: 'day',
+    showMonthDropdown: false,
+    showYearDropdown: false,
+    numOfMonths: 1,
   };
 
   constructor(props) {
@@ -373,7 +378,11 @@ Calendar.propTypes = {
   /** Past dates are unselectable */
   excludePastDates: PropTypes.bool,
 
-  /** Only the truthy dates are selectable */
+  /**
+   * ##### Determines selectable dates
+   *  * `param` {Date} `date` - a date to check
+   *  * `return` {boolean} - true if `date` should be selectable, false otherwise
+   */
   filterDate: PropTypes.func,
 
   /** The selected date */

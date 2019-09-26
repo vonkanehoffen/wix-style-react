@@ -6,7 +6,6 @@ import {
   header,
   title,
   divider,
-  columns,
   tabs,
   tab,
   api,
