@@ -1,7 +1,6 @@
 import addItemDriverFactory from '../AddItem/AddItem.driver';
 import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
 import { dataAttributes, dataHooks } from './ImageViewer.constants';
-import { fireEvent } from '@testing-library/react';
 
 const imageViewerDriverFactory = ({ element, eventTrigger }) => {
   const byHook = dataHook => element.querySelector(`[data-hook="${dataHook}"]`);
@@ -31,7 +30,7 @@ const imageViewerDriverFactory = ({ element, eventTrigger }) => {
   const isImageElementVisible = imgElement =>
     hasDataAttribute(dataAttributes.imageVisible, imgElement);
 
-  const hoverElement = () => fireEvent.mouseOver(element);
+  const hoverElement = () => eventTrigger.mouseOver(element);
   const showButtons = hoverElement;
 
   return {
@@ -44,11 +43,11 @@ const imageViewerDriverFactory = ({ element, eventTrigger }) => {
     clickAdd: () => addItemDriver.click(),
     clickUpdate: () => {
       showButtons();
-      fireEvent.click(byHook(dataHooks.update));
+      eventTrigger.click(byHook(dataHooks.update));
     },
     clickRemove: () => {
       showButtons();
-      fireEvent.click(byHook(dataHooks.remove));
+      eventTrigger.click(byHook(dataHooks.remove));
     },
     getContainerStyles: () => element.getAttribute('style'),
     getAddTooltipContent: () => addItemDriver.getTooltipContent(),
