@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
+- `<AddItem/>` - 2 new props: removeIcon and removePadding [#4166](https://github.com/wix/wix-style-react/pull/4166)
 - `<MessageBoxMarketerialLayout/>` - add buttons padding removal prop [#4168](https://github.com/wix/wix-style-react/pull/4168)
 
 ## 7.3.2  - 2019-09-25
