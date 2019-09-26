@@ -115,14 +115,13 @@ class Checkbox extends WixComponent {
 
         <Label for={id} dataHook="checkbox-label">
           <Tooltip
+            upgrade
             dataHook="checkbox-box"
             disabled={disabled || !hasError || !errorMessage}
             placement={'top'}
-            alignment="center"
+            textAlign="center"
             content={errorMessage || ' '}
-            overlay=""
-            theme="dark"
-            maxWidth="230px"
+            maxWidth={230}
             hideDelay={150}
             zIndex={10000}
           >

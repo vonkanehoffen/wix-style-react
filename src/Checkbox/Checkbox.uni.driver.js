@@ -1,7 +1,7 @@
 import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.uni.driver';
-import { testkitTooltip as tooltipUniDriverFactory } from '../Tooltip/Tooltip.uni.driver';
+import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
 import * as DATA_ATTR from './DataAttr';
 
@@ -15,7 +15,7 @@ export const checkboxUniDriverFactory = (base, body) => {
   const labelDriver = async () =>
     labelUniDriverFactory(base.$('[data-hook="checkbox-label"]'));
   const tooltipDriver = async () =>
-    tooltipUniDriverFactory(base.$('[data-hook="checkbox-box"]'), body);
+    tooltipDriverFactory(base.$('[data-hook="checkbox-box"]'), body);
 
   return {
     ...baseUniDriverFactory(base),
@@ -50,7 +50,7 @@ export const checkboxUniDriverFactory = (base, body) => {
     getErrorMessage: async () => {
       try {
         const newVar = await tooltipDriver();
-        return newVar.hoverAndGetContent();
+        return newVar.getTooltipText();
       } catch (e) {
         throw new Error('Failed getting checkbox error message');
       }

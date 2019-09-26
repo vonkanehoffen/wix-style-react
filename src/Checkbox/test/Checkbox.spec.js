@@ -90,18 +90,18 @@ describe('Checkbox', () => {
       const { driver } = render(
         <Checkbox hasError errorMessage={errorMessage} disabled />,
       );
-      expect(driver.getErrorMessage()).rejects.toThrow(Error);
+      await expect(driver.getErrorMessage()).rejects.toThrow(Error);
     });
 
     it('should not show error message when no error message stated', async () => {
       const { driver } = render(<Checkbox hasError />);
-      expect(driver.getErrorMessage()).rejects.toThrow(Error);
+      await expect(driver.getErrorMessage()).rejects.toThrow(Error);
     });
 
     it('should not show error message when not in error state', async () => {
       const errorMessage = 'Error message';
       const { driver } = render(<Checkbox errorMessage={errorMessage} />);
-      expect(driver.getErrorMessage()).rejects.toThrow(Error);
+      await expect(driver.getErrorMessage()).rejects.toThrow(Error);
     });
 
     it('should not have error when disabled', async () => {

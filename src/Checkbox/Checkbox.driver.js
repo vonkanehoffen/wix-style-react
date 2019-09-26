@@ -1,24 +1,31 @@
 import { isClassExists } from '../../test/utils';
 import { labelDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.driver';
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
+//TODO - add tooltip classic driver in the correct place
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import styles from './Checkbox.scss';
 
 const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);
-const toolTipTestkitFactory = testkitFactoryCreator(tooltipDriverFactory);
 
 const checkboxDriverFactory = ({ element, eventTrigger }) => {
+  const byHook = hook => element.querySelector(`[data-hook*="${hook}"]`);
   const input = () => element.querySelector('input');
   const checkbox = () => element.querySelector(styles.checkbox);
   const labelDriver = () =>
     labelTestkitFactory({ wrapper: element, dataHook: 'checkbox-label' });
-  const tooltipDriver = () =>
-    toolTipTestkitFactory({ wrapper: element, dataHook: 'checkbox-box' });
   const isChecked = () => input().checked;
 
   const getErrorMessage = async () => {
+    const tooltipTestkit = tooltipDriverFactory({
+      element: byHook('checkbox-box'),
+      eventTrigger,
+    });
+
     try {
-      return await tooltipDriver().hoverAndGetContent();
+      tooltipTestkit.mouseEnter();
+      const contentElement = tooltipTestkit.getContentElement();
+      tooltipTestkit.mouseLeave();
+      return await contentElement.textContent;
     } catch (e) {
       throw new Error('Failed getting checkbox error message');
     }
