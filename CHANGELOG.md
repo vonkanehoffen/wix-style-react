@@ -15,6 +15,8 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+### Added
+- `<BarChart/>` - new component [#4092](https://github.com/wix/wix-style-react/pull/4092)
 
 ### Fixed
 - `<DatePicker/>` - prop initialOpen should not work when disabled [#4174](https://github.com/wix/wix-style-react/pull/4174)
