@@ -587,6 +587,12 @@ export const fillButtonTestkitFactory = protractorUniTestkitFactoryCreator(
   fillButtonDriverFactory,
 );
 
+import barChartDriverFactory from '../src/BarChart/BarChart.uni.driver';
+
+export const barChartTestkitFactory = protractorUniTestkitFactoryCreator(
+  barChartDriverFactory,
+);
+
 import inputWithLabelDriverFactory from '../src/InputWithLabel/InputWithLabel.uni.driver';
 
 export const inputWithLabelTestkitFactory = protractorUniTestkitFactoryCreator(

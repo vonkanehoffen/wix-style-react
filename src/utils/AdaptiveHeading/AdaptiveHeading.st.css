@@ -1,7 +1,7 @@
 /* https://www.kizu.ru/flexible-overflow/ */
 .headerWrapper {
   -st-states: appearance(string);
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   line-height: 1.5em;
   height: 1.5em;
@@ -9,7 +9,7 @@
   box-sizing: border-box;
   max-width: 100%;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .headerWrapper:appearance(H3){
@@ -21,6 +21,8 @@
   display: block;
   width: 0;
   flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* Popover wrapper  */
 .headerShort > * > * {
@@ -30,6 +32,11 @@
 
 .headerFull {
   flex-basis: 100%;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 

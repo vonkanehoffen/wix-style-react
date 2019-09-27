@@ -189,7 +189,9 @@
   },
   "Modal": {
     "path": "src/Modal",
-    "missingFiles": ["docs/index.story.js"]
+    "missingFiles": [
+      "docs/index.story.js"
+    ]
   },
   "ModalSelectorLayout": {
     "path": "src/ModalSelectorLayout"
@@ -345,13 +347,13 @@
   "FillButton": {
     "path": "src/FillButton"
   },
+  "BarChart": {
+    "path": "src/BarChart"
+  },
   "LabelledElement": {
     "path": "src/LabelledElement"
   },
   "InputWithLabel": {
     "path": "src/InputWithLabel"
-  },
-  "LabelledElement": {
-    "path": "src/LabelledElement"
   }
 }

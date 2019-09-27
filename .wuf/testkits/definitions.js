@@ -768,4 +768,9 @@ module.exports = {
     unidriver: true,
     testkitPath: '../src/InputWithLabel/InputWithLabel.uni.driver',
   },
+
+  BarChart: {
+    unidriver: true,
+    testkitPath: "../src/BarChart/BarChart.uni.driver"
+  }
 };

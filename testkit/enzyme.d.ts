@@ -129,6 +129,7 @@ declare namespace EnzymeTestkit {
   export const statisticsWidgetTestkitFactory: any;
   export const fillPreviewTestkitFactory: any;
   export const fillButtonTestkitFactory: any;
+  export const barChartTestkitFactory: any;
   export const labelledElementTestkitFactory: EnzymeUniTestkitFactory<
     LabelledElementDriver
   >;

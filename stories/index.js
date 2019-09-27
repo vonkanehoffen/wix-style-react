@@ -154,6 +154,7 @@ require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 require('../src/LabelledElement/docs/index.story');
 require('../src/InputWithLabel/docs/index.story');
+require('../src/BarChart/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');

@@ -10,7 +10,8 @@ export const adaptiveHeadingDriverFactory = base => {
       const short = await base.$(`[data-hook="${DataHooks.textInShort}"]`);
 
       if (await short.exists()) {
-        return short.text();
+        const text = await short.text();
+        return text || null;
       }
 
       return null;
@@ -21,7 +22,8 @@ export const adaptiveHeadingDriverFactory = base => {
       const long = await base.$(`[data-hook="${DataHooks.text}"]`);
 
       if (await long.exists()) {
-        return long.text();
+        const text = await long.text();
+        return text || null;
       }
 
       return base.text();

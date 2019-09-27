@@ -467,6 +467,12 @@ export const fillButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(
   fillButtonDriverFactory,
 );
 
+import barChartDriverFactory from '../src/BarChart/BarChart.uni.driver';
+
+export const barChartTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  barChartDriverFactory,
+);
+
 import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
 
 export const labelledElementTestkitFactory = puppeteerUniTestkitFactoryCreator(

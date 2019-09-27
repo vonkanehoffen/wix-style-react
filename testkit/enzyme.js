@@ -140,6 +140,7 @@ export const modalPreviewLayoutTestkitFactory = enzymeUniTestkitFactoryCreator(l
 export const statisticsWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/StatisticsWidget/StatisticsWidget.uni.driver')));
 export const fillPreviewTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FillPreview/FillPreview.uni.driver')));
 export const fillButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FillButton/FillButton.uni.driver')));
+export const barChartTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/BarChart/BarChart.uni.driver')));
 export const labelledElementTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
 export const inputWithLabelTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/InputWithLabel/InputWithLabel.uni.driver')));
 export const sideMenuDrillTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
