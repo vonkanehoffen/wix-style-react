@@ -425,7 +425,7 @@ export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
   timeInputUniDriverFactory,
 );
 
-import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.uni.driver';
+import toggleSwitchDriverFactory from '../src/ToggleSwitch/test/ToggleSwitch.uni.driver';
 
 export const toggleSwitchTestkitFactory = puppeteerUniTestkitFactoryCreator(
   toggleSwitchDriverFactory,

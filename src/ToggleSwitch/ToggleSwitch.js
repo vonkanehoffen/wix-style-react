@@ -22,7 +22,7 @@ const StyledToggleSwitch = withStylable(
   defaultProps,
 );
 
-export class ToggleSwitch extends React.PureComponent {
+class ToggleSwitch extends React.PureComponent {
   render() {
     const { styles, dataHook, ...desiredProps } = this.props;
 
@@ -53,3 +53,5 @@ ToggleSwitch.propTypes = {
   'aria-label': PropTypes.string,
   // why is styles taken from props in BO code and unused?
 };
+
+export default ToggleSwitch;
