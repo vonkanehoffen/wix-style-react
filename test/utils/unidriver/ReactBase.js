@@ -65,6 +65,9 @@ export function ReactBase(base) {
       Simulate.mouseEnter(await htmlElement(), eventData),
     mouseLeave: async eventData =>
       Simulate.mouseLeave(await htmlElement(), eventData),
+  };
+
+  const _private = {
     mouseDown: async eventData =>
       Simulate.mouseDown(await htmlElement(), eventData),
     mouseOver: async eventData =>
@@ -78,6 +81,7 @@ export function ReactBase(base) {
     ...unidriverRejected,
     ...shouldBeDeprecated,
     ...shouldBePrivate,
+    _private,
   };
 }
 
