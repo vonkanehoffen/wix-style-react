@@ -754,6 +754,11 @@ module.exports = {
     testkitPath: '../src/LabelledElement/LabelledElement.uni.driver',
   },
 
+  ComposerHeader: {
+    unidriver: true,
+    testkitPath: "../src/ComposerHeader/ComposerHeader.uni.driver"
+  },
+  
   FillPreview: {
     unidriver: true,
     testkitPath: '../src/FillPreview/FillPreview.uni.driver',

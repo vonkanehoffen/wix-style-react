@@ -60,6 +60,7 @@ require('../src/CircularProgressBar/docs/index.story');
 require('../src/Collapse/docs/index.story');
 require('../src/ColorInput/docs/index.story');
 require('../src/ColorPicker/docs/index.story');
+require('../src/ComposerHeader/docs/index.story');
 require('../src/CounterBadge/docs/index.story');
 require('../src/CloseButton/docs/index.story');
 require('../src/DataTable/docs');
@@ -168,6 +169,7 @@ require('../src/IconButton/test/testStory'); // Tests/5. Button/5.2 IconButton
 require('../src/TextButton/test/testStory'); // Tests/5. Button/5.3 TextButton
 require('../src/CloseButton/test/testStory'); // Tests/5. Button/5.4 CloseButton
 require('../src/Calendar/docs/CalendarTestStory'); // Tests/3. Inputs/3.13 Calendar
+//require('../src/ComposerHeader/test/ComposerHeaderStories');
 require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
 require('../src/Stepper/test/StepperWindowResizeTest');

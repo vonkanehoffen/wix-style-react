@@ -575,6 +575,12 @@ export const statisticsWidgetTestkitFactory = protractorUniTestkitFactoryCreator
   statisticsWidgetDriverFactory,
 );
 
+import composerHeaderDriverFactory from '../src/ComposerHeader/ComposerHeader.uni.driver';
+
+export const composerHeaderTestkitFactory = protractorUniTestkitFactoryCreator(
+  composerHeaderDriverFactory,
+);
+
 import fillPreviewDriverFactory from '../src/FillPreview/FillPreview.uni.driver';
 
 export const fillPreviewTestkitFactory = protractorUniTestkitFactoryCreator(

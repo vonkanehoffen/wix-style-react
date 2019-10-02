@@ -142,6 +142,7 @@ export { default as ModalPreviewLayout } from './ModalPreviewLayout';
 export { default as StatisticsWidget } from './StatisticsWidget';
 export { default as LabelledElement } from './LabelledElement';
 export { default as InputWithLabel } from './InputWithLabel';
+export { default as ComposerHeader } from './ComposerHeader';
 export { default as Stepper } from './Stepper';
 export { default as Skeleton } from './Skeleton';
 export { default as FillPreview } from './FillPreview';

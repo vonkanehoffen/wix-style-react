@@ -138,6 +138,7 @@ export const sidebarDividerTestkitFactory = enzymeUniTestkitFactoryCreator(load(
 export const sidebarHeaderTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/SidebarHeader/SidebarHeader.uni.driver')));
 export const modalPreviewLayoutTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver')));
 export const statisticsWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/StatisticsWidget/StatisticsWidget.uni.driver')));
+export const composerHeaderTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/ComposerHeader/ComposerHeader.uni.driver')));
 export const fillPreviewTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FillPreview/FillPreview.uni.driver')));
 export const fillButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/FillButton/FillButton.uni.driver')));
 export const barChartTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/BarChart/BarChart.uni.driver')));

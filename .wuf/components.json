@@ -341,6 +341,9 @@
   "StatisticsWidget": {
     "path": "src/StatisticsWidget"
   },
+  "ComposerHeader": {
+    "path": "src/ComposerHeader"
+  },
   "FillPreview": {
     "path": "src/FillPreview"
   },

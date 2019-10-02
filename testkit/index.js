@@ -138,6 +138,7 @@ export const sidebarDividerTestkitFactory = uniTestkitFactoryCreator(load(requir
 export const sidebarHeaderTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarHeader/SidebarHeader.uni.driver')));
 export const modalPreviewLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver')));
 export const statisticsWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/StatisticsWidget/StatisticsWidget.uni.driver')));
+export const composerHeaderTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ComposerHeader/ComposerHeader.uni.driver')));
 export const fillPreviewTestkitFactory = uniTestkitFactoryCreator(load(require('../src/FillPreview/FillPreview.uni.driver')));
 export const fillButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/FillButton/FillButton.uni.driver')));
 export const barChartTestkitFactory = uniTestkitFactoryCreator(load(require('../src/BarChart/BarChart.uni.driver')));

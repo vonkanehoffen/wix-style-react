@@ -1,0 +1,68 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-named: D60;
+}
+
+.root {
+  -st-states: size(enum(small, medium));
+  padding-left: 24px;
+  padding-right: 24px;
+   
+  height: 36px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.root:size(small) {
+  height: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.actions > :not(:last-child) {
+  margin-right: 12px;
+}
+
+.actions > .saveStatus {
+  margin-right: 24px;
+}
+
+.mainActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainActions > :not(:last-child) {
+  margin-right: 12px;
+}
+
+.backButton {
+  white-space: nowrap;
+}
+
+.divider {
+  width: 1px;
+  min-width: 1px;
+  height: 24px;
+  background-color: value(D60); 
+  margin-left: 20px;
+  margin-right: 20px;
+}
