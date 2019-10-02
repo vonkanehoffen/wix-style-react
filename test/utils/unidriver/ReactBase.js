@@ -81,10 +81,15 @@ export function ReactBase(base) {
     ...unidriverRejected,
     ...shouldBeDeprecated,
     ...shouldBePrivate,
-    _private,
+    _private, // should be used inside private drivers only
   };
 }
 
+/*
+ Deprecated - still here for backward compatibility.
+ No need to use it inside new drivers, because drivers should not expose clickOutside functions.
+ Tests should click on the outside container regardless easily without the help of a driver.
+  */
 ReactBase.clickBody = () =>
   document.body.dispatchEvent(new Event('mouseup', { cancelable: true }));
 // TODO: Find out why some tests need clickOutSide to be on document and some on body
