@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 ### Added
 - `<BarChart/>` - new component [#4092](https://github.com/wix/wix-style-react/pull/4092)
+- `<ComposerHeader/>` - new component [#4107](https://github.com/wix/wix-style-react/pull/4107)
 
 ### Fixed
 - `<DatePicker/>` - prop initialOpen should not work when disabled [#4174](https://github.com/wix/wix-style-react/pull/4174)
