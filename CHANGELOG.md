@@ -14,7 +14,8 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.5.0 - 2019-10-02
+
 ### Added
 - `<BarChart/>` - new component [#4092](https://github.com/wix/wix-style-react/pull/4092)
 - `<ComposerHeader/>` - new component [#4107](https://github.com/wix/wix-style-react/pull/4107)
