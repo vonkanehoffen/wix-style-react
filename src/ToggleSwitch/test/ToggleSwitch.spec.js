@@ -1,37 +1,121 @@
-import React from 'react';
-import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
-
-import ToggleSwitch from '../ToggleSwitch';
-import { toggleSwitchPrivateDriverFactory } from './ToggleSwitch.private.uni.driver';
+import * as React from 'react';
+import { toggleSwitchDriverFactory } from './ToggleSwitch.driver';
+import { ToggleSwitch } from '.';
+import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
+import { isEnzymeTestkitExists } from 'wix-ui-test-utils/enzyme';
+import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
+import { mount } from 'enzyme';
+import { toggleSwitchTestkitFactory } from '../../testkit';
+import { toggleSwitchTestkitFactory as enzymeToggleSwitchTestkitFactory } from '../../testkit/enzyme';
+import { SKINS, SIZES } from './constants';
 
 describe('ToggleSwitch', () => {
-  const render = createRendererWithUniDriver(toggleSwitchPrivateDriverFactory);
+  const createDriver = createDriverFactory(toggleSwitchDriverFactory);
 
-  afterEach(() => {
-    cleanup();
+  describe('skin prop', () => {
+    it(`should be ${SKINS.standard} by default`, () => {
+      const wrapper = createDriver(<ToggleSwitch />);
+      expect(wrapper.getSkin()).toBe(SKINS.standard);
+    });
+
+    Object.keys(SKINS).forEach(skin => {
+      it(`should be ${skin}`, () => {
+        const wrapper = createDriver(<ToggleSwitch skin={skin} />);
+        expect(wrapper.getSkin()).toBe(skin);
+      });
+    });
   });
 
-  it('should render', async () => {
-    const { driver } = render(<ToggleSwitch />);
+  describe('size prop', () => {
+    it(`should be ${SIZES.large} by default`, () => {
+      const wrapper = createDriver(<ToggleSwitch />);
+      expect(wrapper.getSize()).toBe(SIZES.large);
+    });
 
-    expect(await driver.exists()).toBeTruthy();
-    expect(await driver.getButtonText()).toEqual('Click me!');
+    Object.keys(SIZES).forEach(size => {
+      it(`should be ${size}`, () => {
+        const wrapper = createDriver(<ToggleSwitch size={size} />);
+        expect(wrapper.getSize()).toBe(size);
+      });
+    });
   });
 
-  it('should increment', async () => {
-    const { driver } = render(<ToggleSwitch />);
+  describe('knobIcons', () => {
+    const getSvgViewBoxSize = wrapper =>
+      Number(
+        wrapper
+          .getKnobIcon()
+          .querySelector('svg')
+          .getAttribute('viewBox')
+          .slice(4, 6),
+      );
 
-    await driver.clickButton();
-    await driver.clickButton();
+    describe('checkedIcon', () => {
+      it('should be bigger when when size=large comparing to size=medium', () => {
+        const largeIconwrapper = createDriver(
+          <ToggleSwitch checked size="large" />,
+        );
+        const mediumIconWrapper = createDriver(
+          <ToggleSwitch checked size="medium" />,
+        );
 
-    expect(await driver.getCountText()).toEqual(
-      'You clicked this button even number (2) of times',
-    );
+        const largeViewBoxSize = getSvgViewBoxSize(largeIconwrapper);
+        const mediumViewBoxSize = getSvgViewBoxSize(mediumIconWrapper);
+
+        expect(largeViewBoxSize).toBeGreaterThan(mediumViewBoxSize);
+      });
+
+      it('should not be visible when size=small', () => {
+        const wrapper = createDriver(<ToggleSwitch size="small" />);
+        expect(wrapper.hasKnobIcon()).toBe(false);
+      });
+    });
+
+    describe('uncheckedIcon', () => {
+      it('should be bigger when when size=large comparing to size=medium', () => {
+        const largeIconwrapper = createDriver(<ToggleSwitch size="large" />);
+        const mediumIconWrapper = createDriver(<ToggleSwitch size="medium" />);
+
+        const largeViewBoxSize = getSvgViewBoxSize(largeIconwrapper);
+        const mediumViewBoxSize = getSvgViewBoxSize(mediumIconWrapper);
+
+        expect(largeViewBoxSize).toBeGreaterThan(mediumViewBoxSize);
+      });
+
+      it('should not be visible when size=small', () => {
+        const wrapper = createDriver(<ToggleSwitch size="small" />);
+        expect(wrapper.hasKnobIcon()).toBe(false);
+      });
+    });
   });
 
-  it('should allow changing the button text', async () => {
-    const { driver } = render(<ToggleSwitch buttonText="Press me" />);
+  describe('block props', () => {
+    it('should not pass inline styles prop', () => {
+      const styles = { root: { color: 'green' } };
+      const wrapper = createDriver(
+        <ToggleSwitch styles={styles} size="small" />,
+      );
+      expect(wrapper.getRootStyles().color).not.toBe('green');
+    });
+  });
 
-    expect(await driver.getButtonText()).toEqual('Press me');
+  describe('testkit', () => {
+    it('should exist', () => {
+      expect(
+        isTestkitExists(<ToggleSwitch />, toggleSwitchTestkitFactory),
+      ).toBe(true);
+    });
+  });
+
+  describe('enzyme testkit', () => {
+    it('should exist', () => {
+      expect(
+        isEnzymeTestkitExists(
+          <ToggleSwitch />,
+          enzymeToggleSwitchTestkitFactory,
+          mount,
+        ),
+      ).toBe(true);
+    });
   });
 });
