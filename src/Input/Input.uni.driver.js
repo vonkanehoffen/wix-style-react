@@ -60,7 +60,7 @@ export const testkit = base => {
     isHoveredStyle: async () => await base.hasClass(styles.hasHover),
     isFocusedStyle: async () => await base.hasClass(styles.hasFocus),
     getRequired: async () => await input._prop('required'),
-    enterText: async value => await reactBaseInput.enterValue(value),
+    enterText: async value => await input.enterValue(value),
     getAutocomplete: async () => await input.attr('autocomplete'),
     getDefaultValue: async () => await input._prop('defaultValue'),
     getUnit: async () => {

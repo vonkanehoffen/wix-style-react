@@ -13,20 +13,6 @@ export function ReactBase(base) {
     return base.getNative();
   };
 
-  const pendingUnidriverFixes = {
-    enterValue: async value => {
-      if (base.type === 'react') {
-        const elem = await htmlElement();
-        const { name, type } = elem;
-        Simulate.change(elem, {
-          target: { name, type, value },
-        });
-      } else {
-        return base.enterValue(value);
-      }
-    },
-  };
-
   const pendingUnidriverFeatures = {
     isFocus: async () => {
       return document.activeElement === (await htmlElement());
@@ -88,7 +74,6 @@ export function ReactBase(base) {
   };
 
   return {
-    ...pendingUnidriverFixes,
     ...pendingUnidriverFeatures,
     ...unidriverRejected,
     ...shouldBeDeprecated,
