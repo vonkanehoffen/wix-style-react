@@ -25,7 +25,7 @@ describe('StatisticsWidget', () => {
 
     beforeEach(() => {
       data = {
-        statistics: [
+        items: [
           {
             value: 'First value',
             description: 'First description',
@@ -44,7 +44,7 @@ describe('StatisticsWidget', () => {
       });
 
       it('should render value based on props', async () => {
-        data.statistics[0].value = 'Changed value';
+        data.items[0].value = 'Changed value';
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const value = await driver.getValue(0);
@@ -55,7 +55,7 @@ describe('StatisticsWidget', () => {
       });
 
       it('should render short version', async () => {
-        data.statistics[0].valueInShort = '1K';
+        data.items[0].valueInShort = '1K';
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const shortvalue = await driver.getValueInShort(0);
@@ -68,7 +68,7 @@ describe('StatisticsWidget', () => {
 
     describe('description', () => {
       it('should not exist by default', async () => {
-        data.statistics[0].description = undefined;
+        data.items[0].description = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const description = await driver.getDescription(0);
@@ -77,7 +77,7 @@ describe('StatisticsWidget', () => {
       });
 
       it('should render based on props', async () => {
-        data.statistics[0].description = 'Changed description';
+        data.items[0].description = 'Changed description';
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const description = await driver.getDescription(0);
@@ -95,7 +95,7 @@ describe('StatisticsWidget', () => {
       });
 
       it('should exist when descriptionInfo is set', async () => {
-        data.statistics[0].descriptionInfo = 'This is a description';
+        data.items[0].descriptionInfo = 'This is a description';
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const info = await driver.isInfoExists(0);
@@ -105,7 +105,7 @@ describe('StatisticsWidget', () => {
 
       it('should contain passed text', async () => {
         const description = 'This is a description';
-        data.statistics[0].descriptionInfo = description;
+        data.items[0].descriptionInfo = description;
 
         const { driver } = render(<StatisticsWidget {...data} />);
 
@@ -113,7 +113,7 @@ describe('StatisticsWidget', () => {
       });
 
       it('should be null, when there is no descriptionInfo', async () => {
-        data.statistics[0].descriptionInfo = undefined;
+        data.items[0].descriptionInfo = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
 
@@ -121,9 +121,28 @@ describe('StatisticsWidget', () => {
       });
     });
 
+    describe('deprecated statistics prop', () => {
+      it('should render with old prop', async () => {
+        const data = {
+          statistics: [
+            {
+              value: 'First value',
+              description: 'First description',
+              percentage: 12,
+            },
+          ],
+        };
+
+        const { driver } = render(<StatisticsWidget {...data} />);
+        const count = await driver.getItemsCount();
+
+        expect(count).toBe(1);
+      });
+    });
+
     describe('Percents', () => {
       it('should not exist by default', async () => {
-        data.statistics[0].percentage = undefined;
+        data.items[0].percentage = undefined;
 
         const { driver } = render(<StatisticsWidget {...data} />);
         const percentage = await driver.getPercentage(0);
@@ -147,7 +166,7 @@ describe('StatisticsWidget', () => {
         });
 
         it('should be false when set to false', async () => {
-          data.statistics[0].invertedPercentage = false;
+          data.items[0].invertedPercentage = false;
 
           const { driver } = render(<StatisticsWidget {...data} />);
           const isInverted = await driver.isPercentageInverted(0);
@@ -156,7 +175,7 @@ describe('StatisticsWidget', () => {
         });
 
         it('should be true when set to true', async () => {
-          data.statistics[0].invertedPercentage = true;
+          data.items[0].invertedPercentage = true;
 
           const { driver } = render(<StatisticsWidget {...data} />);
           const isInverted = await driver.isPercentageInverted(0);
@@ -176,7 +195,7 @@ describe('StatisticsWidget', () => {
 
     beforeEach(() => {
       data = {
-        statistics: [
+        items: [
           {
             value: '1k',
           },
@@ -229,7 +248,7 @@ describe('StatisticsWidget', () => {
 
     beforeEach(() => {
       data = {
-        statistics: [
+        items: [
           {
             value: '1st value',
             description: '1st description',
@@ -327,7 +346,7 @@ describe('StatisticsWidget', () => {
       const content = 'That is a lot';
       const dataHook = 'stats-widget-child';
       const data = {
-        statistics: [
+        items: [
           {
             value: '100',
             description: 'Money',
@@ -344,7 +363,7 @@ describe('StatisticsWidget', () => {
     it('should support arbitrary props', async () => {
       const dataHook = 'stats-widget-child';
       const data = {
-        statistics: [
+        items: [
           {
             value: '100',
             description: 'Money',

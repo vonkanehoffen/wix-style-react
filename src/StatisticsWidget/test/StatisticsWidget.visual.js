@@ -9,6 +9,29 @@ const tests = [
       {
         it: '3 items',
         props: {
+          items: [
+            {
+              value: '$7,500',
+              description: 'Monday',
+              percentage: 21,
+              invertedPercentage: true,
+            },
+            {
+              value: '1 200 000',
+              description: 'Tuesday',
+              descriptionInfo: 'Sales on Tuesday',
+              percentage: 11,
+            },
+            {
+              value: '21k',
+              description: 'Wednesday',
+            },
+          ],
+        },
+      },
+      {
+        it: '3 items, old prop',
+        props: {
           statistics: [
             {
               value: '$7,500',
@@ -32,7 +55,7 @@ const tests = [
       {
         it: '5 items',
         props: {
-          statistics: [
+          items: [
             {
               value: '$500',
               description: 'Monday',
@@ -68,7 +91,7 @@ const tests = [
       {
         it: '> 5 items',
         props: {
-          statistics: [
+          items: [
             {
               value: '$500',
               description: 'Monday',
@@ -111,7 +134,7 @@ const tests = [
       {
         it: 'without short text in a value',
         props: {
-          statistics: [
+          items: [
             {
               value: '$7,500,000,000',
             },
@@ -130,7 +153,7 @@ const tests = [
       {
         it: 'with short text in a value',
         props: {
-          statistics: [
+          items: [
             {
               value: '$7,500,000,000',
               valueInShort: '$7,5B',
@@ -158,7 +181,7 @@ const tests = [
       {
         it: 'extra long description',
         props: {
-          statistics: [
+          items: [
             {
               value: '$1,000',
               description: 'The income out of trading goods on Monday',
@@ -187,7 +210,7 @@ const tests = [
       {
         it: 'Info icons',
         props: {
-          statistics: [
+          items: [
             {
               value: '$500',
               description: 'Monday',
@@ -224,7 +247,7 @@ const tests = [
       {
         it: 'trends and inverted trends',
         props: {
-          statistics: [
+          items: [
             {
               value: '$500',
               description: 'Monday',
@@ -265,7 +288,7 @@ const tests = [
       {
         it: 'renders children',
         props: {
-          statistics: [
+          items: [
             {
               value: '100',
               description: 'Money',

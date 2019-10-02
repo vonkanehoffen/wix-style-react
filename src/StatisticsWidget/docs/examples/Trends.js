@@ -5,7 +5,7 @@ import StatisticsWidget from 'wix-style-react/StatisticsWidget';
 render(
   <div style={{ background: '#fff' }}>
     <StatisticsWidget
-      statistics={[
+      items={[
         {
           value: '500',
           description: 'Visits',

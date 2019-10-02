@@ -295,7 +295,7 @@ class StatisticsWidgetExamples extends PureComponent {
               suffix={this._getSuffix()}
             />
             <Card.Content>
-              <StatisticsWidget statistics={getData(date, filter)} />
+              <StatisticsWidget items={getData(date, filter)} />
             </Card.Content>
           </Card>
         </Preview>

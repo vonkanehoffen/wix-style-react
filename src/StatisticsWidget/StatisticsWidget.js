@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import StatisticsItem from './StatisticsItem';
 import styles from './StatisticsWidget.st.css';
+import deprecationLog from '../utils/deprecationLog';
 
 class StatisticsWidget extends React.PureComponent {
   static displayName = 'StatisticsWidget';
@@ -10,6 +11,21 @@ class StatisticsWidget extends React.PureComponent {
   static propTypes = {
     /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
+    /** The old name of the items props. Will be removed in future.
+     * @deprecated
+     * */
+    statistics: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        valueInShort: PropTypes.string,
+        description: PropTypes.string,
+        descriptionInfo: PropTypes.string,
+        percentage: PropTypes.number,
+        invertedPercentage: PropTypes.bool,
+        onClick: PropTypes.func,
+        children: PropTypes.node,
+      }),
+    ),
     /**
      * Array of statistic items
      *  * `value` - Value of the statistic. Displayed as big text in the first row.
@@ -21,7 +37,7 @@ class StatisticsWidget extends React.PureComponent {
      *  * `onClick` - Callback to be executed on click (also on Enter/Space key press)
      *  * `children` - Node to render on bottom of section.
      */
-    statistics: PropTypes.arrayOf(
+    items: PropTypes.arrayOf(
       PropTypes.shape({
         value: PropTypes.string.isRequired,
         valueInShort: PropTypes.string,
@@ -38,15 +54,24 @@ class StatisticsWidget extends React.PureComponent {
   _renderStat = (stat, key) => <StatisticsItem {...stat} key={key} />;
 
   render() {
-    const { dataHook, statistics = [] } = this.props;
+    const { dataHook, statistics } = this.props;
+    let { items } = this.props;
 
-    if (statistics.length > 5) {
-      // eslint-disable-next-line
-      console.warn(
-        `${statistics.length} items were passed in statistics array. StatisticsWidget will display only the first 5.`,
+    if (statistics) {
+      deprecationLog(
+        'StatisticsWidget prop "statistics" is deprecated and will be removed in next major release, please use "items" instead',
       );
     }
-    const firstFive = statistics.slice(0, 5);
+
+    items = items || statistics || [];
+
+    if (items.length > 5) {
+      // eslint-disable-next-line
+      console.warn(
+        `${items.length} items were passed in items array. StatisticsWidget will display only the first 5.`,
+      );
+    }
+    const firstFive = items.slice(0, 5);
 
     return (
       <div className={styles.root} data-hook={dataHook}>

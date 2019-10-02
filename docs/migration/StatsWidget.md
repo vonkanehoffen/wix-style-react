@@ -35,7 +35,7 @@ export default () => (
     <div>
       <StatsWidget
         title="Let's see what's going on with your store"
-        statistics={[
+        items={[
            {
              title: '$10',
              subtitle: 'Revenue',
@@ -80,7 +80,7 @@ render(
     <Card.Header title={"Let's see what's going on with your store"} />
     <Card.Content>
       <StatisticsWidget
-        statistics={[
+        items={[
           {
             value: '$10',
             description: 'Revenue',
@@ -133,7 +133,7 @@ const onFilterChange = () => {
 export default () => (
    <StatsWidget
      title="Let's see what's going on with your store"
-     statistics={[
+     items={[
      {
        title: '$10',
        subtitle: 'Revenue',
@@ -229,7 +229,7 @@ class StatsWrapper extends React.Component {
       <Card>
         <Card.Header title={"Let's see what's going on with your store"} suffix={this._getSuffix()} />
         <Card.Content>
-          <StatisticsWidget statistics={[
+          <StatisticsWidget items={[
      {
        value: '$10',
        description: 'Revenue',

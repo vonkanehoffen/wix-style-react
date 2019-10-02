@@ -5,7 +5,7 @@ import StatisticsWidget from '../StatisticsWidget';
 import { TESTS_PREFIX } from '../../../stories/storiesHierarchy';
 import { storySettings } from './storySettings';
 
-const statistics = [
+const items = [
   {
     value: '$500',
     description: 'Monday',
@@ -44,9 +44,6 @@ const kind = `${TESTS_PREFIX}/${storySettings.category}/${storySettings.storyNam
 
 storiesOf(kind, module).add(storySettings.testStoryNames.ACCESSIBILITY, () => (
   <div style={{ marginLeft: 100, marginTop: 100 }}>
-    <StatisticsWidget
-      statistics={statistics}
-      dataHook={storySettings.dataHook}
-    />
+    <StatisticsWidget items={items} dataHook={storySettings.dataHook} />
   </div>
 ));

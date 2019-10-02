@@ -8,7 +8,7 @@ render(
     <Card.Header title={'Article performance'} />
     <Card.Content>
       <StatisticsWidget
-        statistics={[
+        items={[
           {
             value: '500',
             description: 'Views',
