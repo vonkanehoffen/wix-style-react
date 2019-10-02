@@ -1,6 +1,6 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { StylableDOMUtil } from '@stylable/dom-test-kit';
-import style from './ToggleSwitch.st.css';
+import style from '../ToggleSwitch.st.css';
 
 export const toggleSwitchDriverFactory = base => {
   const stylableDOMUtil = new StylableDOMUtil(style, element);
