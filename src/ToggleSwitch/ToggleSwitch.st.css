@@ -1,4 +1,115 @@
 :import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitch;
+}
+
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitchStyle;
+}
+
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitchLayout;
+}
+
+:import {
+  -st-from: "wix-ui-core/index.st.css";
+  -st-named: ToggleSwitchColor;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-named:
+  B10, B20, B30, B40, B50,
+  D50,
+  F00,
+  G10, G20, G30, G40,
+  R10, R20, R30, R40,
+    WHITE;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/shadows.st.css";
+  -st-named: shadow10;
+}
+
+.root {
+  -st-extends: ToggleSwitch;
+  -st-states:
+    size(enum(small, medium, large)),
+    skin(enum(standard, success, error));
+
+  -st-mixin: ToggleSwitchStyle;
+}
+
+.root:size(small) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 30px,
+    rootHeight 16px,
+    knobWidth 14px,
+    knobHeight 14px
+  );
+}
+
+.root:size(medium) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 36px,
+    rootHeight 20px,
+    knobWidth 18px,
+    knobHeight 18px
+  );
+}
+
+.root:size(large) {
+  -st-mixin: ToggleSwitchLayout(
+    rootWidth 48px,
+    rootHeight 24px,
+    knobWidth 22px,
+    knobHeight 22px
+  );
+}
+
+.root:skin(standard) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(B40),
+    colorChecked        value(B10),
+    colorUncheckedHover value(B30),
+    colorCheckedHover   value(B20),
+    colorDisabled       value(D50)
+  );
+}
+
+.root:skin(success) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(G40),
+    colorChecked        value(G10),
+    colorUncheckedHover value(G30),
+    colorCheckedHover   value(G20),
+    colorDisabled       value(D50)
+  );
+}
+
+.root:skin(error) {
+  -st-mixin: ToggleSwitchColor(
+    colorUnchecked      value(R40),
+    colorChecked        value(R10),
+    colorUncheckedHover value(R30),
+    colorCheckedHover   value(R20),
+    colorDisabled       value(D50)
+  );
+}
+
+.root:focus-visible::track {
+	box-shadow: 0 0 0 3px value(F00);
+}
+
+.root::knob {
+  box-shadow: value(shadow10);
+}
+/* 
+
+:import {
   -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
   -st-named: G30,R30;
 }
@@ -22,4 +133,4 @@
 .button {
   display: flex;
   justify-content: space-evenly;
-}
+} */
