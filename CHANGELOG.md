@@ -21,6 +21,7 @@ Types of changes:
 
 ### Fixed
 - `<DatePicker/>` - prop initialOpen should not work when disabled [#4174](https://github.com/wix/wix-style-react/pull/4174)
+- `<Input/>` - Fixed inaccurate text mark [#4177](https://github.com/wix/wix-style-react/pull/4177)
 
 ### Changed
 - `<Checkbox/>` - use new tooltip [#4170](https://github.com/wix/wix-style-react/pull/4170)
