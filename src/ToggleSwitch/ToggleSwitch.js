@@ -1,60 +1,61 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import { ToggleSwitch as CoreToggleSwitch } from 'wix-ui-core/dist/src/components/toggle-switch';
+import style from './ToggleSwitch.st.css';
+import { SKINS, SIZES } from './ToggleSwitch.constants';
+import {
+  ToggleOff,
+  ToggleOn,
+  ToggleOffSmall,
+  ToggleOnSmall,
+} from 'wix-ui-icons-common/system';
+import { withStylable } from 'wix-ui-core/dist/src/utils/withStylable';
 
-import Text from '../Text';
-import Button from '../Button';
-import styles from './ToggleSwitch.st.css';
+// export interface ToggleSwitchProps {
+//   skin?: Skin;
+//   size?: Size;
+// }
 
-/** Switches between on and off states */
-class ToggleSwitch extends React.PureComponent {
+const defaultProps = {
+  skin: SKINS.standard,
+  size: SIZES.large,
+};
+
+const checkedIconMap = {
+  [SIZES.small]: undefined,
+  [SIZES.medium]: <ToggleOnSmall />,
+  [SIZES.large]: <ToggleOn />,
+};
+
+const uncheckedIconMap = {
+  [SIZES.small]: undefined,
+  [SIZES.medium]: <ToggleOffSmall />,
+  [SIZES.large]: <ToggleOff />,
+};
+
+const StyledToggleSwitch = withStylable(
+  // <CoreToggleSwitchProps, ToggleSwitchProps>
+  CoreToggleSwitch,
+  style,
+  ({ size, skin }) => ({ size, skin }),
+  defaultProps,
+);
+
+export class ToggleSwitch extends React.PureComponent
+//<ToggleSwitchProps & CoreToggleSwitchProps>
+{
   static displayName = 'ToggleSwitch';
 
-  static propTypes = {
-    dataHook: PropTypes.string,
-
-    /** Text for the button */
-    buttonText: PropTypes.string,
-  };
-
-  static defaultProps = {
-    buttonText: 'Click me!',
-  };
-
-  state = {
-    count: 0,
-  };
-
-  _handleClick = () => {
-    this.setState(({ count }) => ({
-      count: count + 1,
-    }));
-  };
+  static defaultProps = defaultProps;
 
   render() {
-    const { count } = this.state;
-    const { dataHook, buttonText } = this.props;
-    const isEven = count % 2 === 0;
+    const { styles, ...desiredProps } = this.props;
 
     return (
-      <div className={styles.root} data-hook={dataHook}>
-        <Text dataHook="toggleSwitch-count">
-          You clicked this button {isEven ? 'even' : 'odd'} number (
-          <span
-            {...styles('number', { even: isEven, odd: !isEven }, this.props)}
-          >
-            {count}
-          </span>
-          ) of times
-        </Text>
-
-        <div className={styles.button}>
-          <Button onClick={this._handleClick} dataHook="toggleSwitch-button">
-            {buttonText}
-          </Button>
-        </div>
-      </div>
+      <StyledToggleSwitch
+        {...desiredProps}
+        checkedIcon={checkedIconMap[this.props.size]}
+        uncheckedIcon={uncheckedIconMap[this.props.size]}
+      />
     );
   }
 }
-
-export default ToggleSwitch;
