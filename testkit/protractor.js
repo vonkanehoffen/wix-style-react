@@ -539,9 +539,9 @@ export const timeInputTestkitFactory = protractorTestkitFactoryCreator(
   timeInputUniDriverFactory,
 );
 
-import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.protractor.driver';
+import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.uni.driver';
 
-export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(
+export const toggleSwitchTestkitFactory = protractorUniTestkitFactoryCreator(
   toggleSwitchDriverFactory,
 );
 

@@ -425,6 +425,12 @@ export const timeInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
   timeInputUniDriverFactory,
 );
 
+import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.uni.driver';
+
+export const toggleSwitchTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  toggleSwitchDriverFactory,
+);
+
 import { sidebarSectionItemDriverFactory } from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
 
 export const sidebarSectionItemTestkitFactory = puppeteerUniTestkitFactoryCreator(
