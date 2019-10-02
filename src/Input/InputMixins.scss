@@ -9,18 +9,18 @@
 
 @mixin Size($height, $fontSize) {
   height: $height;
-  line-height: $height - 2px;
+  line-height: 1em;
   font-size: $fontSize;
   .input {
     display: block;
-    line-height: $height - 2px;
+    line-height: 1em;
     font-size: $fontSize;
     &:-webkit-autofill {
       -webkit-box-shadow: 0 0 0 $height white inset;
       box-shadow: 0 0 0 $height white inset;
     }
     &::placeholder {
-      line-height: $height - 2px;
+      line-height: 1em;
       font-size: $fontSize;
     }
   }
