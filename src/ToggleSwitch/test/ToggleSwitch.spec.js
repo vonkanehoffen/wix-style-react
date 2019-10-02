@@ -1,16 +1,24 @@
 import * as React from 'react';
-import { toggleSwitchDriverFactory } from './ToggleSwitch.driver';
-import { ToggleSwitch } from '.';
-import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
+import toggleSwitchUniDriver from './ToggleSwitch.uni.driver';
+import ToggleSwitch from '..';
+import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
+import {
+  createRendererWithUniDriver,
+  cleanup,
+} from '../../../test/utils/react';
 import { isEnzymeTestkitExists } from 'wix-ui-test-utils/enzyme';
 import { isTestkitExists } from 'wix-ui-test-utils/vanilla';
 import { mount } from 'enzyme';
-import { toggleSwitchTestkitFactory } from '../../testkit';
-import { toggleSwitchTestkitFactory as enzymeToggleSwitchTestkitFactory } from '../../testkit/enzyme';
-import { SKINS, SIZES } from './constants';
+import { toggleSwitchTestkitFactory } from '../../../testkit';
+import { toggleSwitchTestkitFactory as enzymeToggleSwitchTestkitFactory } from '../../../testkit/enzyme';
+import { SKINS, SIZES } from '../ToggleSwitch.constants';
 
 describe('ToggleSwitch', () => {
-  const createDriver = createDriverFactory(toggleSwitchDriverFactory);
+  const createDriver = createUniDriverFactory(
+    createRendererWithUniDriver(toggleSwitchUniDriver),
+  );
+
+  afterEach(() => cleanup());
 
   describe('skin prop', () => {
     it(`should be ${SKINS.standard} by default`, () => {
