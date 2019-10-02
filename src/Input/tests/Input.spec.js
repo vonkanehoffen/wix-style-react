@@ -12,7 +12,7 @@ import {
   cleanup,
 } from '../../../test/utils/unit';
 import inputDriverFactory from '../Input.driver';
-import { testkit } from '../Input.uni.driver';
+import { testkit } from '../Input.private.uni.driver';
 
 describe('Input', () => {
   describe('[sync]', () => {

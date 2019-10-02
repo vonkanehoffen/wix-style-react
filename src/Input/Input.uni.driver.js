@@ -115,8 +115,6 @@ export const testkit = base => {
     isNarrowError: async () => await base.$(`.${styles.narrow}`).exists(),
     isRTL: async () => await base.hasClass(styles.rtl),
     getCursorLocation: async () => await input._prop('selectionStart'),
-    startComposing: () => reactBaseInput.compositionStart(),
-    endComposing: () => reactBaseInput.compositionEnd(),
     clearText: () => driver.enterText(''),
     clickOutside: () => ReactBase.clickDocument(),
   };

@@ -53,11 +53,6 @@ export function ReactBase(base) {
   };
 
   const shouldBePrivate = {
-    /* Event Simulation */
-    // TODO: replace methods that use Simulate with a single `simulate`/`eventTrigger` method
-    compositionStart: async () =>
-      Simulate.compositionStart(await htmlElement()),
-    compositionEnd: async () => Simulate.compositionEnd(await htmlElement()),
     keyUp: async eventData => Simulate.keyUp(await htmlElement(), eventData),
     keyDown: async eventData =>
       Simulate.keyDown(await htmlElement(), eventData),
@@ -74,6 +69,9 @@ export function ReactBase(base) {
       Simulate.mouseOver(await htmlElement(), eventData),
     mouseOut: async eventData =>
       Simulate.mouseOut(await htmlElement(), eventData),
+    compositionStart: async () =>
+      Simulate.compositionStart(await htmlElement()),
+    compositionEnd: async () => Simulate.compositionEnd(await htmlElement()),
   };
 
   return {
