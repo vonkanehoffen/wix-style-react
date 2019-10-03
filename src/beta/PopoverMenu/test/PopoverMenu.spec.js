@@ -248,34 +248,6 @@ describe('PopoverMenu', () => {
     });
 
     describe('Accessibility', () => {
-      describe('First focused item', () => {
-        it('should focus first item in menu [when] when trigger element is invoked with a key', async () => {
-          const { driver } = render(
-            renderPopoverMenu({ children: renderPopoverMenuItem() }),
-          );
-
-          await driver.keyDownTrigger('Enter');
-          expect(await driver.isMenuOpen()).toBe(true);
-
-          expect(await driver.getMenuItem(0)).toBe(document.activeElement);
-        });
-        it('should focus first available item in menu [when] when first element of menu is disabled', async () => {
-          const { driver } = render(
-            renderPopoverMenu({
-              children: [
-                renderPopoverMenuItem({ disabled: true }),
-                renderPopoverMenuItem(),
-              ],
-            }),
-          );
-
-          await driver.keyDownTrigger('Enter');
-          expect(await driver.isMenuOpen()).toBe(true);
-
-          expect(await driver.getMenuItem(1)).toBe(document.activeElement);
-        });
-      });
-
       describe('Menu', () => {
         it('should open [when]  when triggered with key Enter', async () => {
           const dataHook = 'iconbutton-custom';

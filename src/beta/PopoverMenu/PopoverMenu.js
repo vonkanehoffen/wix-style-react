@@ -96,7 +96,7 @@ class PopoverMenu extends React.PureComponent {
     maxWidth: 204,
     minWidth: 144,
     placement: 'bottom',
-    appendTo: 'parent',
+    appendTo: 'window',
     textSize: 'medium',
     fixed: true,
     flip: true,
@@ -233,7 +233,6 @@ class PopoverMenu extends React.PureComponent {
             {...props}
             {...rest}
             as="button"
-            autoFocus={id === this.focusableList[0]}
             dataHook={dataHook ? dataHook : `popover-menu-${id}`}
             ref={ref => (this.children[id] = ref)}
             tabIndex={id === focused && !disabled ? '0' : '-1'}

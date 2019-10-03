@@ -1,7 +1,7 @@
 import { dropdownBaseDriverFactory } from '../../DropdownBase/DropdownBase.uni.driver';
 
-export const PopoverMenuDriver = base => {
-  const dropdownBaseTestkit = dropdownBaseDriverFactory(base);
+export const PopoverMenuDriver = (base, body) => {
+  const dropdownBaseTestkit = dropdownBaseDriverFactory(base, body);
   return {
     /** Returns true of popoverMenu exists */
     exists: () => dropdownBaseTestkit.exists(),

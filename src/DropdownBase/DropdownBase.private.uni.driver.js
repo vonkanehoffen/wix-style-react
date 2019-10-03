@@ -4,7 +4,7 @@ import { dropdownLayoutDriverFactory } from '../DropdownLayout/DropdownLayout.un
 // TODO: remove when implementation with UniDriver becomes possible
 import { Simulate } from 'react-dom/test-utils';
 
-export const dropdownBasePrivateDriverFactory = base => {
+export const dropdownBasePrivateDriverFactory = (base, body) => {
   const byDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
 
   const getTargetElement = () => byDataHook('popover-element');
@@ -13,7 +13,7 @@ export const dropdownBasePrivateDriverFactory = base => {
   const createDropdownLayoutDriver = () => dropdownLayoutDriverFactory(base);
 
   return {
-    ...publicDriverFactory(base),
+    ...publicDriverFactory(base, body),
 
     /** Returns the native target element */
     getTargetElement: () => getTargetElement().getNative(),

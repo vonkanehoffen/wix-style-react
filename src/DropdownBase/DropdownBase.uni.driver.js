@@ -4,13 +4,22 @@ import { ReactBase } from '../../test/utils/unidriver';
 
 import { dropdownLayoutDriverFactory } from '../DropdownLayout/DropdownLayout.uni.driver';
 
-export const dropdownBaseDriverFactory = base => {
+import testkit from '../Popover/Popover.uni.driver';
+import popoverCommonDriverFactory from '../Popover/Popover.common.uni.driver';
+
+export const dropdownBaseDriverFactory = (base, body) => {
   const byDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
   const reactBase = ReactBase(base);
   const getTargetElement = dataHook => byDataHook(dataHook);
-  const getContentElement = () => byDataHook('popover-content');
+  const getContentElement = async () =>
+    popoverCommonDriverFactory(base, body).getContentElement();
 
-  const createDropdownLayoutDriver = () => dropdownLayoutDriverFactory(base);
+  const createDropdownLayoutDriver = async () =>
+    dropdownLayoutDriverFactory(
+      (await getContentElement()).$(
+        `[data-hook="dropdown-base-dropdownlayout"]`,
+      ),
+    );
 
   return {
     ...baseUniDriverFactory(base),
@@ -22,17 +31,18 @@ export const dropdownBaseDriverFactory = base => {
     hoverTargetElement: dataHook => getTargetElement(dataHook).hover(),
 
     /** Returns `true` if the dropdown is being shown */
-    isDropdownShown: async () => await getContentElement().exists(),
+    isDropdownShown: async () => testkit(base, body).isContentElementExists(),
 
     /** Select a specific option (requires the DropdownBase to be opened) */
     selectOption: async index =>
-      createDropdownLayoutDriver().clickAtOption(index),
+      (await createDropdownLayoutDriver()).clickAtOption(index),
 
     /** Click outside of the component */
     clickOutside: () => ReactBase.clickDocument(),
 
     /** Options count */
-    optionsCount: async () => createDropdownLayoutDriver().optionsLength(),
+    optionsCount: async () =>
+      (await createDropdownLayoutDriver()).optionsLength(),
 
     mouseEnter: () => base.hover(),
     mouseLeave: () => reactBase.mouseLeave(),
