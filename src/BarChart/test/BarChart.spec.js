@@ -72,6 +72,20 @@ describe('BarChart', () => {
     it('should render tooltip with additional info on hover', async () => {
       expect(await driver.getDescriptionInfo(0)).toBe('first descriptionInfo');
     });
+
+    it('should call onDescriptionInfo shown', async () => {
+      const onDescriptionInfoShown = jest.fn();
+
+      driver = render(
+        <BarChart
+          items={items}
+          onDescriptionInfoShown={onDescriptionInfoShown}
+        />,
+      ).driver;
+
+      await driver.getDescriptionInfo(0);
+      expect(onDescriptionInfoShown).toBeCalled();
+    });
   });
 
   describe('multiple items', () => {

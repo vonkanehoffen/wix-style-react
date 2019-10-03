@@ -39,6 +39,10 @@ class BarChart extends React.PureComponent {
 
     /** Used to calculate space for bars inside a widget. Should be specified if the actual total is different from the sum of values of all items */
     total: PropTypes.number,
+
+    /** Callback called every time when descriptionInfo tooltip is shown*/
+    onDescriptionInfoShown: PropTypes.func,
+
     /** Use old color scheme
      * @deprecated
      */
@@ -63,6 +67,7 @@ class BarChart extends React.PureComponent {
 
   _renderValue = ({ descriptionInfo, value, label, labelShort, showText }) => {
     const text = String(label || value);
+    const { onDescriptionInfoShown } = this.props;
 
     const headingProps = {
       text,
@@ -76,6 +81,7 @@ class BarChart extends React.PureComponent {
       <Tooltip
         dataHook={dataHooks.tooltip}
         content={descriptionInfo}
+        onShow={onDescriptionInfoShown}
         zIndex={5999}
         upgrade
       >
