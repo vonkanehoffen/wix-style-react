@@ -5,6 +5,7 @@ import FormField from 'wix-style-react/FormField';
 
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import { checkboxUniDriverFactory } from '../Checkbox.uni.driver';
+import Box from '../../Box';
 
 const dataHook = 'storybook-checkbox';
 const checkboxId = 'checkboxId';
@@ -36,57 +37,21 @@ class InteractiveEyeTest extends React.Component {
 }
 
 const defaultProps = {
-  checked: false,
   onChange: e => e.stopPropagation(),
   size: 'medium',
 };
 
 const tests = [
   {
-    describe: 'basic',
+    describe: '',
     its: [
       {
-        it: 'default render',
+        it: 'basic',
         props: {},
       },
-    ],
-  },
-  {
-    describe: 'error',
-    its: [
       {
-        it: 'exists',
+        it: 'error',
         props: { hasError: true },
-      },
-      {
-        it: 'does not exist',
-        props: { hasError: false },
-      },
-    ],
-  },
-  {
-    describe: 'checked',
-    its: [
-      {
-        it: 'checked',
-        props: { checked: true },
-      },
-      {
-        it: 'unchecked',
-        props: { checked: false },
-      },
-    ],
-  },
-  {
-    describe: 'disabled',
-    its: [
-      {
-        it: 'disabled',
-        props: { disabled: true },
-      },
-      {
-        it: 'enabled',
-        props: { disabled: false },
       },
     ],
   },
@@ -109,11 +74,45 @@ const interactiveTests = [
 ];
 
 tests.forEach(({ describe, its }) => {
+  let _describe = '';
+  if (describe) {
+    _describe += `/${describe}`;
+  }
+
   its.forEach(({ it, props }) => {
-    storiesOf(`Checkbox/${describe}`, module).add(it, () => (
-      <Checkbox {...defaultProps} {...props}>
-        Hello World!
-      </Checkbox>
+    storiesOf(`Checkbox${_describe}`, module).add(it, () => (
+      <Box direction="vertical">
+        <Box margin={2}>
+          <Checkbox {...defaultProps} {...props}>
+            Hello World!
+          </Checkbox>
+        </Box>
+        <Box margin={2}>
+          <Checkbox checked {...defaultProps} {...props}>
+            Hello World!
+          </Checkbox>
+        </Box>
+        <Box margin={2}>
+          <Checkbox indeterminate {...defaultProps} {...props}>
+            Hello World!
+          </Checkbox>
+        </Box>
+        <Box margin={2}>
+          <Checkbox disabled {...defaultProps} {...props}>
+            Hello World!
+          </Checkbox>
+        </Box>
+        <Box margin={2}>
+          <Checkbox checked disabled {...defaultProps} {...props}>
+            Hello World!
+          </Checkbox>
+        </Box>
+        <Box margin={2}>
+          <Checkbox indeterminate disabled {...defaultProps} {...props}>
+            Hello World!
+          </Checkbox>
+        </Box>
+      </Box>
     ));
   });
 });
