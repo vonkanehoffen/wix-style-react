@@ -38,9 +38,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
-.tooltip {
-  -st-extends: Tooltip;
-  width: auto;
-}
