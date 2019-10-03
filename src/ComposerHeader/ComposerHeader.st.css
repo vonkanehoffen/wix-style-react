@@ -7,11 +7,10 @@
   -st-states: size(enum(small, medium));
   padding-left: 24px;
   padding-right: 24px;
-   
   height: 36px;
   padding-top: 15px;
   padding-bottom: 15px;
-
+  box-sizing: content-box;
   background-color: white;
   display: flex;
   align-items: center;
