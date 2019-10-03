@@ -6,6 +6,7 @@ export interface BarChartItem {
   labelShort?: React.ReactNode;
   description?: React.ReactNode;
   descriptionInfo?: React.ReactNode;
+  onDescriptionInfoShown?: () => void;
 }
 
 export interface BarChartProps {
