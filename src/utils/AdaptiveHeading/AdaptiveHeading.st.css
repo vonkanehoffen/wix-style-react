@@ -25,7 +25,7 @@
   text-overflow: ellipsis;
 }
 /* Popover wrapper  */
-.headerShort > * > * {
+.headerShort:not(.headerShort .headerShort) > * > * {
   overflow: hidden;
   text-overflow: ellipsis;
 }

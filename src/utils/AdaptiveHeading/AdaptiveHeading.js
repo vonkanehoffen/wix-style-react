@@ -73,18 +73,20 @@ class AdaptiveHeading extends React.PureComponent {
           appearance={appearance}
           light={light}
         >
-          <div
-            aria-hidden="true"
-            {...styles('headerWrapper', { appearance }, this.props)}
-          >
-            <span className={styles.headerShort}>&nbsp;</span>
-            <span
-              className={styles.headerFull}
-              data-hook={DataHooks.textInShort}
-              title={text}
+          <div className={styles.headerShort}>
+            <div
+              aria-hidden="true"
+              {...styles('headerWrapper', { appearance }, this.props)}
             >
-              {textInShort}
-            </span>
+              <span className={styles.headerShort}>&nbsp;</span>
+              <span
+                className={styles.headerFull}
+                data-hook={DataHooks.textInShort}
+                title={text}
+              >
+                {textInShort}
+              </span>
+            </div>
           </div>
           <span data-hook={DataHooks.text} className={styles.headerFull}>
             {text}

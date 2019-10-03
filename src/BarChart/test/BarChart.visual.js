@@ -159,6 +159,47 @@ const tests = [
           ],
         },
       },
+      {
+        it: 'short label with descriptionInfo',
+        props: {
+          items: [
+            {
+              value: 25000000,
+              label: '$25,000,000',
+              description: 'Sales',
+              descriptionInfo: 'descriptionInfo',
+            },
+            {
+              value: 20000000,
+              label: '$20,000,000',
+              labelShort: '$20M',
+              description: 'Subscription',
+              descriptionInfo: 'descriptionInfo',
+            },
+            {
+              value: 5000000,
+              label: '$5,000,000',
+              labelShort: '$5M',
+              description: 'Donations',
+              descriptionInfo: 'descriptionInfo',
+            },
+            {
+              value: 42000000,
+              label: '$42,000,000',
+              labelShort: '$42M',
+              description: 'Ads',
+              descriptionInfo: 'descriptionInfo',
+            },
+            {
+              value: 78000000,
+              label: '$78,000,000',
+              labelShort: '$78M',
+              description: 'Other',
+              descriptionInfo: 'descriptionInfo',
+            },
+          ],
+        },
+      },
     ],
   },
 ];
