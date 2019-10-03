@@ -1,41 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Tag from '../Tag';
+import Box from '../../Box';
 
 const commonProps = {
   children: 'tag',
 };
 
 const tests = [
-  {
-    describe: 'size',
-    its: [
-      {
-        it: 'tiny',
-        props: {
-          size: 'tiny',
-        },
-      },
-      {
-        it: 'small',
-        props: {
-          size: 'small',
-        },
-      },
-      {
-        it: 'medium',
-        props: {
-          size: 'medium',
-        },
-      },
-      {
-        it: 'large',
-        props: {
-          size: 'large',
-        },
-      },
-    ],
-  },
   {
     describe: 'theme',
     its: [
@@ -120,9 +92,28 @@ const tests = [
     describe: 'ellipsis',
     its: [
       {
-        it: 'enabled',
-        props: { maxWidth: 55, wrap: true },
+        it: 'with max width prop',
+        props: {
+          maxWidth: 145,
+          wrap: true,
+          children: 'I have a max width prop',
+        },
       },
+      // {
+      //   it: 'long text',
+      //   props: {
+      //     wrap: true,
+      //     children:
+      //       'This is a very long text that is going to break in the middle with an ellipsis',
+      //   },
+      // },
+      // {
+      //   it: 'long text with line break',
+      //   props: {
+      //     children:
+      //       'This is a very long text that is going to break in the middle to the next line',
+      //   },
+      // },
     ],
   },
 ];
@@ -130,9 +121,13 @@ const tests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, container }) => {
     storiesOf(`Tag/${describe}`, module).add(it, () => (
-      <div {...container}>
-        <Tag {...commonProps} {...props} />
-      </div>
+      <Box direction={'vertical'}>
+        {['tiny', 'small', 'medium', 'large'].map(size => (
+          <Box margin={1} width="330px" {...container}>
+            <Tag {...commonProps} {...props} size={size} />
+          </Box>
+        ))}
+      </Box>
     ));
   });
 });
