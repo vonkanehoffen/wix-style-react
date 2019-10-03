@@ -20,6 +20,9 @@ Types of changes:
 - `<Barchart />` - add onDescriptionInfoShown callback [#4178](https://github.com/wix/wix-style-react/pull/4178)
 - `<BarChart />` - add typings [#4189](https://github.com/wix/wix-style-react/pull/4189)
 
+### Fixed
+- `<ComposerHeader/>` - set composerHeader to box-sizing: content-box [#4195](https://github.com/wix/wix-style-react/pull/4195)
+
 ## 7.5.0 - 2019-10-02
 
 ### Added
