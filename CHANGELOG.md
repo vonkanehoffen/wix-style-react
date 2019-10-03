@@ -22,6 +22,7 @@ Types of changes:
 
 ### Fixed
 - `<ComposerHeader/>` - set composerHeader to box-sizing: content-box [#4195](https://github.com/wix/wix-style-react/pull/4195)
+- `<Barchart />` - fix labelShort when there is descriptionInfo [#4183](https://github.com/wix/wix-style-react/pull/4183)
 
 ## 7.5.0 - 2019-10-02
 
