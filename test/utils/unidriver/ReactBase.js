@@ -38,11 +38,12 @@ export function ReactBase(base) {
     },
   };
 
-  // These could be BAD implementations. We should have a deprecation log and provide a better alternative.
-  const shouldBeDeprecated = {
-    getClassList: async () => (await htmlElement()).classList,
+  // Instead of using this methods you should use proper data hooks
+  // and data attributes the query the required elements
+  const deprecated = {
+    _DEPRECATED_getClassList: async () => (await htmlElement()).classList,
     /** @returns {array} array of children unidrivers */
-    children: async () => {
+    _DEPRECATED_children: async () => {
       const ch = (await htmlElement()).children;
       const uniChildren = [];
       for (let i = 0; i < ch.length; i++) {
@@ -77,7 +78,7 @@ export function ReactBase(base) {
   return {
     ...pendingUnidriverFeatures,
     ...unidriverRejected,
-    ...shouldBeDeprecated,
+    ...deprecated,
     ...shouldBePrivate,
     _private, // should be used inside private drivers only
   };

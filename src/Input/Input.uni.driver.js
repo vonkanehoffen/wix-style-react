@@ -20,10 +20,12 @@ export const testkit = base => {
   const driver = {
     ...baseUniDriverFactory(base),
     click: () => input.click(),
-    getInputElementClasses: async () => await reactBaseInput.getClassList(),
+    getInputElementClasses: async () =>
+      await reactBaseInput._DEPRECATED_getClassList(),
     suffixComponentExists: async className =>
       await base.$(`.${styles.suffix} ${className}`).exists(),
-    getRootElementClasses: async () => await reactBase.getClassList(),
+    getRootElementClasses: async () =>
+      await reactBase._DEPRECATED_getClassList(),
     getAriaDescribedby: async () => await input.attr('aria-describedby'),
     getAriaLabel: async () => await input.attr('aria-label'),
     getName: async () => await input.attr('name'),

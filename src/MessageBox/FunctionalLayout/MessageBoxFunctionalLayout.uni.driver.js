@@ -35,15 +35,15 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
     getTitle: () => base.$('[data-hook="header-layout-title"]').text(),
     getChildBySelector: selector => getElement(base.$(selector)),
     isCancelEnable: async () =>
-      Array.from(await cancellationButtonReactBase.getClassList()).indexOf(
-        'disabled',
-      ) === -1,
+      Array.from(
+        await cancellationButtonReactBase._DEPRECATED_getClassList(),
+      ).indexOf('disabled') === -1,
     isConfirmationEnable: async () =>
-      Array.from(await confirmationButtonReactBase.getClassList()).indexOf(
-        'disabled',
-      ) === -1,
+      Array.from(
+        await confirmationButtonReactBase._DEPRECATED_getClassList(),
+      ).indexOf('disabled') === -1,
     toHaveBodyPadding: async () =>
-      !Array.from(await ReactBase(body()).getClassList()).includes(
+      !Array.from(await ReactBase(body())._DEPRECATED_getClassList()).includes(
         `${styles.noPadding}`,
       ),
   };

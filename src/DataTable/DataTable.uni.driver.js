@@ -72,7 +72,7 @@ export const dataTableUniDriverFactory = base => {
             .map(td => td.text()),
     /** @deprecated Should be private */
     getRowClasses: async index =>
-      values(await ReactBase(getRows().get(index)).getClassList()),
+      values(await ReactBase(getRows().get(index))._DEPRECATED_getClassList()),
     /**
      * Get header cell element: (columnIndex) => Element
      * @deprecated Should be private

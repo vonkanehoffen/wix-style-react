@@ -35,7 +35,9 @@ export const emptyStateUniDriverFactory = base => {
     getImageUrl: () => getImageElement()._prop('src') || '',
 
     getImageContainerClassName: async () => {
-      const classList = await ReactBase(getImageContainer()).getClassList();
+      const classList = await ReactBase(
+        getImageContainer(),
+      )._DEPRECATED_getClassList();
       return classList;
     },
 
