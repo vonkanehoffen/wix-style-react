@@ -1,0 +1,99 @@
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import RadioGroup from '../RadioGroup';
+import Box from '../../Box';
+
+const defaultProps = {
+  value: 2,
+  onChange: e => e.stopPropagation(),
+  size: 'medium',
+};
+
+const tests = [
+  {
+    describe: '',
+    its: [
+      {
+        it: 'basic',
+        props: {},
+      },
+      {
+        it: 'all disabled',
+        props: {
+          disabled: true,
+        },
+      },
+      {
+        it: 'some disabled',
+        props: {
+          disabledRadios: [1, 2],
+        },
+      },
+      {
+        it: 'horizontal display',
+        props: {
+          display: 'horizontal',
+        },
+      },
+      {
+        it: 'button type',
+        props: {
+          type: 'button',
+          display: 'horizontal',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'vertical align',
+    its: [
+      {
+        it: 'center vAlign',
+        props: {
+          vAlign: 'center',
+          children: (
+            <div>
+              <div>This is a radio button</div>
+              <div>with more than one line</div>
+              <div>and just one more</div>
+            </div>
+          ),
+        },
+      },
+      {
+        it: 'top vAlign',
+        props: {
+          vAlign: 'top',
+          children: (
+            <div>
+              <div>This is a radio button</div>
+              <div>with more than one line</div>
+              <div>and just one more</div>
+            </div>
+          ),
+        },
+      },
+    ],
+  },
+];
+
+tests.forEach(({ describe, its }) => {
+  let _describe = '';
+  if (describe) {
+    _describe += `/${describe}`;
+  }
+
+  its.forEach(({ it, props }) => {
+    storiesOf(`RadioGroup${_describe}`, module).add(it, () => (
+      <Box direction="vertical">
+        <RadioGroup {...defaultProps} {...props}>
+          {[1, 2, 3, 4].map(index => (
+            <RadioGroup.Radio value={index}>
+              {props.children || `Option ${index}`}
+            </RadioGroup.Radio>
+          ))}
+        </RadioGroup>
+      </Box>
+    ));
+  });
+});
