@@ -14,6 +14,7 @@ export interface BarChartProps {
   total?: number;
   dataHook?: string;
   deprecatedColors?: boolean;
+  onDescriptionInfoShown?: () => void;
 }
 
 export interface BarChartState {
