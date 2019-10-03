@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Barchart />` - add onDescriptionInfoShown callback [#4178](https://github.com/wix/wix-style-react/pull/4178)
+- `<BarChart />` - add typings [#4189](https://github.com/wix/wix-style-react/pull/4189)
 
 ## 7.5.0 - 2019-10-02
 
