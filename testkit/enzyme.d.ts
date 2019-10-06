@@ -18,11 +18,11 @@ import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
-    params: EnzymeTestkitParams,
+    params: EnzymeTestkitParams
   ) => T;
 
   type EnzymeUniTestkitFactory<T extends BaseUniDriver> = (
-    params: EnzymeTestkitParams,
+    params: EnzymeTestkitParams
   ) => T;
 
   interface EnzymeTestkitParams {
@@ -36,9 +36,7 @@ declare namespace EnzymeTestkit {
   export const autoCompleteCompositeTestkitFactory: any;
   export const avatarTestkitFactory: EnzymeUniTestkitFactory<AvatarDriver>;
   export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>;
-  export const badgeSelectTestkitFactory: EnzymeTestkitFactory<
-    BadgeSelectDriver
-  >;
+  export const badgeSelectTestkitFactory: EnzymeTestkitFactory<BadgeSelectDriver>;
   export const boxTestkitFactory: EnzymeUniTestkitFactory<BoxDriver>;
   export const breadcrumbsTestkitFactory: any;
   export const buttonTestkitFactory: any;
@@ -131,10 +129,9 @@ declare namespace EnzymeTestkit {
   export const fillPreviewTestkitFactory: any;
   export const fillButtonTestkitFactory: any;
   export const barChartTestkitFactory: any;
-  export const labelledElementTestkitFactory: EnzymeUniTestkitFactory<
-    LabelledElementDriver
-  >;
+  export const labelledElementTestkitFactory: any;
   export const inputWithLabelTestkitFactory: any;
+  export const dividerTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

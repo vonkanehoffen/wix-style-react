@@ -144,6 +144,7 @@ export const fillButtonTestkitFactory = uniTestkitFactoryCreator(load(require('.
 export const barChartTestkitFactory = uniTestkitFactoryCreator(load(require('../src/BarChart/BarChart.uni.driver')));
 export const labelledElementTestkitFactory = uniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
 export const inputWithLabelTestkitFactory = uniTestkitFactoryCreator(load(require('../src/InputWithLabel/InputWithLabel.uni.driver')));
+export const dividerTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

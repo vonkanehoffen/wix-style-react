@@ -599,16 +599,22 @@ export const barChartTestkitFactory = protractorUniTestkitFactoryCreator(
   barChartDriverFactory,
 );
 
+import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
+
+export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(
+  labelledElementDriverFactory,
+);
+
 import inputWithLabelDriverFactory from '../src/InputWithLabel/InputWithLabel.uni.driver';
 
 export const inputWithLabelTestkitFactory = protractorUniTestkitFactoryCreator(
   inputWithLabelDriverFactory,
 );
 
-import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
+import dividerDriverFactory from '../src/Divider/Divider.uni.driver';
 
-export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(
-  labelledElementDriverFactory,
+export const dividerTestkitFactory = protractorUniTestkitFactoryCreator(
+  dividerDriverFactory,
 );
 
 import sideMenuDrillDriverFactory from '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver';
@@ -670,3 +676,4 @@ import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.
 export const subheaderTestkitFactory = protractorUniTestkitFactoryCreator(
   cardSubheaderDriverFactory,
 );
+

@@ -108,7 +108,7 @@ export const fillButtonTestkitFactory: any;
 export const barChartTestkitFactory: any;
 export const labelledElementTestkitFactory: any;
 export const inputWithLabelTestkitFactory: any;
-export const labelledElementTestkitFactory: any;
+export const dividerTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;

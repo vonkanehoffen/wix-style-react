@@ -758,7 +758,7 @@ module.exports = {
     unidriver: true,
     testkitPath: "../src/ComposerHeader/ComposerHeader.uni.driver"
   },
-  
+
   FillPreview: {
     unidriver: true,
     testkitPath: '../src/FillPreview/FillPreview.uni.driver',
@@ -777,5 +777,10 @@ module.exports = {
   BarChart: {
     unidriver: true,
     testkitPath: "../src/BarChart/BarChart.uni.driver"
+  },
+
+  Divider: {
+    unidriver: true,
+    testkitPath: "../src/Divider/Divider.uni.driver"
   }
 };

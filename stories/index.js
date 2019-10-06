@@ -138,12 +138,12 @@ require('../src/SidebarSectionItem/docs/index.story');
 require('../src/SidebarDivider/docs/index.story');
 require('../src/SidebarHeader/docs/index.story');
 require('../src/StatisticsWidget/docs/index.story');
+require('./WIP');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
 
 // WIP
-require('./WIP');
 require('../src/DragAndDrop/docs/DragAndDrop');
 require('../src/BadgeSelectItemBuilder/docs');
 require('../src/ContactItemBuilder/docs');
@@ -156,6 +156,7 @@ require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 require('../src/LabelledElement/docs/index.story');
 require('../src/InputWithLabel/docs/index.story');
 require('../src/BarChart/docs/index.story');
+require('../src/Divider/docs/index.story');
 
 // Tests
 require('../src/Typography/test/TestStory');

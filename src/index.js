@@ -148,3 +148,4 @@ export { default as Skeleton } from './Skeleton';
 export { default as FillPreview } from './FillPreview';
 export { default as FillButton } from './FillButton';
 export { default as BarChart } from './BarChart';
+export { default as Divider } from './Divider';

@@ -1,0 +1,34 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-named: D60, D20;
+}
+
+.root {
+  -st-states: 
+    direction(enum(horizontal, vertical)), 
+    skin(enum(light, dark));
+
+  margin: 0;
+  border: 0;
+}
+
+.root:direction(horizontal) {
+  height: 1px;
+  width: 100%;
+}
+
+.root:direction(vertical) {
+  height: inherit;
+  width: 1px;
+  
+  /* Relevant when the container is flexbox */
+  align-self: stretch;
+}
+
+.root:skin(light) {
+  background-color: value(D60);
+}
+
+.root:skin(dark) {
+  background-color: value(D20);
+}

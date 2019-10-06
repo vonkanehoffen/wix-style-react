@@ -491,6 +491,12 @@ export const inputWithLabelTestkitFactory = puppeteerUniTestkitFactoryCreator(
   inputWithLabelDriverFactory,
 );
 
+import dividerDriverFactory from '../src/Divider/Divider.uni.driver';
+
+export const dividerTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  dividerDriverFactory,
+);
+
 import { drillViewUniDriverFactory } from '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver';
 
 export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(
