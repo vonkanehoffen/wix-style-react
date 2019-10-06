@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Icons from 'wix-style-react/new-icons';
+import * as Icons from '..';
 import s from './style.scss';
 
 const renderIcon = name => {
