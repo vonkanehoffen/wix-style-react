@@ -22,6 +22,13 @@ Types of changes:
 - `<BarChart />` - add typings [#4189](https://github.com/wix/wix-style-react/pull/4189)
 - `<Divider/>` - create the component [#4204](https://github.com/wix/wix-style-react/pull/4204)
 
+### Fixed
+
+- `<ComposerHeader/>` - set composerHeader to box-sizing: content-box [#4195](https://github.com/wix/wix-style-react/pull/4195)
+- `<Barchart />` - fix labelShort when there is descriptionInfo [#4183](https://github.com/wix/wix-style-react/pull/4183)
+- `<PopoverMenu/>` - remove autofocus feature to fix page jumping issues [#4186](https://github.com/wix/wix-style-react/pull/4186)
+- `<DropdownBase/>` - fix testkit methods to search for the content with popovers methods [#4186](https://github.com/wix/wix-style-react/pull/4186)
+
 ## 7.5.0 - 2019-10-02
 
 ### Added
