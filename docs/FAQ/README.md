@@ -161,4 +161,4 @@ turn to `fdescribe`.
 ### I have a request for a feature or a new component. How can I get it?
 
 Simply [open a new issue!](https://github.com/wix-private/wsr-issues/issues/new) Even better, you
-can also open a PR is you'd like! We'll love to accept new contributions 😄.
+can also open a PR is you'd like! We'll love to accept new contributions 😄 .
