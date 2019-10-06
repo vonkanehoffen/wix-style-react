@@ -17,43 +17,46 @@ Types of changes:
 ## Next
 
 ### Added
+
 - `<Barchart />` - add onDescriptionInfoShown callback [#4178](https://github.com/wix/wix-style-react/pull/4178)
 - `<BarChart />` - add typings [#4189](https://github.com/wix/wix-style-react/pull/4189)
-
-### Fixed
-- `<ComposerHeader/>` - set composerHeader to box-sizing: content-box [#4195](https://github.com/wix/wix-style-react/pull/4195)
-- `<Barchart />` - fix labelShort when there is descriptionInfo [#4183](https://github.com/wix/wix-style-react/pull/4183)
-- `<PopoverMenu/>` - remove autofocus feature to fix page jumping issues [#4186](https://github.com/wix/wix-style-react/pull/4186)
-- `<DropdownBase/>` - fix testkit methods to search for the content with popovers methods [#4186](https://github.com/wix/wix-style-react/pull/4186)
+- `<Divider/>` - create the component [#4204](https://github.com/wix/wix-style-react/pull/4204)
 
 ## 7.5.0 - 2019-10-02
 
 ### Added
+
 - `<BarChart/>` - new component [#4092](https://github.com/wix/wix-style-react/pull/4092)
 - `<ComposerHeader/>` - new component [#4107](https://github.com/wix/wix-style-react/pull/4107)
 
 ### Fixed
+
 - `<DatePicker/>` - prop initialOpen should not work when disabled [#4174](https://github.com/wix/wix-style-react/pull/4174)
 - `<Input/>` - Fixed inaccurate text mark [#4177](https://github.com/wix/wix-style-react/pull/4177)
 
 ### Changed
+
 - `<Checkbox/>` - use new tooltip [#4170](https://github.com/wix/wix-style-react/pull/4170)
 
 ## 7.4.0 - 2019-09-26
 
 ### Added
+
 - `<AddItem/>` - 2 new props: removeIcon and removePadding [#4166](https://github.com/wix/wix-style-react/pull/4166)
 - `<MessageBoxMarketerialLayout/>` - add buttons padding removal prop [#4168](https://github.com/wix/wix-style-react/pull/4168)
 
 ### Docs
+
 - `<DatePicker/>` - Added documentation [#4170](https://github.com/wix/wix-style-react/pull/4170)
 
-## 7.3.2  - 2019-09-25
+## 7.3.2 - 2019-09-25
+
 - Internal changes
 
 ## 7.3.1 - 2019-09-25
 
 ### Added
+
 - `<CardGalleryItem />` - added prop `disabled` for primaryAction [#4160](https://github.com/wix/wix-style-react/pull/4160)
 - `<ImageViewer/>` - show a `<Loader/>` and the previous image while an image is loading; do not render `<AddItem/>` behind the image since it's visible in the background of transparent images [#4099](https://github.com/wix/wix-style-react/pull/4099)
 
