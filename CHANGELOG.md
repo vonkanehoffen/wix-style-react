@@ -25,6 +25,7 @@ Types of changes:
 
 ### Fixed
 
+- `<MessageBoxFunctionalLayout/>` - Align footer buttons to center [#4122](https://github.com/wix/wix-style-react/pull/4212)
 - `<ComposerHeader/>` - set composerHeader to box-sizing: content-box [#4195](https://github.com/wix/wix-style-react/pull/4195)
 - `<Barchart />` - fix labelShort when there is descriptionInfo [#4183](https://github.com/wix/wix-style-react/pull/4183)
 - `<PopoverMenu/>` - remove autofocus feature to fix page jumping issues [#4186](https://github.com/wix/wix-style-react/pull/4186)
