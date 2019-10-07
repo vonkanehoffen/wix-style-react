@@ -53,6 +53,10 @@ const tests = [
         it: 'error',
         props: { hasError: true },
       },
+      {
+        it: 'selectionArea',
+        props: { selectionArea: 'always' },
+      },
     ],
   },
 ];

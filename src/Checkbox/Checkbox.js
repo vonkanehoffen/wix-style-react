@@ -26,11 +26,17 @@ class Checkbox extends WixComponent {
     /** used for automatic testing */
     checked: bool,
     children: node,
+    /** Is checkbox disabled */
     disabled: bool,
+    /** Does checkbox has an error */
     hasError: bool,
     id: string,
+    /** Checkbox is in an indeterminate state */
     indeterminate: bool,
+    /** The error message when there's an error */
     errorMessage: string,
+    /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
+    selectionArea: oneOf(['none', 'hover', 'always']),
 
     /** used for automatic testing */
     hover: bool,
@@ -41,9 +47,8 @@ class Checkbox extends WixComponent {
   static defaultProps = {
     checked: false,
     size: 'medium',
-    onChange: e => {
-      e.stopPropagation();
-    },
+    selectionArea: 'none',
+    onChange: e => e.stopPropagation(),
   };
 
   //TODO fix me please. We need to get away from ids.
@@ -70,6 +75,7 @@ class Checkbox extends WixComponent {
       disabled,
       hasError,
       errorMessage,
+      selectionArea,
       hover,
       size,
       onChange,
@@ -87,6 +93,8 @@ class Checkbox extends WixComponent {
         [styles.hover]: hover,
         [styles.disabled]: disabled,
         [styles.hasError]: hasError && !disabled,
+        [styles.selectionAreaAlways]: selectionArea === 'always',
+        [styles.selectionAreaHover]: selectionArea === 'hover',
       },
     );
 
@@ -125,13 +133,18 @@ class Checkbox extends WixComponent {
             hideDelay={150}
             zIndex={10000}
           >
-            <div className={classNames(styles.checkbox, styles[size])}>
-              <div className={styles.inner} onClick={e => e.stopPropagation()}>
-                {indeterminate ? (
-                  <CheckboxIndeterminate />
-                ) : (
-                  <CheckboxChecked />
-                )}
+            <div className={styles.outer}>
+              <div className={classNames(styles.checkbox, styles[size])}>
+                <div
+                  className={styles.inner}
+                  onClick={e => e.stopPropagation()}
+                >
+                  {indeterminate ? (
+                    <CheckboxIndeterminate />
+                  ) : (
+                    <CheckboxChecked />
+                  )}
+                </div>
               </div>
             </div>
           </Tooltip>
