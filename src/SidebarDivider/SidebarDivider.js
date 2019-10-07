@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import styles from './SidebarDivider.st.css';
+import Divider from '../Divider';
 
 /** A divider within the sidebar that supports inner and full mode */
 class SidebarDivider extends React.PureComponent {
@@ -19,10 +20,12 @@ class SidebarDivider extends React.PureComponent {
     const { dataHook, fullWidth } = this.props;
 
     return (
-      <hr
+      <div
         data-hook={dataHook}
         className={classNames(styles.root, fullWidth && styles.fullWidth)}
-      />
+      >
+        <Divider skin="dark" className={styles.divider} />
+      </div>
     );
   }
 }

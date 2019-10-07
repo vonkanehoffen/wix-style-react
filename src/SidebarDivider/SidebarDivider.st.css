@@ -1,4 +1,9 @@
 :import {
+  -st-from: "../Divider/Divider.st.css";
+  -st-default: Divider;
+};
+
+:import {
   -st-from: "../Sidebar/colors.st.css";
   -st-named: dividerColor
 }
@@ -7,9 +12,17 @@
   border: 0;
   height: 1px;
   margin: 20px 24px;
-  background-color: value(dividerColor);
 }
 
 .fullWidth {
   margin: 0;
+}
+
+.divider {
+  -st-extends: Divider;
+}
+
+.divider:skin(dark) {
+  /* Overrides the color as part of UX decision */
+  background-color: value(dividerColor);
 }
