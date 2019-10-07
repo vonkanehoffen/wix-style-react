@@ -18,11 +18,9 @@
 }
 
 .root:direction(vertical) {
-  height: inherit;
+  display: inline-block;
+  min-height: 100%;
   width: 1px;
-  
-  /* Relevant when the container is flexbox */
-  align-self: stretch;
 }
 
 .root:skin(light) {
