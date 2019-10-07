@@ -13,6 +13,13 @@ const modulu = (n, m) => {
   return remain >= 0 ? remain : remain + m;
 };
 
+const getUnit = value => {
+  if (typeof value === 'string') {
+    return value;
+  }
+  return `${value}px`;
+};
+
 const NOT_HOVERED_INDEX = -1;
 export const DIVIDER_OPTION_VALUE = '-';
 
@@ -283,17 +290,15 @@ class DropdownLayout extends WixComponent {
           className={contentContainerClassName}
           style={{
             overflow,
-            maxHeight: this.props.maxHeightPixels + 'px',
-            minWidth: this.props.minWidthPixels
-              ? `${this.props.minWidthPixels}px`
-              : undefined,
+            maxHeight: getUnit(this.props.maxHeightPixels),
+            minWidth: getUnit(this.props.minWidthPixels),
           }}
         >
           {this._renderNode(fixedHeader)}
           <div
             className={styles.options}
             style={{
-              maxHeight: this.props.maxHeightPixels - 35 + 'px',
+              maxHeight: getUnit(parseInt(this.props.maxHeightPixels, 10) - 35),
               overflow,
             }}
             ref={_options => (this.options = _options)}
@@ -505,8 +510,8 @@ DropdownLayout.propTypes = {
   fixedHeader: PropTypes.node,
   /** A fixed footer to the list */
   fixedFooter: PropTypes.node,
-  maxHeightPixels: PropTypes.number,
-  minWidthPixels: PropTypes.number,
+  maxHeightPixels: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  minWidthPixels: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   withArrow: PropTypes.bool,
   closeOnSelect: PropTypes.bool,
   onMouseEnter: PropTypes.func,
