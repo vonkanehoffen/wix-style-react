@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './styles.scss';
+import CoreDivider from '../../Divider';
 
-const Divider = () => <div className={styles.root} />;
+const Divider = () => <CoreDivider />;
 
 Divider.displayName = 'Divider';
 
