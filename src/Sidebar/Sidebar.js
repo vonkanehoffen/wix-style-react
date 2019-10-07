@@ -115,17 +115,20 @@ class Sidebar extends Component {
     const persistentBottomChildren = [];
     const onScreenChildren = [];
 
+    const findEnabledChild = item =>
+      item.props.innerMenu &&
+      item.props.innerMenu.find(
+        c => c.type === SidebarItem && !c.props.disable,
+      );
     const handleChild = child => {
       if (child.type === SidebarItem) {
+        const enabledChild = findEnabledChild(child);
         this.itemKey2Children[child.props.itemKey] = {
-          selectedKey: child.props.innerMenu
-            ? child.props.innerMenu.find(
-                c => c.type === SidebarItem && !c.props.disable,
-              ).props.itemKey
+          selectedKey: enabledChild
+            ? enabledChild.props.itemKey
             : child.props.itemKey,
           children: child.props.innerMenu ? child.props.innerMenu : [],
         };
-
         if (child.props.innerMenu) {
           child.props.innerMenu.forEach(innerChild => {
             if (innerChild.type === SidebarItem) {

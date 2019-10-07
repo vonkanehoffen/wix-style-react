@@ -83,6 +83,37 @@ describe('Sidebar', () => {
       el = sidebar.find(`[data-hook="simple4"]`);
       expect(el.text()).toEqual('000');
     });
+    it('should render and not throw if all innerMenu items are disabled', () => {
+      const sidebar = mount(
+        <Sidebar selectedKey={'item2'}>
+          <Sidebar.Item
+            itemKey={'item1'}
+            innerMenu={[
+              <Sidebar.Item key={'item2'} itemKey={'item2'} disable>
+                <div data-hook="simple2">456</div>
+              </Sidebar.Item>,
+              <Sidebar.Item key={'item3'} itemKey={'item3'} disable>
+                <div data-hook="simple3">789</div>
+              </Sidebar.Item>,
+              <Sidebar.Item key={'item4'} itemKey={'item4'} disable>
+                <div data-hook="simple4">000</div>
+              </Sidebar.Item>,
+            ]}
+          >
+            <div data-hook="simple1">123</div>
+          </Sidebar.Item>
+        </Sidebar>,
+      );
+
+      let el = sidebar.find(`[data-hook="simple2"]`);
+      expect(el.text()).toEqual('456');
+
+      el = sidebar.find(`[data-hook="simple3"]`);
+      expect(el.text()).toEqual('789');
+
+      el = sidebar.find(`[data-hook="simple4"]`);
+      expect(el.text()).toEqual('000');
+    });
 
     it('should navigate on click when innerMenu', () => {
       const sidebar = mount(
