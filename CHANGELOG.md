@@ -21,7 +21,7 @@ Types of changes:
 - `<Barchart />` - add onDescriptionInfoShown callback [#4178](https://github.com/wix/wix-style-react/pull/4178)
 - `<BarChart />` - add typings [#4189](https://github.com/wix/wix-style-react/pull/4189)
 - `<Divider/>` - create the component [#4204](https://github.com/wix/wix-style-react/pull/4204)
-- `<Checkbox/>` - Implement selection area [#4201](https://github.com/wix/wix-style-react/pull/4201)
+- `<Checkbox/>` - New prop - Selection area [#4201](https://github.com/wix/wix-style-react/pull/4201)
 
 ### Fixed
 
