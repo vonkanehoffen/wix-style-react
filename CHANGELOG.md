@@ -23,6 +23,7 @@ Types of changes:
 - `<Divider/>` - create the component [#4204](https://github.com/wix/wix-style-react/pull/4204)
 - `<Checkbox/>` - New prop - Selection area [#4201](https://github.com/wix/wix-style-react/pull/4201)
 - `<Checkbox/>` - New prop - Vertical alignment [#4215](https://github.com/wix/wix-style-react/pull/4215)
+- `<DropdownLayout/>` - add support for string based max and min width props [#4216](https://github.com/wix/wix-style-react/pull/4216)
 
 ### Fixed
 
