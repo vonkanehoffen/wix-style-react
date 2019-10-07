@@ -12,7 +12,15 @@
     display: flex;
     cursor: default;
     justify-content: center;
-    align-items: center;
+
+    &:not(.vtop) {
+      align-items: center;
+    }
+  }
+
+  .vtop .outer {
+    margin-top: 4px;
+    display: flex;
   }
 
   &#{$focusable-focus-visible} {
@@ -39,6 +47,10 @@
     .outer {
       cursor: pointer;
       padding: 16px 0 16px 16px;
+    }
+
+    .vtop .outer {
+      margin-top: 0;
     }
   }
 
@@ -144,6 +156,12 @@
   &.hover .checkbox,
   .checkbox:hover {
     background-color: $B50;
+  }
+
+  &:hover {
+    .checkbox {
+      background-color: $B50;
+    }
   }
 }
 

@@ -37,6 +37,8 @@ class Checkbox extends WixComponent {
     errorMessage: string,
     /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
     selectionArea: oneOf(['none', 'hover', 'always']),
+    /** Positioning of the checkbox compared to the label */
+    vAlign: oneOf(['center', 'top']),
 
     /** used for automatic testing */
     hover: bool,
@@ -48,6 +50,7 @@ class Checkbox extends WixComponent {
     checked: false,
     size: 'medium',
     selectionArea: 'none',
+    vAlign: 'center',
     onChange: e => e.stopPropagation(),
   };
 
@@ -76,6 +79,7 @@ class Checkbox extends WixComponent {
       hasError,
       errorMessage,
       selectionArea,
+      vAlign,
       hover,
       size,
       onChange,
@@ -121,7 +125,13 @@ class Checkbox extends WixComponent {
           style={{ display: 'none' }}
         />
 
-        <Label for={id} dataHook="checkbox-label">
+        <Label
+          for={id}
+          dataHook="checkbox-label"
+          className={classNames({
+            [styles.vtop]: vAlign === 'top',
+          })}
+        >
           <Tooltip
             upgrade
             dataHook="checkbox-box"
@@ -148,7 +158,6 @@ class Checkbox extends WixComponent {
               </div>
             </div>
           </Tooltip>
-
           {children && (
             <div className={styles.children} data-hook="checkbox-children">
               {children}

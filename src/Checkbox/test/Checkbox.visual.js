@@ -39,6 +39,7 @@ class InteractiveEyeTest extends React.Component {
 const defaultProps = {
   onChange: e => e.stopPropagation(),
   size: 'medium',
+  children: 'Hello World!',
 };
 
 const tests = [
@@ -56,6 +57,73 @@ const tests = [
       {
         it: 'selectionArea',
         props: { selectionArea: 'always' },
+      },
+    ],
+  },
+  {
+    describe: 'vertical align',
+    its: [
+      {
+        it: 'center (default)',
+        props: {
+          vAlign: 'center',
+        },
+      },
+      {
+        it: 'top',
+        props: {
+          vAlign: 'top',
+        },
+      },
+      {
+        it: 'two lines - center',
+        props: {
+          vAlign: 'center',
+          children: (
+            <React.Fragment>
+              <div>I have two lines</div>
+              <div>My box is centered</div>
+            </React.Fragment>
+          ),
+        },
+      },
+      {
+        it: 'two lines - top',
+        props: {
+          vAlign: 'top',
+          children: (
+            <React.Fragment>
+              <div>I have two lines</div>
+              <div>My box is on top</div>
+            </React.Fragment>
+          ),
+        },
+      },
+      {
+        it: 'selectionArea + center',
+        props: {
+          vAlign: 'center',
+          selectionArea: 'always',
+          children: (
+            <React.Fragment>
+              <div>I have two lines</div>
+              <div>My box is centered</div>
+            </React.Fragment>
+          ),
+        },
+      },
+      {
+        it: 'selectionArea + top',
+        props: {
+          vAlign: 'top',
+          selectionArea: 'always',
+          children: (
+            <React.Fragment>
+              <div>I have two lines</div>
+              <div>My box is on top</div>
+            </React.Fragment>
+          ),
+        },
       },
     ],
   },
@@ -87,34 +155,22 @@ tests.forEach(({ describe, its }) => {
     storiesOf(`Checkbox${_describe}`, module).add(it, () => (
       <Box direction="vertical">
         <Box margin={2}>
-          <Checkbox {...defaultProps} {...props}>
-            Hello World!
-          </Checkbox>
+          <Checkbox {...defaultProps} {...props} />
         </Box>
         <Box margin={2}>
-          <Checkbox checked {...defaultProps} {...props}>
-            Hello World!
-          </Checkbox>
+          <Checkbox checked {...defaultProps} {...props} />
         </Box>
         <Box margin={2}>
-          <Checkbox indeterminate {...defaultProps} {...props}>
-            Hello World!
-          </Checkbox>
+          <Checkbox indeterminate {...defaultProps} {...props} />
         </Box>
         <Box margin={2}>
-          <Checkbox disabled {...defaultProps} {...props}>
-            Hello World!
-          </Checkbox>
+          <Checkbox disabled {...defaultProps} {...props} />
         </Box>
         <Box margin={2}>
-          <Checkbox checked disabled {...defaultProps} {...props}>
-            Hello World!
-          </Checkbox>
+          <Checkbox checked disabled {...defaultProps} {...props} />
         </Box>
         <Box margin={2}>
-          <Checkbox indeterminate disabled {...defaultProps} {...props}>
-            Hello World!
-          </Checkbox>
+          <Checkbox indeterminate disabled {...defaultProps} {...props} />
         </Box>
       </Box>
     ));

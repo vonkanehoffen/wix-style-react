@@ -3,7 +3,10 @@ export const simple = `
 `;
 
 export const error = `
-  <Checkbox hasError errorMessage="Oops!">Hover me...</Checkbox>
+<Checkbox hasError errorMessage="Oops!" vAlign="top">
+  <div>I have an error!</div>
+  <div>Hover me...</div>
+</Checkbox>
 `;
 
 export const selectionArea = `
