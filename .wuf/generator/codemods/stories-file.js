@@ -6,10 +6,7 @@ module.exports = (file, api, options) => {
 
   root.get().node.program.body.push(
     `// TODO: move to correct position
-require('../src/${ComponentName}/docs/index.story');
-
-// TODO: move to correct position
-require('../src/${ComponentName}/test/${ComponentName}Stories');`,
+require('../src/${ComponentName}/docs/index.story');`,
   );
 
   return root.toSource();
