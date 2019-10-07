@@ -27,6 +27,10 @@ class AccordionItem extends React.PureComponent {
     onToggle: PropTypes.func,
   };
 
+  static defaultProps = {
+    buttonType: buttonTypes.textButton,
+  };
+
   state = {
     hover: false,
   };

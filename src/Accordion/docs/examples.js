@@ -36,7 +36,7 @@ export const multiple = `
   multiple
   items={[
     { title: 'First Initially Open Row', children: <Text>${text}</Text>, open: true, collapseLabel: 'Less' },
-    { title: 'Second Row', children: <Text>${text}</Text>, collapseLabel: 'Less' },
+    { title: 'Second Row', children: <Text>${text}</Text>, collapseLabel: 'Less', expandLabel: 'More' },
     { title: 'Third Row', children: <Text>${text}</Text>, collapseLabel: 'Less' },
   ]}
 />

@@ -63,6 +63,17 @@ describe('Accordion', () => {
       },
     ];
 
+    const singleItemWithTextButton = [
+      {
+        title: 'first item',
+        icon: <FakeIcon />,
+        content: 'first item content',
+        expandLabel: 'see more',
+        collapseLabel: 'see less',
+        buttonType: buttonTypes.textButton,
+      },
+    ];
+
     const multipleItems = [
       {
         title: 'first item',
@@ -95,6 +106,16 @@ describe('Accordion', () => {
 
     it('should accept an expand and collapse button labels', async () => {
       const driver = createDriver(<Accordion items={singleItem} />);
+      await driver.hoverOnItem(0);
+      expect(await driver.getToggleButtonLabelAt(0)).toEqual('see more');
+      await driver.clickToggleButtonAt(0);
+      expect(await driver.getToggleButtonLabelAt(0)).toEqual('see less');
+    });
+
+    it('should accept an expand and collapse button labels when using textButton', async () => {
+      const driver = createDriver(
+        <Accordion items={singleItemWithTextButton} />,
+      );
       await driver.hoverOnItem(0);
       expect(await driver.getToggleButtonLabelAt(0)).toEqual('see more');
       await driver.clickToggleButtonAt(0);
