@@ -22,9 +22,6 @@
     "*.js",
     "*.d.ts"
   ],
-  "bin": {
-    "migrate-to-icons-v2": "./scripts/migrate-to-icons-v2/runner.js"
-  },
   "scripts": {
     "start": "./scripts/npm-start.sh",
     "pretest": "if [ ! \"$agentType\" = \"pullrequest\" ]; then npm run lint && ./scripts/ensure-dist.sh; fi",
