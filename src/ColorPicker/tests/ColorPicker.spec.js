@@ -3,12 +3,12 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 import color from 'color';
-import colorPickerDriverFactory from './ColorPicker.private.driver';
-import { colorPickerUniDriverFactory } from './ColorPicker.uni.driver';
+import colorPickerDriverFactory from '../ColorPicker.private.driver';
+import { colorPickerUniDriverFactory } from '../ColorPicker.uni.driver';
 
-import ColorPicker from './ColorPicker';
+import ColorPicker from '../ColorPicker';
 
 describe('ColorPicker', () => {
   describe('[sync]', () => {

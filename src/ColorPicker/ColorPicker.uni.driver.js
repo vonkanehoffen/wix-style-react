@@ -1,6 +1,11 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 
 export const colorPickerUniDriverFactory = base => {
+  const getConverter = () => base.$(`[data-hook="color-picker-converter"]`);
+  const getConverterTabs = async () => {
+    return getConverter().$$(`li`);
+  };
+
   return {
     ...baseUniDriverFactory(base),
     confirm: async () =>
@@ -29,6 +34,8 @@ export const colorPickerUniDriverFactory = base => {
         clientX: 1,
         clientY: 1,
       }),
+    selectRgbTab: async () => (await getConverterTabs()).get(1).click(),
+    selectHsbTab: async () => (await getConverterTabs()).get(2).click(),
   };
 };
 

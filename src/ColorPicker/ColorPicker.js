@@ -21,7 +21,7 @@ const FALLBACK_COLOR = color('#86c6e5');
  * Value for this component can be given in `string` or `object` format.
  * The callbacks always respond with color `object` format.
  */
-export default class ColorPicker extends WixComponent {
+export default class ColorPicker extends React.PureComponent {
   static displayName = 'ColorPicker';
 
   static propTypes = {
@@ -91,11 +91,12 @@ export default class ColorPicker extends WixComponent {
       addTooltipContent,
       allowEmpty,
       emptyPlaceholder,
+      dataHook,
     } = this.props;
     const { current, previous } = this.state;
 
     return (
-      <div className={css.root}>
+      <div className={css.root} data-hook={dataHook}>
         <ColorPickerHsb current={current} onChange={this.change} />
         <ColorPickerHue current={current} onChange={this.change} />
         <ColorPickerHistory
