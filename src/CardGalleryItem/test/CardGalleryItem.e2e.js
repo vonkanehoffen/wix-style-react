@@ -3,16 +3,14 @@ import {
   waitForVisibilityOf,
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../../test/utils/storybook-helpers';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 
 import { cardGalleryItemTestkitFactory } from '../../../testkit/protractor';
-import { storySettings } from '../docs/storySettings';
+import { storySettings, testStories } from '../docs/storySettings';
 
-const { category, storyName } = storySettings;
-const autoExampleUrl = createStoryUrl({
-  kind: category,
-  story: storyName,
-  withExamples: false,
+const autoExampleUrl = createTestStoryUrl({
+  ...storySettings,
+  testName: testStories.cardGalleryItem,
 });
 
 describe('CardGalleryItem', () => {

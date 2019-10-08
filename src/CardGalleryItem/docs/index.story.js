@@ -66,6 +66,34 @@ const code = config =>
 const example = ({ title, text, ...config }) =>
   columns([description({ title, text }), code(config)]);
 
+export const componentProps = {
+  ...commonProps,
+  dataHook,
+  primaryActionProps: getPrimaryActionProps('Button'),
+  secondaryActionProps: getSecondaryActionProps('Text Link'),
+  settingsMenu: (
+    <PopoverMenu
+      triggerElement={({ onClick }) => (
+        <IconButton
+          onClick={e => {
+            onClick(e);
+            e.stopPropogation();
+          }}
+          skin="light"
+          priority="secondary"
+        >
+          <More />
+        </IconButton>
+      )}
+    >
+      <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />
+      <PopoverMenu.MenuItem text="Delete" prefixIcon={<Delete />} />
+      <PopoverMenu.MenuItem text="Delete" prefixIcon={<Email />} />
+      <PopoverMenu.MenuItem text="Something" disabled />
+    </PopoverMenu>
+  ),
+};
+
 export default {
   category,
   storyName,
@@ -73,33 +101,7 @@ export default {
   component: CardGalleryItem,
   componentPath: '..',
 
-  componentProps: {
-    ...commonProps,
-    dataHook,
-    primaryActionProps: getPrimaryActionProps('Button'),
-    secondaryActionProps: getSecondaryActionProps('Text Link'),
-    settingsMenu: (
-      <PopoverMenu
-        triggerElement={({ onClick }) => (
-          <IconButton
-            onClick={e => {
-              onClick(e);
-              e.stopPropogation();
-            }}
-            skin="light"
-            priority="secondary"
-          >
-            <More />
-          </IconButton>
-        )}
-      >
-        <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />
-        <PopoverMenu.MenuItem text="Delete" prefixIcon={<Delete />} />
-        <PopoverMenu.MenuItem text="Delete" prefixIcon={<Email />} />
-        <PopoverMenu.MenuItem text="Something" disabled />
-      </PopoverMenu>
-    ),
-  },
+  componentProps,
 
   // exampleProps,
 
