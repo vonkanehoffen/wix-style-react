@@ -10,6 +10,12 @@ const calendarTestkitFactory = uniTestkitFactoryCreator(
   calendarUniDriverFactory,
 );
 
+const getDriver = () =>
+  calendarTestkitFactory({
+    wrapper: document.body,
+    dataHook,
+  });
+
 class CalendarWrapper extends React.PureComponent {
   componentDidMount() {
     const { componentDidMount } = this.props;
@@ -63,11 +69,7 @@ const tests = [
           },
         },
         componentDidMount: async () => {
-          const calendarDriver = calendarTestkitFactory({
-            wrapper: document.body,
-            dataHook,
-          });
-          await calendarDriver.clickOnNextMonthButton();
+          await getDriver().clickOnNextMonthButton();
         },
       },
       {
@@ -86,6 +88,15 @@ const tests = [
             from: new Date('2017/05/02'),
             to: new Date('2017/05/02'),
           },
+        },
+      },
+      {
+        it: 'should correctly render when previous month button is clicked',
+        props: {
+          value: new Date('2017/06/05'),
+        },
+        componentDidMount: async () => {
+          await getDriver().clickOnPrevMonthButton();
         },
       },
     ],
