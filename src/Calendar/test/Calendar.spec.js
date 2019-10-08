@@ -1,12 +1,12 @@
 import React from 'react';
-import calendarDriverFactory from './Calendar.driver';
-import Calendar from './Calendar';
+import calendarDriverFactory from '../Calendar.driver';
+import Calendar from '..';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
-import { calendarUniDriverFactory } from './Calendar.uni.driver';
+} from '../../../test/utils/react';
+import { calendarUniDriverFactory } from '../Calendar.uni.driver';
 
 describe('Calendar', () => {
   describe('[sync]', () => {
