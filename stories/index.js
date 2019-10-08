@@ -190,7 +190,6 @@ require('../src/FloatingNotification/docs/FloatingNotificationTestStory'); // 8.
 require('../src/FormField/docs/testStory');
 require('../src/DropdownLayout/docs/testStory');
 require('../src/InputWithOptions/docs/testStory');
-require('../src/ColorInput/docs/testStory');
 require('../src/DateInput/test/testStories');
 
 // DEPRECATED
