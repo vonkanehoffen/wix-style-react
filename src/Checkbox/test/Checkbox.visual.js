@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from '../Checkbox';
 import FormField from 'wix-style-react/FormField';
@@ -13,28 +13,33 @@ const checkboxId = 'checkboxId';
 const checkboxUniTestkitFactory = uniTestkitFactoryCreator(
   checkboxUniDriverFactory,
 );
-const createDriver = dataHook =>
+const createDriver = () =>
   checkboxUniTestkitFactory({
     wrapper: document.body,
     dataHook,
   });
 
-class InteractiveEyeTest extends React.Component {
-  componentDidMount() {
-    this.props.componentDidMount();
-  }
+const InteractiveCheckbox = ({ componentDidMount, ...props }) => {
+  const [isChecked, setChecked] = useState(false);
+  const onChange = () => setChecked(!isChecked);
 
-  render() {
-    const { ...restProps } = this.props;
-    return (
-      <div style={{ padding: '40px' }}>
-        <Checkbox dataHook={dataHook} {...restProps}>
-          Hello World!
-        </Checkbox>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    componentDidMount();
+  }, [componentDidMount]);
+
+  return (
+    <div style={{ padding: '40px' }}>
+      <Checkbox
+        checked={isChecked}
+        onChange={onChange}
+        dataHook={dataHook}
+        {...props}
+      >
+        Hello World!
+      </Checkbox>
+    </div>
+  );
+};
 
 const defaultProps = {
   onChange: e => e.stopPropagation(),
@@ -130,15 +135,54 @@ const tests = [
 ];
 
 const interactiveTests = [
+  /* issue with error tooltip test: https://github.com/wix/wix-style-react/issues/3647 */
+  // {
+  //   describe: 'tooltip',
+  //   its: [
+  //     {
+  //       it: 'displayed on checkbox hover when error exists',
+  //       props: { hasError: true, errorMessage: 'error' },
+  //       componentDidMount: async () => {
+  //         const driver = createDriver();
+  //         await driver.getErrorMessage();
+  //       },
+  //     },
+  //   ],
+  // },
   {
-    describe: 'tooltip',
+    describe: 'focus',
     its: [
       {
-        it: 'displayed on checkbox hover when error exists',
-        props: { hasError: true, errorMessage: 'error' },
+        it: 'displayed when checkbox has focus',
+        props: {},
         componentDidMount: async () => {
-          const driver = createDriver(dataHook);
-          await driver.getErrorMessage();
+          await createDriver().focus();
+        },
+      },
+      {
+        it: 'displayed when checkbox has error and focus',
+        props: { hasError: true },
+        componentDidMount: async () => {
+          await createDriver().focus();
+        },
+      },
+    ],
+  },
+  {
+    describe: 'click',
+    its: [
+      {
+        it: 'should select checkbox',
+        props: {},
+        componentDidMount: async () => {
+          await createDriver().click();
+        },
+      },
+      {
+        it: 'should not select checkbox when disabled',
+        props: { disabled: true },
+        componentDidMount: async () => {
+          await createDriver().click();
         },
       },
     ],
@@ -177,15 +221,13 @@ tests.forEach(({ describe, its }) => {
   });
 });
 
-/* issue with the interactive test: https://github.com/wix/wix-style-react/issues/3647 */
-
-// interactiveTests.forEach(({ describe, its }) => {
-//   its.forEach(({ it, props, componentDidMount }) => {
-//     storiesOf(`Checkbox/${describe}`, module).add(it, () => (
-//       <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
-//     ));
-//   });
-// });
+interactiveTests.forEach(({ describe, its }) => {
+  its.forEach(({ it, props, componentDidMount }) => {
+    storiesOf(`Checkbox/${describe}`, module).add(it, () => (
+      <InteractiveCheckbox {...props} componentDidMount={componentDidMount} />
+    ));
+  });
+});
 
 storiesOf('Checkbox/FormField', module).add('FormField', () => (
   <div style={{ padding: '40px' }}>
