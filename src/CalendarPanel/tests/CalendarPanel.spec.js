@@ -3,11 +3,11 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
-import CalendarPanel from './CalendarPanel';
-import calendarPanelDriverFactory from './CalendarPanel.driver';
-import { calendarPanelUniDriverFactory } from './CalendarPanel.uni.driver';
+import CalendarPanel from '../CalendarPanel';
+import calendarPanelDriverFactory from '../CalendarPanel.driver';
+import { calendarPanelUniDriverFactory } from '../CalendarPanel.uni.driver';
 import isSameDay from 'date-fns/is_same_day';
 
 const A_DAY = new Date(2019, 4, 29);
