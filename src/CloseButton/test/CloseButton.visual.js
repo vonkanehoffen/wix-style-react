@@ -67,6 +67,9 @@ storiesOf(`CloseButton/Skins`, module).add('skins- medium', () => (
       <Box padding="3px">
         <CloseButton {...customIconDefaultProps} size={SIZES.medium} />
       </Box>
+      <Box padding="3px">
+        <CloseButton {...customIconDefaultProps} size={SIZES.medium} />
+      </Box>
       <Box>
         <CloseButton
           {...defaultProps}
@@ -81,8 +84,22 @@ storiesOf(`CloseButton/Skins`, module).add('skins- medium', () => (
           size={SIZES.medium}
         />
       </Box>
+      <Box>
+        <CloseButton
+          {...customIconDefaultProps}
+          skin={SKINS.standardFilled}
+          size={SIZES.medium}
+        />
+      </Box>
       <Box backgroundColor="BLACK" width={'25px'} margin="3px 0" padding="3px">
         <CloseButton {...defaultProps} skin={SKINS.light} size={SIZES.medium} />
+      </Box>
+      <Box backgroundColor="BLACK" width={'25px'} margin="3px 0" padding="3px">
+        <CloseButton
+          {...customIconDefaultProps}
+          skin={SKINS.light}
+          size={SIZES.medium}
+        />
       </Box>
       <Box backgroundColor="BLACK" width={'25px'} margin="3px 0" padding="3px">
         <CloseButton
@@ -106,6 +123,13 @@ storiesOf(`CloseButton/Skins`, module).add('skins- medium', () => (
         />
       </Box>
       <Box padding="3px">
+        <CloseButton
+          {...customIconDefaultProps}
+          skin={SKINS.lightFilled}
+          size={SIZES.medium}
+        />
+      </Box>
+      <Box padding="3px">
         <CloseButton {...defaultProps} skin={SKINS.dark} size={SIZES.medium} />
       </Box>
       <Box padding="3px">
@@ -117,7 +141,21 @@ storiesOf(`CloseButton/Skins`, module).add('skins- medium', () => (
       </Box>
       <Box padding="3px">
         <CloseButton
+          {...customIconDefaultProps}
+          skin={SKINS.dark}
+          size={SIZES.medium}
+        />
+      </Box>
+      <Box padding="3px">
+        <CloseButton
           {...defaultProps}
+          skin={SKINS.transparent}
+          size={SIZES.medium}
+        />
+      </Box>
+      <Box padding="3px">
+        <CloseButton
+          {...customIconDefaultProps}
           skin={SKINS.transparent}
           size={SIZES.medium}
         />
