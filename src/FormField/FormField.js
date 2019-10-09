@@ -114,11 +114,11 @@ class FormField extends React.Component {
   _hasCharCounter = () => typeof this.state.lengthLeft === 'number';
 
   _renderInfoIcon = () => {
-    const { infoContent, infoTooltipProps, labelSize } = this.props;
+    const { dataHook, infoContent, infoTooltipProps, labelSize } = this.props;
     return (
       infoContent && (
         <InfoIcon
-          dataHook="formfield-infotooltip"
+          dataHook={`${dataHook}-formfield-infotooltip`}
           className={styles.infoIcon}
           tooltipProps={{
             content: infoContent,

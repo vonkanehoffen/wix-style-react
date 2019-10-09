@@ -1,12 +1,12 @@
 import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import { Simulate } from 'react-dom/test-utils';
 
-const formFieldDriver = ({ element }) => {
+const formFieldDriver = ({ element, dataHook }) => {
   const byHook = hook => element.querySelector(`[data-hook*="${hook}"]`);
   const charactersCounter = () => byHook('formfield-counter');
 
   const tooltipTestkit = tooltipDriverFactory({
-    element: byHook('formfield-infotooltip'),
+    element: byHook(`${dataHook}-formfield-infotooltip`),
     eventTrigger: Simulate,
   });
 

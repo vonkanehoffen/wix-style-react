@@ -1,8 +1,7 @@
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
-import { reactUniDriver } from 'wix-ui-test-utils/vanilla';
 
-export const formFieldUniDriverFactory = base => {
+export const formFieldUniDriverFactory = (base, body, { dataHook }) => {
   const charactersCounter = () => base.$('[data-hook*="formfield-counter"]');
 
   return {
@@ -37,15 +36,15 @@ export const formFieldUniDriverFactory = base => {
     },
     hasTooltip: async () => {
       const testkit = tooltipDriverFactory(
-        base.$('[data-hook*="formfield-infotooltip"]'),
-        reactUniDriver(document.body),
+        base.$(`[data-hook="${dataHook}-formfield-infotooltip"]`),
+        body,
       );
       return await testkit.exists();
     },
     getInfoContent: async () => {
       const testkit = tooltipDriverFactory(
-        base.$('[data-hook*="formfield-infotooltip"]'),
-        reactUniDriver(document.body),
+        base.$(`[data-hook="${dataHook}-formfield-infotooltip"]`),
+        body,
       );
       return await testkit.getTooltipText();
     },
