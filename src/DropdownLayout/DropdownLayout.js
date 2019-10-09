@@ -147,10 +147,10 @@ class DropdownLayout extends WixComponent {
       );
     } while (!this._isSelectableOption(options[markedIndex]));
     this._markOption(markedIndex);
-
     const menuElement = this.options;
-    const hoveredElement = this.options.childNodes[markedIndex];
-
+    const hoveredElement = this.props.infiniteScroll
+      ? this.options.childNodes[0].childNodes[markedIndex]
+      : this.options.childNodes[markedIndex];
     scrollIntoView(menuElement, hoveredElement);
   }
 
