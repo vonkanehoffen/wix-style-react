@@ -16,11 +16,7 @@ const ExampleEmptyState = props => (
   >
     <Page.Header
       title="Your Product"
-      actionsBar={
-        <Button withNewIcons prefixIcon={<Add />}>
-          New Item
-        </Button>
-      }
+      actionsBar={<Button prefixIcon={<Add />}>New Item</Button>}
     />
 
     <Page.Content>

@@ -34,7 +34,7 @@ Layout.propTypes = {
   children: PropTypes.node,
 
   /** distance between cells both vertically and horizontally */
-  gap: PropTypes.string,
+  gap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   /** set custom amount of columns to be rendered. Default is 12 which means at `<Cell span={12}/>` occupies all columns, in other words, full width */
   cols: PropTypes.number,

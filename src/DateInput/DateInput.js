@@ -28,7 +28,7 @@ class DateInput extends React.PureComponent {
   render() {
     const { value: initialValue, customInput, ...rest } = this.props;
     const _inputProps = {
-      value: this._formatDateValue(initialValue),
+      value: this._formatDateValue(),
       prefix: (
         <Input.IconAffix dataHook="date-input-date-icon">
           <CalendarIcon />
@@ -45,7 +45,11 @@ class DateInput extends React.PureComponent {
 DateInput.propTypes = {
   ...Input.propTypes,
   /** The selected date */
-  value: PropTypes.object,
+  value: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   /** Instance locale */
   locale: PropTypes.oneOfType([
     PropTypes.oneOf([

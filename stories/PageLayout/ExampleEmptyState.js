@@ -8,11 +8,11 @@ import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import { Row, Col, Container } from 'wix-style-react/Grid';
 import EmptyState from 'wix-style-react/EmptyState';
 
-class ExampleGeneralLayout extends React.Component {
+class ExampleEmptyState extends React.Component {
   renderHeader() {
     const ActionBar = () => {
       return (
-        <Button withNewIcons prefixIcon={<Icons.Add />}>
+        <Button prefixIcon={<Icons.Add />}>
           New Item
         </Button>
       );
@@ -69,4 +69,4 @@ class ExampleGeneralLayout extends React.Component {
   }
 }
 
-export default ExampleGeneralLayout;
+export default ExampleEmptyState;

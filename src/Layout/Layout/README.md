@@ -55,7 +55,7 @@ It is possible to add `<Cell/>`s summing more than 12 columns in one
   | propName | propType | defaultValue | isRequired | description                                                                        |
   | ---      | ---      | ---          | ---        | ---                                                                                |
   | children | `node`   |              | -          | should only be one or more `<Cell/>` components                                    |
-  | gap      | `string` | `'30px'`     | -          | regular [css `gap` property](https://developer.mozilla.org/en-US/docs/Web/CSS/gap) |
+  | gap      | `string` or `number` | `'30px'`     | -          | regular [css `gap` property](https://developer.mozilla.org/en-US/docs/Web/CSS/gap) |
   | cols     | `number` | `12`         | -          | set desired number of columns. This works in relation to `span` prop of `<Cell/>`  |
 </details>
 

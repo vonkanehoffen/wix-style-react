@@ -7,7 +7,7 @@ import CardGalleryItem from 'wix-style-react/CardGalleryItem';
 import Proportion from 'wix-style-react/Proportion';
 import AddItem from 'wix-style-react/AddItem';
 
-class ExampleSplitLayout extends React.Component {
+class ExampleGalleryLayout extends React.Component {
   renderHeader() {
     const ActionBar = () => {
       return <Button>Save</Button>;
@@ -62,13 +62,15 @@ class ExampleSplitLayout extends React.Component {
         {this.renderHeader()}
         <Page.Content>
           <Container>
-            {Array(2).fill(
-              <Row>
-                {Array(3).fill(
-                  <Col span={4}>{this.renderCardGalleryItem()}</Col>,
-                )}
-              </Row>,
-            )}
+            {Array.from(Array(2).keys()).map(rowKey => (
+              <Row key={rowKey}>
+                {Array.from(Array(3).keys()).map(colKey => (
+                  <Col key={colKey} span={4}>
+                    {this.renderCardGalleryItem()}
+                  </Col>
+                ))}
+              </Row>
+            ))}
             <Row>
               <Col span={4}>
                 {/* We use <Proportion/> to stretch <AddItem/> vertically (it doesn't stretch automatically because its height is 100%, whereas the row doesn't have a defined height) */}
@@ -84,4 +86,4 @@ class ExampleSplitLayout extends React.Component {
   }
 }
 
-export default ExampleSplitLayout;
+export default ExampleGalleryLayout;

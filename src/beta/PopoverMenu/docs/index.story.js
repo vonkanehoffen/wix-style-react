@@ -47,16 +47,19 @@ const commonProps = {
 
 const menuItems = [
   <PopoverMenu.MenuItem
+    key="add"
     text="Add"
     onClick={e => console.log(e)}
     prefixIcon={<Add />}
   />,
   <PopoverMenu.MenuItem
+    key="edit"
     text="Edit"
     onClick={e => console.log(e)}
     prefixIcon={<Edit />}
   />,
   <PopoverMenu.MenuItem
+    key="delete"
     text="Delete"
     onClick={e => console.log(e)}
     prefixIcon={<Delete />}

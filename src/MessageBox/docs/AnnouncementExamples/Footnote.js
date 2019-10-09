@@ -14,14 +14,13 @@ export default () => (
     primaryButtonLabel="Button"
     secondaryButtonLabel="Secondary action"
     dataHook="announcement-footnote"
+    onClose={() => undefined}
     footerBottomChildren={
       <div>
         <Text size="small" secondary>
           By sending an invite, you agree to the{' '}
         </Text>
-        <TextButton size="small" secondary>
-          Wix Terms of Use.
-        </TextButton>
+        <TextButton size="small">Wix Terms of Use.</TextButton>
       </div>
     }
   />

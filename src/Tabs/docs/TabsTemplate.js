@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Tabs from '..';
+import * as TabPropTypes from '../core/constants/tab-prop-types';
 
 const items = [
   { id: 1, title: 'First Item' },
@@ -56,7 +57,7 @@ class TabsTemplate extends Component {
 
 TabsTemplate.propTypes = {
   onChange: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(Tabs.tabTypes),
+  type: TabPropTypes.type,
   hasDivider: PropTypes.bool,
   width: PropTypes.string,
   sideContent: PropTypes.node,

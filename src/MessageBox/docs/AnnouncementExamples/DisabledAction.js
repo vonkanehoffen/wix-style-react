@@ -12,5 +12,6 @@ export default () => (
     primaryButtonLabel="Button"
     primaryButtonDisabled
     dataHook="announctement-disabled-action"
+    onClose={() => undefined}
   />
 );

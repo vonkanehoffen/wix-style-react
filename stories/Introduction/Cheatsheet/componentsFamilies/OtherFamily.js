@@ -35,7 +35,7 @@ const groupSymbol = symbolsGroup.other;
 const AvatarExample = () => {
   const avatarName = 'John Doe';
 
-  const avatarColors = ['blue', 'grey', 'green', 'red', 'orange'];
+  const avatarColors = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6'];
 
   const renderAvatar = props => <Avatar {...props} />;
 

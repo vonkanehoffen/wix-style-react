@@ -103,7 +103,7 @@ export default () => (
               {'Mixing and matching components is easy!'
                 .split(' ')
                 .map(word => (
-                  <RadioGroup.Button key={word}>{word}</RadioGroup.Button>
+                  <RadioGroup.Radio key={word}>{word}</RadioGroup.Radio>
                 ))}
             </RadioGroup>
 

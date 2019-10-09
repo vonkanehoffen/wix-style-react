@@ -28,7 +28,6 @@ import Card from 'wix-style-react/Card';
 import DropdownBase from 'wix-style-react/DropdownBase';
 import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
 import TextButton from 'wix-style-react/TextButton';
-import { Layout } from 'wix-style-react/Layout';
 
 // 12. Content Widgets
 import EmptyState from 'wix-style-react/EmptyState';
@@ -89,6 +88,7 @@ class StatisticsWidgetExamples extends PureComponent {
   _getSuffix() {
     return [
       <DropdownBase
+        key="days"
         onSelect={({ id }) => this.setState({ date: id })}
         options={[
           { id: '7d', value: 'Last 7 days' },
@@ -107,8 +107,9 @@ class StatisticsWidgetExamples extends PureComponent {
           );
         }}
       </DropdownBase>,
-      <Box width="24px" />,
+      <Box key="spacer" width="24px" />,
       <DropdownBase
+        key="region"
         onSelect={({ id }) => this.setState({ filter: id })}
         options={[
           { id: 'US', value: 'Only from US' },
@@ -131,8 +132,6 @@ class StatisticsWidgetExamples extends PureComponent {
   }
 
   render() {
-    const { date, filter } = this.state;
-
     const weekUS = [
       {
         value: '500',
@@ -277,6 +276,7 @@ class StatisticsWidgetExamples extends PureComponent {
     };
 
     const getData = (date, filter) => data[date][filter];
+    const { date, filter } = this.state;
 
     const symbol = contentWidgetsSymbols.statisticsWidget;
     const components = contentWidgetsSymbolsToComponents[symbol];

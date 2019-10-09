@@ -12,5 +12,6 @@ export default () => (
     primaryButtonLabel="Button"
     primaryButtonTheme="purple"
     dataHook="announcement-primary-theme"
+    onClose={() => undefined}
   />
 );

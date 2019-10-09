@@ -25,16 +25,19 @@ const exampleContainerStyle = {
 
 const exampleItems = [
   <PopoverMenuItem
+    key="edit"
     dataHook={storySettings.itemDataHook}
     text="Edit"
     onClick={() => {}}
   />,
   <PopoverMenuItem
+    key="hide"
     dataHook={storySettings.itemDataHook}
     text="Hide"
     onClick={() => {}}
   />,
   <PopoverMenuItem
+    key="delete"
     dataHook={storySettings.itemDataHook}
     text="Delete"
     onClick={() => {}}

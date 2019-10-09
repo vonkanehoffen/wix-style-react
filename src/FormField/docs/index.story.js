@@ -59,7 +59,10 @@ const childrenExamples = [
     value: <RichTextInputArea placeholder={placeholder} />,
   },
 
-  { label: 'DatePicker', value: <DatePicker value={new Date()} /> },
+  {
+    label: 'DatePicker',
+    value: <DatePicker value={new Date()} onChange={() => undefined} />,
+  },
 
   {
     label: 'Dropdown',

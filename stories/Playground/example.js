@@ -32,7 +32,7 @@ class MyComponent extends React.Component {
                     <Col>
                       <Box align="right">
                         <Box marginRight={2}>
-                          <Button skin="secondary">Cancel</Button>
+                          <Button priority="secondary">Cancel</Button>
                         </Box>
                         <Button>Submit</Button>
                       </Box>

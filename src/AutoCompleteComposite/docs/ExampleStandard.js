@@ -79,7 +79,7 @@ class ExampleStandard extends Component {
 
   render() {
     return (
-      <from className={styles.form}>
+      <form className={styles.form}>
         <div className={styles.autoComplete}>
           <div className={styles.option}>
             <Label>Show label</Label>
@@ -138,7 +138,7 @@ class ExampleStandard extends Component {
             onChange={this.props.onChange}
           />
         </div>
-      </from>
+      </form>
     );
   }
 }

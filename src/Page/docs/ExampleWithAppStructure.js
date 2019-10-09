@@ -13,11 +13,7 @@ const ExampleStandard = () => (
     <Page upgrade>
       <Page.Header
         title="Your Product"
-        actionsBar={
-          <Button withNewIcons prefixIcon={<Add />}>
-            New Item
-          </Button>
-        }
+        actionsBar={<Button prefixIcon={<Add />}>New Item</Button>}
       />
 
       <Page.Content>

@@ -12,5 +12,6 @@ export default () => (
     primaryButtonLabel="Button"
     secondaryButtonLabel="Secondary action"
     dataHook="announcement-standard"
+    onClose={() => undefined}
   />
 );

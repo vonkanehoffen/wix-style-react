@@ -236,9 +236,9 @@ const MarketingExample = () => {
         <g
           id="Template"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="9.3-Marketing-Modal"
@@ -260,16 +260,16 @@ const MarketingExample = () => {
                   id="path"
                   stroke="#4EB7F5"
                   mask="url(#mask-2)"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-dasharray="1,3"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="1,3"
                 ></use>
                 <polyline
                   id="path"
                   stroke="#FFFFFF"
-                  stroke-width="3"
-                  stroke-linecap="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
                   points="34.0063366 50.0221782 46.5736634 64.6647525 66.6815842 34.9617822"
                 ></polyline>
               </g>

@@ -23,9 +23,9 @@ import PopoverMenu from 'wix-style-react/beta/PopoverMenu';
 import SectionHelper from 'wix-style-react/SectionHelper';
 
 const menuItems = [
-  <PopoverMenu.MenuItem text="Add" prefixIcon={<Add />} />,
-  <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />,
-  <PopoverMenu.MenuItem text="Delete" prefixIcon={<Delete />} />,
+  <PopoverMenu.MenuItem key="add" text="Add" prefixIcon={<Add />} />,
+  <PopoverMenu.MenuItem key="edit" text="Edit" prefixIcon={<Edit />} />,
+  <PopoverMenu.MenuItem key="delete" text="Delete" prefixIcon={<Delete />} />,
 ];
 
 const commonProps = {

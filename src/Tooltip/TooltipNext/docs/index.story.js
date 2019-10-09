@@ -38,9 +38,6 @@ const liveCode = config =>
     ...config,
   });
 
-const example = ({ source, ...rest }) =>
-  columns([description({ ...rest }), liveCode({ source })]);
-
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
@@ -159,7 +156,7 @@ export default {
             liveCode({
               title: 'ARIA guidelines',
               subtitle:
-                'The tooltip content is bound to tooltip trigger element by aria-describeby prop. VoiceOver users will get tooltips content information as soon as target element is focused.',
+                'The tooltip content is bound to tooltip trigger element by aria-describedby prop. VoiceOver users will get tooltips content information as soon as target element is focused.',
               source: examples.a11y,
             }),
           ]),
