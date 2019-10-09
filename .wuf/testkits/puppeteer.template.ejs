@@ -25,11 +25,11 @@ export const TooltipTestkit = puppeteerUniTestkitFactoryCreator(
     const driverPath = component.puppeteerTestkitPath || component.testkitPath || [
       '../src',
       component.name,
-      component.name + (component.puppeteerUnidriver ? '.uni.driver' : '.puppeteer.driver'),
+      component.name + (component.puppeteerLegacyTestkit ? '.puppeteer.driver' : '.uni.driver'),
     ].join('\/');
 
     const testkitName = camelName + 'TestkitFactory';
-    const factoryName = component.puppeteerUnidriver || component.unidriver ? 'puppeteerUniTestkitFactoryCreator' : 'puppeteerTestkitFactoryCreator';
+    const factoryName = component.puppeteerLegacyTestkit ? 'puppeteerTestkitFactoryCreator' : 'puppeteerUniTestkitFactoryCreator';
     const exportName = component.puppeteerTestkitExportName || testkitName;
 
     if (component.namedPuppeteerTestkitExport) { %>

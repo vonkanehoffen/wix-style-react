@@ -155,17 +155,12 @@ Object.keys({
   };
 
   if (!definition.skipSanityTest) {
-    const sanityAsserts = definition.unidriver
-      ? UNIDRIVER_ASSERTS
-      : DRIVER_ASSERTS;
+    const sanityAsserts =
+      definition.vanillaLegacyTestkit || definition.enzymeLegacyTestkit
+        ? DRIVER_ASSERTS
+        : UNIDRIVER_ASSERTS;
 
-    if (definition.drivers) {
-      definition.drivers.forEach(driver => sanityAsserts[driver](config));
-    } else {
-      Object.keys(sanityAsserts).forEach(driver =>
-        sanityAsserts[driver](config),
-      );
-    }
+    Object.keys(sanityAsserts).forEach(driver => sanityAsserts[driver](config));
   }
 
   if (!definition.noTestkit) {

@@ -31,11 +31,11 @@ export const TooltipTestkit = protractorUniTestkitFactoryCreator(
     const driverPath = component.protractorTestkitPath || component.testkitPath || [
       '../src',
       component.name,
-      component.name + '.protractor.driver',
+      component.name + (component.protractorLegacyTestkit ? '.protractor.driver' : '.uni.driver'),
     ].join('\/');
 
     const testkitName = camelName + 'TestkitFactory';
-    const factoryName = component.protractorUnidriver || component.unidriver ? 'protractorUniTestkitFactoryCreator' : 'protractorTestkitFactoryCreator';
+    const factoryName = component.protractorLegacyTestkit ? 'protractorTestkitFactoryCreator' : 'protractorUniTestkitFactoryCreator';
     const exportName = component.protractorTestkitExportName || testkitName;
 
     if (component.namedProtractorTestkitExport) { %>

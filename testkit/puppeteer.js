@@ -125,6 +125,12 @@ export const colorInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
   colorInputDriverFactory,
 );
 
+import colorPickerDriverFactory from '../src/ColorPicker/ColorPicker.uni.driver';
+
+export const colorPickerTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  colorPickerDriverFactory,
+);
+
 import { contactItemBuilderUniDriverFactory } from '../src/ContactItemBuilder/ContactItemBuilder.uni.driver';
 
 export const contactItemBuilderTestkitFactory = puppeteerUniTestkitFactoryCreator(
@@ -183,6 +189,12 @@ import { errorIndicatorDriverFactory } from '../src/ErrorIndicator/ErrorIndicato
 
 export const errorIndicatorTestkitFactory = puppeteerUniTestkitFactoryCreator(
   errorIndicatorDriverFactory,
+);
+
+import filePickerDriverFactory from '../src/FilePicker/FilePicker.uni.driver';
+
+export const filePickerTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  filePickerDriverFactory,
 );
 
 import { floatingNotificationDriverFactory } from '../src/FloatingNotification/FloatingNotification.uni.driver';
@@ -305,10 +317,22 @@ export const numberInputTestkitFactory = puppeteerUniTestkitFactoryCreator(
   numberInputDriverFactory,
 );
 
+import pageDriverFactory from '../src/Page/Page.uni.driver';
+
+export const pageTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  pageDriverFactory,
+);
+
 import { pageHeaderUniDriverFactory } from '../src/PageHeader/PageHeader.uni.driver';
 
 export const pageHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(
   pageHeaderUniDriverFactory,
+);
+
+import popoverDriverFactory from '../src/Popover/Popover.uni.driver';
+
+export const popoverTestkitFactory = puppeteerUniTestkitFactoryCreator(
+  popoverDriverFactory,
 );
 
 import { proportionDriverFactory } from '../src/Proportion/Proportion.uni.driver';

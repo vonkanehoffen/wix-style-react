@@ -42,10 +42,10 @@ const load = module => {
     const driverPath = component.testkitPath || [
       '../src',
       component.name,
-      component.name + '.driver',
+      component.name + (component.enzymeLegacyTestkit ? '.driver' : '.uni.driver'),
     ].join('\/');
 
     const testkitName = camelName + 'TestkitFactory';
-    const factoryName = component.unidriver ? 'enzymeUniTestkitFactoryCreator' : 'enzymeTestkitFactoryCreator';
+    const factoryName = component.enzymeLegacyTestkit ?  'enzymeTestkitFactoryCreator' : 'enzymeUniTestkitFactoryCreator';
 %>
 export const <%= testkitName %> = <%= factoryName%>(load(require('<%= driverPath %>')));<% }) %>
