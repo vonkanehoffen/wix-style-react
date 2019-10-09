@@ -7,10 +7,17 @@ export const dropdownLayoutDriverFactory = base => {
   const reactBase = ReactBase(base);
   const contentContainer = async () => byDataHook('content-container');
   const optionsDataHook = DataAttr.DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS;
+  const infiniteScrollContainerDataHook =
+    DataAttr.DATA_HOOKS.INFINITE_SCROLL_CONTAINER;
+  const infiniteScrollContainer = byDataHook(infiniteScrollContainerDataHook);
   const optionsElement = byDataHook(optionsDataHook);
   const optionElementAt = async position =>
     await base.$(
-      `[data-hook=${optionsDataHook}] > *:nth-child(${position + 1})`,
+      `[data-hook=${
+        (await infiniteScrollContainer.exists())
+          ? infiniteScrollContainerDataHook
+          : optionsDataHook
+      }] > *:nth-child(${position + 1})`,
     );
   const options = () =>
     base.$$(`[data-hook=${optionsDataHook}] > *`).map(i => i);

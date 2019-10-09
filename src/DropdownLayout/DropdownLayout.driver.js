@@ -5,9 +5,16 @@ import { isClassExists } from '../../test/utils';
 
 const dropdownLayoutDriverFactory = ({ element }) => {
   const contentContainer = element.childNodes[0];
-  const optionElements = element.querySelector(
+  const infiniteScrollContainer = element.querySelector(
+    '[data-hook=infinite-scroll-container]',
+  );
+  const optionElementsContainer = element.querySelector(
     '[data-hook=dropdown-layout-options]',
   );
+  const optionElements = infiniteScrollContainer
+    ? infiniteScrollContainer
+    : optionElementsContainer;
+
   const optionElementAt = position => optionElements.childNodes[position];
   const optionsLength = () => optionElements.childNodes.length;
   const doIfOptionExists = (position, onSuccess) => {
@@ -24,7 +31,7 @@ const dropdownLayoutDriverFactory = ({ element }) => {
     );
 
   return {
-    classes: () => optionElements.className,
+    classes: () => optionElementsContainer.className,
     clickAtOption: position =>
       doIfOptionExists(position, () =>
         ReactTestUtils.Simulate.click(optionElementAt(position)),

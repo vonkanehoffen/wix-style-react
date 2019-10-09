@@ -227,6 +227,7 @@ class DropdownLayout extends WixComponent {
   _wrapWithInfiniteScroll = scrollableElement => (
     <InfiniteScroll
       useWindow
+      dataHook={DataAttr.DATA_HOOKS.INFINITE_SCROLL_CONTAINER}
       scrollElement={this.options}
       loadMore={this.props.loadMore}
       hasMore={this.props.hasMore}

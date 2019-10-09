@@ -45,7 +45,7 @@ export default class InfiniteScroll extends Component {
   }
 
   render() {
-    const { children, hasMore, loader, scrollElement } = this.props;
+    const { children, hasMore, loader, scrollElement, dataHook } = this.props;
     let ref;
 
     if (scrollElement) {
@@ -56,7 +56,7 @@ export default class InfiniteScroll extends Component {
 
     return React.createElement(
       'div',
-      { ref },
+      { ref, 'data-hook': dataHook },
       children,
       hasMore && (loader || this._defaultLoader),
     );

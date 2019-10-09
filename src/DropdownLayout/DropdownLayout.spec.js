@@ -165,6 +165,24 @@ describe('DropdownLayout', () => {
     });
 
     describe('onSelect', () => {
+      describe('with infiniteScroll', () => {
+        it('should call onSelect with true value when clicking on a selected option if infinite scroll enabled', async () => {
+          const onSelect = jest.fn();
+          const driver = createDriver(
+            <DropdownLayout
+              visible
+              infiniteScroll
+              loadMore={() => {}}
+              options={options}
+              onSelect={onSelect}
+              selectedId={0}
+            />,
+          );
+          await driver.clickAtOption(0);
+          expect(onSelect).toBeCalledWith(options[0], true);
+        });
+      });
+
       describe('with selectedId', () => {
         it('should call onSelect with true value when clicking on a selected option', async () => {
           const onSelect = jest.fn();
