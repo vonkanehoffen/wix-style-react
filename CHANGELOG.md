@@ -42,6 +42,7 @@ Types of changes:
 - `<DropdownBase/>` - fix testkit methods to search for the content with popovers methods [#4186](https://github.com/wix/wix-style-react/pull/4186)
 - `<Accordion/>` - fix missing expand label when using icon [#4192](https://github.com/wix/wix-style-react/pull/4192)
 - `<Sidebar/>` - prevent crashing when all `<Sidebar.Item/>` elements are disabled [#4214](https://github.com/wix/wix-style-react/pull/4214)
+- `<DropdownLayout/>` - prevent crashing for keyboard navigation within infinite scroll [#4233](https://github.com/wix/wix-style-react/pull/4233)
 
 ## 7.5.0 - 2019-10-02
 
