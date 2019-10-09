@@ -189,6 +189,7 @@ require('../src/FormField/docs/testStory');
 require('../src/DropdownLayout/docs/testStory');
 require('../src/InputWithOptions/docs/testStory');
 require('../src/DateInput/test/testStories');
+require('../src/DataTable/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');

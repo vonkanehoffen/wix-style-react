@@ -1,20 +1,20 @@
-import eyes from 'eyes.it';
-import { dataTableTestkitFactory } from '../../testkit/protractor';
 import {
   waitForVisibilityOf,
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../test/utils/storybook-helpers';
-
-import { storySettings } from './docs/storySettings';
+import { dataTableTestkitFactory } from '../../../testkit/protractor';
+import { eyesItInstance } from '../../../test/utils/eyes-it';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
+import { storySettings, testStories } from '../docs/storySettings';
 
 describe('Data Table', () => {
-  const storyUrl = createStoryUrl({
-    kind: storySettings.category,
-    story: storySettings.storyName,
+  const eyes = eyesItInstance();
+  const storyUrl = createTestStoryUrl({
+    ...storySettings,
+    testName: testStories.dataTable,
   });
 
-  eyes.it('should call func on row click', async () => {
+  it('should call func on row click', async () => {
     const driver = dataTableTestkitFactory({
       dataHook: 'story-data-table-example',
     });
@@ -67,27 +67,5 @@ describe('Data Table', () => {
       'New data was not loaded :(',
     );
     expect(await driver.rowsCount()).toEqual(itemsAfterLoad);
-  });
-
-  eyes.it('display story-data-table-sortable', async () => {
-    const dataHook = 'story-data-table-sortable';
-    const driver = dataTableTestkitFactory({ dataHook });
-    await browser.get(storyUrl);
-    await waitForVisibilityOf(
-      driver.element(),
-      'Cant find Data Table Component',
-    );
-    await scrollToElement(driver.element());
-  });
-
-  eyes.it('display story-data-table-without-header', async () => {
-    const dataHook = 'story-data-table-without-header';
-    const driver = dataTableTestkitFactory({ dataHook });
-    await browser.get(storyUrl);
-    await waitForVisibilityOf(
-      driver.element(),
-      'Cant find Data Table Component',
-    );
-    await scrollToElement(driver.element());
   });
 });

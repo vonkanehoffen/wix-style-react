@@ -4,11 +4,11 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
-import DataTable from './DataTable';
-import dataTableDriverFactory from './DataTable.driver';
-import { dataTableUniDriverFactory } from './DataTable.uni.driver';
+import DataTable from '../DataTable';
+import dataTableDriverFactory from '../DataTable.driver';
+import { dataTableUniDriverFactory } from '../DataTable.uni.driver';
 
 describe('Table', () => {
   describe('[sync]', () => {
