@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { oneOfType, number, string } from 'prop-types';
 import style from './DropdownBase.st.css';
 
 import Popover, { placements } from '../Popover';
@@ -36,6 +36,8 @@ class DropdownBase extends React.PureComponent {
     minWidth: PropTypes.number,
     /** The maximum width applied to the list */
     maxWidth: PropTypes.number,
+    /** maximum height of dropdown box */
+    maxHeight: oneOfType([number, string]),
 
     /**
      * The target component to be rendered. If a regular node is passed, it'll be rendered as-is.
@@ -119,6 +121,7 @@ class DropdownBase extends React.PureComponent {
     placement: 'bottom',
     appendTo: 'parent',
     showArrow: false,
+    maxHeight: '260px',
   };
 
   _dropdownLayoutRef = null;
@@ -319,6 +322,7 @@ class DropdownBase extends React.PureComponent {
       tabIndex,
       overflow,
       dynamicWidth,
+      maxHeight,
     } = this.props;
 
     const { open, selectedId } = this.state;
@@ -362,6 +366,7 @@ class DropdownBase extends React.PureComponent {
               ref={r => (this._dropdownLayoutRef = r)}
               selectedId={selectedId}
               options={options}
+              maxHeightPixels={maxHeight}
               onSelect={this._handleSelect}
               onClose={this._handleClose}
               tabIndex={tabIndex}

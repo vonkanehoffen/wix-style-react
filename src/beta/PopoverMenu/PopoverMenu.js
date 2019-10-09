@@ -26,6 +26,9 @@ class PopoverMenu extends React.PureComponent {
     /** The minimum width applied to the list */
     minWidth: PropTypes.number,
 
+    /** The maximum height value applied to the list */
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
     /** Popover content z-index */
     zIndex: PropTypes.number,
 
@@ -102,6 +105,7 @@ class PopoverMenu extends React.PureComponent {
     flip: true,
     showArrow: true,
     ellipsis: false,
+    maxHeight: 'auto',
   };
 
   savedOnClicks = null;
@@ -276,6 +280,7 @@ class PopoverMenu extends React.PureComponent {
       showArrow,
       dataHook,
       moveBy,
+      maxHeight,
     } = this.props;
     return (
       <DropdownBase
@@ -284,7 +289,6 @@ class PopoverMenu extends React.PureComponent {
         options={this._renderOptions()}
         onSelect={this._onSelect}
         appendTo={appendTo}
-        overflow="visible"
         placement={placement}
         minWidth={minWidth}
         maxWidth={maxWidth}
@@ -293,6 +297,7 @@ class PopoverMenu extends React.PureComponent {
         showArrow={showArrow}
         tabIndex={-1}
         moveBy={moveBy}
+        maxHeight={maxHeight}
       >
         {({ toggle, open, close }) =>
           this._renderTriggerElement({ toggle, open, close })
