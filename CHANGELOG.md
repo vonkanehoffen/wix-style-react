@@ -18,7 +18,8 @@ Types of changes:
 
 ### Fixed
 
-`<CalendarPanel/>` - move e2e to .visual [#4219](https://github.com/wix/wix-style-react/pull/4219)
+- `<CalendarPanel/>` - move e2e to .visual [#4219](https://github.com/wix/wix-style-react/pull/4219)
+- `<PopoverMenu/>` - add maxheight support and set default value [#4235](https://github.com/wix/wix-style-react/pull/4235)
 
 ## 7.6.0 - 2019-10-07
 
