@@ -12,6 +12,7 @@ const messageBoxFunctionalLayoutDriverFactory = ({ element }) => {
 
   return {
     exists: () => !!element,
+    element: () => element,
     getConfirmationButtonText: () => confirmationButton().textContent,
     isConfirmationButtonPrefixIconExists: () =>
       confirmationButton().innerHTML.indexOf('prefix') !== -1,

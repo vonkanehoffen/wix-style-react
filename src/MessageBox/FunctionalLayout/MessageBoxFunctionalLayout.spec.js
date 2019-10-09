@@ -1,7 +1,6 @@
 import React from 'react';
 import MessageBoxFunctionalLayout from './MessageBoxFunctionalLayout';
 import MessageBoxFunctionalLayoutFactory from './MessageBoxFunctionalLayout.driver';
-import sinon from 'sinon';
 import {
   isTestkitExists,
   isEnzymeTestkitExists,
@@ -126,22 +125,22 @@ describe('MessageBox', () => {
 
       it(`should trigger the 'onOk' action upon clicking the confirmation button`, async () => {
         const props = {
-          onOk: sinon.spy(),
+          onOk: jest.fn(),
           confirmText: 'confirm',
         };
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
         await driver.clickOnConfirmationButton();
-        expect(props.onOk.calledOnce).toBeTruthy();
+        expect(props.onOk.mock.calls.length).toBe(1);
       });
 
       it(`should trigger the 'onCancel' action upon clicking the cancellation button`, async () => {
         const props = {
           cancelText: 'cancelText',
-          onCancel: sinon.spy(),
+          onCancel: jest.fn(),
         };
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
         await driver.clickOnCancellationButton();
-        expect(props.onCancel.calledOnce).toBeTruthy();
+        expect(props.onCancel.mock.calls.length).toBe(1);
       });
 
       it('should render side actions', async () => {
@@ -161,7 +160,7 @@ describe('MessageBox', () => {
     describe('closeButton attribute', () => {
       it('should appear by default', async () => {
         const props = {
-          onCancel: sinon.spy(),
+          onCancel: jest.fn(),
         };
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
         expect(await driver.getHeaderCloseButton()).toBeTruthy();
@@ -169,7 +168,7 @@ describe('MessageBox', () => {
 
       it('should not appear', async () => {
         const props = {
-          onCancel: sinon.spy(),
+          onCancel: jest.fn(),
           closeButton: false,
         };
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
@@ -178,16 +177,16 @@ describe('MessageBox', () => {
 
       it(`should trigger the 'onCancel' action upon clicking the header close button`, async () => {
         const props = {
-          onCancel: sinon.spy(),
+          onCancel: jest.fn(),
         };
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
         await driver.clickOnHeaderCloseButton();
-        expect(props.onCancel.calledOnce).toBeTruthy();
+        expect(props.onCancel.mock.calls.length).toBe(1);
       });
 
       it(`should trigger the 'onClose' action upon clicking the close button if 'onClose' prop exists`, async () => {
-        const onCancelFunction = sinon.spy();
-        const onCloseFunction = sinon.spy();
+        const onCancelFunction = jest.fn();
+        const onCloseFunction = jest.fn();
 
         const props = {
           onCancel: onCancelFunction,
@@ -196,8 +195,8 @@ describe('MessageBox', () => {
 
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
         await driver.clickOnHeaderCloseButton();
-        expect(props.onCancel.calledOnce).toBeFalsy();
-        expect(props.onClose.calledOnce).toBeTruthy();
+        expect(props.onCancel.mock.calls.length).toBe(0);
+        expect(props.onClose.mock.calls.length).toBe(1);
       });
     });
 
@@ -307,6 +306,18 @@ describe('MessageBox', () => {
         expect(
           await driver.getChildBySelector('[data-hook="inner-div"]'),
         ).not.toBeNull();
+      });
+    });
+
+    describe('`margin` prop', () => {
+      it('should be set on root element', async () => {
+        const margin = 'hello world';
+        const driver = createDriver(
+          <MessageBoxFunctionalLayout margin={margin} />,
+        );
+        expect(Object.values(await driver.element())[1].style.margin).toEqual(
+          margin,
+        );
       });
     });
 

@@ -71,6 +71,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
       disableConfirmation,
       disableCancel,
       width,
+      margin,
       noBodyPadding,
       maxHeight,
       fullscreen,
@@ -103,7 +104,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
     });
 
     return (
-      <div className={contentClassName} style={{ width }}>
+      <div className={contentClassName} style={{ width, margin }}>
         <HeaderLayout
           title={title}
           onCancel={onClose ? onClose : onCancel}
@@ -180,6 +181,9 @@ MessageBoxFunctionalLayout.propTypes = {
   onClose: PropTypes.func,
   /** Specify exact width */
   width: PropTypes.string,
+  /** Specify exact margin. Use to fine tune position inside other elements.
+   * When used inside `<Modal>`, beware that `<Modal>` is a flex container, therefore specific flex item CSS rules apply for this margin. */
+  margin: PropTypes.string,
   /** Defines the modals's header title */
   title: PropTypes.node,
   /** The content to be displayed. can be text or some node */

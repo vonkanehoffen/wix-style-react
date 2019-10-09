@@ -21,7 +21,7 @@ import { MessageBoxFunctionalLayout } from 'wix-style-react/MessageBox';
 import Box from 'wix-style-react/Box';
 import Button from 'wix-style-react/Button';
 
-import SimapleExample from '!raw-loader!./examples/SimapleExample';
+import SimpleExample from '!raw-loader!./examples/SimpleExample';
 import ModalWithCloseButton from '!raw-loader!./examples/ModalWithCloseButton';
 import allComponents from '../../../stories/utils/allComponents';
 
@@ -64,6 +64,7 @@ export default {
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/Modal.js',
     }),
+
     tabs([
       tab({
         title: 'Description',
@@ -89,7 +90,7 @@ export default {
 
             code({
               compact: true,
-              source: SimapleExample,
+              source: SimpleExample,
             }),
           ]),
 
