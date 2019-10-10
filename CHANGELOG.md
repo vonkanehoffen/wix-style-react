@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+- readd react-motion package to dependecies [#4255](https://github.com/wix/wix-style-react/pull/4255)
+
 ## 7.6.1 - 2019-10-10
 
 ### Added
