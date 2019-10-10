@@ -65,7 +65,7 @@ export default {
           columns([
             description({
               title: 'Horizontal Example',
-              text: 'By default, the divider is horizontal',
+              text: 'By default, the divider is horizontal.',
             }),
 
             code({
@@ -78,7 +78,7 @@ export default {
             description({
               title: 'Vertical Example',
               text:
-                'The divider could be vertical by using the `direction` prop',
+                'The divider could be vertical by using the `direction` prop. Notice that the direct parent should have an explicit `height` or be stretched by flexbox.',
             }),
 
             code({
@@ -91,7 +91,7 @@ export default {
             description({
               title: 'Example with Dark Skin',
               text:
-                'The divider could be displayed in dark color using the `skin` prop',
+                'The divider could be displayed in dark color using the `skin` prop.',
             }),
 
             code({
