@@ -64,7 +64,7 @@ export default {
 
           columns([
             description({
-              title: 'Plain Example',
+              title: 'Horizontal Example',
               text: 'By default, the divider is horizontal',
             }),
 
