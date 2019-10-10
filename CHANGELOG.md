@@ -14,13 +14,15 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.6.0 - 2019-10-07
 
 ### Fixed
 
 - `<CalendarPanel/>` - move e2e to .visual [#4219](https://github.com/wix/wix-style-react/pull/4219)
 - `<PopoverMenu/>` - add maxheight support and set default value [#4235](https://github.com/wix/wix-style-react/pull/4235)
 - `<FormField/>` - make sure that internal tooltip is unique enough [#4240](https://github.com/wix/wix-style-react/pull/4240)
+- `<DropdownLayout/>` - fixed drivers to work with infinite scroll [#4239](https://github.com/wix/wix-style-react/pull/4239)
+- `<Dropdownlayout/>` - fix keyboard navigation on infinite scroll [#4233](https://github.com/wix/wix-style-react/pull/4233)
 
 ## 7.6.0 - 2019-10-07
 
