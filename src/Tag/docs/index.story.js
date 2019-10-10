@@ -2,6 +2,25 @@ import React from 'react';
 
 import Tag from '..';
 import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
+import {
+  api,
+  code as baseCode,
+  columns,
+  description,
+  divider,
+  header,
+  importExample,
+  playground,
+  tab,
+  tabs,
+  testkit,
+  title,
+} from 'wix-storybook-utils/dist/src/Sections';
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import * as examples from './examples';
+
+const code = config =>
+  baseCode({ components: baseScope, compact: true, ...config });
 
 const GREEN_THUMB = (
   <div
@@ -40,4 +59,42 @@ export default {
       },
     ],
   },
+  sections: [
+    header({
+      component: <Tag>Hello World</Tag>,
+
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl: 'https://github.com/wix/wix-style-react/blob/master/src/Tag',
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description(`A Tag component.`),
+
+          importExample("import Tag from 'wix-style-react/Tag';"),
+
+          divider(),
+
+          title('Examples'),
+
+          ...[{ title: 'Size', source: examples.sizes }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+          ...[{ title: 'Status', source: examples.themes }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
