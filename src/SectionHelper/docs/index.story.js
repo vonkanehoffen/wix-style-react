@@ -1,5 +1,25 @@
 import SectionHelper from '..';
 import { storySettings } from './storySettings';
+import {
+  api,
+  code as baseCode,
+  columns,
+  description,
+  divider,
+  header,
+  importExample,
+  playground,
+  tab,
+  tabs,
+  testkit,
+  title,
+} from 'wix-storybook-utils/dist/src/Sections';
+import * as examples from './examples';
+import React from 'react';
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
+
+const code = config =>
+  baseCode({ components: baseScope, compact: true, ...config });
 
 const titleExamples = [
   { label: 'short text', value: 'Look at this important message!' },
@@ -47,4 +67,44 @@ export default {
     onAction: () => 'onAction',
     onClose: () => 'onClose',
   },
+
+  sections: [
+    header({
+      component: <div style={{ width: '50%' }}></div>,
+
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/blob/master/src/SectionHelper',
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description(
+            `Used in pages where you need to explain or mention things about the content or actions.`,
+          ),
+
+          importExample(
+            "import SectionHelper from 'wix-style-react/SectionHelper';",
+          ),
+
+          divider(),
+
+          title('Examples'),
+
+          ...[{ title: 'Appearance', source: examples.appearance }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
