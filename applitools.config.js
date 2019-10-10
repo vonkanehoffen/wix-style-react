@@ -42,6 +42,8 @@ try {
 
 module.exports = merge(
   {
+    serverUrl: process.env.EYES_API_SERVER_URL,
+    concurrency: 20,
     apiKey: process.env.EYES_API_KEY,
     batchId: getBatchId(),
     batchName: appName,
