@@ -114,15 +114,29 @@ export default {
 
           columns([
             description({
-              title: 'Header with Children',
+              title: 'Header with Title, Subtitle and Children',
               text:
-                'An example that demonstrates a header with a custom node child',
+                'An example that demonstrates a header with a title, subtitle and custom node child',
             }),
 
             code({
               compact: true,
               source:
                 '<SidebarHeader title="Site Name" subtitle="Role: Owner"><Box marginTop={3}><LinearProgressBar showProgressIndication value={50} /></Box></SidebarHeader>',
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Header with Children',
+              text:
+                'An example that demonstrates a header with just a custom node child',
+            }),
+
+            code({
+              compact: true,
+              source:
+                '<SidebarHeader><TextButton prefixIcon={<Icons.ArrowLeft />} size="tiny" weight="normal" skin="light" >Back to Site</TextButton><Box direction="vertical" align="center" marginTop={5}><Avatar size="size72" /><Box direction="vertical" align="center" marginTop={2}><Text size="small" weight="bold" light>Owner</Text><Text size="tiny" light>owner@something.com</Text></Box></Box></SidebarHeader>',
             }),
           ]),
 

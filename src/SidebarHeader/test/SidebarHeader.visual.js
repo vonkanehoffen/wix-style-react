@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import SidebarHeader from '../SidebarHeader';
 import Box from '../../Box';
 import LinearProgressBar from '../../LinearProgressBar';
+import Avatar from '../../Avatar';
 
 const baseProps = {
   title: 'Site Name',
@@ -44,7 +45,7 @@ const tests = [
     describe: 'Children',
     its: [
       {
-        it: 'Should display the children',
+        it: 'Should display the children above the title and subtitle',
         props: {
           ...baseProps,
           subtitle: 'Role: Owner',
@@ -53,6 +54,12 @@ const tests = [
               <LinearProgressBar showProgressIndication value={50} />
             </Box>
           ),
+        },
+      },
+      {
+        it: 'Should display the children only',
+        props: {
+          children: <Avatar size="size72" />,
         },
       },
     ],
