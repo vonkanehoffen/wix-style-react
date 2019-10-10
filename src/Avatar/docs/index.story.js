@@ -4,9 +4,28 @@ import * as icons from 'wix-ui-icons-common';
 import Avatar from '..';
 import { storySettings } from './storySettings';
 
-import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
-import { Layout, Cell } from '../../Layout';
 import { avatarColorList } from '../Avatar.const';
+
+import {
+  api,
+  code as baseCode,
+  columns,
+  description,
+  divider,
+  header,
+  importExample,
+  playground,
+  tab,
+  tabs,
+  testkit,
+  title,
+} from 'wix-storybook-utils/dist/src/Sections';
+
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import * as examples from './examples';
+
+const code = config =>
+  baseCode({ components: baseScope, compact: true, ...config });
 
 const IMG_REAL_URL = 'https://randomuser.me/api/portraits/women/39.jpg';
 const IMG_INVALID_URL = 'https://1234.me/4321.jpg';
@@ -73,142 +92,100 @@ export default {
       { label: 'With Image', value: { src: IMG_REAL_URL } },
       { label: 'With Invalid Image URL', value: { src: IMG_INVALID_URL } },
     ],
-    placeholder: Object.entries(icons).map(([name, icon]) => ({
+    placeholderPresence: Object.entries(icons).map(([name, icon]) => ({
       label: name,
       value: React.createElement(icon),
     })),
   },
-  examples: (
-    <Layout>
-      <Cell span={6}>
-        <LiveCodeExample
-          compact
-          title="Image"
-          initialCode={`
-<Avatar 
-  imgProps={{src: 'https://randomuser.me/api/portraits/women/39.jpg'}}
-/>`}
-        />
-      </Cell>
-      <Cell span={6}>
-        <LiveCodeExample
-          compact
-          title="Image Error (Icon Placeholder)"
-          initialCode={`
-<Avatar 
-  imgProps={{src: 'https://1234.me/4321.jpg'}}
-/>`}
-        />
-      </Cell>
-      <Cell span={6}>
-        <LiveCodeExample
-          compact
-          title="Image Error (Initials Placeholder)"
-          initialCode={`
-<Avatar 
-  name="John Doe"
-  imgProps={{src: 'https://1234.me/4321.jpg'}}
-/>`}
-        />
-      </Cell>
-      <Cell>
-        <LiveCodeExample
-          compact
-          title="Sizes"
-          initialCode={`
-<Box align="space-between" width="500">
-  <Avatar size="size90" name={'John Doe'} />
-  <Avatar size="size72" name={'John Doe'} />
-  <Avatar size="size60" name={'John Doe'} />
-  <Avatar size="size48" name={'John Doe'} />
-  <Avatar size="size36" name={'John Doe'} />
-  <Avatar size="size30" name={'John Doe'} />
-  <Avatar size="size24" name={'John Doe'} />
-  <Avatar size="size18" name={'John Doe'} />
-</Box>  
-  `}
-        />
-      </Cell>
-      <Cell>
-        <LiveCodeExample
-          compact
-          title="Square Shape"
-          initialCode={`
-<Box align="space-between" width="500">
-  <Avatar shape="square" presence={'online'} size="size90" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size72" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size60" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size48" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size36" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size30" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size24" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-  <Avatar shape="square" presence={'online'} size="size18" indication={<Icons.PhotoCamera size="24" />} name={'John Doe'} />
-</Box>
-  `}
-        />
-      </Cell>
-      <Cell>
-        <LiveCodeExample
-          compact
-          title="Colors"
-          initialCode={`
-<Box align="space-between" width="300">
-  <Avatar color="A1" name={'John Doe'} />
-  <Avatar color="A2" name={'John Doe'} />
-  <Avatar color="A3" name={'John Doe'} />
-  <Avatar color="A4" name={'John Doe'} />
-  <Avatar color="A5" name={'John Doe'} />
-  <Avatar color="A6" name={'John Doe'} />
-</Box>
-  `}
-        />
-      </Cell>
-      <Cell span={6}>
-        <LiveCodeExample
-          compact
-          title="Placeholder (No name)"
-          initialCode={`<Avatar />`}
-        />
-      </Cell>
 
-      <Cell>
-        <LiveCodeExample
-          compact
-          title="Custom text"
-          initialCode={`<Avatar name="John H. Doe" text="JhD"/>`}
-        />
-      </Cell>
+  sections: [
+    header({
+      component: <Avatar color="A1" name={'John Doe'} />,
 
-      <Cell>
-        <LiveCodeExample
-          compact
-          title="Presence"
-          initialCode={`
-          <Box align="space-between" width="180">
-            <Avatar presence={'online'} name={'John Doe'} />
-            <Avatar presence={'offline'} name={'John Doe'} />
-            <Avatar presence={'busy'} name={'John Doe'} />
-          </Box> `}
-        />
-      </Cell>
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/blob/master/src/Avatar',
+    }),
 
-      <Cell>
-        <LiveCodeExample
-          compact
-          title="Indication"
-          initialCode={`
-          <Box align="space-between" width="350">
-            <Avatar indication={<Icons.PhotoCamera size="24"/>}
-             name={'John Doe'} size="size90" /> 
-            <Avatar indication={<Icons.PhotoCamera size="24"/>}
-             name={'John Doe'} size="size72" />
-            <Avatar indication={<Icons.PhotoCamera size="24"/>}
-               name={'John Doe'} size="size60" />
-            <Avatar indication={<Icons.PhotoCamera size="24"/>}
-             name={'John Doe'} />
-        </Box>  `}
-        />
-      </Cell>
-    </Layout>
-  ),
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          description(
+            `Avatar is a type of element that visually represents a user, either as an image, placeholder or text (name initials)..`,
+          ),
+
+          importExample("import Avatar from 'wix-style-react/Avatar';"),
+
+          divider(),
+
+          title('Examples'),
+
+          ...[{ title: 'Image', source: examples.image }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+
+          ...[
+            {
+              title: 'Image Error (Icon Placeholder)',
+              source: examples.imageError,
+            },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
+          ),
+
+          ...[
+            {
+              title: 'Image Error (Initials Placeholder)',
+              source: examples.imageErrorInitials,
+            },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
+          ),
+
+          ...[{ title: 'Size', source: examples.sizes }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+          ...[{ title: 'Square Shape', source: examples.squareShape }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+
+          ...[{ title: 'Colors', source: examples.colors }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+
+          ...[
+            { title: 'Placeholder (No name)', source: examples.placeholder },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
+          ),
+
+          ...[{ title: 'Custom text', source: examples.customText }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+
+          ...[{ title: 'Presence', source: examples.presence }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+
+          ...[{ title: 'Indication', source: examples.indication }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
