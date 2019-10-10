@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+/* eslint-disable no-undef */
+import React from 'react';
 
 import FormField from 'wix-style-react/FormField';
 import ToggleSwitch from 'wix-style-react/ToggleSwitch';
 
-export default class Form extends Component {
+class ToggleSwitchWithState extends React.Component {
   state = {
     value: false,
   };
@@ -29,3 +30,5 @@ export default class Form extends Component {
     );
   }
 }
+
+render(<ToggleSwitchWithState />);
