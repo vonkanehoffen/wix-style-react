@@ -1,13 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 // import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
-import { createRendererWithUniDriver, cleanup } from '../../test/utils/unit';
+import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import { enzymeUniTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 
-import DropdownBase from './DropdownBase';
-import IconButton from '../IconButton';
+import DropdownBase from '../DropdownBase';
+import IconButton from '../../IconButton';
 import ChevronDown from '../../new-icons/ChevronDown';
-import { dropdownBasePrivateDriverFactory } from './DropdownBase.private.uni.driver';
+import { dropdownBasePrivateDriverFactory } from '../DropdownBase.private.uni.driver';
 
 describe('DropdownBase', () => {
   const render = createRendererWithUniDriver(dropdownBasePrivateDriverFactory);
