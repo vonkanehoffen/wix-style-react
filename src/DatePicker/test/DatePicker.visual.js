@@ -1,7 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import DatePicker from './DatePicker';
-import Box from '../Box';
+import DatePicker from '../DatePicker';
+import Box from '../../Box';
+import { datePickerTestkitFactory } from '../../../testkit';
+import { storySettings } from '../docs/storySettings';
+import ExampleDatePicker from '../docs/ExampleDatePicker';
+
+const createDriver = dataHook =>
+  datePickerTestkitFactory({
+    wrapper: document.body,
+    dataHook,
+  });
 
 const testGroups = [
   {
@@ -66,15 +75,59 @@ const testGroups = [
 testGroups.forEach(group => {
   group.tests.forEach(test => {
     storiesOf(`DatePicker/${group.describe}`, module).add(test.describe, () => (
-      <Box width="1024px" height="768px" flexWrap={'wrap'}>
+      <Box width="1024px" height="768px" flexWrap="wrap">
         {test.its.map(props => (
-          <Box paddingRight="65px" direction={'vertical'}>
+          <Box paddingRight="65px" direction="vertical">
             <Box margin={2}>
-              <DatePicker width={'auto'} onChange={() => {}} {...props} />
+              <DatePicker width="auto" onChange={() => {}} {...props} />
             </Box>
           </Box>
         ))}
       </Box>
+    ));
+  });
+});
+
+class InteractiveEyeTest extends React.Component {
+  async componentDidMount() {
+    this.props.componentDidMount();
+  }
+
+  render() {
+    const { componentDidMount, ...restProps } = this.props;
+    return <ExampleDatePicker {...restProps} />;
+  }
+}
+
+const interactiveTests = [
+  {
+    describe: 'Interactive',
+    its: [
+      {
+        it: 'should not open calendar on click when disabled',
+        componentDidMount: async function() {
+          const driver = createDriver(storySettings.dataHook);
+          await driver.inputDriver.click();
+        },
+        props: {
+          disabled: true,
+        },
+      },
+      {
+        it: 'should open calendar on click',
+        componentDidMount: async function() {
+          const driver = createDriver(storySettings.dataHook);
+          await driver.inputDriver.click();
+        },
+      },
+    ],
+  },
+];
+
+interactiveTests.forEach(({ describe, its }) => {
+  its.forEach(({ it, props, componentDidMount }) => {
+    storiesOf(`DatePicker/${describe}`, module).add(it, () => (
+      <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
     ));
   });
 });

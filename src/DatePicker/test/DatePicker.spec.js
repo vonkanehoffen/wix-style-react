@@ -4,15 +4,15 @@ import { mount } from 'enzyme';
 import isSameDay from 'date-fns/is_same_day';
 
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
-import { datePickerTestkitFactory } from '../../testkit/index';
-import { datePickerTestkitFactory as enzymeDatePickerTestkitFactory } from '../../testkit/enzyme';
-import datePickerDriverFactory from './DatePicker.driver';
-import Input from '../Input';
-import DatePicker from './DatePicker';
+import { datePickerTestkitFactory } from '../../../testkit';
+import { datePickerTestkitFactory as enzymeDatePickerTestkitFactory } from '../../../testkit/enzyme';
+import datePickerDriverFactory from '../DatePicker.driver';
+import Input from '../../Input';
+import DatePicker from '../DatePicker';
 import {
   rangePolyfill,
   requestAnimationFramePolyfill,
-} from '../../testkit/polyfills';
+} from '../../../testkit/polyfills';
 
 import isLocale from 'date-fns/locale/is';
 import { format } from 'date-fns';
