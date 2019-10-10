@@ -18,6 +18,9 @@ Types of changes:
 
 - readd react-motion package to dependecies [#4255](https://github.com/wix/wix-style-react/pull/4255)
 
+### Added
+- `<Sidebar/>` - add right border [#4265](https://github.com/wix/wix-style-react/pull/4265)
+
 ## 7.6.1 - 2019-10-10
 
 ### Added
