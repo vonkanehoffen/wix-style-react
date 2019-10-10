@@ -1,11 +1,10 @@
-/* eslint-disable react/prop-types */
-
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import TestTabSwitches from './tests/TestTabSwitches';
 
+import TestTabSwitches from './tests/TestTabSwitches';
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import { storySettings, testStories } from './storySettings';
+import ExampleInfiniteScroll from './ExampleInfiniteScroll';
 
 const kind = getTestStoryKind({
   storyName: storySettings.storyName,
@@ -33,4 +32,8 @@ storiesOf(kind, module).add(testStories.tabsSwitches, () => (
     <TestTabSwitches />
     <input style={{ position: 'relative', top: '400px' }} />
   </TestContainer>
+));
+
+storiesOf(kind, module).add(testStories.infiniteScroll, () => (
+  <ExampleInfiniteScroll />
 ));

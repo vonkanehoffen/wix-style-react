@@ -1,16 +1,16 @@
 import React from 'react';
 import { consoleErrors } from 'wix-ui-test-utils/dist/src/jest-setup';
-import DropdownLayout, { DIVIDER_OPTION_VALUE } from './DropdownLayout';
-import dropdownLayoutDriverFactory from './DropdownLayout.driver';
-import { dropdownLayoutDriverFactory as dropdownLayoutUniDriverFactory } from './DropdownLayout.uni.driver';
+import DropdownLayout, { DIVIDER_OPTION_VALUE } from '../DropdownLayout';
+import dropdownLayoutDriverFactory from '../DropdownLayout.driver';
+import { dropdownLayoutDriverFactory as dropdownLayoutUniDriverFactory } from '../DropdownLayout.uni.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
   render as rawRender,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 import { mount } from 'enzyme';
-import { dropdownLayoutTestkitFactory } from '../../testkit/enzyme';
+import { dropdownLayoutTestkitFactory } from '../../../testkit/enzyme';
 
 describe('DropdownLayout', () => {
   describe('[sync]', () => {

@@ -1,15 +1,14 @@
 import eyes from 'eyes.it';
 import { sleep } from 'wix-ui-test-utils/react-helpers';
-import { dropdownLayoutTestkitFactory } from '../../testkit/protractor';
 import {
-  createStoryUrl,
   scrollToElement,
   waitForVisibilityOf,
   isFocused,
 } from 'wix-ui-test-utils/protractor';
 import { browser, $ } from 'protractor';
-import { createTestStoryUrl } from '../../test/utils/storybook-helpers';
-import { storySettings, testStories } from './docs/storySettings';
+import { dropdownLayoutTestkitFactory } from '../../../testkit/protractor';
+import { storySettings, testStories } from '../docs/storySettings';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 
 async function waitForFetching() {
   await sleep(700);
@@ -18,10 +17,9 @@ async function waitForFetching() {
 describe('DropdownLayout', () => {
   let driver;
 
-  const storyUrl = createStoryUrl({
-    kind: storySettings.category,
-    story: storySettings.storyName,
-    withExamples: false,
+  const storyUrl = createTestStoryUrl({
+    ...storySettings,
+    testName: testStories.infiniteScroll,
   });
 
   beforeAll(async () => {
@@ -81,7 +79,6 @@ describe('DropdownLayout - Focus behaviour', () => {
     driver = dropdownLayoutTestkitFactory({
       dataHook: storySettings.dataHook,
     });
-
     await waitForVisibilityOf(
       driver.element(),
       'Cant find dropdown-test-story',
