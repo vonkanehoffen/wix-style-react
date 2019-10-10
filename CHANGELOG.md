@@ -14,7 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## 7.6.1 - 2019-10-07
+## 7.6.1 - 2019-10-10
+
+### Added
+- `<MessageBoxFunctionalLayout/>` - add support for `margin` prop [#4230](https://github.com/wix/wix-style-react/pull/4230)
 
 ### Fixed
 
@@ -34,7 +37,6 @@ Types of changes:
 - `<Checkbox/>` - New prop - Selection area [#4201](https://github.com/wix/wix-style-react/pull/4201)
 - `<Checkbox/>` - New prop - Vertical alignment [#4215](https://github.com/wix/wix-style-react/pull/4215)
 - `<DropdownLayout/>` - add support for string based max and min width props [#4216](https://github.com/wix/wix-style-react/pull/4216)
-- `<MessageBoxFunctionalLayout/>` - add support for `margin` prop [#4230](https://github.com/wix/wix-style-react/pull/4230)
 
 ### Fixed
 
@@ -45,7 +47,6 @@ Types of changes:
 - `<DropdownBase/>` - fix testkit methods to search for the content with popovers methods [#4186](https://github.com/wix/wix-style-react/pull/4186)
 - `<Accordion/>` - fix missing expand label when using icon [#4192](https://github.com/wix/wix-style-react/pull/4192)
 - `<Sidebar/>` - prevent crashing when all `<Sidebar.Item/>` elements are disabled [#4214](https://github.com/wix/wix-style-react/pull/4214)
-- `<DropdownLayout/>` - prevent crashing for keyboard navigation within infinite scroll [#4233](https://github.com/wix/wix-style-react/pull/4233)
 
 ## 7.5.0 - 2019-10-02
 
