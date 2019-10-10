@@ -1,12 +1,12 @@
 export const generic = `
 <FormField label="Your name" required>
-  <Input value={yourState.name} onChange={yourHandler}/>
+  <Input/>
 </FormField>
 `;
 
 export const withTooltip = `
 <FormField label="Your name" infoContent="Tooltip text" required>
-  <Input value={yourState.name} onChange={yourHandler}/>
+  <Input/>
 </FormField>
 `;
 

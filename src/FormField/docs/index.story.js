@@ -150,13 +150,11 @@ export default {
           code({
             title: 'Generic component to help build forms',
             source: examples.generic,
-            interactive: false,
           }),
 
           code({
             title: 'With tooltip',
             source: examples.withTooltip,
-            interactive: false,
           }),
 
           description({
