@@ -1,7 +1,7 @@
 import React from 'react';
-import { cleanup, createRendererWithUniDriver } from '../../test/utils/unit';
-import EditableTitle from './EditableTitle';
-import { editableTitleUniDriverFactory } from './EditableTitle.uni.driver';
+import { cleanup, createRendererWithUniDriver } from '../../../test/utils/unit';
+import EditableTitle from '../EditableTitle';
+import { editableTitleUniDriverFactory } from '../EditableTitle.uni.driver';
 
 const componentWithProps = (props = {}) => <EditableTitle {...props} />;
 
