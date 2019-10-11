@@ -1,4 +1,4 @@
-import { ComposerHeaderDriverFactory as publicDriverFactory } from '../ComposerHeader.uni.driver';
+import publicDriverFactory from '../ComposerHeader.uni.driver';
 import { dataHooks } from '../constants';
 
 export const composerHeaderPrivateDriverFactory = base => {

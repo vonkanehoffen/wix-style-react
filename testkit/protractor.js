@@ -28,652 +28,132 @@ export const tooltipTestkitFactory = protractorTestkitFactoryCreator(
 export const TooltipTestkit = protractorUniTestkitFactoryCreator(
   tooltipNextDriverFactory,
 );
-
-import { accordionDriverFactory } from '../src/Accordion/Accordion.uni.driver';
-
-export const accordionTestkitFactory = protractorUniTestkitFactoryCreator(
-  accordionDriverFactory,
-);
-
-import addItemDriverFactory from '../src/AddItem/AddItem.protractor.driver';
-
-export const addItemTestkitFactory = protractorTestkitFactoryCreator(
-  addItemDriverFactory,
-);
-
-import autoCompleteDriverFactory from '../src/AutoComplete/AutoComplete.protractor.driver';
-
-export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(
-  autoCompleteDriverFactory,
-);
-
-import autoCompleteCompositeDriverFactory from '../src/AutoCompleteComposite/AutoCompleteComposite.protractor.driver';
-
-export const autoCompleteCompositeTestkitFactory = protractorTestkitFactoryCreator(
-  autoCompleteCompositeDriverFactory,
-);
-
-import avatarDriverFactory from '../src/Avatar/Avatar.uni.driver';
-
-export const avatarTestkitFactory = protractorUniTestkitFactoryCreator(
-  avatarDriverFactory,
-);
-
-import badgeDriverFactory from '../src/Badge/Badge.protractor.driver';
-
-export const badgeTestkitFactory = protractorTestkitFactoryCreator(
-  badgeDriverFactory,
-);
-
-import badgeSelectDriverFactory from '../src/BadgeSelect/BadgeSelect.protractor.driver';
-
-export const badgeSelectTestkitFactory = protractorTestkitFactoryCreator(
-  badgeSelectDriverFactory,
-);
-
-import { boxDriverFactory } from '../src/Box/Box.uni.driver';
-
-export const boxTestkitFactory = protractorUniTestkitFactoryCreator(
-  boxDriverFactory,
-);
-
-import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.protractor.driver';
-
-export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(
-  breadcrumbsDriverFactory,
-);
-
-import { buttonDriverFactory } from '../src/Button/Button.uni.driver';
-
-export const buttonTestkitFactory = protractorUniTestkitFactoryCreator(
-  buttonDriverFactory,
-);
-
-import calendarDriverFactory from '../src/Calendar/Calendar.protractor.driver';
-
-export const calendarTestkitFactory = protractorTestkitFactoryCreator(
-  calendarDriverFactory,
-);
-
-import calendarPanelDriverFactory from '../src/CalendarPanel/CalendarPanel.protractor.driver';
-
-export const calendarPanelTestkitFactory = protractorTestkitFactoryCreator(
-  calendarPanelDriverFactory,
-);
-
-import { calendarPanelFooterDriverFactory } from '../src/CalendarPanelFooter/CalendarPanelFooter.uni.driver';
-
-export const calendarPanelFooterTestkitFactory = protractorUniTestkitFactoryCreator(
-  calendarPanelFooterDriverFactory,
-);
-
-import cardGalleryItemDriverFactory from '../src/CardGalleryItem/CardGalleryItem.uni.driver';
-
-export const cardGalleryItemTestkitFactory = protractorUniTestkitFactoryCreator(
-  cardGalleryItemDriverFactory,
-);
-
-import carouselDriverFactory from '../src/Carousel/Carousel.protractor.driver';
-
-export const carouselTestkitFactory = protractorTestkitFactoryCreator(
-  carouselDriverFactory,
-);
-
-import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
-
-export const checkboxTestkitFactory = protractorTestkitFactoryCreator(
-  checkboxDriverFactory,
-);
-
-import circularProgressBarDriverFactory from '../src/CircularProgressBar/CircularProgressBar.protractor.driver';
-
-export const circularProgressBarTestkitFactory = protractorTestkitFactoryCreator(
-  circularProgressBarDriverFactory,
-);
-
-import { closeButtonDriverFactory } from '../src/CloseButton/CloseButton.uni.driver';
-
-export const closeButtonTestkitFactory = protractorUniTestkitFactoryCreator(
-  closeButtonDriverFactory,
-);
-
-import { colorInputDriverFactory } from '../src/ColorInput/ColorInput.uni.driver';
-
-export const colorInputTestkitFactory = protractorUniTestkitFactoryCreator(
-  colorInputDriverFactory,
-);
-
-import colorPickerDriverFactory from '../src/ColorPicker/ColorPicker.protractor.driver';
-
-export const colorPickerTestkitFactory = protractorTestkitFactoryCreator(
-  colorPickerDriverFactory,
-);
-
-import { contactItemBuilderUniDriverFactory } from '../src/ContactItemBuilder/ContactItemBuilder.uni.driver';
-
-export const contactItemBuilderTestkitFactory = protractorTestkitFactoryCreator(
-  contactItemBuilderUniDriverFactory,
-);
-
-import counterBadgeDriverFactory from '../src/CounterBadge/CounterBadge.protractor.driver';
-
-export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator(
-  counterBadgeDriverFactory,
-);
-
-import dataTableDriverFactory from '../src/DataTable/DataTable.protractor.driver';
-
-export const dataTableTestkitFactory = protractorTestkitFactoryCreator(
-  dataTableDriverFactory,
-);
-
-import { dateInputDriverFactory } from '../src/DateInput/DateInput.uni.driver';
-
-export const dateInputTestkitFactory = protractorUniTestkitFactoryCreator(
-  dateInputDriverFactory,
-);
-
-import datePickerDriverFactory from '../src/DatePicker/DatePicker.protractor.driver';
-
-export const datePickerTestkitFactory = protractorTestkitFactoryCreator(
-  datePickerDriverFactory,
-);
-
-import dropdownDriverFactory from '../src/Dropdown/Dropdown.protractor.driver';
-
-export const dropdownTestkitFactory = protractorTestkitFactoryCreator(
-  dropdownDriverFactory,
-);
-
-import { dropdownBaseDriverFactory } from '../src/DropdownBase/DropdownBase.uni.driver';
-
-export const dropdownBaseTestkitFactory = protractorUniTestkitFactoryCreator(
-  dropdownBaseDriverFactory,
-);
-
-import dropdownLayoutDriverFactory from '../src/DropdownLayout/DropdownLayout.protractor.driver';
-
-export const dropdownLayoutTestkitFactory = protractorTestkitFactoryCreator(
-  dropdownLayoutDriverFactory,
-);
-
-import editableSelectorDriverFactory from '../src/EditableSelector/EditableSelector.protractor.driver';
-
-export const editableSelectorTestkitFactory = protractorTestkitFactoryCreator(
-  editableSelectorDriverFactory,
-);
-
-import { editableTitleUniDriverFactory } from '../src/EditableTitle/EditableTitle.uni.driver';
-
-export const editableTitleTestkitFactory = protractorUniTestkitFactoryCreator(
-  editableTitleUniDriverFactory,
-);
-
-import emptyStateDriverFactory from '../src/EmptyState/EmptyState.protractor.driver';
-
-export const emptyStateTestkitFactory = protractorTestkitFactoryCreator(
-  emptyStateDriverFactory,
-);
-
-import { errorIndicatorDriverFactory } from '../src/ErrorIndicator/ErrorIndicator.uni.driver';
-
-export const errorIndicatorTestkitFactory = protractorUniTestkitFactoryCreator(
-  errorIndicatorDriverFactory,
-);
-
-import filePickerDriverFactory from '../src/FilePicker/FilePicker.protractor.driver';
-
-export const filePickerTestkitFactory = protractorTestkitFactoryCreator(
-  filePickerDriverFactory,
-);
-
-import floatingHelperDriverFactory from '../src/FloatingHelper/FloatingHelper.protractor.driver';
-
-export const floatingHelperTestkitFactory = protractorTestkitFactoryCreator(
-  floatingHelperDriverFactory,
-);
-
-import { floatingNotificationDriverFactory } from '../src/FloatingNotification/FloatingNotification.uni.driver';
-
-export const floatingNotificationTestkitFactory = protractorUniTestkitFactoryCreator(
-  floatingNotificationDriverFactory,
-);
-
-import formFieldDriverFactory from '../src/FormField/FormField.protractor.driver';
-
-export const formFieldTestkitFactory = protractorTestkitFactoryCreator(
-  formFieldDriverFactory,
-);
-
-import genericModalLayoutDriverFactory from '../src/GenericModalLayout/GenericModalLayout.protractor.driver';
-
-export const genericModalLayoutTestkitFactory = protractorTestkitFactoryCreator(
-  genericModalLayoutDriverFactory,
-);
-
-import googleAddressInputWithLabelDriverFactory from '../src/GoogleAddressInputWithLabel/GoogleAddressInputWithLabel.protractor.driver';
-
-export const googleAddressWithInputTestkitFactory = protractorTestkitFactoryCreator(
-  googleAddressInputWithLabelDriverFactory,
-);
-
-import { googlePreviewDriverFactory } from '../src/GooglePreview/GooglePreview.uni.driver';
-
-export const googlePreviewTestkitFactory = protractorUniTestkitFactoryCreator(
-  googlePreviewDriverFactory,
-);
-
-import headingDriverFactory from '../src/Heading/Heading.protractor.driver';
-
-export const headingTestkitFactory = protractorTestkitFactoryCreator(
-  headingDriverFactory,
-);
-
-import highlighterDriverFactory from '../src/Highlighter/Highlighter.protractor.driver';
-
-export const highlighterTestkitFactory = protractorTestkitFactoryCreator(
-  highlighterDriverFactory,
-);
-
-import { iconButtonDriverFactory } from '../src/IconButton/IconButton.uni.driver';
-
-export const iconButtonTestkitFactory = protractorUniTestkitFactoryCreator(
-  iconButtonDriverFactory,
-);
-
-import { toggleButtonDriverFactory } from '../src/ToggleButton/ToggleButton.uni.driver';
-
-export const toggleButtonTestkitFactory = protractorUniTestkitFactoryCreator(
-  toggleButtonDriverFactory,
-);
-
-import imageViewerDriverFactory from '../src/ImageViewer/ImageViewer.protractor.driver';
-
-export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(
-  imageViewerDriverFactory,
-);
-
-import inputDriverFactory from '../src/Input/Input.protractor.driver';
-
-export const inputTestkitFactory = protractorTestkitFactoryCreator(
-  inputDriverFactory,
-);
-
-import inputAreaDriverFactory from '../src/InputArea/InputArea.protractor.driver';
-
-export const inputAreaTestkitFactory = protractorTestkitFactoryCreator(
-  inputAreaDriverFactory,
-);
-
-import inputWithOptionsDriverFactory from '../src/InputWithOptions/InputWithOptions.protractor.driver';
-
-export const inputWithOptionsTestkitFactory = protractorTestkitFactoryCreator(
-  inputWithOptionsDriverFactory,
-);
-
-import labelDriverFactory from '../src/Label/Label.protractor.driver';
-
-export const labelTestkitFactory = protractorTestkitFactoryCreator(
-  labelDriverFactory,
-);
-
-import { linearProgressBarDriverFactory } from '../src/LinearProgressBar/LinearProgressBar.protractor.driver';
-
-export const linearProgressBarTestkitFactory = protractorTestkitFactoryCreator(
-  linearProgressBarDriverFactory,
-);
-
-import { ListItemActionDriverFactory } from '../src/ListItemAction/ListItemAction.uni.driver';
-
-export const ListItemActionTestkitFactory = protractorUniTestkitFactoryCreator(
-  ListItemActionDriverFactory,
-);
-
-import loaderDriverFactory from '../src/Loader/Loader.protractor.driver';
-
-export const loaderTestkitFactory = protractorTestkitFactoryCreator(
-  loaderDriverFactory,
-);
-
-import { modalUniDriverFactory } from '../src/Modal/Modal.uni.driver';
-
-export const modalTestkitFactory = protractorTestkitFactoryCreator(
-  modalUniDriverFactory,
-);
-
-import modalSelectorLayoutDriverFactory from '../src/ModalSelectorLayout/ModalSelectorLayout.protractor.driver';
-
-export const modalSelectorLayoutTestkitFactory = protractorTestkitFactoryCreator(
-  modalSelectorLayoutDriverFactory,
-);
-
-import multiSelectDriverFactory from '../src/MultiSelect/MultiSelect.protractor.driver';
-
-export const multiSelectTestkitFactory = protractorTestkitFactoryCreator(
-  multiSelectDriverFactory,
-);
-
-import multiSelectCheckboxDriverFactory from '../src/MultiSelectCheckbox/MultiSelectCheckbox.protractor.driver';
-
-export const multiSelectCheckboxTestkitFactory = protractorTestkitFactoryCreator(
-  multiSelectCheckboxDriverFactory,
-);
-
-import multiSelectCompositeDriverFactory from '../src/MultiSelectComposite/MultiSelectComposite.protractor.driver';
-
-export const multiSelectCompositeTestkitFactory = protractorTestkitFactoryCreator(
-  multiSelectCompositeDriverFactory,
-);
-
-import { noBorderInputDriverFactory } from '../src/NoBorderInput/NoBorderInput.protractor.driver';
-
-export const noBorderInputTestkitFactory = protractorTestkitFactoryCreator(
-  noBorderInputDriverFactory,
-);
-
-import { notificationUniDriverFactory } from '../src/Notification/Notification.uni.driver';
-
-export const notificationTestkitFactory = protractorUniTestkitFactoryCreator(
-  notificationUniDriverFactory,
-);
-
-import { numberInputDriverFactory } from '../src/NumberInput/NumberInput.uni.driver';
-
-export const numberInputTestkitFactory = protractorUniTestkitFactoryCreator(
-  numberInputDriverFactory,
-);
-
-import pageDriverFactory from '../src/Page/Page.protractor.driver';
-
-export const pageTestkitFactory = protractorTestkitFactoryCreator(
-  pageDriverFactory,
-);
-
-import pageHeaderDriverFactory from '../src/PageHeader/PageHeader.protractor.driver';
-
-export const pageHeaderTestkitFactory = protractorTestkitFactoryCreator(
-  pageHeaderDriverFactory,
-);
-
-import popoverDriverFactory from '../src/Popover/Popover.protractor.driver';
-
-export const popoverTestkitFactory = protractorTestkitFactoryCreator(
-  popoverDriverFactory,
-);
-
-import popoverMenuDriverFactory from '../src/PopoverMenu/PopoverMenu.protractor.driver';
-
-export const popoverMenuTestkitFactory = protractorTestkitFactoryCreator(
-  popoverMenuDriverFactory,
-);
-
-import { proportionDriverFactory } from '../src/Proportion/Proportion.uni.driver';
-
-export const proportionTestkitFactory = protractorUniTestkitFactoryCreator(
-  proportionDriverFactory,
-);
-
-import radioGroupDriverFactory from '../src/RadioGroup/RadioGroup.protractor.driver';
-
-export const radioGroupTestkitFactory = protractorTestkitFactoryCreator(
-  radioGroupDriverFactory,
-);
-
-import rangeDriverFactory from '../src/Range/Range.protractor.driver';
-
-export const rangeTestkitFactory = protractorTestkitFactoryCreator(
-  rangeDriverFactory,
-);
-
-import { richTextInputAreaDriverFactory } from '../src/RichTextInputArea/RichTextInputArea.uni.driver';
-
-export const richTextInputAreaTestkitFactory = protractorUniTestkitFactoryCreator(
-  richTextInputAreaDriverFactory,
-);
-
-import searchDriverFactory from '../src/Search/Search.protractor.driver';
-
-export const searchTestkitFactory = protractorTestkitFactoryCreator(
-  searchDriverFactory,
-);
-
-import sectionHelperDriverFactory from '../src/SectionHelper/SectionHelper.protractor.driver';
-
-export const sectionHelperTestkitFactory = protractorTestkitFactoryCreator(
-  sectionHelperDriverFactory,
-);
-
-import { segmentedToggleDriverFactory } from '../src/SegmentedToggle/SegmentedToggle.uni.driver';
-
-export const segmentedToggleTestkitFactory = protractorUniTestkitFactoryCreator(
-  segmentedToggleDriverFactory,
-);
-
-import { sidebarDriverFactory } from '../src/Sidebar/Sidebar.uni.driver';
-
-export const sidebarTestkitFactory = protractorUniTestkitFactoryCreator(
-  sidebarDriverFactory,
-);
-
-import sidebarSectionTitleDriverFactory from '../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver';
-
-export const sidebarSectionTitleTestkitFactory = protractorUniTestkitFactoryCreator(
-  sidebarSectionTitleDriverFactory,
-);
-
-import sliderDriverFactory from '../src/Slider/Slider.protractor.driver';
-
-export const sliderTestkitFactory = protractorTestkitFactoryCreator(
-  sliderDriverFactory,
-);
-
-import { socialPreviewDriverFactory } from '../src/SocialPreview/SocialPreview.uni.driver';
-
-export const socialPreviewTestkitFactory = protractorUniTestkitFactoryCreator(
-  socialPreviewDriverFactory,
-);
-
-import statsWidgetDriverFactory from '../src/StatsWidget/StatsWidget.protractor.driver';
-
-export const statsWidgetTestkitFactory = protractorTestkitFactoryCreator(
-  statsWidgetDriverFactory,
-);
-
-import { stepperDriverFactory } from '../src/Stepper/Stepper.uni.driver';
-
-export const stepperTestkitFactory = protractorUniTestkitFactoryCreator(
-  stepperDriverFactory,
-);
-
-import { swatchesDriverFactory } from '../src/Swatches/Swatches.uni.driver';
-
-export const swatchesTestkitFactory = protractorUniTestkitFactoryCreator(
-  swatchesDriverFactory,
-);
-
-import tableDriverFactory from '../src/Table/Table.protractor.driver';
-
-export const tableTestkitFactory = protractorTestkitFactoryCreator(
-  tableDriverFactory,
-);
-
-import tableActionCellDriverFactory from '../src/TableActionCell/TableActionCell.protractor.driver';
-
-export const tableActionCellTestkitFactory = protractorTestkitFactoryCreator(
-  tableActionCellDriverFactory,
-);
-
-import tabsDriverFactory from '../src/Tabs/Tabs.protractor.driver';
-
-export const tabsTestkitFactory = protractorTestkitFactoryCreator(
-  tabsDriverFactory,
-);
-
-import tagDriverFactory from '../src/Tag/Tag.protractor.driver';
-
-export const tagTestkitFactory = protractorTestkitFactoryCreator(
-  tagDriverFactory,
-);
-
-import textDriverFactory from '../src/Text/Text.protractor.driver';
-
-export const textTestkitFactory = protractorTestkitFactoryCreator(
-  textDriverFactory,
-);
-
-import { textButtonDriverFactory } from '../src/TextButton/TextButton.uni.driver';
-
-export const textButtonTestkitFactory = protractorUniTestkitFactoryCreator(
-  textButtonDriverFactory,
-);
-
-import { thumbnailDriverFactory } from '../src/Thumbnail/Thumbnail.uni.driver';
-
-export const thumbnailTestkitFactory = protractorUniTestkitFactoryCreator(
-  thumbnailDriverFactory,
-);
-
-import { timeInputUniDriverFactory } from '../src/TimeInput/TimeInput.uni.driver';
-
-export const timeInputTestkitFactory = protractorTestkitFactoryCreator(
-  timeInputUniDriverFactory,
-);
-
-import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.protractor.driver';
-
-export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(
-  toggleSwitchDriverFactory,
-);
-
-import sidebarSectionItemDriverFactory from '../src/SidebarSectionItem/SidebarSectionItem.uni.driver';
-
-export const sidebarSectionItemTestkitFactory = protractorUniTestkitFactoryCreator(
-  sidebarSectionItemDriverFactory,
-);
-
-import sidebarDividerDriverFactory from '../src/SidebarDivider/SidebarDivider.uni.driver';
-
-export const sidebarDividerTestkitFactory = protractorUniTestkitFactoryCreator(
-  sidebarDividerDriverFactory,
-);
-
-import sidebarHeaderDriverFactory from '../src/SidebarHeader/SidebarHeader.uni.driver';
-
-export const sidebarHeaderTestkitFactory = protractorUniTestkitFactoryCreator(
-  sidebarHeaderDriverFactory,
-);
-
-import { modalPreviewLayoutDriverFactory } from '../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver';
-
-export const modalPreviewLayoutTestkitFactory = protractorUniTestkitFactoryCreator(
-  modalPreviewLayoutDriverFactory,
-);
-
-import statisticsWidgetDriverFactory from '../src/StatisticsWidget/StatisticsWidget.uni.driver';
-
-export const statisticsWidgetTestkitFactory = protractorUniTestkitFactoryCreator(
-  statisticsWidgetDriverFactory,
-);
-
-import composerHeaderDriverFactory from '../src/ComposerHeader/ComposerHeader.uni.driver';
-
-export const composerHeaderTestkitFactory = protractorUniTestkitFactoryCreator(
-  composerHeaderDriverFactory,
-);
-
-import fillPreviewDriverFactory from '../src/FillPreview/FillPreview.uni.driver';
-
-export const fillPreviewTestkitFactory = protractorUniTestkitFactoryCreator(
-  fillPreviewDriverFactory,
-);
-
-import fillButtonDriverFactory from '../src/FillButton/FillButton.uni.driver';
-
-export const fillButtonTestkitFactory = protractorUniTestkitFactoryCreator(
-  fillButtonDriverFactory,
-);
-
-import barChartDriverFactory from '../src/BarChart/BarChart.uni.driver';
-
-export const barChartTestkitFactory = protractorUniTestkitFactoryCreator(
-  barChartDriverFactory,
-);
-
-import labelledElementDriverFactory from '../src/LabelledElement/LabelledElement.uni.driver';
-
-export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(
-  labelledElementDriverFactory,
-);
-
-import inputWithLabelDriverFactory from '../src/InputWithLabel/InputWithLabel.uni.driver';
-
-export const inputWithLabelTestkitFactory = protractorUniTestkitFactoryCreator(
-  inputWithLabelDriverFactory,
-);
-
-import dividerDriverFactory from '../src/Divider/Divider.uni.driver';
-
-export const dividerTestkitFactory = protractorUniTestkitFactoryCreator(
-  dividerDriverFactory,
-);
-
-import sideMenuDrillDriverFactory from '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver';
-
-export const drillViewTestkitFactory = protractorTestkitFactoryCreator(
-  sideMenuDrillDriverFactory,
-);
-
-import { headerUniDriverFactory } from '../src/Card/Header/Header.uni.driver';
-
-export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(
-  headerUniDriverFactory,
-);
-
-import { sideMenuUniDriverFactory } from '../src/Deprecated/SideMenu/core/SideMenu.uni.driver';
-
-export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(
-  sideMenuUniDriverFactory,
-);
-
-import { editableRowUniDriverFactory } from '../src/EditableSelector/EditableRow/EditableRow.uni.driver';
-
-export const editableRowTestkitFactory = protractorTestkitFactoryCreator(
-  editableRowUniDriverFactory,
-);
-
-import fieldLabelAttributesDriverFactory from '../src/FieldLabelAttributes/FieldLabelAttributes.driver';
-
-export const fieldLabelAttributesTestkitFactory = protractorTestkitFactoryCreator(
-  fieldLabelAttributesDriverFactory,
-);
-
-import fieldWithSelectionCompositeDriverFactory from '../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.protractor.driver';
-
-export const fieldWithSelectionCompositeTestkitFactory = protractorTestkitFactoryCreator(
-  fieldWithSelectionCompositeDriverFactory,
-);
-
-import radioButtonDriverFactory from '../src/RadioGroup/RadioButton/RadioButton.protractor.driver';
-
-export const radioButtonTestkitFactory = protractorTestkitFactoryCreator(
-  radioButtonDriverFactory,
-);
-
-import { messageBoxMarketerialLayoutUniDriverFactory } from '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver';
-
-export const messageBoxMarketerialLayoutTestkitFactory = protractorTestkitFactoryCreator(
-  messageBoxMarketerialLayoutUniDriverFactory,
-);
-
-import messageBoxFunctionalLayoutDriverFactory from '../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.protractor.driver';
-
-export const messageBoxFunctionalLayoutTestkitFactory = protractorTestkitFactoryCreator(
-  messageBoxFunctionalLayoutDriverFactory,
-);
-
-import { cardSubheaderDriverFactory } from '../src/Card/Subheader/Subheader.uni.driver';
-
-export const subheaderTestkitFactory = protractorUniTestkitFactoryCreator(
-  cardSubheaderDriverFactory,
-);
-
+const load = module => {
+  const MODULE_META_KEYS = ['__esModule'];
+
+  const moduleFields = Object.keys(module).reduce((total, key) => {
+    if (!MODULE_META_KEYS.includes(key)) {
+      return total.concat(module[key]);
+    }
+    return total;
+  }, []);
+
+  let defaultOrFirstExport;
+  if (module.default) {
+    defaultOrFirstExport = module.default;
+  } else if (moduleFields.length === 1) {
+    defaultOrFirstExport = moduleFields[0];
+  } else {
+    defaultOrFirstExport = module;
+  }
+  return defaultOrFirstExport;
+};
+
+export const accordionTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Accordion/Accordion.uni.driver')));
+export const addItemTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/AddItem/AddItem.protractor.driver')));
+export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/AutoComplete/AutoComplete.protractor.driver')));
+export const autoCompleteCompositeTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/AutoCompleteComposite/AutoCompleteComposite.protractor.driver')));
+export const avatarTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Avatar/Avatar.uni.driver')));
+export const badgeTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Badge/Badge.protractor.driver')));
+export const badgeSelectTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/BadgeSelect/BadgeSelect.protractor.driver')));
+export const boxTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Box/Box.uni.driver')));
+export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Breadcrumbs/Breadcrumbs.protractor.driver')));
+export const buttonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Button/Button.uni.driver')));
+export const calendarTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Calendar/Calendar.protractor.driver')));
+export const calendarPanelTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/CalendarPanel/CalendarPanel.protractor.driver')));
+export const calendarPanelFooterTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CalendarPanelFooter/CalendarPanelFooter.uni.driver')));
+export const cardGalleryItemTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CardGalleryItem/CardGalleryItem.uni.driver')));
+export const carouselTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Carousel/Carousel.protractor.driver')));
+export const checkboxTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Checkbox/Checkbox.protractor.driver')));
+export const circularProgressBarTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/CircularProgressBar/CircularProgressBar.protractor.driver')));
+export const closeButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/CloseButton/CloseButton.uni.driver')));
+export const colorInputTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ColorInput/ColorInput.uni.driver')));
+export const colorPickerTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/ColorPicker/ColorPicker.protractor.driver')));
+export const contactItemBuilderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/ContactItemBuilder/ContactItemBuilder.uni.driver')));
+export const counterBadgeTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/CounterBadge/CounterBadge.protractor.driver')));
+export const dataTableTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/DataTable/DataTable.protractor.driver')));
+export const dateInputTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/DateInput/DateInput.uni.driver')));
+export const datePickerTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/DatePicker/DatePicker.protractor.driver')));
+export const dropdownTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Dropdown/Dropdown.protractor.driver')));
+export const dropdownBaseTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/DropdownBase/DropdownBase.uni.driver')));
+export const dropdownLayoutTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/DropdownLayout/DropdownLayout.protractor.driver')));
+export const editableSelectorTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/EditableSelector/EditableSelector.protractor.driver')));
+export const editableTitleTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/EditableTitle/EditableTitle.uni.driver')));
+export const emptyStateTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/EmptyState/EmptyState.protractor.driver')));
+export const errorIndicatorTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ErrorIndicator/ErrorIndicator.uni.driver')));
+export const filePickerTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/FilePicker/FilePicker.protractor.driver')));
+export const floatingHelperTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/FloatingHelper/FloatingHelper.protractor.driver')));
+export const floatingNotificationTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/FloatingNotification/FloatingNotification.uni.driver')));
+export const formFieldTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/FormField/FormField.protractor.driver')));
+export const genericModalLayoutTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/GenericModalLayout/GenericModalLayout.protractor.driver')));
+export const googleAddressWithInputTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/GoogleAddressInputWithLabel/GoogleAddressInputWithLabel.protractor.driver')));
+export const googlePreviewTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/GooglePreview/GooglePreview.uni.driver')));
+export const headingTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Heading/Heading.protractor.driver')));
+export const highlighterTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Highlighter/Highlighter.protractor.driver')));
+export const iconButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/IconButton/IconButton.uni.driver')));
+export const toggleButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ToggleButton/ToggleButton.uni.driver')));
+export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/ImageViewer/ImageViewer.protractor.driver')));
+export const inputTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Input/Input.protractor.driver')));
+export const inputAreaTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/InputArea/InputArea.protractor.driver')));
+export const inputWithOptionsTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/InputWithOptions/InputWithOptions.protractor.driver')));
+export const labelTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Label/Label.protractor.driver')));
+export const linearProgressBarTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/LinearProgressBar/LinearProgressBar.protractor.driver')));
+export const ListItemActionTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ListItemAction/ListItemAction.uni.driver')));
+export const loaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Loader/Loader.protractor.driver')));
+export const modalTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Modal/Modal.uni.driver')));
+export const modalSelectorLayoutTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/ModalSelectorLayout/ModalSelectorLayout.protractor.driver')));
+export const multiSelectTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/MultiSelect/MultiSelect.protractor.driver')));
+export const multiSelectCheckboxTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/MultiSelectCheckbox/MultiSelectCheckbox.protractor.driver')));
+export const multiSelectCompositeTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/MultiSelectComposite/MultiSelectComposite.protractor.driver')));
+export const noBorderInputTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/NoBorderInput/NoBorderInput.protractor.driver')));
+export const notificationTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Notification/Notification.uni.driver')));
+export const numberInputTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/NumberInput/NumberInput.uni.driver')));
+export const pageTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Page/Page.protractor.driver')));
+export const pageHeaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/PageHeader/PageHeader.protractor.driver')));
+export const popoverTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Popover/Popover.protractor.driver')));
+export const popoverMenuTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/PopoverMenu/PopoverMenu.protractor.driver')));
+export const proportionTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Proportion/Proportion.uni.driver')));
+export const radioGroupTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/RadioGroup/RadioGroup.protractor.driver')));
+export const rangeTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Range/Range.protractor.driver')));
+export const richTextInputAreaTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/RichTextInputArea/RichTextInputArea.uni.driver')));
+export const searchTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Search/Search.protractor.driver')));
+export const sectionHelperTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/SectionHelper/SectionHelper.protractor.driver')));
+export const segmentedToggleTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SegmentedToggle/SegmentedToggle.uni.driver')));
+export const sidebarTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Sidebar/Sidebar.uni.driver')));
+export const sidebarSectionTitleTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver')));
+export const sliderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Slider/Slider.protractor.driver')));
+export const socialPreviewTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SocialPreview/SocialPreview.uni.driver')));
+export const statsWidgetTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/StatsWidget/StatsWidget.protractor.driver')));
+export const stepperTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
+export const swatchesTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
+export const tableTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Table/Table.protractor.driver')));
+export const tableActionCellTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/TableActionCell/TableActionCell.protractor.driver')));
+export const tabsTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Tabs/Tabs.protractor.driver')));
+export const tagTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Tag/Tag.protractor.driver')));
+export const textTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Text/Text.protractor.driver')));
+export const textButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/TextButton/TextButton.uni.driver')));
+export const thumbnailTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Thumbnail/Thumbnail.uni.driver')));
+export const timeInputTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/TimeInput/TimeInput.uni.driver')));
+export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/ToggleSwitch/ToggleSwitch.protractor.driver')));
+export const sidebarSectionItemTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SidebarSectionItem/SidebarSectionItem.uni.driver')));
+export const sidebarDividerTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SidebarDivider/SidebarDivider.uni.driver')));
+export const sidebarHeaderTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SidebarHeader/SidebarHeader.uni.driver')));
+export const modalPreviewLayoutTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ModalPreviewLayout/ModalPreviewLayout.uni.driver')));
+export const statisticsWidgetTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/StatisticsWidget/StatisticsWidget.uni.driver')));
+export const composerHeaderTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ComposerHeader/ComposerHeader.uni.driver')));
+export const fillPreviewTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/FillPreview/FillPreview.uni.driver')));
+export const fillButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/FillButton/FillButton.uni.driver')));
+export const barChartTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/BarChart/BarChart.uni.driver')));
+export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
+export const inputWithLabelTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/InputWithLabel/InputWithLabel.uni.driver')));
+export const dividerTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
+export const drillViewTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver')));
+export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
+export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));
+export const editableRowTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/EditableSelector/EditableRow/EditableRow.uni.driver')));
+export const fieldLabelAttributesTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/FieldLabelAttributes/FieldLabelAttributes.driver')));
+export const fieldWithSelectionCompositeTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Composite/FieldWithSelectionComposite/FieldWithSelectionComposite.protractor.driver')));
+export const radioButtonTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/RadioGroup/RadioButton/RadioButton.protractor.driver')));
+export const messageBoxMarketerialLayoutTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver')));
+export const messageBoxFunctionalLayoutTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.protractor.driver')));
+export const subheaderTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Card/Subheader/Subheader.uni.driver')));

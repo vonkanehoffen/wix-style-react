@@ -1,7 +1,7 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { dataHooks } from './constants';
 
-export const ComposerHeaderDriverFactory = base => {
+export default base => {
   const byHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
   return {
     ...baseUniDriverFactory(base),

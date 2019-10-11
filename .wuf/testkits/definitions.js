@@ -16,8 +16,6 @@ module.exports = {
       '../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver',
     protractorTestkitExportName: 'drillViewTestkitFactory',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'drillViewUniDriverFactory',
     puppeteerTestkitPath:
       '../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver',
     puppeteerTestkitExportName: 'drillViewTestkitFactory',
@@ -54,9 +52,6 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     skipSanityTest: true, // testkit does not have root `exists` method
-
-    puppeteerTestkitImportName: 'multiselectUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   MultiSelectCheckbox: {
@@ -64,9 +59,6 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     skipSanityTest: true, // testkit does not have root `exists` method
-
-    puppeteerTestkitImportName: 'multiSelectCheckboxUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   MultiSelectComposite: {
@@ -126,13 +118,9 @@ module.exports = {
     testkitPath: '../src/Card/Header/Header.driver',
     skipSanityTest: true,
 
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'headerUniDriverFactory',
     protractorTestkitPath: '../src/Card/Header/Header.uni.driver',
     protractorTestkitExportName: 'cardHeaderTestkitFactory',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'headerUniDriverFactory',
     puppeteerTestkitPath: '../src/Card/Header/Header.uni.driver',
     puppeteerTestkitExportName: 'cardHeaderTestkitFactory',
   },
@@ -149,8 +137,6 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     skipSanityTest: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'pageHeaderUniDriverFactory',
     puppeteerTestkitPath: '../src/PageHeader/PageHeader.uni.driver',
   },
 
@@ -183,53 +169,22 @@ module.exports = {
     puppeteerLegacyTestkit: true,
   },
 
-  TextButton: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  IconButton: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  CloseButton: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  ToggleButton: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
   SideMenu: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     testkitPath: '../src/Deprecated/SideMenu/core/SideMenu.driver',
 
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'sideMenuUniDriverFactory',
     protractorTestkitPath:
       '../src/Deprecated/SideMenu/core/SideMenu.uni.driver',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'sideMenuUniDriverFactory',
     puppeteerTestkitPath: '../src/Deprecated/SideMenu/core/SideMenu.uni.driver',
-  },
-
-  Button: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   Calendar: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'calendarUniDriverFactory',
     puppeteerTestkitPath: '../src/Calendar/Calendar.uni.driver',
   },
 
@@ -237,14 +192,7 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'calendarPanelUniDriverFactory',
     puppeteerTestkitPath: '../src/CalendarPanel/CalendarPanel.uni.driver',
-  },
-
-  CalendarPanelFooter: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   ContactItemBuilder: {
@@ -252,13 +200,9 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'contactItemBuilderUniDriverFactory',
     protractorTestkitPath:
       '../src/ContactItemBuilder/ContactItemBuilder.uni.driver',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'contactItemBuilderUniDriverFactory',
     puppeteerTestkitPath:
       '../src/ContactItemBuilder/ContactItemBuilder.uni.driver',
   },
@@ -279,13 +223,9 @@ module.exports = {
     protractorLegacyTestkit: true,
     testkitPath: '../src/EditableSelector/EditableRow/EditableRow.driver',
     skipSanityTest: true,
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'editableRowUniDriverFactory',
     protractorTestkitPath:
       '../src/EditableSelector/EditableRow/EditableRow.uni.driver',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'editableRowUniDriverFactory',
     puppeteerTestkitPath:
       '../src/EditableSelector/EditableRow/EditableRow.uni.driver',
   },
@@ -315,24 +255,12 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'carouselUniDriverFactory',
   },
 
   Input: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-  },
-
-  NumberInput: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  FloatingNotification: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   DatePicker: {
@@ -343,22 +271,10 @@ module.exports = {
     noPuppeteerTestkit: true,
   },
 
-  Proportion: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
   Dropdown: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'dropdownUniDriverFactory',
-  },
-
-  DropdownBase: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   RadioButton: {
@@ -389,11 +305,7 @@ module.exports = {
       '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.driver',
     protractorTestkitPath:
       '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver',
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'messageBoxMarketerialLayoutUniDriverFactory',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'messageBoxMarketerialLayoutUniDriverFactory',
     puppeteerTestkitPath:
       '../src/MessageBox/MarketerialLayout/MessageBoxMarketerialLayout.uni.driver',
   },
@@ -410,96 +322,22 @@ module.exports = {
     protractorTestkitPath:
       '../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.protractor.driver',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'MessageBoxFunctionalLayoutUniDriverFactory',
     puppeteerTestkitPath:
       '../src/MessageBox/FunctionalLayout/MessageBoxFunctionalLayout.uni.driver',
-  },
-
-  Box: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'BoxDriver',
-  },
-
-  Thumbnail: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  SegmentedToggle: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  RichTextInputArea: {
-    namedProtractorTestkitExport: true,
-  },
-
-  DateInput: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  ColorInput: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  EditableTitle: {
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'editableTitleUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'editableTitleUniDriverFactory',
-  },
-
-  GooglePreview: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  Accordion: {
-    namedProtractorTestkitExport: true,
-  },
-
-  SocialPreview: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  ErrorIndicator: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   CardSubheader: {
     testkitPath: '../src/Card/Subheader/Subheader.uni.driver',
     skipSanityTest: true,
     protractorTestkitExportName: 'subheaderTestkitFactory',
-    namedProtractorTestkitExport: true,
 
-    namedPuppeteerTestkitExport: true,
     puppeteerTestkitExportName: 'subheaderTestkitFactory',
   },
 
   ListItemAction: {
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'ListItemActionDriverFactory',
     protractorTestkitExportName: 'ListItemActionTestkitFactory',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'ListItemActionDriverFactory',
     puppeteerTestkitExportName: 'ListItemActionTestkitFactory',
-  },
-
-  Swatches: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  Sidebar: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   Selector: {
@@ -511,40 +349,16 @@ module.exports = {
     noPuppeteerTestkit: true, // was not exported before automation, keeping that way for now
   },
 
-  Stepper: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
-  },
-
-  SidebarSectionTitle: {
-    namedPuppeteerTestkitExport: true,
-  },
-
-  SidebarSectionItem: {
-    namedPuppeteerTestkitExport: true,
-  },
-
-  SidebarDivider: {
-    namedPuppeteerTestkitExport: true,
-  },
-
-  SidebarHeader: {
-    namedPuppeteerTestkitExport: true,
-  },
-
   LinearProgressBar: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   CircularProgressBar: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   NoBorderInput: {
@@ -552,19 +366,13 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     puppeteerLegacyTestkit: true,
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 
   Modal: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'modalUniDriverFactory',
     protractorTestkitPath: '../src/Modal/Modal.uni.driver',
-    puppeteerTestkitImportName: 'modalUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   ModalSelectorLayout: {
@@ -580,23 +388,14 @@ module.exports = {
     protractorLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'timeInputUniDriverFactory',
     protractorTestkitPath: '../src/TimeInput/TimeInput.uni.driver',
-
-    puppeteerTestkitImportName: 'timeInputUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Notification: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
-    namedProtractorTestkitExport: true,
-    protractorTestkitImportName: 'notificationUniDriverFactory',
     protractorTestkitPath: '../src/Notification/Notification.uni.driver',
 
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'notificationUniDriverFactory',
     puppeteerTestkitPath: '../src/Notification/Notification.uni.driver',
   },
 
@@ -628,8 +427,6 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'badgeUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   CounterBadge: {
@@ -690,40 +487,30 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'checkboxUniDriverFactory',
   },
 
   Loader: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    namedPuppeteerTestkitExport: true,
-    puppeteerTestkitImportName: 'loaderUniDriverFactory',
   },
 
   InputArea: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'inputAreaUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Search: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'searchUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   AutoComplete: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'autoCompleteUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   AutoCompleteComposite: {
@@ -737,112 +524,84 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'editableSelectorUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Tag: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'tagUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   InputWithOptions: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'inputWithOptionsUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Breadcrumbs: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'breadcrumbsUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   DataTable: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'dataTableUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   DropdownLayout: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'dropdownLayoutDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   EmptyState: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'emptyStateUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Tabs: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'tabsUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   StatsWidget: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'statsWidgetUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   AddItem: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'addItemUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   ImageViewer: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'imageViewerUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   SectionHelper: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'sectionHelperUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   GenericModalLayout: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'genericModalLayoutUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Slider: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    puppeteerTestkitImportName: 'sliderUniDriverFactory',
-    namedPuppeteerTestkitExport: true,
   },
 
   Range: {
@@ -850,10 +609,5 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
-  },
-
-  ModalPreviewLayout: {
-    namedProtractorTestkitExport: true,
-    namedPuppeteerTestkitExport: true,
   },
 };
