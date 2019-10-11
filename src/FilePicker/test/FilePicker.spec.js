@@ -1,17 +1,17 @@
 import React from 'react';
-import FilePicker from './FilePicker';
-import filePickerDriverFactory from './FilePicker.driver';
-import { filePickerUniDriverFactory } from './FilePicker.uni.driver';
+import FilePicker from '../FilePicker';
+import filePickerDriverFactory from '../FilePicker.driver';
+import { filePickerUniDriverFactory } from '../FilePicker.uni.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/react';
-import { filePickerTestkitFactory } from '../../testkit';
-import { filePickerTestkitFactory as enzymeFilePickerTestkitFactory } from '../../testkit/enzyme';
+} from '../../../test/utils/react';
+import { filePickerTestkitFactory } from '../../../testkit';
+import { filePickerTestkitFactory as enzymeFilePickerTestkitFactory } from '../../../testkit/enzyme';
 import {
   isEnzymeTestkitExists,
   isTestkitExists,
-} from '../../test/utils/testkit-sanity';
+} from '../../../test/utils/testkit-sanity';
 import { mount } from 'enzyme';
 
 describe('FilePicker', () => {

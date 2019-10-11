@@ -5,3 +5,7 @@ export const storySettings = {
   storyName: 'FilePicker',
   dataHook: 'story-filepicker',
 };
+
+export const testStories = {
+  filePicker: 'FilePicker',
+};
