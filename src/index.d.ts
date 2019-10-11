@@ -52,7 +52,7 @@ export { default as Text } from './Text';
 export { default as Range } from './Range';
 export { default as EndorseContentLayout } from './EndorseContentLayout';
 export { default as Notification } from './Notification';
-export { default as Breadcrumbs } from './Breadcrumbs';
+export { default as Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 export { default as ImageViewer } from './ImageViewer';
 export { default as PopoverMenu } from './PopoverMenu';
 export { default as FullTextView } from './FullTextView';
