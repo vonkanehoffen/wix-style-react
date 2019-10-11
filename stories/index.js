@@ -162,7 +162,6 @@ require('../src/Divider/docs/index.story');
 require('../src/Typography/test/TestStory');
 require('../src/Input/docs/InputTestStories');
 require('../src/NumberInput/test/testStory');
-require('../src/TimeInput/docs/testStory');
 require('../src/CardGalleryItem/docs/testStory');
 require('../src/Page/docs/PageTestStories'); // Tests/2. Layout/2.5 + Page/
 require('../src/Page/docs/PageTestStoriesDeprecated'); // Tests/2. Layout/2.5 + Page/Deprecated

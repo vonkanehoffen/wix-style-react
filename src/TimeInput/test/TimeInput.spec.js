@@ -3,11 +3,11 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
-import TimePicker from './TimeInput';
-import timeInputDriverFactory from './TimeInput.driver';
-import { timeInputUniDriverFactory } from './TimeInput.uni.driver';
+import TimePicker from '../TimeInput';
+import timeInputDriverFactory from '../TimeInput.driver';
+import { timeInputUniDriverFactory } from '../TimeInput.uni.driver';
 
 import moment from 'moment';
 import sinon from 'sinon';
