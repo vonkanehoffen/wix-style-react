@@ -1,12 +1,12 @@
 import eyes from 'eyes.it';
 import {
-  createStoryUrl,
   waitForVisibilityOf,
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
 
-import { storySettings } from './docs/storySettings';
-import { tableActionCellTestkitFactory } from '../../testkit/protractor';
+import { storySettings, testStories } from '../docs/storySettings';
+import { tableActionCellTestkitFactory } from '../../../testkit/protractor';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 
 const hoverElement = element =>
   browser
@@ -15,9 +15,9 @@ const hoverElement = element =>
     .perform();
 
 describe('Table Action Cell', () => {
-  const storyUrl = createStoryUrl({
-    kind: storySettings.category,
-    story: storySettings.storyName,
+  const storyUrl = createTestStoryUrl({
+    ...storySettings,
+    testName: testStories.tableActionCell,
   });
 
   const verifyItem = async (name, dataHook) => {
@@ -58,6 +58,7 @@ describe('Table Action Cell', () => {
     'Only visible secondary actions': 'story-only-visible-secondary',
     'Primary and secondary actions with RTL': 'story-primary-secondary-rtl',
     'Primary action disabled': 'story-primary-disabled',
+    'Secondary actions disabled': 'story-disabled-secondary',
   };
 
   beforeAll(async () => {

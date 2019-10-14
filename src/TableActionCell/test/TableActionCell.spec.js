@@ -2,9 +2,9 @@ import React from 'react';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 import eventually from 'wix-eventually';
 
-import TableActionCell from './TableActionCell';
-import tableActionCellDriverFactory from './TableActionCell.driver';
-import { flattenInternalDriver } from '../../test/utils/private-drivers';
+import TableActionCell from '../TableActionCell';
+import tableActionCellDriverFactory from '../TableActionCell.driver';
+import { flattenInternalDriver } from '../../../test/utils/private-drivers';
 
 const primaryActionProps = (actionTrigger = () => {}, disabled = false) => ({
   primaryAction: {

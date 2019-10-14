@@ -5,3 +5,7 @@ export const storySettings = {
   storyName: 'TableActionCell',
   dataHook: 'storybook-table-action-cell',
 };
+
+export const testStories = {
+  tableActionCell: 'TableActionCell',
+};
