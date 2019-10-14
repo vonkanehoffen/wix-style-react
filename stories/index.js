@@ -164,7 +164,6 @@ require('../src/CardGalleryItem/docs/testStory');
 require('../src/Page/docs/PageTestStories'); // Tests/2. Layout/2.5 + Page/
 require('../src/Page/docs/PageTestStoriesDeprecated'); // Tests/2. Layout/2.5 + Page/Deprecated
 require('../src/PageHeader/docs/PageHeaderTestStories'); // Tests/2. Layout/2.5 + PageHeader/
-require('../src/IconButton/test/testStory'); // Tests/5. Button/5.2 IconButton
 //require('../src/ComposerHeader/test/ComposerHeaderStories');
 require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/FilePicker/docs/testStory');

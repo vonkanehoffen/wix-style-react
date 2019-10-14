@@ -3,6 +3,9 @@ import { storiesOf } from '@storybook/react';
 import IconButton from '../IconButton';
 import More from '../../new-icons/More';
 import MoreSmall from '../../new-icons/MoreSmall';
+import { SKINS } from '../constants';
+
+const skins = Object.keys(SKINS);
 
 const tests = [
   {
@@ -26,12 +29,36 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'skins',
+    its: skins.reduce((its, skin) => {
+      const primary = {
+        it: `Primary ${skin}`,
+        props: {
+          as: 'a',
+          children: <More />,
+          skin,
+        },
+      };
+      const secondary = {
+        it: `Secondary ${skin}`,
+        props: {
+          ...primary.props,
+          priority: 'secondary',
+        },
+      };
+
+      return [...its, primary, secondary];
+    }, []),
+  },
 ];
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`IconButton/${describe}`, module).add(it, () => (
-      <IconButton {...props} />
+      <div style={{ background: '#ccc', padding: '12px 18px', height: '42px' }}>
+        <IconButton {...props} />
+      </div>
     ));
   });
 });
