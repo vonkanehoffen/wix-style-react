@@ -1,4 +1,3 @@
-import React from 'react';
 import { storySettings } from './storySettings';
 import {
   tab,
@@ -11,9 +10,6 @@ import {
 
 import Thumbnail from '../Thumbnail';
 import { Layout, Cell } from '../../Layout';
-import Box from '../../Box';
-import Avatar from '../../Avatar';
-import Text from '../../Text';
 
 import * as examples from './examples';
 import exampleControlled from '!raw-loader!./exampleControlled';

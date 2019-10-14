@@ -179,7 +179,6 @@ require('../src/Table/test/testStory');
 require('../src/TableToolbar/docs/ToolbarTestStory'); // Tests/10. Table
 require('../src/Avatar/docs/AvatarTestStory'); // Tests/12. Other/12.6 Avatar
 require('../src/Box/docs/testStory');
-require('../src/Thumbnail/docs/testStory');
 require('../src/EditableSelector/docs/testStory');
 require('../src/Slider/docs/testStory'); // 4.7 Slider
 require('../src/StatsWidget/docs/testStory'); // 2.7 StatsWidget

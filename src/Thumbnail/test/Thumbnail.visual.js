@@ -93,6 +93,16 @@ const tests = [
           image,
         },
       },
+      {
+        it: 'RTL',
+        dir: 'rtl',
+        props: {
+          selected: true,
+          title,
+          description,
+          image,
+        },
+      },
     ],
   },
   {
@@ -175,9 +185,9 @@ const tests = [
 ];
 
 tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
+  its.forEach(({ it, props, dir }) => {
     storiesOf(`Thumbnail/${describe}`, module).add(it, () => (
-      <div style={{ width: '300px', padding: '15px' }}>
+      <div dir={dir} style={{ width: '300px', padding: '15px' }}>
         <Thumbnail {...props} />
       </div>
     ));

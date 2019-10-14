@@ -5,7 +5,3 @@ export const storySettings = {
   storyName: 'Thumbnail',
   dataHook: 'story-thumbnail',
 };
-
-export const testStories = {
-  multipleThumbnails: 'Multiple Thumbnails',
-};
