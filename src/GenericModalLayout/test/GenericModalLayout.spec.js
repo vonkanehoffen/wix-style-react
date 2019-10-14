@@ -1,12 +1,12 @@
 import React from 'react';
 
-import GenericModalLayout from '.';
-import genericModalLayoutPrivateDriverFactory from './GenericModalLayout.private.driver';
-import { genericModalLayoutPrivateUniDriverFactory } from './GenericModalLayout.private.uni.driver';
+import GenericModalLayout from '..';
+import genericModalLayoutPrivateDriverFactory from '../GenericModalLayout.private.driver';
+import { genericModalLayoutPrivateUniDriverFactory } from '../GenericModalLayout.private.uni.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/unit';
+} from '../../../test/utils/unit';
 
 const renderWithProps = (properties = {}) => (
   <GenericModalLayout {...properties} />
