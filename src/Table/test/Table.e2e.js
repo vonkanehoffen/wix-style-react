@@ -8,23 +8,16 @@ import {
   waitForVisibilityOf,
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
-import {
-  createStoryUrl,
-  createTestStoryUrl,
-} from '../../../test/utils/storybook-helpers';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 import { flattenInternalDriver } from '../../../test/utils/private-drivers';
 import { storySettings } from '../docs/storySettings';
 
 describe('Table', () => {
-  const storyUrl = createStoryUrl({
-    kind: storySettings.category,
-    story: storySettings.storyName,
-  });
   const testStoryUrl = testName =>
     createTestStoryUrl({ ...storySettings, testName });
 
   const init = async (url, dataHook = 'storybook-table') => {
-    await browser.get(url || storyUrl);
+    await browser.get(url);
     const driver = tableTestkitFactory({ dataHook });
     await waitForVisibilityOf(driver.element, 'Can not find Table Component');
     await scrollToElement(driver.element);
@@ -32,7 +25,8 @@ describe('Table', () => {
   };
 
   it('should be able to use DataTable driver methods', async () => {
-    const driver = await init();
+    const storyUrl = testStoryUrl(storySettings.testStoryNames.table);
+    const driver = await init(storyUrl);
     expect(await driver.rowsCount()).toBe(4);
   });
 
@@ -40,7 +34,7 @@ describe('Table', () => {
     describe('Primary and secondary actions', () => {
       const createDriver = () =>
         init(
-          testStoryUrl(storySettings.testStoryNames.ACTION_CELL),
+          testStoryUrl(storySettings.testStoryNames.actionCell),
           'story-action-cell-primary-secondary-example',
         );
 
