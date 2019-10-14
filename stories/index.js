@@ -175,7 +175,6 @@ require('../src/Stepper/test/StepperAccessibilityTest');
 require('../src/Popover/docs/testStory');
 require('../src/Modal/test/TestsStory'); //Tests/9. Modal
 require('../src/Table/test/testStory');
-require('../src/TableToolbar/docs/ToolbarTestStory'); // Tests/10. Table
 require('../src/Avatar/docs/AvatarTestStory'); // Tests/12. Other/12.6 Avatar
 require('../src/Box/docs/testStory');
 require('../src/EditableSelector/docs/testStory');
