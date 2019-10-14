@@ -5,7 +5,3 @@ export const storySettings = {
   category: Category.COMPONENTS,
   storyName: 'FormField',
 };
-
-export const testStories = {
-  multipleFormFields: 'Multiple FormFields',
-};

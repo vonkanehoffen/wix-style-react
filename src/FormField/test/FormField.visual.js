@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import FormField from './FormField';
-import Input from '../Input';
-import ToggleSwitch from '../ToggleSwitch';
+import FormField from '../FormField';
+import Input from '../../Input';
+import ToggleSwitch from '../../ToggleSwitch';
 
 const testGroups = [
   {
