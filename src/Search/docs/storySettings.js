@@ -5,3 +5,7 @@ export const storySettings = {
   storyName: 'Search',
   dataHook: 'storybook-search',
 };
+
+export const testStories = {
+  search: 'Search',
+};

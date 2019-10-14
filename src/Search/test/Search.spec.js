@@ -1,14 +1,14 @@
 import React from 'react';
 
-import searchDriverFactory from './Search.driver';
-import { searchUniDriverFactory } from './Search.uni.driver';
-import Search from './Search';
-import { makeControlled } from '../../test/utils';
+import searchDriverFactory from '../Search.driver';
+import { searchUniDriverFactory } from '../Search.uni.driver';
+import Search from '../Search';
+import { makeControlled } from '../../../test/utils';
 import {
   cleanup,
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/unit';
+} from '../../../test/utils/unit';
 
 describe('Search', () => {
   describe('[sync]', () => {
