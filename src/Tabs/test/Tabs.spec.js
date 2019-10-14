@@ -1,13 +1,13 @@
 import React from 'react';
 
-import tabsDriverFactory from './Tabs.driver';
-import Tabs from './Tabs';
+import tabsDriverFactory from '../Tabs.driver';
+import Tabs from '../Tabs';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/unit';
-import { tabsUniDriverFactory } from './Tabs.uni.driver';
+} from '../../../test/utils/unit';
+import { tabsUniDriverFactory } from '../Tabs.uni.driver';
 
 describe('Tabs component', () => {
   describe('[sync]', () => {

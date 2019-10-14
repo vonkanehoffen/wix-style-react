@@ -185,6 +185,7 @@ require('../src/DropdownLayout/docs/testStory');
 require('../src/InputWithOptions/docs/testStory');
 require('../src/DataTable/docs/testStory');
 require('../src/DatePicker/docs/testStory');
+require('../src/Tabs/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
