@@ -1,8 +1,9 @@
 import Highlighter from '..';
+import { storySettings } from './storySettings';
 
 export default {
-  category: 'Components',
-  storyName: 'Highlighter',
+  category: storySettings.category,
+  storyName: storySettings.storyName,
 
   component: Highlighter,
   componentPath: '..',
