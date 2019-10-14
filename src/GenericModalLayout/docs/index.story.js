@@ -9,9 +9,11 @@ import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 import ExampleFullscreen from './ExampleFullscreen';
 import ExampleFullscreenRaw from '!raw-loader!./ExampleFullscreen';
 
+import { storySettings } from './storySettings';
+
 export default {
-  category: 'Components',
-  storyName: 'GenericModalLayout',
+  category: storySettings.category,
+  storyName: storySettings.storyName,
   component: ExampleGeneric,
   componentPath: '..',
 
