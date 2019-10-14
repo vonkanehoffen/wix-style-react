@@ -43,19 +43,21 @@ export function renderHeadingTable() {
           <th>Example</th>
         </tr>
       </thead>
-      <HeadingExample appearance="h1" />
-      <HeadingExample appearance="h2" />
-      <HeadingExample appearance="h3" />
-      <HeadingExample appearance="h4" />
-      <HeadingExample appearance="h5" />
-      <HeadingExample appearance="h6" />
+      <tbody>
+        <HeadingExample appearance="h1" />
+        <HeadingExample appearance="h2" />
+        <HeadingExample appearance="h3" />
+        <HeadingExample appearance="h4" />
+        <HeadingExample appearance="h5" />
+        <HeadingExample appearance="h6" />
 
-      <HeadingExample appearance="h1" light />
-      <HeadingExample appearance="h2" light />
-      <HeadingExample appearance="h3" light />
-      <HeadingExample appearance="h4" light />
-      <HeadingExample appearance="h5" light />
-      <HeadingExample appearance="h6" light />
+        <HeadingExample appearance="h1" light />
+        <HeadingExample appearance="h2" light />
+        <HeadingExample appearance="h3" light />
+        <HeadingExample appearance="h4" light />
+        <HeadingExample appearance="h5" light />
+        <HeadingExample appearance="h6" light />
+      </tbody>
     </table>
   );
 }

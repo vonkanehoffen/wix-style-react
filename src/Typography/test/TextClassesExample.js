@@ -101,28 +101,30 @@ export function renderSizeAndWeightTable() {
           <th>Example</th>
         </tr>
       </thead>
-      <TextSizeWeightExample />
+      <tbody>
+        <TextSizeWeightExample />
 
-      {/* size & weight*/}
-      <TextSizeWeightExample size="medium" />
-      <TextSizeWeightExample size="small" />
-      <TextSizeWeightExample size="tiny" />
+        {/* size & weight*/}
+        <TextSizeWeightExample size="medium" />
+        <TextSizeWeightExample size="small" />
+        <TextSizeWeightExample size="tiny" />
 
-      <TextSizeWeightExample weight="thin" />
-      <TextSizeWeightExample weight="normal" />
-      <TextSizeWeightExample weight="bold" />
+        <TextSizeWeightExample weight="thin" />
+        <TextSizeWeightExample weight="normal" />
+        <TextSizeWeightExample weight="bold" />
 
-      <TextSizeWeightExample weight="thin" size="tiny" />
-      <TextSizeWeightExample weight="normal" size="tiny" />
-      <TextSizeWeightExample weight="bold" size="tiny" />
+        <TextSizeWeightExample weight="thin" size="tiny" />
+        <TextSizeWeightExample weight="normal" size="tiny" />
+        <TextSizeWeightExample weight="bold" size="tiny" />
 
-      <TextSizeWeightExample weight="thin" size="small" />
-      <TextSizeWeightExample weight="normal" size="small" />
-      <TextSizeWeightExample weight="bold" size="small" />
+        <TextSizeWeightExample weight="thin" size="small" />
+        <TextSizeWeightExample weight="normal" size="small" />
+        <TextSizeWeightExample weight="bold" size="small" />
 
-      <TextSizeWeightExample weight="thin" size="medium" />
-      <TextSizeWeightExample weight="normal" size="medium" />
-      <TextSizeWeightExample weight="bold" size="medium" />
+        <TextSizeWeightExample weight="thin" size="medium" />
+        <TextSizeWeightExample weight="normal" size="medium" />
+        <TextSizeWeightExample weight="bold" size="medium" />
+      </tbody>
     </table>
   );
 }
@@ -142,104 +144,106 @@ export function renderColorTable() {
           <th>Notes</th>
         </tr>
       </thead>
-      <TextColorExample />
+      <tbody>
+        <TextColorExample />
 
-      {/* color */}
-      <TextColorExample skin="standard" />
-      <TextColorExample skin="success" />
-      <TextColorExample skin="error" />
-      <TextColorExample skin="premium" />
+        {/* color */}
+        <TextColorExample skin="standard" />
+        <TextColorExample skin="success" />
+        <TextColorExample skin="error" />
+        <TextColorExample skin="premium" />
 
-      <TextColorExample link />
-      <TextColorExample disabled />
-      <TextColorExample light />
-      <TextColorExample secondary />
-      <TextColorExample secondary light />
+        <TextColorExample link />
+        <TextColorExample disabled />
+        <TextColorExample light />
+        <TextColorExample secondary />
+        <TextColorExample secondary light />
 
-      {/* skin takes precedence */}
-      <TextColorExample
-        skin="standard"
-        link
-        note="default skin class is explicitly set"
-      />
-      <TextColorExample
-        skin="standard"
-        disabled
-        note="default skin class is explicitly set"
-      />
-      <TextColorExample
-        skin="standard"
-        light
-        note="default skin class is explicitly set"
-      />
-      <TextColorExample
-        skin="standard"
-        secondary
-        note="default skin class is explicitly set"
-      />
+        {/* skin takes precedence */}
+        <TextColorExample
+          skin="standard"
+          link
+          note="default skin class is explicitly set"
+        />
+        <TextColorExample
+          skin="standard"
+          disabled
+          note="default skin class is explicitly set"
+        />
+        <TextColorExample
+          skin="standard"
+          light
+          note="default skin class is explicitly set"
+        />
+        <TextColorExample
+          skin="standard"
+          secondary
+          note="default skin class is explicitly set"
+        />
 
-      <TextColorExample
-        skin="error"
-        link
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="error"
-        disabled
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="error"
-        light
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="error"
-        secondary
-        note="boolean flags have no affect on non standard skin"
-      />
+        <TextColorExample
+          skin="error"
+          link
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="error"
+          disabled
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="error"
+          light
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="error"
+          secondary
+          note="boolean flags have no affect on non standard skin"
+        />
 
-      <TextColorExample
-        skin="success"
-        link
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="success"
-        disabled
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="success"
-        light
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="success"
-        secondary
-        note="boolean flags have no affect on non standard skin"
-      />
+        <TextColorExample
+          skin="success"
+          link
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="success"
+          disabled
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="success"
+          light
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="success"
+          secondary
+          note="boolean flags have no affect on non standard skin"
+        />
 
-      <TextColorExample
-        skin="premium"
-        link
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="premium"
-        disabled
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="premium"
-        light
-        note="boolean flags have no affect on non standard skin"
-      />
-      <TextColorExample
-        skin="premium"
-        secondary
-        note="boolean flags have no affect on non standard skin"
-      />
+        <TextColorExample
+          skin="premium"
+          link
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="premium"
+          disabled
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="premium"
+          light
+          note="boolean flags have no affect on non standard skin"
+        />
+        <TextColorExample
+          skin="premium"
+          secondary
+          note="boolean flags have no affect on non standard skin"
+        />
+      </tbody>
     </table>
   );
 }

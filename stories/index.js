@@ -159,7 +159,6 @@ require('../src/BarChart/docs/index.story');
 require('../src/Divider/docs/index.story');
 
 // Tests
-require('../src/Typography/test/TestStory');
 require('../src/Input/docs/InputTestStories');
 require('../src/NumberInput/test/testStory');
 require('../src/CardGalleryItem/docs/testStory');
