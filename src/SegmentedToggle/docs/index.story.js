@@ -114,6 +114,16 @@ export default {
           }),
 
           description({
+            title: `Controlled mode`,
+            text: `Controlled mode can be enabled by passing 'selected' prop`,
+          }),
+
+          code({
+            source: examples.controlled,
+            components: { SegmentedToggle, LockLocked, Layout, Cell },
+          }),
+
+          description({
             title: `Disabled`,
             text: `All component children can be disabled by passing disabled prop.`,
           }),

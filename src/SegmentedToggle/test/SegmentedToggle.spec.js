@@ -52,4 +52,13 @@ describe('SegmentedToggle', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(onClick.mock.calls[0][1]).toBe('long');
   });
+
+  it('`selected` prop should disallow selecting other items', async () => {
+    const selected = 'short';
+
+    const driver = createDriver(<SegmentedButton selected={selected} />);
+    await driver.selectChild(2);
+
+    expect(await driver.isSelected(dataHook1)).toBe(true);
+  });
 });

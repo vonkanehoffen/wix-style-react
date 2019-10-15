@@ -12,7 +12,9 @@ class SegmentedToggle extends React.Component {
     /** Applied as data-hook HTML attribute that can be used to create an testkit */
     dataHook: PropTypes.string,
     /** Sets default selected toggle */
-    defaultSelected: PropTypes.string,
+    defaultSelected: PropTypes.node,
+    /** Selects toggle and switches to controlled mode */
+    selected: PropTypes.node,
     /** Returns selected element and value `(evt, value)`  */
     onClick: PropTypes.func,
     /** Applies disabled styles and removes handlers  */
@@ -30,8 +32,13 @@ class SegmentedToggle extends React.Component {
   };
 
   _onClick = evt => {
-    const { onClick } = this.props;
+    const { onClick, selected } = this.props;
     const { value } = evt.currentTarget;
+
+    if (selected) {
+      return onClick && onClick(evt, value);
+    }
+
     this.setState({ selected: value }, () => onClick && onClick(evt, value));
   };
 
@@ -71,15 +78,19 @@ class SegmentedToggle extends React.Component {
       disabled,
       defaultSelected,
       onClick,
+      selected,
       ...rest
     } = this.props;
+
+    const selection = selected || this.state.selected;
 
     let childrenNodes = React.Children.map(children, (child, index) =>
       React.cloneElement(child, {
         disabled,
         'data-click': `segmented-toggle-${index + 1}`,
+        'aria-selected': child.props.value === selection,
         onClick: this._onClick,
-        selected: child.props.value === this.state.selected,
+        selected: child.props.value === selection,
       }),
     );
 
