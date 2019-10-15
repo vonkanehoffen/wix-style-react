@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<Sidebar/>` - add right border [#4265](https://github.com/wix/wix-style-react/pull/4265)
 - readd react-motion package to dependecies [#4255](https://github.com/wix/wix-style-react/pull/4255)
+- `<RadioGroup/>` - New prop - Selection area [#4206](https://github.com/wix/wix-style-react/pull/4206)
 - `<Tag/>` - Add ellipsis to long tags in a container [#4180](https://github.com/wix/wix-style-react/pull/4180)
 
 ### Changed
