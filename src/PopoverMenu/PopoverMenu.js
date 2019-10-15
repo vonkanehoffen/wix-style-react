@@ -22,6 +22,8 @@ class PopoverMenu extends Component {
   static displayName = 'PopoverMenu';
 
   static propTypes = {
+    /** String based data hook */
+    dataHook: string,
     /** Sets size for the popover itself */
     size: oneOf(['normal', 'large']),
     /** A direction the popover will be opened */
