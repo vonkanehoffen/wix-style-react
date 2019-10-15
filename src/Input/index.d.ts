@@ -50,7 +50,7 @@ export interface InputProps {
   suffix?: React.ReactNode,
   tabIndex?: number,
   textOverflow?: string,
-  theme?: InputTheme,
+  theme?: InputTheme | string,
   title?: string,
   tooltipPlacement?: string,
   type?: string,

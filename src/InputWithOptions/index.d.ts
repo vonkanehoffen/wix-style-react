@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {placements} from '../Popover/constants';
-import {InputProps} from '../Input'
+import {InputProps, InputTheme} from '../Input'
 import {DropdownLayoutProps} from '../DropdownLayout'
 
 export interface InputWithOptionsProps extends InputProps, DropdownLayoutProps {
+  theme?: InputTheme | string,
   autocomplete?: string,
   inputElement?: HTMLElement,
   closeOnSelect?: boolean,
