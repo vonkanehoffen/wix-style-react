@@ -1,18 +1,39 @@
 import React from 'react';
 import RadioGroup from '..';
 import { createAutoExampleWrapper } from '../../../stories/utils/AutoExampleWrapper';
+import {
+  api,
+  description,
+  divider,
+  header,
+  importExample,
+  playground,
+  tab,
+  tabs,
+  testkit,
+  title,
+  code as baseCode,
+} from 'wix-storybook-utils/dist/src/Sections';
+import * as examples from './examples';
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
+
+const code = config =>
+  baseCode({
+    components: baseScope,
+    ...config,
+  });
 
 import { storySettings } from './storySettings';
 
 const exampleChildren = [
   {
-    label: '4 radios',
+    label: 'One line',
     value: [1, 2, 3, 4].map(n => (
       <RadioGroup.Radio key={n} value={n} children={`Option ${n}`} />
     )),
   },
   {
-    label: '2 radios',
+    label: '2 lines',
     value: [
       <RadioGroup.Radio key={0} value={1}>
         <div>Option 1</div>
@@ -28,7 +49,7 @@ const exampleChildren = [
 
 const exampleOptions = [
   {
-    label: 'none disabled',
+    label: 'All enabled',
     value: [],
   },
   {
@@ -57,4 +78,56 @@ export default {
     children: exampleChildren,
     onChange: value => value,
   },
+
+  sections: [
+    header({
+      issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/RadioGroup',
+      component: (
+        <RadioGroup value={1}>
+          <RadioGroup.Radio value={1}>Option 1</RadioGroup.Radio>
+          <RadioGroup.Radio value={2}>Option 2</RadioGroup.Radio>
+        </RadioGroup>
+      ),
+    }),
+
+    tabs([
+      tab({
+        title: 'Usage',
+        sections: [
+          importExample("import RadioGroup from 'wix-style-react/RadioGroup';"),
+
+          divider(),
+
+          title('Examples'),
+
+          code({
+            title: 'Simple generic use',
+            source: examples.simple,
+          }),
+
+          code({
+            title: 'Disabled option',
+            source: examples.disabledRadios,
+          }),
+
+          description({
+            title: 'Using selectionArea',
+            text:
+              'A selection area makes is easier to select a radio option, with a background  as an indicator to the click area',
+          }),
+
+          code({
+            source: examples.selectionArea,
+          }),
+        ],
+      }),
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'TestKit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };

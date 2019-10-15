@@ -124,11 +124,6 @@ describe('RadioGroup', () => {
   });
 
   describe('spacing attribute', () => {
-    it('should be 12px by default', () => {
-      const driver = createDriver(defaultRadioGroup());
-      expect(driver.spacing()).toBe('12px');
-    });
-
     it('should be spaced', () => {
       const driver = createDriver(defaultRadioGroup({ spacing: '30px' }));
       expect(driver.spacing()).toBe('30px');

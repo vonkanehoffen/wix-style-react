@@ -30,15 +30,29 @@ const tests = [
         },
       },
       {
+        it: 'spacing prop',
+        props: {
+          spacing: '20px',
+        },
+      },
+      {
         it: 'horizontal display',
         props: {
           display: 'horizontal',
         },
       },
       {
-        it: 'button type',
+        it: 'selectionArea',
+        props: { selectionArea: 'always' },
+      },
+      {
+        it: 'selectionArea disabled',
+        props: { selectionArea: 'always', disabled: true },
+      },
+      {
+        it: 'selectionArea horizontal',
         props: {
-          type: 'button',
+          selectionArea: 'always',
           display: 'horizontal',
         },
       },

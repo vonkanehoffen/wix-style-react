@@ -24,6 +24,9 @@ class RadioButton extends WixComponent {
     type: PropTypes.oneOf(['default', 'button']),
     lineHeight: PropTypes.string,
 
+    /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
+    selectionArea: PropTypes.oneOf(['none', 'hover', 'always']),
+
     /** optional node to be rendered under label. Clicking it will not trigger `onChange` */
     content: PropTypes.node,
   };
@@ -40,13 +43,23 @@ class RadioButton extends WixComponent {
   }
 
   renderButton() {
-    const { checked, disabled, onChange, value, icon, children } = this.props;
+    const {
+      checked,
+      disabled,
+      onChange,
+      value,
+      icon,
+      children,
+      selectionArea,
+    } = this.props;
 
     return (
       <button
         type="button"
         className={classnames(styles.radioButton, {
           [styles.checked]: checked,
+          [styles.selectionAreaAlways]: selectionArea === 'always',
+          [styles.selectionAreaHover]: selectionArea === 'hover',
         })}
         checked={checked}
         disabled={disabled}

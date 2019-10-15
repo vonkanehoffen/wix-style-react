@@ -27,6 +27,7 @@ class RadioGroup extends WixComponent {
       );
     }
   }
+
   render() {
     const {
       onChange,
@@ -38,11 +39,15 @@ class RadioGroup extends WixComponent {
       type,
       spacing,
       lineHeight,
+      selectionArea,
     } = this.props;
     return (
       <div
         className={classNames(styles[display], {
           [styles.buttonType]: type === 'button',
+          [styles.selectionAreaAlways]: selectionArea === 'always',
+          [styles.selectionAreaHover]: selectionArea === 'hover',
+          [styles.vertical]: display === 'vertical',
         })}
       >
         {React.Children.map(this.props.children, (radio, index) => (
@@ -60,6 +65,7 @@ class RadioGroup extends WixComponent {
             style={
               display === 'vertical' && index > 0 ? { marginTop: spacing } : {}
             }
+            selectionArea={selectionArea}
             icon={radio.props.icon}
             lineHeight={lineHeight}
             content={radio.props.content}
@@ -96,6 +102,9 @@ RadioGroup.propTypes = {
   /** Display direction of the radios */
   display: PropTypes.oneOf(['vertical', 'horizontal']),
 
+  /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
+  selectionArea: PropTypes.oneOf(['none', 'hover', 'always']),
+
   children: PropTypes.arrayOf((propValue, key) => {
     if (propValue[key].type.displayName !== RadioButton.displayName) {
       return new Error(
@@ -107,6 +116,7 @@ RadioGroup.propTypes = {
   /** Vertical spacing between radio buttons */
   spacing: PropTypes.string,
 
+  /** Text line height */
   lineHeight: PropTypes.string,
 };
 
@@ -116,9 +126,9 @@ RadioGroup.defaultProps = {
   value: '',
   vAlign: 'center',
   display: 'vertical',
-  spacing: '12px',
   lineHeight: '24px',
   type: 'default',
+  selectionArea: 'none',
 };
 
 RadioGroup.Radio = RadioButton;
