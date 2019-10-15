@@ -25,7 +25,7 @@ Types of changes:
 - `<SidebarHeader/>` - make `title` and `subtitle` optional [#4268](https://github.com/wix/wix-style-react/pull/4268)
 
 ### Deprecated
-- `<Tag/>` - Remove wrap prop, wrap is now `true` by default [#4180](https://github.com/wix/wix-style-react/pull/4180)
+- `<Tag/>` - Remove `wrap` prop, wrap is now `true` by default [#4180](https://github.com/wix/wix-style-react/pull/4180)
 
 ## 7.6.1 - 2019-10-10
 
