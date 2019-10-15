@@ -54,7 +54,7 @@ export default {
     onClick: id => `ID: ${id} Clicked!`,
     thumb: [
       {
-        label: 'green square',
+        label: 'green circle',
         value: GREEN_THUMB,
       },
     ],

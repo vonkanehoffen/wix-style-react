@@ -7,6 +7,7 @@ import WixComponent from '../BaseComponents/WixComponent';
 import Text from '../Text';
 import noop from 'lodash/noop';
 import { dataHooks } from './Tag.helpers';
+import deprecationLog from '../utils/deprecationLog';
 
 const tagToTextSize = {
   tiny: 'tiny',
@@ -21,13 +22,23 @@ const tagToTextSize = {
 class Tag extends WixComponent {
   static displayName = 'Tag';
 
+  constructor(props) {
+    super(props);
+
+    if (props.hasOwnProperty('wrap')) {
+      deprecationLog(
+        'Using "wrap" with current API is deprecated, The default is now always cropped by ellipsis.',
+      );
+    }
+  }
+
   _renderThumb() {
     const { thumb } = this.props;
     return thumb ? <span className={styles.thumb}>{thumb}</span> : null;
   }
 
   _renderText() {
-    const { size, wrap, children, disabled, theme } = this.props;
+    const { size, children, disabled, theme } = this.props;
 
     return (
       <Text
@@ -35,7 +46,7 @@ class Tag extends WixComponent {
         skin={disabled ? 'disabled' : 'standard'}
         light={theme === 'dark'}
         secondary={theme !== 'dark'}
-        ellipsis={wrap}
+        ellipsis
         size={tagToTextSize[size]}
         weight={size === 'tiny' ? 'thin' : 'normal'}
         dataHook={dataHooks.text}
@@ -145,11 +156,8 @@ Tag.propTypes = {
   /** An optional thumb to display as part of the Tag */
   thumb: PropTypes.element,
 
-  /** An optional maximum tag width in `px` for cropping. Should be used in pair with `wrap` property  */
+  /** An optional maximum tag width in `px` for cropping. */
   maxWidth: PropTypes.number,
-
-  /** Whether to display ellipsis (...) for long content */
-  wrap: PropTypes.bool,
 
   /* Standard className which has preference over any other intrinsic classes  */
   className: PropTypes.string,
@@ -161,7 +169,6 @@ Tag.defaultProps = {
   size: 'small',
   removable: true,
   theme: 'standard',
-  wrap: false,
 };
 
 export default Tag;

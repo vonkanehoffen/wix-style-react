@@ -3,10 +3,12 @@
 .root {
   box-sizing: border-box;
   position: relative;
-  border-radius: 100px;
   display: inline-flex;
   align-items: center;
   transition: background-color ease 300ms;
+  max-width: -moz-available;
+  max-width: -webkit-fill-available;
+  max-width: fill-available;
 
   .thumb {
     //TODO - should be done in the Avatar component
@@ -23,8 +25,8 @@
 
 //Sizes
 .tinySize {
-  height: 18px;
   padding: 0 9px;
+  border-radius: 9px;
 
   &.withThumb {
     padding-left: 3px;
@@ -43,8 +45,8 @@
 }
 
 .smallSize {
-  height: 24px;
-  padding: 0 12px;
+  padding: 3px 12px;
+  border-radius: 12px;
 
   &.withThumb {
     padding-left: 3px;
@@ -67,8 +69,8 @@
 }
 
 .mediumSize {
-  height: 30px;
-  padding: 0 12px;
+  padding: 6px 12px;
+  border-radius: 15px;
 
   &.withThumb {
     padding-left: 6px;
@@ -91,8 +93,8 @@
 }
 
 .largeSize {
-  height: 36px;
-  padding: 0 18px;
+  padding: 6px 18px;
+  border-radius: 18px;
 
   &.withThumb {
     padding-left: 6px;
@@ -177,7 +179,6 @@
 
 @include withRTL() {
   .tinySize {
-    padding: 0;
     padding: 0 9px;
 
     &.withThumb {
@@ -190,12 +191,11 @@
 
     .thumb {
       margin-left: 6px;
-      margin-right: 0px;
+      margin-right: 0;
     }
   }
 
   .smallSize {
-    padding: 0;
     padding: 0 12px;
 
     &.withThumb {
@@ -208,17 +208,16 @@
 
     .thumb {
       margin-left: 6px;
-      margin-right: 0px;
+      margin-right: 0;
     }
 
     .removeButton {
-      margin-left: 0px;
+      margin-left: 0;
       margin-right: 6px;
     }
   }
 
   .mediumSize {
-    padding: 0;
     padding: 0 12px;
 
     &.withThumb {
@@ -231,17 +230,16 @@
 
     .thumb {
       margin-left: 12px;
-      margin-right: 0px;
+      margin-right: 0;
     }
 
     .removeButton {
-      margin-left: 0px;
+      margin-left: 0;
       margin-right: 6px;
     }
   }
 
   .largeSize {
-    padding: 0;
     padding: 0 18px;
 
     &.withThumb {
@@ -254,11 +252,11 @@
 
     .thumb {
       margin-left: 12px;
-      margin-right: 0px;
+      margin-right: 0;
     }
 
     .removeButton {
-      margin-left: 0px;
+      margin-left: 0;
       margin-right: 12px;
     }
   }
