@@ -22,7 +22,7 @@ export {
   FooterLayout,
   FooterLayout1
 } from './MessageBox';
-export { default as RadioGroup } from './RadioGroup';
+export { default as RadioGroup, RadioGroupProps } from './RadioGroup';
 export { default as RadioButton } from './RadioGroup/RadioButton/RadioButton';
 export { default as Slider } from './Slider';
 export { default as GoogleAddressInput } from './GoogleAddressInput';
