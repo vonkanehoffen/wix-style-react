@@ -130,6 +130,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-dynamic-import-node": "^2.3.0",
+    "buble": "0.19.6",
     "concurrently": "^3.4.0",
     "copy": "^0.3.2",
     "enzyme": "^3.3.0",
