@@ -78,7 +78,7 @@ export { default as Tag } from './Tag';
 export { default as TextLink } from './Deprecated/TextLink';
 export { default as LinearProgressBar } from './LinearProgressBar';
 export { default as CircularProgressBar } from './CircularProgressBar';
-export { default as EmptyState } from './EmptyState';
+export { default as EmptyState, EmptyStateProps } from './EmptyState';
 export { default as DragDropContextProvider } from './DragDropContextProvider';
 export { default as SortableList } from './SortableList';
 export { default as FilePicker } from './FilePicker';
