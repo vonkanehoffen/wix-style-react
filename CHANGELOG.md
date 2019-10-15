@@ -19,9 +19,13 @@ Types of changes:
 ### Added
 - `<Sidebar/>` - add right border [#4265](https://github.com/wix/wix-style-react/pull/4265)
 - readd react-motion package to dependecies [#4255](https://github.com/wix/wix-style-react/pull/4255)
+- `<Tag/>` - Add ellipsis to long tags in a container [#4180](https://github.com/wix/wix-style-react/pull/4180)
 
 ### Changed
 - `<SidebarHeader/>` - make `title` and `subtitle` optional [#4268](https://github.com/wix/wix-style-react/pull/4268)
+
+### Deprecated
+- `<Tag/>` - Remove wrap prop, wrap is now `true` by default [#4180](https://github.com/wix/wix-style-react/pull/4180)
 
 ## 7.6.1 - 2019-10-10
 
