@@ -157,6 +157,18 @@ const interactiveTests = [
       },
     ],
   },
+  {
+    describe: 'Interactive',
+    its: [
+      {
+        it: 'Enter simple text',
+        componentDidMount: async () => {
+          const driver = createDriver(interactiveDataHook);
+          await driver.enterText('This is a rich text area');
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

@@ -1,11 +1,11 @@
 import { EditorState, ContentState, SelectionState } from 'draft-js';
 
-import EditorUtilities from './EditorUtilities';
+import EditorUtilities from '../EditorUtilities';
 import {
   inlineStyleTypes,
   blockTypes,
   entityTypes,
-} from './RichTextInputAreaTypes';
+} from '../RichTextInputAreaTypes';
 
 describe('EditorUtilities', () => {
   const linkEntity = {
