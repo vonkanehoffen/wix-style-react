@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
-import Range from './Range';
-import DatePicker from '../DatePicker';
-import { rangePolyfill } from '../../testkit/polyfills';
+import Range from '../Range';
+import DatePicker from '../../DatePicker';
+import { rangePolyfill } from '../../../testkit/polyfills';
 
-import { rangeTestkitFactory } from '../../testkit';
+import { rangeTestkitFactory } from '../../../testkit';
 
 describe('Range', () => {
   beforeEach(() => {

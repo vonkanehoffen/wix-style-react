@@ -1,10 +1,10 @@
-import eyes from 'eyes.it';
-import { rangeTestkitFactory } from '../../testkit/protractor';
 import { waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../test/utils/storybook-helpers';
-import settings from './docs/storySettings';
-import inputDriver from '../Input/Input.protractor.driver';
-import datePickerDriver from '../DatePicker/DatePicker.protractor.driver';
+import { eyesItInstance } from '../../../test/utils/eyes-it';
+import { rangeTestkitFactory } from '../../../testkit/protractor';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
+import { storySettings, testStories } from '../docs/storySettings';
+import inputDriver from '../../Input/Input.protractor.driver';
+import datePickerDriver from '../../DatePicker/DatePicker.protractor.driver';
 
 const rangeTestkitE2EFactory = rangeDriver => {
   const component = rangeDriver.element();
@@ -37,22 +37,23 @@ const rangeTestkitE2EFactory = rangeDriver => {
 };
 
 describe('Range', () => {
-  const storyUrl = createStoryUrl({
-    kind: settings.category,
-    story: settings.storyName,
+  const eyes = eyesItInstance();
+  const testStoryUrl = createTestStoryUrl({
+    ...storySettings,
+    testName: testStories.range,
   });
 
   const driverInput = rangeTestkitE2EFactory(
-    rangeTestkitFactory({ dataHook: settings.dataHookInput }),
+    rangeTestkitFactory({ dataHook: storySettings.dataHookInput }),
   );
   const driverDate = rangeTestkitE2EFactory(
-    rangeTestkitFactory({ dataHook: settings.dataHookDatePicker }),
+    rangeTestkitFactory({ dataHook: storySettings.dataHookDatePicker }),
   );
   const waitForRange = () =>
     waitForVisibilityOf(driverInput.element(), 'Cannot find Range');
 
   beforeAll(async () => {
-    await browser.get(storyUrl);
+    await browser.get(testStoryUrl);
   });
 
   beforeEach(async () => {
@@ -86,15 +87,11 @@ describe('Range', () => {
       expect(driver.isFocusedLast()).toBe(false, 'isFocusedLast');
     });
 
-    eyes.it(
-      'should not show focused styles for first item',
-      async () => {
-        expect(driver.isFocusedFirst()).toBe(false);
-        await driver.clickFirst();
-        expect(driver.isFocusedFirst()).toBe(false);
-      },
-      { version: '<Input/>-On text click - select all' },
-    );
+    eyes.it('should not show focused styles for first item', async () => {
+      expect(driver.isFocusedFirst()).toBe(false);
+      await driver.clickFirst();
+      expect(driver.isFocusedFirst()).toBe(false);
+    });
 
     eyes.it('should not show focused styles for last item', async () => {
       expect(driver.isFocusedLast()).toBe(false);
