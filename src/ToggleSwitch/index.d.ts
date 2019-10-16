@@ -7,5 +7,6 @@ import { WixComponentProps } from 'wix-ui-core/dist/src/createHOC';
 
 export interface ToggleSwitchProps extends ToggleSwitchProps, CoreToggleSwitchProps, WixComponentProps {}
 
-export default class ToggleSwitch extends React.PureComponent<ToggleSwitchProps> {
-}
+declare const ToggleSwitch: React.FunctionComponent<ToggleSwitchProps>;
+
+export default ToggleSwitch;
