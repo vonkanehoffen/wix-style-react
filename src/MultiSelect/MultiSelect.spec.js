@@ -375,7 +375,7 @@ describe('MultiSelect', () => {
         });
       });
 
-      describe('Paste', () => {
+      describe.skip('Paste', () => {
         async function testCase({
           props,
           pasteValue,
