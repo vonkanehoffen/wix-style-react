@@ -159,7 +159,6 @@ require('../src/BarChart/docs/index.story');
 require('../src/Divider/docs/index.story');
 
 // Tests
-require('../src/Input/docs/InputTestStories');
 require('../src/CardGalleryItem/docs/testStory');
 require('../src/Page/docs/PageTestStories'); // Tests/2. Layout/2.5 + Page/
 require('../src/Page/docs/PageTestStoriesDeprecated'); // Tests/2. Layout/2.5 + Page/Deprecated

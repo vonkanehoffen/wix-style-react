@@ -1,34 +1,53 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import Input from '..';
+import { Search } from 'wix-ui-icons-common';
+
+const defaultProps = {
+  value: 'Some text value...',
+};
+
+const groupSuffix = (
+  <Input.Group>
+    <Input.Affix>$</Input.Affix>
+    <Input.IconAffix>
+      <Search />
+    </Input.IconAffix>
+  </Input.Group>
+);
 
 const tests = [
   {
-    describe: 'menuArrow attribute',
+    describe: 'status',
     its: [
       {
-        it: 'should have a narrow error style of arrow is shown',
+        it: 'error',
         props: {
-          menuArrow: true,
-          error: true,
           status: 'error',
+        },
+      },
+      {
+        it: 'warning',
+        props: {
+          status: 'warning',
         },
       },
     ],
   },
   {
-    describe: 'status attribute',
+    describe: 'prefix',
     its: [
       {
-        it: 'deprecated - should display an error icon if error is true',
+        it: 'render a node based',
         props: {
-          error: true,
+          prefix: groupSuffix,
         },
       },
       {
-        it: 'should display an error icon if status is error',
+        it: 'render string based',
         props: {
-          status: 'error',
+          prefix: <Input.Affix>@</Input.Affix>,
         },
       },
     ],
@@ -37,9 +56,54 @@ const tests = [
     describe: 'disabled',
     its: [
       {
-        it: 'should display the input disabled',
+        it: 'simple',
         props: {
           disabled: true,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'readonly',
+    its: [
+      {
+        it: 'example',
+        props: {
+          readOnly: true,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'rounded',
+    its: [
+      {
+        it: 'example',
+        props: {
+          roundInput: true,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'size',
+    its: [
+      {
+        it: 'small',
+        props: {
+          size: 'small',
+        },
+      },
+      {
+        it: 'normal',
+        props: {
+          size: 'normal',
+        },
+      },
+      {
+        it: 'large',
+        props: {
+          size: 'large',
         },
       },
     ],
@@ -48,6 +112,8 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`Input/${describe}`, module).add(it, () => <Input {...props} />);
+    storiesOf(`Input/${describe}`, module).add(it, () => (
+      <Input {...defaultProps} {...props} />
+    ));
   });
 });
