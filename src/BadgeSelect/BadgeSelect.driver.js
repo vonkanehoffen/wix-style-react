@@ -1,4 +1,5 @@
 import badgeDriverFactory from '../Badge/Badge.driver';
+import * as DATA_ATTR from './DataAttr';
 
 import dropdownLayoutDriverFactory from '../DropdownLayout/DropdownLayout.driver';
 import popoverDriverFactory from '../Popover/Popover.driver';
@@ -7,11 +8,11 @@ const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
   const popoverDriver = popoverDriverFactory({ element, eventTrigger });
 
   const badgeDriver = badgeDriverFactory({
-    element: popoverDriver.getTargetElement().childNodes[0],
+    element: element.querySelector(`[data-hook="${DATA_ATTR.DATA_BADGE}"]`),
     eventTrigger,
   });
 
-  const driver = {
+  return {
     /** Returns 'true' whether the element exists */
     exists: () => !!element,
 
@@ -24,7 +25,7 @@ const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
       // Since the popover may be closed, we need to create the DropdownLayout driver every time
       const dropdownLayoutDriver = dropdownLayoutDriverFactory({
         element: element.querySelector(
-          '[data-hook=badgeSelect-dropdownLayout]',
+          `[data-hook="${DATA_ATTR.DATA_DROPDOWN}"]`,
         ),
       });
 
@@ -33,8 +34,6 @@ const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
       }
     },
   };
-
-  return driver;
 };
 
 export default badgeSelectDriverFactory;

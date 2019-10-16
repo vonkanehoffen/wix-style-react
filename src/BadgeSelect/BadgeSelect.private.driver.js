@@ -1,5 +1,4 @@
 import badgeDriverFactory from '../Badge/Badge.driver';
-
 import popoverDriverFactory from '../Popover/Popover.driver';
 import badgeSelectPublicDriverFactory from './BadgeSelect.driver';
 
@@ -16,8 +15,10 @@ const badgeSelectDriverFactory = ({ element, eventTrigger }) => {
 
     /** Clicks on the badge */
     click: () => badgeDriver.click(),
+
     /** Performs a click outside the component */
     clickOutside: () => popoverDriver.clickOutside(),
+
     /** Whether the dropdown is shown */
     isDropdownShown: () => popoverDriver.isContentElementExists(),
   };
