@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<Datepicker /> <Calendar />` - Add types for components [#4302](https://github.com/wix/wix-style-react/pull/4302)
+
 ## 7.8.0 - 2019-10-16
 
 ### Added
