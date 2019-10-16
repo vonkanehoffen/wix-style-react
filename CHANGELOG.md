@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 7.8.0 - 2019-10-16
+
 ### Added
 - `<SegmentedToggle/>` - fix proptypes and add controlled mode [#4308](https://github.com/wix/wix-style-react/pull/4308)
 - `<ComposerHeader/>` - add box shadow to bottom border [#4317](https://github.com/wix/wix-style-react/pull/4317)
