@@ -1,5 +1,5 @@
 import * as React from 'react';
-import WixComponentProps from "../BaseComponents/WixComponent";
+import {WixComponentProps} from "../BaseComponents/WixComponent";
 
 export interface ModalProps extends WixComponentProps {
   isOpen: boolean,
