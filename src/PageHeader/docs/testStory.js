@@ -10,13 +10,12 @@ import PageHeader from '..';
 import Button from 'wix-style-react/Button';
 import Dropdown from 'wix-style-react/Dropdown';
 
-const PageHeaderContainer = props => {
-  return (
-    <div style={{ width: '700px', border: '1px solid' }}>
-      <RTLWrapper>{props.children}</RTLWrapper>
-    </div>
-  );
-};
+const PageHeaderContainer = ({ children }) => (
+  <div style={{ width: '700px', border: '1px solid' }}>
+    <RTLWrapper>{children}</RTLWrapper>
+  </div>
+);
+
 PageHeaderContainer.propTypes = {
   children: PropTypes.any,
 };
@@ -33,23 +32,7 @@ const defaultProps = {
   onBackClicked: () => null,
 };
 
-storiesOf(kind, module).add('1. Standard', () => (
-  <PageHeaderContainer>
-    <PageHeader {...defaultProps} />
-  </PageHeaderContainer>
-));
-
-storiesOf(kind, module).add('2. Long Title and Subtitle', () => (
-  <PageHeaderContainer>
-    <PageHeader
-      {...defaultProps}
-      title="PageHeader title - very very long very very long very very long very very long very very long"
-      subtitle="PageHeader subtitle - very very long very very long very very long very very long very very long very very long very very long"
-    />
-  </PageHeaderContainer>
-));
-
-storiesOf(kind, module).add('3. Title with Dropdown', () => (
+storiesOf(kind, module).add('1. Title with Dropdown', () => (
   <PageHeaderContainer>
     <PageHeader
       {...defaultProps}
@@ -67,7 +50,7 @@ storiesOf(kind, module).add('3. Title with Dropdown', () => (
   </PageHeaderContainer>
 ));
 
-storiesOf(kind, module).add('4. Subtitle with Dropdown', () => (
+storiesOf(kind, module).add('2. Subtitle with Dropdown', () => (
   <PageHeaderContainer>
     <PageHeader
       {...defaultProps}
