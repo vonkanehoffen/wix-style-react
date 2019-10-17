@@ -20,6 +20,4 @@ export type RadioButtonVerticalAlign = 'center' | 'top';
 export type RadioButtonType = 'default' | 'button';
 export type RadioButtonSelectionArea = 'none' | 'hover' | 'always';
 
-export default class RadioButton extends React.PureComponent<RadioButtonProps> {
-  static Radio: RadioButton
-}
+export default class RadioButton extends React.PureComponent<RadioButtonProps> {}

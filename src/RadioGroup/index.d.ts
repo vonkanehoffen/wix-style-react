@@ -22,5 +22,5 @@ export type RadioGroupDisplay = 'vertical' | 'horizontal';
 export type RadioGroupSelectionArea = 'none' | 'hover' | 'always';
 
 export default class RadioGroup extends React.PureComponent<RadioGroupProps> {
-  static Radio: RadioButton
+  static Radio: typeof RadioButton
 }
