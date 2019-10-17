@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {WixComponentProps} from "../BaseComponents/WixComponent";
-import RadioButton from './RadioButton/RadioButton';
+import RadioButton from './RadioButton';
 
 export interface RadioGroupProps extends WixComponentProps {
   onChange?: Function,
