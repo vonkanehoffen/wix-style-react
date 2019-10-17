@@ -232,7 +232,7 @@ export default class DatePicker extends WixComponent {
     };
 
     return (
-      <div style={{ width }} className={styles.root}>
+      <div ref={this.rootRef} style={{ width }} className={styles.root}>
         <div ref={this._setInputRef}>
           <DayPickerInput
             component={this._renderInputWithRefForward()}

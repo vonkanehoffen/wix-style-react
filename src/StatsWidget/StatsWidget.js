@@ -131,7 +131,7 @@ class StatsWidget extends WixComponent {
     const suffixElements = [].concat(suffix).concat(children);
 
     return (
-      <Card>
+      <Card ref={this.rootRef}>
         <Card.Header
           dataHook="stats-widget-title"
           title={title}

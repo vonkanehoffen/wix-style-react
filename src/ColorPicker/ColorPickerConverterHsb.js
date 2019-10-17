@@ -27,7 +27,7 @@ export default class ColorPickerConverterHsb extends WixComponent {
 
   render() {
     return (
-      <div {...css('root', {}, this.props)}>
+      <div ref={this.rootRef} {...css('root', {}, this.props)}>
         <div {...css('distribute', {}, this.props)}>
           <Input
             size="small"

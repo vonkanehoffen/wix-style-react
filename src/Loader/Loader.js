@@ -135,6 +135,7 @@ export default class Loader extends WixComponent {
 
     return (
       <div
+        ref={this.rootRef}
         className={classNames(
           css.loaderContainer,
           css[size],

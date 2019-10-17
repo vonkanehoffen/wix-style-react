@@ -30,6 +30,7 @@ class SectionHelper extends WixComponent {
 
     return (
       <div
+        ref={this.rootRef}
         className={classnames(
           styles.root,
           HELPER_APPEARANCE[this.props.appearance],

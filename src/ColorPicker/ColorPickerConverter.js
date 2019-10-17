@@ -75,7 +75,7 @@ export default class ColorPickerConverter extends WixComponent {
     const { activeTab } = this.state;
 
     return (
-      <div>
+      <div ref={this.rootRef}>
         <Tabs
           minWidth={0}
           items={tabs}

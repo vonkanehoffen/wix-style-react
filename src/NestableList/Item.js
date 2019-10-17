@@ -306,7 +306,7 @@ class Item extends WixComponent {
       };
 
       return connectDropTarget(
-        <div className={classes} data-hook="nestable-item">
+        <div ref={this.rootRef} className={classes} data-hook="nestable-item">
           {renderItem(renderParams)}
           {shouldRenderChildren && children}
         </div>,
@@ -315,7 +315,7 @@ class Item extends WixComponent {
 
     return connectDropTarget(
       connectDragSource(
-        <div className={classes} data-hook="nestable-item">
+        <div ref={this.rootRef} className={classes} data-hook="nestable-item">
           {renderItem(renderParams)}
           {shouldRenderChildren && children}
         </div>,

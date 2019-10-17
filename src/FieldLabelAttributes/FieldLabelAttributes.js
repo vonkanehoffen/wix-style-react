@@ -37,7 +37,11 @@ class FieldLabelAttributes extends WixComponent {
 
   render() {
     return (
-      <div className={styles.root} data-hook="field-label-attributes">
+      <div
+        ref={this.rootRef}
+        className={styles.root}
+        data-hook="field-label-attributes"
+      >
         {this.props.required && (
           <span data-hook="required" className={styles.required}>
             *

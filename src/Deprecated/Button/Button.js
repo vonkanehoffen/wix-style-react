@@ -61,7 +61,7 @@ class Button extends WixComponent {
 
     const buttonLayoutProps = this.getButtonLayoutProps();
     return (
-      <ButtonLayout {...buttonLayoutProps}>
+      <ButtonLayout ref={this.rootRef} {...buttonLayoutProps}>
         <button
           onClick={onClick}
           disabled={disabled}

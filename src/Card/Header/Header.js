@@ -39,7 +39,7 @@ class Header extends WixComponent {
     const { title, subtitle, withoutDivider, suffix } = this.props;
 
     return (
-      <div>
+      <div ref={this.rootRef}>
         <div className={styles.wrapper}>
           <div className={styles.titleWrapper}>
             {isString(title) ? (

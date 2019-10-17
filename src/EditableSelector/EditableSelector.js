@@ -87,7 +87,7 @@ class EditableSelector extends WixComponent {
     let { options } = this.props;
     options = options || [];
     return (
-      <div>
+      <div ref={this.rootRef}>
         {title && (
           <div className={styles.title} data-hook="editable-selector-title">
             <Text weight="normal">{title}</Text>

@@ -138,7 +138,10 @@ class Breadcrumbs extends WixComponent {
     const { items, size, theme } = this.props;
 
     return (
-      <div className={classnames(styles[size], styles[theme])}>
+      <div
+        ref={this.rootRef}
+        className={classnames(styles[size], styles[theme])}
+      >
         {items.map((item, i, allItems) => (
           <div
             key={item.id}

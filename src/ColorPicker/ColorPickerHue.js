@@ -21,7 +21,7 @@ export default class ColorPickerHue extends WixComponent {
     window.addEventListener('touchcancel', this.onMarkerDragEnd);
     window.addEventListener('touchend', this.onMarkerDragEnd);
 
-    this.sliderRect = this.slider.getBoundingClientRect();
+    this.sliderRect = this.rootRef.getBoundingClientRect();
     this.setNewColorByMouseEvent(e);
   };
 
@@ -63,8 +63,8 @@ export default class ColorPickerHue extends WixComponent {
     const percentage = (this.props.current.hue() / 360) * 100;
     return (
       <div
+        ref={this.rootRef}
         className={css.root}
-        ref={e => (this.slider = e)}
         onMouseDown={this.onMarkerDragStart}
         onTouchStart={this.onMarkerDragStart}
       >

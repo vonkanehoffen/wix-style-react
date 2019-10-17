@@ -16,6 +16,7 @@ export default class GenericModalLayout extends WixComponent {
 
     return (
       <div
+        ref={this.rootRef}
         className={containerClassNames}
         data-fullscreen={Boolean(fullscreen)}
       >

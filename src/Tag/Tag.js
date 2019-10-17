@@ -109,6 +109,7 @@ class Tag extends WixComponent {
 
     return (
       <span
+        ref={this.rootRef}
         className={this._getClassName()}
         id={id}
         onClick={() => onClick(id)}

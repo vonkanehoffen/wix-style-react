@@ -32,7 +32,7 @@ export default class Skeleton extends WixComponent {
   render() {
     const { content, alignment, spacing } = this.props;
     return (
-      <div>
+      <div ref={this.rootRef}>
         {content.map((item, key) => (
           <div
             key={key}

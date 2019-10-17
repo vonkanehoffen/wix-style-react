@@ -348,6 +348,7 @@ export default class Calendar extends WixComponent {
   render() {
     return (
       <div
+        ref={this.rootRef}
         className={classNames(styles.calendar, this.props.className)}
         onClick={this._preventActionEventDefault}
       >

@@ -41,7 +41,7 @@ class FilePicker extends WixComponent {
     } = this.props;
 
     return (
-      <div>
+      <div ref={this.rootRef}>
         {header && <span className={styles.header}>{header}</span>}
         <label className={styles.label} htmlFor={this.id}>
           <div className={styles.icon}>
