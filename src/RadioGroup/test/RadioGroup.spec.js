@@ -1,14 +1,14 @@
 import React from 'react';
-import RadioGroup from './RadioGroup';
-import radioGroupDriverFactory from './RadioGroup.driver';
-import { radioGroupTestkitFactory } from '../../testkit';
+import { mount } from 'enzyme';
+import RadioGroup from '../RadioGroup';
+import radioGroupDriverFactory from '../RadioGroup.driver';
+import { radioGroupTestkitFactory } from '../../../testkit';
 import {
   isTestkitExists,
   isEnzymeTestkitExists,
-} from '../../test/utils/testkit-sanity';
-import { radioGroupTestkitFactory as enzymeRadioGroupTestkitFactory } from '../../testkit/enzyme';
-import { mount } from 'enzyme';
-import { createRendererWithDriver, cleanup } from '../../test/utils/unit';
+} from '../../../test/utils/testkit-sanity';
+import { radioGroupTestkitFactory as enzymeRadioGroupTestkitFactory } from '../../../testkit/enzyme';
+import { createRendererWithDriver, cleanup } from '../../../test/utils/unit';
 
 describe('RadioGroup', () => {
   const render = createRendererWithDriver(radioGroupDriverFactory);

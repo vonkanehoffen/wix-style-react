@@ -184,6 +184,7 @@ require('../src/TableActionCell/docs/testStory');
 require('../src/Search/docs/testStory');
 require('../src/RichTextInputArea/docs/testStory');
 require('../src/Range/docs/testStory');
+require('../src/RadioGroup/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
