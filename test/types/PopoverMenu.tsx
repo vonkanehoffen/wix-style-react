@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import PopoverMenu from '../../src/beta/PopoverMenu';
+import PopoverMenu from '../../src/PopoverMenu';
 
-import { PopoverMenuTestkit } from '../../testkit/beta';
-import { PopoverMenuTestkit as PopoverMenuEnzymeTestkit } from '../../testkit/beta/enzyme';
+import { popoverMenuTestkitFactory } from '../../testkit';
+import { popoverMenuTestkitFactory as PopoverMenuEnzymeTestkit } from '../../testkit/enzyme';
 
 async function testkits() {
-  const vanilla = PopoverMenuTestkit({
+  const vanilla = popoverMenuTestkitFactory({
     dataHook: 'hi',
     wrapper: document.createElement('div'),
   });
@@ -24,32 +24,28 @@ async function testkits() {
 }
 
 function PopoverMenuWithMandatoryProps() {
-  return <PopoverMenu triggerElement={<div />} />;
+  return <PopoverMenu />;
 }
 
 function PopoverMenuWithAllProps() {
   return (
     <PopoverMenu
-      maxWidth={3}
-      minWidth={4}
-      zIndex={3}
-      moveBy={{ x: 3, y: 4 }}
-      triggerElement={<div />}
-      placement="left"
-      textSize="small"
-      wrapText={true}
-      appendTo="parent"
-      flip={true}
-      fixed={true}
-      showArrow={true}
-    >
-      <PopoverMenu.MenuItem
-        text="SOMETHING"
-        skin="dark"
-        prefixIcon={<div>hello</div>}
-        disabled
-      />
-      <PopoverMenu.Divider />
-    </PopoverMenu>
+      dataHook="data-hook-string"
+      size="normal"
+      placement="right"
+      buttonTheme="icon-greybackground"
+      buttonHeight="medium"
+      maxWidth={400}
+      appendToParent={true}
+      appendTo="window"
+      zIndex={400}
+      showArrow={false}
+      onShow={() => {}}
+      onHide={() => {}}
+      moveBy={{
+        x: 10,
+        y: 20,
+      }}
+    />
   );
 }
