@@ -1,5 +1,10 @@
 import * as React from 'react';
 import Input from './Input';
+import Ticker from './Ticker';
+import Unit from './Unit';
+import IconAffix from './IconAffix';
+import Affix from './Affix';
+import Group from './Group';
 
 export interface InputProps {
   ariaControls?: string,
@@ -68,4 +73,9 @@ export type InputSize = 'small' | 'normal' | 'medium' | 'large';
 export type InputTheme = 'normal' | 'tags' | 'paneltitle' | 'material' | 'amaterial' | 'flat' | 'flatdark';
 
 export default class Input extends React.Component<InputProps> {
+  static Ticker: typeof Ticker;
+  static Unit: typeof Unit;
+  static IconAffix: typeof IconAffix;
+  static Affix: typeof Affix;
+  static Group: typeof Group;
 }
