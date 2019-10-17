@@ -38,12 +38,11 @@ export const dropdownLayoutDriverFactory = base => {
     ...baseUniDriverFactory(base),
     /** @deprecated should be private */
     classes: () => optionsElement._prop('className'),
-    clickAtOption: async index =>
-      ReactBase(await optionElementAt(index)).click(),
+    clickAtOption: async index => (await optionElementAt(index)).click(),
     clickAtOptionWithValue: async value => {
       for (const _option of await options()) {
         if ((await _option._prop('innerHTML')) === value) {
-          return ReactBase(_option).click();
+          return _option.click();
         }
       }
     },

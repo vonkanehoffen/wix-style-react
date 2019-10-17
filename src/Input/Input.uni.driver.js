@@ -20,10 +20,12 @@ export const testkit = base => {
   const driver = {
     ...baseUniDriverFactory(base),
     click: () => input.click(),
-    getInputElementClasses: async () => await reactBaseInput.getClassList(),
+    getInputElementClasses: async () =>
+      await reactBaseInput._DEPRECATED_getClassList(),
     suffixComponentExists: async className =>
       await base.$(`.${styles.suffix} ${className}`).exists(),
-    getRootElementClasses: async () => await reactBase.getClassList(),
+    getRootElementClasses: async () =>
+      await reactBase._DEPRECATED_getClassList(),
     getAriaDescribedby: async () => await input.attr('aria-describedby'),
     getAriaLabel: async () => await input.attr('aria-label'),
     getName: async () => await input.attr('name'),
@@ -49,7 +51,7 @@ export const testkit = base => {
       (await base.$$(`.${styles.prefix} ${style}`).count()) === 1,
     hasPrefix: async () => (await base.$$(`.${styles.prefix}`).count()) === 1,
     hasClearButton: async () => await clearButtonNode.exists(),
-    clickClear: async () => await ReactBase(clearButtonNode).click(),
+    clickClear: async () => await clearButtonNode.click(),
     getValue: async () => await input.value(),
     getText: async () => await input.value(),
     getPlaceholder: async () => await input.attr('placeholder'),
@@ -60,7 +62,7 @@ export const testkit = base => {
     isHoveredStyle: async () => await base.hasClass(styles.hasHover),
     isFocusedStyle: async () => await base.hasClass(styles.hasFocus),
     getRequired: async () => await input._prop('required'),
-    enterText: async value => await reactBaseInput.enterValue(value),
+    enterText: async value => await input.enterValue(value),
     getAutocomplete: async () => await input.attr('autocomplete'),
     getDefaultValue: async () => await input._prop('defaultValue'),
     getUnit: async () => {
@@ -115,8 +117,6 @@ export const testkit = base => {
     isNarrowError: async () => await base.$(`.${styles.narrow}`).exists(),
     isRTL: async () => await base.hasClass(styles.rtl),
     getCursorLocation: async () => await input._prop('selectionStart'),
-    startComposing: () => reactBaseInput.compositionStart(),
-    endComposing: () => reactBaseInput.compositionEnd(),
     clearText: () => driver.enterText(''),
     clickOutside: () => ReactBase.clickDocument(),
   };
