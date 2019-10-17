@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {optionValidator} from './DropdownLayout';
 import {WixComponentProps} from "../BaseComponents/WixComponent";
 
 export interface DropdownLayoutProps extends WixComponentProps {

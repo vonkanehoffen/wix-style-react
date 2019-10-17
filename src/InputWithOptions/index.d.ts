@@ -2,11 +2,12 @@ import * as React from 'react';
 import {placements} from '../Popover/constants';
 import {InputProps, InputTheme} from '../Input'
 import {DropdownLayoutProps} from '../DropdownLayout'
+import {PopoverPlacement} from '../Popover'
 
 export interface InputWithOptionsProps extends InputProps, DropdownLayoutProps {
   theme?: InputTheme | string,
   autocomplete?: string,
-  inputElement?: HTMLElement,
+  inputElement?: React.ReactElement,
   closeOnSelect?: boolean,
   onManuallyInput?: Function,
   valueParser?: Function,
@@ -21,7 +22,7 @@ export interface InputWithOptionsProps extends InputProps, DropdownLayoutProps {
     minWidth?: string | number,
     flip?: boolean,
     fixed?: boolean,
-    placement?: placements,
+    placement?: PopoverPlacement,
     dynamicWidth?: boolean,
   },
 }

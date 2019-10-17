@@ -37,7 +37,7 @@ export { default as Tooltip, TooltipProps } from './Tooltip';
 export { default as Page } from './Page';
 export { default as SectionHelper } from './SectionHelper';
 export { default as PageHeader } from './PageHeader';
-export { default as Popover } from './Popover';
+export { default as Popover, PopoverProps } from './Popover';
 export { default as SideMenu } from './Deprecated/SideMenu';
 export { default as SideMenuDrill } from './Deprecated/SideMenu/DrillView';
 export { default as DropdownLayout, DropdownLayoutProps } from './DropdownLayout';

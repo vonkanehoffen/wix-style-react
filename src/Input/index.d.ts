@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Input from './Input';
 import Ticker from './Ticker';
 import Unit from './Unit';
 import IconAffix from './IconAffix';
@@ -16,7 +15,7 @@ export interface InputProps {
   dataHook?: string,
   defaultValue?: string,
   disabled?: boolean,
-  status?: Input.StatusError | Input.StatusWarning | Input.StatusLoading,
+  status?: InputStatus,
   statusMessage?: React.ReactNode,
   hideStatusSuffix?: boolean,
   error?: boolean,
@@ -71,6 +70,7 @@ export interface InputProps {
 
 export type InputSize = 'small' | 'normal' | 'medium' | 'large';
 export type InputTheme = 'normal' | 'tags' | 'paneltitle' | 'material' | 'amaterial' | 'flat' | 'flatdark';
+export type InputStatus = 'error' | 'warning' | 'loading';
 
 export default class Input extends React.Component<InputProps> {
   static Ticker: typeof Ticker;
