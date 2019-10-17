@@ -18,8 +18,6 @@ import ExampleRefsRaw from '!raw-loader!./ExampleRefs';
 import ExampleSizes from './ExampleSizes';
 import ExampleSizesRaw from '!raw-loader!./ExampleSizes';
 
-export const AUTO_EXAMPLE_DATA_HOOK = 'storybook-inputarea';
-
 import { storySettings } from './storySettings';
 
 export default {
@@ -29,7 +27,7 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    dataHook: AUTO_EXAMPLE_DATA_HOOK,
+    dataHook: storySettings.dataHook,
     error: false,
     theme: 'normal',
     hasCounter: false,
