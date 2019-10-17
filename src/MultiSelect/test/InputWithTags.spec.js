@@ -1,7 +1,7 @@
 import React from 'react';
-import InputWithTags from './InputWithTags';
-import { createRendererWithDriver, cleanup } from '../../test/utils/unit';
-import inputDriverFactory from '../Input/Input.driver';
+import InputWithTags from '../InputWithTags';
+import { createRendererWithDriver, cleanup } from '../../../test/utils/unit';
+import inputDriverFactory from '../../Input/Input.driver';
 
 const driverFactory = ({ element }) => {
   return {

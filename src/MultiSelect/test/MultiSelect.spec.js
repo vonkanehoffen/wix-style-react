@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactTestUtils from 'react-dom/test-utils';
-import multiSelectDriverFactory from './MultiSelect.driver';
-import { multiselectUniDriverFactory } from './MultiSelect.uni.driver';
-import MultiSelect from './MultiSelect';
-import { multiSelectTestkitFactory } from '../../testkit';
-import { multiSelectTestkitFactory as enzymeMultiSelectTestkitFactory } from '../../testkit/enzyme';
-import { mount } from 'enzyme';
+import multiSelectDriverFactory from '../MultiSelect.driver';
+import { multiselectUniDriverFactory } from '../MultiSelect.uni.driver';
+import MultiSelect from '../MultiSelect';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/unit';
-import eventually from '../../test/utils/eventually';
+} from '../../../test/utils/unit';
+import eventually from '../../../test/utils/eventually';
 
 describe('MultiSelect', () => {
   describe('[sync]', () => {

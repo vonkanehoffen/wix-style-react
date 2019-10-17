@@ -8,7 +8,7 @@ import MultiSelect from '..';
 
 import ExampleReorderable from './tests/Reorderable';
 import TestTabsSwitches from './tests/TestTabsSwitches';
-import TestLineNotBraking from './tests/TestLineNotBraking';
+import StateSelection from './tests/StateSelection';
 
 const kind = getTestStoryKind({
   category: storySettings.category,
@@ -16,7 +16,7 @@ const kind = getTestStoryKind({
 });
 
 const MultiSelectTests = storiesOf(kind, module);
-MultiSelectTests.add('1. With maxNumRows', () => (
+MultiSelectTests.add(testStories.withMaxNumRows, () => (
   <RTLWrapper>
     <div style={{ width: '400px' }}>
       numOfRows=2:
@@ -37,28 +37,10 @@ MultiSelectTests.add('1. With maxNumRows', () => (
   </RTLWrapper>
 ));
 
-MultiSelectTests.add('2. Reorderable', () => (
+MultiSelectTests.add(testStories.reorderable, () => (
   <RTLWrapper>
     <ExampleReorderable />
   </RTLWrapper>
-));
-
-MultiSelectTests.add(testStories.selectMode, () => (
-  <div style={{ width: '400px' }}>
-    <MultiSelect
-      dataHook="multi-select-mode"
-      tags={[
-        { id: '1', label: 'aaaaaaaaaaaa' },
-        { id: '2', label: 'aaaaaaaaaaaa' },
-        { id: '3', label: 'aaaaaaaaaaaa' },
-        { id: '4', label: 'aaaaaaaaaaaa' },
-        { id: '5', label: 'aaaaaaaaaaaa' },
-        { id: '6', label: 'aaaaaaaaaaaa' },
-      ]}
-      mode="select"
-      upgrade
-    />
-  </div>
 ));
 
 MultiSelectTests.add(testStories.tabsSwitches, () => (
@@ -69,24 +51,6 @@ MultiSelectTests.add(testStories.tabsSwitches, () => (
   </div>
 ));
 
-MultiSelectTests.add(testStories.disabled, () => (
-  <div style={{ width: '500px' }}>
-    <MultiSelect
-      disabled
-      dataHook="disabled-multiselect"
-      tags={[
-        { id: '1', label: 'Alabama' },
-        { id: '2', label: 'Alaska' },
-        { id: '3', label: 'Arizona' },
-        { id: '4', label: 'Arkansas' },
-      ]}
-      upgrade
-    />
-  </div>
-));
-
-MultiSelectTests.add(testStories.lineNotBraking, () => (
-  <div style={{ width: '400px' }}>
-    <TestLineNotBraking />
-  </div>
+MultiSelectTests.add(testStories.stateMultiSelect, () => (
+  <StateSelection dataHook={storySettings.dataHook} />
 ));
