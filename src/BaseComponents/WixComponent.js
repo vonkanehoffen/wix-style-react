@@ -10,7 +10,6 @@ class WixComponent extends React.PureComponent {
     this._addDataHook = this._addDataHook.bind(this);
     this._supportOnClickOutside = this._supportOnClickOutside.bind(this);
     this._onMouseEventsHandler = this._onMouseEventsHandler.bind(this);
-    this.rootRef = React.createRef();
   }
 
   checkIfEventOnElements(e, elem) {
@@ -26,7 +25,7 @@ class WixComponent extends React.PureComponent {
   }
 
   componentElements() {
-    return [this.rootRef.current || ReactDOM.findDOMNode(this)];
+    return [ReactDOM.findDOMNode(this)];
   }
 
   setStyles(styles, typography = {}) {
@@ -45,7 +44,7 @@ class WixComponent extends React.PureComponent {
   }
 
   _addDataHook(dataHook) {
-    const domNode = this.rootRef.current || ReactDOM.findDOMNode(this);
+    const domNode = ReactDOM.findDOMNode(this);
     if (domNode) {
       domNode.setAttribute('data-hook', dataHook);
     }

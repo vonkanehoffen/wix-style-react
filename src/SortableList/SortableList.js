@@ -261,7 +261,6 @@ class SortableList extends WixComponent {
 
     return (
       <Container
-        ref={this.rootRef}
         className={className}
         total={this.state.items.length}
         {...common}

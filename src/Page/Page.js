@@ -468,7 +468,6 @@ class Page extends WixComponent {
 
     return (
       <div
-        ref={this.rootRef}
         data-hook="wsr-page-wrapper"
         className={classNames(s.pageWrapper, className)}
         style={{ zIndex, height }}

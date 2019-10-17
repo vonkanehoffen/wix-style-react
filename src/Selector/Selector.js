@@ -57,7 +57,7 @@ class Selector extends WixComponent {
     } = this.props;
 
     return (
-      <li ref={this.rootRef} className={styles.root} onClick={this._onClick}>
+      <li className={styles.root} onClick={this._onClick}>
         {toggleType === 'checkbox' ? (
           <Checkbox
             dataHook="toggle"

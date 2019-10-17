@@ -35,7 +35,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
       removeButtonsPadding && !primaryButtonLabel & !secondaryButtonLabel;
 
     return (
-      <div ref={this.rootRef} className={styles.root}>
+      <div className={styles.root}>
         <div className={headerClasses}>
           <div className={styles.close}>
             <CloseButton

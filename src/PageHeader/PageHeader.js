@@ -124,10 +124,7 @@ export default class PageHeader extends WixComponent {
     const _title = getTitle(title, minimized);
 
     return (
-      <div
-        ref={this.rootRef}
-        className={classNames(s.headerContainer, className)}
-      >
+      <div className={classNames(s.headerContainer, className)}>
         <div className={s.header}>
           <div>
             {this._animateComponent(

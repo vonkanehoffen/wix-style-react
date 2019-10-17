@@ -55,7 +55,6 @@ class RadioButton extends WixComponent {
 
     return (
       <button
-        ref={this.rootRef}
         type="button"
         className={classnames(styles.radioButton, {
           [styles.checked]: checked,
@@ -89,7 +88,6 @@ class RadioButton extends WixComponent {
 
     return (
       <div
-        ref={this.rootRef}
         className={classnames(styles.radioWrapper, {
           [styles.disabled]: disabled,
           [styles.checked]: checked,

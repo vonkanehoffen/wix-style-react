@@ -119,7 +119,7 @@ class InputArea extends WixComponent {
     });
 
     return (
-      <div ref={this.rootRef} className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <div className={classes}>
           <textarea
             rows={rowsAttr}

@@ -77,7 +77,6 @@ const collect = connect => ({
 
 class DraggableTarget extends WixComponent {
   registerNode = node => {
-    this.rootRef.current = node;
     this.props.setWrapperNode(node, this.props.index, this.props.item);
   };
 

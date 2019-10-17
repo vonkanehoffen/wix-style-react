@@ -43,7 +43,6 @@ class RadioGroup extends WixComponent {
     } = this.props;
     return (
       <div
-        ref={this.rootRef}
         className={classNames(styles[display], {
           [styles.buttonType]: type === 'button',
           [styles.selectionAreaAlways]: selectionArea === 'always',

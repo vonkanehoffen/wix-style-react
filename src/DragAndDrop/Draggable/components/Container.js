@@ -106,7 +106,7 @@ const target = {
 };
 
 class Container extends WixComponent {
-  setRootRef = node => (this.rootRef.current = this.rootNode = node);
+  setRootRef = node => (this.rootNode = node);
   setChildRef = node => (this.childNode = node);
 
   render() {

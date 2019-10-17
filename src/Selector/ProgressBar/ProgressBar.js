@@ -11,7 +11,7 @@ class ProgressBar extends WixComponent {
 
   render() {
     return (
-      <div ref={this.rootRef} className={s['progress-bar']}>
+      <div className={s['progress-bar']}>
         <Heading appearance="H6">{`${this.props.progress}%`}</Heading>
         <span className={s.bar}>
           <span

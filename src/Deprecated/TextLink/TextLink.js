@@ -82,7 +82,7 @@ export default class TextLink extends WixComponent {
     }
 
     return (
-      <a ref={this.rootRef} {...props}>
+      <a {...props}>
         <TextLinkLayout {...this.props}>{children}</TextLinkLayout>
       </a>
     );

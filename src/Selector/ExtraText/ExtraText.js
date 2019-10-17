@@ -9,11 +9,7 @@ class ExtraText extends WixComponent {
   };
 
   render() {
-    return (
-      <Text ref={this.rootRef} secondary>
-        {this.props.text}
-      </Text>
-    );
+    return <Text secondary>{this.props.text}</Text>;
   }
 }
 

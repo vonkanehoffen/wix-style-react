@@ -132,7 +132,6 @@ export default class TextLinkLayout extends WixComponent {
 
     return (
       <div
-        ref={this.rootRef}
         role="link"
         style={containerStyles}
         onMouseLeave={() => this.setHover(false)}

@@ -24,7 +24,7 @@ class InputAreaWithLabelComposite extends WixComponent {
   render() {
     const children = Children.toArray(this.props.children);
     return (
-      <div ref={this.rootRef}>
+      <div>
         {children.length === 2 ? (
           <div className={styles.label}>
             {children[0]}

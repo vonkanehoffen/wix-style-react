@@ -85,7 +85,7 @@ class HighlightedItem extends WixComponent {
   }
 
   render() {
-    return <span ref={this.rootRef}>{this.renderElement()}</span>;
+    return <span>{this.renderElement()}</span>;
   }
 }
 

@@ -90,7 +90,7 @@ class RangeInputWithLabelComposite extends WixComponent {
     });
 
     return (
-      <div ref={this.rootRef} className={styles.wrapper}>
+      <div className={styles.wrapper}>
         {label}
         <div className={inputWrapperClassNames}>
           {React.cloneElement(

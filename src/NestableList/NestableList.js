@@ -120,7 +120,7 @@ class NestableList extends WixComponent {
     } = this.props;
 
     return (
-      <div ref={this.rootRef}>
+      <div>
         <NestableListContext.Provider
           value={{
             useDragHandle,

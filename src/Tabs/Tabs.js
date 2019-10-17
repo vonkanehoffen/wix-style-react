@@ -29,7 +29,7 @@ class Tabs extends WixComponent {
     });
 
     return (
-      <div ref={this.rootRef} className={className}>
+      <div className={className}>
         <TabItems {...tabItemsProps} />
         <SideContent content={sideContent} />
       </div>

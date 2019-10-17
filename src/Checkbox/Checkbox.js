@@ -108,7 +108,6 @@ class Checkbox extends WixComponent {
     */
     return (
       <div
-        ref={this.rootRef}
         className={classname}
         onFocus={this.props.focusableOnFocus}
         onBlur={this.props.focusableOnBlur}

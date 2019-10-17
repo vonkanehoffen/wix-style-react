@@ -260,7 +260,7 @@ class Page extends WixComponent {
     };
 
     return (
-      <div ref={this.rootRef} className={classNames(s.pageWrapper, className)}>
+      <div className={classNames(s.pageWrapper, className)}>
         <div
           className={s.page}
           style={{ minWidth: minWidth + 2 * PAGE_SIDE_PADDING_PX }}

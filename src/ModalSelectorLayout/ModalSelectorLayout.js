@@ -186,11 +186,7 @@ export default class ModalSelectorLayout extends WixComponent {
     } = this.state;
 
     return (
-      <div
-        ref={this.rootRef}
-        className={css.modalContent}
-        style={{ height, maxHeight }}
-      >
+      <div className={css.modalContent} style={{ height, maxHeight }}>
         <HeaderLayout title={title} onCancel={onClose} />
 
         {isLoaded && !isEmpty && (
