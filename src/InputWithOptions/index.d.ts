@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {placements} from '../Popover/constants';
 import {InputProps, InputTheme} from '../Input'
 import {DropdownLayoutProps} from '../DropdownLayout'
 import {PopoverPlacement} from '../Popover'
