@@ -169,7 +169,6 @@ require('../src/FilePicker/docs/testStory');
 require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
 require('../src/Stepper/test/StepperWindowResizeTest');
 require('../src/Stepper/test/StepperAccessibilityTest');
-require('../src/Popover/docs/testStory');
 require('../src/Table/test/testStory');
 require('../src/Avatar/docs/AvatarTestStory'); // Tests/12. Other/12.6 Avatar
 require('../src/Box/docs/testStory');
