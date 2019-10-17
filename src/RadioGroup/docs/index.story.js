@@ -67,7 +67,6 @@ export default {
   componentProps: setState => ({
     value: 1,
     hasError: false,
-    size: 'medium',
     children: exampleChildren[0].value,
     onChange: value => setState({ value }),
     dataHook: 'storybook-radiogroup',

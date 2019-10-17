@@ -6,7 +6,6 @@ import Box from '../../Box';
 const defaultProps = {
   value: 2,
   onChange: e => e.stopPropagation(),
-  size: 'medium',
 };
 
 const tests = [
