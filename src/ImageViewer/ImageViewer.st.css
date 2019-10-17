@@ -1,15 +1,15 @@
 :import {
-  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
+  -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: B50, B40, R10, D50;
 }
 
 :import {
-  -st-from: 'wix-ui-core/dist/src/themes/backoffice/border.st.css';
+  -st-from: "../Foundation/stylable/border.st.css";
   -st-named: radius08;
 }
 
 :import {
-  -st-from: 'wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css';
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
   -st-default: Focusable;
 }
 

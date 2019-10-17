@@ -9,17 +9,17 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: WHITE, D10;
+  -st-from: "../../Foundation/stylable/colors.st.css";
+  -st-named: D10;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/shadows.st.css";
+  -st-from: "../../Foundation/stylable/shadows.st.css";
   -st-named: shadow30;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/text.st.css";
+  -st-from: "../../Foundation/stylable/typography.st.css";
   -st-named: sizeSmall, weightNormal, sizeTiny;
 }
 
@@ -48,13 +48,13 @@
   box-sizing: border-box;
   box-shadow: value(shadow30);
   -webkit-font-smoothing: antialiased;
-  
+
   -st-mixin: sizeSmall, weightNormal;
 
   padding: 12px 24px;
 
-  
-  color: value(WHITE);
+
+  color: white;
   background: value(D10);
 }
 
@@ -70,8 +70,8 @@
 
   padding: 8px 12px 7px 12px;
 
-  
-  color: value(WHITE);
+
+  color: white;
   background: value(D10);
 }
 
@@ -87,7 +87,7 @@
   border-color: transparent value(D10) value(D10) transparent;
 
   transform: rotateZ(45deg);
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, .1); 
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .1);
 }
 
 .root::popover[data-placement]::arrow {

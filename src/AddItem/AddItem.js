@@ -14,7 +14,7 @@ import TooltipHOC from './components/TooltipHOC';
 import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 
 import style from './AddItem.st.css';
-import colors from 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
+import colors from '../Foundation/stylable/colors.st.css';
 
 const ICONS = {
   large: <AddItemLarge />,

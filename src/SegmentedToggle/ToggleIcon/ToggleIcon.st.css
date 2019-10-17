@@ -4,7 +4,7 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "../../Foundation/stylable/colors.st.css";
   -st-named: F00, B10, B50, D55, D80, D10;
 }
 
