@@ -1,11 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "../../Foundation/stylable/colors.st.css";
   -st-named: D40,D55;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/text.st.css";
-  -st-named: weightNormal, sizeSmall; 
+  -st-from: "../../Foundation/stylable/typography.st.css";
+  -st-named: weightNormal, sizeSmall;
 }
 
 .root {

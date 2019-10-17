@@ -1,19 +1,19 @@
 import {
-  createStoryUrl,
   waitForVisibilityOf,
   protractorUniTestkitFactoryCreator,
 } from 'wix-ui-test-utils/protractor';
 
 import { eyesItInstance } from '../../../test/utils/eyes-it';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 import richTextInputAreaPrivateDriverFactory from '../RichTextInputArea.private.uni.driver';
-import { storySettings } from '../docs/storySettings';
+import { storySettings, testStories } from '../docs/storySettings';
 
 const eyes = eyesItInstance();
 
 describe('RichTextInputArea', () => {
-  const storyUrl = createStoryUrl({
-    kind: storySettings.category,
-    story: storySettings.storyName,
+  const testStoryUrl = createTestStoryUrl({
+    ...storySettings,
+    testName: testStories.richTextInputArea,
   });
 
   const createDriver = async (dataHook = storySettings.dataHook) => {
@@ -32,19 +32,10 @@ describe('RichTextInputArea', () => {
   };
 
   beforeAll(async () => {
-    await browser.get(storyUrl);
-  });
-
-  eyes.it('should render', async () => {
-    await createDriver();
+    await browser.get(testStoryUrl);
   });
 
   describe('Editor', () => {
-    eyes.it('should enter simple text', async () => {
-      const driver = await createDriver();
-      await driver.enterText('This is a rich text area');
-    });
-
     eyes.it(
       `should change the editor's background color on hover`,
       async () => {

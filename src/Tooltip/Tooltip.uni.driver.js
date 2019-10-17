@@ -35,8 +35,8 @@ export const testkitTooltip = (base, body) => {
   const getContent = async () => {
     let content = await getTooltipContent();
 
-    while ((await ReactBase(content).children()).length > 0) {
-      content = (await ReactBase(content).children())[0];
+    while ((await ReactBase(content)._DEPRECATED_children()).length > 0) {
+      content = (await ReactBase(content)._DEPRECATED_children())[0];
     }
     return content._prop('innerHTML');
   };

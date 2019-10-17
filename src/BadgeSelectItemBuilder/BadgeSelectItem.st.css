@@ -1,15 +1,11 @@
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/palette.st.css";
-  -st-named: secondaryText, primaryLightText, danger, success, warning, urgent, general, standard, neutral, mainMutedHover, successMutedHover, dangerMutedHover, backgroundSecondary;
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: G10, B20, R10, D20, R30, G30, B30, D40, O10, Y10;
 }
 
 :import {
   -st-from: "../Text/Text.st.css";
   -st-default: Text;
-}
-
-:vars {
-  skin: value(general);
 }
 
 .root {
@@ -22,11 +18,11 @@
   width: 18px;
   height: 10px;
   border-radius: 2px;
-  box-shadow: 0px 0px 0px 2px #ffffff;
+  box-shadow: 0 0 0 2px #ffffff;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
-  background-color: value(skin);
+  background-color: value(D20);
 }
 
 .label {
@@ -38,66 +34,51 @@
   color: inherit;
 }
 
+.root:skin(general) .marker,
 .root:skin(secondaryText) .marker {
-  background-color: value(secondaryText)
+  background-color: value(D20);
 }
 
 .root:skin(danger) .marker {
-  background-color: value(danger)
+  background-color: value(R10);
 }
 
 .root:skin(standard) .marker {
-  background-color: value(standard)
+  background-color: value(B20);
 }
 
+.root:skin(backgroundSecondary) .marker,
 .root:skin(primaryLightText) .marker {
-  background-color: value(primaryLightText)
+  background-color: white;
 }
 
 .root:skin(success) .marker {
-  background-color: value(success)
+  background-color: value(G10);
 }
 
 .root:skin(warning) .marker {
-  background-color: value(warning)
+  background-color: value(Y10);
 }
 
 .root:skin(urgent) .marker {
-  background-color: value(urgent)
-}
-
-.root:skin(general) .marker {
-  background-color: value(general)
+  background-color: value(O10);
 }
 
 .root:skin(neutral) .marker {
-  background-color: value(neutral)
+  background-color: value(D40);
 }
 
+.root:skin(neutralStandard) .marker,
 .root:skin(mainMutedHover) .marker {
-  background-color: value(mainMutedHover)
+  background-color: value(B30)
 }
 
+.root:skin(neutralSuccess) .marker,
 .root:skin(successMutedHover) .marker {
-  background-color: value(successMutedHover)
+  background-color: value(G30)
 }
 
+.root:skin(neutralDanger) .marker,
 .root:skin(dangerMutedHover) .marker {
-  background-color: value(dangerMutedHover)
-}
-
-.root:skin(backgroundSecondary) .marker {
-  background-color: value(backgroundSecondary)
-}
-
-.root:skin(neutralStandard) .marker {
-  background-color: value(mainMutedHover)
-}
-
-.root:skin(neutralSuccess) .marker {
-  background-color: value(successMutedHover)
-}
-
-.root:skin(neutralDanger) .marker {
-  background-color: value(dangerMutedHover)
+  background-color: value(R30)
 }

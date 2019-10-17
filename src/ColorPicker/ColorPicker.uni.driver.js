@@ -28,12 +28,6 @@ export const colorPickerUniDriverFactory = base => {
       base.$('[data-hook="color-picker-add-color"]').click(),
     getChildren: async () => base.$('[data-hook="color-picker-children"]'),
 
-    //private
-    selectBlackColor: async () =>
-      ReactBase(base.$('[data-hook="color-picker-hsb"]')).mouseDown({
-        clientX: 1,
-        clientY: 1,
-      }),
     selectRgbTab: async () => (await getConverterTabs()).get(1).click(),
     selectHsbTab: async () => (await getConverterTabs()).get(2).click(),
   };

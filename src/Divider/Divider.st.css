@@ -1,11 +1,11 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: D60, D20;
 }
 
 .root {
-  -st-states: 
-    direction(enum(horizontal, vertical)), 
+  -st-states:
+    direction(enum(horizontal, vertical)),
     skin(enum(light, dark));
 
   margin: 0;

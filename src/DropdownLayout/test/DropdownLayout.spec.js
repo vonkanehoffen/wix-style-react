@@ -664,10 +664,10 @@ describe('DropdownLayout', () => {
           <DropdownLayout visible options={options} />,
         );
         const option = await driver.optionByHook('dropdown-item-0');
-        option.mouseEnter();
-        expect(await option.isHovered()).toBeTruthy();
-        option.mouseLeave();
-        expect(await option.isHovered()).toBeFalsy();
+        await option.mouseEnter();
+        expect(await option.isHovered()).toBe(true);
+        await option.mouseLeave();
+        expect(await option.isHovered()).toBe(false);
       });
 
       it('should hover when mouse enter and unhover when mouse leave when overrideStyle is true', async () => {

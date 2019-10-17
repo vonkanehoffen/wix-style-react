@@ -1,33 +1,27 @@
 @namespace "WSRAvatar";
 
 :import {
-  -st-from: "wix-ui-backoffice/src/shadows.st.css";
+  -st-from: "../Foundation/stylable/shadows.st.css";
   -st-named: shadow10;
 }
 
 :import {
-  -st-from: 'wix-ui-core/dist/src/themes/backoffice/theme.st.css';
-  -st-default: BackofficeTheme;
-}
-
-:import {
-  -st-from: 'wix-ui-core/dist/src/components/avatar/avatar.st.css';
+  -st-from: "wix-ui-core/dist/src/components/avatar/avatar.st.css";
   -st-default: Avatar;
 }
 
 :import {
-  -st-from: '../Foundation/stylable/colors.st.css';
-  -st-named: A1, A2, A3, A4, A5, A6;
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: A1, A2, A3, A4, A5, A6, F00, D80, G10, R10, Y10, B40;
 }
 
 :import {
-  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
-  -st-named: F00, D80, G10, R10,
-  Y10, B40, GRAD_B10, GRAD_D10, GRAD_G10, GRAD_O10, GRAD_R10;
+  -st-from: "../Foundation/stylable/gradients.st.css";
+  -st-named: GRAD_B10, GRAD_D10, GRAD_G10, GRAD_O10, GRAD_R10;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/text.st.css";
+  -st-from: "../Foundation/stylable/typography.st.css";
   -st-named: sizeMedium, sizeSmall, sizeTiny, weightNormal, weightBold, light;
 }
 
@@ -123,7 +117,7 @@
 }
 
 .avatarContainer:size(size90):presence .coreAvatar{
-  padding-right: 0px;
+  padding-right: 0;
 }
 .avatarContainer:size(size48):presence .coreAvatar,
 .avatarContainer:size(size36):presence .coreAvatar,
@@ -187,15 +181,15 @@
 .avatarContainer:size(size48):shape(square) .presence { top: -3px; right: 8px; }
 .avatarContainer:size(size36):shape(square) .presence { top: -3px; right: 1px; }
 .avatarContainer:size(size30):shape(square) .presence { top: -3px; right: 1px; }
-.avatarContainer:size(size24):shape(square) .presence { top: -4px; right: 0px; }
+.avatarContainer:size(size24):shape(square) .presence { top: -4px; right: 0; }
 .avatarContainer:size(size18):shape(square) .presence { top: -3px; right: 1px; }
 
 
 /* Square Shape Indication*/
 
-.avatarContainer:size(size90):shape(square) .indication { right: 0px; bottom: -3px; }
-.avatarContainer:size(size72):shape(square) .indication { right: 0px; bottom: -3px; }
-.avatarContainer:size(size60):shape(square) .indication { right: 0px; bottom: -2px; }
+.avatarContainer:size(size90):shape(square) .indication { right: 0; bottom: -3px; }
+.avatarContainer:size(size72):shape(square) .indication { right: 0; bottom: -3px; }
+.avatarContainer:size(size60):shape(square) .indication { right: 0; bottom: -2px; }
 .avatarContainer:size(size48):shape(square) .indication { right: 3px; bottom: -2px; }
 
 .avatar {

@@ -159,18 +159,17 @@ require('../src/BarChart/docs/index.story');
 require('../src/Divider/docs/index.story');
 
 // Tests
-require('../src/Input/docs/InputTestStories');
 require('../src/CardGalleryItem/docs/testStory');
+require('../src/InputArea/docs/testStory');
 require('../src/Page/docs/PageTestStories'); // Tests/2. Layout/2.5 + Page/
 require('../src/Page/docs/PageTestStoriesDeprecated'); // Tests/2. Layout/2.5 + Page/Deprecated
-require('../src/PageHeader/docs/PageHeaderTestStories'); // Tests/2. Layout/2.5 + PageHeader/
+require('../src/PageHeader/docs/testStory'); // Tests/2. Layout/2.5 + PageHeader/
 //require('../src/ComposerHeader/test/ComposerHeaderStories');
 require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/FilePicker/docs/testStory');
 require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
 require('../src/Stepper/test/StepperWindowResizeTest');
 require('../src/Stepper/test/StepperAccessibilityTest');
-require('../src/Popover/docs/testStory');
 require('../src/Table/test/testStory');
 require('../src/Avatar/docs/AvatarTestStory'); // Tests/12. Other/12.6 Avatar
 require('../src/Box/docs/testStory');
@@ -183,6 +182,9 @@ require('../src/DatePicker/docs/testStory');
 require('../src/Tabs/docs/testStory');
 require('../src/TableActionCell/docs/testStory');
 require('../src/Search/docs/testStory');
+require('../src/RichTextInputArea/docs/testStory');
+require('../src/Range/docs/testStory');
+require('../src/RadioGroup/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');

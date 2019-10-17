@@ -5,12 +5,12 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: F00,B00, WHITE, D55;
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: F00,B00, D55;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/shadows.st.css";
+  -st-from: "../Foundation/stylable/shadows.st.css";
   -st-named: shadow30;
 }
 
@@ -77,7 +77,7 @@
 
 .tooltip {
   position: absolute;
-  background-color: value(WHITE);
+  background-color: white;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 5px;
   padding: 10px 15px;
@@ -87,7 +87,7 @@
   user-select: none;
 }
 
-.tooltip::after {  
+.tooltip::after {
   position: absolute;
   content: "";
   border-top: 5px solid white;

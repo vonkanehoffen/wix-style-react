@@ -1,11 +1,12 @@
 /*
  * Colors with opacity (only those stored as stylable vars) are managed in wix-ui-core only.
- * We added there functionality of hexToRgb calculation, and colors with opacity are calculated there.
+ * We added there functionality of calc_rgba calculation, and colors with opacity are calculated there.
  * We want to gradually remove colors duplications between projects
  */
+
 :import {
-  -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
-  -st-named: D10-05, D10-30, B00-24, B00-42;
+  -st-from: "./mixins/calc_rgba";
+  -st-default: calc_rgba;
 }
 
 :vars {
@@ -22,7 +23,7 @@
 
   /* Primary */
   B00: #2B81CB; /* Loader, Progress Bar */
-  B05: #308DDD; 
+  B05: #308DDD;
   B10: #3899EC; /* Button, TextButton */
   B20: #4EB7F5; /* Hover for elements with B10, buttons, Notifications */
   B30: #C1E4FE; /* Tag(Hover), Floating Notification Border */
@@ -32,18 +33,18 @@
 
   /* Destructive */
   R00: #D6453D;
-  R05: #D8504C; 
+  R05: #D8504C;
   R10: #EE5951; /* Button, TextButton */
   R20: #FF6666; /* Button(hover), Notification Bar */
   R30: #FFD7D7; /* Tag(hover), Floating Notification Border */
   R40: #FFE1E1; /* Tag(Default), Badge */
   R50: #FFEBEB; /* Floating Notification */
-  R60: #FFF5F5; 
+  R60: #FFF5F5;
 
   /* Premium */
   P00: #8E21B1;
   P10: #AA4DC8; /* Button, TextButton (default, click) */
-  P20: #CD68ED; /* Button (hover), Notification Bar */ 
+  P20: #CD68ED; /* Button (hover), Notification Bar */
   P30: #E5C9EE; /* Notification Border */
   P40: #EEDBF4; /* Badge */
   P50: #FAEEFF; /* Floating Notification */
@@ -92,4 +93,22 @@
   C2: #2682CD;
   C3: #68A4D5;
   C4: #FF8E8C;
+
+  /* With Opacity */
+  D10-05: calc_rgba(value(D10), 0.05);
+  D10-10: calc_rgba(value(D10), 0.1);
+  D10-20: calc_rgba(value(D10), 0.2);
+  D10-30: calc_rgba(value(D10), 0.3);
+
+  D20-48: calc_rgba(value(D20), 0.48); /*  new transparent color */
+  D20-54: calc_rgba(value(D20), 0.54); /* hovered */
+  D20-60: calc_rgba(value(D20), 0.6); /*  clicked */
+
+  D80-20: calc_rgba(value(D80), 0.2);
+  D80-30: calc_rgba(value(D80), 0.3);
+  D80-70: calc_rgba(value(D80), 0.7);
+
+  B00-24: calc_rgba(value(B00), 0.24);
+  B00-42: calc_rgba(value(B00), 0.42);
+  B00-48: calc_rgba(value(B00), 0.48);
 }

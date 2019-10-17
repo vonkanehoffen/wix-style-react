@@ -1,5 +1,5 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "../Foundation/stylable/colors.st.css";
   -st-named:
     B10, B20, B30, B40, B50,
     D60, D70,
@@ -8,12 +8,12 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/opacity.st.css";
+  -st-from: "../Foundation/stylable/opacity.st.css";
   -st-named: opacity48;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/border.st.css";
+  -st-from: "../Foundation/stylable/border.st.css";
   -st-named: radius08;
 }
 

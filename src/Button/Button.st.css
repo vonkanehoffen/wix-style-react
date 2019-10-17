@@ -1,27 +1,17 @@
 :import {
-    -st-from: 'wix-ui-core/dist/src/themes/backoffice/theme.st.css';
-    -st-default: BackofficeTheme;
-}
-
-:import {
-    -st-from: 'wix-ui-core/dist/src/components/button-next/button-next.st.css';
+    -st-from: "wix-ui-core/dist/src/components/button-next/button-next.st.css";
     -st-default: Button;
     -st-named: suffix, prefix;
 }
 
 :import {
-    -st-from: 'wix-ui-core/dist/src/themes/backoffice/colors.st.css';
+    -st-from: "../Foundation/stylable/colors.st.css";
     -st-named: B10, F00, B20, D55, R10, R20, P10, P20, G10, G20, D80, B50, D40,
     D10, D20, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-30, D80-70;
 }
 
 :import {
-    -st-from: 'wix-ui-core/dist/src/themes/backoffice/shadows.st.css';
-    -st-named: s5, s6, s7;
-}
-
-:import {
-    -st-from: 'wix-ui-core/dist/src/themes/backoffice/text.st.css';
+    -st-from: "../Foundation/stylable/typography.st.css";
     -st-named: sizeTiny, sizeSmall, sizeMedium, weightNormal, weightBold;
 }
 

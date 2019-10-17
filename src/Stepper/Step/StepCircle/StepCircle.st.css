@@ -42,23 +42,23 @@
 .root:hover {
   background-color: value(B20);
   color: value(D80);
-  border: 0px;
+  border: 0;
 }
 
 .root:stepHover {
   background-color: value(B20);
   color: value(D80);
-  border: 0px;
+  border: 0;
 }
 
 .root:selected {
   background-color: value(B10);
-  border: 0px;
+  border: 0;
 }
 
 .root:completed:selected {
   color: value(D80);
-  border: 0px;
+  border: 0;
 }
 
 .root:error {

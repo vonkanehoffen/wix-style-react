@@ -23,8 +23,8 @@ export const carouselPrivateUniDriverFactory = base => {
     },
     clickPrevious: () => base.$('[data-hook="prev-button"]').click(),
     clickNext: () => base.$('[data-hook="next-button"]').click(),
-    mouseOver: () => ReactBase(getCurrentSlide()).mouseOver(),
-    mouseOut: () => ReactBase(getCurrentSlide()).mouseOut(),
+    mouseOver: () => ReactBase(getCurrentSlide())._private.mouseOver(),
+    mouseOut: () => ReactBase(getCurrentSlide())._private.mouseOut(),
     clickPageNavigationDot: index => {
       const pageNavigator = base.$(`[data-hook="page-navigation-${index}"]`);
       pageNavigator.click();

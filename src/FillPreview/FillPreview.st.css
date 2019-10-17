@@ -1,5 +1,5 @@
 :import {
-  -st-from: 'wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css';
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
   -st-default: Focusable;
 }
 
@@ -16,7 +16,7 @@
 .root {
   -st-extends: Focusable;
   -st-states: selected;
-  
+
   border-radius: 6px;
   width: 100%;
   height: 100%;
@@ -27,7 +27,7 @@
   border: 1px solid value(B00-24);
 
   /* Disable native focus */
-  outline: none; 
+  outline: none;
 }
 
 .root:not(:disabled):selected {

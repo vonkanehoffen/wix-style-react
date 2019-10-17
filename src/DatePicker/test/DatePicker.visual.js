@@ -37,32 +37,32 @@ const testGroups = [
         its: [
           {
             placeholderText: 'Select Date',
-            value: new Date('08-07-1986'),
+            value: new Date('08/07/1986'),
           },
           {
             placeholderText: 'Select Date',
-            value: new Date('08-07-1986'),
+            value: new Date('08/07/1986'),
             disabled: true,
           },
           {
             placeholderText: 'Select Date',
-            value: new Date('08-07-1986'),
+            value: new Date('08/07/1986'),
             error: true,
           },
           {
             placeholderText: 'Select Date',
-            value: new Date('08-07-1986'),
+            value: new Date('08/07/1986'),
             initialOpen: true,
           },
           {
             placeholderText: 'Select Date',
-            value: new Date('08-07-1986'),
+            value: new Date('08/07/1986'),
             initialOpen: true,
             disabled: true,
           },
           {
             placeholderText: 'Select Date',
-            value: new Date('08-07-1986'),
+            value: new Date('08/07/1986'),
             initialOpen: true,
             error: true,
           },
