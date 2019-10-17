@@ -72,7 +72,7 @@ export const dataTableUniDriverFactory = base => {
             .map(td => td.text()),
     /** @deprecated Should be private */
     getRowClasses: async index =>
-      values(await ReactBase(getRows().get(index)).getClassList()),
+      values(await ReactBase(getRows().get(index))._DEPRECATED_getClassList()),
     /**
      * Get header cell element: (columnIndex) => Element
      * @deprecated Should be private
@@ -107,7 +107,7 @@ export const dataTableUniDriverFactory = base => {
       (await hasHeader()) && (await getRowsCount()) === 0,
     isDisplayingHeader: () => hasHeader(),
     hasChildWithId: id => base.$(`#${id}`).exists(),
-    clickRow: (index, eventData) => ReactBase(getRow(index)).click(eventData),
+    clickRow: (index, eventData) => getRow(index).click(eventData),
     mouseEnterRow: (index, eventData) =>
       ReactBase(getRow(index)).mouseEnter(eventData),
     mouseLeaveRow: (index, eventData) =>
@@ -117,8 +117,7 @@ export const dataTableUniDriverFactory = base => {
     hasSortableTitle: index => getSortableTitle(index).exists(),
     hasInfoIcon: index => getTitleInfoIcon(index).exists(),
     hasSortDescending: index => getSortableTitleArrowDesc(index).exists(),
-    clickSort: (index, eventData) =>
-      ReactBase(getHeaderCell(index)).click(eventData),
+    clickSort: (index, eventData) => getHeaderCell(index).click(eventData), //
     /** @deprecated Should be private */
     getRowDetails: index => getRowDetails(index).getNative(), // eslint-disable-line no-restricted-properties
     exists: async () => !(await isDisplayingNothing()),

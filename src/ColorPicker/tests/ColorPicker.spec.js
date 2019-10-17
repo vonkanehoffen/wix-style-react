@@ -6,7 +6,7 @@ import {
 } from '../../../test/utils/react';
 import color from 'color';
 import colorPickerDriverFactory from '../ColorPicker.private.driver';
-import { colorPickerUniDriverFactory } from '../ColorPicker.uni.driver';
+import { colorPickerUniDriverFactory } from '../ColorPicker.private.uni.driver';
 
 import ColorPicker from '../ColorPicker';
 

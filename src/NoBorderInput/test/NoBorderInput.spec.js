@@ -1,7 +1,7 @@
 import React from 'react';
-import noBorderInputDriverFactory from './NoBorderInput.driver';
-import { createRendererWithDriver, cleanup } from '../../test/utils/unit';
-import NoBorderInput from './NoBorderInput';
+import noBorderInputDriverFactory from '../NoBorderInput.driver';
+import { createRendererWithDriver, cleanup } from '../../../test/utils/unit';
+import NoBorderInput from '../NoBorderInput';
 
 const renderNoBorderInputWithProps = (props = {}) => (
   <NoBorderInput {...props} />

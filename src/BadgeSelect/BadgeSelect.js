@@ -7,6 +7,7 @@ import DropdownLayout from '../DropdownLayout';
 import Popover from '../Popover';
 import Badge, { SKIN, TYPE, SIZE } from '../Badge';
 import { badgeSelectItemBuilder } from '../BadgeSelectItemBuilder';
+import * as DATA_ATTR from './DataAttr';
 
 export default class BadgeSelect extends React.Component {
   static propTypes = {
@@ -143,6 +144,7 @@ export default class BadgeSelect extends React.Component {
             suffixIcon={<ChevronDown viewBox="6 6 12 12" />}
             skin={this.state.selectedBadge.skin}
             onClick={this.toggleDropdown}
+            dataHook={DATA_ATTR.DATA_BADGE}
           >
             {this.state.selectedBadge.text}
           </Badge>
@@ -151,7 +153,7 @@ export default class BadgeSelect extends React.Component {
         <Popover.Content>
           <DropdownLayout
             ref={r => (this.dropdownLayout = r)}
-            dataHook="badgeSelect-dropdownLayout"
+            dataHook={DATA_ATTR.DATA_DROPDOWN}
             visible
             selectedId={selectedBadge.id}
             options={this.options}

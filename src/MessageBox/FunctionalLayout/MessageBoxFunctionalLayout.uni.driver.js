@@ -19,7 +19,7 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
       (await confirmationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isConfirmationButtonSuffixIconExists: async () =>
       (await confirmationButton()._prop('innerHTML')).indexOf('suffix') !== -1,
-    clickOnConfirmationButton: () => confirmationButtonReactBase.click(),
+    clickOnConfirmationButton: () => confirmationButton().click(),
     getConfirmationButton: () => getElement(confirmationButton()),
     getCancellationButton: () => getElement(cancellationButton()),
     getHeaderCloseButton: () => getElement(headerCloseButton()),
@@ -28,22 +28,22 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
       (await cancellationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isCancellationButtonSuffixIconExists: async () =>
       (await cancellationButton()._prop('innerHTML')).indexOf('suffix') !== -1,
-    clickOnCancellationButton: () => cancellationButtonReactBase.click(),
-    clickOnHeaderCloseButton: () => ReactBase(headerCloseButton()).click(),
+    clickOnCancellationButton: () => cancellationButton().click(),
+    clickOnHeaderCloseButton: () => headerCloseButton().click(),
     isThemeExist: theme => base.$(`.${theme}`).exists(),
     getFooter: () => getElement(base.$('[data-hook="message-box-footer"]')),
     getTitle: () => base.$('[data-hook="header-layout-title"]').text(),
     getChildBySelector: selector => getElement(base.$(selector)),
     isCancelEnable: async () =>
-      Array.from(await cancellationButtonReactBase.getClassList()).indexOf(
-        'disabled',
-      ) === -1,
+      Array.from(
+        await cancellationButtonReactBase._DEPRECATED_getClassList(),
+      ).indexOf('disabled') === -1,
     isConfirmationEnable: async () =>
-      Array.from(await confirmationButtonReactBase.getClassList()).indexOf(
-        'disabled',
-      ) === -1,
+      Array.from(
+        await confirmationButtonReactBase._DEPRECATED_getClassList(),
+      ).indexOf('disabled') === -1,
     toHaveBodyPadding: async () =>
-      !Array.from(await ReactBase(body()).getClassList()).includes(
+      !Array.from(await ReactBase(body())._DEPRECATED_getClassList()).includes(
         `${styles.noPadding}`,
       ),
   };

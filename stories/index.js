@@ -159,11 +159,10 @@ require('../src/BarChart/docs/index.story');
 require('../src/Divider/docs/index.story');
 
 // Tests
-require('../src/Input/docs/InputTestStories');
 require('../src/CardGalleryItem/docs/testStory');
 require('../src/Page/docs/PageTestStories'); // Tests/2. Layout/2.5 + Page/
 require('../src/Page/docs/PageTestStoriesDeprecated'); // Tests/2. Layout/2.5 + Page/Deprecated
-require('../src/PageHeader/docs/PageHeaderTestStories'); // Tests/2. Layout/2.5 + PageHeader/
+require('../src/PageHeader/docs/testStory'); // Tests/2. Layout/2.5 + PageHeader/
 //require('../src/ComposerHeader/test/ComposerHeaderStories');
 require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
 require('../src/FilePicker/docs/testStory');
@@ -183,6 +182,8 @@ require('../src/DatePicker/docs/testStory');
 require('../src/Tabs/docs/testStory');
 require('../src/TableActionCell/docs/testStory');
 require('../src/Search/docs/testStory');
+require('../src/RichTextInputArea/docs/testStory');
+require('../src/Range/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');

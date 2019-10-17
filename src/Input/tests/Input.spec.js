@@ -1,8 +1,8 @@
 import React from 'react';
 import sinon from 'sinon';
 
-import Search from '../new-icons/Search';
-import Input from '.';
+import Search from '../../new-icons/Search';
+import Input from '..';
 
 import { mount } from 'enzyme';
 
@@ -10,9 +10,9 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/unit';
-import inputDriverFactory from './Input.driver';
-import { testkit } from './Input.uni.driver';
+} from '../../../test/utils/unit';
+import inputDriverFactory from '../Input.driver';
+import { testkit } from '../Input.private.uni.driver';
 
 describe('Input', () => {
   describe('[sync]', () => {

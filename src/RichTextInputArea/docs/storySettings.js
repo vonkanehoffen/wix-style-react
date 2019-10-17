@@ -5,3 +5,7 @@ export const storySettings = {
   storyName: 'RichTextInputArea',
   dataHook: 'story-richtextinputarea',
 };
+
+export const testStories = {
+  richTextInputArea: 'RichTextInputArea',
+};

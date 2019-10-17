@@ -1,15 +1,15 @@
 import React from 'react';
-import PageHeader from './PageHeader';
-import pageHeaderDriverFactory from './PageHeader.driver';
-import { pageHeaderUniDriverFactory } from './PageHeader.uni.driver';
-import { PageHeaderPrivateDriver } from './PageHeader.private.driver';
+import PageHeader from '../PageHeader';
+import pageHeaderDriverFactory from '../PageHeader.driver';
+import { pageHeaderUniDriverFactory } from '../PageHeader.uni.driver';
+import { PageHeaderPrivateDriver } from '../PageHeader.private.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
-import Button from '../Button';
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
+} from '../../../test/utils/react';
+import Button from '../../Button';
+import Breadcrumbs from '../../Breadcrumbs/Breadcrumbs';
 import PropTypes from 'prop-types';
 
 const generateBreadcrumbs = title => (

@@ -50,7 +50,9 @@ export const breadcrumbsUniDriverFactory = base => {
       const breadcrumbItem = breadcrumbAt.$(
         `[data-hook="${DATA_HOOKS.BREADCRUMBS_ITEM}"]`,
       );
-      const classList = await ReactBase(breadcrumbItem).getClassList();
+      const classList = await ReactBase(
+        breadcrumbItem,
+      )._DEPRECATED_getClassList();
       return Array.from(classList).join(' ');
     },
 

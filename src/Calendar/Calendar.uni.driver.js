@@ -123,7 +123,7 @@ export const calendarUniDriverFactory = base => {
     getNumOfSelectedDays: () => getSelectedDays().count(),
     getSelectedDays: () => {
       const datesPromises = getSelectedDays().map(async item => {
-        const children = await ReactBase(item).children();
+        const children = await ReactBase(item)._DEPRECATED_children();
         const child = await children.get(0);
         const attr = await child.attr('data-date');
         const date = attr.split('-').map(part => parseInt(part));

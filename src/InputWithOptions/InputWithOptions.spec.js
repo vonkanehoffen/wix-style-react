@@ -8,7 +8,7 @@ import {
 import { makeControlled } from '../../test/utils';
 import InputWithOptions from './InputWithOptions';
 import inputWithOptionsDriverFactory from './InputWithOptions.driver';
-import { inputWithOptionsUniDriverFactory } from './InputWithOptions.uni.driver';
+import { inputWithOptionsUniDriverFactory } from './InputWithOptions.private.uni.driver';
 
 describe('InputWithOptions', () => {
   const ControlledInputWithOptions = makeControlled(InputWithOptions);
