@@ -4,6 +4,7 @@ import color from 'color';
 import clamp from 'lodash/clamp';
 
 import WixComponent from '../BaseComponents/WixComponent';
+import { getBoundingRect } from './utils';
 
 import css from './ColorPickerHsb.scss';
 
@@ -21,7 +22,7 @@ export default class ColorPickerHsb extends WixComponent {
     window.addEventListener('touchend', this.onMarkerDragEnd);
     window.addEventListener('touchcancel', this.onMarkerDragEnd);
 
-    this.gradientRect = this.gradient.getBoundingClientRect();
+    this.gradientRect = getBoundingRect(this.gradient);
     this.setNewColorByMouseEvent(e);
   };
 
