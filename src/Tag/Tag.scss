@@ -8,7 +8,7 @@
   transition: background-color ease 300ms;
   max-width: -moz-available;
   max-width: -webkit-fill-available;
-  max-width: fill-available;
+  max-width: stretch;
 
   .thumb {
     //TODO - should be done in the Avatar component

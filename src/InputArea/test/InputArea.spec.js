@@ -1,13 +1,13 @@
 import React from 'react';
-import inputAreaDriverFactory from './InputArea.driver';
-import InputArea from './InputArea';
+import inputAreaDriverFactory from '../InputArea.driver';
+import InputArea from '../InputArea';
 
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/unit';
-import { inputAreaUniDriverFactory } from './InputArea.uni.driver';
+} from '../../../test/utils/unit';
+import { inputAreaUniDriverFactory } from '../InputArea.uni.driver';
 
 describe('InputArea', () => {
   describe('[sync]', () => {

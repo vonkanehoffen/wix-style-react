@@ -1,5 +1,5 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: D60;
 }
 
@@ -62,7 +62,7 @@
   width: 1px;
   min-width: 1px;
   height: 24px;
-  background-color: value(D60); 
+  background-color: value(D60);
   margin-left: 20px;
   margin-right: 20px;
 }

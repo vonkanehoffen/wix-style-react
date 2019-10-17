@@ -7,7 +7,7 @@ export const simple = `
 
 export const customizations = `
 <DatePicker
-  value={new Date('08-07-1986')}
+  value={new Date('08/07/1986')}
   placeholderText="Select Date"
   onChange={event => console.log(event)}
   dateFormat="D/M/YY"

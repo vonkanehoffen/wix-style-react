@@ -1,19 +1,19 @@
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
+  -st-from: "../Foundation/stylable/typography.st.css";
   -st-named: fontLight, fontRoman, fontMedium, fontBold;
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: 
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named:
   B10, B20,
   D10, D20, D40, D80,
   D10-30, D80-70,
-  G10, P10, R10, WHITE, D55;
+  G10, P10, R10, D55;
 }
 
 .root {
-  -st-states: 
+  -st-states:
     size(enum(small, medium, tiny)),
     secondary,
     skin(enum(standard, success, error, premium, disabled)),

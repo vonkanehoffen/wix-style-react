@@ -1,10 +1,10 @@
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
-  -st-named: D10, D20, D50, WHITE
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: D10, D20, D50
 }
 
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
+  -st-from: "../Foundation/stylable/typography.st.css";
   -st-named: fontRoman, fontMedium;
 }
 
@@ -62,7 +62,7 @@
 .root:appearance(H2):light,
 .root:appearance(H3):light,
 .root:appearance(H4):light {
-  color: value(WHITE);
+  color: white;
 }
 
 .root:appearance(H5):light,

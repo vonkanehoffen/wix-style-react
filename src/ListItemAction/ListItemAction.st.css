@@ -9,7 +9,7 @@
 }
 
 :import {
-  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: D10-30;
 }
 
@@ -49,7 +49,7 @@
 
 /** Skin standard */
 
-.root:skin(standard) .text, 
+.root:skin(standard) .text,
 .root:skin(standard) .prefixIcon {
   color: value(B10)
 }
@@ -71,7 +71,7 @@
    color: value(D80);
 }
 
-.root:skin(standard):disabled .text, 
+.root:skin(standard):disabled .text,
 .root:skin(standard):disabled .prefixIcon {
   color: value(D10-30);
 }
@@ -83,29 +83,29 @@
   color: value(D10)
 }
 
-.root:skin(dark):hover .text, 
+.root:skin(dark):hover .text,
 .root:skin(dark):hover .prefixIcon {
   color: value(B10)
 }
 
-.root:skin(dark):active .text, 
+.root:skin(dark):active .text,
 .root:skin(dark):active .prefixIcon {
   color: value(B10)
 }
 
-.root:skin(dark):disabled .text, 
+.root:skin(dark):disabled .text,
 .root:skin(dark):disabled .prefixIcon {
   color: value(D10-30);
 }
 
 /** Skin destructive */
 
-.root:skin(destructive) .text, 
+.root:skin(destructive) .text,
 .root:skin(destructive) .prefixIcon {
   color: value(R10)
 }
 
-.root:skin(destructive):disabled .text, 
+.root:skin(destructive):disabled .text,
 .root:skin(destructive):disabled .prefixIcon {
   color: value(D10-30);
 }

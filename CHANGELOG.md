@@ -20,6 +20,9 @@ Types of changes:
 - `<Card />` - Add types for component [#4303](https://github.com/wix/wix-style-react/pull/4303)
 - `<Datepicker /> <Calendar />` - Add types for components [#4302](https://github.com/wix/wix-style-react/pull/4302)
 
+### Fixed
+- `<DatePicker/>` - fix placeholder in firefox [#4322](https://github.com/wix/wix-style-react/pull/4322)
+
 ## 7.8.0 - 2019-10-16
 
 ### Added

@@ -1,8 +1,8 @@
 import React from 'react';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 
-import Popover from './Popover';
-import popoverDriverFactory from './Popover.driver';
+import Popover from '../Popover';
+import popoverDriverFactory from '../Popover.driver';
 
 describe('Popover', () => {
   const createDriver = createDriverFactory(popoverDriverFactory);

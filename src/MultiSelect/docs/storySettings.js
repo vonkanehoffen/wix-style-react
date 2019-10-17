@@ -7,8 +7,8 @@ export const storySettings = {
 };
 
 export const testStories = {
+  withMaxNumRows: 'With maxNumRows',
+  reorderable: 'Reorderable',
   tabsSwitches: 'Tabs switches',
-  selectMode: 'Select Mode',
-  disabled: 'Disabled',
-  lineNotBraking: 'Line not braking',
+  stateMultiSelect: 'State multi select',
 };

@@ -9,7 +9,7 @@
 }
 
 :import {
-    -st-from: "wix-ui-backoffice/dist/src/colors.st.css";
+    -st-from: "../Foundation/stylable/colors.st.css";
     -st-named: D80, B30, B10
 }
 
@@ -80,7 +80,7 @@
 
 .root:drillable:hover .chevron {
   position: static;
-  opacity: 1; 
+  opacity: 1;
   transition: all .5s;
   color: value(B30);
 }

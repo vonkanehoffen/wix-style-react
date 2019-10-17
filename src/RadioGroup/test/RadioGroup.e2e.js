@@ -1,46 +1,36 @@
-import eyes from 'eyes.it';
-import { radioGroupTestkitFactory } from '../../testkit/protractor';
 import { waitForVisibilityOf } from 'wix-ui-test-utils/protractor';
-import { createStoryUrl } from '../../test/utils/storybook-helpers';
-import autoExampleDriver from 'wix-storybook-utils/AutoExampleDriver';
-import { flattenInternalDriver } from '../../test/utils/private-drivers';
-
-import { storySettings } from './docs/storySettings';
+import { radioGroupTestkitFactory } from '../../../testkit/protractor';
+import { eyesItInstance } from '../../../test/utils/eyes-it';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
+import { flattenInternalDriver } from '../../../test/utils/private-drivers';
+import { storySettings, testStories } from '../docs/storySettings';
 
 const NUM_OF_BUTTONS_IN_EXAMPLE = 4;
 
+const testStoryUrl = (testName, rtl) =>
+  createTestStoryUrl({ ...storySettings, testName, rtl });
+
 describe('RadioGroup', () => {
-  const dataHook = 'storybook-radiogroup';
-  const radioGroupDriver = radioGroupTestkitFactory({ dataHook });
-
-  beforeAll(() =>
-    browser.get(
-      createStoryUrl({
-        kind: storySettings.category,
-        story: storySettings.storyName,
-      }),
-    ),
-  );
-
-  afterEach(async () => {
-    await autoExampleDriver.reset();
+  const eyes = eyesItInstance();
+  const radioGroupDriver = radioGroupTestkitFactory({
+    dataHook: storySettings.dataHook,
   });
-
-  eyes.it('should select the second option in a group', async () => {
+  const loadStory = async (testName, rtl) => {
+    await browser.get(testStoryUrl(testName, rtl));
     await waitForVisibilityOf(
       radioGroupDriver.element(),
       'Cannot find RadioGroup',
     );
+  };
+
+  eyes.it('should select the second option in a group', async () => {
+    await loadStory(testStories.basic);
     radioGroupDriver.selectByIndex(1).click();
     expect(radioGroupDriver.isRadioChecked(1)).toBe(true);
   });
 
   eyes.it('should not select disabled option', async () => {
-    await autoExampleDriver.setProps({ disabledRadios: [4] });
-    await waitForVisibilityOf(
-      radioGroupDriver.element(),
-      'Cannot find RadioGroup',
-    );
+    await loadStory(testStories.disabledRadio);
     expect(radioGroupDriver.isRadioDisabled(3)).toBe(true);
     browser
       .actions()
@@ -91,10 +81,7 @@ describe('RadioGroup', () => {
     };
 
     eyes.it('should show focus styles when navigated by keyboard', async () => {
-      await waitForVisibilityOf(
-        radioGroupDriver.element(),
-        'Cannot find RadioGroup',
-      );
+      await loadStory(testStories.firstRadioSelected);
       // TODO: replace with forEachAsync
       for (let index = 0; index < NUM_OF_BUTTONS_IN_EXAMPLE; index++) {
         const driver = flattenInternalDriver(
@@ -108,21 +95,8 @@ describe('RadioGroup', () => {
       }
     });
 
-    beforeEach(async () => {
-      // Needed in order to reset the focus state
-      await browser.get(
-        createStoryUrl({
-          kind: storySettings.category,
-          story: storySettings.storyName,
-        }),
-      );
-    });
-
     it('should to be selected but NOT to show focus styles when clicked by mouse', async () => {
-      await waitForVisibilityOf(
-        radioGroupDriver.element(),
-        'Cannot find RadioGroup',
-      );
+      await loadStory(testStories.basic);
       // TODO: replace with forEachAsync
       for (let index = 0; index < NUM_OF_BUTTONS_IN_EXAMPLE; index++) {
         const driver = flattenInternalDriver(
@@ -136,11 +110,7 @@ describe('RadioGroup', () => {
     });
 
     eyes.it('should show focus styles on first item (selected)', async () => {
-      await autoExampleDriver.setProps({ value: 1 });
-      await waitForVisibilityOf(
-        radioGroupDriver.element(),
-        'Cannot find RadioGroup',
-      );
+      await loadStory(testStories.firstRadioSelected);
       const driver = flattenInternalDriver(groupDriver.getButtonDriver(0));
       expect(await radioGroupDriver.isRadioChecked(0)).toBe(true);
       await expectNotFocused(`button 0 - before`, driver);
@@ -150,21 +120,9 @@ describe('RadioGroup', () => {
   });
 
   describe('RTL', () => {
-    beforeAll(() =>
-      browser.get(
-        createStoryUrl({
-          kind: storySettings.category,
-          story: storySettings.storyName,
-          rtl: true,
-        }),
-      ),
-    );
+    beforeAll(async () => await loadStory(testStories.basic, true));
 
     eyes.it('should select the second option in a group', async () => {
-      await waitForVisibilityOf(
-        radioGroupDriver.element(),
-        'Cannot find RadioGroup',
-      );
       radioGroupDriver.selectByIndex(1).click();
       expect(radioGroupDriver.isRadioChecked(1)).toBe(true);
     });

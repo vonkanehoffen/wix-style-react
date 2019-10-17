@@ -9,7 +9,7 @@
 }
 
 :import {
-  -st-from: "wix-ui-backoffice/dist/src/typography.st.css";
+  -st-from: "../Foundation/stylable/typography.st.css";
   -st-named: fontBold;
 }
 

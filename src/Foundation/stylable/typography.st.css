@@ -1,3 +1,7 @@
+:import {
+  -st-from: "./colors.st.css";
+  -st-named: D80;
+}
 
 :vars {
   fontsFallback: '"Helvetica Neue", "Helvetica", "Arial", "メイリオ", "meiryo", "ヒラギノ角ゴ pro w3", "hiragino kaku gothic pro", "sans-serif"'
@@ -40,4 +44,8 @@
 .weightBold {
   font-family: value(fontMedium);
   font-weight: normal;
+}
+
+.light {
+  color: value(D80);
 }
