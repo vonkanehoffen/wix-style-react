@@ -1,13 +1,11 @@
 import React from 'react';
-import Loader from './Loader';
-import loaderDriverFactory from './Loader.driver';
-import { loaderUniDriverFactory } from './Loader.uni.driver';
-// import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
-// import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
+import Loader from '../Loader';
+import loaderDriverFactory from '../Loader.driver';
+import { loaderUniDriverFactory } from '../Loader.uni.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
 describe('Loader', () => {
   describe('[sync]', () => {
