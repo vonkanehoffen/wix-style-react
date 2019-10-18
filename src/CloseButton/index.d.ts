@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface CloseButtonProps {
   as?: Function | object | string,
   className?: string,
-  children?: Reqct.ReactNode,
+  children?: React.ReactNode,
   skin?: CloseButtonSkin,
   size?: CloseButtonSize,
   onClick?: Function,
