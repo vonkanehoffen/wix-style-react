@@ -5,7 +5,3 @@ export const storySettings = {
   storyName: 'StatsWidget',
   dataHook: 'story-statswidget',
 };
-
-export const testStories = {
-  statsWidget: 'statsWidget',
-};

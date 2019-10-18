@@ -1,10 +1,9 @@
 import React from 'react';
-import times from '../utils/operators/times';
-
-import ModalSelectorLayout from './ModalSelectorLayout';
 import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
-import modalSelectorLayoutDriverFactory from './ModalSelectorLayout.driver';
-import { ASSET_PREFIX } from '../../test/utils';
+import times from '../../utils/operators/times';
+import ModalSelectorLayout from '../ModalSelectorLayout';
+import modalSelectorLayoutDriverFactory from '../ModalSelectorLayout.driver';
+import { ASSET_PREFIX } from '../../../test/utils';
 
 // TODO: remove this hack
 // taken from here: https://github.com/facebook/jest/issues/2157#issuecomment-279171856

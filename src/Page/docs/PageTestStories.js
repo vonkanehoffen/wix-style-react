@@ -15,8 +15,6 @@ import * as s from './PageTestStories.scss';
 import classNames from 'classnames';
 import { header, tail, fixedContent, content } from './PageChildren';
 import { storySettings } from './storySettings';
-import ExampleEmptyState from './ExampleEmptyState';
-import { ExamplePageContainer } from './ExamplePageContainer';
 import { LongTextContent } from './SomeContentComponent';
 
 const PageContainer = props => {

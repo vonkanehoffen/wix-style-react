@@ -1,13 +1,13 @@
 import React from 'react';
-import MultiSelectCheckbox from './MultiSelectCheckbox';
+import MultiSelectCheckbox from '../MultiSelectCheckbox';
 
-import { multiSelectCheckboxUniDriverFactory } from './MultiSelectCheckbox.uni.driver';
+import { multiSelectCheckboxUniDriverFactory } from '../MultiSelectCheckbox.uni.driver';
 import {
   cleanup,
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/react';
-import { multiSelectCheckboxPrivateDriverFactory } from './MultiSelectCheckbox.private.driver';
+} from '../../../test/utils/react';
+import { multiSelectCheckboxPrivateDriverFactory } from '../MultiSelectCheckbox.private.driver';
 
 describe('multiSelectCheckbox', () => {
   describe('[sync]', () => {
