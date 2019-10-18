@@ -35,7 +35,7 @@ export { default as Calendar, CalendarProps } from './Calendar';
 export { default as TimeInput } from './TimeInput';
 export { default as Tooltip, TooltipProps } from './Tooltip';
 export { default as Page } from './Page';
-export { default as SectionHelper } from './SectionHelper';
+export { default as SectionHelper, SectionHelperProps } from './SectionHelper';
 export { default as PageHeader } from './PageHeader';
 export { default as Popover } from './Popover';
 export { default as SideMenu } from './Deprecated/SideMenu';
