@@ -43,7 +43,7 @@ export { default as SideMenuDrill } from './Deprecated/SideMenu/DrillView';
 export { default as DropdownLayout } from './DropdownLayout';
 export { default as Dropdown } from './Dropdown';
 export { default as AutoComplete } from './AutoComplete';
-export { default as Label } from './Label';
+export { default as Label, LabelProps } from './Label';
 export { default as DataTable } from './DataTable';
 export { default as Table } from './Table';
 export { TableToolbar } from './TableToolbar';
