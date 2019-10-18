@@ -12,7 +12,7 @@ export interface SectionHelperProps extends WixComponentProps {
   fullWidth?: boolean,
 }
 
-export type SectionHelperAppearance = 'warning' |'standard' | 'danger' |'success' | 'premium' | 'preview' | 'experimental-dark';
+export type SectionHelperAppearance = 'warning' |'standard' | 'danger' |'success' | 'premium' | 'preview' | 'experimentalDark';
 
 export default class SectionHelper extends React.PureComponent<SectionHelperProps> {
 }
