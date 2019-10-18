@@ -185,6 +185,7 @@ require('../src/Search/docs/testStory');
 require('../src/RichTextInputArea/docs/testStory');
 require('../src/Range/docs/testStory');
 require('../src/RadioGroup/docs/testStory');
+require('../src/MessageBox/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');

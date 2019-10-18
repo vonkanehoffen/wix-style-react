@@ -1,4 +1,6 @@
-const kind = '9. Modals';
+import { Category } from '../../../stories/storiesHierarchy';
+
+const kind = Category.MODALS;
 export const storySettings = {
   alert: {
     kind,
@@ -20,4 +22,9 @@ export const storySettings = {
     kind,
     story: '9.5 Premium Modal',
   },
+};
+
+export const testStories = {
+  alert: 'alert',
+  fullScreenModal: 'full screen modal',
 };
