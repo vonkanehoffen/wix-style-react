@@ -27,9 +27,10 @@ function HeadingWithAllProps() {
   return (
     <Heading
       dataHook="data-hook-string"
-      styles="styles-string"
+      dataClass="class-string"
       children={<div />}
       light={false}
+      ellipsis={true}
       appearance="H1"
     />
   );
