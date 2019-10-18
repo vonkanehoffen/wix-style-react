@@ -70,7 +70,7 @@ export { default as FloatingHelper } from './FloatingHelper';
 export { default as FormField } from './FormField';
 export { HBox } from './HBox';
 export { VBox, VBoxProps } from './VBox';
-export { default as Heading } from './Heading';
+export { default as Heading, HeadingProps } from './Heading';
 export { default as Highlighter } from './Highlighter';
 export { default as Search } from './Search';
 export { default as Tabs } from './Tabs';
