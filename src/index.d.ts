@@ -96,7 +96,7 @@ export { Layout, Cell } from './Layout';
 export { default as Typography } from './Typography';
 export { default as GenericModalLayout } from './GenericModalLayout';
 export { default as TextButton } from './TextButton';
-export { default as IconButton } from './IconButton';
+export { default as IconButton, IconButtonProps } from './IconButton';
 export { default as CloseButton } from './CloseButton';
 export { default as ToggleButton } from './ToggleButton';
 export { default as CardGalleryItem } from './CardGalleryItem';
