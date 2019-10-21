@@ -6,7 +6,7 @@ export { default as AddItem } from './AddItem';
 export { default as Avatar, AvatarProps } from './Avatar';
 export { default as Button } from './Button';
 export { default as Input } from './Input';
-export { default as InputArea } from './InputArea';
+export { default as InputArea, InputAreaProps } from './InputArea';
 export { default as InputWithOptions } from './InputWithOptions';
 export { default as Checkbox } from './Checkbox';
 export { default as ToggleSwitch } from './ToggleSwitch';

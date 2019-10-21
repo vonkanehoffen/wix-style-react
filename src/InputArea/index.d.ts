@@ -8,7 +8,7 @@ export interface InputAreaProps extends WixComponentProps {
   autoFocus?: boolean,
   autoSelect?: boolean,
   dataHook?: string,
-  size?: 'small' | 'normal',
+  size?: InputAreaSize,
   defaultValue?: string,
   disabled?: boolean,
   error?: boolean,
@@ -37,12 +37,16 @@ export interface InputAreaProps extends WixComponentProps {
   rows?: number,
   autoGrow?: boolean,
   minRowsAutoGrow?: number,
-  style?: 'normal' | 'paneltitle' | 'material' | 'amaterial',
+  style?: InputAreaStyle,
   tabIndex?: number,
-  theme?: 'normal' | 'paneltitle' | 'material' | 'amaterial',
+  theme?: InputAreaTheme,
   tooltipPlacement?: string,
   value?: string,
 }
+
+export type InputAreaSize = 'small' | 'normal';
+export type InputAreaStyle = 'normal' | 'paneltitle' | 'material' | 'amaterial';
+export type InputAreaTheme = 'normal' | 'paneltitle' | 'material' | 'amaterial';
 
 export default class InputArea extends React.Component<InputAreaProps> {
 }

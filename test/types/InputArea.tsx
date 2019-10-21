@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Box from '../../src/Box';
-import { boxTestkitFactory } from '../../testkit';
-import { boxTestkitFactory as boxEnzymeTestkitFactory } from '../../testkit/enzyme';
+import InputArea from '../../src/InputArea';
+import { inputAreaTestkitFactory } from '../../testkit';
+import { inputAreaTestkitFactory as InputAreaEnzymeTestkitFactory } from '../../testkit/enzyme';
 import { mount } from 'enzyme';
 
 function testkits() {
-  const vanilla = boxTestkitFactory({
+  const vanilla = inputAreaTestkitFactory({
     dataHook: 'hi',
     wrapper: document.createElement('div'),
   });
@@ -13,48 +13,59 @@ function testkits() {
   vanilla.exists();
   vanilla.click();
 
-  const enzyme = boxEnzymeTestkitFactory({
+  const enzyme = InputAreaEnzymeTestkitFactory({
     dataHook: 'shbem',
     wrapper: mount(<div />),
   });
 }
 
-function BoxWithMandatoryProps() {
-  return <Box />;
+function InputAreaWithMandatoryProps() {
+  return <InputArea />;
 }
 
-function BoxWithAllProps() {
+function InputAreaWithAllProps() {
   return (
-    <Box
-      align="center"
-      className="some-random-classname"
-      backgroundColor="red"
-      borderBottomColor="red"
-      borderColor="red"
-      borderLeftColor="red"
-      borderRightColor="red"
-      borderTopColor="red"
-      color="red"
-      dataHook="hook"
-      direction="horizontal"
-      height={80}
-      inline
-      margin="10px"
-      marginBottom="10px"
-      marginLeft="10px"
-      marginRight="10px"
-      marginTop="10px"
-      maxHeight={80}
-      maxWidth="80px"
-      minHeight={80}
-      minWidth="80px"
-      padding="10px"
-      paddingBottom="10px"
-      paddingLeft="10px"
-      paddingRight="10px"
-      paddingTop="10px"
-      verticalAlign="bottom"
-      width="80px"
+    <InputArea
+      ariaControls="test-string"
+      ariaDescribedby="test-string"
+      ariaLabel="test-string"
+      autoFocus={true}
+      autoSelect={true}
+      dataHook="test-string"
+      size="small"
+      defaultValue="test-string"
+      disabled={true}
+      error={true}
+      errorMessage="test-string"
+      forceFocus={true}
+      forceHover={true}
+      hasCounter={true}
+      id="test-string"
+      name="test-string"
+      maxHeight="test-string"
+      maxLength={400}
+      menuArrow={true}
+      minHeight="test-string"
+      onBlur={() => {}}
+      onChange={() => {}}
+      onClear={() => {}}
+      onEnterPressed={() => {}}
+      onEscapePressed={() => {}}
+      onFocus={() => {}}
+      onKeyDown={() => {}}
+      onKeyUp={() => {}}
+      onTooltipShow={() => {}}
+      placeholder="test-string"
+      readOnly={true}
+      resizable={true}
+      rows={400}
+      autoGrow={true}
+      minRowsAutoGrow={400}
+      style="paneltitle"
+      tabIndex={400}
+      theme="amaterial"
+      tooltipPlacement="test-string"
+      value="test-string"
     />
   );
 }
