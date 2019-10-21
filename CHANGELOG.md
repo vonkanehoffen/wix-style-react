@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 - `<Card />` - Add types for component [#4303](https://github.com/wix/wix-style-react/pull/4303)
 - `<Datepicker /> <Calendar />` - Add types for components [#4302](https://github.com/wix/wix-style-react/pull/4302)
+- EllipsisHoc - universal hoc for components that need to shrink if prop ellipsis is given [#4340](https://github.com/wix/wix-style-react/pull/4340)
 
 ### Fixed
 - `<DatePicker/>` - fix placeholder in firefox [#4322](https://github.com/wix/wix-style-react/pull/4322)
