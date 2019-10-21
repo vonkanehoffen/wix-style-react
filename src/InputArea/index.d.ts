@@ -1,0 +1,48 @@
+import * as React from 'react';
+import {WixComponentProps} from "../BaseComponents/WixComponent";
+
+export interface InputAreaProps extends WixComponentProps {
+  ariaControls?: string,
+  ariaDescribedby?: string,
+  ariaLabel?: string,
+  autoFocus?: boolean,
+  autoSelect?: boolean,
+  dataHook?: string,
+  size?: 'small' | 'normal',
+  defaultValue?: string,
+  disabled?: boolean,
+  error?: boolean,
+  errorMessage?: string,
+  forceFocus?: boolean,
+  forceHover?: boolean,
+  hasCounter?: boolean,
+  id?: string,
+  name?: string,
+  maxHeight?: string,
+  maxLength?: number,
+  menuArrow?: boolean,
+  minHeight?: string,
+  onBlur?: Function,
+  onChange?: Function,
+  onClear?: Function,
+  onEnterPressed?: Function,
+  onEscapePressed?: Function,
+  onFocus?: Function,
+  onKeyDown?: Function,
+  onKeyUp?: Function,
+  onTooltipShow?: Function,
+  placeholder?: string,
+  readOnly?: boolean,
+  resizable?: boolean,
+  rows?: number,
+  autoGrow?: boolean,
+  minRowsAutoGrow?: number,
+  style?: 'normal' | 'paneltitle' | 'material' | 'amaterial',
+  tabIndex?: number,
+  theme?: 'normal' | 'paneltitle' | 'material' | 'amaterial',
+  tooltipPlacement?: string,
+  value?: string,
+}
+
+export default class InputArea extends React.Component<InputAreaProps> {
+}
