@@ -67,7 +67,7 @@ export { default as Card, CardProps } from './Card';
 export { default as ColorPicker } from './ColorPicker';
 export { default as CounterBadge } from './CounterBadge';
 export { default as FloatingHelper } from './FloatingHelper';
-export { default as FormField } from './FormField';
+export { default as FormField, FormFieldProps } from './FormField';
 export { HBox } from './HBox';
 export { VBox, VBoxProps } from './VBox';
 export { default as Heading } from './Heading';
