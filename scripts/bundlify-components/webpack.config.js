@@ -29,6 +29,8 @@ module.exports.defaultConfig = {
   externals: {
     react: 'react',
     'react-dom': 'reactDOM',
+    'prop-types': 'propTypes',
+    'react-is': 'react-is',
   },
   output: {
     filename: '[name].js',

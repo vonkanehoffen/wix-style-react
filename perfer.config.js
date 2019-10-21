@@ -3,7 +3,7 @@ module.exports = {
     files: [
       {
         glob: './bundles/ComposerHeader.js',
-        maxSize: '36kb',
+        maxSize: '37kb',
         maxDegradation: '10%',
       },
     ],
