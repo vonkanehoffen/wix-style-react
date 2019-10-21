@@ -1,5 +1,6 @@
 import React from 'react';
 import { oneOf, bool, string, any } from 'prop-types';
+import ellipsisHOC from '../common/EllipsisHOC';
 import style from './Text.st.css';
 
 /*
@@ -88,6 +89,8 @@ Text.propTypes = {
 
   /** font weight of the text */
   weight: oneOf(Object.keys(WEIGHTS)),
+
+  ...ellipsisHOC.propTypes,
 };
 
 Text.defaultProps = {
@@ -99,4 +102,4 @@ Text.defaultProps = {
   tagName: 'span',
 };
 
-export default Text;
+export default ellipsisHOC(Text);

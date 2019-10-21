@@ -5,7 +5,6 @@ describe('React application with commonjs requires', () => {
   it('should load App with commonjs requires', async () => {
     const selector = '[data-name="App"]';
     await page.waitForSelector(selector);
-
     expect(await page.$eval(selector, e => !!e)).toBe(true);
   });
 

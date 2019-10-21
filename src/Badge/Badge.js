@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
-import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
 
 import { SKIN, TYPE, SIZE } from './constants';
 import style from './Badge.st.css';
-import ellipsedStyle from '../common/EllipsedTooltip/EllipsedTooltip.st.css';
 
-const WrapWithEllipsis = withEllipsedTooltip({
-  tooltipProps: { className: ellipsedStyle.root },
-  showTooltip: true,
-});
+import ellipsisHOC from '../common/EllipsisHOC';
 
 const BadgeContent = ({ children, className, ...restProps }) => {
   return (
@@ -23,7 +18,7 @@ const BadgeContent = ({ children, className, ...restProps }) => {
 
 // It's a best practice to create the HOC outside the render function,
 // mainly to improve the performance and prevent remounting that in some case could cause issues
-const EllipsedBadgeContent = WrapWithEllipsis(BadgeContent);
+const EllipsedBadgeContent = ellipsisHOC(BadgeContent);
 
 class Badge extends React.PureComponent {
   static propTypes = {
@@ -91,7 +86,7 @@ class Badge extends React.PureComponent {
   };
 
   _renderContent = children => {
-    return <EllipsedBadgeContent>{children}</EllipsedBadgeContent>;
+    return <EllipsedBadgeContent ellipsis>{children}</EllipsedBadgeContent>;
   };
 
   _getDataAttributes = () => {

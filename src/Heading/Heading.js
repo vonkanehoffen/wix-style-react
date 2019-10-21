@@ -1,5 +1,6 @@
 import React from 'react';
 import { oneOf, bool, any } from 'prop-types';
+import ellipsisHOC from '../common/EllipsisHOC';
 import style from './Heading.st.css';
 
 export const APPEARANCES = {
@@ -12,12 +13,12 @@ export const APPEARANCES = {
 };
 
 const Heading = ({ light, appearance, children, ...rest }) => {
-  /* eslint-disable no-unused-vars */
   const { dataHook, ...headingProps } = rest;
   return React.createElement(
     appearance.toLowerCase(),
     {
       ...headingProps,
+      'data-hook': dataHook,
       ...style('root', { light, appearance }, rest),
     },
     children,
@@ -35,6 +36,8 @@ Heading.propTypes = {
 
   /** typography of the heading */
   appearance: oneOf(Object.keys(APPEARANCES)),
+
+  ...ellipsisHOC.propTypes,
 };
 
 Heading.defaultProps = {
@@ -42,4 +45,4 @@ Heading.defaultProps = {
   light: false,
 };
 
-export default Heading;
+export default ellipsisHOC(Heading);

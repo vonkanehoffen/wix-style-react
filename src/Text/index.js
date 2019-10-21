@@ -1,2 +1,2 @@
-export { default } from './ProxyText';
+export { default } from './Text';
 export * from './constants';

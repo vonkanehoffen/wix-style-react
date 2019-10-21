@@ -28,7 +28,7 @@ export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
   component: Text,
-  componentPath: '../ProxyText.js',
+  componentPath: '../Text.js',
 
   componentProps: {
     children: 'Some text',
