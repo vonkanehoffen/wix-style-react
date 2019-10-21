@@ -14,39 +14,46 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.3.0 - 2019-10-21
 
 ### Added
+
 - `<Card />` - Add types for component [#4303](https://github.com/wix/wix-style-react/pull/4303)
 - `<Datepicker /> <Calendar />` - Add types for components [#4302](https://github.com/wix/wix-style-react/pull/4302)
 - EllipsisHoc - universal hoc for components that need to shrink if prop ellipsis is given [#4340](https://github.com/wix/wix-style-react/pull/4340)
 
 ### Fixed
+
 - `<DatePicker/>` - fix placeholder in firefox [#4322](https://github.com/wix/wix-style-react/pull/4322)
 
 ## 7.8.0 - 2019-10-16
 
 ### Added
+
 - `<SegmentedToggle/>` - fix proptypes and add controlled mode [#4308](https://github.com/wix/wix-style-react/pull/4308)
 - `<ComposerHeader/>` - add box shadow to bottom border [#4317](https://github.com/wix/wix-style-react/pull/4317)
 
 ## 7.7.0 - 2019-10-15
 
 ### Added
+
 - `<Sidebar/>` - add right border [#4265](https://github.com/wix/wix-style-react/pull/4265)
 - readd react-motion package to dependecies [#4255](https://github.com/wix/wix-style-react/pull/4255)
 - `<RadioGroup/>` - New prop - Selection area [#4206](https://github.com/wix/wix-style-react/pull/4206)
 - `<Tag/>` - Add ellipsis to long tags in a container [#4180](https://github.com/wix/wix-style-react/pull/4180)
 
 ### Changed
+
 - `<SidebarHeader/>` - make `title` and `subtitle` optional [#4268](https://github.com/wix/wix-style-react/pull/4268)
 
 ### Deprecated
+
 - `<Tag/>` - Remove `wrap` prop, wrap is now `true` by default [#4180](https://github.com/wix/wix-style-react/pull/4180)
 
 ## 7.6.1 - 2019-10-10
 
 ### Added
+
 - `<MessageBoxFunctionalLayout/>` - add support for `margin` prop [#4230](https://github.com/wix/wix-style-react/pull/4230)
 
 ### Fixed
