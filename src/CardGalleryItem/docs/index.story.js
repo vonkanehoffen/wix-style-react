@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import React from 'react';
 import {
   api,
   code as baseCode,
@@ -14,47 +13,15 @@ import {
   testkit,
   title,
 } from 'wix-storybook-utils/dist/src/Sections';
-import Edit from 'wix-style-react/new-icons/Edit';
-import Delete from 'wix-style-react/new-icons/Delete';
-import Email from 'wix-style-react/new-icons/Email';
-import More from 'wix-style-react/new-icons/More';
-import Badge from 'wix-style-react/Badge';
-
-import IconButton from 'wix-style-react/IconButton';
 
 import CardGalleryItem from '..';
 import { storySettings } from './storySettings';
-
+import componentProps from './exampleProps';
 import allComponents from '../../../stories/utils/allComponents';
 import * as examples from './examples';
 import PopoverMenu from '../../beta/PopoverMenu';
 
-const { category, storyName, dataHook } = storySettings;
-const backgroundImageUrl =
-  'https://static.wixstatic.com/media/89ea07a19c3d415e99a8a8a3c0ab1de8.jpg/v1/fill/w_343,h_343,al_c,q_80,usm_0.66_1.00_0.01/89ea07a19c3d415e99a8a8a3c0ab1de8.jpg';
-
-const getPrimaryActionProps = label => ({
-  label,
-  onClick: () => {
-    alert('Primary action clicked');
-  },
-});
-const getSecondaryActionProps = label => ({
-  label,
-  onClick: () => {
-    alert('Secondary action clicked');
-  },
-});
-const commonProps = {
-  badge: (
-    <Badge size="medium" skin="standard" type="solid" uppercase>
-      sale
-    </Badge>
-  ),
-  title: 'Card Title',
-  subtitle: 'Card subtitle',
-  backgroundImageUrl: backgroundImageUrl,
-};
+const { category, storyName } = storySettings;
 
 const code = config =>
   baseCode({
@@ -63,36 +30,8 @@ const code = config =>
     ...config,
   });
 
-const example = ({ title, text, ...config }) =>
-  columns([description({ title, text }), code(config)]);
-
-export const componentProps = {
-  ...commonProps,
-  dataHook,
-  primaryActionProps: getPrimaryActionProps('Button'),
-  secondaryActionProps: getSecondaryActionProps('Text Link'),
-  settingsMenu: (
-    <PopoverMenu
-      triggerElement={({ onClick }) => (
-        <IconButton
-          onClick={e => {
-            onClick(e);
-            e.stopPropogation();
-          }}
-          skin="light"
-          priority="secondary"
-        >
-          <More />
-        </IconButton>
-      )}
-    >
-      <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />
-      <PopoverMenu.MenuItem text="Delete" prefixIcon={<Delete />} />
-      <PopoverMenu.MenuItem text="Delete" prefixIcon={<Email />} />
-      <PopoverMenu.MenuItem text="Something" disabled />
-    </PopoverMenu>
-  ),
-};
+const example = ({ title: exampleTitle, text, ...config }) =>
+  columns([description({ title: exampleTitle, text }), code(config)]);
 
 export default {
   category,

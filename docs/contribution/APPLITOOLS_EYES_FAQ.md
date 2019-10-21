@@ -16,5 +16,5 @@ Make sure you saved your selection after reviewing the diffs.
 
 Just run the following in order to export the logs into a file:
 ```
-APPLITOOLS_SHOW_LOGS=true npm run test:eyes-storybook > file.log
+APPLITOOLS_SHOW_LOGS=true npm run test:visual > file.log
 ```

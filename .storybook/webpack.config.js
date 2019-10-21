@@ -9,19 +9,11 @@ const testkitsWarning = `
 To learn how to initialize and use testkits, see <a href="/?selectedKind=Introduction&selectedStory=Testing" target="_blank">Testing guide</a>
 `;
 
-const silentLogging = config => {
-  const { plugins } = config;
-
-  const progressPluginIndex = plugins.findIndex(
-    plugin => plugin.constructor.name === 'ProgressPlugin',
-  );
-  config.plugins[progressPluginIndex].handler = () => ({});
-};
-
 module.exports = (config, env, defaultConfig) => {
   defaultConfig.module.rules[0].use[0].loader = require.resolve('babel-loader');
-
-  silentLogging(defaultConfig);
+  defaultConfig.plugins
+    .find(plugin => plugin.constructor.name === 'ProgressPlugin')
+    .handler = () => undefined
 
   const newConfig = wixStorybookConfig(defaultConfig);
 

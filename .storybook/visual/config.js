@@ -1,19 +1,17 @@
 import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
-
-import { version } from '../package.json';
-import '../src/assets/helvetica.scss';
+import '../../src/assets/helvetica.scss';
+import './stories.scss';
 
 function loadStories() {
-  require('./stories.scss');
-  require('../stories');
+  const req = require.context('../../src', true, /\.visual\.js$/);
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);
 
 setOptions({
   showAddonPanel: false,
-  name: `wix-style-react v${version}`,
-  url: 'https://github.com/wix/wix-style-react',
   sidebarAnimations: false,
+  showDownPanel: false,
 });

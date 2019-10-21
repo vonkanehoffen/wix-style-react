@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import StatisticsWidget from '../StatisticsWidget';
-import { TESTS_PREFIX } from '../../../stories/storiesHierarchy';
+import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import { storySettings } from './storySettings';
 
 const items = [
@@ -40,7 +40,7 @@ const items = [
   },
 ];
 
-const kind = `${TESTS_PREFIX}/${storySettings.category}/${storySettings.storyName}`;
+const kind = getTestStoryKind(storySettings);
 
 storiesOf(kind, module).add(storySettings.testStoryNames.ACCESSIBILITY, () => (
   <div style={{ marginLeft: 100, marginTop: 100 }}>

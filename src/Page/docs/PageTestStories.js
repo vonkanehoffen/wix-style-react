@@ -12,6 +12,7 @@ import PopoverMenu from 'wix-style-react/PopoverMenu';
 import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
 
 import * as s from './PageTestStories.scss';
+import './PageStory.scss';
 import classNames from 'classnames';
 import { header, tail, fixedContent, content } from './PageChildren';
 import { storySettings } from './storySettings';

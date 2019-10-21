@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Input from '..';
-import { Search } from 'wix-ui-icons-common';
+import Search from 'wix-ui-icons-common/Search';
 
 const defaultProps = {
   value: 'Some text value...',

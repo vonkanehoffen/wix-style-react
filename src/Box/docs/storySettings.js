@@ -5,7 +5,3 @@ export const storySettings = {
   storyName: 'Box',
   dataHook: 'storybook-box',
 };
-
-export const testStories = {
-  multipleBoxes: 'Multiple Boxes',
-};

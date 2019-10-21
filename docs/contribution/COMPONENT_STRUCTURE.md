@@ -12,8 +12,9 @@ src/ComponentName
 ├── ComponentName.uni.driver.js             # public testkit based on unidriver
 ├── test
 │   ├── ComponentName.spec.js               # unit tests
-│   ├── ComponentName.e2e.js                # visual screenshot tests
-│   ├── ComponentNameStories.js             # optional test stories for visual screenshot tests
+│   ├── ComponentName.e2e.js                # protractor/browser tests
+│   ├── ComponentName.visual.js             # visual screenshot tests
+│   ├── ComponentNameStories.js             # optional test stories for protractor/browser tests
 │   ├── ComponentName.private.uni.driver.js # optional private testkit
 │   └── storySettings.js                    # optional file for reusable test story data
 └── docs

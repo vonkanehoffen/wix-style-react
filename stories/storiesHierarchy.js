@@ -2,11 +2,8 @@
 
 export const RTL_QUERY_PARAM_NAME = 'rtl';
 
-// Root Level
-export const TESTS_PREFIX = 'Tests';
-
 export const getTestStoryKind = ({ category, storyName }) =>
-  `${TESTS_PREFIX}/${category}/${storyName}`;
+  `${category}/${storyName}`;
 
 export const Category = {
   FOUNDATION: '1. Foundation',
@@ -23,6 +20,5 @@ export const Category = {
   BETA: 'BETA',
   STYLING: 'Styling',
   WIP: 'WIP',
-  TESTS: 'Tests',
   DEPRECATED: 'Deprecated',
 };

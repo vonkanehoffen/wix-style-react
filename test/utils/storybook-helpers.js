@@ -1,7 +1,7 @@
 import queryString from 'query-string';
 import { createStoryUrl as originalCreateStoryUrl } from 'wix-ui-test-utils/protractor';
 import {
-  TESTS_PREFIX,
+  getTestStoryKind,
   RTL_QUERY_PARAM_NAME,
 } from '../../stories/storiesHierarchy';
 
@@ -17,7 +17,7 @@ export const createStoryUrl = ({ kind, story, withExamples, rtl }) => {
 
 export const createTestStoryUrl = ({ testName, category, storyName, rtl }) => {
   return createStoryUrl({
-    kind: `${TESTS_PREFIX}/${category}/${storyName}`,
+    kind: getTestStoryKind({ category, storyName }),
     story: testName,
     rtl,
   });

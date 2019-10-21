@@ -19,7 +19,7 @@
 ```js
 import React from 'react';
 import checkboxDriverFactory from './Checkbox.driver';
-import {createDriverFactory} from 'wix-ui-test-utils/driver-factory';
+import { createDriverFactory } from 'wix-ui-test-utils/driver-factory';
 
 describe('Checkbox', () => {
   const createDriver = createDriverFactory(checkboxDriverFactory);
@@ -43,9 +43,9 @@ describe('Checkbox', () => {
 
 1. some components have a test file with `e2e.js` extension, for example: `ComponentName.e2e.js`.
 
-1. Every component has a driver . Legacy driver name convention is `ComponentName.protractor.driver.js`, but the best-practice is to write a UniDriver. (read about [them here](./TEST_DRIVERS_GUIDELINES.md))
+1. Every component has a driver . Legacy driver name convention is `ComponentName.protractor.driver.js`, but the best-practice is to write a UniDriver (read about [them here](./TEST_DRIVERS_GUIDELINES.md)).
 
-1. You may create a dedicated test story page and add it to the `Tests` category in the storybook.
+1. You may create a dedicated test story page and add it to the `stories/e2e.js` file.
 
 1. See [Writing E2E Tests](./WRITING_E2E_TESTS.md)
 
@@ -72,25 +72,21 @@ describe('Checkbox', () => {
 
 #### Single run
 
-`npm run test:eyes-storybook`
+`npm run test:visual`
 
 #### Debugging
 
-`npm run eyes-storybook-debug`
+`npm run storybook:visual`
 
 ### Running browser tests
 
 #### Single run
 
-`npm run build && npm run test:e2e`
-
-- `npm run build` creates `storybook-static` folder
-- `npm run test:e2e` serves the storybook from `storybook-static` folder.
-- Changing tests does not require rebuilding.
+`npm run test:e2e`
 
 ### "watch" mode
 
-- `npm run storybook` - start storybook server with hot module reload
+- `npm run storybook:e2e` - start storybook server with hot module reload
 - open another terminal console
 - `npm run test:e2e-only` - run protractor tests
 

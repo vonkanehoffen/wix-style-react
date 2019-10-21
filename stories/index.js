@@ -152,41 +152,10 @@ require('../src/Stepper/docs/index.story');
 require('../src/NoBorderInput/docs/index.story');
 require('../src/EditableTitle/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
-require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 require('../src/LabelledElement/docs/index.story');
 require('../src/InputWithLabel/docs/index.story');
 require('../src/BarChart/docs/index.story');
 require('../src/Divider/docs/index.story');
-
-// Tests
-require('../src/CardGalleryItem/docs/testStory');
-require('../src/InputArea/docs/testStory');
-require('../src/Page/docs/PageTestStories'); // Tests/2. Layout/2.5 + Page/
-require('../src/Page/docs/PageTestStoriesDeprecated'); // Tests/2. Layout/2.5 + Page/Deprecated
-require('../src/PageHeader/docs/testStory'); // Tests/2. Layout/2.5 + PageHeader/
-//require('../src/ComposerHeader/test/ComposerHeaderStories');
-require('../src/MultiSelect/docs/testStory'); // Tests/3. Inputs/3.8 Tags
-require('../src/FilePicker/docs/testStory');
-require('../src/PopoverMenu/docs/PopoverMenuRegressionTest'); // Tests/7.3. Popover Menu/
-require('../src/Stepper/test/StepperWindowResizeTest');
-require('../src/Stepper/test/StepperAccessibilityTest');
-require('../src/Table/test/testStory');
-require('../src/Avatar/docs/AvatarTestStory'); // Tests/12. Other/12.6 Avatar
-require('../src/Box/docs/testStory');
-require('../src/EditableSelector/docs/testStory');
-require('../src/Slider/docs/testStory'); // 4.7 Slider
-require('../src/DropdownLayout/docs/testStory');
-require('../src/InputWithOptions/docs/testStory');
-require('../src/DataTable/docs/testStory');
-require('../src/DatePicker/docs/testStory');
-require('../src/Tabs/docs/testStory');
-require('../src/TableActionCell/docs/testStory');
-require('../src/Search/docs/testStory');
-require('../src/RichTextInputArea/docs/testStory');
-require('../src/Range/docs/testStory');
-require('../src/RadioGroup/docs/testStory');
-require('../src/MessageBox/docs/testStory');
-require('../src/MultiSelectCheckbox/docs/testStory');
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
@@ -198,5 +167,3 @@ require('../src/beta/PopoverMenu/docs/index.story');
 
 // TODO: move to correct position
 require('../src/FillButton/docs/index.story');
-require('../src/FillPreview/docs/index.story');
-require('../src/StatisticsWidget/docs/index.story');

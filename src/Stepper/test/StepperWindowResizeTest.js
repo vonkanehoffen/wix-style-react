@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Stepper from '..';
-import { TESTS_PREFIX } from '../../../stories/storiesHierarchy';
+import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import { storySettings } from './storySettings';
 
 const steps7 = [
@@ -15,7 +15,7 @@ const steps7 = [
   { text: 'This is a long step name', type: 'disabled' },
 ];
 
-const kind = `${TESTS_PREFIX}/${storySettings.category}/${storySettings.storyName}`;
+const kind = getTestStoryKind(storySettings);
 
 storiesOf(kind, module).add(storySettings.testStoryNames.WINDOW_RESIZE, () => (
   <div style={{ marginLeft: 100, marginTop: 100 }}>

@@ -4,7 +4,7 @@
 
 - `storybook` - a playground to display (React) components with a navigation sidebar.
 - `visual-grid` - Applitools' service making visual comparison in the cloud in a fast and efficient way.
-- `eyes-strorybook` - Applitool’s tool to make visual testing in `storybook` with `visual-grid`.
+- `eyes-storybook` - Applitool’s tool to make visual testing in `storybook` with `visual-grid`.
 
 ## `visual-grid` vs. traditional screenshot comparison
 
@@ -21,12 +21,12 @@ This means tests are **much faster** and also **runs locally**
 
 ## How do we use `eyes-storybook`?
 
-Simply create a new file `MyComponent/tests/MyComponent.visual.js`:
+Simply create a new file `MyComponent/test/MyComponent.visual.js`:
 
 ```jsx
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import MyComponent from ‘../‘;
+import MyComponent from '../';
 
 storiesOf('MyComponent/size', module)
   .add('large', () => (
@@ -37,7 +37,7 @@ storiesOf('MyComponent/size', module)
 
 And that’s it!
 
-During the test phase of our build process, we run `npm run test:eyes-storybook` which does all the testing heavy-lifting.
+During the test phase of our build process, we run `npm run test:visual` which does all the testing heavy-lifting.
 
 ## What do we test in visual tests?
 
@@ -72,7 +72,7 @@ module.exports = {
 
 ## How can I debug a component rendered into a snapshot?
 
-Just run `npm run eyes-storybook-debug`. This will open the tests storybook and navigate between pages.
+Just run `npm run storybook:visual`. This will open the tests storybook and will allow you to navigate between pages.
 
 ## Is there a good example to see?
 

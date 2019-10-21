@@ -1,8 +1,8 @@
 import React from 'react';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
 
-import Box, { spacingUnit } from './Box';
-import { boxPrivateDriverFactory } from './Box.private.uni.driver';
+import Box, { spacingUnit } from '../Box';
+import { boxPrivateDriverFactory } from '../Box.private.uni.driver';
 
 describe('Box', () => {
   const createDriver = createUniDriverFactory(boxPrivateDriverFactory);

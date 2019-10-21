@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 
 import PopoverMenu from '..';
 import PopoverMenuItem from '../../PopoverMenuItem';
-import { TESTS_PREFIX } from '../../../stories/storiesHierarchy';
 
 class TestComponent extends React.Component {
   state = {
@@ -38,6 +37,6 @@ class TestComponent extends React.Component {
   }
 }
 
-const kind = `${TESTS_PREFIX}/7. Tooltip`;
+const kind = '7. Tooltip';
 
 storiesOf(kind, module).add('7.3. Popover Menu', () => <TestComponent />);
