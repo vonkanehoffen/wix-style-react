@@ -1,4 +1,4 @@
-import { createPropsArray } from '.';
+import { createPropsArray } from './utils';
 
 describe('LiveCodeExample', () => {
   describe('createPropsArray', () => {
