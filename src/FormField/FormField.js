@@ -46,8 +46,13 @@ class FormField extends React.Component {
      * when function, it receives object with:
      * * `setCharactersLeft` - function accepts a number and will display it on top right of `FormField` component
      *
+     * Note that alternatively you can also use `charCount` prop to display character count
+     * instead of using the render function method.
      */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+
+    /** character count displayed on top right of the component */
+    charCount: PropTypes.number,
 
     /** Defines if the content (children container) grows when there's space available (otherwise, it uses the needed space only) */
     stretchContent: PropTypes.bool,
@@ -111,7 +116,19 @@ class FormField extends React.Component {
     return children;
   }
 
-  _hasCharCounter = () => typeof this.state.lengthLeft === 'number';
+  _hasCharCounter = () =>
+    this.props.charCount !== undefined ||
+    typeof this.state.lengthLeft === 'number';
+
+  _renderCharCounter = () => {
+    if (!this._hasCharCounter()) {
+      return;
+    }
+    const { charCount } = this.props;
+    return charactersLeft(
+      charCount !== undefined ? charCount : this.state.lengthLeft,
+    );
+  };
 
   _renderInfoIcon = () => {
     const { dataHook, infoContent, infoTooltipProps, labelSize } = this.props;
@@ -185,7 +202,6 @@ class FormField extends React.Component {
       children,
       stretchContent,
     } = this.props;
-    const { lengthLeft } = this.state;
 
     return (
       <div
@@ -206,7 +222,7 @@ class FormField extends React.Component {
             {this._renderLabel({ trimLongText: true })}
             {required && asterisk}
             {this._renderInfoIcon()}
-            {this._hasCharCounter() && charactersLeft(lengthLeft)}
+            {this._renderCharCounter()}
           </div>
         )}
 
@@ -219,8 +235,7 @@ class FormField extends React.Component {
             })}
           >
             {(!label || labelPlacement !== PLACEMENT.top) &&
-              this._hasCharCounter() &&
-              charactersLeft(lengthLeft)}
+              this._renderCharCounter()}
             {this.renderChildren()}
           </div>
         )}

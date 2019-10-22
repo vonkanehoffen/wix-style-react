@@ -2,6 +2,7 @@ import React from 'react';
 import { storySettings } from './storySettings';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import * as examples from './examples';
+import exampleCharCount from '!raw-loader!./exampleCharCount';
 import {
   header,
   title,
@@ -169,6 +170,12 @@ export default {
           code({
             title: 'Inline Label With Length Count',
             source: examples.inlineLabelWithLength,
+          }),
+          code({
+            title: 'Length count with charCount property',
+            description:
+              'An example of displaying remaining character count using charCount prop (instead of render function method).',
+            source: exampleCharCount,
           }),
           code({
             title: 'Within Grid',

@@ -1,4 +1,4 @@
-import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
+import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
 
 export const formFieldUniDriverFactory = (base, body, { dataHook }) => {

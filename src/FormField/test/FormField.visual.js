@@ -100,6 +100,27 @@ const testGroups = [
       },
     ],
   },
+  {
+    describe: 'Character Count',
+    tests: [
+      {
+        describe: 'Should render',
+        labelPlacements: ['top', 'right', 'left'],
+        its: [
+          {
+            label: 'Positive',
+            children: [<Input />],
+            charCount: 5,
+          },
+          {
+            label: 'Negative',
+            children: [<Input />],
+            charCount: -5,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 testGroups.forEach(group => {

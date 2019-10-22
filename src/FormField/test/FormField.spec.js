@@ -5,14 +5,13 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
-import Label from '../Label';
-import styles from './FormField.scss';
-import formFieldDriverFactory from './FormField.driver';
-import { formFieldUniDriverFactory } from './FormField.uni.driver';
+import styles from '../FormField.scss';
+import formFieldDriverFactory from '../FormField.driver';
+import { formFieldUniDriverFactory } from '../FormField.uni.driver';
 
-import FormField from '.';
+import FormField from '..';
 
 describe('FormField', () => {
   const renderFormField = (props = {}) => (
@@ -228,6 +227,51 @@ describe('FormField', () => {
             expect(await driver.getLengthLeft()).toBe(charactersLeft);
           });
         });
+      });
+    });
+
+    describe('charCount prop', () => {
+      it('should display counter when value is 1', async () => {
+        const charCount = 0;
+        const { driver } = render(renderFormField({ label, charCount }));
+        expect(await driver.getLengthLeft()).toBe(charCount);
+        expect(await driver.isLengthExceeded()).toBe(false);
+      });
+
+      it('should display counter when value is 0', async () => {
+        const charCount = 0;
+        const { driver } = render(renderFormField({ label, charCount }));
+        expect(await driver.getLengthLeft()).toBe(charCount);
+        expect(await driver.isLengthExceeded()).toBe(false);
+      });
+
+      it('should display counter when value is -1', async () => {
+        const charCount = -1;
+        const { driver } = render(renderFormField({ label, charCount }));
+        expect(await driver.getLengthLeft()).toBe(charCount);
+        expect(await driver.isLengthExceeded()).toBe(true);
+      });
+
+      it('should display counter even when label is empty', async () => {
+        const charCount = 50;
+        const { driver } = render(renderFormField({ charCount }));
+        expect(await driver.getLengthLeft()).toBe(charCount);
+      });
+
+      it('should display counter when label is placed on the right', async () => {
+        const charCount = 50;
+        const { driver } = render(
+          renderFormField({ label, labelPlacement: 'right', charCount }),
+        );
+        expect(await driver.getLengthLeft()).toBe(charCount);
+      });
+
+      it('should display counter when label is placed on the left', async () => {
+        const charCount = 50;
+        const { driver } = render(
+          renderFormField({ label, labelPlacement: 'left', charCount }),
+        );
+        expect(await driver.getLengthLeft()).toBe(charCount);
       });
     });
   }
