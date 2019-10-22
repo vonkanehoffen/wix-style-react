@@ -125,9 +125,10 @@ declare namespace VanillaTestkit {
   export const fillPreviewTestkitFactory: any;
   export const fillButtonTestkitFactory: any;
   export const barChartTestkitFactory: any;
-  export const labelledElementTestkitFactory: any;
   export const inputWithLabelTestkitFactory: any;
+  export const autoCompleteWithLabelTestkitFactory: any;
   export const dividerTestkitFactory: any;
+  export const labelledElementTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

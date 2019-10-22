@@ -392,13 +392,16 @@
   "BarChart": {
     "path": "src/BarChart"
   },
-  "LabelledElement": {
-    "path": "src/LabelledElement"
-  },
   "InputWithLabel": {
     "path": "src/InputWithLabel"
   },
+  "AutoCompleteWithLabel": {
+    "path": "src/AutoCompleteWithLabel"
+  },
   "Divider": {
     "path": "src/Divider"
+  },
+  "LabelledElement": {
+    "path": "src/LabelledElement"
   }
 }

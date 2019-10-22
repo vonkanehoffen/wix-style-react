@@ -610,4 +610,9 @@ module.exports = {
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
   },
+  
+  AutoCompleteWithLabel: {
+    namedProtractorTestkitExport: true,
+    namedPuppeteerTestkitExport: true,
+  },
 };

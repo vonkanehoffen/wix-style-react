@@ -42,6 +42,7 @@ require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
 require('../src/AutoComplete/docs/index.story');
 require('../src/AutoCompleteComposite/docs');
+require('../src/AutoCompleteWithLabel/docs/index.story');
 require('../src/Avatar/docs/index.story');
 require('../src/Badge/docs/index.story');
 require('../src/BadgeSelect/docs/index.story');

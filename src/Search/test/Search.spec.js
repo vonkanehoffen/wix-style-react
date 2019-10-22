@@ -278,8 +278,8 @@ describe('Search', () => {
           <Search options={options} expandable />,
         );
 
-        inputDriver.click();
-        inputDriver.blur();
+        await inputDriver.click();
+        await inputDriver.blur();
         expect(await driver.isCollapsed()).toBeTruthy();
       });
 
