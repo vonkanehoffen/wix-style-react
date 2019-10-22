@@ -9,11 +9,22 @@ import dataHooks from './dataHooks';
 
 class InputWithLabel extends React.Component {
   static propTypes = {
-    ...Input.propTypes,
+    /** Applied as data-hook HTML attribute that can be used in the tests */
+    dataHook: PropTypes.string,
     /** Array of suffix icons */
     suffix: PropTypes.arrayOf(PropTypes.element),
     /** Text of rendered label */
     label: PropTypes.string,
+    /** Input value */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Input status - use to display an status indication for the user. for example: 'error', 'warning' or 'loading' */
+    status: PropTypes.oneOf([
+      Input.StatusError,
+      Input.StatusWarning,
+      Input.StatusLoading,
+    ]),
+    /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
+    statusMessage: PropTypes.node,
   };
 
   static defaultProps = {
