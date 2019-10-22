@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {WixComponentProps} from "../BaseComponents/WixComponent";
+import WixComponent, {WixComponentProps} from "../BaseComponents/WixComponent";
 
 export interface PopoverMenuItemProps extends WixComponentProps {
   icon?: React.ReactNode,
@@ -12,5 +12,5 @@ export interface PopoverMenuItemProps extends WixComponentProps {
 
 export type PopoverMenuItemSize = 'normal' | 'large';
 
-export default class PopoverMenuItem extends React.PureComponent<PopoverMenuItemProps> {
+export default class PopoverMenuItem extends WixComponent<PopoverMenuItemProps> {
 }
