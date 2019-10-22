@@ -40,7 +40,7 @@
     "test:e2e-runtime": "cd ./test-runtime/imports && NODE_ENV=production npm run test",
     "test:visual": "eyes-storybook -c ./.storybook/visual",
     "test:types": "tsc --noEmit -p tsconfig.declarations.json && npm run pr-storybook:publish",
-    "test:performance": "npm run bundles:generate && npm install --no-save @wix/perfer && perfer --verbose",
+    "test:performance": "npm run proxy-wix-ui-icons && npm run bundles:generate && npm install --no-save @wix/perfer && perfer --verbose",
     "copy-public-styles": "cp src/*.scss .",
     "prebuild": "npm run update-components && npm run update-components:beta",
     "build": "npm run proxy-wix-ui-icons && npm run transpile && npm run build-puppeteer-testkit",
