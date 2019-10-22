@@ -24,6 +24,9 @@ Types of changes:
 ### Changed
 - `<SidebarHeader/>` - change padding [#4359](https://github.com/wix/wix-style-react/pull/4359)
 
+### Fixed
+- `<SectionHelper/>` - fix margin without close button [#4360](https://github.com/wix/wix-style-react/pull/4360)
+
 ## 7.9.0 - 2019-10-21
 
 ### Added
