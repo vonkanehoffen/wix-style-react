@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {WixComponentProps} from "../BaseComponents/WixComponent";
+import WixComponent, {WixComponentProps} from "../BaseComponents/WixComponent";
 
 export interface ModalProps extends WixComponentProps {
   isOpen: boolean,
@@ -30,5 +30,7 @@ export type ModalHorizontalPosition = 'start' | 'center' | 'end';
 export type ModalVerticalPosition = 'start' | 'center' | 'end';
 export type ModalOverlayPosition = 'static' | 'relative' | 'absolute' |'fixed' | 'sticky';
 
-export default class Modal extends React.PureComponent<ModalProps> {
+export default class Modal extends WixComponent<ModalProps> {
+  handleOverlayClick: (event: React.MouseEvent) => void;
+  renderCloseButton: () => void;
 }
