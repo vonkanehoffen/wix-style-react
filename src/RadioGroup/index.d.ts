@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {WixComponentProps} from "../BaseComponents/WixComponent";
+import WixComponent, {WixComponentProps} from "../BaseComponents/WixComponent";
 import RadioButton from './RadioButton';
 
 export interface RadioGroupProps extends WixComponentProps {
@@ -21,6 +20,7 @@ export type RadioGroupType = 'default' | 'button';
 export type RadioGroupDisplay = 'vertical' | 'horizontal';
 export type RadioGroupSelectionArea = 'none' | 'hover' | 'always';
 
-export default class RadioGroup extends React.PureComponent<RadioGroupProps> {
-  static Radio: typeof RadioButton
+export default class RadioGroup extends WixComponent<RadioGroupProps> {
+  static Radio: typeof RadioButton;
+  logDeprecations: (props: RadioGroupProps) => void;
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {WixComponentProps} from "../../BaseComponents/WixComponent";
+import WixComponent, {WixComponentProps} from "../../BaseComponents/WixComponent";
 
 export interface RadioButtonProps extends WixComponentProps {
   value?: string | number,
@@ -20,4 +20,4 @@ export type RadioButtonVerticalAlign = 'center' | 'top';
 export type RadioButtonType = 'default' | 'button';
 export type RadioButtonSelectionArea = 'none' | 'hover' | 'always';
 
-export default class RadioButton extends React.PureComponent<RadioButtonProps> {}
+export default class RadioButton extends WixComponent<RadioButtonProps> {}
