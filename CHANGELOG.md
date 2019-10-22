@@ -20,6 +20,7 @@ Types of changes:
 - `<Sidebar/>` - add `skin` prop [#4299](https://github.com/wix/wix-style-react/pull/4299)
 - `<FormField/>` - add `charCount` prop [#4350](https://github.com/wix/wix-style-react/pull/4350)
 - `<AutoCompleteWithLabel/>` - create the component [#4052](https://github.com/wix/wix-style-react/pull/4052)
+- `<Swatches/>` - add clickEmptySwatch method to testkit [#4357](https://github.com/wix/wix-style-react/pull/4357)
 
 ### Changed
 - `<SidebarHeader/>` - change padding [#4359](https://github.com/wix/wix-style-react/pull/4359)
