@@ -1,7 +1,7 @@
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 import buttonDriverFactory from '../Deprecated/Button/Button.driver';
 
-import styles from './styles.scss';
+import styles from './SectionHelper.scss';
 
 const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
 

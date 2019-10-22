@@ -3,10 +3,18 @@
 .root {
   position: relative;
   width: 100%;
-  padding: 18px 42px 18px 24px;
+  padding: 18px 24px;
   border-radius: 6px;
   border: 1px solid;
   box-sizing: border-box;
+
+  &.show-close {
+    padding: 18px 42px 18px 24px;
+
+    [dir='rtl'] & {
+      padding: 18px 24px 18px 42px;
+    }
+  }
 }
 
 .title {

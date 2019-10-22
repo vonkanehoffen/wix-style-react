@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import Text from '../Text';
 import Button from '../Deprecated/Button';
 import CloseButton from '../CloseButton';
-
-import styles from './styles.scss';
+import styles from './SectionHelper.scss';
 
 const experimentalDark = 'experimentalDark';
-
 export const HELPER_APPEARANCE = {
   warning: styles.warning,
   standard: styles.standard,
@@ -30,14 +28,17 @@ class SectionHelper extends WixComponent {
 
     return (
       <div
-        className={classnames(
+        className={classNames(
           styles.root,
           HELPER_APPEARANCE[this.props.appearance],
+          {
+            [styles.showClose]: this.props.showCloseButton,
+          },
         )}
       >
         {showCloseButton && onClose && (
           <div
-            className={classnames(styles.close, {
+            className={classNames(styles.close, {
               [styles.closeWithTitle]: this.props.title,
             })}
           >
@@ -66,7 +67,7 @@ class SectionHelper extends WixComponent {
         )}
 
         <div
-          className={classnames(styles.content, {
+          className={classNames(styles.content, {
             [styles.fullWidth]: this.props.fullWidth,
           })}
         >

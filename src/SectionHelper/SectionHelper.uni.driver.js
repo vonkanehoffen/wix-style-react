@@ -1,7 +1,7 @@
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { buttonDriverFactory } from '../Button/Button.uni.driver';
 
-import styles from './styles.scss';
+import styles from './SectionHelper.scss';
 
 export const sectionHelperUniDriverFactory = base => {
   const actionButtonDriver = () =>
