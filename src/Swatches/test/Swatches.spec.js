@@ -65,8 +65,7 @@ describe('Swatches', () => {
         <Swatches showClear onClick={onClick} colors={['#000000']} />,
       );
 
-      const emptySwatch = await driver.getEmptySwatch();
-      await emptySwatch.click();
+      await driver.clickEmptySwatch();
 
       expect(onClick).toBeCalledWith('');
     });

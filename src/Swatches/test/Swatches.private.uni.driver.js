@@ -1,5 +1,4 @@
 import { swatchesDriverFactory as publicDriverFactory } from '../Swatches.uni.driver';
-import { fillPreviewDriverFactory } from '../../FillPreview/FillPreview.uni.driver';
 import { fillButtonDriverFactory } from '../../FillButton/FillButton.uni.driver';
 
 import { tooltipDriverFactory } from '../../Tooltip/TooltipNext/Tooltip.uni.driver';
@@ -8,6 +7,7 @@ import { CommonDriver } from 'wix-ui-core/dist/src/components/popover/Popover.co
 import { colorPickerUniDriverFactory } from '../../ColorPicker/ColorPicker.private.uni.driver';
 
 import { dataHooks } from '../constants';
+import { fillPreviewDriverFactory } from '../../FillPreview/FillPreview.uni.driver';
 
 export const swatchesPrivateDriverFactory = (base, body) => {
   const byHook = dataHook => `[data-hook="${dataHook}"]`;
@@ -32,10 +32,7 @@ export const swatchesPrivateDriverFactory = (base, body) => {
   return {
     ...publicDriverFactory(base),
     getEmptySwatch: () =>
-      fillPreviewDriverFactory(
-        base.$(`[data-hook="${dataHooks.empty}"]`),
-        body,
-      ),
+      fillPreviewDriverFactory(base.$(`[data-hook="${dataHooks.empty}"]`)),
     getEmptySwatchTooltip: () =>
       tooltipDriverFactory(
         base.$(`[data-hook="${dataHooks.emptyTooltip}"]`),
