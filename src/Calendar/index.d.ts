@@ -21,4 +21,11 @@ export interface CalendarProps extends WixComponentProps {
 }
 
 export default class Calendar extends React.PureComponent<CalendarProps> {
+  static areValuesEqual: (value1?: {}, value2?:{}) => boolean;
+  static renderDay:	(day: any, modifiers: any) => void;
+  static optionalParse:	(dateOrString: Date | string) => void;
+  static parseValue:(value: any) => any;
+  static isSingleDay:	(value: any) => Date;
+  static isRangeValue:	(value: any) => boolean;
+  static getUpdatedMonth:	(nextPropsValue: any, numOfMonths: number, currentMonthDate: any) => any;
 }
