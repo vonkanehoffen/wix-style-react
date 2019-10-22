@@ -26,6 +26,7 @@ Types of changes:
 
 ### Fixed
 - `<SectionHelper/>` - fix margin without close button [#4360](https://github.com/wix/wix-style-react/pull/4360)
+- `<InputArea/>` - fix error indicator leak inside testkit [#4363](https://github.com/wix/wix-style-react/pull/4363)
 
 ## 7.9.0 - 2019-10-21
 
