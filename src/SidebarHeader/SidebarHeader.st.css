@@ -18,7 +18,7 @@
 .root {
   -st-states: skin(enum(dark, light));
 
-  padding: 27px 24px;
+  padding: 24px;
   max-width: 222px;
   box-sizing: border-box;
 }
