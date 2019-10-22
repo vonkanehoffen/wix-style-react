@@ -18,8 +18,8 @@ assignees: ''
 ### 🔦 Scope
 
 <!---
-  Tell us what is the scope of the feature you'd like to request. Is it about an exisitng component?
-  It is a new component? Bahvior change?
+  Tell us what is the scope of the feature you'd like to request. Is it about an existing component?
+  It is a new component? Behavior change?
   -->
 
 ...
