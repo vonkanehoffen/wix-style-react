@@ -8,6 +8,8 @@ import isNaN from 'lodash/isNaN';
 
 import styles from './InputArea.scss';
 
+import { dataHooks } from './constants';
+
 /**
  * General inputArea container
  */
@@ -155,7 +157,7 @@ class InputArea extends WixComponent {
         <div className={styles.error}>
           {error && !disabled && (
             <ErrorIndicator
-              dataHook="inputArea-tooltip"
+              dataHook={dataHooks.tooltip}
               errorMessage={errorMessage}
               tooltipPlacement={tooltipPlacement}
               onTooltipShow={onTooltipShow}

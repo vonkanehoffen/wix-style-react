@@ -1,14 +1,13 @@
 import styles from './InputArea.scss';
-import { tooltipDataHook } from '../ErrorIndicator/ErrorIndicator';
 import { errorIndicatorDriverFactory } from '../ErrorIndicator/ErrorIndicator.uni.driver';
-
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
+import { dataHooks } from './constants';
 
 export const inputAreaUniDriverFactory = (base, body) => {
   const textAreaElement = base.$(`.${styles.root}`);
   const textArea = base.$('textarea');
   const counterSelector = '[data-hook="counter"]';
-  const errorIndicatorSelector = '[data-hook="inputArea-tooltip"]';
+  const errorIndicatorSelector = `[data-hook="${dataHooks.tooltip}"]`;
   const errorIndicatorTestkit = () =>
     errorIndicatorDriverFactory(base.$(errorIndicatorSelector), body);
 
@@ -45,8 +44,7 @@ export const inputAreaUniDriverFactory = (base, body) => {
     getAriaLabel: () => textArea.attr('aria-label'),
     getAriaControls: () => textArea.attr('aria-controls'),
     getAriaDescribedby: () => textArea.attr('aria-describedby'),
-    // TODO: get the dataHook using the <ErrorIndicator/> driver
-    getTooltipDataHook: () => tooltipDataHook,
+    getTooltipDataHook: () => dataHooks.tooltip,
     getTooltipElement: () => base,
     isErrorMessageShown: () => errorIndicatorTestkit().isShown(),
     mouseEnterErrorIndicator: () => errorIndicatorTestkit().mouseEnter(),
