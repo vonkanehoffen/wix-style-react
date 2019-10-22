@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<Sidebar/>` - add `skin` prop [#4299](https://github.com/wix/wix-style-react/pull/4299)
 
+### Changed
+- `<SidebarHeader/>` - change padding [#4359](https://github.com/wix/wix-style-react/pull/4359)
+
 ## 7.9.0 - 2019-10-21
 
 ### Added
