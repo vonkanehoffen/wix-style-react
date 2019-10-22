@@ -16,6 +16,7 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
 
 import SidebarDivider from '..';
 
@@ -65,7 +66,7 @@ export default {
 
             code({
               compact: true,
-              source: `<SidebarDivider />`,
+              source: examples.plain,
             }),
           ]),
 
@@ -78,7 +79,20 @@ export default {
 
             code({
               compact: true,
-              source: `<SidebarDivider fullWidth />`,
+              source: examples.fullWidth,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Light Skin',
+              text:
+                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarDivider/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            }),
+
+            code({
+              compact: true,
+              source: examples.lightSkin,
             }),
           ]),
         ],

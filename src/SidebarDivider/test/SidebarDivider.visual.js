@@ -2,7 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SidebarDivider from '../SidebarDivider';
+import Sidebar from '../../Sidebar';
 import Box from '../../Box';
+
+const skins = ['dark', 'light'];
 
 const tests = [
   {
@@ -24,14 +27,20 @@ const tests = [
 
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarDivider`, module).add(describe, () => (
-    <div>
+    <React.Fragment>
       {its.map(({ props }) => (
-        <Box direction="vertical" marginBottom={5}>
-          <div style={{ width: '222px', backgroundColor: '#23263c' }}>
-            <SidebarDivider {...props} />
-          </div>
+        <Box backgroundColor="D70">
+          {skins.map(skin => (
+            <Box direction="vertical" marginBottom={5} marginRight={5}>
+              <div style={{ width: '222px' }}>
+                <Sidebar skin={skin}>
+                  <SidebarDivider {...props} />
+                </Sidebar>
+              </div>
+            </Box>
+          ))}
         </Box>
       ))}
-    </div>
+    </React.Fragment>
   )),
 );

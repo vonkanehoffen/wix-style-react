@@ -1,6 +1,4 @@
-export const plain = `
-<SidebarSectionItem>Action</SidebarSectionItem>
-`;
+export const plain = `<SidebarSectionItem>Action</SidebarSectionItem>`;
 
 export const selected = `
 <SidebarSectionItem selected>Action</SidebarSectionItem>
@@ -24,4 +22,10 @@ export const prefix = `
 
 export const suffix = `
 <SidebarSectionItem suffix={<CounterBadge skin="standard">5</CounterBadge>}>Action</SidebarSectionItem>
+`;
+
+export const lightSkin = `
+<Sidebar skin="light">
+  <SidebarSectionItem>Action</SidebarSectionItem>
+</Sidebar>
 `;

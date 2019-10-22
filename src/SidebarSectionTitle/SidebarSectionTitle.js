@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import styles from './SidebarSectionTitle.st.css';
 import Text from '../Text';
+import { SidebarContext } from '../Sidebar/SidebarAPI';
+import { sidebarSkins } from '../Sidebar/constants';
 
 /** A title for the section within the sidebar */
 class SidebarSectionTitle extends React.PureComponent {
@@ -19,15 +21,23 @@ class SidebarSectionTitle extends React.PureComponent {
     const { dataHook, children } = this.props;
 
     return (
-      <Text
-        data-hook={dataHook}
-        {...styles('root')}
-        size="tiny"
-        weight="bold"
-        ellipsis
-      >
-        {children}
-      </Text>
+      <SidebarContext.Consumer>
+        {context => {
+          const skin = (context && context.getSkin()) || sidebarSkins.dark;
+
+          return (
+            <Text
+              data-hook={dataHook}
+              {...styles('root', { skin }, this.props)}
+              size="tiny"
+              weight="bold"
+              ellipsis
+            >
+              {children}
+            </Text>
+          );
+        }}
+      </SidebarContext.Consumer>
     );
   }
 }

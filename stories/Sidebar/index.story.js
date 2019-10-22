@@ -83,6 +83,12 @@ export default {
         description: `This example uses the multiple sidebar components to composite a sidebar that's suitable for the Business Manager. Notice that the back button and the footer aren't part of these components, and have specific implementation.`,
         source: examples.businessManagerSidebar,
       },
+      {
+        title: 'Account Manager Sidebar',
+        description:
+          'This example implements a custom header and uses the light `skin` prop. Notice that the included Sidebar components are adjusted to that `skin` value.',
+        source: examples.accountManagerSidebar,
+      },
     ].map(code),
   ],
 };

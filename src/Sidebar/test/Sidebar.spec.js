@@ -1,6 +1,9 @@
 import React from 'react';
-import Sidebar from '../Sidebar';
 import { mount } from 'enzyme';
+
+import Sidebar from '../Sidebar';
+import { sidebarSkins } from '../constants';
+import { SidebarContext } from '../SidebarAPI';
 
 describe('Sidebar', () => {
   describe('General', () => {
@@ -58,6 +61,21 @@ describe('Sidebar', () => {
 
       el1 = sidebar.find(`[data-hook="simple"]`);
       expect(el1.text()).toEqual('123');
+    });
+
+    it('should return the right skin', () => {
+      const skin = sidebarSkins.light;
+      let currentSkin;
+
+      mount(
+        <Sidebar skin={skin}>
+          <SidebarContext.Consumer>
+            {context => (currentSkin = context.getSkin())}
+          </SidebarContext.Consumer>
+        </Sidebar>,
+      );
+
+      expect(currentSkin).toBe(skin);
     });
   });
 });

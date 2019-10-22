@@ -16,6 +16,7 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
 
 import SidebarHeader from '..';
 import Box from '../../Box';
@@ -107,8 +108,7 @@ export default {
 
             code({
               compact: true,
-              source:
-                '<SidebarHeader title="Site Name" subtitle="Role: Owner" />',
+              source: examples.plain,
             }),
           ]),
 
@@ -121,8 +121,7 @@ export default {
 
             code({
               compact: true,
-              source:
-                '<SidebarHeader title="Site Name" subtitle="Role: Owner"><Box marginTop={3}><LinearProgressBar showProgressIndication value={50} /></Box></SidebarHeader>',
+              source: examples.titlesWithChildren,
             }),
           ]),
 
@@ -135,8 +134,7 @@ export default {
 
             code({
               compact: true,
-              source:
-                '<SidebarHeader><TextButton prefixIcon={<Icons.ArrowLeft />} size="tiny" weight="normal" skin="light" >Back to Site</TextButton><Box direction="vertical" align="center" marginTop={5}><Avatar size="size72" /><Box direction="vertical" align="center" marginTop={2}><Text size="small" weight="bold" light>Owner</Text><Text size="tiny" light>owner@something.com</Text></Box></Box></SidebarHeader>',
+              source: examples.onlyChildren,
             }),
           ]),
 
@@ -149,8 +147,20 @@ export default {
 
             code({
               compact: true,
-              source:
-                '<SidebarHeader title="This is a very long title which exceeds the maximum width of its container" subtitle="Role: Owner" />',
+              source: examples.ellipsis,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Light Skin',
+              text:
+                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarHeader/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            }),
+
+            code({
+              compact: true,
+              source: examples.lightSkin,
             }),
           ]),
         ],

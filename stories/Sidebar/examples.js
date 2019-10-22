@@ -36,7 +36,7 @@ class DesignedSidebar extends React.Component {
 
   _renderBackButton = text => (
     <Box margin="18px 24px">
-      <TextButton prefixIcon={<Icons.ChevronLeft />} skin="light" size="small" weight="normal">
+      <TextButton prefixIcon={<Icons.ChevronLeft />} size="small" weight="normal">
         {text}
       </TextButton>
     </Box>
@@ -44,7 +44,7 @@ class DesignedSidebar extends React.Component {
 
   _renderEditButton = () => (
     <Box align="center" margin="18px 0">
-      <TextButton prefixIcon={<Icons.Edit />} skin="light" size="small" weight="normal">
+      <TextButton prefixIcon={<Icons.Edit />} size="small" weight="normal">
         Edit Site
       </TextButton>
     </Box>
@@ -131,4 +131,55 @@ class DesignedSidebar extends React.Component {
     );
   }
 }
+`;
+
+export const accountManagerSidebar = `
+<Box height="800px">
+<Sidebar selectedKey={'dashboard'} skin="light">
+  <Sidebar.PersistentHeader>
+    <SidebarHeader>
+      <TextButton prefixIcon={<Icons.ArrowLeft />} size="tiny" weight="normal" skin="dark">Back to Site Dashboard</TextButton>
+      <Box direction="vertical" align="center" marginTop={5}>
+          <Avatar size="size72" />
+          <Box direction="vertical" align="center" marginTop={2}>
+            <Text size="small" secondary weight="bold">Owner</Text>
+            <Text size="tiny" secondary light weight="normal">owner@something.com</Text>
+          </Box>
+      </Box>
+    </SidebarHeader>
+  </Sidebar.PersistentHeader>
+
+  <Sidebar.Item itemKey={'account-settings'}>
+    <SidebarSectionItem selected>Account Settings</SidebarSectionItem>
+  </Sidebar.Item>
+
+  <SidebarDivider />
+
+  <Sidebar.Item itemKey={'subscriptions'}>
+    <SidebarSectionItem>Subscriptions</SidebarSectionItem>
+  </Sidebar.Item>
+
+  <Sidebar.Item itemKey={'billing-history'}>
+    <SidebarSectionItem disabled>Billing History</SidebarSectionItem>
+  </Sidebar.Item>
+
+  <Sidebar.Item itemKey={'vouchers'}>
+    <SidebarSectionItem>Vouchers</SidebarSectionItem>
+  </Sidebar.Item>
+
+  <Sidebar.Item itemKey={'domains'}>
+    <SidebarSectionItem>Domains</SidebarSectionItem>
+  </Sidebar.Item>
+  
+  <Sidebar.Item itemKey={'mailboxes'}>
+    <SidebarSectionItem>Mailboxes</SidebarSectionItem>
+  </Sidebar.Item>
+            
+  <SidebarDivider />
+
+  <Sidebar.Item itemKey={'hire-an-expert'}>
+    <SidebarSectionItem>Hire an Expert</SidebarSectionItem>
+  </Sidebar.Item>
+</Sidebar>
+</Box>
 `;

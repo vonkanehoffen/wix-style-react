@@ -2,9 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SidebarHeader from '../SidebarHeader';
+import Sidebar from '../../Sidebar';
 import Box from '../../Box';
 import LinearProgressBar from '../../LinearProgressBar';
 import Avatar from '../../Avatar';
+
+const skins = ['dark', 'light'];
 
 const baseProps = {
   title: 'Site Name',
@@ -68,12 +71,18 @@ const tests = [
 
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarHeader`, module).add(describe, () => (
-    <div>
+    <React.Fragment>
       {its.map(({ props }) => (
-        <Box marginBottom={5}>
-          <SidebarHeader {...props} />
+        <Box backgroundColor="D70">
+          {skins.map(skin => (
+            <Box direction="vertical" marginBottom={5} marginRight={5}>
+              <Sidebar skin={skin}>
+                <SidebarHeader {...props} />
+              </Sidebar>
+            </Box>
+          ))}
         </Box>
       ))}
-    </div>
+    </React.Fragment>
   )),
 );

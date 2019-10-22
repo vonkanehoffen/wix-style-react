@@ -5,6 +5,12 @@
 
 :import {
   -st-from: "../Sidebar/colors.st.css";
+  -st-named: 
+    sidebarBackgroundColor, sidebarLightBackgroundColor
+}
+
+:import {
+  -st-from: "../Sidebar/colors.st.css";
   -st-named: sidebarBackgroundColor
 }
 
@@ -15,13 +21,22 @@
 
 .root {
   -st-extends: Text;
+  -st-states: skin(enum(dark, light));
 
   display: block;
   padding: 9px 24px;
   max-width: 222px;
   box-sizing: border-box;
+}
+
+.root:skin(dark) {
   background-color: value(sidebarBackgroundColor);
 }
+
+.root:skin(light) {
+  background-color: value(sidebarLightBackgroundColor);
+}
+
 
 .root:size(tiny) {
   color: value(D40);

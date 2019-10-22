@@ -2,7 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SidebarSectionTitle from '../SidebarSectionTitle';
+import Sidebar from '../../Sidebar';
 import Box from '../../Box';
+
+const skins = ['dark', 'light'];
 
 const tests = [
   {
@@ -27,12 +30,18 @@ const tests = [
 
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarSectionTitle`, module).add(describe, () => (
-    <div>
+    <React.Fragment>
       {its.map(({ props }) => (
-        <Box direction="vertical" marginBottom={5}>
-          <SidebarSectionTitle {...props} />
+        <Box backgroundColor="D70">
+          {skins.map(skin => (
+            <Box direction="vertical" marginBottom={5} marginRight={5}>
+              <Sidebar skin={skin}>
+                <SidebarSectionTitle {...props} />
+              </Sidebar>
+            </Box>
+          ))}
         </Box>
       ))}
-    </div>
+    </React.Fragment>
   )),
 );

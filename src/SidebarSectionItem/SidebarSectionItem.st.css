@@ -4,8 +4,10 @@
 };
 
 :import {
-    -st-from: "../Sidebar/colors.st.css";
-    -st-named: sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor, disabledTextColor
+  -st-from: "../Sidebar/colors.st.css";
+  -st-named: 
+    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor,
+    sidebarLightBackgroundColor, lightTextColor, selectedLightBackgroundColor, selectedLightTextColor, hoveredLightBackgroundColor, hoveredLightTextColor, disabledLightBackgroundColor
 }
 
 :import {
@@ -26,7 +28,7 @@
 
 .root {
   -st-extends: Focusable;
-  -st-states: selected, disabled, prefix, suffix, drillable;
+  -st-states: selected, disabled, prefix, suffix, drillable, skin(enum(dark, light));
 
   display: flex;
   justify-content: space-between;
@@ -35,9 +37,22 @@
   max-width: 222px;
   min-height: 36px;
   box-sizing: border-box;
-  background-color: value(sidebarBackgroundColor);
   color: value(D80);
 }
+
+/* Basic */
+
+.root:skin(dark) {
+  background-color: value(sidebarBackgroundColor);
+  color: value(textColor);
+}
+
+.root:skin(light) {
+  background-color: value(sidebarLightBackgroundColor);
+  color: value(lightTextColor);
+}
+
+/* Selected */
 
 .root:selected {
   background-color: value(selectedBackgroundColor)
@@ -47,23 +62,46 @@
   color: value(B10);
 }
 
+.root:skin(light):selected {
+  background-color: value(selectedLightBackgroundColor)
+}
+
+.root:skin(light):selected .text:size(small) {
+  color: value(selectedLightTextColor);
+}
+
+/* Hovered */
+
 .root:hover, .root:hover:selected:not(:disabled) {
   background-color: value(hoveredBackgroundColor);
   cursor: pointer;
 }
 
-.root:hover .text:size(small), .root:hover:selected:not(:disabled) .text:size(small) {
+.root:hover:not(:disabled) .text:size(small), .root:hover:selected:not(:disabled) .text:size(small) {
   color: value(B30);
 }
+
+.root:skin(light):hover, .root:skin(light):hover:selected:not(:disabled) {
+  background-color: value(hoveredLightBackgroundColor);
+}
+
+.root:skin(light):hover:not(:disabled) .text:size(small), .root:skin(light):hover:selected:not(:disabled) .text:size(small) {
+  color: value(hoveredLightTextColor);
+}
+
+/* Disabled */
 
 .root:disabled {
   background-color: value(disabledBackgroundColor);
   cursor: default;
 }
 
-.root:disabled .text:size(small) {
-  color: value(disabledTextColor);
+
+.root:skin(light):disabled {
+  background-color: value(disabledLightBackgroundColor);
 }
+
+/* Others */
 
 .root:focus {
   -st-mixin: focus-box;

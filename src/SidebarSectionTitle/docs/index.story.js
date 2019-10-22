@@ -16,6 +16,7 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
 
 import SidebarSectionTitle from '..';
 
@@ -68,7 +69,7 @@ export default {
 
             code({
               compact: true,
-              source: '<SidebarSectionTitle>Some Title</SidebarSectionTitle>',
+              source: examples.plain,
             }),
           ]),
 
@@ -80,8 +81,20 @@ export default {
 
             code({
               compact: true,
-              source:
-                '<SidebarSectionTitle>This is a very long text which exceeds the maximum width of its container</SidebarSectionTitle>',
+              source: examples.ellipsis,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Light Skin',
+              text:
+                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarSectionTitle/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            }),
+
+            code({
+              compact: true,
+              source: examples.lightSkin,
             }),
           ]),
         ],

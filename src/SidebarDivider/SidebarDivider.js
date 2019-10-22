@@ -4,6 +4,9 @@ import classNames from 'classnames';
 
 import styles from './SidebarDivider.st.css';
 import Divider from '../Divider';
+import { SidebarContext } from '../Sidebar/SidebarAPI';
+import { sidebarSkins } from '../Sidebar/constants';
+import { skins as dividerSkins } from '../Divider/constants';
 
 /** A divider within the sidebar that supports inner and full mode */
 class SidebarDivider extends React.PureComponent {
@@ -20,12 +23,27 @@ class SidebarDivider extends React.PureComponent {
     const { dataHook, fullWidth } = this.props;
 
     return (
-      <div
-        data-hook={dataHook}
-        className={classNames(styles.root, fullWidth && styles.fullWidth)}
-      >
-        <Divider skin="dark" className={styles.divider} />
-      </div>
+      <SidebarContext.Consumer>
+        {context => {
+          const skin = (context && context.getSkin()) || sidebarSkins.dark;
+
+          return (
+            <div
+              data-hook={dataHook}
+              className={classNames(styles.root, fullWidth && styles.fullWidth)}
+            >
+              <Divider
+                skin={
+                  skin === sidebarSkins.light
+                    ? dividerSkins.light
+                    : dividerSkins.dark
+                }
+                className={styles.divider}
+              />
+            </div>
+          );
+        }}
+      </SidebarContext.Consumer>
     );
   }
 }

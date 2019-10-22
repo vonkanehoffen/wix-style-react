@@ -3,7 +3,10 @@ import { storiesOf } from '@storybook/react';
 import Sound from 'wix-ui-icons-common/Sound';
 
 import SidebarSectionItem from '../SidebarSectionItem';
+import Sidebar from '../../Sidebar';
 import Box from '../../Box';
+
+const skins = ['dark', 'light'];
 
 const baseProps = {
   children: 'Some Text',
@@ -119,12 +122,18 @@ const tests = [
 
 tests.forEach(({ describe, its }) =>
   storiesOf(`SidebarSectionItem`, module).add(describe, () => (
-    <div>
+    <React.Fragment>
       {its.map(({ props }) => (
-        <Box direction="vertical" marginBottom={5}>
-          <SidebarSectionItem {...props} />
+        <Box backgroundColor="D70">
+          {skins.map(skin => (
+            <Box direction="vertical" marginBottom={5} marginRight={5}>
+              <Sidebar skin={skin}>
+                <SidebarSectionItem {...props} />
+              </Sidebar>
+            </Box>
+          ))}
         </Box>
       ))}
-    </div>
+    </React.Fragment>
   )),
 );

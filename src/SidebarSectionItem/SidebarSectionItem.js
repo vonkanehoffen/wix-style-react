@@ -6,6 +6,8 @@ import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 import styles from './SidebarSectionItem.st.css';
 import { dataHooks } from './constants';
 import Text from '../Text';
+import { SidebarContext } from '../Sidebar/SidebarAPI';
+import { sidebarSkins } from '../Sidebar/constants';
 
 /** An item for the section within the sidebar */
 class SidebarSectionItem extends React.PureComponent {
@@ -43,30 +45,45 @@ class SidebarSectionItem extends React.PureComponent {
     } = this.props;
 
     return (
-      <div
-        data-hook={dataHook}
-        onClick={!disabled ? onClick : undefined}
-        {...styles(
-          'root',
-          { selected, disabled, prefix, suffix, drillable },
-          this.props,
-        )}
-      >
-        {prefix && (
-          <span data-hook={dataHooks.prefix} className={styles.prefix}>
-            {prefix}
-          </span>
-        )}
-        <Text className={styles.text} size="small" weight="bold" light>
-          {children}
-        </Text>
-        {!disabled && !suffix && drillable && (
-          <ChevronRight className={styles.chevron} />
-        )}
-        {!disabled && suffix && (
-          <span data-hook={dataHooks.suffix}>{suffix}</span>
-        )}
-      </div>
+      <SidebarContext.Consumer>
+        {context => {
+          const skin = (context && context.getSkin()) || sidebarSkins.dark;
+
+          return (
+            <div
+              data-hook={dataHook}
+              onClick={!disabled ? onClick : undefined}
+              {...styles(
+                'root',
+                { selected, disabled, prefix, suffix, drillable, skin },
+                this.props,
+              )}
+            >
+              {prefix && (
+                <span data-hook={dataHooks.prefix} className={styles.prefix}>
+                  {prefix}
+                </span>
+              )}
+              <Text
+                className={styles.text}
+                size="small"
+                weight="bold"
+                secondary={skin === sidebarSkins.light}
+                light={skin === sidebarSkins.dark}
+                skin={disabled && 'disabled'}
+              >
+                {children}
+              </Text>
+              {!disabled && !suffix && drillable && (
+                <ChevronRight className={styles.chevron} />
+              )}
+              {!disabled && suffix && (
+                <span data-hook={dataHooks.suffix}>{suffix}</span>
+              )}
+            </div>
+          );
+        }}
+      </SidebarContext.Consumer>
     );
   }
 }

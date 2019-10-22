@@ -7,7 +7,7 @@ import { SidebarPersistentHeader } from './SidebarPersistentHeader';
 import { SidebarPersistentFooter } from './SidebarPersistentFooter';
 import { SidebarBackButton } from './SidebarBackButton';
 import { SidebarContext } from './SidebarAPI';
-import { DataHooks } from './dataHooks';
+import { dataHooks, sidebarSkins } from './constants';
 
 /** A sidebar navigation component  */
 class Sidebar extends Component {
@@ -37,6 +37,13 @@ class Sidebar extends Component {
 
     /**  Sidebar indicator for animating out or in */
     isHidden: PropTypes.bool,
+
+    /** Sets the skin of the Sidebar */
+    skin: PropTypes.oneOf(['dark', 'light']),
+  };
+
+  static defaultProps = {
+    skin: sidebarSkins.dark,
   };
 
   itemKey2Children = {};
@@ -97,6 +104,7 @@ class Sidebar extends Component {
         this.sidebarContext = this._getSidebarContext();
       },
       getSelectedKey: () => this.state.selectedKey,
+      getSkin: () => this.props.skin,
     };
   };
 
@@ -210,6 +218,7 @@ class Sidebar extends Component {
     const rootClasses = classnames({
       [css.sideBar]: true,
       [css.hiddenSideBar]: this.props.isHidden,
+      [css.light]: this.props.skin === sidebarSkins.light,
     });
 
     return (
@@ -222,7 +231,7 @@ class Sidebar extends Component {
               this.state.drivenOutChildren.length !== 0 && (
                 <div
                   className={sliderOutToRightClasses}
-                  data-hook={DataHooks.drivenOutChildren}
+                  data-hook={dataHooks.drivenOutChildren}
                 >
                   {this.state.drivenOutChildren}
                 </div>
@@ -230,7 +239,7 @@ class Sidebar extends Component {
 
             <div
               className={sliderClasses}
-              data-hook={DataHooks.onScreenChildren}
+              data-hook={dataHooks.onScreenChildren}
             >
               {this.state.onScreenChildren}
             </div>
@@ -238,7 +247,7 @@ class Sidebar extends Component {
             {this.state.drivenInChildren.length !== 0 && (
               <div
                 className={sliderInFromRightClasses}
-                data-hook={DataHooks.drivenInChildren}
+                data-hook={dataHooks.drivenInChildren}
               >
                 {this.state.drivenInChildren}
               </div>

@@ -180,6 +180,19 @@ export default {
               source: examples.suffix,
             }),
           ]),
+
+          columns([
+            description({
+              title: 'Light Skin',
+              text:
+                'This example uses the `<Sidebar/>` to demonstrate the "light" skin design. Notice that when `<SidebarSectionItem/>` is contained inside `<Sidebar/>`, it affected by the `skin` prop accordingly',
+            }),
+
+            code({
+              compact: true,
+              source: examples.lightSkin,
+            }),
+          ]),
         ],
       }),
 
