@@ -32,6 +32,12 @@ class AutoCompleteWithLabel extends React.PureComponent {
     status: PropTypes.oneOf(['error', 'warning', 'loading']),
     /** JSX element that appears upon error */
     statusMessage: PropTypes.node,
+    /** Standard input onFocus callback */
+    onFocus: PropTypes.func,
+    /** Standard input onBlur callback */
+    onBlur: PropTypes.func,
+    /** Standard input onChange callback */
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -45,10 +51,13 @@ class AutoCompleteWithLabel extends React.PureComponent {
     this.setState({
       value,
     });
+    this.props.onChange(value);
   };
 
   onChange = event => {
-    this.setState({ value: event.target.value });
+    const { value } = event.target;
+    this.setState({ value });
+    this.props.onChange && this.props.onChange(event);
   };
 
   render() {
@@ -59,6 +68,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
       status,
       suffix,
       statusMessage,
+      onFocus,
+      onBlur,
     } = this.props;
     const { value } = this.state;
     const filteredOptions = value
@@ -89,6 +100,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
             onSelect={this.onSelect}
             dataHook={dataHooks.inputWithOptions}
             hideStatusSuffix
+            onFocus={onFocus}
+            onBlur={onBlur}
             inputElement={
               <Input
                 dataHook={dataHooks.inputWithLabel}

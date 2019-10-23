@@ -25,6 +25,12 @@ class InputWithLabel extends React.Component {
     ]),
     /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
     statusMessage: PropTypes.node,
+    /** Standard input onFocus callback */
+    onFocus: PropTypes.func,
+    /** Standard input onBlur callback */
+    onBlur: PropTypes.func,
+    /** Standard input onChange callback */
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -39,6 +45,9 @@ class InputWithLabel extends React.Component {
       dataHook,
       status,
       statusMessage,
+      onChange,
+      onFocus,
+      onBlur,
     } = this.props;
     const suffixContainer = suffix
       ? suffix.map((item, index) => {
@@ -60,6 +69,9 @@ class InputWithLabel extends React.Component {
           dataHook={dataHooks.labelledElement}
         >
           <Input
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
             dataHook={dataHooks.input}
             className={styles.inputContainer}
             size="large"

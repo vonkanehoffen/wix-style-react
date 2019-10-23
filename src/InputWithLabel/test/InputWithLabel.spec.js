@@ -68,4 +68,18 @@ describe('InputWithLabel', () => {
     const { driver } = render(<InputWithLabel statusMessage="a message" />);
     expect(await driver.hasErrorMessage()).toEqual(false);
   });
+
+  it('should trigger onChange if provided', async () => {
+    const onChange = jest.fn();
+    const { driver } = render(
+      <InputWithLabel label="my autocomplete" onChange={onChange} />,
+    );
+    await driver.enterText('a');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        target: expect.objectContaining({ value: 'a' }),
+      }),
+    );
+  });
 });
