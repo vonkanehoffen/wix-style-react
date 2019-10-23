@@ -53,6 +53,15 @@ describe('SidebarSectionItem', () => {
 
     expect(await driver.hasChevron()).toBe(true);
   });
+  it('should render the chevron when passing `drillable` and `alwaysDisplayChevron` without hover', async () => {
+    const { driver } = render(
+      <SidebarSectionItem drillable alwaysDisplayChevron>
+        {sampleText}
+      </SidebarSectionItem>,
+    );
+
+    expect(await driver.hasChevron()).toBe(true);
+  });
 
   describe('Disabled', () => {
     it('should not invoke `onClick` when clicking', async () => {

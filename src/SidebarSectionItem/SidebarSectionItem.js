@@ -28,6 +28,8 @@ class SidebarSectionItem extends React.PureComponent {
     disabled: PropTypes.bool,
     /** Indicates whether to display an icon for drilling in on hover */
     drillable: PropTypes.bool,
+    /** Indicates whether to display a low-opacity icon for drilling even without hover, relevant only when drillable is true */
+    alwaysDisplayChevron: PropTypes.bool,
     /** A callback to be triggered on click */
     onClick: PropTypes.func,
   };
@@ -39,23 +41,30 @@ class SidebarSectionItem extends React.PureComponent {
       selected,
       disabled,
       drillable,
+      alwaysDisplayChevron,
       prefix,
       suffix,
       onClick,
     } = this.props;
-
     return (
       <SidebarContext.Consumer>
         {context => {
           const skin = (context && context.getSkin()) || sidebarSkins.dark;
-
           return (
             <div
               data-hook={dataHook}
               onClick={!disabled ? onClick : undefined}
               {...styles(
                 'root',
-                { selected, disabled, prefix, suffix, drillable, skin },
+                {
+                  selected,
+                  disabled,
+                  prefix,
+                  suffix,
+                  drillable,
+                  skin,
+                  alwaysDisplayChevron,
+                },
                 this.props,
               )}
             >

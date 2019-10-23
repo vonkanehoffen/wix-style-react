@@ -24,11 +24,12 @@
 :vars {
   paddingWithoutSuffix: 6px 42px 6px 24px;
   paddingWithSuffix: 6px 18px 6px 24px;
+  chevronPartialOpacity: 0.3;
 }
 
 .root {
   -st-extends: Focusable;
-  -st-states: selected, disabled, prefix, suffix, drillable, skin(enum(dark, light));
+  -st-states: selected, disabled, prefix, suffix, drillable, alwaysDisplayChevron, skin(enum(dark, light));
 
   display: flex;
   justify-content: space-between;
@@ -107,13 +108,17 @@
   -st-mixin: focus-box;
 }
 
-.root:drillable:hover {
+.root:drillable:hover, .root:drillable:alwaysDisplayChevron {
   padding: value(paddingWithSuffix);
 }
 
 .root:drillable .chevron {
   position: absolute;
   opacity: 0;
+}
+.root:drillable:alwaysDisplayChevron .chevron {
+  position: static;
+  opacity: value(chevronPartialOpacity);
 }
 
 .root:drillable:hover .chevron {

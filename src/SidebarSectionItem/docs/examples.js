@@ -11,6 +11,9 @@ export const disabled = `
 export const drillable = `
 <SidebarSectionItem drillable>Action</SidebarSectionItem>
 `;
+export const drillableAndAlwaysShowChevron = `
+<SidebarSectionItem drillable alwaysDisplayChevron>Action</SidebarSectionItem>
+`;
 
 export const multipleLines = `
 <SidebarSectionItem>This is an example of multiple lines</SidebarSectionItem>

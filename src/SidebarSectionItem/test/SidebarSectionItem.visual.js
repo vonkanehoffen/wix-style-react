@@ -90,6 +90,26 @@ const tests = [
     ],
   },
   {
+    describe: 'Drillable',
+    its: [
+      {
+        it: 'should render drillable',
+        props: {
+          ...baseProps,
+          drillable: true,
+        },
+      },
+      {
+        it: 'should render drillable with always on chevron',
+        props: {
+          ...baseProps,
+          drillable: true,
+          alwaysDisplayChevron: true,
+        },
+      },
+    ],
+  },
+  {
     describe: 'Suffix',
     its: [
       {

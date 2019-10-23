@@ -142,6 +142,18 @@ export default {
               source: examples.drillable,
             }),
           ]),
+          columns([
+            description({
+              title: 'Drillable Item with always shown Chevron',
+              text:
+                'An example that demonstrates an icon for drilling even without hovering',
+            }),
+
+            code({
+              compact: true,
+              source: examples.drillableAndAlwaysShowChevron,
+            }),
+          ]),
 
           columns([
             description({
