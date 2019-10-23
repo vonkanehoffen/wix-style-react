@@ -24,6 +24,7 @@ Types of changes:
 - `<InputWithLabel />`, `<AutoCompleteWithLabel />` - add `onChange`, `onFocus` & `onBlur` props [#4375](https://github.com/wix/wix-style-react/pull/4375)
 - `<RadioGroup.Button/>` - Add `tabIndex` prop [#4370](https://github.com/wix/wix-style-react/pull/4370)
 - `<FloatingNotification/>` -  pass rest props to the buttons [#4376](https://github.com/wix/wix-style-react/pull/4376)
+- `<SidebarSectionItem />` - add prop alwaysDisplayChevron [#4379](https://github.com/wix/wix-style-react/pull/4379)
 
 ### Changed
 - `<SidebarHeader/>` - change padding [#4359](https://github.com/wix/wix-style-react/pull/4359)
