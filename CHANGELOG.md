@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 7.10.0 - 2019-10-23
+
 ### Added
 - `<Sidebar/>` - add `skin` prop [#4299](https://github.com/wix/wix-style-react/pull/4299)
 - `<FormField/>` - add `charCount` prop [#4350](https://github.com/wix/wix-style-react/pull/4350)

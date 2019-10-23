@@ -1,7 +1,7 @@
 {
   "name": "wix-style-react",
   "description": "wix-style-react",
-  "version": "7.9.0",
+  "version": "7.10.0",
   "main": "./dist/src/index.js",
   "module": "./dist/es/src/index.js",
   "sideEffects": [
@@ -47,7 +47,7 @@
 
     "test:unit": "yoshi test --jest",
     "test:watch": "yoshi test --jest --watch",
-    
+
     "pretest:e2e": "./scripts/ensure-dist.sh",
     "test:e2e": "npm run test:e2e-runtime && concurrently 'npm run test:e2e-only' 'npm run storybook:e2e -- --ci' --names 'protractor,e2e-server' --success first --kill-others",
     "test:e2e-only": "NODE_ENV=production yoshi test --protractor",
@@ -79,7 +79,7 @@
     "postpublish": "if [ \"$NPM_PUBLISH_TYPE\" == \"re-publish\" ]; then npm install && npm run build && npm run storybook:build && npm run zeit-storybook-deploy; fi",
 
     "zeit-storybook-deploy": "node ./scripts/zeit-deploy.js ",
-    
+
     "------CI Parallel tasks (as in .ci_config)": "",
     "test1:unit": "npm run test:unit",
     "test2:visual": "npm run test:visual",
@@ -97,7 +97,7 @@
     "transpile:watch": "babel src --out-dir dist/es/src --copy-files --watch --plugins=@babel/plugin-syntax-dynamic-import",
     "components-size": "npm run generate-components-bundles && source-map-explorer ./bundles/*.js",
     "make-async-spec": "npx jscodeshift -t scripts/unidriver-migration/src/make-async/make-async.js",
-    
+
     "------END": ""
   },
   "husky": {
