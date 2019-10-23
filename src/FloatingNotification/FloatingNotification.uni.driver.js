@@ -41,12 +41,20 @@ export const floatingNotificationDriverFactory = base => {
     getButtonHref: async () =>
       base.$(`[data-hook="${BUTTON_DATA_HOOK}"]`).attr('href'),
 
+    /** get button attribute by name */
+    getButtonAttr: async attrName =>
+      base.$(`[data-hook="${BUTTON_DATA_HOOK}"]`).attr(attrName),
+
     /** get text button tag name */
     isTextButtonAs: async as =>
       await base.$(`${as}[data-hook="${TEXT_BUTTON_DATA_HOOK}"]`).exists(),
 
-    /** get button href */
+    /** get text button href */
     getTextButtonHref: async () =>
       base.$(`[data-hook="${TEXT_BUTTON_DATA_HOOK}"]`).attr('href'),
+
+    /** get text button attribute by name */
+    getTextButtonAttr: async attrName =>
+      base.$(`[data-hook="${TEXT_BUTTON_DATA_HOOK}"]`).attr(attrName),
   };
 };

@@ -61,33 +61,39 @@ describe('FloatingNotification', () => {
     expect(getByText('HELLO PREFIX ICON')).toBeTruthy();
   });
 
-  it('should accept "as" and "href" attributes for button', async () => {
+  it('should accept "as", "href", "target" attributes for button', async () => {
     const someAs = 'a';
     const someHref = 'someHref';
+    const target = 'some-button-target';
     const { driver } = createDriver({
       buttonProps: {
         label: someButtonLabel,
         as: someAs,
         href: someHref,
+        target,
       },
     });
 
     expect(await driver.isButtonAs(someAs)).toEqual(true);
     expect(await driver.getButtonHref()).toEqual(someHref);
+    expect(await driver.getButtonAttr('target')).toEqual(target);
   });
 
   it('should accept "as" and "href" attributes for text button', async () => {
     const someAs = 'a';
     const someHref = 'someHref';
+    const target = 'some-text-button-target';
     const { driver } = createDriver({
       textButtonProps: {
         label: someButtonLabel,
         as: someAs,
         href: someHref,
+        target,
       },
     });
 
     expect(await driver.isTextButtonAs(someAs)).toEqual(true);
     expect(await driver.getTextButtonHref()).toEqual(someHref);
+    expect(await driver.getTextButtonAttr('target')).toEqual(target);
   });
 });

@@ -112,18 +112,16 @@ class FloatingNotification extends React.PureComponent {
 
   _getTextButton() {
     const { textButtonProps } = this.props;
-    const { label, as, href, onClick } = textButtonProps;
+    const { label, ...rest } = textButtonProps;
 
     return !isEmpty(textButtonProps) ? (
       <TextButton
+        {...rest}
         underline={'always'}
         skin={'dark'}
         size={'small'}
         className={styles.textButton}
         dataHook={TEXT_BUTTON_DATA_HOOK}
-        as={as}
-        href={href}
-        onClick={onClick}
       >
         {label}
       </TextButton>
@@ -132,18 +130,16 @@ class FloatingNotification extends React.PureComponent {
 
   _getButton() {
     const { buttonProps } = this.props;
-    const { label, as, href, onClick } = buttonProps;
+    const { label, ...rest } = buttonProps;
 
     return !isEmpty(buttonProps) ? (
       <Button
+        {...rest}
         className={styles.button}
         size={'tiny'}
         priority={'secondary'}
         skin={'dark'}
         dataHook={BUTTON_DATA_HOOK}
-        as={as}
-        href={href}
-        onClick={onClick}
       >
         {label}
       </Button>
