@@ -59,6 +59,24 @@ describe('RadioButton', () => {
     expect(onChange).not.toBeCalledWith(value);
   });
 
+  it('should set tabIndex to 0 by default', () => {
+    const driver = createDriver(<RadioButton value="1" />);
+
+    expect(driver.getTabIndex()).toEqual('0');
+  });
+
+  it('should set tabIndex according to tabIndex prop', () => {
+    const driver = createDriver(<RadioButton value="1" tabIndex={3} />);
+
+    expect(driver.getTabIndex()).toEqual('3');
+  });
+
+  it('should not be focusable if disabled prop is true', () => {
+    const driver = createDriver(<RadioButton value="1" disabled />);
+
+    expect(driver.getTabIndex()).toEqual(null);
+  });
+
   describe('given `content` prop', () => {
     it('should render node from that prop', () => {
       const driver = createDriver(<RadioButton content={<span>Hello</span>} />);

@@ -23,6 +23,7 @@ class RadioButton extends WixComponent {
     style: PropTypes.object,
     type: PropTypes.oneOf(['default', 'button']),
     lineHeight: PropTypes.string,
+    tabIndex: PropTypes.number,
 
     /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
     selectionArea: PropTypes.oneOf(['none', 'hover', 'always']),
@@ -35,6 +36,7 @@ class RadioButton extends WixComponent {
     vAlign: 'center',
     type: 'default',
     content: null,
+    tabIndex: 0,
   };
 
   constructor(props) {
@@ -84,6 +86,7 @@ class RadioButton extends WixComponent {
       style,
       vAlign,
       value,
+      tabIndex,
     } = this.props;
 
     return (
@@ -93,7 +96,7 @@ class RadioButton extends WixComponent {
           [styles.checked]: checked,
         })}
         style={style}
-        tabIndex={disabled ? null : 0}
+        tabIndex={disabled ? null : tabIndex}
         onFocus={this.props.focusableOnFocus}
         onBlur={this.props.focusableOnBlur}
         {...focusableStates(this.props)}

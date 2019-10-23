@@ -10,6 +10,7 @@ const radioButtonDriverFactory = ({ element }) => {
     isChecked: () => radioButton.checked,
     isDisabled: () => radioButton.disabled,
     getLabel: () => label.textContent,
+    getTabIndex: () => element.getAttribute('tabIndex'),
     getContent: () =>
       element.querySelector('[data-hook="radio-button-content"]'),
   };
