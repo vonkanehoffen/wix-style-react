@@ -1,6 +1,6 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: D10, D20, D50
+  -st-named: D10, D20, D50, D80
 }
 
 :import {
@@ -65,9 +65,12 @@
   color: white;
 }
 
-.root:appearance(H5):light,
-.root:appearance(H6):light {
+.root:appearance(H5):light {
   color: value(D50);
+}
+
+.root:appearance(H6):light {
+  color: value(D80);
 }
 
 .root {
