@@ -41,10 +41,18 @@ class FloatingNotification extends React.PureComponent {
     /** close button on click handler */
     onClose: PropTypes.func,
 
-    /** props to pass to textButton - renders the TextButton when not empty*/
+    /**
+     *  Props to pass to TextButton (renders the Button when not empty)
+     *  label - content of TextButton
+     *  ...rest - rest of othe props
+     */
     textButtonProps: buttonPropTypes,
 
-    /** props to pass to button - renders the Button when not empty */
+    /**
+     *  Props to pass to Button (renders the Button when not empty)
+     *  label - content of Button
+     *  ...rest - rest of othe props
+     */
     buttonProps: buttonPropTypes,
 
     /** An icon element to appear before content */
