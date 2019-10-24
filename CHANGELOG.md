@@ -19,6 +19,10 @@ Types of changes:
 ### Changed
 - `<MultiSelect/>` - remove pointer cursor from Tags on hover [#4382](https://github.com/wix/wix-style-react/pull/4382)
 
+### Fixed
+
+- `<Proportion/>` - make sure that proportion is not stretching more then its container size [#4385](https://github.com/wix/wix-style-react/pull/4385)
+
 ## 7.10.0 - 2019-10-23
 
 ### Added
