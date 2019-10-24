@@ -16,11 +16,14 @@ Types of changes:
 
 ## Next
 
+### Added
+`<AutoCompleteWithLabel />`, `<InputWithLabel />` - expose necessary Input props [#4386](https://github.com/wix/wix-style-react/pull/4386)
+
+
 ### Changed
 - `<MultiSelect/>` - remove pointer cursor from Tags on hover [#4382](https://github.com/wix/wix-style-react/pull/4382)
 
 ### Fixed
-
 - `<Proportion/>` - make sure that proportion is not stretching more then its container size [#4385](https://github.com/wix/wix-style-react/pull/4385)
 
 ## 7.10.0 - 2019-10-23
