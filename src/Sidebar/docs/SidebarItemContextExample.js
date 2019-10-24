@@ -1,5 +1,7 @@
-/* eslint-disable */
-class SidebarItemContextExample extends React.Component {
+import React from 'react';
+import Sidebar, { SidebarItemContextConsumer } from 'wix-style-react/Sidebar';
+
+export default class SidebarItemContextExample extends React.Component {
   render() {
     return (
       <div style={{ height: '500px', color: 'white' }}>

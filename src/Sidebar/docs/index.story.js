@@ -14,11 +14,13 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import SimpleSidebarRaw from '!raw-loader!./SimpleExample';
+import SidebarItemContext from './SidebarItemContextExample';
 import SidebarItemContextRaw from '!raw-loader!./SidebarItemContextExample';
 import compoundReadmeApi from '../COMPOUND_README.API.md';
 import contextReadmeApi from '../CONTEXT_README.API.md';
 
 import Sidebar from '..';
+import React from 'react';
 
 const importDeclaration = `
 ### For basic compositions:
@@ -35,12 +37,9 @@ const code = config =>
 export default {
   category: storySettings.category,
   storyName: storySettings.storyName,
-
   component: Sidebar,
   componentPath: '..',
-
   componentProps: {},
-
   sections: [
     header({
       sourceUrl:
@@ -68,16 +67,16 @@ export default {
               source: SimpleSidebarRaw,
             }),
           ]),
+          // This example is built differently because <SidebarItemContext/> loose context when it's raw
           columns([
             description({
               title: 'Custom Context Usage',
               text:
-                'Items can get internal selection logic from the `SidebarItemContextConsumer` context component. Check the source code for more information about how to use the context components, for example `<SidebarContextConsumer/> allows achieving custom back button behavior`',
+                'Items can get internal selection logic from the `SidebarItemContextConsumer` context component. Check the source code for more information about how to use the context components, for example `<SidebarContextConsumer/>` allows achieving custom back button behavior`',
             }),
-            code({
-              source: SidebarItemContextRaw,
-            }),
+            description(<SidebarItemContext />),
           ]),
+          code({ interactive: false, source: SidebarItemContextRaw }),
         ],
       }),
 
