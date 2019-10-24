@@ -77,7 +77,7 @@
     "------publish": "",
     "prepublishOnly": "npm run bundle",
     "postpublish": "if [ \"$NPM_PUBLISH_TYPE\" == \"re-publish\" ]; then npm install && npm run build && npm run storybook:build && npm run zeit-storybook-deploy; fi",
-
+    "pr-storybook:publish": "if [  \"$agentType\" = \"pullrequest\" ]; then npm run storybook:build && npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease; fi;",
     "zeit-storybook-deploy": "node ./scripts/zeit-deploy.js ",
 
     "------CI Parallel tasks (as in .ci_config)": "",
@@ -87,7 +87,7 @@
     "test4:e2e": "YOSHI_PROTRACTOR_CONFIG=./protractor2.conf.js npm run test:e2e",
     "test5:types": "npm run test:types",
     "test6:sanity": "npm run lint && npm run sanity",
-    "pr-storybook:publish": "if [  \"$agentType\" = \"pullrequest\" ]; then npm run storybook:build && npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease; fi;",
+    "test7:performance": "npm run test:performance",
 
     "------performance analysis tools": "",
     "bundles:analyse": "node ./scripts/bundlify-components/bundles-analyze.js",
