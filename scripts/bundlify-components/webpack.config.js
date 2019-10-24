@@ -5,7 +5,7 @@ const path = require('path');
 const { tryRequire } = require('yoshi-helpers/utils');
 const { createClientWebpackConfig } = require('yoshi/config/webpack.config');
 
-const config = createClientWebpackConfig({ isDebug: true });
+const config = createClientWebpackConfig({ isDebug: false });
 
 const ROOT_DIR = process.cwd();
 const resolvePath = (...args) => path.resolve(ROOT_DIR, ...args);
