@@ -5,7 +5,7 @@ const files = [
   ['AddItem.js', 103],
   ['AutoComplete.js', 148],
   ['AutoCompleteComposite.js', 152],
-  ['Avatar.js', 28],
+  ['Avatar.js', 46],
   ['Badge.js', 23],
   ['BadgeSelect.js', 120],
   ['BadgeSelectItemBuilder.js', 16],
