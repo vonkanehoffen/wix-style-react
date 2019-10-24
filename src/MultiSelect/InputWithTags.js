@@ -59,7 +59,6 @@ class InputWithTags extends React.Component {
     const isSelectMode = mode === 'select';
 
     const className = classNames({
-      [styles.showPointer]: !disabled,
       [styles.inputWithTagsContainer]: true,
       [styles.disabled]: disabled,
       [styles.error]: error,

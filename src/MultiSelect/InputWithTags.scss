@@ -22,10 +22,6 @@
   width: 100%;
 }
 
-.showPointer, .showPointer input {
-  cursor: pointer;
-}
-
 .readOnly {
   position: relative;
   padding-right: 55px;
@@ -62,6 +58,7 @@
   align-items: center;
   overflow-y: hidden;
   box-sizing: border-box;
+  user-select: none;
 
   &.disabled {
     background-color: $D10-05

@@ -1,6 +1,5 @@
 import React from 'react';
 import CodeExample from 'wix-storybook-utils/CodeExample';
-import LiveCodeExample from '../utils/LiveCodeExample';
 import MultiSelect from '../../src/MultiSelect';
 
 import {

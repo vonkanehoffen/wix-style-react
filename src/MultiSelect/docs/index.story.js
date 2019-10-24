@@ -89,11 +89,6 @@ export default {
       }),
 
       tab({
-        title: 'Playground',
-        sections: [playground()],
-      }),
-
-      tab({
         title: 'API',
         // Not using built-in api because we can not override props' description of InputWithOptions
         sections: [description(readmeApi)],
@@ -102,6 +97,11 @@ export default {
       tab({
         title: 'Testkit',
         sections: [description(readmeTestkit)],
+      }),
+
+      tab({
+        title: 'Playground',
+        sections: [playground()],
       }),
     ]),
   ],
