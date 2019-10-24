@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<MultiSelect/>` - remove pointer cursor from Tags on hover [#4382](https://github.com/wix/wix-style-react/pull/4382)
+
 ## 7.10.0 - 2019-10-23
 
 ### Added
