@@ -26,7 +26,7 @@ const files = [
   ['ColorInput.js', 162],
   ['ColorPicker.js', 156],
   ['ComposerHeader.js', 31],
-  ['ContactItemBuilder.js', 37],
+  ['ContactItemBuilder.js', 56],
   ['CounterBadge.js', 14],
   ['DataTable.js', 130],
   ['DateInput.js', 155],
