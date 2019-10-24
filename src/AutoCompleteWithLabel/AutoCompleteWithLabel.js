@@ -10,6 +10,7 @@ import styles from './AutoCompleteWithLabel.scss';
 
 import dataHooks from './dataHooks';
 import { optionValidator } from '../DropdownLayout/DropdownLayout';
+import classNames from 'classnames';
 
 class AutoCompleteWithLabel extends React.PureComponent {
   constructor(props) {
@@ -38,6 +39,21 @@ class AutoCompleteWithLabel extends React.PureComponent {
     onBlur: PropTypes.func,
     /** Standard input onChange callback */
     onChange: PropTypes.func,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    /** Standard React Input autoFocus (focus the element on mount) */
+    autoFocus: PropTypes.bool,
+    /** Sets value of autocomplete attribute (consult the [HTML spec](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete) for possible values  */
+    autocomplete: PropTypes.string,
+    /** when set to true this component is disabled */
+    disabled: PropTypes.bool,
+    /** A single CSS class name to be passed to the Input element. */
+    className: PropTypes.string,
+    /** Input max length */
+    maxLength: PropTypes.number,
+    /** Placeholder to display */
+    placeholder: PropTypes.string,
   };
 
   static defaultProps = {
@@ -70,6 +86,15 @@ class AutoCompleteWithLabel extends React.PureComponent {
       statusMessage,
       onFocus,
       onBlur,
+      name,
+      type,
+      ariaLabel,
+      autoFocus,
+      autocomplete,
+      disabled,
+      className,
+      maxLength,
+      placeholder,
     } = this.props;
     const { value } = this.state;
     const filteredOptions = value
@@ -104,9 +129,17 @@ class AutoCompleteWithLabel extends React.PureComponent {
             onBlur={onBlur}
             inputElement={
               <Input
+                name={name}
+                type={type}
+                ariaLabel={ariaLabel}
+                autoFocus={autoFocus}
+                autocomplete={autocomplete}
+                disabled={disabled}
+                maxLength={maxLength}
+                placeholder={placeholder}
                 dataHook={dataHooks.inputWithLabel}
                 value={value}
-                className={styles.inputContainer}
+                className={classNames(styles.inputContainer, className)}
                 suffix={suffixContainer}
                 status={status}
               />

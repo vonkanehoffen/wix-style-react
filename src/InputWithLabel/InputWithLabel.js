@@ -6,6 +6,7 @@ import Text from '../Text';
 import { PropTypes } from 'prop-types';
 import styles from './InputWithLabel.st.css';
 import dataHooks from './dataHooks';
+import classNames from 'classnames';
 
 class InputWithLabel extends React.Component {
   static propTypes = {
@@ -31,6 +32,21 @@ class InputWithLabel extends React.Component {
     onBlur: PropTypes.func,
     /** Standard input onChange callback */
     onChange: PropTypes.func,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    /** Standard React Input autoFocus (focus the element on mount) */
+    autoFocus: PropTypes.bool,
+    /** Sets value of autocomplete attribute (consult the [HTML spec](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete) for possible values  */
+    autocomplete: PropTypes.string,
+    /** when set to true this component is disabled */
+    disabled: PropTypes.bool,
+    /** A single CSS class name to be passed to the Input element. */
+    className: PropTypes.string,
+    /** Input max length */
+    maxLength: PropTypes.number,
+    /** Placeholder to display */
+    placeholder: PropTypes.string,
   };
 
   static defaultProps = {
@@ -48,6 +64,15 @@ class InputWithLabel extends React.Component {
       onChange,
       onFocus,
       onBlur,
+      name,
+      type,
+      ariaLabel,
+      autoFocus,
+      autocomplete,
+      disabled,
+      className,
+      maxLength,
+      placeholder,
     } = this.props;
     const suffixContainer = suffix
       ? suffix.map((item, index) => {
@@ -69,11 +94,19 @@ class InputWithLabel extends React.Component {
           dataHook={dataHooks.labelledElement}
         >
           <Input
+            name={name}
+            type={type}
+            ariaLabel={ariaLabel}
+            autoFocus={autoFocus}
+            autocomplete={autocomplete}
+            disabled={disabled}
+            maxLength={maxLength}
+            placeholder={placeholder}
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
             dataHook={dataHooks.input}
-            className={styles.inputContainer}
+            className={classNames(className, styles.inputContainer)}
             size="large"
             value={value}
             suffix={suffixContainer}
