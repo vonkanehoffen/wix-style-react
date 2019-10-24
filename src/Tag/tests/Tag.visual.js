@@ -95,25 +95,16 @@ const tests = [
         it: 'with max width prop',
         props: {
           maxWidth: 145,
-          wrap: true,
           children: 'I have a max width prop',
         },
       },
-      // {
-      //   it: 'long text',
-      //   props: {
-      //     wrap: true,
-      //     children:
-      //       'This is a very long text that is going to break in the middle with an ellipsis',
-      //   },
-      // },
-      // {
-      //   it: 'long text with line break',
-      //   props: {
-      //     children:
-      //       'This is a very long text that is going to break in the middle to the next line',
-      //   },
-      // },
+      {
+        it: 'long text',
+        props: {
+          children:
+            'This is a very long text that is going to break in the middle with an ellipsis',
+        },
+      },
     ],
   },
 ];

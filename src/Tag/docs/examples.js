@@ -45,3 +45,47 @@ export const themes = `
       </Tag>
 </React.Fragment>
 `;
+
+const thumb = `
+<div
+  style={{
+    backgroundColor: 'pink',
+    height: '100%',
+    width: '100%',
+  }}
+/>
+`;
+
+export const thumbs = `
+<React.Fragment>
+  <Tag thumb={${thumb}} size="tiny" onClick={(x)=>{}} onRemove={()=>{}}>
+      Hello World
+  </Tag>
+  <br/><br/>
+  <Tag thumb={${thumb}} size="small" onClick={(x)=>{}} onRemove={()=>{}}>
+      Hello World
+  </Tag>
+  <br/><br/>
+  <Tag thumb={${thumb}} size="medium" onClick={(x)=>{}} onRemove={()=>{}}>
+      Hello World
+  </Tag>
+  <br/><br/>
+  <Tag thumb={${thumb}} size="large" onClick={(x)=>{}} onRemove={()=>{}}>
+      Hello World
+  </Tag>
+</React.Fragment>
+`;
+
+export const removable = `
+<React.Fragment>
+  <p>Removable</p>
+  <Tag onClick={(x)=>{}} onRemove={()=>{}}>
+      Hello World
+  </Tag>
+  <br/><br/>
+  <p>Not removable</p>
+  <Tag removable={false} onClick={(x)=>{}} onRemove={()=>{}}>
+      Hello World
+  </Tag>
+</React.Fragment>
+`;

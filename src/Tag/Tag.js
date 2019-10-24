@@ -123,6 +123,7 @@ class Tag extends WixComponent {
 }
 
 Tag.propTypes = {
+  /** The text of the tag */
   children: PropTypes.string.isRequired,
 
   /** when set to true this component is disabled */
@@ -159,7 +160,7 @@ Tag.propTypes = {
   /** An optional maximum tag width in `px` for cropping. */
   maxWidth: PropTypes.number,
 
-  /* Standard className which has preference over any other intrinsic classes  */
+  /** Standard className which has preference over any other intrinsic classes  */
   className: PropTypes.string,
 };
 

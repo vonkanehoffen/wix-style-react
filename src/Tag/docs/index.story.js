@@ -87,6 +87,14 @@ export default {
             ({ title, source }) =>
               columns([description({ title }), code({ source })]),
           ),
+          ...[{ title: 'Thumb', source: examples.thumbs }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
+          ...[{ title: 'Removable', source: examples.removable }].map(
+            ({ title, source }) =>
+              columns([description({ title }), code({ source })]),
+          ),
         ],
       }),
 
