@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
-`<AutoCompleteWithLabel />`, `<InputWithLabel />` - expose necessary Input props [#4386](https://github.com/wix/wix-style-react/pull/4386)
+- `<AutoCompleteWithLabel />`, `<InputWithLabel />` - expose necessary Input props [#4386](https://github.com/wix/wix-style-react/pull/4386)
 
 
 ### Changed
