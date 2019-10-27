@@ -1,6 +1,7 @@
 import * as React from 'react';
+import WixComponent, {WixComponentProps} from "../BaseComponents/WixComponent";
 
-export interface BreadcrumbsProps {
+export interface BreadcrumbsProps extends WixComponentProps {
   items: BreadcrumbsItem[];
   onClick?: (BreadcrumbsItem) => any;
   activeId?: string | number,
@@ -8,7 +9,7 @@ export interface BreadcrumbsProps {
   theme?: BreadcrumbsTheme;
 }
 
-export default class Breadcrumbs extends React.PureComponent<BreadcrumbsProps> {
+export default class Breadcrumbs extends WixComponent<BreadcrumbsProps> {
 }
 
 export type BreadcrumbsItem = {
