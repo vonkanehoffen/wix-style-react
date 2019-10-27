@@ -10,7 +10,7 @@ const Content = ({ children, stickyStyle }) => {
 
 Content.displayName = 'Page.Content';
 Content.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   fullScreen: PropTypes.bool,
 };
 export default Content;
