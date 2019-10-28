@@ -23,7 +23,11 @@ const DropdownBaseWrapper = ({ componentDidMount, ...rest }) => {
     componentDidMount && componentDidMount();
   });
 
-  return <DropdownBase dataHook={dataHook} {...rest} />;
+  return (
+    <React.StrictMode>
+      <DropdownBase dataHook={dataHook} {...rest} />
+    </React.StrictMode>
+  );
 };
 
 const defaultProps = {

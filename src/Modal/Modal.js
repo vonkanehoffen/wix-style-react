@@ -148,7 +148,7 @@ class Modal extends WixComponent {
     }
 
     return (
-      <div>
+      <div ref={this.rootRef}>
         <ReactModal
           portalClassName={portalClassName}
           isOpen={isOpen}

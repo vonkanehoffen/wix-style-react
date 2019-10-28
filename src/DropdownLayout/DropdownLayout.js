@@ -277,6 +277,7 @@ class DropdownLayout extends WixComponent {
     });
     return (
       <div
+        ref={this.rootRef}
         tabIndex={tabIndex}
         className={classNames(
           styles.wrapper,

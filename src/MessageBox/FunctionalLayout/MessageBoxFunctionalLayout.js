@@ -104,7 +104,11 @@ class MessageBoxFunctionalLayout extends WixComponent {
     });
 
     return (
-      <div className={contentClassName} style={{ width, margin }}>
+      <div
+        ref={this.rootRef}
+        className={contentClassName}
+        style={{ width, margin }}
+      >
         <HeaderLayout
           title={title}
           onCancel={onClose ? onClose : onCancel}

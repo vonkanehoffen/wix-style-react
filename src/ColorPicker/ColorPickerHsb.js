@@ -21,7 +21,7 @@ export default class ColorPickerHsb extends WixComponent {
     window.addEventListener('touchend', this.onMarkerDragEnd);
     window.addEventListener('touchcancel', this.onMarkerDragEnd);
 
-    this.gradientRect = this.gradient.getBoundingClientRect();
+    this.gradientRect = this.rootRef.current.getBoundingClientRect();
     this.setNewColorByMouseEvent(e);
   };
 
@@ -77,9 +77,9 @@ export default class ColorPickerHsb extends WixComponent {
     };
     return (
       <div
+        ref={this.rootRef}
         className={css.root}
         data-hook="color-picker-hsb"
-        ref={e => (this.gradient = e)}
         onMouseDown={this.onMarkerDragStart}
         onTouchStart={this.onMarkerDragStart}
       >

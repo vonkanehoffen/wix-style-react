@@ -180,7 +180,7 @@ class Notification extends WixComponent {
 
   render() {
     return (
-      <div className={css.root}>
+      <div ref={this.rootRef} className={css.root}>
         <TransitionGroup component={FirstChild}>
           {this.shouldShowNotification() ? this.renderNotification() : null}
         </TransitionGroup>

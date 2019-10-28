@@ -80,7 +80,7 @@ class Highlighter extends WixComponent {
 
   render() {
     return (
-      <span>
+      <span ref={this.rootRef}>
         {highlight(this.props.children, this.props.match, this.nextChildKey)}
       </span>
     );

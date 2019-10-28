@@ -126,7 +126,7 @@ class FieldWithSelectionComposite extends WixComponent {
     inputsWrapperClassNames[styles.disabled] = this.props.disabled;
 
     return (
-      <div className={styles.wrapper}>
+      <div ref={this.rootRef} className={styles.wrapper}>
         {label}
         <div
           className={classNames(inputsWrapperClassNames)}
