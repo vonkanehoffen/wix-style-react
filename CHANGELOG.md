@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
-- `<AutoCompleteWithLabel />`, `<InputWithLabel />` - expose necessary Input props [#4386](https://github.com/wix/wix-style-react/pull/4386)
+- `<AutoCompleteWithLabel/>`, `<InputWithLabel/>` - expose necessary Input props [#4386](https://github.com/wix/wix-style-react/pull/4386)
 
 ### Changed
 - `<MultiSelect/>` - remove pointer cursor from Tags on hover [#4382](https://github.com/wix/wix-style-react/pull/4382)
@@ -25,6 +25,7 @@ Types of changes:
 
 ### Fixed
 - `<Proportion/>` - make sure that proportion is not stretching more then its container size [#4385](https://github.com/wix/wix-style-react/pull/4385)
+- `<AutoCompleteWithLabel/>` - fix callback for onSelect [#4398](https://github.com/wix/wix-style-react/pull/4398)
 
 ### Docs
 - `<Sidebar/>` - fix broken example in story page [#4388](https://github.com/wix/wix-style-react/pull/4388)
