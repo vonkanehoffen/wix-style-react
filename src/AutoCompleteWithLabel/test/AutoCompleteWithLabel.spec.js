@@ -76,4 +76,24 @@ describe('AutoCompleteWithLabel', () => {
       }),
     );
   });
+
+  it('should trigger onSelect if provided', async () => {
+    const onSelect = jest.fn();
+    const options = [
+      { id: 0, value: 'aaa' },
+      { id: 1, value: 'abb' },
+      { id: 2, value: 'bbb' },
+      { id: 3, value: 'bcc' },
+    ];
+    const { driver } = render(
+      <AutoCompleteWithLabel
+        label="my autocomplete"
+        options={options}
+        onSelect={onSelect}
+      />,
+    );
+    await driver.clickAtOption(0);
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledWith('aaa');
+  });
 });

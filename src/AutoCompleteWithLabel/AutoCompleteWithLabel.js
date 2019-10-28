@@ -54,6 +54,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
     maxLength: PropTypes.number,
     /** Placeholder to display */
     placeholder: PropTypes.string,
+    /** Callback function called whenever the user selects a different option in the list */
+    onSelect: PropTypes.func,
   };
 
   static defaultProps = {
@@ -67,7 +69,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
     this.setState({
       value,
     });
-    this.props.onChange(value);
+    this.props.onSelect(value);
   };
 
   onChange = event => {
