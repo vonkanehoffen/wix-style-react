@@ -336,10 +336,7 @@
     ]
   },
   "Tabs": {
-    "path": "src/Tabs",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/Tabs"
   },
   "Tag": {
     "path": "src/Tag"

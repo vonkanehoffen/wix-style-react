@@ -143,7 +143,7 @@ require('../src/Swatches/docs/index.story');
 require('../src/Table/docs/index.story');
 require('../src/TableActionCell/docs/index.story');
 require('../src/TableToolbar/docs/ToolbarStory');
-require('../src/Tabs/docs');
+require('../src/Tabs/docs/index.story');
 require('../src/Tag/docs/index.story');
 require('../src/Text/docs/index.story');
 require('../src/TextButton/docs/index.story');
