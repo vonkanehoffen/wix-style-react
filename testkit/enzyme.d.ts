@@ -133,6 +133,7 @@ declare namespace EnzymeTestkit {
   export const autoCompleteWithLabelTestkitFactory: any;
   export const dividerTestkitFactory: any;
   export const labelledElementTestkitFactory: any;
+  export const mediaOverlayTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

@@ -127,6 +127,7 @@ export const inputWithLabelTestkitFactory = puppeteerUniTestkitFactoryCreator(lo
 export const autoCompleteWithLabelTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/AutoCompleteWithLabel/AutoCompleteWithLabel.uni.driver')));
 export const dividerTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const labelledElementTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
+export const mediaOverlayTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
 export const drillViewTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.uni.driver')));
 export const cardHeaderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const sideMenuTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));

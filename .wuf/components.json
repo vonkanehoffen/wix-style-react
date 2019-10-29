@@ -400,5 +400,8 @@
   },
   "LabelledElement": {
     "path": "src/LabelledElement"
+  },
+  "MediaOverlay": {
+    "path": "src/MediaOverlay"
   }
 }

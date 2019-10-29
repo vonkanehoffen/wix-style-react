@@ -66,6 +66,7 @@ const files = [
   ['LinearProgressBar.js', 33],
   ['ListItemAction.js', 13],
   ['Loader.js', 44],
+  ['MediaOverlay.js', 14],
   ['Modal.js', 11],
   ['ModalPreviewLayout.js', 20],
   ['ModalSelectorLayout.js', 84],

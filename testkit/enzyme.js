@@ -146,6 +146,7 @@ export const inputWithLabelTestkitFactory = enzymeUniTestkitFactoryCreator(load(
 export const autoCompleteWithLabelTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/AutoCompleteWithLabel/AutoCompleteWithLabel.uni.driver')));
 export const dividerTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const labelledElementTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
+export const mediaOverlayTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
 export const sideMenuDrillTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

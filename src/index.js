@@ -150,3 +150,4 @@ export { default as FillButton } from './FillButton';
 export { default as BarChart } from './BarChart';
 export { default as AutoCompleteWithLabel } from './AutoCompleteWithLabel';
 export { default as Divider } from './Divider';
+export { default as MediaOverlay } from './MediaOverlay';
