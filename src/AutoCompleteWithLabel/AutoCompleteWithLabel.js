@@ -69,7 +69,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
     this.setState({
       value,
     });
-    this.props.onSelect(value);
+    this.props.onSelect(option);
   };
 
   onChange = event => {
@@ -77,6 +77,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
     this.setState({ value });
     this.props.onChange && this.props.onChange(event);
   };
+
+  _isInputControlled = () => typeof this.props.value !== 'undefined';
 
   render() {
     const {
@@ -98,7 +100,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
       maxLength,
       placeholder,
     } = this.props;
-    const { value } = this.state;
+    const { value } = this._isInputControlled() ? this.props : this.state;
     const filteredOptions = value
       ? options.filter(option =>
           option.value.toLowerCase().includes(value.toLowerCase()),
@@ -118,9 +120,9 @@ class AutoCompleteWithLabel extends React.PureComponent {
     return (
       <div data-hook={dataHook}>
         <LabelledElement
-          value={value}
           label={label}
           dataHook={dataHooks.labelledElement}
+          value={value}
         >
           <InputWithOptions
             onChange={this.onChange}
@@ -147,7 +149,6 @@ class AutoCompleteWithLabel extends React.PureComponent {
               />
             }
             options={filteredOptions}
-            value={value}
           />
         </LabelledElement>
         {status === Input.StatusError && statusMessage && (
