@@ -24,6 +24,7 @@ Types of changes:
 
 ### Fixed
 - `<MultiSelect/>` - Remove little bounce of I-cursor when input gets focus [#4384](https://github.com/wix/wix-style-react/pull/4384)
+- `<AutoCompleteWithLabel/>` - fix controlled mode [#4404](https://github.com/wix/wix-style-react/pull/4404)
 
 ## 7.11.0 - 2019-10-28
 
