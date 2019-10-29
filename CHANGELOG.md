@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<SortableList/>` - droppable feature [#4409](https://github.com/wix/wix-style-react/pull/4409)
+- `<SortableList/>` - insert rule feature [#4406](https://github.com/wix/wix-style-react/pull/4406)
 - `<MediaOverlay />` - new component [#4396](https://github.com/wix/wix-style-react/pull/4396)
 
 ### Fixed
