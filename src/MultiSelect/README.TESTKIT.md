@@ -13,6 +13,8 @@ The `<MultiSelect/>` TestKit is exposing the following drivers:
 |--------|-----------|----------------|-------------|
 | clickOnInputWrapper | - | - | click on the input element wrapper |
 | inputWrapperHasFocus | - | boolean | returns is the input is focused |
+| inputWrapperHasError | - | boolean | returns true the input has error |
+| inputWrapperIsDisabled | - | boolean | returns true the input is disabled |
 | numberOfTags | - | number | returns the number of tags selected in the input |
 | getTagLabelAt | index | string | returns the label of the tag given it's index |
 | pressCommaKey | - | - | press the comma key in the input field |
