@@ -1,5 +1,5 @@
 /* eslint-disable */
-class SimpleSidebar extends React.Component {
+class InnerMenuExample extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,34 +14,45 @@ class SimpleSidebar extends React.Component {
             <div
               style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}
             >
-              Simple Sidebar
+              Inner Menu Sidebar
             </div>
           </Sidebar.PersistentHeader>
 
-          <Sidebar.Item itemKey={'item1'} disable="true">
-            This is just a long text without any margins or padding that will break into several lines
-          </Sidebar.Item>
+          <SidebarSectionItem>
+            Item 1
+          </SidebarSectionItem>
+          <SidebarSectionItem>
+            Item 2
+          </SidebarSectionItem>
 
-          <Sidebar.Item itemKey={'item2'} disable="true">
-            <Box margin={1} backgroundColor={"#eee"} padding={1}>
-              <Checkbox disabled>
-                Disabled
-              </Checkbox>
-            </Box>
-          </Sidebar.Item>
-          <Sidebar.Item itemKey={'item3'}>
-            <Box margin={3}>
-              <Button size="small" skin="premium">
-                A button
-              </Button>
-            </Box>
+          <Sidebar.Item
+            itemKey={'apps'}
+            innerMenu={[
+              <Sidebar.BackButton>
+                <Box margin="18px 24px">
+                  <TextButton prefixIcon={<Icons.ChevronLeft />} size="small" weight="normal">
+                    Main Menu
+                  </TextButton>
+                </Box>
+              </Sidebar.BackButton>,
+              <SidebarSectionItem>
+                Inner item 1
+              </SidebarSectionItem>,
+              <SidebarSectionItem>
+                Inner item 2
+              </SidebarSectionItem>,
+            ]}
+          >
+            <SidebarSectionItem drillable>
+              Inner Menu
+            </SidebarSectionItem>
           </Sidebar.Item>
 
           <Sidebar.PersistentFooter>
             <div
               style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}
             >
-              Sidebar Footer
+              Inner Menu Footer
             </div>
           </Sidebar.PersistentFooter>
         </Sidebar>
