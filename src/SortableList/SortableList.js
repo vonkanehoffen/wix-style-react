@@ -16,6 +16,7 @@ class SortableList extends WixComponent {
     animationDuration: 0,
     animationTiming: '',
     droppable: true,
+    insertPosition: 'any',
   };
 
   state = {
@@ -136,6 +137,21 @@ class SortableList extends WixComponent {
     return [shiftX, shiftY];
   };
 
+  getInsertionIndex = (addedIndex, item) => {
+    const { insertPosition } = this.props;
+    const { items } = this.state;
+
+    if (insertPosition === 'start') {
+      return 0;
+    }
+
+    if (insertPosition === 'end') {
+      return items.includes(item) ? items.length - 1 : items.length;
+    }
+
+    return addedIndex;
+  };
+
   /**
    * Called when DragSource (list item) is hovered over DragTarget (other list item)
    * Calculates animation shifts & adds new element if it was dragged from another list
@@ -146,7 +162,10 @@ class SortableList extends WixComponent {
    * @param {number|string} prop.id item's `id`
    * @param {object} prop.item item from `items` prop that is being dragged
    * */
-  handleHover = ({ addedIndex, item }) => {
+  handleHover = prop => {
+    const { addedIndex, item } = prop;
+    const indexToInsert = this.getInsertionIndex(addedIndex, item);
+
     this.setState(prevState => {
       const originalIndex = this.state.items.indexOf(item);
       const items = [...prevState.items];
@@ -155,12 +174,12 @@ class SortableList extends WixComponent {
 
       // New item added from other list
       if (originalIndex < 0) {
-        items.splice(addedIndex, 0, item);
+        items.splice(indexToInsert, 0, item);
         draggedId = item.id;
       }
       // Existing item moved
       else {
-        const moveToIndex = Math.min(items.length - 1, addedIndex);
+        const moveToIndex = Math.min(items.length - 1, indexToInsert);
         const shiftForward = moveToIndex > originalIndex;
 
         animationShifts = {
@@ -184,13 +203,26 @@ class SortableList extends WixComponent {
     addedToContainerId,
     removedFromContainerId,
   }) => {
+    const index = this.getInsertionIndex(addedIndex, payload);
+    this.reSetAnimationState();
+    this.changeItemPlace(payload, index); //put element at right place after drop
     this.props.onDrop({
       payload,
-      addedIndex,
+      addedIndex: index,
       removedIndex,
       addedToContainerId,
       removedFromContainerId,
     });
+  };
+
+  changeItemPlace = (item, index) => {
+    const items = [...this.state.items];
+    const originalIndex = items.indexOf(item);
+    if (originalIndex !== -1) {
+      items.splice(originalIndex, 1);
+    }
+    items.splice(index, 0, item);
+    this.setState({ items });
   };
 
   handleDragStart = data => {
@@ -250,6 +282,7 @@ class SortableList extends WixComponent {
       animationTiming,
       droppable,
     } = this.props;
+    const { items, animationShifts, draggedId } = this.state;
     const common = {
       groupName,
       droppable,
@@ -265,35 +298,38 @@ class SortableList extends WixComponent {
     return (
       <Container
         className={className}
+        onDrop={this.handleDrop}
         total={this.state.items.length}
         {...common}
       >
         <div className={contentClassName}>
-          {this.state.items.map((item, index) => (
-            <Draggable
-              key={`${item.id}-${containerId}`}
-              shift={this.state.animationShifts[index]}
-              hasDragged={
-                !!this.state.draggedId && this.state.draggedId !== item.id
-              }
-              setWrapperNode={this.setWrapperNode}
-              animationDuration={animationDuration}
-              animationTiming={animationTiming}
-              {...common}
-              id={item.id}
-              index={index}
-              item={item}
-              renderItem={this.renderItem}
-              withHandle={withHandle}
-              usePortal={usePortal}
-              onDrop={this.handleDrop}
-              onDragStart={this.handleDragStart}
-              onDragEnd={this.handleDragEnd}
-              canDrag={this.props.canDrag}
-              delay={this.props.delay}
-              listOfPropsThatAffectItems={this.props.listOfPropsThatAffectItems}
-            />
-          ))}
+          {items.map((item, index) => {
+            return (
+              <Draggable
+                key={`${item.id}-${containerId}`}
+                shift={animationShifts[index]}
+                hasDragged={!!draggedId && draggedId !== item.id}
+                setWrapperNode={this.setWrapperNode}
+                animationDuration={animationDuration}
+                animationTiming={animationTiming}
+                {...common}
+                id={item.id}
+                index={index}
+                item={item}
+                renderItem={this.renderItem}
+                withHandle={withHandle}
+                usePortal={usePortal}
+                onDrop={this.handleDrop}
+                onDragStart={this.handleDragStart}
+                onDragEnd={this.handleDragEnd}
+                canDrag={this.props.canDrag}
+                delay={this.props.delay}
+                listOfPropsThatAffectItems={
+                  this.props.listOfPropsThatAffectItems
+                }
+              />
+            );
+          })}
         </div>
       </Container>
     );
@@ -310,6 +346,8 @@ SortableList.propTypes = {
   /** indicates if user can drop item in the list by default it's true */
   droppable: PropTypes.bool,
   ...Draggable.propTypes,
+  /** function that specifying where the item can be inserted */
+  insertPosition: PropTypes.oneOf(['start', 'end', 'any']),
   /** in case of wrong position of item during drag you can force SortableList to use portals */
   usePortal: PropTypes.bool,
   /**

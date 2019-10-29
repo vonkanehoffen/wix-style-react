@@ -90,6 +90,7 @@ const target = {
       after any hovers, we need to save also real position of monitor, with real links to current container
     */
     monitorItem.realTime.onMoveOut = props.onMoveOut;
+    monitorItem.realTime.onDrop = props.onDrop;
     monitorItem.realTime.containerId = props.containerId;
     /**
       call callback, to ask parent to do some action, for example swap items or add new one,
@@ -131,6 +132,7 @@ Container.propTypes = {
   groupName: PropTypes.string,
   index: PropTypes.number,
   onMoveOut: PropTypes.func,
+  onDrop: PropTypes.func,
   onHover: PropTypes.func,
   droppable: PropTypes.bool,
 };

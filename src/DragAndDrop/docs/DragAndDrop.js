@@ -16,6 +16,7 @@ import {
   MultiAreaList,
   MultiAreaListWithSortableColumns,
   MultiAreaListWithSortableColumnsWithAnimations,
+  MultiAreaListWithInsertionRules,
   Styles as SortableListStyles,
 } from './SortableList';
 
@@ -51,6 +52,9 @@ storiesOf('WIP/Drag And Drop/SortableList', module)
   ))
   .add('Multi Area List with sortable columns', () => (
     <MultiAreaListWithSortableColumns />
+  ))
+  .add('Multi Area List with insertion rules', () => (
+    <MultiAreaListWithInsertionRules />
   ))
   .add('Multi Area List with sortable columns with animations', () => (
     <MultiAreaListWithSortableColumnsWithAnimations />

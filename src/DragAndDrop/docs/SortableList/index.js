@@ -13,5 +13,8 @@ export {
 } from './MultiAreaListWithSortableColumns';
 export { default as Styles } from './Styles';
 export {
+  default as MultiAreaListWithInsertionRules,
+} from './MultiAreaListWithInsertionRules';
+export {
   default as MultiAreaListWithSortableColumnsWithAnimations,
 } from './MultiAreaListWithSortableColumnsWithAnimations';

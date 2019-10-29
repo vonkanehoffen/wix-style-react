@@ -338,6 +338,78 @@ describe('SortableList', () => {
     expect(props.onDragStart).not.toBeCalled();
   });
 
+  it('should insert at end of the list', () => {
+    const dataHook = 'sortable-list';
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+      { id: '3', text: 'item 3' },
+    ];
+    const onDrop = jest.fn();
+    const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
+
+    const wrapper = ReactTestUtils.renderIntoDocument(
+      <DragDropContextProvider backend={TestBackend}>
+        <SortableList
+          contentClassName="cl"
+          dataHook={dataHook}
+          containerId="sortable-list"
+          items={items}
+          insertPosition="end"
+          renderItem={renderItem}
+          onDrop={onDrop}
+        />
+      </DragDropContextProvider>,
+    );
+    const driver = sortableListTestkitFactory({ wrapper, dataHook });
+
+    driver.reorder({ removedId: '1', addedId: '2' });
+
+    expect(onDrop).toBeCalledWith({
+      addedIndex: 2,
+      addedToContainerId: 'sortable-list',
+      payload: { id: '1', text: 'item 1' },
+      removedFromContainerId: 'sortable-list',
+      removedIndex: 0,
+    });
+  });
+
+  it('should insert at start of the list', () => {
+    const dataHook = 'sortable-list';
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+      { id: '3', text: 'item 3' },
+    ];
+    const onDrop = jest.fn();
+    const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
+
+    const wrapper = ReactTestUtils.renderIntoDocument(
+      <DragDropContextProvider backend={TestBackend}>
+        <SortableList
+          contentClassName="cl"
+          dataHook={dataHook}
+          containerId="sortable-list"
+          items={items}
+          insertPosition="start"
+          renderItem={renderItem}
+          onDrop={onDrop}
+        />
+      </DragDropContextProvider>,
+    );
+    const driver = sortableListTestkitFactory({ wrapper, dataHook });
+
+    driver.reorder({ removedId: '1', addedId: '2' });
+
+    expect(onDrop).toBeCalledWith({
+      addedIndex: 0,
+      addedToContainerId: 'sortable-list',
+      payload: { id: '1', text: 'item 1' },
+      removedFromContainerId: 'sortable-list',
+      removedIndex: 0,
+    });
+  });
+
   it('should contain prop to set custom  class (`isListInDragState`) while dragging', () => {
     const renderItem = ({ item, isListInDragState }) => (
       <div
