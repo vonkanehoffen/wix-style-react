@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- `<SortableList/>` - droppable feature [#4409](https://github.com/wix/wix-style-react/pull/4409)
+
 ### Fixed
 - `<MultiSelect/>` - Remove little bounce of I-cursor when input gets focus [#4384](https://github.com/wix/wix-style-react/pull/4384)
 
