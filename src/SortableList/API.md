@@ -44,6 +44,7 @@
   | withHandle       | bool     | false        | -          | should whole item be draggable or just handle on it|
   | usePortal        | bool     | false        | -          | render item preview into body|
   | dragPreview      | bool     | false        | -          | in case if you have nested SortableLists, you need to set dragPreview to true when you drag nested SortableList |
+  | droppable        | bool     | true         | -          | indicates if user can drop items in the list  |
   | animationDuration| number   | 0            | -          | animation duration. Please note, `SortableList` uses CSS `transition`s to animate itself
   | animationTiming  | string   | ''           | -          | animation timing function
   | delay            | number   |  -           | -          | number of ms that user should press on item before drag will start

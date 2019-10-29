@@ -32,6 +32,9 @@ const target = {
       index: monitor.getItem().index,
     };
   },
+  canDrop(props) {
+    return props.droppable;
+  },
   hover(props, monitor, component) {
     if (!component) {
       return;
@@ -61,7 +64,7 @@ const target = {
       props.groupName &&
       monitorItem.groupName &&
       props.groupName === monitorItem.groupName;
-    if (!isSameGroup || !component) {
+    if (!props.droppable || !isSameGroup || !component) {
       return;
     }
     /** end of block */
@@ -129,6 +132,11 @@ Container.propTypes = {
   index: PropTypes.number,
   onMoveOut: PropTypes.func,
   onHover: PropTypes.func,
+  droppable: PropTypes.bool,
+};
+
+Container.defaultProps = {
+  droppable: true,
 };
 
 export default DropTarget(ItemTypes.DRAGGABLE, target, connect => ({

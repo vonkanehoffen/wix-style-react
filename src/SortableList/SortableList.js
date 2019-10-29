@@ -15,6 +15,7 @@ class SortableList extends WixComponent {
   static defaultProps = {
     animationDuration: 0,
     animationTiming: '',
+    droppable: true,
   };
 
   state = {
@@ -247,9 +248,11 @@ class SortableList extends WixComponent {
       usePortal,
       animationDuration,
       animationTiming,
+      droppable,
     } = this.props;
     const common = {
       groupName,
+      droppable,
       containerId,
       onHover: this.handleHover,
       onMoveOut: this.handleMoveOut,
@@ -304,6 +307,8 @@ SortableList.contextTypes = {
 };
 
 SortableList.propTypes = {
+  /** indicates if user can drop item in the list by default it's true */
+  droppable: PropTypes.bool,
   ...Draggable.propTypes,
   /** in case of wrong position of item during drag you can force SortableList to use portals */
   usePortal: PropTypes.bool,

@@ -23,6 +23,9 @@ const target = {
       groupName: props.groupName,
     };
   },
+  canDrop(props) {
+    return props.droppable;
+  },
   hover(props, monitor, component) {
     const monitorItem = monitor.getItem();
     const dragIndex = monitorItem.index; // position of item that we drag
@@ -38,7 +41,11 @@ const target = {
       return;
     }
     /** in case that we hover over itself - do nothing */
-    if (!component || (hoverIndex === dragIndex && isSameContainer)) {
+    if (
+      !props.droppable ||
+      !component ||
+      (hoverIndex === dragIndex && isSameContainer)
+    ) {
       return;
     }
     /**
@@ -90,10 +97,15 @@ class DraggableTarget extends WixComponent {
   }
 }
 
+DraggableTarget.defaultProps = {
+  droppable: true,
+};
+
 DraggableTarget.propTypes = {
   children: PropTypes.any,
   connectDropTarget: PropTypes.func, // from react-dnd
   containerId: PropTypes.string,
+  droppable: PropTypes.bool,
   groupName: PropTypes.string,
   index: PropTypes.number,
   onMoveOut: PropTypes.func,
