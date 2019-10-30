@@ -29,7 +29,7 @@ DataTableHeader.propTypes = {
 class DataTable extends React.Component {
   constructor(props) {
     super(props);
-    let state = { selectedRows: {} };
+    let state = { selectedRows: new Map() };
     if (props.infiniteScroll) {
       state = { ...state, ...this.createInitialScrollingState(props) };
     }
@@ -142,7 +142,7 @@ class DataTable extends React.Component {
   onRowClick = (rowData, rowNum) => {
     const { onRowClick, rowDetails } = this.props;
     onRowClick && onRowClick(rowData, rowNum);
-    rowDetails && this.toggleRowDetails(rowNum);
+    rowDetails && this.toggleRowDetails(rowData);
   };
 
   renderRow = (rowData, rowNum, style) => {
@@ -228,7 +228,7 @@ class DataTable extends React.Component {
     ];
 
     if (rowDetails) {
-      const showDetails = !!this.state.selectedRows[rowNum];
+      const showDetails = !!this.state.selectedRows.get(rowData);
 
       rowsToRender.push(
         <tr
@@ -294,13 +294,17 @@ class DataTable extends React.Component {
   };
 
   toggleRowDetails = selectedRow => {
-    let selectedRows = { [selectedRow]: !this.state.selectedRows[selectedRow] };
-    if (this.props.allowMultiDetailsExpansion && !this.props.virtualized) {
-      selectedRows = Object.assign({}, this.state.selectedRows, {
-        [selectedRow]: !this.state.selectedRows[selectedRow],
-      });
-    }
-    this.setState({ selectedRows });
+    const { selectedRows } = this.state;
+
+    const allowMultipleRowDetails =
+      this.props.allowMultiDetailsExpansion && !this.props.virtualized;
+
+    const newSelectedRows = new Map([
+      ...(allowMultipleRowDetails ? [...selectedRows] : []),
+      [selectedRow, !selectedRows.get(selectedRow)],
+    ]);
+
+    this.setState({ selectedRows: newSelectedRows });
   };
 
   renderVirtualizedRow = ({ index, style }) =>
