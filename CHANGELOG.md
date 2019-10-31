@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<ModalMobileLayout/>` - create component [#4400](https://github.com/wix/wix-style-react/pull/4400)
+
 ### Fixed
 
 - `<StatisticsWidget/>` - Fix onClick issue [#4419](https://github.com/wix/wix-style-react/pull/4419)
