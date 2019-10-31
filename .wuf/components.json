@@ -401,6 +401,9 @@
   "LabelledElement": {
     "path": "src/LabelledElement"
   },
+  "ModalMobileLayout": {
+    "path": "src/ModalMobileLayout"
+  },
   "MediaOverlay": {
     "path": "src/MediaOverlay"
   }

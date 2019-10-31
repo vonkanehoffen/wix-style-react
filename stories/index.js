@@ -36,6 +36,7 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 
 // 9. Modals
 require('../src/MessageBox/docs');
+require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 
 // Components API
 require('../src/Accordion/docs/index.story');
@@ -109,6 +110,7 @@ require('../src/Loader/docs/index.story');
 require('../src/MediaOverlay/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');
 require('../src/Modal/docs/index.story');
+require('../src/ModalMobileLayout/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/ModalSelectorLayout/docs/index.story');
 require('../src/MultiSelect/docs/index.story');
