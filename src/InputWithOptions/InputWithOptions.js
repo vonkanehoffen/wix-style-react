@@ -80,7 +80,12 @@ class InputWithOptions extends Component {
     this.setState({ isComposing });
   }
 
-  onClickOutside = () => this.hideOptions();
+  onClickOutside = () => {
+    if (this.isDropdownLayoutVisible()) {
+      this.hideOptions();
+      this.props.onClickOutside && this.props.onClickOutside();
+    }
+  };
 
   renderInput() {
     const inputAdditionalProps = this.inputAdditionalProps();

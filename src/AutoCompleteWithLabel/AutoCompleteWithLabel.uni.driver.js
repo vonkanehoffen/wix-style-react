@@ -24,5 +24,7 @@ export const autoCompleteWithLabelDriverFactory = base => {
       await inputDriver.click();
       return dropdownLayoutDriver.clickAtOption(optionIndex);
     },
+    clickOnInput: () => inputDriver.click(),
+    clickOutside: () => inputDriver.clickOutside(),
   };
 };

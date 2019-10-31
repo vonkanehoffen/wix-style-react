@@ -414,11 +414,15 @@ describe('InputWithOptions', () => {
     });
 
     it('should hide options on outside click', async () => {
+      const onClickOutside = jest.fn();
       const { driver, dropdownLayoutDriver } = createDriver(
-        <InputWithOptions options={options} />,
+        <InputWithOptions options={options} onClickOutside={onClickOutside} />,
       );
+      await driver.pressKey('ArrowDown');
+      expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
       await driver.outsideClick();
       expect(await dropdownLayoutDriver.isShown()).toBeFalsy();
+      expect(onClickOutside).toHaveBeenCalledTimes(1);
     });
 
     it('should not hide options on selection', async () => {

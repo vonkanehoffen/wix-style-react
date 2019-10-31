@@ -97,6 +97,26 @@ describe('AutoCompleteWithLabel', () => {
     expect(onSelect).toHaveBeenCalledWith({ id: 0, value: 'aaa' });
   });
 
+  it('should trigger onClickOutside from InputWithOptions dropdown', async () => {
+    const onClickOutside = jest.fn();
+    const options = [
+      { id: 0, value: 'aaa' },
+      { id: 1, value: 'abb' },
+      { id: 2, value: 'bbb' },
+      { id: 3, value: 'bcc' },
+    ];
+    const { driver } = render(
+      <AutoCompleteWithLabel
+        label="my autocomplete"
+        options={options}
+        onClickOutside={onClickOutside}
+      />,
+    );
+    await driver.clickOnInput();
+    await driver.clickOutside();
+    expect(onClickOutside).toHaveBeenCalledTimes(1);
+  });
+
   describe('controlled mode', () => {
     it('should render dictated value', async () => {
       const options = [
