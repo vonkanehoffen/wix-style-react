@@ -27,7 +27,7 @@ Types of changes:
 
 ### Docs
 
-- Cheatsheet - add `<ModalMobileLayout/>` to modal family (#4432)
+- Cheatsheet - add `<ModalMobileLayout/>` to modal family [#4432](https://github.com/wix/wix-style-react/pull/4432)
 
 ## 7.12.0 - 2019-10-29
 
