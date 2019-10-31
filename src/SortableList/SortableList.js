@@ -167,7 +167,9 @@ class SortableList extends WixComponent {
     const indexToInsert = this.getInsertionIndex(addedIndex, item);
 
     this.setState(prevState => {
-      const originalIndex = this.state.items.indexOf(item);
+      const originalIndex = this.state.items.findIndex(
+        ({ id }) => id === item.id,
+      );
       const items = [...prevState.items];
       let animationShifts = {};
       let { draggedId } = this.state;
