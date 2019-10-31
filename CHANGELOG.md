@@ -25,6 +25,10 @@ Types of changes:
 - `<SortableList/>` - fix doubling of items during dragging [#4425](https://github.com/wix/wix-style-react/pull/4425)
 - `<ImageViewer/>` - re-add `showRemoveButton` prop [#4408](https://github.com/wix/wix-style-react/pull/4408)
 
+### Docs
+
+- Cheatsheet - add `<ModalMobileLayout/>` to modal family (#4432)
+
 ## 7.12.0 - 2019-10-29
 
 ### Added
