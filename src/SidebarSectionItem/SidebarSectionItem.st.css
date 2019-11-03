@@ -22,7 +22,7 @@
 }
 
 :vars {
-  paddingWithoutSuffix: 6px 42px 6px 24px;
+  paddingWithoutSuffix: 6px 24px 6px 24px;
   paddingWithSuffix: 6px 18px 6px 24px;
   chevronPartialOpacity: 0.3;
 }
@@ -130,6 +130,7 @@
 
 .root:suffix, .root:prefix:drillable:hover {
   padding: value(paddingWithSuffix);
+  min-width: 24px;
 }
 
 .prefix {
@@ -141,6 +142,5 @@
 
   display: block;
   flex-grow: 1;
-  max-width: 154px;
   word-break: break-word;
 }
