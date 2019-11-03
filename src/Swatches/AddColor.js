@@ -26,10 +26,14 @@ class AddColor extends React.PureComponent {
       color: EMPTY_COLOR,
     });
 
-  setColor = color =>
+  setColor = color => {
     this.setState({
       color,
     });
+    if (this.props.onChange) {
+      this.props.onChange(color.hex());
+    }
+  };
 
   confirm = () => {
     this.hideColorPicker();
