@@ -146,6 +146,7 @@ export const inputWithLabelTestkitFactory = uniTestkitFactoryCreator(load(requir
 export const autoCompleteWithLabelTestkitFactory = uniTestkitFactoryCreator(load(require('../src/AutoCompleteWithLabel/AutoCompleteWithLabel.uni.driver')));
 export const dividerTestkitFactory = uniTestkitFactoryCreator(load(require('../src/Divider/Divider.uni.driver')));
 export const labelledElementTestkitFactory = uniTestkitFactoryCreator(load(require('../src/LabelledElement/LabelledElement.uni.driver')));
+export const previewWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/PreviewWidget/PreviewWidget.uni.driver')));
 export const modalMobileLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ModalMobileLayout/ModalMobileLayout.uni.driver')));
 export const mediaOverlayTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));

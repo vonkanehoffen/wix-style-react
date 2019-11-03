@@ -275,4 +275,10 @@ export default {
       media: <div />,
     },
   },
+
+  PreviewWidget: {
+    props: {
+      children: <div />,
+    },
+  },
 };
