@@ -41,7 +41,7 @@ ComposerHeaderActions.defaultProps = {
 const filterChildren = ({ children, displayName }) => {
   const actions = React.Children.map(children, child => child);
   return (
-    actions &&
+    !!actions &&
     actions.filter(
       child =>
         React.isValidElement(child) && child.type.displayName === displayName,
@@ -52,7 +52,7 @@ const filterChildren = ({ children, displayName }) => {
 const renderSingleAction = ({ props, index }) => {
   const { children, dataHook, ...rest } = props;
   return (
-    children && (
+    !!children && (
       <div
         key={index}
         data-hook={dataHook}
@@ -67,7 +67,7 @@ const renderSingleAction = ({ props, index }) => {
 
 const BackButton = React.memo(({ backButtonValue, onBackClick, size }) => {
   return (
-    backButtonValue && (
+    !!backButtonValue && (
       <TextButton
         skin="dark"
         prefixIcon={<ArrowLeft />}
@@ -85,7 +85,7 @@ const BackButton = React.memo(({ backButtonValue, onBackClick, size }) => {
 const Actions = React.memo(({ children }) => {
   const actions = filterChildren({ children, displayName: 'Actions' });
   return (
-    actions && (
+    !!actions && (
       <div className={styles.container}>
         {actions.map(({ props }, index) =>
           renderSingleAction({ props, index }),
@@ -104,7 +104,7 @@ const MainActions = React.memo(({ children }) => {
   const exists = mainActions && mainActions[0];
 
   return (
-    exists && (
+    !!exists && (
       <div
         className={styles.mainActions}
         data-hook={mainActions[0].props.dataHook || dataHooks.mainAction}
@@ -144,14 +144,14 @@ const shouldRenderDivider = ({ children, divider }) => {
 
 const LeftDivider = React.memo(({ backButton, children }) => {
   const shouldRender =
-    backButton &&
+    !!backButton &&
     shouldRenderDivider({
       children,
       divider: 'left',
     });
 
   return (
-    shouldRender && (
+    !!shouldRender && (
       <div className={styles.divider} data-hook={dataHooks.leftDivider} />
     )
   );
@@ -161,7 +161,7 @@ const RightDivider = React.memo(({ children }) => {
   const mainActions = filterChildren({ children, displayName: 'MainActions' });
 
   const shouldRender =
-    mainActions &&
+    !!mainActions &&
     mainActions[0] &&
     shouldRenderDivider({
       children,
@@ -169,7 +169,7 @@ const RightDivider = React.memo(({ children }) => {
     });
 
   return (
-    shouldRender && (
+    !!shouldRender && (
       <div className={styles.divider} data-hook={dataHooks.rightDivider} />
     )
   );
