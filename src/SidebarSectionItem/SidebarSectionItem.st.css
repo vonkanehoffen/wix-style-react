@@ -5,9 +5,9 @@
 
 :import {
   -st-from: "../Sidebar/colors.st.css";
-  -st-named: 
-    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor,
-    sidebarLightBackgroundColor, lightTextColor, selectedLightBackgroundColor, selectedLightTextColor, hoveredLightBackgroundColor, hoveredLightTextColor, disabledLightBackgroundColor
+  -st-named:
+    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor, textColor,
+    sidebarLightBackgroundColor, lightTextColor, selectedLightBackgroundColor, hoveredLightBackgroundColor, hoveredLightTextColor, disabledLightBackgroundColor
 }
 
 :import {
@@ -65,10 +65,6 @@
 
 .root:skin(light):selected {
   background-color: value(selectedLightBackgroundColor)
-}
-
-.root:skin(light):selected .text:size(small) {
-  color: value(selectedLightTextColor);
 }
 
 /* Hovered */
