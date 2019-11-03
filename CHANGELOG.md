@@ -23,7 +23,7 @@ Types of changes:
 - `<PreviewWidget/>`- new component (Work In Progress) [#4407](https://github.com/wix/wix-style-react/pull/4407)
 
 ### Changed
-- `<SidebarSectionItem/>` - improve design [#4407](https://github.com/wix/wix-style-react/pull/4445)
+- `<SidebarSectionItem/>` - improve design [#4445](https://github.com/wix/wix-style-react/pull/4445)
 
 ### Fixed
 
