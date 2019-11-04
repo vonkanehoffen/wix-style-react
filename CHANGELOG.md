@@ -23,6 +23,7 @@ Types of changes:
 - `<PreviewWidget/>`- new component (Work In Progress) [#4407](https://github.com/wix/wix-style-react/pull/4407)
 - `<SidebarBackButton/>` - create component [#4429](https://github.com/wix/wix-style-react/pull/4429)
 - `<MediaOverlay/>` -  add compound component with dragg handle icon [#4451](https://github.com/wix/wix-style-react/pull/4451)
+- `<InputWithLabel/>` - add customInput prop [#4450](https://github.com/wix/wix-style-react/pull/4450)
 
 ### Changed
 - `<SidebarSectionItem/>` - improve design [#4445](https://github.com/wix/wix-style-react/pull/4445)
