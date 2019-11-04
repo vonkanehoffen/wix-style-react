@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, memo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './DataTable.scss';
 import classNames from 'classnames';
@@ -10,6 +10,7 @@ import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../common/InfoIcon';
 import { VariableSizeList as List } from 'react-window';
+import { virtualRowsAreEqual } from './DataTable.utils';
 
 export const DataTableHeader = props => {
   const { dataHook } = props;
@@ -310,6 +311,14 @@ class DataTable extends React.Component {
   renderVirtualizedRow = ({ data, index, style }) =>
     this.renderRow(data[index], index, style)[0];
 
+  renderVirtualizedMemoizedRow = virtualListProps =>
+    React.createElement(this.memoizedRow, {
+      ...this.props,
+      ...virtualListProps,
+    });
+
+  memoizedRow = memo(this.renderVirtualizedRow, virtualRowsAreEqual);
+
   getVirtualRowHeight = () => this.props.virtualizedLineHeight;
 
   virtualizedTableElementWithRefForward = React.forwardRef((props, ref) =>
@@ -339,7 +348,7 @@ class DataTable extends React.Component {
           outerElementType={this.virtualizedTableElementWithRefForward}
           innerElementType={'tbody'}
         >
-          {this.renderVirtualizedRow}
+          {this.renderVirtualizedMemoizedRow}
         </List>
       </div>
     );
