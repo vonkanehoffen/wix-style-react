@@ -21,6 +21,7 @@ Types of changes:
 - `<ModalMobileLayout/>` - create component [#4400](https://github.com/wix/wix-style-react/pull/4400)
 - `<Swatches />` - add onChange prop [#4434](https://github.com/wix/wix-style-react/pull/4434)
 - `<PreviewWidget/>`- new component (Work In Progress) [#4407](https://github.com/wix/wix-style-react/pull/4407)
+- `<SidebarBackButton/>` - create component [#4429](https://github.com/wix/wix-style-react/pull/4429)
 
 ### Changed
 - `<SidebarSectionItem/>` - improve design [#4445](https://github.com/wix/wix-style-react/pull/4445)
