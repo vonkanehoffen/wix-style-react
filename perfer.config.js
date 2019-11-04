@@ -41,7 +41,7 @@ const files = [
   ['FilePicker.js', 6],
   ['FillButton.js', 52],
   ['FillPreview.js', 18],
-  ['FloatingHelper.js', 47],
+  ['FloatingHelper.js', 49],
   ['FloatingNotification.js', 25],
   ['FormField.js', 42],
   ['FullTextView.js', 31],
@@ -111,7 +111,7 @@ const files = [
   ['Thumbnail.js', 14],
   ['TimeInput.js', 80],
   ['ToggleButton.js', 43],
-  ['ToggleSwitch.js', 15],
+  ['ToggleSwitch.js', 17],
   ['Tooltip.js', 40],
 ];
 
