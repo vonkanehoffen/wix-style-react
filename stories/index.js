@@ -137,6 +137,7 @@ require('../src/SidebarDivider/docs/index.story');
 require('../src/SidebarHeader/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
+require('../src/SidebarBackButton/docs/index.story');
 require('../src/Skeleton/docs/index.story');
 require('../src/Slider/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');

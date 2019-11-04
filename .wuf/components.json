@@ -368,6 +368,9 @@
   "SidebarDivider": {
     "path": "src/SidebarDivider"
   },
+  "SidebarBackButton": {
+    "path": "src/SidebarBackButton"
+  },
   "SidebarHeader": {
     "path": "src/SidebarHeader"
   },

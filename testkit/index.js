@@ -149,6 +149,7 @@ export const labelledElementTestkitFactory = uniTestkitFactoryCreator(load(requi
 export const previewWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/PreviewWidget/PreviewWidget.uni.driver')));
 export const modalMobileLayoutTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ModalMobileLayout/ModalMobileLayout.uni.driver')));
 export const mediaOverlayTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
+export const sidebarBackButtonTestkitFactory = uniTestkitFactoryCreator(load(require('../src/SidebarBackButton/SidebarBackButton.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

@@ -149,6 +149,7 @@ export const labelledElementTestkitFactory = enzymeUniTestkitFactoryCreator(load
 export const previewWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/PreviewWidget/PreviewWidget.uni.driver')));
 export const modalMobileLayoutTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/ModalMobileLayout/ModalMobileLayout.uni.driver')));
 export const mediaOverlayTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
+export const sidebarBackButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/SidebarBackButton/SidebarBackButton.uni.driver')));
 export const sideMenuDrillTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));
