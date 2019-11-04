@@ -24,7 +24,7 @@
       </PopoverMenu>
     </MediaOverlay.Content>
     <MediaOverlay.Content visible="hover">
-      <SystemIcons.Move style={{ color: 'white' }} />
+      <MediaOverlay.DragHandle />
     </MediaOverlay.Content>
   </MediaOverlay>
 </Proportion>

@@ -7,6 +7,7 @@ import {
   allPlacements,
   topHoverMiddleAlwaysBottomDefault,
   numberedPlacements,
+  dragHandle,
 } from '../docs/examples/content';
 import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 import { mediaOverlayTestkitFactory } from '../../../testkit';
@@ -145,6 +146,14 @@ const tests = [
           children: numberedPlacements,
         },
         rtl: true,
+      },
+      {
+        it: 'DragHandle',
+        props: {
+          hoverSkin: 'dark',
+          children: dragHandle,
+        },
+        componentDidMount: hover,
       },
     ],
   },

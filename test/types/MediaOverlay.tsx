@@ -23,6 +23,9 @@ function MediaOverlayWithAllProps() {
       <MediaOverlay.Content placement="middle">Test</MediaOverlay.Content>
       <MediaOverlay.Content placement="bottom-start">Test</MediaOverlay.Content>
       <MediaOverlay.Content placement="bottom-end">Test</MediaOverlay.Content>
+      <MediaOverlay.Content>
+        <MediaOverlay.DragHandle />
+      </MediaOverlay.Content>
     </MediaOverlay>
   );
 }

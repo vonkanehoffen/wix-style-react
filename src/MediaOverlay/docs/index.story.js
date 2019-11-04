@@ -19,7 +19,7 @@ import useCaseExample1 from '!raw-loader!./examples/useCase1';
 import useCaseExample2 from '!raw-loader!./examples/useCase2';
 import useCaseExample3 from '!raw-loader!./examples/useCase3';
 import useCaseExample4 from '!raw-loader!./examples/useCase4';
-// import useCaseExample5 from '!raw-loader!./examples/useCase5';
+import useCaseExample5 from '!raw-loader!./examples/useCase5';
 import customMediaExample from '!raw-loader!./examples/customMedia';
 import placementExample from '!raw-loader!./examples/placement';
 import skinExample from '!raw-loader!./examples/skin';
@@ -216,11 +216,10 @@ export default {
             }),
           ]),
 
-          /*
           columns([
             description({
               text:
-                'Top right placement of the actions with color overlay should be used for reorderable components. The function should always be supported by the Move icon on the overlay background.',
+                'Top right placement of the actions with color overlay should be used for reorderable components. The function should always be supported by the use of compound `<MediaOverlay.DragHandle />` component on the hover state.',
             }),
 
             code({
@@ -228,7 +227,6 @@ export default {
               source: useCaseExample5,
             }),
           ]),
-          */
         ],
       }),
 

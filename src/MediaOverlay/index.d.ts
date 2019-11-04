@@ -20,4 +20,5 @@ export interface MediaOverlayContentProps {
 
 export default class MediaOverlay extends React.PureComponent<MediaOverlayProps> {
   static Content: React.FC<MediaOverlayContentProps>;
+  static DragHandle: React.FC;
 }

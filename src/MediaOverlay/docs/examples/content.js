@@ -39,6 +39,12 @@ export const galleryItemWithHoverActions = [
   </MediaOverlay.Content>,
 ];
 
+export const dragHandle = [
+  <MediaOverlay.Content key="dragHandle" visible="hover">
+    <MediaOverlay.DragHandle />
+  </MediaOverlay.Content>,
+];
+
 const renderExampleContent = (placement, visible, fill = ['lime', 'lime']) => (
   <MediaOverlay.Content
     key={`${visible}-${placement}`}

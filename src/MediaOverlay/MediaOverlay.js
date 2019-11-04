@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 
 import Content from './Content';
+import DragHandle from './DragHandle';
 import { Layer, Skin, Placement, Visible } from './constants';
 import styles from './MediaOverlay.st.css';
 
@@ -17,6 +18,7 @@ const layerToVisiblePropMap = {
 class MediaOverlay extends React.PureComponent {
   static displayName = 'MediaOverlay';
   static Content = Content;
+  static DragHandle = DragHandle;
 
   static propTypes = {
     /** Hook for testing purposes. */
