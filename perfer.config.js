@@ -1,5 +1,3 @@
-const maxDegradation = '10%';
-
 const files = [
   ['Accordion.js', 33],
   ['AddItem.js', 44],
@@ -120,7 +118,6 @@ const files = [
 module.exports = {
   bundleSize: {
     files: files.map(([name, size]) => ({
-      maxDegradation,
       maxSize: `${size}kb`,
       glob: `bundles/${name}`,
     })),
