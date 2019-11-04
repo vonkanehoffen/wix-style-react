@@ -33,7 +33,8 @@ Types of changes:
 - `<StatisticsWidget/>` - Fix onClick issue [#4419](https://github.com/wix/wix-style-react/pull/4419)
 - `<SortableList/>` - fix doubling of items during dragging [#4425](https://github.com/wix/wix-style-react/pull/4425)
 - `<ImageViewer/>` - re-add `showRemoveButton` prop [#4408](https://github.com/wix/wix-style-react/pull/4408)
-- `<DataTable>` - virtualized, fix outer element [#4455](https://github.com/wix/wix-style-react/pull/4455)
+- `<DataTable/>` - virtualized, fix outer element [#4455](https://github.com/wix/wix-style-react/pull/4455)
+- `<BarChart/>` - fix padding according to spec [#4449](https://github.com/wix/wix-style-react/pull/4449)
 
 ### Docs
 
