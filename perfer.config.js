@@ -15,7 +15,7 @@ const files = [
   ['CalendarPanel.js', 73],
   ['CalendarPanelFooter.js', 79],
   ['Card.js', 23],
-  ['CardGalleryItem.js', 62],
+  ['CardGalleryItem.js', 65],
   ['Carousel.js', 68],
   ['Checkbox.js', 44],
   ['CircularProgressBar.js', 34],

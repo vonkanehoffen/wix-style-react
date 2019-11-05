@@ -7,6 +7,7 @@ export interface MediaOverlayProps {
   skin?: MediaOverlaySkin;
   hoverSkin?: MediaOverlaySkin;
   dataHook?: string;
+  hovered?: boolean;
   onClick?(): void;
 }
 

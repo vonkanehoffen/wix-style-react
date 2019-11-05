@@ -12,6 +12,7 @@ function MediaOverlayWithAllProps() {
       skin="gradient"
       hoverSkin="dark"
       dataHook="hook"
+      hovered
       onClick={() => undefined}
     >
       <MediaOverlay.Content>Test</MediaOverlay.Content>
