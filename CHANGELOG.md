@@ -22,6 +22,10 @@ Types of changes:
 - `<MediaOverlay />` - Added controlled hover mode and fixed middle content positioning issue [#4465](https://github.com/wix/wix-style-react/pull/4465)
 - `<ModalSelectorLayout/>` - add  scrollbar styling [#4457](https://github.com/wix/wix-style-react/pull/4457)
 
+### Changed
+
+- `<CardGalleryItem/>` - refactor to use MediaOverlay internally [#4459](https://github.com/wix/wix-style-react/pull/4459)
+
 ## 7.13.0 - 2019-11-05
 
 ### Added
