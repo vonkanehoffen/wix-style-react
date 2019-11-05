@@ -17,6 +17,10 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- `<ComposerHeader/>`- added prop "dropShadow" [#4431](https://github.com/wix/wix-style-react/pull/4431)
+
 ### Fixed
 
 - `<MediaOverlay />` - Added controlled hover mode and fixed middle content positioning issue [#4465](https://github.com/wix/wix-style-react/pull/4465)
