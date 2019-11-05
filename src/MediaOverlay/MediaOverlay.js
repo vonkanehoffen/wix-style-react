@@ -50,6 +50,9 @@ class MediaOverlay extends React.PureComponent {
      * `top-end`, `middle` (default), `bottom-end` and `bottom-start`.
      */
     children: PropTypes.node,
+
+    /** Toggle hovered state in a controlled mode. */
+    hovered: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -61,11 +64,15 @@ class MediaOverlay extends React.PureComponent {
   };
 
   _onMouseEnter = () => {
-    this.setState({ isHovered: true });
+    if (this.props.hovered === undefined) {
+      this.setState({ isHovered: true });
+    }
   };
 
   _onMouseLeave = () => {
-    this.setState({ isHovered: false });
+    if (this.props.hovered === undefined) {
+      this.setState({ isHovered: false });
+    }
   };
 
   _getFocusProps = () => {
@@ -152,8 +159,9 @@ class MediaOverlay extends React.PureComponent {
       return;
     }
 
+    const { hovered } = this.props;
     const transitionProps = {
-      in: this.state.isHovered,
+      in: hovered !== undefined ? hovered : this.state.isHovered,
       timeout: 200,
       mountOnEnter,
       unmountOnExit: mountOnEnter,

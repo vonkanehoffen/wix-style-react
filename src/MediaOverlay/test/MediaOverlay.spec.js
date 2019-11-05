@@ -86,6 +86,44 @@ describe('MediaOverlay', () => {
     });
   });
 
+  describe('hovered prop', () => {
+    it('should not trigger hover state on mouse enter when value is "false"', async () => {
+      const { driver } = render(
+        createMediaOverlay({
+          hovered: false,
+          children: createMediaOverlayContent({
+            visible: Visible.Hover,
+            children: <div />,
+          }),
+        }),
+      );
+
+      const contentChildren = await driver.getContentChildren();
+      expect(await contentChildren.count()).toBe(0);
+      await driver.hover();
+      expect(await contentChildren.count()).toBe(0);
+    });
+
+    it('should always trigger hover state when value is "true"', async () => {
+      const id = 'test-content';
+      const { driver } = render(
+        createMediaOverlay({
+          hovered: true,
+          children: createMediaOverlayContent({
+            visible: Visible.Hover,
+            children: <div id={id} />,
+          }),
+        }),
+      );
+
+      const contentChildren = await driver.getContentChildren();
+      expect(await contentChildren.count()).toBe(1);
+      expect(await contentChildren.get(0).attr('id')).toBe(id);
+      await driver.hover();
+      expect(await contentChildren.count()).toBe(1);
+    });
+  });
+
   describe('Content', () => {
     it('should ignore direct child elements not wrapped in Content', async () => {
       const { driver } = render(createMediaOverlay({ children: <div /> }));

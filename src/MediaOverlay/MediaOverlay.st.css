@@ -15,7 +15,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/spacing.st.css";
-  -st-named: spacing24, spacing12, spacing06;
+  -st-named: spacing12, spacing06;
 }
 
 :import {
@@ -63,7 +63,6 @@
   bottom: 0;
   padding: value(spacing12);
   transition: opacity 200ms ease-in-out;
-  justify-content: space-between;
 }
 
 .overlay:layer(hover) {
@@ -95,7 +94,13 @@
 
 .contentRow:row(top),
 .contentRow:row(bottom) {
-  flex: 0 1 value(spacing24);
+  flex: 0 1 50%;
+}
+.contentRow:row(top) {
+  align-items: flex-start;
+}
+.contentRow:row(bottom) {
+  align-items: flex-end;
 }
 
 .contentArea {
