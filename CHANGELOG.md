@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.13.0 - 2019-11-05
 
 ### Added
 
@@ -22,10 +22,11 @@ Types of changes:
 - `<Swatches />` - add onChange prop [#4434](https://github.com/wix/wix-style-react/pull/4434)
 - `<PreviewWidget/>`- new component (Work In Progress) [#4407](https://github.com/wix/wix-style-react/pull/4407)
 - `<SidebarBackButton/>` - create component [#4429](https://github.com/wix/wix-style-react/pull/4429)
-- `<MediaOverlay/>` -  add compound component with dragg handle icon [#4451](https://github.com/wix/wix-style-react/pull/4451)
+- `<MediaOverlay/>` - add compound component with dragg handle icon [#4451](https://github.com/wix/wix-style-react/pull/4451)
 - `<InputWithLabel/>` - add customInput prop [#4450](https://github.com/wix/wix-style-react/pull/4450)
 
 ### Changed
+
 - `<SidebarSectionItem/>` - improve design [#4445](https://github.com/wix/wix-style-react/pull/4445)
 
 ### Fixed
@@ -50,6 +51,7 @@ Types of changes:
 - `<MediaOverlay />` - new component [#4396](https://github.com/wix/wix-style-react/pull/4396)
 
 ### Fixed
+
 - `<MultiSelect/>` - Remove little bounce of I-cursor when input gets focus [#4384](https://github.com/wix/wix-style-react/pull/4384)
 - `<AutoCompleteWithLabel/>` - fix controlled mode [#4404](https://github.com/wix/wix-style-react/pull/4404)
 - `<Sidebar/>` - Fix open/close transitions [#4399](https://github.com/wix/wix-style-react/pull/4399)
@@ -57,37 +59,44 @@ Types of changes:
 ## 7.11.0 - 2019-10-28
 
 ### Added
+
 - `<AutoCompleteWithLabel/>`, `<InputWithLabel/>` - expose necessary Input props [#4386](https://github.com/wix/wix-style-react/pull/4386)
 
 ### Changed
+
 - `<MultiSelect/>` - remove pointer cursor from Tags on hover [#4382](https://github.com/wix/wix-style-react/pull/4382)
 - `<Page.Content/>` - Changed `children` prop to be of type node [#4394](https://github.com/wix/wix-style-react/pull/4394)
 
 ### Fixed
+
 - `<Proportion/>` - make sure that proportion is not stretching more then its container size [#4385](https://github.com/wix/wix-style-react/pull/4385)
 - `<AutoCompleteWithLabel/>` - fix callback for onSelect [#4398](https://github.com/wix/wix-style-react/pull/4398)
 
 ### Docs
+
 - `<Sidebar/>` - fix broken example in story page [#4388](https://github.com/wix/wix-style-react/pull/4388)
 
 ## 7.10.0 - 2019-10-23
 
 ### Added
+
 - `<Sidebar/>` - add `skin` prop [#4299](https://github.com/wix/wix-style-react/pull/4299)
 - `<FormField/>` - add `charCount` prop [#4350](https://github.com/wix/wix-style-react/pull/4350)
 - `<AutoCompleteWithLabel/>` - create the component [#4052](https://github.com/wix/wix-style-react/pull/4052)
 - `<Swatches/>` - add clickEmptySwatch method to testkit [#4357](https://github.com/wix/wix-style-react/pull/4357)
 - `<InputWithLabel />`, `<AutoCompleteWithLabel />` - add `onChange`, `onFocus` & `onBlur` props [#4375](https://github.com/wix/wix-style-react/pull/4375)
 - `<RadioGroup.Button/>` - Add `tabIndex` prop [#4370](https://github.com/wix/wix-style-react/pull/4370)
-- `<FloatingNotification/>` -  pass rest props to the buttons [#4376](https://github.com/wix/wix-style-react/pull/4376)
+- `<FloatingNotification/>` - pass rest props to the buttons [#4376](https://github.com/wix/wix-style-react/pull/4376)
 - `<SidebarSectionItem />` - add prop alwaysDisplayChevron [#4379](https://github.com/wix/wix-style-react/pull/4379)
 
 ### Changed
+
 - `<SidebarHeader/>` - change padding [#4359](https://github.com/wix/wix-style-react/pull/4359)
 - `<Heading/>` - change `light` style for H6 [#4374](https://github.com/wix/wix-style-react/pull/4374)
 - `<MessageBoxFunctionalLayout/>` - improve header & body design [#4373](https://github.com/wix/wix-style-react/pull/4373)
 
 ### Fixed
+
 - `<SectionHelper/>` - fix margin without close button [#4360](https://github.com/wix/wix-style-react/pull/4360)
 - `<InputArea/>` - fix error indicator leak inside testkit [#4363](https://github.com/wix/wix-style-react/pull/4363)
 
