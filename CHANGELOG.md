@@ -20,6 +20,7 @@ Types of changes:
 ### Added
 
 - `<ComposerHeader/>`- added prop "dropShadow" [#4431](https://github.com/wix/wix-style-react/pull/4431)
+- `<Swatches />` - added onCancel prop [#4470](https://github.com/wix/wix-style-react/pull/4470)
 
 ### Fixed
 
