@@ -27,6 +27,7 @@ const Swatches = props => {
     addButtonIconSize,
     onAdd,
     onChange,
+    onCancel,
     columns,
     gap,
   } = props;
@@ -50,6 +51,7 @@ const Swatches = props => {
           iconSize={addButtonIconSize}
           onAdd={onAdd}
           onChange={onChange}
+          onCancel={onCancel}
         />
       )}
 
@@ -109,6 +111,9 @@ Swatches.propTypes = {
 
   /** Callback function when user changes color in Color Picker. Returns color HEX string representation. */
   onChange: func,
+
+  /** Callback function when user closes Color Picker without picking color. */
+  onCancel: func,
 
   /** If true shows add button which triggers colors picker*/
   showAddButton: bool,
