@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.14.1 - 2019-11-07
 
 ## Fixed
 - `<Ticker/>` - add missing propType [#4479](https://github.com/wix/wix-style-react/pull/4479)
