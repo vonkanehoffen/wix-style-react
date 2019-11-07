@@ -56,19 +56,19 @@ export const types = `
       activeId={1}
       type="compact"
     />
-    <Heading appearance="H3" style={{marginTop: '15px'}}>Compact</Heading>
+    <Heading appearance="H3" style={{marginTop: '15px'}}>compactSide</Heading>
     <Tabs
       items={${JSON.stringify(items)}}
       activeId={1}
       type="compactSide"
     />
-    <Heading appearance="H3" style={{marginTop: '15px'}}>Compact</Heading>
+    <Heading appearance="H3" style={{marginTop: '15px'}}>uniformSide</Heading>
     <Tabs
       items={${JSON.stringify(items)}}
       activeId={1}
       type="uniformSide"
     />
-    <Heading appearance="H3" style={{marginTop: '15px'}}>Compact</Heading>
+    <Heading appearance="H3" style={{marginTop: '15px'}}>uniformFull</Heading>
     <Tabs
       items={${JSON.stringify(items)}}
       activeId={1}

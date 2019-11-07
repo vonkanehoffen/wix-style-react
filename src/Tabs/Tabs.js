@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import WixComponent from '../BaseComponents/WixComponent';
 import SideContent from './core/SideContent';
 import TabItems from './core/TabItems';
 import classNames from 'classnames';
 import styles from './Tabs.scss';
 
-class Tabs extends WixComponent {
+class Tabs extends React.Component {
   static displayName = 'Tabs';
 
   static defaultProps = {
