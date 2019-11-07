@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<InfoIcon/>` - new component [#4480](https://github.com/wix/wix-style-react/pull/4480)
+- `<SocialButton/>` - new component [#4461](https://github.com/wix/wix-style-react/pull/4461)
 
 ## 7.14.1 - 2019-11-07
 
