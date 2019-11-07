@@ -4,6 +4,7 @@ import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
+import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
@@ -21,7 +22,8 @@ declare namespace VanillaTestkit {
 <%
   const typed = {
     Avatar: 'VanillaUniTestkitFactory<AvatarDriver>',
-    InfoIcon: 'VanillaUniTestkitFactory<InfoIconDriver>'
+    InfoIcon: 'VanillaUniTestkitFactory<InfoIconDriver>',
+    SocialButton: 'VanillaUniTestkitFactory<SocialButtonDriver>'
   };
 
   components

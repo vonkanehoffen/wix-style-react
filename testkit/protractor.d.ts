@@ -113,6 +113,7 @@ export const previewWidgetTestkitFactory: any;
 export const modalMobileLayoutTestkitFactory: any;
 export const mediaOverlayTestkitFactory: any;
 export const infoIconTestkitFactory: any;
+export const socialButtonTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;

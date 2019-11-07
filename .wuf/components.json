@@ -415,5 +415,8 @@
   },
   "InfoIcon": {
     "path": "src/InfoIcon"
+  },
+  "SocialButton": {
+    "path": "src/SocialButton"
   }
 }

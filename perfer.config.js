@@ -114,6 +114,7 @@ const files = [
   ['ToggleButton.js', 43],
   ['ToggleSwitch.js', 17],
   ['Tooltip.js', 40],
+  ['SocialButton.js', 17],
 ];
 
 module.exports = {

@@ -5,6 +5,7 @@ import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {BadgeDriver} from '../src/Badge/Badge.driver';
 import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
+import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
@@ -28,7 +29,8 @@ declare namespace EnzymeTestkit {
     Badge: 'EnzymeTestkitFactory<BadgeDriver>',
     BadgeSelect: 'EnzymeTestkitFactory<BadgeSelectDriver>',
     Box: 'EnzymeUniTestkitFactory<BoxDriver>',
-    InfoIcon: 'EnzymeUniTestkitFactory<InfoIconDriver>'
+    InfoIcon: 'EnzymeUniTestkitFactory<InfoIconDriver>',
+    SocialButton: 'EnzymeUniTestkitFactory<SocialButtonDriver>',
   };
 
   components

@@ -141,6 +141,7 @@ require('../src/SidebarSectionTitle/docs/index.story');
 require('../src/SidebarBackButton/docs/index.story');
 require('../src/Skeleton/docs/index.story');
 require('../src/Slider/docs/index.story');
+require('../src/SocialButton/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
 require('../src/StatisticsWidget/docs/index.story');
 require('../src/StatsWidget/docs/index.story');
