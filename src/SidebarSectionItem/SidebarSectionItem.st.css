@@ -35,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
   padding: value(paddingWithoutSuffix);
-  max-width: 222px;
+  max-width: 228px;
   min-height: 36px;
   box-sizing: border-box;
   color: value(D80);

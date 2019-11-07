@@ -32,7 +32,7 @@ tests.forEach(({ describe, its }) =>
         <Box backgroundColor="D70">
           {skins.map(skin => (
             <Box direction="vertical" marginBottom={5} marginRight={5}>
-              <div style={{ width: '222px' }}>
+              <div style={{ width: '228px' }}>
                 <SidebarContext.Provider value={{ getSkin: () => skin }}>
                   <SidebarDivider {...props} />
                 </SidebarContext.Provider>
