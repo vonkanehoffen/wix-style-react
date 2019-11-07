@@ -18,6 +18,7 @@ Types of changes:
 
 ## Fixed
 - `<Ticker/>` - add missing propType [#4479](https://github.com/wix/wix-style-react/pull/4479)
+- Fixing wix-style-react polyfills to run in SSR without reference errors [#4463](https://github.com/wix/wix-style-react/pull/4463)
 
 ## 7.14.0 - 2019-11-07
 
