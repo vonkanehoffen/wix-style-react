@@ -14,8 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-
-## Next
+## 7.14.0 - 2019-11-07
 
 ### Added
 
@@ -25,7 +24,7 @@ Types of changes:
 ### Fixed
 
 - `<MediaOverlay />` - Added controlled hover mode and fixed middle content positioning issue [#4465](https://github.com/wix/wix-style-react/pull/4465)
-- `<ModalSelectorLayout/>` - add  scrollbar styling [#4457](https://github.com/wix/wix-style-react/pull/4457)
+- `<ModalSelectorLayout/>` - add scrollbar styling [#4457](https://github.com/wix/wix-style-react/pull/4457)
 - `<Thumbnail/>` - Fix selection borders not visible on focus [#4469](https://github.com/wix/wix-style-react/pull/4469)
 - `<Heading/>` - add missing propType [#4466](https://github.com/wix/wix-style-react/pull/4466)
 - `<LabelledElement/>` - fix placeholder for children [#4430](https://github.com/wix/wix-style-react/pull/4430)
@@ -35,7 +34,6 @@ Types of changes:
 - `<CardGalleryItem/>` - refactor to use MediaOverlay internally [#4459](https://github.com/wix/wix-style-react/pull/4459)
 - `<SidebarSectionItem/>` - change padding when drillable [#4476](https://github.com/wix/wix-style-react/pull/4476)
 - `<Sidebar/>` - change width to 228px [#4477](https://github.com/wix/wix-style-react/pull/4477)
-
 
 ## 7.13.0 - 2019-11-05
 
