@@ -32,6 +32,8 @@ Types of changes:
 
 - `<CardGalleryItem/>` - refactor to use MediaOverlay internally [#4459](https://github.com/wix/wix-style-react/pull/4459)
 - `<SidebarSectionItem/>` - change padding when drillable [#4476](https://github.com/wix/wix-style-react/pull/4476)
+- `<Sidebar/>` - change width to 228px [#4477](https://github.com/wix/wix-style-react/pull/4477)
+
 
 ## 7.13.0 - 2019-11-05
 
