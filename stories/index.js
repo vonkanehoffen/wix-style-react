@@ -96,6 +96,7 @@ require('../src/Heading/docs/index.story');
 require('../src/Highlighter/docs/index.story');
 require('../src/IconButton/docs/index.story');
 require('../src/ImageViewer/docs/index.story');
+require('../src/InfoIcon/docs/index.story');
 require('../src/Input/docs/index.story');
 require('../src/InputArea/docs/index.story');
 require('../src/InputWithLabel/docs/index.story');

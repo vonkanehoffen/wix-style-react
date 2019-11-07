@@ -36,14 +36,14 @@ export const formFieldUniDriverFactory = (base, body, { dataHook }) => {
     },
     hasTooltip: async () => {
       const testkit = tooltipDriverFactory(
-        base.$(`[data-hook="${dataHook}-formfield-infotooltip"]`),
+        base.$(`[data-hook="${dataHook}-formfield-infoicon-tooltip"]`),
         body,
       );
       return await testkit.exists();
     },
     getInfoContent: async () => {
       const testkit = tooltipDriverFactory(
-        base.$(`[data-hook="${dataHook}-formfield-infotooltip"]`),
+        base.$(`[data-hook="${dataHook}-formfield-infoicon-tooltip"]`),
         body,
       );
       return await testkit.getTooltipText();

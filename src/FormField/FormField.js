@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Tooltip from '../Tooltip';
 import Text, { SKINS, SIZES, WEIGHTS } from '../Text';
-import InfoIcon from '../common/InfoIcon';
+import InfoIcon from '../InfoIcon';
 import styles from './FormField.scss';
 
 const PLACEMENT = {
@@ -135,18 +135,11 @@ class FormField extends React.Component {
     return (
       infoContent && (
         <InfoIcon
-          dataHook={`${dataHook}-formfield-infotooltip`}
+          dataHook={`${dataHook}-formfield-infoicon`}
           className={styles.infoIcon}
-          tooltipProps={{
-            content: infoContent,
-            ...infoTooltipProps,
-          }}
-          iconSize={
-            {
-              [SIZES.small]: '18px',
-              [SIZES.medium]: '24px',
-            }[labelSize]
-          }
+          content={infoContent}
+          tooltipProps={infoTooltipProps}
+          size={labelSize}
         />
       )
     );

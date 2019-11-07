@@ -5,6 +5,7 @@ export { IconElement, InjectedFocusableProps, Omit } from './common';
 export { default as AddItem } from './AddItem';
 export { default as Avatar, AvatarProps } from './Avatar';
 export { default as Button } from './Button';
+export { default as InfoIcon, InfoIconProps } from './InfoIcon';
 export { default as Input } from './Input';
 export { default as InputArea } from './InputArea';
 export { default as InputWithOptions } from './InputWithOptions';

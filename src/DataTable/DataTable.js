@@ -8,7 +8,7 @@ import SortByArrowUp from '../new-icons/system/SortByArrowUp';
 import SortByArrowDown from '../new-icons/system/SortByArrowDown';
 import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
-import InfoIcon from '../common/InfoIcon';
+import InfoIcon from '../InfoIcon';
 import { VariableSizeList as List } from 'react-window';
 import { virtualRowsAreEqual } from './DataTable.utils';
 
@@ -396,9 +396,11 @@ class TableHeader extends Component {
       return null;
     }
 
+    const { content, ...otherTooltipProps } = tooltipProps;
     return (
       <InfoIcon
-        tooltipProps={tooltipProps}
+        content={content}
+        tooltipProps={otherTooltipProps}
         dataHook={`${colNum}_info_tooltip`}
         className={this.style.infoTooltipWrapper}
       />

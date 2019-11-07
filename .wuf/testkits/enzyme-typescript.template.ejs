@@ -7,6 +7,7 @@ import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
+import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -26,7 +27,8 @@ declare namespace EnzymeTestkit {
     Avatar: 'EnzymeUniTestkitFactory<AvatarDriver>',
     Badge: 'EnzymeTestkitFactory<BadgeDriver>',
     BadgeSelect: 'EnzymeTestkitFactory<BadgeSelectDriver>',
-    Box: 'EnzymeUniTestkitFactory<BoxDriver>'
+    Box: 'EnzymeUniTestkitFactory<BoxDriver>',
+    InfoIcon: 'EnzymeUniTestkitFactory<InfoIconDriver>'
   };
 
   components

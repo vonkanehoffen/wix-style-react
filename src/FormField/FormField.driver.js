@@ -6,7 +6,7 @@ const formFieldDriver = ({ element, dataHook }) => {
   const charactersCounter = () => byHook('formfield-counter');
 
   const tooltipTestkit = tooltipDriverFactory({
-    element: byHook(`${dataHook}-formfield-infotooltip`),
+    element: byHook(`${dataHook}-formfield-infoicon-tooltip`),
     eventTrigger: Simulate,
   });
 

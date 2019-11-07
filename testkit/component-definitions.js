@@ -8,7 +8,6 @@ const {
   MultiSelect,
   AutoComplete,
   Input,
-  Label,
   Notification,
   FloatingHelper,
   GoogleAddressInput,
@@ -273,6 +272,12 @@ export default {
   MediaOverlay: {
     props: {
       media: <div />,
+    },
+  },
+
+  InfoIcon: {
+    props: {
+      content: 'test',
     },
   },
 

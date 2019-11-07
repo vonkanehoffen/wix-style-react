@@ -11,6 +11,7 @@ import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
+import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
@@ -133,6 +134,7 @@ declare namespace VanillaTestkit {
   export const previewWidgetTestkitFactory: any;
   export const modalMobileLayoutTestkitFactory: any;
   export const mediaOverlayTestkitFactory: any;
+  export const infoIconTestkitFactory: VanillaUniTestkitFactory<InfoIconDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

@@ -54,6 +54,7 @@ const files = [
   ['Highlighter.js', 4],
   ['IconButton.js', 14],
   ['ImageViewer.js', 58],
+  ['InfoIcon.js', 41],
   ['Input.js', 62],
   ['InputArea.js', 43],
   ['InputWithLabel.js', 64],

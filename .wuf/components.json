@@ -412,5 +412,8 @@
   },
   "MediaOverlay": {
     "path": "src/MediaOverlay"
+  },
+  "InfoIcon": {
+    "path": "src/InfoIcon"
   }
 }

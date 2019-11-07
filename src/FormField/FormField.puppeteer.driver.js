@@ -15,7 +15,7 @@ const formFieldDriverFactory = async (component, page, { dataHook }) => {
       await infoIcon.hover();
 
       const tooltip = await tooltipDriverFactory(
-        await page.$(`[data-hook="${dataHook}-formfield-infotooltip"]`),
+        await page.$(`[data-hook="${dataHook}-formfield-infoicon-tooltip"]`),
         page,
       );
       const tooltipContent = await tooltip.getTooltipTextContent(delay);
