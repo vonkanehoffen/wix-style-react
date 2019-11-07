@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## NEXT
+
+### Added
+
+- `<InfoIcon/>` - new component [#4480](https://github.com/wix/wix-style-react/pull/4480)
+
 ## 7.14.1 - 2019-11-07
 
 ## Fixed
