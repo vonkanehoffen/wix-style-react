@@ -103,6 +103,9 @@
 .root:focus {
   -st-mixin: focus-box;
 }
+.root:drillable {
+  padding-right: 42px;
+}
 
 .root:drillable:hover, .root:drillable:alwaysDisplayChevron {
   padding: value(paddingWithSuffix);
