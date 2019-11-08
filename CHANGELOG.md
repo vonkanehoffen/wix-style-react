@@ -21,6 +21,10 @@ Types of changes:
 - `<InfoIcon/>` - new component [#4480](https://github.com/wix/wix-style-react/pull/4480)
 - `<SocialButton/>` - new component [#4461](https://github.com/wix/wix-style-react/pull/4461)
 
+## Fixed
+
+- `<Tabs/>` - fix testkit methods not working correctly [#4490](https://github.com/wix/wix-style-react/pull/4490)
+
 ## 7.14.1 - 2019-11-07
 
 ## Fixed
