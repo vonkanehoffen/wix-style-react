@@ -309,15 +309,12 @@ class DataTable extends React.Component {
   };
 
   renderVirtualizedRow = ({ data, index, style }) =>
-    this.renderRow(data[index], index, style)[0];
+    this.renderRow(data.data[index], index, style)[0];
 
-  renderVirtualizedMemoizedRow = virtualListProps =>
-    React.createElement(this.memoizedRow, {
-      ...this.props,
-      ...virtualListProps,
-    });
-
-  memoizedRow = memo(this.renderVirtualizedRow, virtualRowsAreEqual);
+  renderVirtualizedMemoizedRow = memo(
+    this.renderVirtualizedRow,
+    virtualRowsAreEqual,
+  );
 
   getVirtualRowHeight = () => this.props.virtualizedLineHeight;
 
@@ -342,7 +339,7 @@ class DataTable extends React.Component {
           className={classNames(this.style.table, this.style.virtualized)}
           height={virtualizedTableHeight}
           itemCount={data.length}
-          itemData={data}
+          itemData={this.props}
           width={'100%'}
           itemSize={this.getVirtualRowHeight}
           outerElementType={this.virtualizedTableElementWithRefForward}
