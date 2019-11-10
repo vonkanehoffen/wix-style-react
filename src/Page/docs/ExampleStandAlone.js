@@ -13,6 +13,8 @@ const ExampleStandAlone = () => (
     <Page upgrade>
       <Page.Header
         title="Your Product"
+        showBackButton
+        onBackClicked={() => {}}
         actionsBar={<Button prefixIcon={<Add />}>New Item</Button>}
       />
 
