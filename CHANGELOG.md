@@ -24,6 +24,7 @@ Types of changes:
 ### Changed
 
 - `<PageHeader/>` - adjust back button styling [#4482](https://github.com/wix/wix-style-react/pull/4482)
+- `<PreviewWidget/>`- (WIP) API change and documentation update [#4474](https://github.com/wix/wix-style-react/pull/4474)
 
 ## Docs
 - `<PopoverMenu.MenuItem/>` - fix documentation [#4454](https://github.com/wix/wix-style-react/pull/4454)
