@@ -421,6 +421,18 @@ describe('InputWithOptions', () => {
       expect(await dropdownLayoutDriver.isShown()).toBeFalsy();
     });
 
+    it('should trigger callback function on clicking outside', async () => {
+      const handleClickOutside = jest.fn();
+      const { driver } = createDriver(
+        <InputWithOptions
+          options={options}
+          onClickOutside={handleClickOutside}
+        />,
+      );
+      await driver.outsideClick();
+      expect(handleClickOutside).toHaveBeenCalled();
+    });
+
     it('should not hide options on selection', async () => {
       const { driver, dropdownLayoutDriver } = createDriver(
         <InputWithOptions options={options} closeOnSelect={false} />,

@@ -80,7 +80,15 @@ class InputWithOptions extends Component {
     this.setState({ isComposing });
   }
 
-  onClickOutside = () => this.hideOptions();
+  onClickOutside = () => {
+    // Hide the popover
+    this.hideOptions();
+
+    // Trigger the ClickOutside callback
+    if (this.props.onClickOutside) {
+      this.props.onClickOutside();
+    }
+  };
 
   renderInput() {
     const inputAdditionalProps = this.inputAdditionalProps();
