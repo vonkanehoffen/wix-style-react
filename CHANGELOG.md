@@ -25,6 +25,9 @@ Types of changes:
 
 - `<PageHeader/>` - adjust back button styling [#4482](https://github.com/wix/wix-style-react/pull/4482)
 
+## Docs
+- `<PopoverMenu.MenuItem/>` - fix documentation [#4454](https://github.com/wix/wix-style-react/pull/4454)
+
 ### Fixed
 
 - `<Tabs/>` - fix testkit methods not working correctly [#4490](https://github.com/wix/wix-style-react/pull/4490)
