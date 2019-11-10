@@ -44,8 +44,6 @@ class Checkbox extends WixComponent {
     hover: bool,
     size: oneOf(['medium']),
     onChange: func,
-    /** if true, the checkbox content will be 100% in width */
-    fullWidth: bool,
   };
 
   static defaultProps = {
@@ -54,10 +52,6 @@ class Checkbox extends WixComponent {
     selectionArea: 'none',
     vAlign: 'center',
     onChange: e => e.stopPropagation(),
-    fullWidth: false,
-    disabled: false,
-    hasError: false,
-    indeterminate: false,
   };
 
   //TODO fix me please. We need to get away from ids.
@@ -90,7 +84,6 @@ class Checkbox extends WixComponent {
       size,
       onChange,
       children,
-      fullWidth,
     } = this.props;
 
     const classname = classNames(
@@ -106,7 +99,6 @@ class Checkbox extends WixComponent {
         [styles.hasError]: hasError && !disabled,
         [styles.selectionAreaAlways]: selectionArea === 'always',
         [styles.selectionAreaHover]: selectionArea === 'hover',
-        [styles.fullWidth]: fullWidth,
       },
     );
 
@@ -138,7 +130,6 @@ class Checkbox extends WixComponent {
           dataHook="checkbox-label"
           className={classNames({
             [styles.vtop]: vAlign === 'top',
-            [styles.fullWidth]: fullWidth,
           })}
         >
           <Tooltip
@@ -168,12 +159,7 @@ class Checkbox extends WixComponent {
             </div>
           </Tooltip>
           {children && (
-            <div
-              data-hook="checkbox-children"
-              className={classNames(styles.children, {
-                [styles.fullWidth]: fullWidth,
-              })}
-            >
+            <div className={styles.children} data-hook="checkbox-children">
               {children}
             </div>
           )}

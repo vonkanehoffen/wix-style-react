@@ -63,17 +63,6 @@ const tests = [
         it: 'selectionArea',
         props: { selectionArea: 'always' },
       },
-      {
-        it: 'Full width',
-        props: {
-          fullWidth: true,
-          children: (
-            <div style={{ backgroundColor: 'lightblue', textAlign: 'center' }}>
-              I am a full width, centered, lightblue content
-            </div>
-          ),
-        },
-      },
     ],
   },
   {

@@ -78,10 +78,6 @@
   padding-left: 12px;
 }
 
-.full-width {
-  width: 100%;
-}
-
 @include withRTL() {
   .root {
     direction: rtl;
