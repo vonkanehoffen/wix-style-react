@@ -14,12 +14,13 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## NEXT
+## Next
 
 ### Added
 
 - `<InfoIcon/>` - new component [#4480](https://github.com/wix/wix-style-react/pull/4480)
 - `<SocialButton/>` - new component [#4461](https://github.com/wix/wix-style-react/pull/4461)
+- `<Checkbox/>` - add fullWidth prop [#4489](https://github.com/wix/wix-style-react/pull/4489)
 
 ## Fixed
 
