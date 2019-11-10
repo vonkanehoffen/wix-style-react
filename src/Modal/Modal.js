@@ -27,7 +27,6 @@ class Modal extends WixComponent {
     /** Displays a close button on the top right corner of the overlay  */
     shouldDisplayCloseButton: PropTypes.bool,
     onRequestClose: PropTypes.func,
-    onOk: PropTypes.func,
     onAfterOpen: PropTypes.func,
     /** horizontal position of the modal*/
     horizontalPosition: PropTypes.oneOf(['start', 'center', 'end']),
@@ -57,7 +56,6 @@ class Modal extends WixComponent {
   };
 
   static defaultProps = {
-    onOk: () => {},
     borderRadius: 0,
     theme: 'blue',
     shouldCloseOnOverlayClick: false,
