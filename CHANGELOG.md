@@ -26,7 +26,7 @@ Types of changes:
 
 - `<PageHeader/>` - adjust back button styling [#4482](https://github.com/wix/wix-style-react/pull/4482)
 
-## Fixed
+### Fixed
 
 - `<Tabs/>` - fix testkit methods not working correctly [#4490](https://github.com/wix/wix-style-react/pull/4490)
 - `<DataTable/>` - re-render virtualized table on table prop change [#4491](https://github.com/wix/wix-style-react/pull/4491)
@@ -34,7 +34,7 @@ Types of changes:
 
 ## 7.14.1 - 2019-11-07
 
-## Fixed
+### Fixed
 - `<Ticker/>` - add missing propType [#4479](https://github.com/wix/wix-style-react/pull/4479)
 - Fixing wix-style-react polyfills to run in SSR without reference errors [#4463](https://github.com/wix/wix-style-react/pull/4463)
 
