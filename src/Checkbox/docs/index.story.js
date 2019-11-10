@@ -88,6 +88,11 @@ export default {
           }),
 
           code({
+            title: 'Full width content',
+            source: examples.fullWidth,
+          }),
+
+          code({
             title: 'With Error',
             source: examples.error,
           }),
