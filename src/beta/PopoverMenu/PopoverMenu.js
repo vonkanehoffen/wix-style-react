@@ -71,7 +71,7 @@ class PopoverMenu extends React.PureComponent {
      *  * `onClick` - Callback to be triggered on item click
      *  * `skin` - Item theme (dark, destructive)
      *  * `prefixIcon` - Prefix icon
-     *  * `textSize` - Text size (small, medium)
+     *  * `dataHook` - Hook for testing purposes
      *  * `disabled` - Disabled
      *  * />
      */
