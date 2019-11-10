@@ -22,6 +22,10 @@ Types of changes:
 - `<SocialButton/>` - new component [#4461](https://github.com/wix/wix-style-react/pull/4461)
 - `<Checkbox/>` - add `fullWidth` prop [#4489](https://github.com/wix/wix-style-react/pull/4489)
 
+### Changed
+
+- `<PageHeader/>` - adjust back button styling [#4482](https://github.com/wix/wix-style-react/pull/4482)
+
 ## Fixed
 
 - `<Tabs/>` - fix testkit methods not working correctly [#4490](https://github.com/wix/wix-style-react/pull/4490)
