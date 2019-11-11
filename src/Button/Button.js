@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-import cx from 'classnames';
+
 import styles from './Button.st.css';
 
 import {
@@ -14,7 +14,7 @@ import {
   func,
 } from 'prop-types';
 
-class Button extends Component {
+class Button extends PureComponent {
   static displayName = 'Button';
 
   static propTypes = {
@@ -72,13 +72,13 @@ class Button extends Component {
     } = this.props;
 
     const fluid = fullWidth ? 'fullWidth' : '';
-    const clsArray = [fluid, skin, priority, size].map(
-      cls => styles[cls] || null,
-    );
-    const classNames = cx(styles.button, className, clsArray);
 
     return (
-      <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
+      <ButtonNext
+        {...rest}
+        {...styles('root', { fluid, skin, priority, size }, this.props)}
+        data-hook={dataHook}
+      >
         {children}
       </ButtonNext>
     );

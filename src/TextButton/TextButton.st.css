@@ -27,6 +27,10 @@
   border: none;
   border-radius: 2px;
 
+  transition-duration: 100ms;
+  transition-timing-function: linear;
+  transition-property: background-color, color, border-color;
+
   -st-mixin: weightThin, sizeMedium;
 
   outline: none;
