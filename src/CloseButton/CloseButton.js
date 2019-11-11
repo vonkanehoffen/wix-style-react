@@ -1,24 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-import cx from 'classnames';
+
 import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
 import { SIZES } from './constants';
 
-import { closeButton } from 'wix-ui-core/dist/src/themes/backoffice';
+import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
+import styles from './CloseButton.st.css';
 
-import {
-  oneOfType,
-  string,
-  node,
-  oneOf,
-  object,
-  bool,
-  func,
-  symbol,
-} from 'prop-types';
-
-class CloseButton extends Component {
+class CloseButton extends PureComponent {
   static displayName = 'CloseButton';
 
   static propTypes = {
@@ -56,14 +46,17 @@ class CloseButton extends Component {
   render() {
     const { skin, size, className, dataHook, children, ...rest } = this.props;
 
-    const classNames = cx(className, closeButton(skin, size));
     const CloseIcon = <Close data-hook="close" />;
     const CloseLargeIcon = <CloseLarge data-hook="close-large" />;
 
     const childSize = '18px';
 
     return (
-      <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
+      <ButtonNext
+        {...rest}
+        {...styles('root', { skin, size }, this.props)}
+        data-hook={dataHook}
+      >
         {children
           ? React.cloneElement(children, {
               size: childSize,
