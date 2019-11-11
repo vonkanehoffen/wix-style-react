@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-import cx from 'classnames';
-import { iconButton } from 'wix-ui-core/dist/src/themes/backoffice';
+
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
 import { iconChildSize } from './constants';
 
-class IconButton extends Component {
+import styles from './IconButton.st.css';
+
+class IconButton extends PureComponent {
   static displayName = 'IconButton';
 
   static propTypes = {
@@ -48,14 +49,13 @@ class IconButton extends Component {
       ...rest
     } = this.props;
 
-    const classNames = cx(className, iconButton(skin, priority, size));
     const childSize = iconChildSize[size];
 
     return (
       <ButtonNext
         {...rest}
+        {...styles('root', { skin, priority, size }, this.props)}
         data-hook={dataHook}
-        className={classNames}
         disabled={disabled}
       >
         {children &&
