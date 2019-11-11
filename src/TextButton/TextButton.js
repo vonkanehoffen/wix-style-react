@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-import cx from 'classnames';
-import { textButton } from 'wix-ui-core/dist/src/themes/backoffice';
 import {
   oneOfType,
   string,
@@ -13,7 +11,9 @@ import {
   func,
 } from 'prop-types';
 
-class TextButton extends Component {
+import styles from './TextButton.st.css';
+
+class TextButton extends PureComponent {
   static displayName = 'TextButton';
 
   static propTypes = {
@@ -63,10 +63,12 @@ class TextButton extends Component {
       ...rest
     } = this.props;
 
-    const classNames = cx(className, textButton(skin, underline, weight, size));
-
     return (
-      <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
+      <ButtonNext
+        {...rest}
+        {...styles('root', { skin, underline, weight, size }, rest)}
+        data-hook={dataHook}
+      >
         {children}
       </ButtonNext>
     );
