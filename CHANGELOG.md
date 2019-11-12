@@ -21,6 +21,7 @@ Types of changes:
 - `<InfoIcon/>` - new component [#4480](https://github.com/wix/wix-style-react/pull/4480)
 - `<SocialButton/>` - new component [#4461](https://github.com/wix/wix-style-react/pull/4461)
 - EllipsisHOC - add `showTooltip` prop [#4501](https://github.com/wix/wix-style-react/pull/4501)
+- `<InputWithLabel/>` - add `isFocusedStyle` method to testkit [#4503](https://github.com/wix/wix-style-react/pull/4503)
 
 ### Changed
 
