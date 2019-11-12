@@ -21,8 +21,6 @@ class Button extends PureComponent {
   static propTypes = {
     /** render as some other component or DOM tag */
     as: oneOfType([func, object, string]),
-    /** Additional classes */
-    className: string,
     /** Skins of Button content */
     skin: oneOf([
       'standard',
@@ -67,7 +65,6 @@ class Button extends PureComponent {
       size,
       fullWidth,
       children,
-      className,
       dataHook,
       ...rest
     } = this.props;
