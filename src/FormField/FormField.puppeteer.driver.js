@@ -6,7 +6,7 @@ const formFieldDriverFactory = async (component, page, { dataHook }) => {
     getLabelValue: async () => {
       const label = await component.$('[data-hook="formfield-label"]');
       return page.evaluate(
-        _label => _label.querySelector('label').innerText,
+        _label => _label.innerText,
         label,
       );
     },
