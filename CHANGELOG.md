@@ -31,6 +31,7 @@ Types of changes:
 - `<ErrorIndicator/>` - update propTypes [#4507](https://github.com/wix/wix-style-react/pull/4507)
 
 ## Docs
+
 - `<PopoverMenu.MenuItem/>` - fix documentation [#4454](https://github.com/wix/wix-style-react/pull/4454)
 
 ### Fixed
@@ -38,6 +39,7 @@ Types of changes:
 - `<Tabs/>` - fix testkit methods not working correctly [#4490](https://github.com/wix/wix-style-react/pull/4490)
 - `<DataTable/>` - re-render virtualized table on table prop change [#4491](https://github.com/wix/wix-style-react/pull/4491)
 - `<InputWithOptions/>` - fix `onClickOutside` callback not triggering [#4485](https://github.com/wix/wix-style-react/pull/4485)
+- `<FormField/>` - fix puppeteer testkit getLabelValue() method [#4504](https://github.com/wix/wix-style-react/pull/4504)
 
 ## 7.14.1 - 2019-11-07
 
