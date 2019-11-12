@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
+import { generateDataAttr } from '../utils/generateDataAttr';
 
 import styles from './Button.st.css';
 
@@ -76,6 +77,7 @@ class Button extends PureComponent {
     return (
       <ButtonNext
         {...rest}
+        {...generateDataAttr(this.props, ['skin', 'size', 'weight'])}
         {...styles('root', { fluid, skin, priority, size }, this.props)}
         data-hook={dataHook}
       >

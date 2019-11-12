@@ -18,6 +18,6 @@ export const buttonDriverFactory = base => {
     isButtonDisabled: buttonNextDriver.isButtonDisabled,
 
     /** Returns true if the Button was configured with given skin */
-    hasSkin: skinName => base.hasClass(styles[skinName]),
+    hasSkin: skinName => base.attr('data-skin') === skinName,
   };
 };
