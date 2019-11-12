@@ -15,11 +15,12 @@ export default React.forwardRef(({ Component, props }, ref) => {
     hideDelay,
     showDelay,
     ellipsis,
+    showTooltip = true,
     ...rest
   } = props;
 
   const EllipsedComponent = withEllipsedTooltip({
-    showTooltip: true,
+    showTooltip,
     tooltipProps: {
       className: tooltip.root,
       appendTo,

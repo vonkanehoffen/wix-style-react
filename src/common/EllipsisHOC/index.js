@@ -87,6 +87,8 @@ Comp.propTypes = {
   hideDelay: number,
   /** `ellipsis` prop. Tooltip show delay. */
   showDelay: number,
+  /** `ellipsis` prop. Whether to enable the tooltip when an ellipsis is necessary */
+  showTooltip: bool,
 };
 
 export default Comp;

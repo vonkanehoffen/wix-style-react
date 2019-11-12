@@ -128,7 +128,7 @@ export default {
             {
               title: 'Ellipsis',
               text:
-                'Text component can wrap the text or show ellipsis. Hidden text appears on hover in a tooltip.',
+                'Text component can wrap the text or show ellipsis. Hidden text appears on hover in a tooltip. Setting `showTooltip` prop to `false` allows showing ellipsis without tooltip.',
               source: examples.ellipsis,
             },
             {
