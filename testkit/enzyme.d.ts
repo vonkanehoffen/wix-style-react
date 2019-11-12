@@ -141,6 +141,8 @@ declare namespace EnzymeTestkit {
   export const mediaOverlayTestkitFactory: any;
   export const infoIconTestkitFactory: EnzymeUniTestkitFactory<InfoIconDriver>;
   export const socialButtonTestkitFactory: EnzymeUniTestkitFactory<SocialButtonDriver>;
+  export const verticalTabsTestkitFactory: any;
+  export const verticalTabsItemTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

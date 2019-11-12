@@ -418,5 +418,11 @@
   },
   "SocialButton": {
     "path": "src/SocialButton"
+  },
+  "VerticalTabs": {
+    "path": "src/VerticalTabs"
+  },
+  "VerticalTabsItem": {
+    "path": "src/VerticalTabsItem"
   }
 }

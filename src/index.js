@@ -156,3 +156,5 @@ export { default as SidebarBackButton } from './SidebarBackButton';
 export { default as PreviewWidget } from './PreviewWidget';
 export { default as InfoIcon } from './InfoIcon';
 export { default as SocialButton } from './SocialButton';
+export { default as VerticalTabs } from './VerticalTabs';
+export { default as VerticalTabsItem } from './VerticalTabsItem';

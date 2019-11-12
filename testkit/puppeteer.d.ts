@@ -116,6 +116,8 @@ export const modalMobileLayoutTestkitFactory: any;
 export const mediaOverlayTestkitFactory: any;
 export const infoIconTestkitFactory: any;
 export const socialButtonTestkitFactory: any;
+export const verticalTabsTestkitFactory: any;
+export const verticalTabsItemTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;
