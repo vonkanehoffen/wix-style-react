@@ -74,15 +74,22 @@ class Button extends PureComponent {
       ...rest
     } = this.props;
 
-    const fluid = fullWidth ? 'fullWidth' : '';
-
-    const { className } = styles('root', { fluid, skin, priority, size });
+    const { className } = styles('root', {
+      fluid: fullWidth,
+      skin,
+      priority,
+      size,
+    });
     const classNames = cx(className, userClassName);
     return (
       <ButtonNext
         {...rest}
         {...generateDataAttr(this.props, ['skin', 'size', 'weight'])}
-        {...styles('root', { fluid, skin, priority, size }, this.props)}
+        {...styles(
+          'root',
+          { fluid: fullWidth, skin, priority, size },
+          this.props,
+        )}
         data-hook={dataHook}
         className={classNames}
       >
