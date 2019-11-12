@@ -17,7 +17,7 @@
 
 .root {
   -st-extends: Button;
-  -st-states: skin(string), size(string), priority(string);
+  -st-states: skin(string), size(string), priority(string), fullWidth;
 
   justify-content: center;
 
@@ -70,8 +70,8 @@
 }
 
 .root:focus-visible {
-    box-shadow: 0 0 0 3px value(F00);
-    z-index: 1000;
+  box-shadow: 0 0 0 3px value(F00);
+  z-index: 1000;
 }
 
 
