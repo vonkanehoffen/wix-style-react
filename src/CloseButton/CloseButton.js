@@ -3,6 +3,8 @@ import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 
 import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
+
+import { generateDataAttr } from '../utils/generateDataAttr';
 import { SIZES } from './constants';
 
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
@@ -55,6 +57,7 @@ class CloseButton extends PureComponent {
       <ButtonNext
         {...rest}
         {...styles('root', { skin, size }, this.props)}
+        {...generateDataAttr(this.props, ['skin', 'size', 'disabled'])}
         data-hook={dataHook}
       >
         {children

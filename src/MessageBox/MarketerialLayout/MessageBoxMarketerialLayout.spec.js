@@ -136,9 +136,7 @@ describe('MessageBoxMarketerialLayout', () => {
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
 
-        expect(
-          await driver.isClassPresentInHeaderCloseButton(styles.dark),
-        ).toBeTruthy();
+        expect(await driver.closeButtonHasSkin('dark')).toBeTruthy();
       });
     });
 
