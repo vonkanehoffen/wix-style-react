@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { generateDataAttr } from '../utils/generateDataAttr';
 
+import cx from 'classnames';
+
 import styles from './Button.st.css';
 
 import {
@@ -21,6 +23,8 @@ class Button extends PureComponent {
   static propTypes = {
     /** render as some other component or DOM tag */
     as: oneOfType([func, object, string]),
+    /** Additional classes */
+    className: string,
     /** Skins of Button content */
     skin: oneOf([
       'standard',
@@ -63,6 +67,7 @@ class Button extends PureComponent {
       skin,
       priority,
       size,
+      className: userClassName,
       fullWidth,
       children,
       dataHook,
@@ -71,12 +76,15 @@ class Button extends PureComponent {
 
     const fluid = fullWidth ? 'fullWidth' : '';
 
+    const { className } = styles('root', { fluid, skin, priority, size });
+    const classNames = cx(className, userClassName);
     return (
       <ButtonNext
         {...rest}
         {...generateDataAttr(this.props, ['skin', 'size', 'weight'])}
         {...styles('root', { fluid, skin, priority, size }, this.props)}
         data-hook={dataHook}
+        className={classNames}
       >
         {children}
       </ButtonNext>

@@ -5,6 +5,7 @@ import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
 
 import { generateDataAttr } from '../utils/generateDataAttr';
+import cx from 'classnames';
 import { SIZES } from './constants';
 
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
@@ -49,7 +50,7 @@ class CloseButton extends PureComponent {
     const {
       skin,
       size,
-      className,
+      className: userClassName,
       dataHook,
       children,
       disabled,
@@ -61,12 +62,16 @@ class CloseButton extends PureComponent {
 
     const childSize = '18px';
 
+    const { className } = styles('root', { skin, size });
+    const classNames = cx(className, userClassName);
+
     return (
       <ButtonNext
         {...rest}
         {...styles('root', { skin, size }, this.props)}
         {...generateDataAttr(this.props, ['skin', 'size'])}
         data-hook={dataHook}
+        className={classNames}
       >
         {children
           ? React.cloneElement(children, {

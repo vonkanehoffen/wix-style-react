@@ -10,6 +10,7 @@ import {
   bool,
   func,
 } from 'prop-types';
+import cx from 'classnames';
 import { generateDataAttr } from '../utils/generateDataAttr';
 
 import styles from './TextButton.st.css';
@@ -59,10 +60,13 @@ class TextButton extends PureComponent {
       weight,
       size,
       children,
-      className,
+      className: userClassName,
       dataHook,
       ...rest
     } = this.props;
+
+    const { className } = styles('root', { skin, underline, weight, size });
+    const classNames = cx(className, userClassName);
 
     return (
       <ButtonNext
@@ -74,6 +78,7 @@ class TextButton extends PureComponent {
           'underline',
         ])}
         {...styles('root', { skin, underline, weight, size }, rest)}
+        className={classNames}
         data-hook={dataHook}
       >
         {children}

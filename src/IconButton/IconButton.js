@@ -5,7 +5,7 @@ import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
 import { iconChildSize } from './constants';
 
 import { generateDataAttr } from '../utils/generateDataAttr';
-
+import cx from 'classnames';
 import styles from './IconButton.st.css';
 
 class IconButton extends PureComponent {
@@ -40,9 +40,20 @@ class IconButton extends PureComponent {
   };
 
   render() {
-    const { skin, priority, size, children, dataHook, ...rest } = this.props;
+    const {
+      skin,
+      className: userClassName,
+      priority,
+      size,
+      children,
+      dataHook,
+      ...rest
+    } = this.props;
 
     const childSize = iconChildSize[size];
+
+    const { className } = styles('root', { skin, priority, size });
+    const classNames = cx(className, userClassName);
 
     return (
       <ButtonNext
@@ -50,6 +61,7 @@ class IconButton extends PureComponent {
         {...styles('root', { skin, priority, size }, this.props)}
         {...generateDataAttr(this.props, ['skin', 'priority', 'size'])}
         data-hook={dataHook}
+        className={classNames}
       >
         {children &&
           React.cloneElement(children, {
