@@ -10,6 +10,7 @@ import {
   bool,
   func,
 } from 'prop-types';
+import { generateDataAttr } from '../utils/generateDataAttr';
 
 import styles from './TextButton.st.css';
 
@@ -66,6 +67,12 @@ class TextButton extends PureComponent {
     return (
       <ButtonNext
         {...rest}
+        {...generateDataAttr(this.props, [
+          'skin',
+          'size',
+          'weight',
+          'underline',
+        ])}
         {...styles('root', { skin, underline, weight, size }, rest)}
         data-hook={dataHook}
       >

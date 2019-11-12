@@ -4,6 +4,8 @@ import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
 import { iconChildSize } from './constants';
 
+import { generateDataAttr } from '../utils/generateDataAttr';
+
 import styles from './IconButton.st.css';
 
 class IconButton extends PureComponent {
@@ -38,16 +40,7 @@ class IconButton extends PureComponent {
   };
 
   render() {
-    const {
-      skin,
-      priority,
-      size,
-      className,
-      children,
-      disabled,
-      dataHook,
-      ...rest
-    } = this.props;
+    const { skin, priority, size, children, dataHook, ...rest } = this.props;
 
     const childSize = iconChildSize[size];
 
@@ -55,8 +48,8 @@ class IconButton extends PureComponent {
       <ButtonNext
         {...rest}
         {...styles('root', { skin, priority, size }, this.props)}
+        {...generateDataAttr(this.props, ['skin', 'priority', 'size'])}
         data-hook={dataHook}
-        disabled={disabled}
       >
         {children &&
           React.cloneElement(children, {

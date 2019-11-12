@@ -46,7 +46,15 @@ class CloseButton extends PureComponent {
   };
 
   render() {
-    const { skin, size, className, dataHook, children, ...rest } = this.props;
+    const {
+      skin,
+      size,
+      className,
+      dataHook,
+      children,
+      disabled,
+      ...rest
+    } = this.props;
 
     const CloseIcon = <Close data-hook="close" />;
     const CloseLargeIcon = <CloseLarge data-hook="close-large" />;
@@ -57,7 +65,7 @@ class CloseButton extends PureComponent {
       <ButtonNext
         {...rest}
         {...styles('root', { skin, size }, this.props)}
-        {...generateDataAttr(this.props, ['skin', 'size', 'disabled'])}
+        {...generateDataAttr(this.props, ['skin', 'size'])}
         data-hook={dataHook}
       >
         {children
