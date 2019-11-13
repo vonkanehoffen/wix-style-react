@@ -277,8 +277,11 @@ class Page extends WixComponent {
 
   _renderHeader() {
     const { minimized } = this.state;
+    const { minimizedHeader } = this.props;
     const { PageHeader: PageHeaderChild } = this._getNamedChildren();
     const dataHook = 'page-header-wrapper';
+    const isMinimized =
+      typeof minimizedHeader === 'undefined' ? minimized : minimizedHeader;
 
     return (
       PageHeaderChild && (
@@ -286,14 +289,14 @@ class Page extends WixComponent {
           data-hook={dataHook}
           key={dataHook}
           className={classNames(s.headerWrapper, {
-            [s.minimized]: minimized,
+            [s.minimized]: isMinimized,
           })}
           ref={ref => {
             this.headerWrapperRef = ref;
           }}
         >
           {React.cloneElement(PageHeaderChild, {
-            minimized,
+            minimized: isMinimized,
             hasBackgroundImage: this._hasBackgroundImage(),
             upgrade: true,
           })}
