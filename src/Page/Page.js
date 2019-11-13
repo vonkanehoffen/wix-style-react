@@ -519,6 +519,8 @@ Page.propTypes = {
   minWidth: PropTypes.number,
   /** Sets the height of the page (in px/vh/etc.) */
   height: PropTypes.string,
+  /** PageHeader prop minimized */
+  minimizedHeader: PropTypes.bool,
   /** Sets padding of the sides of the page */
   sidePadding: PropTypes.number,
   /** A css class to be applied to the component's root element */
