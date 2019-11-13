@@ -76,7 +76,6 @@ class InputArea extends WixComponent {
       errorMessage,
       size,
       tooltipPlacement,
-      onTooltipShow,
     } = this.props;
 
     const inlineStyle = {};
@@ -160,7 +159,6 @@ class InputArea extends WixComponent {
               dataHook={dataHooks.tooltip}
               errorMessage={errorMessage}
               tooltipPlacement={tooltipPlacement}
-              onTooltipShow={onTooltipShow}
             />
           )}
         </div>
