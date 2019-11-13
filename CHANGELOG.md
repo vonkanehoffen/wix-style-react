@@ -14,6 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 7.15.1 - 2019 - 11 - 13
+
+- Reverting Buttons family migration from core to wsr
+
 ## 7.15.0 - 2019-11-13
 
 ### Added
@@ -22,7 +26,7 @@ Types of changes:
 - `<SocialButton/>` - new component [#4461](https://github.com/wix/wix-style-react/pull/4461)
 - EllipsisHOC - add `showTooltip` prop [#4501](https://github.com/wix/wix-style-react/pull/4501)
 - `<InputWithLabel/>` - add `isFocusedStyle` method to testkit [#4503](https://github.com/wix/wix-style-react/pull/4503)
-- `<Swatches/>` -  add isEmptySwatchSelected to testkit [#4458](https://github.com/wix/wix-style-react/pull/4458)
+- `<Swatches/>` - add isEmptySwatchSelected to testkit [#4458](https://github.com/wix/wix-style-react/pull/4458)
 
 ### Changed
 
@@ -48,6 +52,7 @@ Types of changes:
 ## 7.14.1 - 2019-11-07
 
 ### Fixed
+
 - `<Ticker/>` - add missing propType [#4479](https://github.com/wix/wix-style-react/pull/4479)
 - Fixing wix-style-react polyfills to run in SSR without reference errors [#4463](https://github.com/wix/wix-style-react/pull/4463)
 
