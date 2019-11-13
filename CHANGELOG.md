@@ -40,6 +40,7 @@ Types of changes:
 - `<DataTable/>` - re-render virtualized table on table prop change [#4491](https://github.com/wix/wix-style-react/pull/4491)
 - `<InputWithOptions/>` - fix `onClickOutside` callback not triggering [#4485](https://github.com/wix/wix-style-react/pull/4485)
 - `<FormField/>` - fix puppeteer testkit getLabelValue() method [#4504](https://github.com/wix/wix-style-react/pull/4504)
+- `<ImageViewer/>` - fix missing `@testing-library/react` when importing any Protractor driver [#4509](https://github.com/wix/wix-style-react/pull/4509)
 
 ## 7.14.1 - 2019-11-07
 
