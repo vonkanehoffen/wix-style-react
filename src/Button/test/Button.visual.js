@@ -28,6 +28,12 @@ const tests = [
       .map(skin => test(skin, { skin, priority: PRIORITY.secondary })),
   },
   {
+    describe: 'Disabled (Primary)',
+    its: skins.map(skin =>
+      test(skin, { skin, priority: PRIORITY.primary, disabled: true }),
+    ),
+  },
+  {
     describe: 'Sizes',
     its: sizes.map(size => test(size, { size })),
   },

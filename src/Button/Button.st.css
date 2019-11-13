@@ -250,7 +250,7 @@
   color: value(D80);
 }
 
-.root:skin(premium).premium {
+.root:skin(premium):disabled {
   background-color: value(D55);
   border-color: value(D55);
   color: value(D80);
