@@ -29,6 +29,7 @@ Types of changes:
 - `<PageHeader/>` - adjust back button styling [#4482](https://github.com/wix/wix-style-react/pull/4482)
 - `<PreviewWidget/>`- (WIP) API change and documentation update [#4474](https://github.com/wix/wix-style-react/pull/4474)
 - `<ErrorIndicator/>` - update propTypes [#4507](https://github.com/wix/wix-style-react/pull/4507)
+- `<Sidebar/>` - adjust `backgroundColor` according to spec [#4512](https://github.com/wix/wix-style-react/pull/4512)
 
 ### Docs
 
@@ -40,7 +41,7 @@ Types of changes:
 - `<DataTable/>` - re-render virtualized table on table prop change [#4491](https://github.com/wix/wix-style-react/pull/4491)
 - `<InputWithOptions/>` - fix `onClickOutside` callback not triggering [#4485](https://github.com/wix/wix-style-react/pull/4485)
 - `<FormField/>` - fix puppeteer testkit getLabelValue() method [#4504](https://github.com/wix/wix-style-react/pull/4504)
-- `<ImageViewer/>` - fix missing `@testing-library/react` when importing any Protractor driver [#4509](https://github.com/wix/wix-style-react/pull/4509)
+- `<ImageViewer/>` - fix missing `@testing-library/react` when importing any Protractor testkit [#4509](https://github.com/wix/wix-style-react/pull/4509)
 
 ## 7.14.1 - 2019-11-07
 
