@@ -6,7 +6,7 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: B10, F00, B20, D55, R10, R20, P10, P20, G10, G20, D80, B50, D40,
-  D10, D20, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-30, D80-70;
+  D10, D20, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-30, D80-70, D10-30;
 }
 
 :import {
@@ -65,8 +65,8 @@
 
 .root:disabled {
   color: value(D80);
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D10-30);
+  border-color: transparent;
 }
 
 .root:focus-visible {
@@ -78,8 +78,8 @@
 /* Skin: standard - secondary */
 
 .root:priority(secondary) {
-  border: solid 1px value(B10);
-  background: transparent;
+  background-color: transparent;
+  border-color: value(B10);
   color: value(B10);
 }
 
@@ -96,9 +96,9 @@
 }
 
 .root:priority(secondary):disabled {
-  border-color: value(D55);
-  color: value(D55);
-  background-color: transparent;
+  color: value(D80);
+  background-color: value(D10-30);
+  border-color: transparent;
 }
 
 /* Skin: inverted */
@@ -122,9 +122,9 @@
 }
 
 .root:skin(inverted):disabled {
-  color: value(D80);
-  background-color: value(D55);
-  border-color: value(D55);
+  color: value(D10-30);
+  background-color: transparent;
+  border-color: value(D10-30);
 }
 
 /* skin: light */
@@ -147,9 +147,9 @@
 }
 
 .root:skin(light):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
   color: value(D80);
+  background-color: value(D80-30);
+  border-color: transparent;
 }
 
 /* skin: light - secondary */
@@ -173,9 +173,9 @@
 }
 
 .root:skin(light):priority(secondary):disabled {
-  border-color: value(D55);
-  color: value(D55);
-  background-color: transparent;
+  color: value(D80-70);
+  background-color:transparent;
+  border-color: value(D80-70);
 }
 
 /* skin: destructive */
@@ -200,8 +200,8 @@
 
 .root:skin(destructive):disabled {
   color: value(D80);
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D10-30);
+  border-color: transparent;
 }
 
 /* skin: destructive - secondary */
@@ -225,9 +225,9 @@
 }
 
 .root:skin(destructive):priority(secondary):disabled {
-  border-color: value(D55);
-  color: value(D55);
+  color: value(D10-30);
   background-color: transparent;
+  border-color: value(D10-30);
 }
 
 /* skin: premium */
@@ -251,9 +251,9 @@
 }
 
 .root:skin(premium):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
-  color: value(D80);
+  color:value(D80);
+  background-color: value(D10-30);
+  border-color: transparent;
 }
 
 /* skin: premium - secondary */
@@ -277,9 +277,9 @@
 }
 
 .root:skin(premium):priority(secondary):disabled {
-  border-color: value(D55);
+  color: value(D10-30);
   background-color: transparent;
-  color: value(D55);
+  border-color: value(D10-30);
 }
 
 
@@ -308,9 +308,9 @@
 
 .root:skin(premium-light):disabled,
 .root:skin(premium-light):priority(secondary):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
-  color: value(D80);
+  color: value(D80-70);
+  background-color:transparent;
+  border-color: value(D80-70);
 }
 
 
@@ -335,9 +335,9 @@
 }
 
 .root:skin(dark):disabled {
-  background-color: value(D80-30);
-  border: solid 1px transparent;
   color: value(D80);
+  background-color: value(D10-30);
+  border-color: transparent;
 }
 
 /* skin: dark - secondary */
@@ -361,9 +361,9 @@
 }
 
 .root:skin(dark):priority(secondary):disabled {
+  color: value(D10-30);
   background-color: transparent;
-  border: solid 1px value(D80-70);
-  color: value(D80-70);
+  border-color: value(D10-30);
 }
 
 /* skin: transparent */
@@ -389,7 +389,7 @@
 .root:skin(transparent):disabled {
   background-color: value(D10-20);
   border-color: transparent;
-  color: value(D80-70);
+  color: value(D80);
 }
 
 /* skin: transparent - secondary */
@@ -415,7 +415,7 @@
 .root:skin(transparent):priority(secondary):disabled {
   background-color: transparent;
   border-color: transparent;
-  color: value(D80-70);
+  color: value(D80);
 }
 
 /* sizes */

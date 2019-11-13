@@ -1,38 +1,104 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Button from '../Button';
-import Box from 'wix-style-react/Box';
+
 import AddChannel from '../../new-icons/AddChannel';
-import { SIZES, SKINS, PRIORITY } from '../constants';
+import { SIZES, SKINS } from '../constants';
+import Box from '../../Box';
+import { Layout, Cell } from '../../Layout';
 
 const defaultProps = {
   children: 'Button',
 };
 
-const skins = Object.values(SKINS).filter(skin => skin !== SKINS.premiumLight);
+const skins = [
+  {
+    value: 'standard',
+    background: '',
+  },
+  {
+    value: 'inverted',
+    background: '',
+  },
+  {
+    value: 'destructive',
+    background: '',
+  },
+  {
+    value: 'premium',
+    background: '',
+  },
+  {
+    value: 'light',
+    background: '#162d3d',
+  },
+  {
+    value: 'transparent',
+    background: '#4eb7f5',
+  },
+  {
+    value: 'dark',
+    background: '#fef0ba',
+  },
+  {
+    value: 'premium-light',
+    background: '#162d3d',
+  },
+];
 
 const sizes = Object.values(SIZES);
 
 const test = (it, props) => ({ it, props });
 
+const TestContainer = ({ children }) => (
+  <div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#f0f4f7',
+    }}
+  >
+    {children}
+  </div>
+);
+
+const ButtonBlock = props => {
+  return (
+    <Box width="400px">
+      <Layout>
+        <Cell span={6}>
+          {skins.map(({ value, background }, index) => (
+            <div
+              key={index}
+              style={{ background: background, margin: '5px 0' }}
+            >
+              <Button {...props} fullWidth skin={value}>
+                {value}
+              </Button>
+            </div>
+          ))}
+        </Cell>
+        <Cell span={6}>
+          {skins.map(({ value, background }, index) => (
+            <div
+              key={index}
+              style={{ background: background, margin: '5px 0' }}
+            >
+              <Button {...props} fullWidth skin={value} disabled>
+                {value}
+              </Button>
+            </div>
+          ))}
+        </Cell>
+      </Layout>
+    </Box>
+  );
+};
+
 const tests = [
-  {
-    describe: 'Primary Skins',
-    its: skins.map(skin => test(skin, { skin, priority: PRIORITY.primary })),
-  },
-  {
-    describe: 'Secondary Skins',
-    its: skins
-      // box background for these skins (tests below)
-      .filter(skin => skin !== SKINS.transparent)
-      .map(skin => test(skin, { skin, priority: PRIORITY.secondary })),
-  },
-  {
-    describe: 'Disabled (Primary)',
-    its: skins.map(skin =>
-      test(skin, { skin, priority: PRIORITY.primary, disabled: true }),
-    ),
-  },
   {
     describe: 'Sizes',
     its: sizes.map(size => test(size, { size })),
@@ -47,12 +113,35 @@ const tests = [
       }),
     ),
   },
+];
+
+const blockOfTests = [
   {
-    describe: 'Render As',
+    describe: 'Button',
     its: [
       {
-        it: 'as anchor',
-        props: { as: 'a' },
+        it: 'Primary Skins',
+        story: () => (
+          <TestContainer>
+            <ButtonBlock />
+          </TestContainer>
+        ),
+      },
+      {
+        it: 'Secondary Skins',
+        story: () => (
+          <TestContainer>
+            <ButtonBlock priority="secondary" />
+          </TestContainer>
+        ),
+      },
+      {
+        it: 'Anchor',
+        story: () => (
+          <TestContainer>
+            <ButtonBlock as="a" />
+          </TestContainer>
+        ),
       },
     ],
   },
@@ -66,15 +155,8 @@ tests.forEach(({ describe, its }) => {
   });
 });
 
-const testWithBoxWrapper = [
-  { boxBackground: 'B20', skin: SKINS.transparent },
-  { boxBackground: 'D10', skin: SKINS.premiumLight },
-];
-
-testWithBoxWrapper.forEach(({ skin, boxBackground }) => {
-  storiesOf(`Button/Secondary Skins`, module).add(skin, () => (
-    <Box backgroundColor={boxBackground} width={'100px'} padding="3px">
-      <Button {...defaultProps} priority={PRIORITY.secondary} skin={skin} />
-    </Box>
-  ));
+blockOfTests.forEach(({ describe, its }) => {
+  its.forEach(({ it, story }) => {
+    storiesOf(describe, module).add(it, story);
+  });
 });
