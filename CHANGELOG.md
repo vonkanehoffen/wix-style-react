@@ -31,6 +31,8 @@ Types of changes:
 - `<ErrorIndicator/>` - update propTypes [#4507](https://github.com/wix/wix-style-react/pull/4507)
 - `<Sidebar/>` - adjust `backgroundColor` according to spec [#4512](https://github.com/wix/wix-style-react/pull/4512)
 - `<BarChart/>` - align text in tooltip to start of line [#4505](https://github.com/wix/wix-style-react/pull/4505)
+- `<StatisticsWidget/>` - align text in tooltip to start of line [#4506](https://github.com/wix/wix-style-react/pull/4506)
+
 ### Docs
 
 - `<PopoverMenu.MenuItem/>` - fix documentation [#4454](https://github.com/wix/wix-style-react/pull/4454)
