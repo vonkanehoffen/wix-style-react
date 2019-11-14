@@ -117,7 +117,7 @@ export default {
           columns([
             description({
               title: 'Vertical Tab With Suffix',
-              text: 'Vertical tab item with prefix icon',
+              text: 'Vertical tab item with suffix icon',
             }),
 
             code({

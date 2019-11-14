@@ -16,10 +16,10 @@ class VerticalTabsItem extends React.PureComponent {
     /** Data attribute for testing purposes */
     dataHook: string,
 
-    /** Prefix Icon */
+    /** Prefix Icon - should be <code>Icon</code>*/
     prefixIcon: node,
 
-    /** Suffix Icon */
+    /** Suffix Icon - should be <code>Icon</code> or <code><IconButton size="tiny"></code> */
     suffixIcon: node,
 
     /** Children - only single child is allowed here */
@@ -40,7 +40,7 @@ class VerticalTabsItem extends React.PureComponent {
   };
 
   _renderText() {
-    const { children, type } = this.props;
+    const { children, type, disabled } = this.props;
     const { size } = this.context;
     const isTitle = type === 'title';
     const commonProps = {
@@ -49,9 +49,16 @@ class VerticalTabsItem extends React.PureComponent {
       dataHook: 'vertical-tabs-item-text',
     };
     return type === 'action' ? (
-      <TextButton {...commonProps}>{children}</TextButton>
+      <TextButton {...commonProps} disabled={disabled}>
+        {children}
+      </TextButton>
     ) : (
-      <Text light={isTitle} secondary={isTitle} {...commonProps}>
+      <Text
+        light={isTitle}
+        secondary={isTitle}
+        skin={disabled ? 'disabled' : 'standard'}
+        {...commonProps}
+      >
         {children}
       </Text>
     );
@@ -99,6 +106,7 @@ class VerticalTabsItem extends React.PureComponent {
             action: type === 'action',
             title: type === 'title',
             suffixIcon: !!suffixIcon,
+            prefixIcon: !!prefixIcon,
             selected,
           },
           this.props,
