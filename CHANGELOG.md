@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Checkbox/>` - add small size [#4525](https://github.com/wix/wix-style-react/pull/4525)
+- `<AutoCompleteWithLabel/>` - add `native` prop [#4528](https://github.com/wix/wix-style-react/pull/4528)
 
 ### Fixed
 - `<Table/>` - Fixed missing separator border for Table.Content when column titles are hidden [#4517](https://github.com/wix/wix-style-react/pull/4517)
