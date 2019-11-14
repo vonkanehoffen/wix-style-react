@@ -63,6 +63,10 @@ const tests = [
         it: 'selectionArea',
         props: { selectionArea: 'always' },
       },
+      {
+        it: 'small label',
+        props: { size: 'small' },
+      },
     ],
   },
   {

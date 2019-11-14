@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool, func, oneOf, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CheckboxChecked from 'wix-ui-icons-common/system/CheckboxChecked';
 import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndeterminate';
@@ -24,26 +24,29 @@ class Checkbox extends WixComponent {
 
   static propTypes = {
     /** used for automatic testing */
-    checked: bool,
-    children: node,
+    checked: PropTypes.bool,
+    children: PropTypes.node,
     /** Is checkbox disabled */
-    disabled: bool,
+    disabled: PropTypes.bool,
     /** Does checkbox has an error */
-    hasError: bool,
-    id: string,
+    hasError: PropTypes.bool,
+    id: PropTypes.string,
     /** Checkbox is in an indeterminate state */
-    indeterminate: bool,
+    indeterminate: PropTypes.bool,
     /** The error message when there's an error */
-    errorMessage: string,
+    errorMessage: PropTypes.string,
     /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
-    selectionArea: oneOf(['none', 'hover', 'always']),
+    selectionArea: PropTypes.oneOf(['none', 'hover', 'always']),
     /** Positioning of the checkbox compared to the label */
-    vAlign: oneOf(['center', 'top']),
-
+    vAlign: PropTypes.oneOf(['center', 'top']),
     /** used for automatic testing */
-    hover: bool,
-    size: oneOf(['medium']),
-    onChange: func,
+    hover: PropTypes.bool,
+    /** Size of the checkbox label */
+    size: PropTypes.oneOf(['small', 'medium']),
+    /** A callback function triggered when the checkbox state is changed */
+    onChange: PropTypes.func,
+    /** Define styles through a classname */
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -52,6 +55,9 @@ class Checkbox extends WixComponent {
     selectionArea: 'none',
     vAlign: 'center',
     onChange: e => e.stopPropagation(),
+    hasError: false,
+    disabled: false,
+    indeterminate: false,
   };
 
   //TODO fix me please. We need to get away from ids.
@@ -84,10 +90,12 @@ class Checkbox extends WixComponent {
       size,
       onChange,
       children,
+      className,
     } = this.props;
 
     const classname = classNames(
       styles.root,
+      className,
       indeterminate
         ? styles.indeterminate
         : checked
@@ -131,6 +139,7 @@ class Checkbox extends WixComponent {
           className={classNames({
             [styles.vtop]: vAlign === 'top',
           })}
+          size={size}
         >
           <Tooltip
             upgrade
