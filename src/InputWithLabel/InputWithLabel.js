@@ -116,7 +116,7 @@ class InputWithLabel extends React.Component {
             onBlur={onBlur}
             dataHook={dataHooks.input}
             className={classNames(className, styles.inputContainer)}
-            size="large"
+            size="medium"
             value={value}
             suffix={suffixContainer}
             status={status}
@@ -129,6 +129,7 @@ class InputWithLabel extends React.Component {
             dataHook={dataHooks.errorMessage}
             skin="error"
             size="small"
+            weight="normal"
             className={styles.statusMessage}
           >
             {statusMessage}
