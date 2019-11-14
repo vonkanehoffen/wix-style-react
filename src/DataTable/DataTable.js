@@ -610,7 +610,7 @@ DataTable.propTypes = {
   /** ++EXPERIMENTAL++ Set ref on virtualized List containing table rows */
   virutalizedListRef: PropTypes.any,
   /** ++EXPERIMENTAL++ callback when virtualized List scrolled */
-  onVirtualizedListScroll: PropTypes.function,
+  onVirtualizedListScroll: PropTypes.any,
   /** array of selected ids in the table. Note that `isRowSelected` prop provides greater selection logic flexibility and is recommended to use instead. */
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
