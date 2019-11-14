@@ -14,11 +14,10 @@ import {
   testkit,
 } from 'wix-storybook-utils/Sections';
 
-import icons from '../../../stories/utils/icons-for-story';
-import { storySettings } from './storySettings';
-import allComponents from '../../../stories/utils/allComponents';
-
 import VerticalTabsItem from '..';
+import { storySettings } from './storySettings';
+import icons from '../../../stories/utils/icons-for-story';
+import allComponents from '../../../stories/utils/allComponents';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
