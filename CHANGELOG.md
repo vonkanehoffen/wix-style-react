@@ -23,6 +23,7 @@ Types of changes:
 ### Fixed
 - `<Table/>` - Fixed missing separator border for Table.Content when column titles are hidden [#4517](https://github.com/wix/wix-style-react/pull/4517)
 - `<BadgeSelect/>` - fix missing colors for `neutralLigth`, `warningLight` & `premium` skins [#4516](https://github.com/wix/wix-style-react/pull/4516)
+- `<PopoverMenu/>` (beta) - Fix zIndex prop not working as expected [#4530](https://github.com/wix/wix-style-react/pull/4530)
 
 ## 7.15.1 - 2019 - 11 - 13
 
