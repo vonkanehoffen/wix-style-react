@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+- `<Checkbox/>` - add small size [#4525](https://github.com/wix/wix-style-react/pull/4525)
+
 ## 7.15.1 - 2019 - 11 - 13
 
 - Reverting Buttons family migration from core to wsr
