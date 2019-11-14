@@ -28,9 +28,6 @@ class VerticalTabsItem extends React.PureComponent {
     /** Disabled */
     disabled: bool,
 
-    /** On Click */
-    onClick: func,
-
     /** identifier to help identify the current selected tab */
     id: number,
   };
@@ -91,7 +88,6 @@ class VerticalTabsItem extends React.PureComponent {
       disabled,
       prefixIcon,
       suffixIcon,
-      onClick,
       tabIndex,
       type,
     } = this.props;
@@ -115,7 +111,7 @@ class VerticalTabsItem extends React.PureComponent {
         tabIndex={tabIndex}
         ref={ref => (this.innerComponentRef = ref)}
         data-hook={dataHook}
-        onClick={!disabled ? onClick : undefined}
+        onClick={!disabled ? () => this.context.onChange(id) : undefined}
       >
         {prefixIcon && this._renderPrefix()}
         {this._renderText()}

@@ -29,9 +29,7 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    onClick: () => {},
     children: 'Playground',
-    size: 'medium',
     type: 'tab',
   },
 
