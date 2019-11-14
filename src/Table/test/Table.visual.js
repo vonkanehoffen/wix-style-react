@@ -212,6 +212,14 @@ const tests = [
           selectionDisabled: true,
         },
       },
+      {
+        it: 'Should display the table without column titles',
+        props: {
+          data,
+          columns,
+          children: <Table.Content titleBarVisible={false} />,
+        },
+      },
     ],
   },
   {
@@ -247,6 +255,17 @@ const tests = [
           ],
         },
       },
+      {
+        it: 'Should display the table with toolbar and without column titles',
+        props: {
+          data,
+          columns,
+          children: [
+            <ToolbarExample key="toolbar" />,
+            <Table.Content key="content" titleBarVisible={false} />,
+          ],
+        },
+      },
     ],
   },
   {
@@ -259,6 +278,18 @@ const tests = [
           columns,
           showSelection: true,
           children: <EmptyStateExample />,
+        },
+      },
+      {
+        it: 'Should display the table with toolbar and EmptyState',
+        props: {
+          data,
+          columns,
+          showSelection: true,
+          children: [
+            <ToolbarExample key="toolbar" />,
+            <EmptyStateExample key="emptystate" />,
+          ],
         },
       },
     ],
