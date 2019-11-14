@@ -70,6 +70,18 @@ describe('PopoverMenu', () => {
     });
   });
 
+  describe('`zIndex` prop', () => {
+    it('should set z-index value', async () => {
+      const { driver } = render(renderPopoverMenu({ zIndex: 123456 }));
+
+      const iconButton = await driver.getTriggerElement('iconbutton');
+      const iconButtonTestkit = iconButtonDriverFactory(iconButton);
+      await iconButtonTestkit.click();
+
+      expect(await driver.getZIndex()).toBe('123456');
+    });
+  });
+
   describe('`children` prop', () => {
     describe('PopoverMenu.Item', () => {
       describe('`onClick` prop', () => {
