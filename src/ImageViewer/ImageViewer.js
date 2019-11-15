@@ -85,6 +85,16 @@ class ImageViewer extends Component {
     });
   };
 
+  _onImageLoad = e => {
+    const { onImageLoad } = this.props;
+    this.setState(
+      {
+        imageLoading: false,
+      },
+      () => onImageLoad(e),
+    );
+  };
+
   _getCurrentAndPreviousImages = () => {
     const { imageUrl: currentImageUrl } = this.props;
     const { previousImageUrl } = this.state;
@@ -97,8 +107,6 @@ class ImageViewer extends Component {
 
   _renderImage = () => {
     const { imageLoading } = this.state;
-    const { onImageLoad } = this.props;
-
     const {
       currentImageUrl,
       previousImageUrl,
@@ -122,10 +130,7 @@ class ImageViewer extends Component {
         {this._renderImageElement({
           imageUrl: currentImageUrl,
           shouldDisplay: !!currentImageUrl && !imageLoading,
-          onLoad: e => {
-            this._resetImageLoading();
-            onImageLoad && onImageLoad(e);
-          },
+          onLoad: this._onImageLoad,
           onError: () => {
             this._resetImageLoading();
           },
@@ -318,6 +323,7 @@ ImageViewer.defaultProps = {
   addImageInfo: 'Add Image',
   updateImageInfo: 'Update',
   removeImageInfo: 'Remove',
+  onImageLoad: () => ({}),
 };
 
 ImageViewer.propTypes = {
