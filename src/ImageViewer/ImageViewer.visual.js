@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { visualize, story, snap } from 'storybook-snapper';
 import ImageViewer from '.';
 
 const imageUrl =
@@ -7,62 +7,70 @@ const imageUrl =
 
 const tests = [
   {
-    describe: 'should render  ',
-    its: [
-      {
-        it: 'with an image',
-        props: {
-          imageUrl,
-        },
-      },
-      {
-        it: 'with a transparent image',
-        props: {
-          imageUrl:
-            'https://onlinepngtools.com/images/examples-onlinepngtools/palm-fronds-and-sky.png',
-        },
-      },
-      {
-        it: 'with an error',
-        props: {
-          error: true,
-        },
-      },
-      {
-        it: 'disabled with an image',
-        props: {
-          imageUrl,
-          disabled: true,
-        },
-      },
-      {
-        it: 'disabled with an error',
-        props: {
-          error: true,
-          disabled: true,
-        },
-      },
-      {
-        it: 'disabled without an error',
-        props: {
-          disabled: true,
-        },
-      },
-      {
-        it: 'Without rounded borders',
-        props: {
-          imageUrl,
-          removeRoundedBorders: true,
-        },
-      },
-    ],
+    it: 'with an image',
+    props: {
+      imageUrl,
+    },
+  },
+  {
+    it: 'with a transparent image',
+    props: {
+      imageUrl:
+        'https://onlinepngtools.com/images/examples-onlinepngtools/palm-fronds-and-sky.png',
+    },
+  },
+  {
+    it: 'with an error',
+    props: {
+      error: true,
+    },
+  },
+  {
+    it: 'disabled with an image',
+    props: {
+      imageUrl,
+      disabled: true,
+    },
+  },
+  {
+    it: 'disabled with an error',
+    props: {
+      error: true,
+      disabled: true,
+    },
+  },
+  {
+    it: 'disabled without an error',
+    props: {
+      disabled: true,
+    },
+  },
+  {
+    it: 'Without rounded borders',
+    props: {
+      imageUrl,
+      removeRoundedBorders: true,
+    },
   },
 ];
 
-tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
-    storiesOf(`ImageViewer/${describe}`, module).add(it, () => (
-      <ImageViewer {...props} />
-    ));
+class AsyncStoryWrapper extends React.Component {
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.onDone();
+    }, 3000);
+  }
+
+  render() {
+    const { onDone, ...rest } = this.props;
+    return <ImageViewer {...rest} />;
+  }
+}
+
+visualize('ImageViewer', () => {
+  story('should render', () => {
+    tests.forEach(({ it, props }) => {
+      snap(it, done => <AsyncStoryWrapper {...props} onDone={done} />);
+    });
   });
 });
