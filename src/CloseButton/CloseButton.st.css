@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B10, D55, D80, B20, B50, B40, D55, D80, D10, D20, B30, F00, D10-20, D20-48, D20-54, D20-60, D80-70;;
+  -st-named: B10, D55, D80, B20, B50, B40, D55, D80, D10, D20, B30, F00, D10-20, D20-48, D20-54, D20-60, D80-70, D10-30;
 }
 
 :import {
@@ -50,7 +50,7 @@
 }
 
 .root:disabled {
-  color: value(D55);
+  color: value(D10-30);
 }
 
 .root::content {
@@ -80,9 +80,8 @@
 }
 
 .root:skin(standardFilled):disabled {
-  border-color: value(D55);
   color: value(D80);
-  background-color: value(D55);
+  background-color: value(D10-30);
 }
 
 /* Skin: light */
@@ -96,12 +95,11 @@
 }
 
 .root:skin(light):active {
-
   color: value(B40);
 }
 
 .root:skin(light):disabled {
-  color: value(D55);
+  color: value(D80-70);
 }
 
 /* Skin: dark */
@@ -119,33 +117,29 @@
 }
 
 .root:skin(dark):disabled {
-  color: value(D55);
+  color: value(D10-30);
 }
 
 /* Skin: lightFilled */
 
 .root:skin(lightFilled) {
-  border-color: value(s5);
   background-color: value(s5);
   color: value(D80);
 }
 
 .root:skin(lightFilled):hover {
-  border-color: value(s6);
   background-color: value(s6);
   color: value(D80);
 }
 
 .root:skin(lightFilled):active {
-  border-color: value(s7);
   background-color: value(s7);
   color: value(D80);
 }
 
 .root:skin(lightFilled):disabled {
-  border-color: value(D55);
   color: value(D80);
-  background-color: value(D55);
+  background-color: value(D10-30);
 }
 
 /* Skin: transparent */
