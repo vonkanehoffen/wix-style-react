@@ -19,7 +19,7 @@ class VerticalTabsItem extends React.PureComponent {
     /** Prefix Icon - should be <code>Icon</code>*/
     prefixIcon: node,
 
-    /** Suffix Icon - should be <code>Icon</code> or <code><IconButton size="tiny"></code> */
+    /** Suffix Icon - should be <code>Icon</code> or <code>IconButton</code> with the <code>size="tiny"</code> prop*/
     suffixIcon: node,
 
     /** Children - only single child is allowed here */
