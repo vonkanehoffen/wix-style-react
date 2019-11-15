@@ -53,7 +53,6 @@ class CloseButton extends PureComponent {
       className: userClassName,
       dataHook,
       children,
-      disabled,
       ...rest
     } = this.props;
 

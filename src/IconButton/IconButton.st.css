@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: B10, D55, D80, B20, B50, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-70, P10, P20;
+  -st-named: B10 ,D80, B20, B50, B40, F00, D10-20, D20-48, D20-54, D20-60, D80-70, P10, P20, D10-30, D80-30;
 }
 
 .root {
@@ -45,8 +45,8 @@
 }
 
 .root:disabled {
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D10-30);
+  border-color: transparent;
   color: value(D80);
 }
 
@@ -85,8 +85,8 @@
 }
 
 .root:priority(secondary):disabled {
-  border-color: value(D55);
-  color: value(D55);
+  border-color: value(D10-30);
+  color: value(D10-30);
   background-color: transparent;
 }
 
@@ -112,8 +112,8 @@
 }
 
 .root:skin(inverted):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D10-30);
+  border-color: transparent;
   color: value(D80);
 }
 
@@ -138,8 +138,8 @@
 }
 
 .root:skin(inverted):priority(secondary):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D10-30);
+  border-color: transparent;
   color: value(D80);
 }
 
@@ -164,8 +164,8 @@
 }
 
 .root:skin(light):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D80-30);
+  border-color: transparent;
   color: value(D80);
 }
 
@@ -190,8 +190,8 @@
 }
 
 .root:skin(light):priority(secondary):disabled {
-  border-color: value(D55);
-  color: value(D55);
+  border-color: value(D80-30);
+  color: value(D80-30);
   background-color: transparent;
 }
 
@@ -267,8 +267,8 @@
 }
 
 .root:skin(premium):disabled {
-  background-color: value(D55);
-  border-color: value(D55);
+  background-color: value(D10-30);
+  border-color: transparent;
   color: value(D80);
 }
 
@@ -293,8 +293,8 @@
 }
 
 .root:skin(premium):priority(secondary):disabled {
-  border-color: value(D55);
-  color: value(D55);
+  border-color: value(D10-30);
+  color: value(D10-30);
   background-color: transparent;
 }
 
