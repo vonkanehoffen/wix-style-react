@@ -54,18 +54,9 @@ const tests = [
   },
 ];
 
-class AsyncStoryWrapper extends React.Component {
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.onDone();
-    }, 3000);
-  }
-
-  render() {
-    const { onDone, ...rest } = this.props;
-    return <ImageViewer {...rest} />;
-  }
-}
+const AsyncStoryWrapper = ({ onDone, ...rest }) => (
+  <ImageViewer onImageLoad={onDone} {...rest} />
+);
 
 visualize('ImageViewer', () => {
   story('should render', () => {
