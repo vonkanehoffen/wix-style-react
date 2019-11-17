@@ -15,11 +15,12 @@ const primaryActionProps = (actionTrigger = () => {}, disabled = false) => ({
   },
 });
 
-const secondaryActionsProps = (actionTriggers = []) => {
+const secondaryActionsProps = ({ actionTriggers, actionDataHooks } = {}) => {
   const createAction = n => ({
     text: `Action ${n}`,
+    dataHook: actionDataHooks && actionDataHooks[n],
     icon: <span>{`Icon ${n}`}</span>, // simulate the icon as <span> elements
-    onClick: actionTriggers[n] || (() => {}),
+    onClick: (actionTriggers && actionTriggers[n]) || (() => {}),
   });
 
   return {
@@ -80,7 +81,9 @@ describe('Table Action Cell', () => {
     const driver = createDriver(
       <TableActionCell
         {...primaryActionProps()}
-        {...secondaryActionsProps()}
+        {...secondaryActionsProps({
+          actionDataHooks: [undefined, 'data-hook-for-1'],
+        })}
       />,
     );
 
@@ -90,11 +93,15 @@ describe('Table Action Cell', () => {
       driver.getVisibleActionButtonDriver(0).getButtonTextContent(),
     ).toEqual('Icon 0');
     expect(
-      driver.getVisibleActionButtonDriver(1).getButtonTextContent(),
+      driver
+        .getVisibleActionByDataHookButtonDriver('data-hook-for-1')
+        .getButtonTextContent(),
     ).toEqual('Icon 1');
 
     const tooltipDriver1 = driver.getVisibleActionTooltipDriver(0);
-    const tooltipDriver2 = driver.getVisibleActionTooltipDriver(1);
+    const tooltipDriver2 = driver.getVisibleActionByDataHookTooltipDriver(
+      'data-hook-for-1',
+    );
 
     tooltipDriver1.mouseEnter();
     await eventually(() =>
@@ -118,17 +125,14 @@ describe('Table Action Cell', () => {
       />,
     );
 
-    const popoverMenuDriver = driver.getHiddenActionsPopoverMenuDriver(0);
+    expect(await driver.getHiddenActionsPopoverMenuDriver().exists()).toEqual(
+      true,
+    );
 
-    expect(popoverMenuDriver.exists()).toEqual(true);
-
-    popoverMenuDriver.click();
-
-    await eventually(() => {
-      expect(popoverMenuDriver.menu.itemsLength()).toEqual(2);
-      expect(popoverMenuDriver.menu.itemContentAt(0)).toEqual('Action 2');
-      expect(popoverMenuDriver.menu.itemContentAt(1)).toEqual('Action 3');
-    });
+    driver.clickPopoverMenu();
+    await eventually(async () =>
+      expect(await driver.getHiddenActionsCount()).toEqual(2),
+    );
   });
 
   it('should trigger secondary action on click', async () => {
@@ -139,18 +143,28 @@ describe('Table Action Cell', () => {
     const driver = createDriver(
       <TableActionCell
         {...primaryActionProps()}
-        {...secondaryActionsProps(actionTriggers)}
+        {...secondaryActionsProps({
+          actionTriggers,
+          actionDataHooks: [
+            undefined,
+            'data-hook-for-1',
+            undefined,
+            'data-hook-for-3',
+          ],
+        })}
       />,
     );
 
     driver.clickVisibleAction(0);
-    driver.clickVisibleAction(1);
+    driver.clickVisibleActionByDataHook('data-hook-for-1');
 
     driver.clickPopoverMenu();
     await eventually(() => driver.clickHiddenAction(0));
 
     driver.clickPopoverMenu();
-    await eventually(() => driver.clickHiddenAction(1));
+    await eventually(() =>
+      driver.clickHiddenActionByDataHook('data-hook-for-3'),
+    );
 
     actionTriggers.forEach(actionTrigger => {
       expect(actionTrigger).toHaveBeenCalledTimes(1);
@@ -177,7 +191,7 @@ describe('Table Action Cell', () => {
 
     await eventually(() => driver.clickHiddenAction(0));
 
-    expect(actionTrigger).toHaveBeenCalledTimes(0);
+    expect(actionTrigger).not.toHaveBeenCalled();
   });
 
   it('should allow to change the number of visible secondary actions', async () => {
@@ -192,7 +206,9 @@ describe('Table Action Cell', () => {
     expect(driver.getVisibleActionsCount()).toEqual(3);
 
     driver.clickPopoverMenu();
-    await eventually(() => expect(driver.getHiddenActionsCount()).toEqual(1));
+    await eventually(async () =>
+      expect(await driver.getHiddenActionsCount()).toEqual(1),
+    );
   });
 
   it('should mark the primary action as disabled', () => {

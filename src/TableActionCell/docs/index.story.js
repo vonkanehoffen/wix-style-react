@@ -57,6 +57,7 @@ const secondaryActionsOption = [
   {
     text: 'Star',
     icon: <Star />,
+    dataHook: 'star-action',
     onClick: () => console.log('Star action called!'),
   },
   {
@@ -67,6 +68,7 @@ const secondaryActionsOption = [
   {
     text: 'Duplicate',
     icon: <Duplicate />,
+    dataHook: 'duplicate-action',
     onClick: () => console.log('Duplicate action called!'),
   },
   {

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import More from '../new-icons/More';
 import style from './TableActionCell.st.css';
 import HoverSlot from './HoverSlot';
 import Tooltip from '../Tooltip/Tooltip';
 import Button from '../Deprecated/Button';
-import PopoverMenu from '../PopoverMenu';
-import PopoverMenuItem from '../PopoverMenuItem';
+import IconButton from '../IconButton';
+import PopoverMenu from '../beta/PopoverMenu';
 import ChevronRight from '../new-icons/ChevronRight';
 
 /* eslint-disable react/prop-types */
@@ -29,10 +30,10 @@ function renderPrimaryAction({ text, theme, onClick, disabled }) {
 /* eslint-enable react/prop-types */
 
 function renderVisibleActions(actions) {
-  return actions.map(({ text, icon, onClick }, index) => (
+  return actions.map(({ text, icon, onClick, dataHook }, index) => (
     <Tooltip
       key={index}
-      dataHook="table-action-cell-visible-action-tooltip"
+      dataHook={dataHook || 'table-action-cell-visible-action-tooltip'}
       content={text}
       theme="dark"
     >
@@ -55,14 +56,24 @@ function renderHiddenActions(actions, popoverMenuProps) {
     <PopoverMenu
       buttonTheme="icon-greybackground"
       dataHook="table-action-cell-popover-menu"
-      appendToParent
+      appendTo="parent"
+      placement="top"
+      textSize="small"
+      triggerElement={
+        <IconButton
+          skin="inverted"
+          dataHook="table-action-cell-trigger-element"
+        >
+          <More />
+        </IconButton>
+      }
       {...popoverMenuProps}
     >
-      {actions.map(({ text, icon, onClick, disabled }, index) => (
-        <PopoverMenuItem
+      {actions.map(({ text, icon, onClick, disabled, dataHook }, index) => (
+        <PopoverMenu.MenuItem
           key={index}
-          dataHook="table-action-cell-popover-menu-item"
-          icon={icon}
+          dataHook={dataHook || 'table-action-cell-popover-menu-item'}
+          prefixIcon={icon}
           onClick={() => onClick()}
           text={text}
           disabled={disabled}
@@ -162,6 +173,7 @@ TableActionCell.propTypes = {
    * action, `onClick` is the callback function for the action, whose
    * signature is `onClick(rowData, rowNum)`.
    * `disabled` is an optional prop for the secondary action to be disabled
+   * `dataHook` is an optional prop for accessing the action in tests
    */
   secondaryActions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -169,6 +181,7 @@ TableActionCell.propTypes = {
       icon: PropTypes.node.isRequired,
       onClick: PropTypes.func.isRequired,
       disabled: PropTypes.bool,
+      dataHook: PropTypes.string,
     }),
   ),
 

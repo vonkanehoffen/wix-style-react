@@ -102,6 +102,26 @@ describe('PopoverMenu', () => {
           expect(onClick).toHaveBeenCalled();
         });
 
+        it('should be called [when] clicked inside PopoverMenu using dataHook', async () => {
+          const onClick = jest.fn();
+          const { driver } = render(
+            renderPopoverMenu({
+              children: renderPopoverMenuItem({
+                onClick,
+                dataHook: 'testDataHook',
+              }),
+            }),
+          );
+
+          const iconButton = await driver.getTriggerElement('iconbutton');
+          const iconButtonTestkit = iconButtonDriverFactory(iconButton);
+          await iconButtonTestkit.click();
+
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.clickAtChildByDataHook('testDataHook');
+          expect(onClick).toHaveBeenCalled();
+        });
+
         it('should be called only once', async () => {
           const onClick = jest.fn();
           const { driver } = render(

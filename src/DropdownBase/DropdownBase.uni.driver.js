@@ -31,11 +31,15 @@ export const dropdownBaseDriverFactory = (base, body) => {
     hoverTargetElement: dataHook => getTargetElement(dataHook).hover(),
 
     /** Returns `true` if the dropdown is being shown */
-    isDropdownShown: async () => testkit(base, body).isContentElementExists(),
+    isDropdownShown: () => testkit(base, body).isContentElementExists(),
 
     /** Select a specific option (requires the DropdownBase to be opened) */
     selectOption: async index =>
       (await createDropdownLayoutDriver()).clickAtOption(index),
+
+    /** Select a specific option by its data hook (requires the DropdownBase to be opened) */
+    selectOptionByDataHook: async dataHook =>
+      (await createDropdownLayoutDriver()).clickAtOptionByDataHook(dataHook),
 
     /** Click outside of the component */
     clickOutside: () => ReactBase.clickDocument(),

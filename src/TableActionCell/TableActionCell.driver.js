@@ -1,9 +1,9 @@
-import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
+import { PopoverMenuTestkit } from '../../testkit/beta';
 import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
 import buttonDriverFactory from '../Deprecated/Button/Button.driver.js';
 import { INTERNAL_DRIVER_SYMBOL } from '../../test/utils/private-drivers';
 
-const tableActionCellDriverFactory = ({ element }) => {
+const tableActionCellDriverFactory = ({ element, wrapper }) => {
   const getPrimaryActionPlaceholder = () =>
     element.querySelector('[data-hook="table-action-cell-placeholder"]');
   const getVisibleActionsWrapper = () =>
@@ -23,6 +23,13 @@ const tableActionCellDriverFactory = ({ element }) => {
       )[actionIndex],
     });
 
+  const getVisibleActionByDataHookTooltipDriver = dataHook =>
+    tooltipDriverFactory({
+      element: getVisibleActionsWrapper().querySelector(
+        `[data-hook="${dataHook}"]`,
+      ),
+    });
+
   const getVisibleActionButtonDriver = actionIndex =>
     buttonDriverFactory({
       element: getVisibleActionsWrapper().querySelectorAll('button')[
@@ -30,14 +37,15 @@ const tableActionCellDriverFactory = ({ element }) => {
       ],
     });
 
-  const getHiddenActionsPopoverMenuDriver = () =>
-    popoverMenuDriverFactory({
-      element: element.querySelector(
-        '[data-hook="table-action-cell-popover-menu"]',
+  const getVisibleActionByDataHookButtonDriver = dataHook =>
+    buttonDriverFactory({
+      element: getVisibleActionsWrapper().querySelector(
+        `button[data-hook="${dataHook}"]`,
       ),
-    })
-      .init.menuItemDataHook('table-action-cell-popover-menu-item')
-      .init.parentElement(element);
+    });
+
+  const getHiddenActionsPopoverMenuDriver = () =>
+    PopoverMenuTestkit({ wrapper, dataHook: 'table-action-cell-popover-menu' });
 
   return {
     /** Get the element */
@@ -55,21 +63,35 @@ const tableActionCellDriverFactory = ({ element }) => {
     getVisibleActionsCount: () => getVisibleActionsWrapper().childElementCount,
     /** Get the number of hidden secondary actions (in the <PopoverMenu/>, requires it to be open) */
     getHiddenActionsCount: () =>
-      getHiddenActionsPopoverMenuDriver().menu.itemsLength(),
+      getHiddenActionsPopoverMenuDriver().childrenCount(),
     /** Get the driver of a specific visible secondary action <Tooltip/> */
     getVisibleActionTooltipDriver,
+    /** Get the driver of a specific visible secondary action <Tooltip/> by its specified dataHook */
+    getVisibleActionByDataHookTooltipDriver,
     /** Get the driver of a specific visible secondary action <Button/> */
     getVisibleActionButtonDriver,
+    /** Get the driver of a specific visible secondary action <Button/> by its specified dataHook */
+    getVisibleActionByDataHookButtonDriver,
     /** Get the driver of the hidden secondary action <PopoverMenu/> */
     getHiddenActionsPopoverMenuDriver,
     /** Click an a visible secondary action */
     clickVisibleAction: actionIndex =>
       getVisibleActionButtonDriver(actionIndex).click(),
+    /** Click an a visible secondary action by its specified dataHook  */
+    clickVisibleActionByDataHook: actionDataHook =>
+      getVisibleActionByDataHookButtonDriver(actionDataHook).click(),
     /** Click on the hidden secondary actions <PopoverMenu/> */
-    clickPopoverMenu: () => getHiddenActionsPopoverMenuDriver().click(),
+    clickPopoverMenu: () =>
+      getHiddenActionsPopoverMenuDriver()
+        .getTriggerElement('table-action-cell-trigger-element')
+        .click(),
     /** Click on a hidden secondary action (requires the <PopoverMenu/> to be open) */
     clickHiddenAction: actionIndex =>
-      getHiddenActionsPopoverMenuDriver().menu.clickItemAt(actionIndex),
+      getHiddenActionsPopoverMenuDriver().clickAtChild(actionIndex),
+    clickHiddenActionByDataHook: actionDataHook =>
+      getHiddenActionsPopoverMenuDriver().clickAtChildByDataHook(
+        actionDataHook,
+      ),
 
     /* Private driver */
     [INTERNAL_DRIVER_SYMBOL]: {
