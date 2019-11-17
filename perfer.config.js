@@ -103,7 +103,7 @@ const files = [
   ['Stepper.js', 15],
   ['Swatches.js', 83],
   ['Table.js', 68],
-  ['TableActionCell.js', 46],
+  ['TableActionCell.js', 58],
   ['TableToolbar.js', 14],
   ['Tabs.js', 42],
   ['Tag.js', 21],
