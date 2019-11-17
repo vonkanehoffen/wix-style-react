@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Changed
+
+Buttons Family - migrate stylesheets to wsr & update disabled color according to specs [#4523](https://github.com/wix/wix-style-react/pull/4523)
+
 ### Added
 - `<Checkbox/>` - add small size [#4525](https://github.com/wix/wix-style-react/pull/4525)
 - `<AutoCompleteWithLabel/>` - add `native` prop [#4528](https://github.com/wix/wix-style-react/pull/4528)
