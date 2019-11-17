@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   header,
   tabs,
@@ -9,17 +8,13 @@ import {
   columns,
   divider,
   code as baseCode,
-  playground,
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
-
 import { storySettings } from './storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
 import VerticalTabs from '..';
-import verticalTabsWithPrefixExample from '!raw-loader!./verticalTabsWithPrefixExample';
-import fullWidgetExample from '!raw-loader!./fullWidgetExample';
+import * as examples from './verticalTabsExample';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
@@ -31,19 +26,13 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    buttonText: 'Hello World!',
-  },
-
-  exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
+    size: 'medium',
   },
 
   sections: [
     header({
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/VerticalTabs/',
-      component: <VerticalTabs buttonText="Click me!" />,
     }),
 
     tabs([
@@ -54,7 +43,7 @@ export default {
             description({
               title: 'Description',
               text:
-                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+                'Vertical Tabs component to be used for easily switching between different side content views.',
             }),
           ]),
 
@@ -68,25 +57,29 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Simple Usage',
-              text: 'A simple example with compact preview',
-            }),
-
-            code({
-              compact: true,
-              autoRender: false,
-              source: verticalTabsWithPrefixExample,
-            }),
-          ]),
+          code({
+            title: 'Vertical Tabs With Suffix and one Disabled tab',
+            source: examples.verticalTabsSuffixExample,
+          }),
 
           code({
-            compact: true,
-            autoRender: false,
-            title: 'Examples of complete widget',
-            description: 'Examples used by Wix OS and Wix Experts Teams',
-            source: fullWidgetExample,
+            title: 'Vertical Tabs With Suffix - Small Size',
+            source: examples.verticalTabsSmallExample,
+          }),
+
+          code({
+            title: 'Vertical Tabs With Footer',
+            source: examples.verticalTabsFooterExample,
+          }),
+
+          code({
+            title: 'Vertical Tabs - Tab Selection',
+            source: examples.verticalTabsSelectedExample,
+          }),
+
+          code({
+            title: 'Vertical Tabs With Prefix and Multiple Tab Groups',
+            source: examples.verticalTabsExample,
           }),
         ],
       }),
@@ -94,7 +87,6 @@ export default {
       ...[
         { title: 'API', sections: [api()] },
         { title: 'Testkit', sections: [testkit()] },
-        { title: 'Playground', sections: [playground()] },
       ].map(tab),
     ]),
   ],

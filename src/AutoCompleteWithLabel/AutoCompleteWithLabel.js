@@ -56,6 +56,8 @@ class AutoCompleteWithLabel extends React.PureComponent {
     placeholder: PropTypes.string,
     /** Callback function called whenever the user selects a different option in the list */
     onSelect: PropTypes.func,
+    /** Indicates whether to render using the native select element */
+    native: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -99,6 +101,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
       className,
       maxLength,
       placeholder,
+      native,
     } = this.props;
     const { value } = this._isInputControlled() ? this.props : this.state;
     const filteredOptions = value
@@ -149,6 +152,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
               />
             }
             options={filteredOptions}
+            native={native}
           />
         </LabelledElement>
         {status === Input.StatusError && statusMessage && (

@@ -1,15 +1,9 @@
 import React from 'react';
-import { string, oneOf, node, bool, func } from 'prop-types';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import { string, oneOf, node, bool, func, number } from 'prop-types';
 import Text from '../Text';
 import TextButton from '../TextButton';
 import styles from './VerticalTabsItem.st.css';
-
-const textSkin = {
-  tab: 'dark',
-  action: undefined,
-  title: 'standard',
-};
+import VerticalTabsContext from '../VerticalTabs/VerticalTabsContext';
 
 /** Internal Component to be used by VerticalTabs */
 class VerticalTabsItem extends React.PureComponent {
@@ -22,13 +16,10 @@ class VerticalTabsItem extends React.PureComponent {
     /** Data attribute for testing purposes */
     dataHook: string,
 
-    /** Text Size (small, medium) */
-    size: oneOf(['small', 'medium']),
-
-    /** Prefix Icon */
+    /** Prefix Icon - should be <code>Icon</code>*/
     prefixIcon: node,
 
-    /** Suffix Icon */
+    /** Suffix Icon - should be <code>Icon</code> or <code>IconButton</code> with the <code>size="tiny"</code> prop*/
     suffixIcon: node,
 
     /** Children - only single child is allowed here */
@@ -37,42 +28,42 @@ class VerticalTabsItem extends React.PureComponent {
     /** Disabled */
     disabled: bool,
 
-    /** On Click */
-    onClick: func,
+    /** identifier to help identify the current selected tab */
+    id: number,
   };
 
   static defaultProps = {
     type: 'tab',
-    size: 'medium',
   };
 
-  focus() {
-    if (this.innerComponentRef) {
-      this.innerComponentRef.focus();
-    }
-  }
-
   _renderText() {
-    const { children, size, type } = this.props;
+    const { children, type, disabled } = this.props;
+    const { size } = this.context;
     const isTitle = type === 'title';
-    const TextComponent = type === 'action' ? TextButton : Text;
-    return (
-      <TextComponent
-        className={styles.text}
-        weight="normal"
-        size={isTitle ? 'small' : size}
-        dataHook="vertical-tabs-item-text"
-        placement="right"
+    const commonProps = {
+      weight: 'normal',
+      size: isTitle ? 'small' : size,
+      dataHook: 'vertical-tabs-item-text',
+    };
+    return type === 'action' ? (
+      <TextButton {...commonProps} disabled={disabled}>
+        {children}
+      </TextButton>
+    ) : (
+      <Text
         light={isTitle}
         secondary={isTitle}
+        skin={disabled ? 'disabled' : 'standard'}
+        {...commonProps}
       >
         {children}
-      </TextComponent>
+      </Text>
     );
   }
 
   _renderPrefix() {
-    const { prefixIcon, size, type } = this.props;
+    const { prefixIcon, type } = this.props;
+    const { size } = this.context;
     return React.cloneElement(prefixIcon, {
       size: size === 'medium' ? 24 : 18,
       'data-hook': 'vertical-tabs-item-prefix-icon',
@@ -81,7 +72,8 @@ class VerticalTabsItem extends React.PureComponent {
   }
 
   _renderSuffix() {
-    const { suffixIcon, size } = this.props;
+    const { suffixIcon } = this.props;
+    const { size } = this.context;
     return React.cloneElement(suffixIcon, {
       size: size === 'medium' ? 24 : 18,
       className: styles.suffixIcon,
@@ -91,32 +83,35 @@ class VerticalTabsItem extends React.PureComponent {
 
   render() {
     const {
+      id,
       dataHook,
       disabled,
       prefixIcon,
       suffixIcon,
-      onClick,
-      focusableOnFocus,
-      focusableOnBlur,
       tabIndex,
-      onKeyDown,
       type,
     } = this.props;
-
+    const selected =
+      !!id && !!this.context.activeTabId && id === this.context.activeTabId;
     return (
       <div
         {...styles(
           'root',
-          { disabled, action: type === 'title', suffixIcon },
+          {
+            disabled,
+            action: type === 'action',
+            title: type === 'title',
+            suffixIcon: !!suffixIcon,
+            prefixIcon: !!prefixIcon,
+            selected,
+          },
           this.props,
         )}
+        id={id}
         tabIndex={tabIndex}
         ref={ref => (this.innerComponentRef = ref)}
-        onFocus={focusableOnFocus}
-        onBlur={focusableOnBlur}
         data-hook={dataHook}
-        onKeyDown={!disabled ? onKeyDown : undefined}
-        onClick={!disabled ? onClick : undefined}
+        onClick={!disabled ? () => this.context.onChange(id) : undefined}
       >
         {prefixIcon && this._renderPrefix()}
         {this._renderText()}
@@ -126,4 +121,5 @@ class VerticalTabsItem extends React.PureComponent {
   }
 }
 
-export default withFocusable(VerticalTabsItem);
+VerticalTabsItem.contextType = VerticalTabsContext;
+export default VerticalTabsItem;

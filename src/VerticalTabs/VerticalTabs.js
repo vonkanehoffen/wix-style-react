@@ -1,76 +1,60 @@
 import React from 'react';
-import {
-  node,
-  instanceOf,
-  bool,
-  string,
-  number,
-  func,
-  oneOfType,
-} from 'prop-types';
-
-// import Text from '../Text';
-import Card from '../Card';
-import TextButton from '../TextButton';
-// import styles from './VerticalTabs.st.css';
+import { string, number, func, oneOf, node, arrayOf } from 'prop-types';
+import VerticalTabsItem from '../VerticalTabsItem';
+import VerticalTabsContext from './VerticalTabsContext';
 
 /** Vertical tabs navigation panel. */
+const Footer = ({ children }) => (
+  <VerticalTabsItem type="action">{children}</VerticalTabsItem>
+);
 
-const Prefix = ({ children }) => children;
-Prefix.propTypes = {
-  children: node, // Icons
-};
-
-const Suffix = ({ children }) => children;
-Suffix.propTypes = {
-  children: node, // <PopoverMenu/>, <Icon/>, <IconButton/>
-};
-
-const Footer = ({ children }) => children;
-Footer.propTypes = {
-  children: instanceOf(TextButton),
-};
-
-const TabText = ({ children }) => <TextButton>{children}</TextButton>;
-
-const Tab = ({ id }) => {
-  return null;
-};
-Tab.propTypes = {
-  id: number,
-  disabled: bool,
-  children: oneOfType([
-    instanceOf(Suffix),
-    instanceOf(TabText),
-    instanceOf(Prefix),
-  ]),
-};
-
-const TabsGroup = ({ title }) => <Card.Header title={title} />;
+const TabsGroup = ({ title, children }) => (
+  <>
+    <VerticalTabsItem type="title">{title}</VerticalTabsItem>
+    {children}
+  </>
+);
 TabsGroup.propTypes = {
-  category: string,
-  children: instanceOf(Tab),
+  title: string,
+};
+TabsGroup.defaultProps = {
+  title: '',
 };
 
 class VerticalTabs extends React.Component {
   render() {
-    return <div data-hook={this.props.dataHook}>{this.props.children}</div>;
+    const { dataHook, children, size, activeTabId, onChange } = this.props;
+    return (
+      <VerticalTabsContext.Provider value={{ size, activeTabId, onChange }}>
+        <div data-hook={dataHook}>{children}</div>
+      </VerticalTabsContext.Provider>
+    );
   }
 }
 
 VerticalTabs.propTypes = {
-  size: string,
+  /** Text Size (small, medium) */
+  size: oneOf(['small', 'medium']),
+
+  /** Current selected tab id */
   activeTabId: number,
+
+  /** Callback function called on tab selection change with the following parameters<code>(id)</code> */
   onChange: func,
+
+  /** Child nodes of this component must be of type <code><VerticalTabs.TabsGroup></code> or <code><VerticalTabs.Footer></code>*/
+  children: arrayOf(node),
+
+  /** Data attribute for testing purposes */
   dataHook: string,
-  children: node, // <VerticalTabs.TabsGroup/>, <VerticalTabs.Footer/>
+};
+VerticalTabs.defaultProps = {
+  size: 'medium',
+  onChange: () => {},
 };
 
 VerticalTabs.TabsGroup = TabsGroup;
-VerticalTabs.Tab = Tab;
+VerticalTabs.TabItem = VerticalTabsItem;
 VerticalTabs.Footer = Footer;
-VerticalTabs.TabPrefix = Prefix;
-VerticalTabs.TabSuffix = Suffix;
-VerticalTabs.TabText = TabText;
 
 export default VerticalTabs;
