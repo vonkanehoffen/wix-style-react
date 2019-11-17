@@ -114,6 +114,7 @@ export const labelledElementTestkitFactory: any;
 export const previewWidgetTestkitFactory: any;
 export const modalMobileLayoutTestkitFactory: any;
 export const mediaOverlayTestkitFactory: any;
+export const mobilePreviewWidgetTestkitFactory: any;
 export const infoIconTestkitFactory: any;
 export const socialButtonTestkitFactory: any;
 export const verticalTabsTestkitFactory: any;

@@ -131,6 +131,7 @@ export const labelledElementTestkitFactory = puppeteerUniTestkitFactoryCreator(l
 export const previewWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/PreviewWidget/PreviewWidget.uni.driver')));
 export const modalMobileLayoutTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/ModalMobileLayout/ModalMobileLayout.uni.driver')));
 export const mediaOverlayTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
+export const mobilePreviewWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/MobilePreviewWidget/MobilePreviewWidget.uni.driver')));
 export const infoIconTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/InfoIcon/InfoIcon.uni.driver')));
 export const socialButtonTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SocialButton/SocialButton.uni.driver')));
 export const verticalTabsTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/VerticalTabs/VerticalTabs.uni.driver')));

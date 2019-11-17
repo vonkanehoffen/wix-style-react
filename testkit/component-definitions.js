@@ -286,4 +286,10 @@ export default {
       children: <div />,
     },
   },
+
+  MobilePreviewWidget: {
+    props: {
+      children: <div />,
+    },
+  },
 };

@@ -139,6 +139,7 @@ declare namespace EnzymeTestkit {
   export const previewWidgetTestkitFactory: any;
   export const modalMobileLayoutTestkitFactory: any;
   export const mediaOverlayTestkitFactory: any;
+  export const mobilePreviewWidgetTestkitFactory: any;
   export const infoIconTestkitFactory: EnzymeUniTestkitFactory<InfoIconDriver>;
   export const socialButtonTestkitFactory: EnzymeUniTestkitFactory<SocialButtonDriver>;
   export const verticalTabsTestkitFactory: any;

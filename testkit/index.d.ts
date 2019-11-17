@@ -135,6 +135,7 @@ declare namespace VanillaTestkit {
   export const previewWidgetTestkitFactory: any;
   export const modalMobileLayoutTestkitFactory: any;
   export const mediaOverlayTestkitFactory: any;
+  export const mobilePreviewWidgetTestkitFactory: any;
   export const infoIconTestkitFactory: VanillaUniTestkitFactory<InfoIconDriver>;
   export const socialButtonTestkitFactory: VanillaUniTestkitFactory<SocialButtonDriver>;
   export const verticalTabsTestkitFactory: any;

@@ -152,6 +152,7 @@ export const labelledElementTestkitFactory = protractorUniTestkitFactoryCreator(
 export const previewWidgetTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/PreviewWidget/PreviewWidget.uni.driver')));
 export const modalMobileLayoutTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ModalMobileLayout/ModalMobileLayout.uni.driver')));
 export const mediaOverlayTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
+export const mobilePreviewWidgetTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/MobilePreviewWidget/MobilePreviewWidget.uni.driver')));
 export const infoIconTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/InfoIcon/InfoIcon.uni.driver')));
 export const socialButtonTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SocialButton/SocialButton.uni.driver')));
 export const verticalTabsTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/VerticalTabs/VerticalTabs.uni.driver')));

@@ -110,6 +110,7 @@ require('../src/ListItemAction/docs/index.story');
 require('../src/Loader/docs/index.story');
 require('../src/MediaOverlay/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');
+require('../src/MobilePreviewWidget/docs/index.story');
 require('../src/Modal/docs/index.story');
 require('../src/ModalMobileLayout/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
@@ -159,6 +160,8 @@ require('../src/TimeInput/docs/index.story');
 require('../src/ToggleButton/docs/index.story');
 require('../src/ToggleSwitch/docs/index.story');
 require('../src/Tooltip/TooltipNext/docs/index.story');
+require('../src/VerticalTabs/docs/index.story');
+require('../src/VerticalTabsItem/docs/index.story');
 require('./WIP');
 
 // Styling
@@ -172,8 +175,3 @@ require('../src/Deprecated/SideMenu/docs/SideMenu');
 // BETA
 require('../src/beta/PopoverMenu/docs/index.story');
 
-// TODO: move to correct position
-require('../src/VerticalTabs/docs/index.story');
-
-// TODO: move to correct position
-require('../src/VerticalTabsItem/docs/index.story');

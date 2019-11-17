@@ -150,6 +150,7 @@ export const labelledElementTestkitFactory = enzymeUniTestkitFactoryCreator(load
 export const previewWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/PreviewWidget/PreviewWidget.uni.driver')));
 export const modalMobileLayoutTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/ModalMobileLayout/ModalMobileLayout.uni.driver')));
 export const mediaOverlayTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/MediaOverlay/MediaOverlay.uni.driver')));
+export const mobilePreviewWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/MobilePreviewWidget/MobilePreviewWidget.uni.driver')));
 export const infoIconTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/InfoIcon/InfoIcon.uni.driver')));
 export const socialButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/SocialButton/SocialButton.uni.driver')));
 export const verticalTabsTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/VerticalTabs/VerticalTabs.uni.driver')));

@@ -424,5 +424,8 @@
   },
   "VerticalTabsItem": {
     "path": "src/VerticalTabsItem"
+  },
+  "MobilePreviewWidget": {
+    "path": "src/MobilePreviewWidget"
   }
 }
