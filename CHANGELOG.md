@@ -16,6 +16,9 @@ Types of changes:
 
 ## next
 
+### Added
+- `<BrowserPreviewWidget/>`- (WIP) new component [#4515](https://github.com/wix/wix-style-react/pull/4515)
+
 ## 7.16.0 - 2019-11-18
 
 ### Changed
