@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<BrowserPreviewWidget/>`- (WIP) new component [#4515](https://github.com/wix/wix-style-react/pull/4515)
+- `<MobilePreviewWidget/>`- (WIP) Adding scroll to large content [#4515](https://github.com/wix/wix-style-react/pull/4550)
 
 ## 7.16.0 - 2019-11-18
 
