@@ -277,11 +277,8 @@ class Page extends WixComponent {
 
   _renderHeader() {
     const { minimized } = this.state;
-    const { minimizedHeader } = this.props;
     const { PageHeader: PageHeaderChild } = this._getNamedChildren();
     const dataHook = 'page-header-wrapper';
-    const isMinimized =
-      typeof minimizedHeader === 'undefined' ? minimized : minimizedHeader;
 
     return (
       PageHeaderChild && (
@@ -289,14 +286,14 @@ class Page extends WixComponent {
           data-hook={dataHook}
           key={dataHook}
           className={classNames(s.headerWrapper, {
-            [s.minimized]: isMinimized,
+            [s.minimized]: minimized,
           })}
           ref={ref => {
             this.headerWrapperRef = ref;
           }}
         >
           {React.cloneElement(PageHeaderChild, {
-            minimized: isMinimized,
+            minimized: minimized,
             hasBackgroundImage: this._hasBackgroundImage(),
             upgrade: true,
           })}
@@ -519,8 +516,6 @@ Page.propTypes = {
   minWidth: PropTypes.number,
   /** Sets the height of the page (in px/vh/etc.) */
   height: PropTypes.string,
-  /** PageHeader prop minimized */
-  minimizedHeader: PropTypes.bool,
   /** Sets padding of the sides of the page */
   sidePadding: PropTypes.number,
   /** A css class to be applied to the component's root element */

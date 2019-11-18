@@ -337,13 +337,11 @@ class DataTable extends React.Component {
       data,
       virtualizedTableHeight,
       virutalizedListRef,
-      onVirtualizedListScroll,
     } = this.props;
     return (
       <div data-hook={dataHook}>
         <List
           ref={virutalizedListRef}
-          onScroll={onVirtualizedListScroll}
           className={classNames(this.style.table, this.style.virtualized)}
           height={virtualizedTableHeight}
           itemCount={data.length}
@@ -609,8 +607,6 @@ DataTable.propTypes = {
   virtualizedLineHeight: PropTypes.number,
   /** ++EXPERIMENTAL++ Set ref on virtualized List containing table rows */
   virutalizedListRef: PropTypes.any,
-  /** ++EXPERIMENTAL++ callback when virtualized List scrolled */
-  onVirtualizedListScroll: PropTypes.any,
   /** array of selected ids in the table. Note that `isRowSelected` prop provides greater selection logic flexibility and is recommended to use instead. */
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
