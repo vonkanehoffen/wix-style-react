@@ -8,8 +8,8 @@ export const messageBoxMarketerialLayoutPrivateUniDriverFactory = base => {
     ...messageBoxMarketerialLayoutUniDriverFactory(base),
     isClassPresentInPrimaryButton: className =>
       getPrimaryButtonBase().hasClass(className),
-    closeButtonHasSkin: async skin =>
-      (await getCloseButtonBase().attr('data-skin')) === skin,
+    isClassPresentInHeaderCloseButton: async className =>
+      getCloseButtonBase().hasClass(className),
     isPrimaryButtonDisabled: async () =>
       await getPrimaryButtonBase()._prop('disabled'),
   };
