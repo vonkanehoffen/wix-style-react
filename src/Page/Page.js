@@ -293,7 +293,7 @@ class Page extends WixComponent {
           }}
         >
           {React.cloneElement(PageHeaderChild, {
-            minimized: minimized,
+            minimized,
             hasBackgroundImage: this._hasBackgroundImage(),
             upgrade: true,
           })}
