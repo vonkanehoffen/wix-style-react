@@ -14,9 +14,14 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## next
+## 7.16.1
+
+### Fixed
+
+- revert Buttons Family - migrate stylesheets to wsr & update disabled color according to specs [#4523](https://github.com/wix/wix-style-react/pull/4523)
 
 ### Added
+
 - `<BrowserPreviewWidget/>`- (WIP) new component [#4515](https://github.com/wix/wix-style-react/pull/4515)
 - `<MobilePreviewWidget/>`- (WIP) Adding scroll to large content [#4515](https://github.com/wix/wix-style-react/pull/4550)
 
@@ -27,12 +32,14 @@ Types of changes:
 - Buttons Family - migrate stylesheets to wsr & update disabled color according to specs [#4523](https://github.com/wix/wix-style-react/pull/4523)
 
 ### Added
+
 - `<Checkbox/>` - add small size [#4525](https://github.com/wix/wix-style-react/pull/4525)
 - `<AutoCompleteWithLabel/>` - add `native` prop [#4528](https://github.com/wix/wix-style-react/pull/4528)
 - `<MobilePreviewWidget/>`- (WIP) new component [#4496](https://github.com/wix/wix-style-react/pull/4496)
 - `<TableActionCell/>` - enable setting `dataHook` for each action [#4423](https://github.com/wix/wix-style-react/pull/4423)
 
 ### Fixed
+
 - `<Table/>` - Fixed missing separator border for Table.Content when column titles are hidden [#4517](https://github.com/wix/wix-style-react/pull/4517)
 - `<BadgeSelect/>` - fix missing colors for `neutralLigth`, `warningLight` & `premium` skins [#4516](https://github.com/wix/wix-style-react/pull/4516)
 - `<PopoverMenu/>` (beta) - Fix zIndex prop not working as expected [#4530](https://github.com/wix/wix-style-react/pull/4530)
