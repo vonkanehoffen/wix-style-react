@@ -115,17 +115,16 @@ class FloatingNotification extends React.PureComponent {
     const { label, ...rest } = textButtonProps;
 
     return !isEmpty(textButtonProps) ? (
-      <div className={styles.textButton}>
-        <TextButton
-          {...rest}
-          underline={'always'}
-          skin={'dark'}
-          size={'small'}
-          dataHook={TEXT_BUTTON_DATA_HOOK}
-        >
-          {label}
-        </TextButton>
-      </div>
+      <TextButton
+        {...rest}
+        underline={'always'}
+        skin={'dark'}
+        size={'small'}
+        className={styles.textButton}
+        dataHook={TEXT_BUTTON_DATA_HOOK}
+      >
+        {label}
+      </TextButton>
     ) : null;
   }
 
@@ -134,31 +133,29 @@ class FloatingNotification extends React.PureComponent {
     const { label, ...rest } = buttonProps;
 
     return !isEmpty(buttonProps) ? (
-      <div className={styles.button}>
-        <Button
-          {...rest}
-          size={'tiny'}
-          priority={'secondary'}
-          skin={'dark'}
-          dataHook={BUTTON_DATA_HOOK}
-        >
-          {label}
-        </Button>
-      </div>
+      <Button
+        {...rest}
+        className={styles.button}
+        size={'tiny'}
+        priority={'secondary'}
+        skin={'dark'}
+        dataHook={BUTTON_DATA_HOOK}
+      >
+        {label}
+      </Button>
     ) : null;
   }
 
   _getClose() {
     const { showCloseButton, onClose } = this.props;
     return showCloseButton ? (
-      <div className={styles.close}>
-        <CloseButton
-          size="medium"
-          skin="dark"
-          dataHook={CLOSE_BUTTON_DATA_HOOK}
-          onClick={onClose}
-        />
-      </div>
+      <CloseButton
+        size="medium"
+        skin="dark"
+        className={styles.close}
+        dataHook={CLOSE_BUTTON_DATA_HOOK}
+        onClick={onClose}
+      />
     ) : null;
   }
 }

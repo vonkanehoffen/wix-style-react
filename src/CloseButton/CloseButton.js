@@ -1,17 +1,24 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
-
+import cx from 'classnames';
 import Close from '../new-icons/system/Close';
 import CloseLarge from '../new-icons/system/CloseLarge';
-
-import { generateDataAttr } from '../utils/generateDataAttr';
-import cx from 'classnames';
 import { SIZES } from './constants';
 
-import { oneOfType, string, node, oneOf, object, bool, func } from 'prop-types';
-import styles from './CloseButton.st.css';
+import { closeButton } from 'wix-ui-core/dist/src/themes/backoffice';
 
-class CloseButton extends PureComponent {
+import {
+  oneOfType,
+  string,
+  node,
+  oneOf,
+  object,
+  bool,
+  func,
+  symbol,
+} from 'prop-types';
+
+class CloseButton extends Component {
   static displayName = 'CloseButton';
 
   static propTypes = {
@@ -47,31 +54,16 @@ class CloseButton extends PureComponent {
   };
 
   render() {
-    const {
-      skin,
-      size,
-      className: userClassName,
-      dataHook,
-      children,
-      ...rest
-    } = this.props;
+    const { skin, size, className, dataHook, children, ...rest } = this.props;
 
+    const classNames = cx(className, closeButton(skin, size));
     const CloseIcon = <Close data-hook="close" />;
     const CloseLargeIcon = <CloseLarge data-hook="close-large" />;
 
     const childSize = '18px';
 
-    const { className } = styles('root', { skin, size });
-    const classNames = cx(className, userClassName);
-
     return (
-      <ButtonNext
-        {...rest}
-        {...styles('root', { skin, size }, this.props)}
-        {...generateDataAttr(this.props, ['skin', 'size'])}
-        data-hook={dataHook}
-        className={classNames}
-      >
+      <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
         {children
           ? React.cloneElement(children, {
               size: childSize,
