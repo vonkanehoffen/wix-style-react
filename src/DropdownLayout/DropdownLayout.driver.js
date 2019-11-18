@@ -34,7 +34,9 @@ const dropdownLayoutDriverFactory = ({ element }) => {
     classes: () => optionElementsContainer.className,
     clickAtOption: position =>
       doIfOptionExists(position, () =>
-        ReactTestUtils.Simulate.click(optionElementAt(position)),
+        ReactTestUtils.act(async () =>
+          ReactTestUtils.Simulate.click(optionElementAt(position)),
+        ),
       ),
     clickAtOptionWithValue: value => {
       const option = values(optionElements.childNodes).find(

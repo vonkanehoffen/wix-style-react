@@ -33,9 +33,9 @@ describe('InputWithOptions', () => {
     runTests(createRendererWithDriver(inputWithOptionsDriverFactory));
   });
 
-  describe('[async]', () => {
-    runTests(createRendererWithUniDriver(inputWithOptionsUniDriverFactory));
-  });
+  // describe('[async]', () => {
+  //   runTests(createRendererWithUniDriver(inputWithOptionsUniDriverFactory));
+  // });
 
   function runTests(render) {
     afterEach(() => cleanup());
@@ -93,6 +93,40 @@ describe('InputWithOptions', () => {
           await driver.pressKey('ArrowDown');
           expect(await dropdownLayoutDriver.isShown()).toBe(true);
         });
+      });
+
+      it.only('should throw act warning', async () => {
+        const Example = () => {
+          const [value, setValue] = React.useState(0);
+          const [value1, setValue1] = React.useState(0);
+          React.useEffect(() => {
+            Promise.resolve().then(() => {
+              if (value !== value1) {
+                setValue1(value);
+              }
+            });
+          }, [value, value1]);
+          return (
+            <ControlledInputWithOptions
+              dataHook="tomer"
+              value="some value"
+              showOptionsIfEmptyInput={false}
+              options={options}
+              closeOnSelect
+              onSelect={function(option) {
+                setValue(option.value);
+              }}
+            />
+          );
+        };
+        const { driver } = createRendererWithDriver(
+          inputWithOptionsDriverFactory,
+          {
+            dataHook: 'tomer',
+          },
+        )(<Example />);
+
+        await driver.dropdownLayoutDriver.clickAtOption(0);
       });
 
       describe('do not show options if input is empty', () => {
