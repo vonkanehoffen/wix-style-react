@@ -51,6 +51,7 @@ require('../src/BadgeSelectItemBuilder/docs');
 require('../src/BarChart/docs/index.story');
 require('../src/Box/docs/index.story');
 require('../src/Breadcrumbs/docs/index.story');
+require('../src/BrowserPreviewWidget/docs/index.story');
 require('../src/Button/docs/index.story');
 require('../src/Calendar/docs/index.story');
 require('../src/CalendarPanel/docs/index.story');
@@ -175,3 +176,9 @@ require('../src/Deprecated/SideMenu/docs/SideMenu');
 // BETA
 require('../src/beta/PopoverMenu/docs/index.story');
 
+
+// TODO: move to correct position
+require('../src/VerticalTabs/docs/index.story');
+
+// TODO: move to correct position
+require('../src/VerticalTabsItem/docs/index.story');

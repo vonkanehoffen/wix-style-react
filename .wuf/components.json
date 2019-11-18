@@ -425,7 +425,12 @@
   "VerticalTabsItem": {
     "path": "src/VerticalTabsItem"
   },
+
   "MobilePreviewWidget": {
     "path": "src/MobilePreviewWidget"
+  },
+
+  "BrowserPreviewWidget": {
+    "path": "src/BrowserPreviewWidget"
   }
 }

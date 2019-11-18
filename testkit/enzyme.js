@@ -155,6 +155,7 @@ export const infoIconTestkitFactory = enzymeUniTestkitFactoryCreator(load(requir
 export const socialButtonTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/SocialButton/SocialButton.uni.driver')));
 export const verticalTabsTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/VerticalTabs/VerticalTabs.uni.driver')));
 export const verticalTabsItemTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/VerticalTabsItem/VerticalTabsItem.uni.driver')));
+export const browserPreviewWidgetTestkitFactory = enzymeUniTestkitFactoryCreator(load(require('../src/BrowserPreviewWidget/BrowserPreviewWidget.uni.driver')));
 export const sideMenuDrillTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = enzymeTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

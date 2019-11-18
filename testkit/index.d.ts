@@ -140,6 +140,7 @@ declare namespace VanillaTestkit {
   export const socialButtonTestkitFactory: VanillaUniTestkitFactory<SocialButtonDriver>;
   export const verticalTabsTestkitFactory: any;
   export const verticalTabsItemTestkitFactory: any;
+  export const browserPreviewWidgetTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;
