@@ -24,19 +24,36 @@ import Text from '../../Text';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
-const childNode = (
-  <Box
-    align="center"
-    verticalAlign="middle"
-    height="100%"
-    padding="20px"
-    backgroundColor="Y30"
-  >
-    <Text>Content goes here</Text>
-  </Box>
-);
+const childrenNodesExamples = [
+  {
+    label: 'Short Content',
+    value: (
+      <Box
+        align="center"
+        verticalAlign="middle"
+        height="100%"
+        backgroundColor="Y30"
+      >
+        <Text>Content goes here</Text>
+      </Box>
+    ),
+  },
+  {
+    label: 'Long Content',
+    value: (
+      <Box
+        align="center"
+        verticalAlign="middle"
+        height="650px"
+        backgroundColor="Y30"
+      >
+        <Text>Content goes here</Text>
+      </Box>
+    ),
+  },
+];
 
-const childNodeString = `<Box align="center" verticalAlign="middle" height="100%" padding="20px" backgroundColor="Y30">
+const childNodeString = `<Box align="center" verticalAlign="middle" height="100%" backgroundColor="Y30">
         <Text>Content goes here</Text>
       </Box>`;
 
@@ -49,7 +66,11 @@ export default {
 
   componentProps: {
     dataHook: '',
-    children: childNode,
+    children: childrenNodesExamples[0].value,
+  },
+
+  exampleProps: {
+    children: childrenNodesExamples,
   },
 
   sections: [

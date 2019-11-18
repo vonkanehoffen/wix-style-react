@@ -9,6 +9,18 @@
 
 }
 
+:import {
+  -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
+  -st-named: defaultScrollBar;
+}
+
+:vars {
+  mobileContentHeight: 480px;
+  mobileContentWidth: 320px;
+  mobileFooterHeight: 60px;
+  mobileHeaderHeight: 60px;
+}
+
 .root {
   -st-extends: PreviewWidget;
 }
@@ -28,10 +40,12 @@
   right: -1px;
   bottom: -1px;
   box-shadow: inset 0 0 6px 0 value(D10-20);
+  /* Added this to make the "content" div is scrollable */
+  pointer-events: none;
 }
 
 .header{
-  height: 60px;
+  height: value(mobileHeaderHeight);
   background-color: value(D80);
   border-bottom: 1px solid value(D60) ;
   position: relative;
@@ -60,12 +74,15 @@
 }
 
 .content{
-  height: 480px;
-  width: 320px;
+  -st-mixin: defaultScrollBar;
+  height: value(mobileContentHeight);
+  width: value(mobileContentWidth);
+  overflow-y: auto;
+  background-color: value(D80);
 }
 
 .footer{
-  height: 60px;
+  height: value(mobileFooterHeight);
   background-color: value(D80);
   border-top: 1px solid value(D60) ;
 }

@@ -61,6 +61,26 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'Scroll',
+    its: [
+      {
+        it: 'Large Content ',
+        props: {
+          children: (
+            <Box
+              align="center"
+              verticalAlign="middle"
+              height="600px"
+              backgroundColor="Y30"
+            >
+              <Text>Content goes here</Text>
+            </Box>
+          ),
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {
