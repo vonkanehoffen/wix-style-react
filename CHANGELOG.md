@@ -14,7 +14,9 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## next
+
+## 7.16.0 - 2019-11-18
 
 ### Changed
 
@@ -33,7 +35,7 @@ Types of changes:
 - `<ImageViewer/>` - make sure that onImageLoad is called after the state has been changed [#4537](https://github.com/wix/wix-style-react/pull/4537)
 - `<SocialButton/>` - align icon to center [#4542](https://github.com/wix/wix-style-react/pull/4542)
 
-## 7.15.1 - 2019 - 11 - 13
+## 7.15.1 - 2019-11-13
 
 - Reverting Buttons family migration from core to wsr
 
