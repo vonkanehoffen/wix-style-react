@@ -24,7 +24,7 @@
 :vars {
   paddingWithoutSuffix: 6px 24px 6px 24px;
   paddingWithSuffix: 6px 18px 6px 24px;
-  chevronPartialOpacity: 0.3;
+  chevronPartialOpacity: 0.6;
 }
 
 .root {
