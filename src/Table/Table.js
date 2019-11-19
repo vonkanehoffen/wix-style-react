@@ -39,7 +39,7 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
               disabled={disabled}
               dataHook="row-select"
               checked={isSelected(id)}
-              onChange={() => toggleSelectionById(id)}
+              onChange={() => toggleSelectionById(id, 'Checkbox')}
             />
           </div>
         );
@@ -175,9 +175,11 @@ Table.propTypes = {
   /** Called when row selection changes.
    * Receives 2 arguments: `selectedIds` array, and a `change` object ( in this order).
    * `selectedIds` is the updated selected ids.
-   * `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
+   * The `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
    * In case of 'SINGLE_TOGGLE' the `change` object will also include an `id` prop with the item's id,
-   * and a `value` prop with the new boolean selection state of the item. */
+   * and a `value` prop with the new boolean selection state of the item.
+   * The `change` object also contains an `origin` property which indicates what initiated the selection change.
+   * The `origin` property can be set when selection is updated using a `SelectionContext` method. */
   onSelectionChanged: PropTypes.func,
 
   /** Indicates whether to show a selection column (with checkboxes).<br>
