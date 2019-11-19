@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<Table/>`- enable setting origin for selection change event [#4559](https://github.com/wix/wix-style-react/pull/4559)
+- `<Table/>` - add `virtualizedListRef` prop for experimental virtualized table [#4502](https://github.com/wix/wix-style-react/pull/4502)
 
 ## 7.16.1
 
