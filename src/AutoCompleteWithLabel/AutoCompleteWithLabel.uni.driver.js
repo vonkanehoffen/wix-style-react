@@ -30,5 +30,6 @@ export const autoCompleteWithLabelDriverFactory = base => {
     },
     clickMenuArrow: () => inputDriver.clickMenuArrow(),
     blur: () => inputDriver.blur(),
+    hasError: () => inputDriver.hasError(),
   };
 };
