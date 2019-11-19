@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+- `<Table/>`- enable setting origin for selection change event [#4559](https://github.com/wix/wix-style-react/pull/4559)
+
 ## 7.16.1
 
 ### Fixed
