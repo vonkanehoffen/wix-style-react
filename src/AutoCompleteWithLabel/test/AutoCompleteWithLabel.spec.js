@@ -53,6 +53,23 @@ describe('AutoCompleteWithLabel', () => {
     expect(await driver.optionsLength()).toEqual(1);
   });
 
+  it('should show all options after editing the input', async () => {
+    const options = [
+      { id: 0, value: 'aaa' },
+      { id: 1, value: 'abb' },
+      { id: 2, value: 'bbb' },
+      { id: 3, value: 'bcc' },
+    ];
+    const { driver } = render(
+      <AutoCompleteWithLabel label="my autocomplete" options={options} />,
+    );
+    await driver.enterText('a');
+    expect(await driver.optionsLength()).toEqual(2);
+    await driver.blur();
+    await driver.clickMenuArrow();
+    expect(await driver.optionsLength()).toEqual(4);
+  });
+
   it('should trigger onChange if provided', async () => {
     const onChange = jest.fn();
     const options = [

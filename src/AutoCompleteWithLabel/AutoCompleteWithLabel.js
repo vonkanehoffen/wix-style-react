@@ -18,6 +18,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
 
     this.state = {
       value: props.value || '',
+      isEditing: false,
     };
   }
 
@@ -76,8 +77,13 @@ class AutoCompleteWithLabel extends React.PureComponent {
 
   onChange = event => {
     const { value } = event.target;
-    this.setState({ value });
+    this.setState({ value, isEditing: true });
     this.props.onChange && this.props.onChange(event);
+  };
+
+  onBlur = () => {
+    this.setState({ isEditing: false });
+    this.props.onBlur && this.props.onBlur();
   };
 
   _isInputControlled = () => typeof this.props.value !== 'undefined';
@@ -91,7 +97,6 @@ class AutoCompleteWithLabel extends React.PureComponent {
       suffix,
       statusMessage,
       onFocus,
-      onBlur,
       name,
       type,
       ariaLabel,
@@ -104,11 +109,10 @@ class AutoCompleteWithLabel extends React.PureComponent {
       native,
     } = this.props;
     const { value } = this._isInputControlled() ? this.props : this.state;
-    const filteredOptions = value
-      ? options.filter(option =>
-          option.value.toLowerCase().includes(value.toLowerCase()),
-        )
-      : options;
+    const predicate = this.state.isEditing
+      ? option => option.value.toLowerCase().includes(value.toLowerCase())
+      : () => true;
+    const filteredOptions = value ? options.filter(predicate) : options;
 
     const suffixContainer = suffix
       ? suffix.map((item, index) => {
@@ -133,7 +137,7 @@ class AutoCompleteWithLabel extends React.PureComponent {
             dataHook={dataHooks.inputWithOptions}
             hideStatusSuffix
             onFocus={onFocus}
-            onBlur={onBlur}
+            onBlur={this.onBlur}
             inputElement={
               <Input
                 name={name}
