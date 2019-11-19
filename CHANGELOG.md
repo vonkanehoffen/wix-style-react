@@ -22,6 +22,7 @@ Types of changes:
 
 ### Fixed
 - `<InputWithOptions/>` - Fix some testkit methods not working in Puppeteer environment [#4560](https://github.com/wix/wix-style-react/pull/4560)
+`<Sidebar/>` - render borderRight only for `light` skin [#4566](https://github.com/wix/wix-style-react/pull/4566)
 
 ## 7.16.1
 
