@@ -20,6 +20,9 @@ Types of changes:
 - `<Table/>`- enable setting origin for selection change event [#4559](https://github.com/wix/wix-style-react/pull/4559)
 - `<Table/>` - add `virtualizedListRef` prop for experimental virtualized table [#4502](https://github.com/wix/wix-style-react/pull/4502)
 
+### Fixed
+- `<InputWithOptions/>` - Fix some testkit methods not working in Puppeteer environment [#4560](https://github.com/wix/wix-style-react/pull/4560)
+
 ## 7.16.1
 
 ### Fixed
