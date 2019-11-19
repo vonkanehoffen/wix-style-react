@@ -332,10 +332,16 @@ class DataTable extends React.Component {
   };
 
   renderVirtualizedTable = () => {
-    const { dataHook, data, virtualizedTableHeight } = this.props;
+    const {
+      dataHook,
+      data,
+      virtualizedTableHeight,
+      virtualizedListRef,
+    } = this.props;
     return (
       <div data-hook={dataHook}>
         <List
+          ref={virtualizedListRef}
           className={classNames(this.style.table, this.style.virtualized)}
           height={virtualizedTableHeight}
           itemCount={data.length}
@@ -599,6 +605,8 @@ DataTable.propTypes = {
   virtualizedTableHeight: PropTypes.number,
   /** ++EXPERIMENTAL++ Set virtualized table row height */
   virtualizedLineHeight: PropTypes.number,
+  /** ++EXPERIMENTAL++ Set ref on virtualized List containing table rows */
+  virtualizedListRef: PropTypes.any,
   /** array of selected ids in the table. Note that `isRowSelected` prop provides greater selection logic flexibility and is recommended to use instead. */
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

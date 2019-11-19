@@ -298,6 +298,8 @@ Table.propTypes = {
   virtualizedTableHeight: PropTypes.number,
   /** ++EXPERIMENTAL++ Set virtualized table row height */
   virtualizedLineHeight: PropTypes.number,
+  /** ++EXPERIMENTAL++ Set ref on virtualized List containing table rows */
+  virtualizedListRef: PropTypes.any,
   /** The width of the fixed table. Can be in percentages or pixels. */
   width: PropTypes.string,
   /** Table styling. Supports `standard` and `neutral`. */
