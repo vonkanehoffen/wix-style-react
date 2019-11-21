@@ -122,15 +122,13 @@ export default {
             description({
               title: 'Browser Bar Size',
               text: `BrowserPreviewWidget supports 4 browser bar sizes: \`${browserBarSizes.size9}\`, \`${browserBarSizes.size12}\` (default), \`${browserBarSizes.size18}\` and \`${browserBarSizes.size24}\`.
-                                
-                | Browser Bar Height |     Width     |
-                |------------------------------------|
-                |       ${browserBarSizes.size9}        |   0 < w < 312 |
-                |       ${browserBarSizes.size12}       | 312 ≤ w < 444 |
-                |       ${browserBarSizes.size18}       | 444 ≤ w < 660 | 
-                |       ${browserBarSizes.size24}       |    660 ≤ w    |
-                
-                `,
+| Browser Bar Height | Width |
+| --- | --- |
+| ${browserBarSizes.size9} | 0 < w < 312 |
+| ${browserBarSizes.size12} | 312 ≤ w < 444 |
+| ${browserBarSizes.size18} | 444 ≤ w < 660 |
+| ${browserBarSizes.size24} | 660 ≤ w |
+`,
             }),
 
             code({
@@ -149,6 +147,11 @@ export default {
                 <Cell>
                   <BrowserPreviewWidget browserBarSize="${browserBarSizes.size18}">
                     <Box width="450px" height="100px" backgroundColor="Y30"/>                 
+                  </BrowserPreviewWidget>
+                </Cell>
+                <Cell>
+                  <BrowserPreviewWidget browserBarSize="${browserBarSizes.size24}">
+                    <Box width="700px" height="100px" backgroundColor="Y30"/>                 
                   </BrowserPreviewWidget>
                 </Cell>
               </Layout>`,
