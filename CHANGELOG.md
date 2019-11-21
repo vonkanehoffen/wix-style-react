@@ -30,6 +30,7 @@ Types of changes:
 - `<Sidebar/>` - render borderRight only for `light` skin [#4566](https://github.com/wix/wix-style-react/pull/4566)
 - `<Page />` & `<Page.Tail />` - remove scrollbar for non overflowing content [#4539](https://github.com/wix/wix-style-react/pull/4571)
 - `<Checkbox/>` - Fix children width [#4571](https://github.com/wix/wix-style-react/pull/4571)
+- `<AddItem/>` - Fix onClick not triggering on first click [#4575](https://github.com/wix/wix-style-react/pull/4575)
 
 ## 7.16.1
 
