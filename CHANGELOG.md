@@ -20,6 +20,7 @@ Types of changes:
 - `<Table/>` - enable setting origin for selection change event [#4559](https://github.com/wix/wix-style-react/pull/4559)
 - `<Table/>` - add `virtualizedListRef` prop for experimental virtualized table [#4502](https://github.com/wix/wix-style-react/pull/4502)
 - `<AutoCompleteWithLabel/>` - expose `hasError` in testkit [#4567](https://github.com/wix/wix-style-react/pull/4567)
+- `<ModalSelectorLayout/>` - add support for `item.subtitleNode`, `item.belowNode` & `item.showBelowNodeOnSelect` [#4438](https://github.com/wix/wix-style-react/pull/4438)
 
 ### Changed 
 - `<AutoCompleteWithLabel/>` - reset filtered options after blur [#4564](https://github.com/wix/wix-style-react/pull/4564)
