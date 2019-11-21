@@ -24,6 +24,7 @@ Types of changes:
 ### Changed 
 - `<AutoCompleteWithLabel/>` - reset filtered options after blur [#4564](https://github.com/wix/wix-style-react/pull/4564)
 - `<SidebarSectionItem/>` - change chevron opacity for `alwaysDisplayChevron` [#4563](https://github.com/wix/wix-style-react/pull/4563)
+- `<BrowserPreviewWidget/>`,`<PreviewWidget/>`, `<MobilePreviewWidget/>` - moving from `WIP` to `Components` section and small docs fixes. [#4558](https://github.com/wix/wix-style-react/pull/4558)
 
 ### Fixed
 - `<InputWithOptions/>` - Fix some testkit methods not working in Puppeteer environment [#4560](https://github.com/wix/wix-style-react/pull/4560)
