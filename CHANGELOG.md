@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<Sidebar/>` - adjust visual components according to the spec [#4570](https://github.com/wix/wix-style-react/pull/4570)
+
 ## 7.17.0
 
 ### Added
