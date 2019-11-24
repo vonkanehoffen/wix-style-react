@@ -81,7 +81,7 @@ const secondaryActionsOption = [
 const ExampleComponent = props => (
   <div {...style('root', {}, props)}>
     <tr className={style.exampleRow}>
-      <TableActionCell {...props} />
+      <TableActionCell {...props} upgrade />
     </tr>
   </div>
 );

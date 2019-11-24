@@ -8,6 +8,9 @@ import Tooltip from '../Tooltip/Tooltip';
 import Button from '../Deprecated/Button';
 import IconButton from '../IconButton';
 import PopoverMenu from '../beta/PopoverMenu';
+import OldPopoverMenu from '../PopoverMenu';
+import OldPopoverMenuItem from '../PopoverMenuItem';
+
 import ChevronRight from '../new-icons/ChevronRight';
 
 /* eslint-disable react/prop-types */
@@ -51,8 +54,8 @@ function renderVisibleActions(actions) {
   ));
 }
 
-function renderHiddenActions(actions, popoverMenuProps) {
-  return (
+function renderHiddenActions(actions, popoverMenuProps, upgrade) {
+  return upgrade ? (
     <PopoverMenu
       buttonTheme="icon-greybackground"
       dataHook="table-action-cell-popover-menu"
@@ -80,6 +83,24 @@ function renderHiddenActions(actions, popoverMenuProps) {
         />
       ))}
     </PopoverMenu>
+  ) : (
+    <OldPopoverMenu
+      buttonTheme="icon-greybackground"
+      dataHook="table-action-cell-popover-menu"
+      appendToParent
+      {...popoverMenuProps}
+    >
+      {actions.map(({ text, icon, onClick, disabled }, index) => (
+        <OldPopoverMenuItem
+          key={index}
+          dataHook="table-action-cell-popover-menu-item"
+          icon={icon}
+          onClick={() => onClick()}
+          text={text}
+          disabled={disabled}
+        />
+      ))}
+    </OldPopoverMenu>
   );
 }
 
@@ -99,6 +120,7 @@ const TableActionCell = props => {
     numOfVisibleSecondaryActions,
     alwaysShowSecondaryActions,
     popoverMenuProps,
+    upgrade,
   } = props;
 
   const visibleActions = secondaryActions.slice(
@@ -130,7 +152,7 @@ const TableActionCell = props => {
       {hiddenActions.length > 0 && (
         <div onClick={e => e.stopPropagation()} className={style.popoverMenu}>
           <HoverSlot display="always">
-            {renderHiddenActions(hiddenActions, popoverMenuProps)}
+            {renderHiddenActions(hiddenActions, popoverMenuProps, upgrade)}
           </HoverSlot>
         </div>
       )}
@@ -193,6 +215,9 @@ TableActionCell.propTypes = {
 
   /** Props being passed to the secondary actions' <PopoverMenu/> */
   popoverMenuProps: PropTypes.shape(PopoverMenu.propTypes),
+
+  /** When true, the TableActionCell will use the beta <PopupMenu> to enable setting dataHook for each action */
+  upgrade: PropTypes.bool, // This Upgrade prop is only for documentation, the actual use is in index.js
 };
 
 TableActionCell.defaultProps = {
