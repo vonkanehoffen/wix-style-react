@@ -3,6 +3,11 @@
   -st-named: sidebarBackgroundColor, sidebarLightBackgroundColor, lightTextColor, textColor;
 }
 
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
+}
+
 @keyframes backAndForth {
   0% {
     transform: translateX(0px);
@@ -22,7 +27,9 @@
 .BackButton {
   -st-states: lightSkin;
   cursor: pointer;
-  padding: 15px 18px;
+  box-sizing: border-box;
+  max-width: value(sidebarWidth);
+  padding: 15px 24px 15px 18px;
   display: flex;
   align-items: center;
   background: value(sidebarBackgroundColor);

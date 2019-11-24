@@ -15,11 +15,16 @@
   -st-named: fontBold;
 }
 
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
+}
+
 .root {
   -st-states: skin(enum(dark, light));
 
-  padding: 24px;
-  max-width: 228px;
+  padding: 27px 24px;
+  max-width: value(sidebarWidth);
   box-sizing: border-box;
 }
 
