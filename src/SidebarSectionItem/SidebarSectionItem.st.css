@@ -12,7 +12,7 @@
 
 :import {
     -st-from: "../Foundation/stylable/colors.st.css";
-    -st-named: F00
+    -st-named: D80, B30, B10, F00
 }
 
 :import {
@@ -35,6 +35,7 @@
   align-items: center;
   padding: 0 24px 0 24px;
   max-width: value(sidebarWidth);
+  width: 100%;
   min-height: 36px;
   box-sizing: border-box;
   border: none;
@@ -60,7 +61,7 @@
 /* Selected */
 
 .root:skin(dark):selected {
-  background-color: value(selectedBackgroundColor)
+  background-color: value(selectedBackgroundColor);
   color: value(selectedTextColor);
 }
 
@@ -69,7 +70,7 @@
 }
 
 .root:skin(light):selected {
-  background-color: value(selectedLightBackgroundColor)
+  background-color: value(selectedLightBackgroundColor);
   color: value(selectedLightTextColor);
 }
 
@@ -112,7 +113,8 @@
   opacity: 0.6;
 }
 
-.root:drillable:hover .chevron {
+.root:drillable:hover .chevron, .root:drillable:focus-visible .chevron {
+  position: static;
   opacity: 1;
   transition: all .5s;
 }
