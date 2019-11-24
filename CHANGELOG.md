@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<SidebarSectionItem/>` & `<SidebarBackButton/>` - support a11y [#4581](https://github.com/wix/wix-style-react/pull/4581)
+
 ### Changed
 - `<Sidebar/>` - adjust visual components according to the spec [#4570](https://github.com/wix/wix-style-react/pull/4570)
 
