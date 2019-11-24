@@ -25,7 +25,7 @@ Types of changes:
 - `<Sidebar/>` - adjust visual components according to the spec [#4570](https://github.com/wix/wix-style-react/pull/4570)
 - `<TableActionCell/>` - refactor to use beta <PopoverMenu/> only with `upgrade` flag [#4586](https://github.com/wix/wix-style-react/pull/4586)
 
-## 7.17.0
+## 7.17.0 - 2019-11-21
 
 ### Added
 
@@ -48,7 +48,7 @@ Types of changes:
 - `<Checkbox/>` - Fix children width [#4571](https://github.com/wix/wix-style-react/pull/4571)
 - `<AddItem/>` - Fix onClick not triggering on first click [#4575](https://github.com/wix/wix-style-react/pull/4575)
 
-## 7.16.1
+## 7.16.1 - 2019-11-18
 
 ### Fixed
 
