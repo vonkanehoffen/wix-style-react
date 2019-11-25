@@ -17,6 +17,8 @@ Types of changes:
 
 ### Next
 
+### Added
+
 - `<Proportion>`  - add new type to aspectRatio to disable aspectRatio holder [#4580](https://github.com/wix/wix-style-react/pull/4580)
 
 ## 7.18.0 - 2019-11-24
