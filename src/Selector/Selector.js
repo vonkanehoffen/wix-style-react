@@ -21,7 +21,7 @@ class Selector extends WixComponent {
       'cinema',
     ]),
     imageShape: PropTypes.oneOf(['rectangular', 'circle']),
-    title: PropTypes.string.isRequired,
+    title: PropTypes.node.isRequired,
     isSelected: PropTypes.bool,
     isDisabled: PropTypes.bool,
     subtitle: PropTypes.string,
