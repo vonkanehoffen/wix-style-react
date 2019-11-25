@@ -138,6 +138,9 @@ export default class ModalSelectorLayout extends WixComponent {
 
     /** callback that triggers on select and return selected item object*/
     onSelect: func,
+
+    /** Used to display some side component in the footer */
+    sideActions: node,
   };
 
   static defaultProps = {
@@ -388,6 +391,7 @@ export default class ModalSelectorLayout extends WixComponent {
       okButtonText,
       multiple,
       disableConfirmation,
+      sideActions,
     } = this.props;
 
     const enabledItems = this._getEnabledItems(selectedItems);
@@ -400,6 +404,7 @@ export default class ModalSelectorLayout extends WixComponent {
         confirmText={okButtonText}
         enableOk={!disableConfirmation && !!selectedItems.length}
         children={multiple && this._renderFooterSelector()}
+        sideActions={sideActions}
       />
     );
   };
