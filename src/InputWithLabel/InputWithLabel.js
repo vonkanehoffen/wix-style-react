@@ -7,6 +7,7 @@ import { PropTypes } from 'prop-types';
 import styles from './InputWithLabel.st.css';
 import dataHooks from './dataHooks';
 import classNames from 'classnames';
+import StatusAlertSmall from '../new-icons/StatusAlertSmall';
 
 class InputWithLabel extends React.Component {
   static propTypes = {
@@ -116,7 +117,7 @@ class InputWithLabel extends React.Component {
             onBlur={onBlur}
             dataHook={dataHooks.input}
             className={classNames(className, styles.inputContainer)}
-            size="large"
+            size="medium"
             value={value}
             suffix={suffixContainer}
             status={status}
@@ -126,12 +127,15 @@ class InputWithLabel extends React.Component {
         </LabelledElement>
         {status === Input.StatusError && statusMessage && (
           <Text
-            dataHook={dataHooks.errorMessage}
             skin="error"
             size="small"
+            weight="normal"
             className={styles.statusMessage}
           >
-            {statusMessage}
+            <span className={styles.statusMessageIcon}>
+              <StatusAlertSmall />
+            </span>
+            <span data-hook={dataHooks.errorMessage}>{statusMessage}</span>
           </Text>
         )}
       </div>

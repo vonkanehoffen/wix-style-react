@@ -11,6 +11,7 @@ import styles from './AutoCompleteWithLabel.scss';
 import dataHooks from './dataHooks';
 import { optionValidator } from '../DropdownLayout/DropdownLayout';
 import classNames from 'classnames';
+import StatusAlertSmall from '../new-icons/StatusAlertSmall';
 
 class AutoCompleteWithLabel extends React.PureComponent {
   constructor(props) {
@@ -161,13 +162,15 @@ class AutoCompleteWithLabel extends React.PureComponent {
         </LabelledElement>
         {status === Input.StatusError && statusMessage && (
           <Text
-            dataHook={dataHooks.errorMessage}
             skin="error"
             weight="normal"
             size="small"
             className={styles.statusMessage}
           >
-            {statusMessage}
+            <span className={styles.statusMessageIcon}>
+              <StatusAlertSmall />
+            </span>
+            <span data-hook={dataHooks.errorMessage}>{statusMessage}</span>
           </Text>
         )}
       </div>
