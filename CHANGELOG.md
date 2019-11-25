@@ -18,8 +18,9 @@ Types of changes:
 
 ### Added
 
-- `<Proportion>`  - add new type to aspectRatio to disable aspectRatio holder [#4580](https://github.com/wix/wix-style-react/pull/4580)
+- `<Proportion/>`  - add new type to aspectRatio to disable aspectRatio holder [#4580](https://github.com/wix/wix-style-react/pull/4580)
 - `<InputWithLabel/>` & `<AutoCompleteWithLabel/>` - add icon to error message [#4576](https://github.com/wix/wix-style-react/pull/4576)
+- `<EmptyState/>` - add `align` prop to EmptyState component [#4579](https://github.com/wix/wix-style-react/pull/4579)
 
 ### Changed
 - `<Selector/>` - change `title` prop type to `node` [#4592](https://github.com/wix/wix-style-react/pull/4592)
