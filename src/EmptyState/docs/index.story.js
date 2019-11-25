@@ -64,6 +64,11 @@ export default {
       { label: 'Two actions', value: twoActions },
       { label: 'Single action with long text', value: singleActionLongText },
     ],
+    align: [
+      { label: 'left', value: 'left' },
+      { label: 'center', value: 'center' },
+      { label: 'right', value: 'right' },
+    ],
   },
 
   examples: (
