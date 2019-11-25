@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
+### Next
+
+- `<Proportion>`  - add new type to aspectRatio to disable aspectRatio holder [#4580](https://github.com/wix/wix-style-react/pull/4580)
+
 ## 7.18.0 - 2019-11-24
 
 ### Added
