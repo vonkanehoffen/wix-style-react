@@ -26,7 +26,8 @@ class MessageBoxMarketerialLayout extends WixComponent {
     } = this.props;
 
     const headerClasses = classNames({
-      [styles.header]: true,
+      [styles.headerBase]: true,
+      [styles.header]: !!imageComponent || !!imageUrl,
       [styles[`header-${theme}`]]: true,
     });
 
@@ -47,11 +48,11 @@ class MessageBoxMarketerialLayout extends WixComponent {
           </div>
           {imageComponent ? (
             <div className={styles.headerImageComponent}>{imageComponent}</div>
-          ) : (
+          ) : imageUrl ? (
             <div className={styles.headerImage}>
               <img src={imageUrl} data-hook="header-image" />
             </div>
-          )}
+          ) : null}
         </div>
         <div className={styles.title} data-hook="message-box-title">
           <Heading appearance="H1">{title}</Heading>
