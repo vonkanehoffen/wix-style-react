@@ -288,6 +288,7 @@ handleDrop = ({
       </div>
     )
 
+    render() {
       /*
         To achieve our goal from renderItem callback, we need to tell SortableList,
         that this.state.isListInDragState can affect our items view and that SortableList need to
