@@ -289,10 +289,10 @@ handleDrop = ({
     )
 
       /*
-        GOAL:
-        inside of render item callback we use `isListInDragState` from state,
-        so we expect, that when we will do setState({ isListInDragState: someValue }),
-        the renderItem will call again and render updated state in dom
+        To achieve our goal from renderItem callback, we need to tell SortableList,
+        that this.state.isListInDragState can affect our items view and that SortableList need to
+        call renderItem again when this.state.isListInDragState changed.
+        To do this we use `listOfPropsThatAffectItems`
       */
       return (
         <div>
@@ -309,32 +309,7 @@ handleDrop = ({
             listOfPropsThatAffectItems={[this.state.isListInDragState]}
           />
         </div>
-      )
-
-      render() {
-        /*
-          To achieve our goal from renderItem callback, we need to tell SortableList,
-          that this.state.isListInDragState can affect our items view and that SortableList need to
-          call renderItem again when this.state.isListInDragState changed.
-          To do this we use `listOfPropsThatAffectItems`
-        */
-        return (
-          <div>
-            <SortableList
-              contentClassName="cl"
-              dataHook={dataHook}
-              containerId="sortable-list-1"
-              groupName="group1"
-              items={items}
-              renderItem={this.renderItem}
-              onDrop={onDrop}
-              onDragStart={this.handleDragStart}
-              onDragEnd={this.handleDragEnd}
-              listOfPropsThatAffectItems={[this.state.isListInDragState]}
-            />
-          </div>
-        );
-      }
+      );
     }
   }
 ```
