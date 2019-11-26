@@ -24,6 +24,7 @@ Types of changes:
 
 ### Changed
 - `<Selector/>` - change `title` prop type to `node` [#4592](https://github.com/wix/wix-style-react/pull/4592)
+- `<MessageBoxMarketerialLayout/>`- change header height when `imageUrl` or `imageComponent` is undefined. [#4594](https://github.com/wix/wix-style-react/pull/4594)
 
 ## 7.18.0 - 2019-11-24
 
