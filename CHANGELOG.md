@@ -20,6 +20,10 @@ Types of changes:
 
 - `<FillPreview/>` - expose aspectRatio prop and fix broken stretch on display:flex [#4593](https://github.com/wix/wix-style-react/pull/4593)
 
+### Fixed
+
+- `<SortableList/>` - Fix issue where dragged preview item had the wrong width [#4601](https://github.com/wix/wix-style-react/pull/4601)
+
 ## 7.19.0 - 2019-11-26
 
 ### Added
