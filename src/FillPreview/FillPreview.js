@@ -1,6 +1,6 @@
 import React from 'react';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import { bool, func, node, oneOfType, string } from 'prop-types';
+import { bool, func, node, oneOfType, string, number } from 'prop-types';
 import Proportion from '../Proportion';
 
 import { parseColor, parseGradient, parseUrl, parseElement } from './utils';
@@ -59,27 +59,30 @@ class FillPreview extends React.Component {
       focusableOnBlur,
       disabled,
       dataHook,
+      aspectRatio,
       ...rest
     } = this.props;
     const background = this._getBackground(fill);
     return (
-      <div data-hook={dataHook}>
-        <Proportion className={styles.proportion}>
-          <button
-            {...rest}
-            {...styles('root', { selected }, rest)}
-            data-selected={selected}
-            data-hook="fill-preview-button"
-            style={background}
-            onFocus={focusableOnFocus}
-            onBlur={focusableOnBlur}
-            onClick={onClick}
-            disabled={disabled}
-          >
-            {!background && React.isValidElement(fill) && fill}
-          </button>
-        </Proportion>
-      </div>
+      <Proportion
+        dataHook={dataHook}
+        className={styles.root}
+        aspectRatio={aspectRatio}
+      >
+        <button
+          {...rest}
+          data-selected={selected}
+          {...styles('box', { selected }, rest)}
+          data-hook="fill-preview-button"
+          style={background}
+          onFocus={focusableOnFocus}
+          onBlur={focusableOnBlur}
+          onClick={onClick}
+          disabled={disabled}
+        >
+          {!background && React.isValidElement(fill) && fill}
+        </button>
+      </Proportion>
     );
   }
 }
@@ -96,6 +99,9 @@ FillPreview.propTypes = {
 
   /** Puts the component into a disabled state */
   disabled: bool,
+
+  /** Control elements aspect ratio value:  */
+  aspectRatio: oneOfType([string, number]),
 };
 
 FillPreview.defaultProps = {

@@ -14,6 +14,10 @@
 }
 
 .root {
+  min-width: 24px;
+}
+
+.box {
   -st-extends: Focusable;
   -st-states: selected;
 
@@ -30,19 +34,16 @@
   outline: none;
 }
 
-.root:not(:disabled):selected {
+.box:not(:disabled):selected {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px value(B10);
 }
 
-.root:not(:disabled):focus-visible {
+.box:not(:disabled):focus-visible {
   box-shadow: 0 0 0 3px value(F00);
 }
 
-.root:disabled {
+.box:disabled {
   background-color: calc_rgba(value(D10),0.1);
   border: none;
 }
 
-.proportion {
-  min-width: 24px;
-}

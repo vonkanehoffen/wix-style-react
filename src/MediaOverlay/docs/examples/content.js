@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '../../../Box';
 import Text from '../../../Text';
 import PopoverMenu from '../../../beta/PopoverMenu';
 import IconButton from '../../../IconButton';
@@ -52,7 +53,9 @@ const renderExampleContent = (placement, visible, fill = ['lime', 'lime']) => (
     visible={visible}
   >
     {fill.map((fillContent, index) => (
-      <FillPreview key={index} fill={fillContent} />
+      <Box width="24px">
+        <FillPreview key={index} fill={fillContent} />
+      </Box>
     ))}
   </MediaOverlay.Content>
 );
