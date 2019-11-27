@@ -38,7 +38,7 @@ const example = ({ source, ...rest }) =>
 
 export default {
   category: storySettings.category,
-  storyName: 'listItemAction',
+  storyName: 'ListItemAction',
 
   component: ListItemAction,
   componentPath: '..',
@@ -74,11 +74,9 @@ export default {
             }),
           ]),
 
-          columns([
-            importExample(
-              "import {listItemActionBuilder} from 'wix-style-react/ListItemAction';",
-            ),
-          ]),
+          importExample(
+            "import { listItemActionBuilder } from 'wix-style-react/ListItemAction';",
+          ),
 
           divider(),
 

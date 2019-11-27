@@ -430,5 +430,8 @@
   },
   "BrowserPreviewWidget": {
     "path": "src/BrowserPreviewWidget"
+  },
+  "ListItemSelect": {
+    "path": "src/ListItemSelect"
   }
 }

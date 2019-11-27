@@ -108,6 +108,7 @@ require('../src/Layout/docs');
 require('../src/Layout/docs/index.story');
 require('../src/LinearProgressBar/docs/index.story');
 require('../src/ListItemAction/docs/index.story');
+require('../src/ListItemSelect/docs/index.story');
 require('../src/Loader/docs/index.story');
 require('../src/MediaOverlay/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');
@@ -175,7 +176,6 @@ require('../src/Deprecated/SideMenu/docs/SideMenu');
 
 // BETA
 require('../src/beta/PopoverMenu/docs/index.story');
-
 
 // TODO: move to correct position
 require('../src/VerticalTabs/docs/index.story');
