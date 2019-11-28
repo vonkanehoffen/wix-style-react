@@ -166,7 +166,7 @@ Draggable.propTypes = {
   canDrag: PropTypes.func,
 
   delay: PropTypes.number,
-  /** 
+  /**
     In case that you are using some external props inside of renderItems method,
     you need to define them here.
 

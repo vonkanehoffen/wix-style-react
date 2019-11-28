@@ -10,6 +10,16 @@ import { ItemTypes } from '../types';
 
 /* eslint-disable new-cap */
 
+// monitor.dropResult() returns null when item is dropped outside the drop area so we need to track everything by ourselves
+const dragObject = {
+  originalItem: null,
+  removedIndex: null,
+  addedIndex: null,
+  addedToContainerId: null,
+  removedFromContainerId: null,
+  groupName: null,
+};
+
 const source = {
   beginDrag: ({
     id,
@@ -62,23 +72,47 @@ const source = {
       });
     }
 
-    if (monitor.getDropResult()) {
-      const isSameGroup =
-        groupName &&
-        monitor.getItem().groupName &&
-        groupName === monitor.getDropResult().groupName;
-      const isSameContainer =
-        containerId === monitor.getDropResult().containerId;
+    const dropResult = monitor.getDropResult();
+    const dropItem = monitor.getItem();
 
-      if (isSameGroup || isSameContainer) {
-        onDrop({
-          payload: monitor.getItem().originalItem, // original item
-          removedIndex: monitor.getItem().originalIndex, // original item index
-          addedIndex: monitor.getItem().index, // new item index
-          addedToContainerId: monitor.getDropResult().containerId, // new container for item
-          removedFromContainerId: containerId, // original item container
-        });
-      }
+    const isSameGroup =
+      groupName &&
+      ((dragObject && dragObject.groupName) ||
+        (dropResult && dropResult.groupName)) &&
+      (groupName === dragObject.groupName ||
+        groupName === dropResult.groupName);
+
+    const isSameContainer =
+      (dragObject && containerId === dragObject.addedToContainerId) ||
+      (dropResult && containerId === dropResult.containerId);
+
+    // If item is dragged anywhere but other container
+    if (dropResult === null && isSameContainer) {
+      return;
+    }
+
+    if (isSameGroup || isSameContainer) {
+      const payload = dropResult
+        ? dropItem.originalItem
+        : dragObject.originalItem;
+      const removedIndex = dropResult
+        ? dropItem.originalIndex
+        : dragObject.removedIndex;
+      const addedIndex = dropResult ? dropItem.index : dragObject.addedIndex;
+      const addedToContainerId = dropResult
+        ? dropResult.containerId
+        : dragObject.addedToContainerId;
+      const removedFromContainerId = dropResult
+        ? containerId
+        : dragObject.removedFromContainerId;
+
+      onDrop({
+        payload, // original item
+        removedIndex, // original item index
+        addedIndex, // new item index
+        addedToContainerId, // new container for item
+        removedFromContainerId, // original item container
+      });
     }
   },
   canDrag: ({ id, index, containerId, groupName, item, canDrag }) => {
@@ -97,6 +131,13 @@ const source = {
     const isSameGroup =
       groupName && item.groupName && groupName === item.groupName;
     const isSameContainer = containerId === item.containerId;
+    // tracking everything
+    dragObject.originalItem = item.originalItem;
+    dragObject.addedToContainerId = containerId;
+    dragObject.removedFromContainerId = item.containerId;
+    dragObject.removedIndex = item.originalIndex;
+    dragObject.groupName = groupName;
+
     return (isSameGroup || isSameContainer) && item.id === id;
   },
 };
@@ -105,6 +146,8 @@ const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging(),
+  // Need to set added index from component, since isDragging index is one step behind
+  setAddedIndex: index => (dragObject.addedIndex = index),
 });
 
 class DraggableSource extends React.Component {
@@ -244,7 +287,10 @@ class DraggableSource extends React.Component {
   };
 
   _renderPreviewItem() {
-    const { id, usePortal } = this.props;
+    const { id, usePortal, setAddedIndex } = this.props;
+
+    setAddedIndex(this.props.index);
+
     return (
       <DragLayer
         offsetOfHandle={this.state.offsetOfHandle}
