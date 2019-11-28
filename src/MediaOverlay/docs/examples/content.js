@@ -53,7 +53,7 @@ const renderExampleContent = (placement, visible, fill = ['lime', 'lime']) => (
     visible={visible}
   >
     {fill.map((fillContent, index) => (
-      <Box width="24px">
+      <Box key={index} width="24px">
         <FillPreview key={index} fill={fillContent} />
       </Box>
     ))}
