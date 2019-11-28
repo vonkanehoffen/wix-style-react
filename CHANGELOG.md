@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<ListItemSelect/>` - New component [#4557](https://github.com/wix/wix-style-react/pull/4557)
+- `<TimeTable/>` - New component [#4307](https://github.com/wix/wix-style-react/pull/4307)
 - `<FillPreview/>` - expose aspectRatio prop and fix broken stretch on display:flex [#4593](https://github.com/wix/wix-style-react/pull/4593)
 
 ### Fixed
