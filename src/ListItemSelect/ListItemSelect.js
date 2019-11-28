@@ -137,7 +137,7 @@ class ListItemSelect extends React.PureComponent {
     };
 
     return (
-      <Box width={'100%'} className={styles.textsWrapper}>
+      <Box width="100%" className={styles.textsWrapper}>
         {/* Prefix */}
         {prefix && (
           <Text

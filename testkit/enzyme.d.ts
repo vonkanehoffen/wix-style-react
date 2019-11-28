@@ -145,6 +145,7 @@ declare namespace EnzymeTestkit {
   export const verticalTabsTestkitFactory: any;
   export const verticalTabsItemTestkitFactory: any;
   export const mobilePreviewWidgetTestkitFactory: any;
+  export const listItemSectionTestkitFactory: any;
   export const browserPreviewWidgetTestkitFactory: any;
   export const listItemSelectTestkitFactory: any;
   export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;

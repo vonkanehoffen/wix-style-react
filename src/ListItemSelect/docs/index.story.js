@@ -75,7 +75,7 @@ export default {
             description({
               title: 'Description',
               text:
-                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+                'ListItemSelect is an internal component which is used to build dropdown or menu like components. Usually this item should not be used by consumers, though custom options builder is exposed for usage with DropdownBase.',
             }),
           ]),
 

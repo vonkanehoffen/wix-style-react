@@ -155,6 +155,7 @@ export const socialButtonTestkitFactory = uniTestkitFactoryCreator(load(require(
 export const verticalTabsTestkitFactory = uniTestkitFactoryCreator(load(require('../src/VerticalTabs/VerticalTabs.uni.driver')));
 export const verticalTabsItemTestkitFactory = uniTestkitFactoryCreator(load(require('../src/VerticalTabsItem/VerticalTabsItem.uni.driver')));
 export const mobilePreviewWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MobilePreviewWidget/MobilePreviewWidget.uni.driver')));
+export const listItemSectionTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ListItemSection/ListItemSection.uni.driver')));
 export const browserPreviewWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/BrowserPreviewWidget/BrowserPreviewWidget.uni.driver')));
 export const listItemSelectTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ListItemSelect/ListItemSelect.uni.driver')));
 export const timeTableTestkitFactory = uniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));

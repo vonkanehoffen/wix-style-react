@@ -428,6 +428,9 @@
   "MobilePreviewWidget": {
     "path": "src/MobilePreviewWidget"
   },
+  "ListItemSection": {
+    "path": "src/ListItemSection"
+  },
   "BrowserPreviewWidget": {
     "path": "src/BrowserPreviewWidget"
   },
