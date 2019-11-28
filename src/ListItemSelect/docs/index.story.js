@@ -75,7 +75,7 @@ export default {
             description({
               title: 'Description',
               text:
-                'ListItemSelect is an internal component which is used to build dropdown or menu like components. Usually this item should not be used by consumers, though custom options builder is exposed for usage with DropdownBase.',
+                "List Item Select represents a single option of any select component. It's highly configurable and can appear in Dropdown, Multiselect or Search components.",
             }),
           ]),
 
@@ -94,74 +94,16 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
 
           columns([
             description({
-              title: 'Simple Usage',
-              text:
-                'ListItemSelect can have: `prefix`, `text`, `subtitle`, and `suffix`.',
+              title: 'Size',
+              text: 'Component support two sizes – `small` and `medium`.',
             }),
 
             code({
               source: `
-                <div
-                  style={{
-                    height: '230px',
-                  }}
-                >
-                  <DropdownLayout
-                    visible
-                    selectedId={2}
-                    options={[
-                      listItemSelectBuilder({
-                        id: 0,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Carmel Lloyd',
-                        suffix: '31 Dec 2017',
-                      }),
-                      listItemSelectBuilder({
-                        id: 1,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Gracie-May Marsden',
-                        suffix: '20 Jan 2000',
-                      }),
-                      listItemSelectBuilder({
-                        id: 2,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Keisha Decker',
-                        suffix: '4 Nov 2010',
-                      }),
-                      listItemSelectBuilder({
-                        id: 3,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Ruairidh Fitzgerald',
-                        suffix: '7 Apr 2009',
-                        disabled: true,
-                      }),
-                      listItemSelectBuilder({
-                        id: 4,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Sheldon Chavez',
-                        suffix: '2 Dec 2019',
-                      }),
-                      listItemSelectBuilder({
-                        id: 5,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Brandan Gibbs',
-                        suffix: '1 Feb 2003',
-                      }),
-                      listItemSelectBuilder({
-                        id: 6,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Gordon Holmes',
-                        suffix: '19 Aug 2016',
-                      }),
-                      listItemSelectBuilder({
-                        id: 7,
-                        prefix: <Avatar size="size24"/>,
-                        title: 'Aaisha Rios',
-                        suffix: '22 Jul 2018',
-                      }),
-                    ]}
-                  />
-                </div>
+                <Layout cols="1">
+                  <ListItemSelect title="Medium size"/>
+                  <ListItemSelect size="small" title="Small size"/>
+                </Layout>
               `,
               compact: true,
             }),
@@ -169,19 +111,144 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
 
           columns([
             description({
-              title: 'With checkbox and subtitle',
+              title: 'Checkbox',
               text:
-                'This is another use case of ListItemSelect with a `checkbox` and a `subtitle`',
+                'Item can be configured for multi select components by enabling `checkbox`.',
             }),
 
             code({
-              compact: true,
               source: `
-                <div
-                  style={{
-                    height: '230px',
-                  }}
-                >
+                <Layout cols="1">
+                  <ListItemSelect title="For single selecton"/>
+                  <ListItemSelect checkbox title="For multi selection"/>
+                </Layout>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Affix',
+              text:
+                'Component has prefix and suffix areas. If plain text or icon is inserted, component automatically inverts the color when selected.',
+            }),
+
+            code({
+              source: `
+                <Layout cols={1}>
+                  <ListItemSelect
+                    prefix={<Box><Icons.Toolbox /></Box>}
+                    title="Title area"
+                    suffix="Suffix area"
+                  />
+                  <ListItemSelect
+                    prefix={<Avatar size="size24" />}
+                    title="Title area"
+                    suffix={<Box><Badge size="small" skin="success">Badge</Badge></Box>}
+                  />
+                  <ListItemSelect
+                    selected
+                    prefix={<Box><Icons.Toolbox /></Box>}
+                    title="Title area"
+                    suffix="Suffix area"
+                  />
+                  <ListItemSelect
+                    selected
+                    prefix={<Avatar size="size24" />}
+                    title="Title area"
+                    suffix={<Box><Badge size="small" skin="success">Badge</Badge></Box>}
+                  />
+                </Layout>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Subtitle',
+              text:
+                'Additional information, like user email or address can be inserted to subtitle area.',
+            }),
+
+            code({
+              source: `
+                <ListItemSelect
+                    title="Title area"
+                    subtitle="subtitle area"
+                />
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Disabled',
+              text:
+                'Component can be disabled, it automatically changes color of all areas if used as text or icon.',
+            }),
+
+            code({
+              source: `
+                <Layout cols={1}>
+                  <ListItemSelect
+                    disabled
+                    prefix={<Box><Icons.Toolbox /></Box>}
+                    title="Title area"
+                    subtitle="Subtitle area"
+                    suffix="Suffix area"
+                  />
+                  <ListItemSelect
+                    disabled
+                    checkbox
+                    prefix={<Box><Icons.Toolbox /></Box>}
+                    title="Title area"
+                    subtitle="Subtitle area"
+                    suffix="Suffix area"
+                  />
+                </Layout>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Text cropping',
+              text:
+                'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
+            }),
+
+            code({
+              source: `
+                <Layout cols={1}>
+                  <ListItemSelect
+                    title="This is a very very very very long text that will wrap at some point"
+                    suffix="Nice long long long long long Suffix"
+                  />
+                   <ListItemSelect
+                    ellipsis
+                    title="This is a very very very very long text that will be cropped by ellipsis at some point"
+                    suffix="Nice long long long long long Suffix"
+                  />
+                </Layout>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Advanced Example',
+              text:
+                'All properties work together and can be combined in various ways. It can be rendered as standalone or as part of dropdown.',
+            }),
+
+            code({
+              source: `
+                <Box height="230px">
                   <DropdownLayout
                     visible
                     selectedId={2}
@@ -189,7 +256,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 0,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Carmel Lloyd',
                         subtitle: 'Kaplan 41',
                         suffix: '31 Dec 2017',
@@ -197,7 +264,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 1,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Gracie-May Marsden',
                         subtitle: 'Sderot Ben Gurion 75',
                         suffix: '20 Jan 2000',
@@ -205,7 +272,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 2,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Keisha Decker',
                         subtitle: 'Aminadav 18',
                         suffix: '4 Nov 2010',
@@ -213,7 +280,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 3,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Ruairidh Fitzgerald',
                         subtitle: 'HaYarkon 228',
                         suffix: '7 Apr 2009',
@@ -222,7 +289,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 4,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Sheldon Chavez',
                         subtitle: 'Pinkas 2',
                         suffix: '2 Dec 2019',
@@ -230,7 +297,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 5,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Brandan Gibbs',
                         subtitle: 'Frishman 38',
                         suffix: '1 Feb 2003',
@@ -238,7 +305,7 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 6,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Gordon Holmes',
                         subtitle: 'HaShalom road 66',
                         suffix: '19 Aug 2016',
@@ -246,37 +313,16 @@ import { listItemSelectBuilder } from 'wix-style-react/ListItemSelect';
                       listItemSelectBuilder({
                         id: 7,
                         checkbox: true,
-                        prefix: <Avatar size="size30"/>,
+                        prefix: <Avatar size="size30" />,
                         title: 'Aaisha Rios',
                         subtitle: 'Arlozorov 101',
                         suffix: '22 Jul 2018',
                       }),
                     ]}
                   />
-                </div>
+                </Box>
               `,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Text cropping',
-              text: 'An example for List items with long text',
-            }),
-
-            code({
               compact: true,
-              source: `
-                <div dir="ltr">
-                    <ListItemSelect ellipsis prefix={<Box><Hint/></Box>} title="This is a very very very very long text that will be cropped by ellipsis at some point" suffix="Nice long long long long long Suffix"/>
-                    <Divider/>
-                    <ListItemSelect prefix={<Box><Hint/></Box>} title="This is a very very very very long text that will *not* be cropped by ellipsis at some point" suffix="Nice long long long long long Suffix"/>
-                    <Divider/>
-                    <ListItemSelect ellipsis checkbox prefix={<Box><Hint/></Box>} title="This is a very very very very long text that will be cropped by ellipsis at some point" suffix="Nice long long long long long Suffix"/>
-                    <Divider/>
-                    <ListItemSelect checkbox prefix={<Box><Hint/></Box>} title="This is a very very very very long text that will *not* be cropped by ellipsis at some point" suffix="Nice long long long long long Suffix"/>
-                </div>
-                `,
             }),
           ]),
         ],

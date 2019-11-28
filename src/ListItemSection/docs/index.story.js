@@ -86,214 +86,243 @@ import { listItemSectionBuilder, ListItemSectionTypes } from 'wix-style-react/Li
 
           columns([
             description({
-              title: 'Simple Usage',
-              text: 'ListItemSection can be a title with a possible `suffix`.',
-            }),
-
-            code({
-              compact: true,
-              source: `
-                <div
-                  style={{
-                    height: '230px',
-                  }}
-                >
-                  <DropdownLayout
-                    visible
-                    selectedId={2}
-                    options={[
-                      listItemSectionBuilder({
-                        title: 'Candy Bars',
-                        suffix: 'Delicious!',
-                      }),
-                      listItemActionBuilder({
-                        id: 0,
-                        title: 'Tuv Taam',
-                      }),
-                      listItemActionBuilder({
-                        id: 1,
-                        title: 'Kif Kef',
-                      }),
-                      listItemActionBuilder({
-                        id: 2,
-                        title: 'Egozi',
-                      }),
-                      listItemSectionBuilder({
-                        title: 'Snacks',
-                        suffix: 'Love them!',
-                      }),
-                      listItemActionBuilder({
-                        id: 3,
-                        title: 'Bamba',
-                      }),
-                      listItemActionBuilder({
-                        id: 4,
-                        title: 'Bissli',
-                      }),
-                      listItemActionBuilder({
-                        id: 5,
-                        title: 'Tapuchips',
-                      }),
-                    ]}
-                  />
-                </div>
-              `,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Whitespace and Divider',
-              text: 'ListItemSection can be a `whitespace` or a `divider`.',
-            }),
-
-            code({
-              compact: true,
-              source: `
-                <div
-                  style={{
-                    height: '230px',
-                  }}
-                >
-                  <DropdownLayout
-                    visible
-                    selectedId={2}
-                    options={[
-                      listItemSectionBuilder({
-                        title: 'Candy Bars',
-                        suffix: 'Delicious!',
-                      }),
-                      listItemActionBuilder({
-                        id: 0,
-                        title: 'Tuv Taam',
-                      }),
-                      listItemSectionBuilder({
-                        type: ListItemSectionTypes.WHITESPACE,
-                      }),
-                      listItemActionBuilder({
-                        id: 1,
-                        title: 'Kif Kef',
-                      }),
-                      listItemSectionBuilder({
-                        type: ListItemSectionTypes.WHITESPACE,
-                      }),
-                      listItemActionBuilder({
-                        id: 2,
-                        title: 'Egozi',
-                      }),
-                      listItemSectionBuilder({
-                        type: ListItemSectionTypes.DIVIDER,
-                      }),
-                      listItemSectionBuilder({
-                        title: 'Snacks',
-                        suffix: 'Love them!',
-                      }),
-                      listItemActionBuilder({
-                        id: 3,
-                        title: 'Bamba',
-                      }),
-                      listItemSectionBuilder({
-                        type: ListItemSectionTypes.WHITESPACE,
-                      }),
-                      listItemActionBuilder({
-                        id: 4,
-                        title: 'Bissli',
-                      }),
-                      listItemSectionBuilder({
-                        type: ListItemSectionTypes.WHITESPACE,
-                      }),
-                      listItemActionBuilder({
-                        id: 5,
-                        title: 'Tapuchips',
-                      }),
-                    ]}
-                  />
-                </div>
-              `,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Subheader',
+              title: 'Types',
               text:
-                'ListItemSection can be a `subheader` with a possible `suffix`.',
+                'Component divides lists by 4 types – adding title, subheader, divider or simnple whitespace.',
             }),
 
             code({
-              compact: true,
               source: `
-                <div
-                  style={{
-                    height: '230px',
-                  }}
-                >
-                  <DropdownLayout
-                    visible
-                    selectedId={2}
-                    options={[
-                      listItemSectionBuilder({
-                        title: 'Sweet',
-                        type: ListItemSectionTypes.SUBHEADER,
-                      }),
-                      listItemActionBuilder({
-                        id: 1,
-                        title: 'Lollipop',
-                      }),
-                      listItemActionBuilder({
-                        id: 2,
-                        title: 'Gummy bears',
-                      }),
-                      listItemSectionBuilder({
-                        title: 'Sour',
-                        type: ListItemSectionTypes.SUBHEADER,
-                      }),
-                      listItemActionBuilder({
-                        id: 3,
-                        title: 'Sugar gummy worms',
-                      }),
-                      listItemActionBuilder({
-                        id: 4,
-                        title: 'Lemon drops',
-                      }),
-                      listItemSectionBuilder({
-                        title: 'Salty',
-                        type: ListItemSectionTypes.SUBHEADER,
-                      }),
-                      listItemActionBuilder({
-                        id: 5,
-                        title: 'Salty caramel',
-                      }),
-                      listItemActionBuilder({
-                        id: 6,
-                        title: 'Salt water taffy',
-                      }),
-                    ]}
+                <Layout cols={1}>
+                  <ListItemSection
+                    title="Section title"
                   />
-                </div>
+                  <ListItemSection
+                    type="subheader"
+                    title="Subheader title"
+                  />
+                   <ListItemSection
+                    type="divider"
+                  />
+                  <ListItemSection
+                    type="whitespace"
+                  />
+                </Layout>
               `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Suffix',
+              text: 'For actions title and subheader types support a suffix.',
+            }),
+
+            code({
+              source: `
+                <Layout cols={1}>
+                  <ListItemSection
+                    title="Title area"
+                    suffix="Suffix Action"
+                  />
+                  <ListItemSection
+                    type="subheader"
+                    title="Title area"
+                    suffix="Suffix Action"
+                  />
+                </Layout>
+              `,
+              compact: true,
             }),
           ]),
 
           columns([
             description({
               title: 'Text cropping',
-              text: 'An example for List items with long text',
+              text:
+                'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
             }),
 
             code({
-              compact: true,
               source: `
-                <div dir="ltr">
-                    <ListItemSection ellipsis title="This is a very very very very long text that will be cropped by ellipsis at some point"/>
-                    <Divider/>
-                    <ListItemSection title="This is a very very very very long text that will *not* be cropped by ellipsis at some point"/>
-                    <Divider/>
-                    <ListItemSection ellipsis title="This is a very very very very long text that will be cropped by ellipsis at some point" suffix="Nice long long long long long Suffix"/>
-                    <Divider/>
-                    <ListItemSection  title="This is a very very very very long text that will *not* be cropped by ellipsis at some point" suffix="Nice long long long long long Suffix"/>
-                </div>
-                `,
+                <Layout cols={1}>
+                  <Cell>
+                    <ListItemSection
+                      ellipsis
+                      title="This is a very very very very long text that will be cropped by ellipsis at some point"
+                      suffix="Nice long long long long long Suffix"
+                    />
+                  </Cell>
+                  <Cell>
+                    <ListItemSection
+                      title="This is a very very very very long text that will *not* be cropped by ellipsis at some point"
+                      suffix="Nice long long long long long Suffix"
+                    />
+                  </Cell>
+                </Layout>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Advanced Example 1',
+            }),
+
+            code({
+              source: `
+                <Box height='230px'>
+                  <DropdownLayout
+                    visible
+                    selectedId={2}
+                    options={[
+                      listItemSectionBuilder({
+                        title: 'Most Popular',
+                      }),
+                      listItemSelectBuilder({
+                        id: 0,
+                        title: 'Wix Stores',
+                      }),
+                      listItemSelectBuilder({
+                        id: 1,
+                        title: 'Wix Bookings',
+                      }),
+                      listItemSelectBuilder({
+                        id: 2,
+                        title: 'Wix Blog',
+                      }),
+                       listItemSectionBuilder({
+                        title: 'Other',
+                      }),
+                      listItemSelectBuilder({
+                        title: 'Wix Events',
+                      }),
+                      listItemSelectBuilder({
+                        id: 3,
+                        title: 'Wix Forum',
+                      }),
+                      listItemSelectBuilder({
+                        id: 4,
+                        title: 'Wix Restaurants',
+                      }),
+                      listItemActionBuilder({
+                        id: 5,
+                        title: 'See All Results',
+                      }),
+                    ]}
+                  />
+                </Box>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Advanced Example 2',
+            }),
+
+            code({
+              source: `
+                <Box height='230px'>
+                  <DropdownLayout
+                    visible
+                    selectedId={2}
+                    options={[
+                      listItemActionBuilder({
+                        id: 0,
+                        skin: 'dark',
+                        size: 'small',
+                        title: 'Edit',
+                        prefixIcon: <Icons.EditSmall />,
+                      }),
+                      listItemActionBuilder({
+                        id: 1,
+                        skin: 'dark',
+                        size: 'small',
+                        title: 'Duplicate',
+                        prefixIcon: <Icons.EditSmall />,
+                      }),
+                       listItemActionBuilder({
+                        id: 3,
+                        skin: 'dark',
+                        size: 'small',
+                        title: 'Move to',
+                        prefixIcon: <Icons.MoveToSmall />,
+                      }),
+                      listItemSectionBuilder({
+                        type: 'divider',
+                      }),
+                      listItemActionBuilder({
+                        id: 4,
+                        skin: 'dark',
+                        size: 'small',
+                        title: 'Archive',
+                        prefixIcon: <Icons.ArchiveSmall />,
+                      }),
+                      listItemActionBuilder({
+                        id: 4,
+                        skin: 'destructive',
+                        size: 'small',
+                        title: 'Delete',
+                        prefixIcon: <Icons.DeleteSmall />,
+                      }),
+                    ]}
+                  />
+                </Box>
+              `,
+              compact: true,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Advanced Example 3',
+            }),
+
+            code({
+              source: `
+                <Box height='230px'>
+                  <DropdownLayout
+                    visible
+                    selectedId={2}
+                    options={[
+                      listItemSectionBuilder({
+                        title: 'Admins',
+                        type: 'subheader',
+                        suffix: 'Edit',
+                      }),
+                      listItemSelectBuilder({
+                        id: 0,
+                        title: 'John Wilson',
+                      }),
+                      listItemSelectBuilder({
+                        id: 1,
+                        title: 'Silvester Grant',
+                      }),
+                       listItemSectionBuilder({
+                        title: 'Members',
+                        type: 'subheader',
+                        suffix: 'Edit',
+                      }),
+                      listItemSelectBuilder({
+                        title: 'Jason Angel',
+                      }),
+                      listItemSelectBuilder({
+                        id: 3,
+                        title: 'Kalvin Mcleod',
+                      }),
+                      listItemSelectBuilder({
+                        id: 4,
+                        title: 'Ro Giberton',
+                      }),
+                    ]}
+                  />
+                </Box>
+              `,
+              compact: true,
             }),
           ]),
         ],

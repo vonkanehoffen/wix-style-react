@@ -143,7 +143,7 @@ class ListItemSelect extends React.PureComponent {
           <Text
             {...styles(styles.prefix, { subtitle })}
             dataHook={DATAHOOKS.PREFIX}
-            {...secondaryTextProps}
+            {...textProps}
             ellipsis={false}
           >
             {prefix}
