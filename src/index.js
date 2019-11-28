@@ -152,6 +152,7 @@ export { default as AutoCompleteWithLabel } from './AutoCompleteWithLabel';
 export { default as Divider } from './Divider';
 export { default as ModalMobileLayout } from './ModalMobileLayout';
 export { default as MediaOverlay } from './MediaOverlay';
+export { default as TimeTable } from './TimeTable';
 export { default as SidebarBackButton } from './SidebarBackButton';
 export { default as PreviewWidget } from './PreviewWidget';
 export { default as MobilePreviewWidget } from './MobilePreviewWidget';

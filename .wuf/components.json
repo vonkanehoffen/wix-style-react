@@ -433,5 +433,8 @@
   },
   "ListItemSelect": {
     "path": "src/ListItemSelect"
+  },
+  "TimeTable": {
+    "path": "src/TimeTable"
   }
 }

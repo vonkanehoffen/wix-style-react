@@ -35,6 +35,7 @@ export { default as Loader } from './Loader';
 export { default as DatePicker, DatePickerProps } from './DatePicker';
 export { default as Calendar, CalendarProps } from './Calendar';
 export { default as TimeInput } from './TimeInput';
+export { default as TimeTable, TimeTableProps } from './TimeTable';
 export { default as Tooltip, TooltipProps } from './Tooltip';
 export { default as Page } from './Page';
 export { default as SectionHelper } from './SectionHelper';

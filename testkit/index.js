@@ -157,6 +157,7 @@ export const verticalTabsItemTestkitFactory = uniTestkitFactoryCreator(load(requ
 export const mobilePreviewWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/MobilePreviewWidget/MobilePreviewWidget.uni.driver')));
 export const browserPreviewWidgetTestkitFactory = uniTestkitFactoryCreator(load(require('../src/BrowserPreviewWidget/BrowserPreviewWidget.uni.driver')));
 export const listItemSelectTestkitFactory = uniTestkitFactoryCreator(load(require('../src/ListItemSelect/ListItemSelect.uni.driver')));
+export const timeTableTestkitFactory = uniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));
 export const sideMenuDrillTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.driver')));
 export const headerTestkitFactory = testkitFactoryCreator(load(require('../src/Card/Header/Header.driver')));
 export const sideMenuTestkitFactory = testkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.driver')));

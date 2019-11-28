@@ -10,6 +10,7 @@ import {BaseUniDriver} from 'wix-ui-test-utils/base-driver';
 import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import {TimeTableDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
 import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
@@ -142,6 +143,7 @@ declare namespace VanillaTestkit {
   export const mobilePreviewWidgetTestkitFactory: any;
   export const browserPreviewWidgetTestkitFactory: any;
   export const listItemSelectTestkitFactory: any;
+  export const timeTableTestkitFactory: VanillaUniTestkitFactory<TimeTableDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

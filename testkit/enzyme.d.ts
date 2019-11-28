@@ -15,6 +15,7 @@ import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
 import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import {TimeTableDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
 
@@ -146,6 +147,7 @@ declare namespace EnzymeTestkit {
   export const mobilePreviewWidgetTestkitFactory: any;
   export const browserPreviewWidgetTestkitFactory: any;
   export const listItemSelectTestkitFactory: any;
+  export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

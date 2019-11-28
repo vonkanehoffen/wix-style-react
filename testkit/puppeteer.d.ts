@@ -121,6 +121,7 @@ export const verticalTabsItemTestkitFactory: any;
 export const mobilePreviewWidgetTestkitFactory: any;
 export const browserPreviewWidgetTestkitFactory: any;
 export const listItemSelectTestkitFactory: any;
+export const timeTableTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;

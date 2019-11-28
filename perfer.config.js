@@ -111,6 +111,7 @@ const files = [
   ['TextButton.js', 14],
   ['Thumbnail.js', 14],
   ['TimeInput.js', 80],
+  ['TimeTable.js', 74],
   ['ToggleButton.js', 43],
   ['ToggleSwitch.js', 17],
   ['Tooltip.js', 40],
