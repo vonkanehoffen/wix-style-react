@@ -51,6 +51,17 @@ describe('LinearProgressBar', () => {
         expect(await driver.isTooltipShown()).toBe(true);
       });
 
+      it('should not render tooltip if error message is empty', async () => {
+        const { driver } = render(
+          createLinearProgressBar({
+            ...defaultProps,
+            ...errorProps,
+            errorMessage: '',
+          }),
+        );
+        expect(await driver.getTooltip().exists()).toBe(false);
+      });
+
       it('should display error message', async () => {
         const { driver } = render(
           createLinearProgressBar({ ...defaultProps, ...errorProps }),

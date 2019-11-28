@@ -61,7 +61,7 @@ class LinearProgressBar extends React.PureComponent {
             namedExports={{
               Tooltip: 'Tooltip',
             }}
-            shouldLoadComponent={!!error}
+            shouldLoadComponent={Boolean(error && errorMessage)}
           >
             {({ Tooltip }) => {
               return (
