@@ -23,6 +23,7 @@ Types of changes:
 - `<TimeTable/>` - New component [#4307](https://github.com/wix/wix-style-react/pull/4307)
 - `<FillPreview/>` - expose aspectRatio prop and fix broken stretch on display:flex [#4593](https://github.com/wix/wix-style-react/pull/4593)
 - `<Card />` & `<Card.Content />` - add `controls` & `size` props [#4607](https://github.com/wix/wix-style-react/pull/4607)
+- `<MarketingLayout />` - new component [#4595](https://github.com/wix/wix-style-react/pull/4595)
 
 ### Fixed
 
