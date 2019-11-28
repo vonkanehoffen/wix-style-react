@@ -439,5 +439,8 @@
   },
   "TimeTable": {
     "path": "src/TimeTable"
+  },
+  "MarketingLayout": {
+    "path": "src/MarketingLayout"
   }
 }

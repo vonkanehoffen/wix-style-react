@@ -123,6 +123,7 @@ export const listItemSectionTestkitFactory: any;
 export const browserPreviewWidgetTestkitFactory: any;
 export const listItemSelectTestkitFactory: any;
 export const timeTableTestkitFactory: any;
+export const marketingLayoutTestkitFactory: any;
 export const drillViewTestkitFactory: any;
 export const cardHeaderTestkitFactory: any;
 export const sideMenuTestkitFactory: any;

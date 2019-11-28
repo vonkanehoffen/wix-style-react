@@ -145,6 +145,7 @@ declare namespace VanillaTestkit {
   export const browserPreviewWidgetTestkitFactory: any;
   export const listItemSelectTestkitFactory: any;
   export const timeTableTestkitFactory: VanillaUniTestkitFactory<TimeTableDriver>;
+  export const marketingLayoutTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

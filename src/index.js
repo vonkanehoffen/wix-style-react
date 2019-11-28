@@ -170,3 +170,4 @@ export {
   TYPES as ListItemSectionTypes,
 } from './ListItemSection';
 export { default as BrowserPreviewWidget } from './BrowserPreviewWidget';
+export { default as MarketingLayout } from './MarketingLayout';

@@ -161,6 +161,7 @@ export const listItemSectionTestkitFactory = protractorUniTestkitFactoryCreator(
 export const browserPreviewWidgetTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/BrowserPreviewWidget/BrowserPreviewWidget.uni.driver')));
 export const listItemSelectTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/ListItemSelect/ListItemSelect.uni.driver')));
 export const timeTableTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/TimeTable/TimeTable.uni.driver')));
+export const marketingLayoutTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/MarketingLayout/MarketingLayout.uni.driver')));
 export const drillViewTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver')));
 export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));
