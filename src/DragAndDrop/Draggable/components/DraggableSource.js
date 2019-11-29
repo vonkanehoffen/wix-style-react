@@ -10,7 +10,7 @@ import { ItemTypes } from '../types';
 
 /* eslint-disable new-cap */
 
-// monitor.dropResult() returns null when item is dropped outside the drop area so we need to track everything by ourselves
+// monitor.getDropResult() returns null when item is dropped outside the drop area so we need to track everything by ourselves
 const dragObject = {
   originalItem: null,
   removedIndex: null,
@@ -84,19 +84,17 @@ const source = {
 
       if (sameGroup || isSameContainer) {
         onDrop({
-          payload: dropItem.originalItem, // original item
-          removedIndex: dropItem.originalIndex, // original item index
-          addedIndex: dropItem.index, // new item index
-          addedToContainerId: dropResult.containerId, // new container for item
-          removedFromContainerId: containerId, // original item container
+          payload: dropItem.originalItem,
+          removedIndex: dropItem.originalIndex,
+          addedIndex: dropItem.index,
+          addedToContainerId: dropResult.containerId,
+          removedFromContainerId: containerId,
         });
       }
     } else {
-      const isSameContainer =
-        dragObject && containerId === dragObject.addedToContainerId;
+      const isSameContainer = containerId === dragObject.addedToContainerId;
       const sameGroup = isSameGroup(dragObject, groupName);
 
-      // If item is dragged anywhere but other container
       if (isSameContainer) {
         return;
       }
@@ -111,11 +109,11 @@ const source = {
 
       if (sameGroup) {
         onDrop({
-          payload: originalItem, // original item
-          removedIndex, // original item index
-          addedIndex, // new item index
-          addedToContainerId, // new container for item
-          removedFromContainerId, // original item container
+          payload: originalItem,
+          removedIndex,
+          addedIndex,
+          addedToContainerId,
+          removedFromContainerId,
         });
       }
     }
@@ -151,7 +149,9 @@ const collect = (connect, monitor) => ({
   connectDragPreview: connect.dragPreview(),
   isDragging: monitor.isDragging(),
   // Need to set added index from component, since isDragging index is one step behind
-  setAddedIndex: index => (dragObject.addedIndex = index),
+  setAddedIndex: index => {
+    dragObject.addedIndex = index;
+  },
 });
 
 class DraggableSource extends React.Component {
