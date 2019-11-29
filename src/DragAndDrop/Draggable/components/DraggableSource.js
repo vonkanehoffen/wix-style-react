@@ -20,6 +20,9 @@ const dragObject = {
   groupName: null,
 };
 
+const isSameGroup = (result, groupName) =>
+  groupName && result && result.groupName && groupName === result.groupName;
+
 const source = {
   beginDrag: ({
     id,
@@ -73,46 +76,49 @@ const source = {
     }
 
     const dropResult = monitor.getDropResult();
-    const dropItem = monitor.getItem();
 
-    const isSameGroup =
-      groupName &&
-      ((dragObject && dragObject.groupName) ||
-        (dropResult && dropResult.groupName)) &&
-      (groupName === dragObject.groupName ||
-        groupName === dropResult.groupName);
+    if (dropResult) {
+      const dropItem = monitor.getItem();
+      const isSameContainer =
+        dropResult && containerId === dropResult.containerId;
+      const sameGroup = isSameGroup(dropResult, groupName);
 
-    const isSameContainer =
-      (dragObject && containerId === dragObject.addedToContainerId) ||
-      (dropResult && containerId === dropResult.containerId);
+      if (sameGroup || isSameContainer) {
+        onDrop({
+          payload: dropItem.originalItem, // original item
+          removedIndex: dropItem.originalIndex, // original item index
+          addedIndex: dropItem.index, // new item index
+          addedToContainerId: dropResult.containerId, // new container for item
+          removedFromContainerId: containerId, // original item container
+        });
+      }
+    } else {
+      const isSameContainer =
+        dragObject && containerId === dragObject.addedToContainerId;
+      const sameGroup = isSameGroup(dragObject, groupName);
 
-    // If item is dragged anywhere but other container
-    if (dropResult === null && isSameContainer) {
-      return;
-    }
+      // If item is dragged anywhere but other container
+      if (isSameContainer) {
+        return;
+      }
 
-    if (isSameGroup || isSameContainer) {
-      const payload = dropResult
-        ? dropItem.originalItem
-        : dragObject.originalItem;
-      const removedIndex = dropResult
-        ? dropItem.originalIndex
-        : dragObject.removedIndex;
-      const addedIndex = dropResult ? dropItem.index : dragObject.addedIndex;
-      const addedToContainerId = dropResult
-        ? dropResult.containerId
-        : dragObject.addedToContainerId;
-      const removedFromContainerId = dropResult
-        ? containerId
-        : dragObject.removedFromContainerId;
+      const {
+        originalItem,
+        removedIndex,
+        addedIndex,
+        addedToContainerId,
+        removedFromContainerId,
+      } = dragObject;
 
-      onDrop({
-        payload, // original item
-        removedIndex, // original item index
-        addedIndex, // new item index
-        addedToContainerId, // new container for item
-        removedFromContainerId, // original item container
-      });
+      if (sameGroup) {
+        onDrop({
+          payload: originalItem, // original item
+          removedIndex, // original item index
+          addedIndex, // new item index
+          addedToContainerId, // new container for item
+          removedFromContainerId, // original item container
+        });
+      }
     }
   },
   canDrag: ({ id, index, containerId, groupName, item, canDrag }) => {
@@ -128,17 +134,16 @@ const source = {
   },
   isDragging: ({ id, containerId, groupName }, monitor) => {
     const item = monitor.getItem();
-    const isSameGroup =
-      groupName && item.groupName && groupName === item.groupName;
     const isSameContainer = containerId === item.containerId;
-    // tracking everything
+
+    // tracking draggable item`
     dragObject.originalItem = item.originalItem;
     dragObject.addedToContainerId = containerId;
     dragObject.removedFromContainerId = item.containerId;
     dragObject.removedIndex = item.originalIndex;
     dragObject.groupName = groupName;
 
-    return (isSameGroup || isSameContainer) && item.id === id;
+    return (isSameGroup(item, groupName) || isSameContainer) && item.id === id;
   },
 };
 
