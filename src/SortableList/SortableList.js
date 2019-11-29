@@ -25,7 +25,11 @@ class SortableList extends WixComponent {
     draggedId: null,
   };
 
+  containerRef = null;
+
   wrapperNodes = [];
+
+  setContainerRef = ref => (this.containerRef = ref);
 
   setWrapperNode = (node, index, item) => {
     this.wrapperNodes[index] = { node, index, item };
@@ -235,6 +239,12 @@ class SortableList extends WixComponent {
   };
 
   handleDragEnd = data => {
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=410328#c5
+    this.containerRef.style.pointerEvents = 'none';
+    setTimeout(() => {
+      this.containerRef.style.pointerEvents = '';
+    }, 0);
+
     this.reSetAnimationState();
     if (this.props.onDragEnd) {
       this.props.onDragEnd(data);
@@ -302,6 +312,7 @@ class SortableList extends WixComponent {
         className={className}
         onDrop={this.handleDrop}
         total={this.state.items.length}
+        setRef={this.setContainerRef}
         {...common}
       >
         <div className={contentClassName}>

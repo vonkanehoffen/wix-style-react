@@ -110,7 +110,10 @@ const target = {
 };
 
 class Container extends WixComponent {
-  setRootRef = node => (this.rootNode = node);
+  setRootRef = node => {
+    this.props.setRef(node);
+    this.rootNode = node;
+  };
   setChildRef = node => (this.childNode = node);
 
   render() {
@@ -135,6 +138,7 @@ Container.propTypes = {
   onDrop: PropTypes.func,
   onHover: PropTypes.func,
   droppable: PropTypes.bool,
+  setRef: PropTypes.func,
 };
 
 Container.defaultProps = {
