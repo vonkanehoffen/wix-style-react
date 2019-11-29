@@ -80,7 +80,7 @@
     calc_rgba(value(D80), 0),
     calc_rgba(value(D80), 0.97) 12%,
     calc_rgba(value(D80), 0.96) 28%,
-    #f8f8f9
+    value(D80)
   );
 }
 
