@@ -79,8 +79,7 @@ const source = {
 
     if (dropResult) {
       const dropItem = monitor.getItem();
-      const isSameContainer =
-        dropResult && containerId === dropResult.containerId;
+      const isSameContainer = containerId === dropResult.containerId;
       const sameGroup = isSameGroup(dropResult, groupName);
 
       if (sameGroup || isSameContainer) {
