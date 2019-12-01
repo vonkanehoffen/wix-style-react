@@ -99,7 +99,7 @@ class DropdownLayout extends WixComponent {
     if (!this._isControlled()) {
       this.setState({ selectedId: chosenOption && chosenOption.id });
     }
-
+    this._markOption(NOT_HOVERED_INDEX);
     return !!onSelect && chosenOption;
   }
 
