@@ -18,6 +18,8 @@ import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tool
 import {TimeTableDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
+import {ListItemSectionDriver} from '../src/ListItemSection/ListItemSection.uni.driver';
+import {ListItemSelectDriver} from '../src/ListItemSelect/ListItemSelect.uni.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -145,9 +147,9 @@ declare namespace EnzymeTestkit {
   export const verticalTabsTestkitFactory: any;
   export const verticalTabsItemTestkitFactory: any;
   export const mobilePreviewWidgetTestkitFactory: any;
-  export const listItemSectionTestkitFactory: any;
+  export const listItemSectionTestkitFactory: EnzymeUniTestkitFactory<ListItemSectionDriver>;
+  export const listItemSelectTestkitFactory: EnzymeUniTestkitFactory<ListItemSelectDriver>;
   export const browserPreviewWidgetTestkitFactory: any;
-  export const listItemSelectTestkitFactory: any;
   export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;
   export const marketingLayoutTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
