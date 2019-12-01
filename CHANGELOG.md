@@ -29,6 +29,7 @@ Types of changes:
 
 - `<SortableList/>` - Fix issue where dragged preview item had the wrong width [#4601](https://github.com/wix/wix-style-react/pull/4601)
 - `<LinearProgressBar/>` - do not display empty tooltip given no `errorMessage` [#4618](https://github.com/wix/wix-style-react/pull/4618)
+- `<DropdownLayout/>` - Fix hover behaviour loss on click [#4553](https://github.com/wix/wix-style-react/pull/4553)
 
 ## 7.19.0 - 2019-11-26
 
