@@ -25,6 +25,7 @@ Types of changes:
 - `<Card />` & `<Card.Content />` - add `controls` & `size` props [#4607](https://github.com/wix/wix-style-react/pull/4607)
 - `<MarketingLayout />` - new component [#4595](https://github.com/wix/wix-style-react/pull/4595)
 - `<ModalSelectorLayout/>` - add sideActions node [#4590](https://github.com/wix/wix-style-react/pull/4590)
+- `<InputWithOptions />` - add onOptionsShow/onOptionsHide callbacks [#4591](https://github.com/wix/wix-style-react/pull/4591)
 
 ### Fixed
 
