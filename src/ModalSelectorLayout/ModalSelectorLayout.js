@@ -142,6 +142,9 @@ export default class ModalSelectorLayout extends WixComponent {
     /** Used to display some side component in the footer.
      * Will override element select all in the footer when multiple=true */
     sideActions: node,
+
+    /** data-hook for modal content element */
+    dataHook: string,
   };
 
   static defaultProps = {
@@ -188,6 +191,7 @@ export default class ModalSelectorLayout extends WixComponent {
       height,
       maxHeight,
       searchDebounceMs,
+      dataHook,
     } = this.props;
 
     const {
@@ -203,7 +207,7 @@ export default class ModalSelectorLayout extends WixComponent {
       <div
         className={css.modalContent}
         style={{ height, maxHeight }}
-        data-hook="modal-content"
+        data-hook={dataHook ? dataHook : 'modal-content'}
       >
         <HeaderLayout title={title} onCancel={onClose} />
 
