@@ -248,7 +248,18 @@ class InputWithOptions extends Component {
   }
 
   showOptions() {
-    this.setState({ showOptions: true, lastOptionsShow: Date.now() });
+    if (!this.state.showOptions) {
+      this.setState({ showOptions: true, lastOptionsShow: Date.now() });
+      this.props.onOptionsShow && this.props.onOptionsShow();
+    }
+  }
+
+  hideOptions() {
+    if (this.state.showOptions) {
+      this.setState({ showOptions: false });
+      this.props.onOptionsHide && this.props.onOptionsHide();
+      this.props.onClose && this.props.onClose();
+    }
   }
 
   closeOnSelect() {
@@ -312,15 +323,10 @@ class InputWithOptions extends Component {
   }
 
   _onSelect(option, isSelectedOption) {
-    this.showOptions();
     const { onSelect } = this.props;
 
-    if (this.closeOnSelect()) {
-      this.setState({ showOptions: false });
-    }
-
-    if (isSelectedOption) {
-      this.setState({ showOptions: false });
+    if (this.closeOnSelect() || isSelectedOption) {
+      this.hideOptions();
     }
 
     if (onSelect) {
@@ -329,12 +335,6 @@ class InputWithOptions extends Component {
           ? this.props.options.find(opt => opt.id === option.id)
           : option,
       );
-    }
-  }
-
-  hideOptions() {
-    if (this.state.showOptions) {
-      this.setState({ showOptions: false });
     }
   }
 
@@ -464,6 +464,8 @@ InputWithOptions.propTypes = {
   inputElement: PropTypes.element,
   closeOnSelect: PropTypes.bool,
   onManuallyInput: PropTypes.func,
+  onOptionsShow: PropTypes.func,
+  onOptionsHide: PropTypes.func,
   /** Function that receives an option, and should return the value to be displayed. By default returns `option.value`. */
   valueParser: PropTypes.func,
   dropdownWidth: PropTypes.string,
