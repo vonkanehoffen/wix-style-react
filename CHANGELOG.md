@@ -24,6 +24,7 @@ Types of changes:
 - `<FillPreview/>` - expose aspectRatio prop and fix broken stretch on display:flex [#4593](https://github.com/wix/wix-style-react/pull/4593)
 - `<Card />` & `<Card.Content />` - add `controls` & `size` props [#4607](https://github.com/wix/wix-style-react/pull/4607)
 - `<MarketingLayout />` - new component [#4595](https://github.com/wix/wix-style-react/pull/4595)
+- `<ModalSelectorLayout/>` - add sideActions node [#4590](https://github.com/wix/wix-style-react/pull/4590)
 
 ### Fixed
 
