@@ -97,8 +97,24 @@ export default {
               {
                 title: 'Skin',
                 text:
-                  'Toggle Button supports 2 skin styles: `standard` and `dark`',
+                  'Toggle Button supports 3 skin styles: `standard`, `inverted` and `dark`',
                 source: examples.skins,
+              },
+              {
+                title: 'Skin with Text',
+                text: 'Toggle Button also comes with text support',
+                source: examples.skinsWithText,
+              },
+              {
+                title: 'Shape',
+                text:
+                  'Toggle Button supports 2 shape styles: `square` and `round`',
+                source: examples.shapes,
+              },
+              {
+                title: 'Size',
+                text: 'Toggle Button supports 2 sizes: `medium` and `large`',
+                source: examples.sizes,
               },
               {
                 title: 'Selected',

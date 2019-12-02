@@ -1,9 +1,48 @@
 export const skins = `
-<Layout cols={2} gap={0} justifyItems="center" alignItems="center">
+<Layout cols={3} gap={0} justifyItems="center" alignItems="center">
   <ToggleButton tooltipContent="Crop & Rotate">
     <Icons.CropRotate />
   </ToggleButton>
+  <ToggleButton tooltipContent="Crop & Rotate" skin="inverted" >
+    <Icons.CropRotate />
+  </ToggleButton>
   <ToggleButton tooltipContent="Crop & Rotate" skin="dark" >
+    <Icons.CropRotate />
+  </ToggleButton>
+</Layout>
+`;
+
+export const skinsWithText = `
+<Layout cols={3} gap={0} justifyItems="center" alignItems="center">
+  <ToggleButton tooltipContent="Crop & Rotate" text="Bottom text" textPlacement="bottom">
+    <Icons.CropRotate />
+  </ToggleButton>
+  <ToggleButton tooltipContent="Crop & Rotate" skin="inverted" text="Side text" textPlacement="side">
+    <Icons.CropRotate />
+  </ToggleButton>
+  <ToggleButton tooltipContent="Crop & Rotate" skin="dark" text="Hidden text" textPlacement="hidden">
+    <Icons.CropRotate />
+  </ToggleButton>
+</Layout>
+`;
+
+export const shapes = `
+<Layout cols={2} gap={0} justifyItems="center" alignItems="center">
+  <ToggleButton tooltipContent="Crop & Rotate" shape="square">
+    <Icons.CropRotate />
+  </ToggleButton>
+  <ToggleButton tooltipContent="Crop & Rotate" shape="round">
+    <Icons.CropRotate />
+  </ToggleButton>
+</Layout>
+`;
+
+export const sizes = `
+<Layout cols={2} gap={0} justifyItems="center" alignItems="center">
+  <ToggleButton tooltipContent="Crop & Rotate" size="medium">
+    <Icons.CropRotate />
+  </ToggleButton>
+  <ToggleButton tooltipContent="Crop & Rotate" size="large">
     <Icons.CropRotate />
   </ToggleButton>
 </Layout>
