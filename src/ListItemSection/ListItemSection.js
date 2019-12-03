@@ -46,6 +46,9 @@ class ListItemSection extends React.PureComponent {
 
     /** If true, long text won't break into more than one line and will be terminated with an ellipsis */
     ellipsis: PropTypes.bool,
+
+    /** A callback function called when suffix is clicked */
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -85,7 +88,15 @@ class ListItemSection extends React.PureComponent {
   };
 
   _renderTitle = () => {
-    const { dataHook, className, type, title, suffix, ellipsis } = this.props;
+    const {
+      dataHook,
+      className,
+      type,
+      title,
+      suffix,
+      ellipsis,
+      onClick,
+    } = this.props;
     return (
       <div
         {...styles(
@@ -109,6 +120,7 @@ class ListItemSection extends React.PureComponent {
         {/* Suffix */}
         {suffix && (
           <TextButton
+            onClick={onClick}
             {...styles(styles.suffix, { ellipsis })}
             dataHook={DATAHOOKS.SUFFIX}
             size="tiny"

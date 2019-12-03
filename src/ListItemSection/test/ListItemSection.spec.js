@@ -38,4 +38,34 @@ describe('ListItemSection', () => {
     expect(await driver.getTitle()).toBe('ListItemSection title');
     expect(await driver.getSuffix().exists()).toBe(true);
   });
+
+  it('should call onClick when clicking suffix', async () => {
+    const onClick = jest.fn();
+    const { driver } = render(
+      renderListItemSection({
+        title: 'ListItemSection title',
+        suffix: 'suffix',
+        onClick,
+      }),
+    );
+
+    expect(onClick).not.toBeCalled();
+    await driver.getSuffix().click();
+    expect(onClick).toBeCalled();
+  });
+
+  it('should not call onClick when clicking elsewhere', async () => {
+    const onClick = jest.fn();
+    const { driver } = render(
+      renderListItemSection({
+        title: 'ListItemSection title',
+        suffix: 'suffix',
+        onClick,
+      }),
+    );
+
+    expect(onClick).not.toBeCalled();
+    await driver.click();
+    expect(onClick).not.toBeCalled();
+  });
 });
