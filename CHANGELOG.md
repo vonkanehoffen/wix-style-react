@@ -21,6 +21,8 @@ Types of changes:
 - `<FillPreview/>` - add support for rendering as something else and fix broken stylable extending feature [#4643](https://github.com/wix/wix-style-react/pull/4643)
 - `<Multiselect/>` - add `clearOnBlur` prop [#4645](https://github.com/wix/wix-style-react/pull/4645)
 - `<Input/>` - add `pattern` prop [#4642](https://github.com/wix/wix-style-react/pull/4642)
+- `<Popover/>` and `<InputWithOptions/>` - add disableClickOutsideWhenClosed prop [#4633](https://github.com/wix/wix-style-react/pull/4642)  
+**Note:** Using this prop will enable a breaking-change behavior that will be a default in wsr 8.0.0 and the prop will be removed
 
 ### Changed
 - `<DropdownLayout/>` - Selecting item will not remove hover behavior [#4639](https://github.com/wix/wix-style-react/pull/4639)
