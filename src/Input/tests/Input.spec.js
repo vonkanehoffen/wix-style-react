@@ -176,6 +176,17 @@ describe('Input', () => {
       });
     });
 
+    describe('pattern attribute', () => {
+      it('should pass down to the wrapped input', async () => {
+        const props = {
+          pattern: '[pattern]',
+        };
+
+        const { driver } = render(<Input {...props} />);
+        expect(await driver.getPattern()).toEqual(props.pattern);
+      });
+    });
+
     describe('required attribute', () => {
       it('should pass down to the wrapped input', async () => {
         const { driver } = render(<Input required />);
