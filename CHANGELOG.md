@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<ListItemSection/>` - Added onClick prop [#4641](https://github.com/wix/wix-style-react/pull/4641)
+
 ### Changed
 - `<DropdownLayout/>` - Selecting item will not remove hover behavior [#4639](https://github.com/wix/wix-style-react/pull/4639)
 
