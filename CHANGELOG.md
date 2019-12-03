@@ -22,6 +22,9 @@ Types of changes:
 ### Changed
 - `<DropdownLayout/>` - Selecting item will not remove hover behavior [#4639](https://github.com/wix/wix-style-react/pull/4639)
 
+### Fixed
+- `<ModalSelectLayout/>` - remove hard-coded dataHook [#4638](https://github.com/wix/wix-style-react/pull/4638)
+
 ## 7.20.0 - 2019-12-02
 
 ### Added
