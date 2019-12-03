@@ -61,11 +61,15 @@ describe('AutoCompleteWithLabel', () => {
       { id: 3, value: 'bcc' },
     ];
     const { driver } = render(
-      <AutoCompleteWithLabel label="my autocomplete" options={options} />,
+      <AutoCompleteWithLabel
+        label="my autocomplete"
+        options={options}
+        onSelect={jest.fn()}
+      />,
     );
     await driver.enterText('a');
     expect(await driver.optionsLength()).toEqual(2);
-    await driver.blur();
+    await driver.clickAtOption(0);
     await driver.clickMenuArrow();
     expect(await driver.optionsLength()).toEqual(4);
   });
