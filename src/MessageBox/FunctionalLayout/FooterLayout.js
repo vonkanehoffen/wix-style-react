@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../Deprecated/Button';
+import Button from '../../Button';
 import * as styles from './FooterLayout.scss';
 import classNames from 'classnames';
 
@@ -35,7 +35,7 @@ const FooterLayout = ({
               prefixIcon={cancelPrefixIcon}
               suffixIcon={cancelSuffixIcon}
               disabled={!enableCancel}
-              height={buttonsHeight}
+              size={buttonsHeight}
               theme={'empty' + theme}
               onClick={onCancel}
               dataHook="cancellation-button"
@@ -47,7 +47,7 @@ const FooterLayout = ({
               prefixIcon={confirmPrefixIcon}
               suffixIcon={confirmSuffixIcon}
               disabled={!enableOk}
-              height={buttonsHeight}
+              size={buttonsHeight}
               theme={'full' + theme}
               onClick={onOk}
               dataHook="confirmation-button"
