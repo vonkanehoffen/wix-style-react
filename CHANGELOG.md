@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.21.0 - 2019-12-03
 
 ### Added
 - `<ListItemSection/>` - Added onClick prop [#4641](https://github.com/wix/wix-style-react/pull/4641)
