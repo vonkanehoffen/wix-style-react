@@ -1,16 +1,13 @@
 import React from 'react';
-import DropdownLayout from 'wix-style-react/DropdownLayout';
+import MultiSelectCheckbox from 'wix-style-react/MultiSelectCheckbox';
+
+import { storySettings } from '../docs/storySettings';
 
 const style = {
   display: 'inline-block',
   padding: '0 5px',
   width: '140px',
   lineHeight: '22px',
-};
-
-const nodeStyle = {
-  background: 'azure',
-  paddingLeft: '25px',
 };
 
 const options = Array.from(new Array(30), (_, id) => ({
@@ -23,10 +20,10 @@ export default () => (
     <div style={style}>
       30 options
       <br />
-      <DropdownLayout
-        visible
+      <MultiSelectCheckbox
         options={options}
-        fixedFooter={<div style={nodeStyle}>I am a footer</div>}
+        dataHook={storySettings.dataHook}
+        onSelect={() => {}}
       />
     </div>
   </div>

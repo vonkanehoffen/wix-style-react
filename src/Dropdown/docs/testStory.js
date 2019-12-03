@@ -1,14 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import TestTabSwitches from '../tests/TestTabSwitches';
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 import { storySettings, testStories } from './storySettings';
-import MultiSelectCheckboxTest from './MultiSelectCheckboxTest';
-import TestTabSwitches from '../test/TestTabSwitches';
 
 const kind = getTestStoryKind({
-  category: storySettings.category,
   storyName: storySettings.storyName,
+  category: storySettings.category,
 });
 
 const TestContainer = ({ children }) => (
@@ -25,14 +24,9 @@ const TestContainer = ({ children }) => (
     {children}
   </div>
 );
+const DropdownTests = storiesOf(kind, module);
 
-const MultiSelectCheckboxTests = storiesOf(kind, module);
-
-MultiSelectCheckboxTests.add(testStories.multiSelectCheckbox, () => (
-  <MultiSelectCheckboxTest />
-));
-
-MultiSelectCheckboxTests.add(testStories.tabsSwitches, () => (
+DropdownTests.add(testStories.tabsSwitches, () => (
   <TestContainer>
     <input data-hook="input-for-initial-focus" />
     <TestTabSwitches />
