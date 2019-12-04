@@ -19,6 +19,9 @@ Types of changes:
 ### Added
 - `<Table/>` - add `getRowsCount` to Puppeteer testkit [#4651](https://github.com/wix/wix-style-react/pull/4651)
 
+### Fixed
+- `<PopoverMenu/>` - fix testkit typings [#4652](https://github.com/wix/wix-style-react/pull/4652)
+
 ## 7.21.0 - 2019-12-03
 
 ### Added
