@@ -21,6 +21,7 @@ Types of changes:
 
 ### Fixed
 - `<PopoverMenu/>` - fix testkit typings [#4652](https://github.com/wix/wix-style-react/pull/4652)
+- `<ColorInput/>` - fix bug with keeping color shown after removing it [#4624](https://github.com/wix/wix-style-react/pull/4624)
 
 ## 7.21.0 - 2019-12-03
 
