@@ -139,6 +139,16 @@ describe('ColorInput', () => {
       await driver.keyDown('Enter');
       expect(await driver.hasPrefix()).toBe(false);
     });
+
+    it(`should be hidden after value is cleared`, async () => {
+      const { driver, rerender } = render(renderColorInput({ value: '#123' }));
+      await driver.click();
+      await driver.enterText('');
+      await driver.keyDown('Enter');
+      rerender(renderColorInput({ value: '' }));
+      expect(await driver.getValue()).toBe('');
+      expect(await driver.hasPrefix()).toBe(false);
+    });
   });
 
   describe('suffix ColorViewer', () => {
@@ -150,6 +160,16 @@ describe('ColorInput', () => {
     it(`should set size as given`, async () => {
       const { driver } = render(renderColorInput({ size: 'small' }));
       expect(await driver.getViewerSize()).toBe('small');
+    });
+
+    it(`should be null after value is cleared`, async () => {
+      const { driver, rerender } = render(renderColorInput({ value: '#123' }));
+      await driver.click();
+      await driver.enterText('');
+      await driver.keyDown('Enter');
+      rerender(renderColorInput({ value: '' }));
+      expect(await driver.getValue()).toBe('');
+      expect(await driver.isViewerNull()).toBe(true);
     });
   });
 
