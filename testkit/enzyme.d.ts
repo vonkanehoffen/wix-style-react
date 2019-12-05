@@ -148,8 +148,8 @@ declare namespace EnzymeTestkit {
   export const verticalTabsItemTestkitFactory: any;
   export const mobilePreviewWidgetTestkitFactory: any;
   export const listItemSectionTestkitFactory: EnzymeUniTestkitFactory<ListItemSectionDriver>;
-  export const listItemSelectTestkitFactory: EnzymeUniTestkitFactory<ListItemSelectDriver>;
   export const browserPreviewWidgetTestkitFactory: any;
+  export const listItemSelectTestkitFactory: EnzymeUniTestkitFactory<ListItemSelectDriver>;
   export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;
   export const marketingLayoutTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;

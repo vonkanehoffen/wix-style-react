@@ -11,7 +11,6 @@ async function testkits() {
   });
 
   await vanilla.exists();
-  await vanilla.getTextContent();
 
   const enzyme = listItemSelectEnzymeTestkitFactory({
     dataHook: 'hi',
