@@ -325,7 +325,7 @@ class InputWithOptions extends Component {
   }
 
   _onSelect(option, isSelectedOption) {
-    const { onSelect } = this.props;
+    const { onSelect, onBlur } = this.props;
 
     if (this.closeOnSelect() || isSelectedOption) {
       this.hideOptions();
@@ -338,6 +338,7 @@ class InputWithOptions extends Component {
           : option,
       );
     }
+    onBlur && onBlur();
   }
 
   _onChange(event) {
@@ -380,7 +381,7 @@ class InputWithOptions extends Component {
 
   _onBlur(e) {
     this._focused = false;
-    if (this.props.onBlur) {
+    if (this.props.onBlur && !this.dropdownLayout) {
       this.props.onBlur(e);
     }
   }

@@ -26,6 +26,9 @@ export default {
 
   componentProps: {
     options,
+    onBlur: () => {
+      console.log('hi');
+    },
   },
   exampleProps: {},
 };
