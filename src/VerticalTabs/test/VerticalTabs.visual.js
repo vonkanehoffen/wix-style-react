@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Check from 'wix-ui-icons-common/Check';
+import CircleSmallFilled from 'wix-ui-icons-common/CircleSmallFilled';
 import VerticalTabs from '../VerticalTabs';
-import Check from '../../new-icons/Check';
-import CircleSmallFilled from '../../new-icons/CircleSmallFilled';
 
 const tests = [
   {

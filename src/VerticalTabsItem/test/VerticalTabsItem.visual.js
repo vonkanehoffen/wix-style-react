@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Add from 'wix-ui-icons-common/Add';
 import VerticalTabsItem from '../VerticalTabsItem';
-import Add from '../../new-icons/Add';
 
 const tests = [
   {

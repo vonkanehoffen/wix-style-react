@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Add from 'wix-ui-icons-common/Add';
+import uniqueId from 'lodash/uniqueId';
+
 import styles from './FilePicker.scss';
 import WixComponent from '../BaseComponents/WixComponent';
-import Add from '../new-icons/Add';
-import uniqueId from 'lodash/uniqueId';
 
 /**
  * # `<FilePicker/>`

@@ -13,10 +13,10 @@ import {
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
 
-import Add from '../../src/new-icons/Add';
-import Edit from '../../src/new-icons/Edit';
-import Delete from '../../src/new-icons/Delete';
-import More from '../../src/new-icons/More';
+import Add from 'wix-ui-icons-common/Add';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
+import More from 'wix-ui-icons-common/More';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import IconButton from 'wix-style-react/IconButton';
 import PopoverMenu from 'wix-style-react/beta/PopoverMenu';

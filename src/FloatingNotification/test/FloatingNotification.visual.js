@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StatusComplete from '../../new-icons/StatusComplete';
+import StatusComplete from 'wix-ui-icons-common/StatusComplete';
 
 import FloatingNotification from '..';
 

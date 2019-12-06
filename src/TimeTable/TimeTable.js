@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddSmallIcon from 'wix-ui-icons-common/AddSmall';
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
 
@@ -8,7 +9,6 @@ import styles from './TimeTable.st.css';
 import SortableList from '../SortableList';
 import DragDropContextProvider from '../DragDropContextProvider';
 import AddItem from '../AddItem';
-import AddSmallIcon from '../new-icons/AddSmall';
 import Item from './components/Item';
 
 const getSortableListItems = columns =>

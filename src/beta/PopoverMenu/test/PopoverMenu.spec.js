@@ -1,4 +1,5 @@
 import React from 'react';
+import More from 'wix-ui-icons-common/More';
 import {
   cleanup,
   createRendererWithUniDriver,
@@ -8,7 +9,6 @@ import PopoverMenu from '../PopoverMenu';
 import { PopoverMenuPrivateDriver } from './PopoverMenu.private.uni.driver';
 import IconButton from '../../../IconButton';
 import { iconButtonDriverFactory } from '../../../IconButton/IconButton.uni.driver';
-import More from '../../../new-icons/More';
 
 describe('PopoverMenu', () => {
   const render = createRendererWithUniDriver(PopoverMenuPrivateDriver);

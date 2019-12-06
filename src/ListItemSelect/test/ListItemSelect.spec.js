@@ -1,9 +1,9 @@
 import React from 'react';
-import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
+import Star from 'wix-ui-icons-common/Star';
 
+import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import ListItemSelect from '../ListItemSelect';
 import { listItemSelectPrivateDriverFactory } from './ListItemSelect.private.uni.driver';
-import { Star } from 'wix-style-react/new-icons';
 
 describe('ListItemSelect', () => {
   const renderListItemSelect = (props = {}) => <ListItemSelect {...props} />;

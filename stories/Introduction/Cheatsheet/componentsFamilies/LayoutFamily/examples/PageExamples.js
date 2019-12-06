@@ -19,7 +19,7 @@ import Box from 'wix-style-react/Box';
 import { Row, Col, Container } from 'wix-style-react/Grid';
 import Button from 'wix-style-react/Button';
 import TextButton from 'wix-style-react/TextButton';
-import Add from 'wix-style-react/new-icons/Add';
+import Add from 'wix-ui-icons-common/Add';
 import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
 import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';

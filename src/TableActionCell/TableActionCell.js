@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import More from 'wix-ui-icons-common/More';
+import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 
-import More from '../new-icons/More';
 import style from './TableActionCell.st.css';
 import HoverSlot from './HoverSlot';
 import Tooltip from '../Tooltip/Tooltip';
@@ -10,8 +11,6 @@ import IconButton from '../IconButton';
 import PopoverMenu from '../beta/PopoverMenu';
 import OldPopoverMenu from '../PopoverMenu';
 import OldPopoverMenuItem from '../PopoverMenuItem';
-
-import ChevronRight from '../new-icons/ChevronRight';
 
 /* eslint-disable react/prop-types */
 function renderPrimaryAction({ text, theme, onClick, disabled }) {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
+import AddIcon from 'wix-ui-icons-common/Add';
 
+import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import MarketingLayout from '../MarketingLayout';
 import Button from '../../Button';
-import AddIcon from '../../new-icons/Add';
 import { marketingLayoutPrivateDriverFactory } from './MarketingLayout.private.uni.driver';
 
 describe('MarketingLayout', () => {

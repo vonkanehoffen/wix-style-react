@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Favorite from 'wix-ui-icons-common/Favorite';
+
 import ListItemSelect from '../ListItemSelect';
 import Box from '../../Box';
-import Favorite from 'wix-style-react/new-icons/Favorite';
-import { listItemSelectPrivateDriverFactory } from './ListItemSelect.private.uni.driver';
-import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
 const componentProps = {
   title: ['List item select'],

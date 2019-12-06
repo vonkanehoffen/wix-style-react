@@ -1,15 +1,17 @@
 import React, { Component, memo } from 'react';
 import PropTypes from 'prop-types';
-import styles from './DataTable.scss';
+import SortByArrowUp from 'wix-ui-icons-common/system/SortByArrowUp';
+import SortByArrowDown from 'wix-ui-icons-common/system/SortByArrowDown';
+import { Animator } from 'wix-animations';
 import classNames from 'classnames';
 import defaultTo from 'lodash/defaultTo';
+import { VariableSizeList as List } from 'react-window';
+
+import styles from './DataTable.scss';
 import InfiniteScroll from '../utils/InfiniteScroll';
-import SortByArrowUp from '../new-icons/system/SortByArrowUp';
-import SortByArrowDown from '../new-icons/system/SortByArrowDown';
-import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../InfoIcon';
-import { VariableSizeList as List } from 'react-window';
+
 import { virtualRowsAreEqual } from './DataTable.utils';
 
 export const DataTableHeader = props => {

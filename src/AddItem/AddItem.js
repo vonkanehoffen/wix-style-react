@@ -6,7 +6,7 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC'
 import AddItemLarge from 'wix-ui-icons-common/system/AddItemLarge';
 import AddItemMedium from 'wix-ui-icons-common/system/AddItemMedium';
 import AddItemSmall from 'wix-ui-icons-common/system/AddItemSmall';
-import Add from '../new-icons/Add';
+import Add from 'wix-ui-icons-common/Add';
 
 import Tooltip from '../Tooltip';
 import Text from '../Text';

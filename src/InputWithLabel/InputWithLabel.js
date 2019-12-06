@@ -1,4 +1,5 @@
 import React from 'react';
+import StatusAlertSmall from 'wix-ui-icons-common/StatusAlertSmall';
 
 import LabelledElement from '../LabelledElement';
 import Input from '../Input';
@@ -7,7 +8,6 @@ import { PropTypes } from 'prop-types';
 import styles from './InputWithLabel.st.css';
 import dataHooks from './dataHooks';
 import classNames from 'classnames';
-import StatusAlertSmall from '../new-icons/StatusAlertSmall';
 
 class InputWithLabel extends React.Component {
   static propTypes = {

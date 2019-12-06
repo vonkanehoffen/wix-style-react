@@ -30,8 +30,8 @@ import Slider from 'wix-style-react/Slider';
 import FormField from 'wix-style-react/FormField';
 
 //Assets
-import LockLocked from 'wix-style-react/new-icons/LockLocked';
-import LockUnlocked from 'wix-style-react/new-icons/LockUnlocked';
+import LockLocked from 'wix-ui-icons-common/LockLocked';
+import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 

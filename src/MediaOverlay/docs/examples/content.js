@@ -1,12 +1,13 @@
 import React from 'react';
+import MoreIcon from 'wix-ui-icons-common/More';
+import StarIcon from 'wix-ui-icons-common/Star';
+import CropIcon from 'wix-ui-icons-common/Crop';
+
 import Box from '../../../Box';
 import Text from '../../../Text';
 import PopoverMenu from '../../../beta/PopoverMenu';
 import IconButton from '../../../IconButton';
 import FillPreview from '../../../FillPreview';
-import MoreIcon from '../../../new-icons/More';
-import StarIcon from '../../../new-icons/Star';
-import CropIcon from '../../../new-icons/Crop';
 import MediaOverlay from '../..';
 
 const moreActionsPopoverMenu = (

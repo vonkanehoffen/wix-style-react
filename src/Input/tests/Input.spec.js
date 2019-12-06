@@ -1,11 +1,9 @@
 import React from 'react';
 import sinon from 'sinon';
-
-import Search from '../../new-icons/Search';
-import Input from '..';
-
+import Search from 'wix-ui-icons-common/Search';
 import { mount } from 'enzyme';
 
+import Input from '..';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,

@@ -1,4 +1,7 @@
 import React from 'react';
+import Star from 'wix-ui-icons-common/Star';
+import Download from 'wix-ui-icons-common/Download';
+import Hint from 'wix-ui-icons-common/Hint';
 import {
   header,
   tabs,
@@ -16,8 +19,6 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-import { Star, Download, Hint } from 'wix-style-react/new-icons';
-
 import ListItemSelect from '..';
 import Box from '../../Box';
 

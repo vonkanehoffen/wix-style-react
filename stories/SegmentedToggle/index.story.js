@@ -11,8 +11,8 @@ import {
 } from 'wix-storybook-utils/Sections';
 
 import SegmentedToggle from 'wix-style-react/SegmentedToggle';
-import LockLocked from 'wix-style-react/new-icons/LockLocked';
-import LockUnlocked from 'wix-style-react/new-icons/LockUnlocked';
+import LockLocked from 'wix-ui-icons-common/LockLocked';
+import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import LinkTo from '@storybook/addon-links/react';
 import { baseScope } from '../utils/LiveCodeExample';

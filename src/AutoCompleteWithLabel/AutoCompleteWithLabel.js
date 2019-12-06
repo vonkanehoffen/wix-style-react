@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import StatusAlertSmall from 'wix-ui-icons-common/StatusAlertSmall';
+import classNames from 'classnames';
 
 import Input from '../Input';
 import LabelledElement from '../LabelledElement';
@@ -10,8 +12,6 @@ import styles from './AutoCompleteWithLabel.scss';
 
 import dataHooks from './dataHooks';
 import { optionValidator } from '../DropdownLayout/DropdownLayout';
-import classNames from 'classnames';
-import StatusAlertSmall from '../new-icons/StatusAlertSmall';
 
 class AutoCompleteWithLabel extends React.PureComponent {
   constructor(props) {

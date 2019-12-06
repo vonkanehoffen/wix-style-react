@@ -24,9 +24,9 @@ import Button from 'wix-style-react/Button';
 import TextButton from 'wix-style-react/TextButton';
 import Box from 'wix-style-react/Box';
 import CounterBadge from 'wix-style-react/CounterBadge';
-import Edit from 'wix-style-react/new-icons/Edit';
-import ChevronLeft from 'wix-style-react/new-icons/ChevronLeft';
-import FormFieldErrorSmall from 'wix-style-react/new-icons/system/FormFieldErrorSmall';
+import Edit from 'wix-ui-icons-common/Edit';
+import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
+import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 
 //6. Navigation
 import Sidebar, { SidebarItemContextConsumer } from 'wix-style-react/Sidebar';

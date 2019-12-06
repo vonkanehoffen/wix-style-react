@@ -23,10 +23,10 @@ import Box from 'wix-style-react/Box';
 import CardGalleryItem from 'wix-style-react/CardGalleryItem';
 import Badge from 'wix-style-react/Badge';
 import { Container, Row, Col } from 'wix-style-react/Grid';
-import { Hint } from 'wix-style-react/new-icons';
+import Hint from 'wix-ui-icons-common/Hint';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import Card from 'wix-style-react/Card';
 import DropdownBase from 'wix-style-react/DropdownBase';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
 import TextButton from 'wix-style-react/TextButton';
 
 // 12. Content Widgets

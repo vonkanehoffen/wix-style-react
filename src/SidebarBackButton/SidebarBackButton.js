@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChevronLeft from '../new-icons/ChevronLeft';
+import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
+
 import Text from '../Text';
 import styles from './SidebarBackButton.st.css';
 import { SidebarContext } from '../Sidebar/SidebarAPI';
