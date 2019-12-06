@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Deprecated
+- Using icons from `wix-style-react/new-icons` import path has been deprecated. Please install and use icons from `wix-ui-icons-common` package directly. You can migrate your existing codebase using provided codemod, please see [migration guide](./docs/migration/ICONS.md) for more details.
+
 ### Added
 - `<Table/>` - add `getRowsCount` to Puppeteer testkit [#4651](https://github.com/wix/wix-style-react/pull/4651)
 
