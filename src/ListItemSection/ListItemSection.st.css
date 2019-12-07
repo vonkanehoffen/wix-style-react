@@ -30,7 +30,7 @@
 /* Suffix */
 .suffix {
   -st-states: ellipsis;
-  margin: 0 6px 0 auto;
+  margin: auto 6px 0 auto;
   padding-left: 6px;
   flex-shrink: 0;
   max-width: 30%;
