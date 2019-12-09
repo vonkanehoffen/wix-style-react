@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+-`<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
+
 ## 7.22.0
 
 ### Deprecated
