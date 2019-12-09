@@ -39,7 +39,7 @@
   min-height: 36px;
   box-sizing: border-box;
   border: none;
-  text-align: start;
+  text-align: left;
 }
 
 .root:not(:disabled):focus-visible {
