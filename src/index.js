@@ -171,3 +171,4 @@ export {
 } from './ListItemSection';
 export { default as BrowserPreviewWidget } from './BrowserPreviewWidget';
 export { default as MarketingLayout } from './MarketingLayout';
+export { default as Palette } from './Palette';

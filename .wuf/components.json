@@ -10,9 +10,7 @@
   },
   "AutoCompleteComposite": {
     "path": "src/AutoCompleteComposite",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "Avatar": {
     "path": "src/Avatar"
@@ -25,9 +23,7 @@
   },
   "BadgeSelectItemBuilder": {
     "path": "src/BadgeSelectItemBuilder",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "Box": {
     "path": "src/Box"
@@ -76,21 +72,15 @@
   },
   "ContactItemBuilder": {
     "path": "src/ContactItemBuilder",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "CounterBadge": {
     "path": "src/CounterBadge",
-    "missingFiles": [
-      "CounterBadge.js"
-    ]
+    "missingFiles": ["CounterBadge.js"]
   },
   "DataTable": {
     "path": "src/DataTable",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "DateInput": {
     "path": "src/DateInput"
@@ -106,9 +96,7 @@
   },
   "DropdownLayout": {
     "path": "src/DropdownLayout",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "EditableSelector": {
     "path": "src/EditableSelector"
@@ -121,15 +109,11 @@
   },
   "EndorseContentLayout": {
     "path": "src/EndorseContentLayout",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "ErrorIndicator": {
     "path": "src/ErrorIndicator",
-    "missingFiles": [
-      "docs"
-    ]
+    "missingFiles": ["docs"]
   },
   "FilePicker": {
     "path": "src/FilePicker"
@@ -154,18 +138,14 @@
   },
   "GoogleAddressInputWithLabel": {
     "path": "src/GoogleAddressInputWithLabel",
-    "missingFiles": [
-      "docs"
-    ]
+    "missingFiles": ["docs"]
   },
   "GooglePreview": {
     "path": "src/GooglePreview"
   },
   "Grid": {
     "path": "src/Grid",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "Heading": {
     "path": "src/Heading"
@@ -196,9 +176,7 @@
   },
   "Layout": {
     "path": "src/Layout",
-    "missingFiles": [
-      "Layout.js"
-    ]
+    "missingFiles": ["Layout.js"]
   },
   "LinearProgressBar": {
     "path": "src/LinearProgressBar"
@@ -223,15 +201,11 @@
   },
   "MultiSelectComposite": {
     "path": "src/MultiSelectComposite",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "NestableList": {
     "path": "src/NestableList",
-    "missingFiles": [
-      "docs"
-    ]
+    "missingFiles": ["docs"]
   },
   "NoBorderInput": {
     "path": "src/NoBorderInput"
@@ -256,9 +230,7 @@
   },
   "PopoverMenuItem": {
     "path": "src/PopoverMenuItem",
-    "missingFiles": [
-      "docs"
-    ]
+    "missingFiles": ["docs"]
   },
   "Proportion": {
     "path": "src/Proportion"
@@ -268,9 +240,7 @@
   },
   "Range": {
     "path": "src/Range",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "RichTextInputArea": {
     "path": "src/RichTextInputArea"
@@ -280,18 +250,14 @@
   },
   "SectionHelper": {
     "path": "src/SectionHelper",
-    "missingFiles": [
-      "SectionHelper.js"
-    ]
+    "missingFiles": ["SectionHelper.js"]
   },
   "SegmentedToggle": {
     "path": "src/SegmentedToggle"
   },
   "Selector": {
     "path": "src/Selector",
-    "missingFiles": [
-      "docs"
-    ]
+    "missingFiles": ["docs"]
   },
   "Sidebar": {
     "path": "src/Sidebar"
@@ -310,9 +276,7 @@
   },
   "SortableList": {
     "path": "src/SortableList",
-    "missingFiles": [
-      "docs"
-    ]
+    "missingFiles": ["docs"]
   },
   "StatsWidget": {
     "path": "src/StatsWidget"
@@ -331,9 +295,7 @@
   },
   "TableToolbar": {
     "path": "src/TableToolbar",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "Tabs": {
     "path": "src/Tabs"
@@ -358,9 +320,7 @@
   },
   "Tooltip": {
     "path": "src/Tooltip",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "missingFiles": ["docs/index.story.js"]
   },
   "SidebarSectionItem": {
     "path": "src/SidebarSectionItem"
@@ -442,5 +402,8 @@
   },
   "MarketingLayout": {
     "path": "src/MarketingLayout"
+  },
+  "Palette": {
+    "path": "src/Palette"
   }
 }

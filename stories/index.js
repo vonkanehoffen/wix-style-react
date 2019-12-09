@@ -188,3 +188,4 @@ require('../src/VerticalTabsItem/docs/index.story');
 
 // TODO: move to correct position
 require('../src/MarketingLayout/docs/index.story');
+require('../src/Palette/docs/index.story');
