@@ -63,6 +63,8 @@ class ToggleSwitch extends React.PureComponent {
       <CoreToggleSwitch
         {...styles('root', { skin, size }, this.props)}
         data-hook={dataHook}
+        data-size={size}
+        data-skin={skin}
         checkedIcon={checkedIconMap[size]}
         uncheckedIcon={uncheckedIconMap[size]}
         {...rest}
