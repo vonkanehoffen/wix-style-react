@@ -22,6 +22,7 @@ Types of changes:
 ### Added
 - `<Table/>` - add `getRowsCount` to Puppeteer testkit [#4651](https://github.com/wix/wix-style-react/pull/4651)
 - `<Palette>` - new component [#4603](https://github.com/wix/wix-style-react/pull/4603)
+- `<ToggleSwitch/>`- adding unidriver [#4668](https://github.com/wix/wix-style-react/pull/4668)
 
 ### Fixed
 - `<PopoverMenu/>` - fix testkit typings [#4652](https://github.com/wix/wix-style-react/pull/4652)
