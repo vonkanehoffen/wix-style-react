@@ -17,7 +17,7 @@ Types of changes:
 ## Next
 
 ### Fixed
--`<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
+- `<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
 
 ## 7.22.0
 
