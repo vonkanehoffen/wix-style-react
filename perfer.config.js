@@ -38,7 +38,7 @@ const files = [
   ['EmptyState.js', 10],
   ['EndorseContentLayout.js', 9],
   ['ErrorIndicator.js', 41],
-  ['FilePicker.js', 6],
+  ['FilePicker.js', 48],
   ['FillButton.js', 52],
   ['FillPreview.js', 18],
   ['FloatingHelper.js', 49],
