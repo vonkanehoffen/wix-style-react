@@ -19,6 +19,10 @@ Types of changes:
 ### Fixed
 - `<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
 
+### Added
+- `<LinearProgressBar/>`- adding a success skin and updating existing component colors [#4631](https://github.com/wix/wix-style-react/pull/4631)
+
+
 ## 7.22.0
 
 ### Deprecated
