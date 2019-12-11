@@ -5,4 +5,5 @@ export const NOTIFICATION_TYPES = {
   WARNING: 'warning',
   PREMIUM: 'premium',
   PREVIEW: 'preview',
+  DARK: 'dark',
 };

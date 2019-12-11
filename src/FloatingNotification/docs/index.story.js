@@ -13,7 +13,7 @@ import {
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import FloatingNotification from '..';
 import { NOTIFICATION_TYPES } from '../constants';
-import examples from './examples';
+import * as examples from './examples';
 
 const code = config => baseCode({ components: baseScope, ...config });
 
@@ -73,22 +73,22 @@ export default {
 
         code({
           title: `Notification types`,
-          source: examples.ExampleAllTypes,
+          source: examples.types,
         }),
 
         code({
           title: `All options`,
-          source: examples.ExampleAllOptions,
+          source: examples.options,
         }),
 
         code({
           title: `Set buttons as anchors with href`,
-          source: examples.ExampleHref,
+          source: examples.href,
         }),
 
         code({
           title: `Defining the width`,
-          source: examples.ExampleFullWidth,
+          source: examples.fullWidth,
         }),
       ],
     }),
