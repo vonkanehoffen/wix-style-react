@@ -5,6 +5,7 @@ import FooterLayout from './FooterLayout';
 import WixComponent from '../../BaseComponents/WixComponent';
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
+import Text from '../../Text';
 
 import styles from './MessageBoxFunctionalLayout.scss';
 
@@ -120,7 +121,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
               style={messageBoxBodyStyle}
               ref={this._initializeMessageBoxRef}
             >
-              {children}
+              <Text size="medium">{children}</Text>
             </div>
           </div>
         ) : (
@@ -130,7 +131,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
             style={messageBoxBodyStyle}
             ref={this._initializeMessageBoxRef}
           >
-            {children}
+            <Text size="medium">{children}</Text>
           </div>
         )}
         {!hideFooter ? (
