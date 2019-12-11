@@ -21,7 +21,7 @@ Types of changes:
 
 ### Added
 - `<LinearProgressBar/>`- adding a success skin (a new `skin` prop) and updating existing component colors [#4631](https://github.com/wix/wix-style-react/pull/4631)
-
+- `<AutoCompleteWithLabel/>`- add `isDisabled` to testkit [#4658](https://github.com/wix/wix-style-react/pull/4658)
 
 ## 7.22.0
 
