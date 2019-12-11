@@ -89,15 +89,11 @@ export class Table extends React.Component {
   }
 
   renderChildren() {
-    const children = this.props.children;
-    return this.props.withWrapper ? (
+    const { children, withWrapper, onRowClick, dataHook } = this.props;
+    return withWrapper ? (
       <div
-        data-hook={this.props.dataHook}
-        {...style(
-          'root',
-          { isRowClickable: !!this.props.onRowClick },
-          this.props,
-        )}
+        data-hook={dataHook}
+        {...style('root', { isRowClickable: !!onRowClick }, this.props)}
       >
         {children}
       </div>
@@ -270,7 +266,7 @@ Table.propTypes = {
   loader: PropTypes.node,
   /** A callback when more items are requested by the user. */
   loadMore: PropTypes.func,
-  /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)` */
+  /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)`. To enable hover effect you should set this prop.*/
   onRowClick: PropTypes.func,
   /** A callback method to be called on row mouse enter. Signature: `onMouseEnterRow(rowData, rowNum)` */
   onMouseEnterRow: PropTypes.func,
