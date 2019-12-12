@@ -16,7 +16,7 @@
   -st-states:
     size(enum(small, medium, tiny)),
     secondary,
-    skin(enum(standard, success, error, premium, disabled)),
+    skin(enum(standard, success, error, premium, disabled, selected)),
     light,
     weight(enum(thin, normal, bold)), disabled;
 
@@ -70,6 +70,12 @@
 .root:skin(premium):light,
 .root:skin(premium):secondary {
   color: value(P10);
+}
+
+.root:skin(selected),
+.root:skin(selected):light,
+.root:skin(selected):secondary {
+  color: value(B10);
 }
 
 .root:skin(disabled),
