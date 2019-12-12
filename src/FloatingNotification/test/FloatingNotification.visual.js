@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StatusComplete from 'wix-ui-icons-common/StatusComplete';
-import { NOTIFICATION_TYPES } from '../constants';
+import { TYPES } from '../constants';
 
 import FloatingNotification from '..';
 
@@ -14,7 +14,7 @@ const defaultProps = {
   buttonProps: { label: 'Undo' },
 };
 
-const types = Object.values(NOTIFICATION_TYPES);
+const types = Object.values(TYPES);
 const test = (it, props) => ({ it, props });
 
 const tests = [
