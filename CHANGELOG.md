@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 - `<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
 - `<TimeTable/>` - fix wrong position of dragged element [#4682](https://github.com/wix/wix-style-react/pull/4682)
+- `<Divider/>` - fix height when rendering inside a flex container [#4696](https://github.com/wix/wix-style-react/pull/4696)
 
 ### Added
 - `<LinearProgressBar/>`- adding a success skin (a new `skin` prop) and updating existing component colors [#4631](https://github.com/wix/wix-style-react/pull/4631)
