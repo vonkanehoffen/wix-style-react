@@ -6,13 +6,7 @@ import Text from '../Text';
 import TextButton from '../TextButton';
 import Button from '../Button';
 import CloseButton from '../CloseButton/CloseButton';
-import { NOTIFICATION_TYPES } from './constants';
-import {
-  BUTTON_DATA_HOOK,
-  TEXT_BUTTON_DATA_HOOK,
-  TEXT_DATA_HOOK,
-  CLOSE_BUTTON_DATA_HOOK,
-} from './datahooks.js';
+import { TYPES, dataHooks } from './constants';
 import styles from './FloatingNotification.scss';
 
 const buttonPropTypes = PropTypes.shape({
@@ -112,8 +106,8 @@ class FloatingNotification extends React.PureComponent {
       <Text
         size="small"
         ellipsis
-        light={type === NOTIFICATION_TYPES.DARK}
-        dataHook={TEXT_DATA_HOOK}
+        light={type === TYPES.dark}
+        dataHook={dataHooks.notificationText}
         className={styles.text}
       >
         {text}
@@ -129,10 +123,10 @@ class FloatingNotification extends React.PureComponent {
       <TextButton
         {...rest}
         underline="always"
-        skin={type !== NOTIFICATION_TYPES.DARK ? 'dark' : 'light'}
+        skin={type !== TYPES.dark ? 'dark' : 'light'}
         size="small"
         className={styles.textButton}
-        dataHook={TEXT_BUTTON_DATA_HOOK}
+        dataHook={dataHooks.textButton}
       >
         {label}
       </TextButton>
@@ -148,9 +142,9 @@ class FloatingNotification extends React.PureComponent {
         {...rest}
         className={styles.button}
         size="tiny"
-        priority={type !== NOTIFICATION_TYPES.DARK ? 'secondary' : 'primary'}
-        skin={type !== NOTIFICATION_TYPES.DARK ? 'dark' : 'standard'}
-        dataHook={BUTTON_DATA_HOOK}
+        priority={type !== TYPES.dark ? 'secondary' : 'primary'}
+        skin={type !== TYPES.dark ? 'dark' : 'standard'}
+        dataHook={dataHooks.button}
       >
         {label}
       </Button>
@@ -162,9 +156,9 @@ class FloatingNotification extends React.PureComponent {
     return showCloseButton ? (
       <CloseButton
         size="medium"
-        skin={type !== NOTIFICATION_TYPES.DARK ? 'dark' : 'light'}
+        skin={type !== TYPES.dark ? 'dark' : 'light'}
         className={styles.close}
-        dataHook={CLOSE_BUTTON_DATA_HOOK}
+        dataHook={dataHooks.closeButton}
         onClick={onClose}
       />
     ) : null;

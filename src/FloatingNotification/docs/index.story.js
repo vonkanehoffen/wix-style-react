@@ -12,7 +12,7 @@ import {
 
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import FloatingNotification from '..';
-import { NOTIFICATION_TYPES } from '../constants';
+import { TYPES } from '../constants';
 import * as examples from './examples';
 
 const code = config => baseCode({ components: baseScope, ...config });
@@ -43,7 +43,7 @@ export default {
 
   componentProps: {
     dataHook: storySettings.dataHook,
-    type: NOTIFICATION_TYPES.STANDARD,
+    type: TYPES.standard,
     text: 'Some content text',
     showCloseButton: true,
     textButtonProps: textButtonPropsExamples[0].value,
@@ -53,7 +53,7 @@ export default {
 
   exampleProps: {
     prefixIcon: icons,
-    type: Object.values(NOTIFICATION_TYPES),
+    type: Object.values(TYPES),
     textButtonProps: textButtonPropsExamples,
     buttonProps: buttonPropsExamples,
   },
