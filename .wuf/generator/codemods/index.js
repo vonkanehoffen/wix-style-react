@@ -9,4 +9,9 @@ module.exports = [
     dist: 'src/index.js',
     description: 'Add component export to the index file',
   },
+  {
+    codemod: 'zeplin-file.js',
+    dist: '.zeplin/components.json',
+    description: 'Add Zeplin files names to the zeplin file',
+  },
 ];
