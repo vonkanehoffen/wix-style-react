@@ -26,6 +26,7 @@ Types of changes:
 - `<AutoCompleteWithLabel/>`- add `isDisabled` to testkit [#4658](https://github.com/wix/wix-style-react/pull/4658)
 - `<FloatingNotification/>`- adding `dark` skin [#4683](https://github.com/wix/wix-style-react/pull/4683)
 - `<TableActionCell/>` -  changed the disabled visible items behaviour [#4661](https://github.com/wix/wix-style-react/pull/4661)
+- `<ColorPicker/>` - add missing `dataHook` propType [#4690](https://github.com/wix/wix-style-react/pull/4690)
 
 ## 7.22.0
 
