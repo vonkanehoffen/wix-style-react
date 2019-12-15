@@ -182,7 +182,7 @@
     "yoshi-config": "4.17.0",
     "yoshi-helpers": "4.18.0",
     "yoshi-runtime": "^1.0.190",
-    "yoshi-style-dependencies": "^4.6.0"
+    "yoshi-style-dependencies": "4.22.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",
