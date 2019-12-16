@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 7.24.0 - 2019-12-16
+
+### Added
+- `<Avatar/>`- updating person svg and adding bussiness svg for `square` shape. [#4705](https://github.com/wix/wix-style-react/pull/4705)
+
+
 ## 7.23.1 - 2019-12-16
 
 ### Fixed
