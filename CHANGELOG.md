@@ -20,13 +20,16 @@ Types of changes:
 - `<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
 - `<TimeTable/>` - fix wrong position of dragged element [#4682](https://github.com/wix/wix-style-react/pull/4682)
 - `<Divider/>` - fix height when rendering inside a flex container [#4696](https://github.com/wix/wix-style-react/pull/4696)
+- `<ColorPicker/>` - fix missing `dataHook` propType [#4690](https://github.com/wix/wix-style-react/pull/4690)
 
 ### Added
-- `<LinearProgressBar/>`- adding a success skin (a new `skin` prop) and updating existing component colors [#4631](https://github.com/wix/wix-style-react/pull/4631)
+- `<LinearProgressBar/>`- add a success skin (a new `skin` prop) and updating existing component colors [#4631](https://github.com/wix/wix-style-react/pull/4631)
 - `<AutoCompleteWithLabel/>`- add `isDisabled` to testkit [#4658](https://github.com/wix/wix-style-react/pull/4658)
-- `<FloatingNotification/>`- adding `dark` skin [#4683](https://github.com/wix/wix-style-react/pull/4683)
-- `<TableActionCell/>` -  changed the disabled visible items behaviour [#4661](https://github.com/wix/wix-style-react/pull/4661)
-- `<ColorPicker/>` - add missing `dataHook` propType [#4690](https://github.com/wix/wix-style-react/pull/4690)
+- `<FloatingNotification/>`- add `dark` skin [#4683](https://github.com/wix/wix-style-react/pull/4683)
+
+### Changed
+- `<GooglePreview/>` -  add ellipsis to url [#4699](https://github.com/wix/wix-style-react/pull/4699)
+- `<TableActionCell/>` - change the disabled visible items behaviour [#4661](https://github.com/wix/wix-style-react/pull/4661)
 
 ## 7.22.0
 
