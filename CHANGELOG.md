@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.23.0 - 2019-12-16
 
 ### Fixed
 - `<SidebardSectionItem/>` - make sure to use css that is supported in microsoft edge [#4679](https://github.com/wix/wix-style-react/pull/4679)
@@ -31,7 +31,7 @@ Types of changes:
 - `<GooglePreview/>` -  add ellipsis to url [#4699](https://github.com/wix/wix-style-react/pull/4699)
 - `<TableActionCell/>` - change the disabled visible items behaviour [#4661](https://github.com/wix/wix-style-react/pull/4661)
 
-## 7.22.0
+## 7.22.0 - 2019-12-09
 
 ### Deprecated
 - Using icons from `wix-style-react/new-icons` import path has been deprecated. Please install and use icons from `wix-ui-icons-common` package directly. You can migrate your existing codebase using provided codemod, please see [migration guide](./docs/migration/ICONS.md) for more details.
