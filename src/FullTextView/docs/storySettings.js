@@ -1,7 +1,7 @@
 import { Category } from '../../../stories/storiesHierarchy';
 
 export const storySettings = {
+  kind: Category.COMPONENTS,
   category: Category.COMPONENTS,
-  storyName: 'GoogleAddressInput',
-  dataHook: 'storybook-google-address-input',
+  storyName: 'FullTextView',
 };

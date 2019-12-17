@@ -1,7 +1,7 @@
-import { configure } from '@storybook/react';
+import { addParameters, configure } from '@storybook/react';
+import { version } from '../package.json';
 import { setOptions } from '@storybook/addon-options';
 
-import { version } from '../package.json';
 import '../src/assets/helvetica.scss';
 
 function loadStories() {
@@ -11,9 +11,17 @@ function loadStories() {
 
 configure(loadStories, module);
 
+addParameters({
+  options: {
+    name: 'name',
+    showPanel: false,
+    isFullscreen: false,
+    storySort: undefined,
+    isToolshown: false,
+  },
+});
+
 setOptions({
-  showAddonPanel: false,
-  name: `wix-style-react v${version}`,
+  name: `wix-style-react ${version}`,
   url: 'https://github.com/wix/wix-style-react',
-  sidebarAnimations: false,
 });
