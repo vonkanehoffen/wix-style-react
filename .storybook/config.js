@@ -1,6 +1,8 @@
-import { addParameters, configure } from '@storybook/react';
+import * as React from 'react';
+import { addDecorator, addParameters, configure } from '@storybook/react';
+import { withI18n } from 'storybook-addon-i18n';
 import { version } from '../package.json';
-import { setOptions } from '@storybook/addon-options';
+import { create } from '@storybook/theming';
 
 import '../src/assets/helvetica.scss';
 
@@ -9,19 +11,29 @@ function loadStories() {
   require('../stories');
 }
 
-configure(loadStories, module);
+const theme = create({
+  brandTitle: `Wix Style React ${version}`,
+  brandUrl: 'https://github.com/wix/wix-style-react',
+});
 
+// Parameters
 addParameters({
   options: {
-    name: 'name',
+    theme,
     showPanel: false,
     isFullscreen: false,
     storySort: undefined,
     isToolshown: false,
   },
+  i18n: {
+    provider: ({children}) => <React.Fragment>{children}</React.Fragment>,
+    supportedLocales: ['LTR', 'RTL'],
+    providerLocaleKey: 'locale',
+    getDirection: locale => locale.toLowerCase(),
+  }
 });
 
-setOptions({
-  name: `wix-style-react ${version}`,
-  url: 'https://github.com/wix/wix-style-react',
-});
+// Decorators
+addDecorator(withI18n);
+
+configure(loadStories, module);
