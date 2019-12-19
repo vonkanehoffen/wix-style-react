@@ -23,14 +23,14 @@ addParameters({
     showPanel: false,
     isFullscreen: false,
     storySort: undefined,
-    isToolshown: false,
+    isToolshown: true,
   },
   i18n: {
-    provider: ({children}) => <React.Fragment>{children}</React.Fragment>,
+    provider: ({ children }) => <React.Fragment>{children}</React.Fragment>,
     supportedLocales: ['LTR', 'RTL'],
     providerLocaleKey: 'locale',
     getDirection: locale => locale.toLowerCase(),
-  }
+  },
 });
 
 // Decorators

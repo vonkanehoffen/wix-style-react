@@ -18,13 +18,17 @@ const theme = create({
 
 // Parameters
 addParameters({
-  options: { theme },
+  options: {
+    theme,
+    showPanel: false,
+    isToolshown: true,
+  },
   i18n: {
-    provider: ({children}) => <React.Fragment>{children}</React.Fragment>,
+    provider: ({ children }) => <React.Fragment>{children}</React.Fragment>,
     supportedLocales: ['LTR', 'RTL'],
     providerLocaleKey: 'locale',
     getDirection: locale => locale.toLowerCase(),
-  }
+  },
 });
 
 // Decorators
