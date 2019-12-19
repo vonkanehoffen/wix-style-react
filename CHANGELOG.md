@@ -14,6 +14,13 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+### Fixed
+- `<MessageBoxFunctionalLayout/>` - Revert element hierarchy change [#4728](https://github.com/wix/wix-style-react/pull/4728)
+
+### Docs
+Introducing Storybook version 5
+
 ## 7.24.0 - 2019-12-16
 
 ### Added
