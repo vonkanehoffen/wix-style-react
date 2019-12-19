@@ -533,6 +533,16 @@ $material-gap: 8px;
   }
 }
 
+.input-wrapper .errorExclamation {
+  margin: 0 $gap 0 0;
+  width: 18px;
+  height: 18px;
+  
+  &.narrow {
+    margin: 0;
+  }
+}
+
 .help {
   margin: 0 $gap;
   color: $B20;
@@ -602,3 +612,4 @@ $material-gap: 8px;
   justify-content: center;
   margin: 0 $gap;
 }
+

@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ErrorIndicator from '../ErrorIndicator';
-import styles from './InputErrorSuffix.st.css';
+import styles from './Input.scss';
+import classNames from 'classnames';
 
 class InputErrorSuffix extends React.Component {
   render() {
-    const { tooltipPlacement, errorMessage, narrow } = this.props;
+    const { tooltipPlacement, errorMessage } = this.props;
     return (
       <ErrorIndicator
-        {...styles('root', { narrow }, this.props)}
+        className={classNames(styles.errorExclamation, {
+          [styles.narrow]: this.props.narrow,
+        })}
         dataHook="input-tooltip"
         disabled={errorMessage.length === 0}
         placement={tooltipPlacement}
