@@ -423,7 +423,7 @@ class TableHeader extends Component {
       color: this.props.thColor,
       opacity: this.props.thOpacity,
       letterSpacing: this.props.thLetterSpacing,
-      cursor: column.sortable === undefined ? 'arrow' : 'pointer',
+      cursor: column.sortable === undefined ? 'auto' : 'pointer',
     };
 
     const optionalHeaderCellProps = {};
