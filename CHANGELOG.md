@@ -19,6 +19,7 @@ Types of changes:
 ### Fixed
 
 - `<DataTable/>` - fixed header cell cursor css when not sortable [#4685](https://github.com/wix/wix-style-react/pull/4685)
+- `<Stepper/>` - Use transparent background for error step circle style [#4732](https://github.com/wix/wix-style-react/pull/4732)
 
 ## 7.25.0 - 2019-12-19
 
