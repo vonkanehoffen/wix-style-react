@@ -17,13 +17,17 @@ export const colorPickerUniDriverFactory = base => {
     historyPanelExists: async () =>
       base.$('[data-hook="color-picker-history"]').exists(),
     historyCurrentColor: async () =>
-      (await base
-        .$('[data-hook="color-picker-history-current"]')
-        ._prop('style')).background,
+      (
+        await base
+          .$('[data-hook="color-picker-history-current"]')
+          ._prop('style')
+      ).background,
     historyPreviousColor: async () =>
-      (await base
-        .$('[data-hook="color-picker-history-previous"]')
-        ._prop('style')).background,
+      (
+        await base
+          .$('[data-hook="color-picker-history-previous"]')
+          ._prop('style')
+      ).background,
     clickAddColor: async () =>
       base.$('[data-hook="color-picker-add-color"]').click(),
     getChildren: async () => base.$('[data-hook="color-picker-children"]'),

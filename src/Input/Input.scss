@@ -448,11 +448,13 @@ $material-gap: 8px;
   .root,
   .input-wrapper,
   .suffixes {
+    .errorExclamation{
+      margin: 0 0 0 $gap;
+    }
     direction: rtl;
   }
   .input {
     direction: rtl;
-
     &.withPrefix {
       padding-right: 0;
       padding-left: $double-gap;
@@ -477,6 +479,9 @@ $material-gap: 8px;
   direction: rtl;
   .suffixes {
     direction: rtl;
+    .errorExclamation{
+      margin: 0 0 0 $gap;
+    }
   }
   .input {
     direction: rtl;
@@ -543,6 +548,13 @@ $material-gap: 8px;
   }
 }
 
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 $gap;
+}
+
 .help {
   margin: 0 $gap;
   color: $B20;
@@ -606,10 +618,4 @@ $material-gap: 8px;
   @include Text($weight: thin, $size: medium, $secondary: true);
 }
 
-.loaderContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 $gap;
-}
 
