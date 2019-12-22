@@ -12,11 +12,11 @@ export default () => (
   <div>
     <div style={style}>
       Left to right
-      <InputArea status="error" statusMessage="Error" />
+      <InputArea status="warning" statusMessage="Warning" />
     </div>
     <div className="rtl" style={style}>
       Right to left
-      <InputArea rtl status="error" statusMessage="Error" />
+      <InputArea rtl status="warning" statusMessage="Warning" />
     </div>
   </div>
 );
