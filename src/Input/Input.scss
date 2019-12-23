@@ -449,7 +449,8 @@ $material-gap: 8px;
   .input-wrapper,
   .suffixes {
     .errorExclamation{
-      margin: 0 0 0 $gap;
+      margin-left: $gap;
+      margin-right: 0;
     }
     direction: rtl;
   }
@@ -480,7 +481,8 @@ $material-gap: 8px;
   .suffixes {
     direction: rtl;
     .errorExclamation{
-      margin: 0 0 0 $gap;
+      margin-left: $gap;
+      margin-right: 0;
     }
   }
   .input {
@@ -539,7 +541,8 @@ $material-gap: 8px;
 }
 
 .input-wrapper .errorExclamation {
-  margin: 0 $gap 0 0;
+  margin-left: 0;
+  margin-right: $gap;
   width: 18px;
   height: 18px;
   
