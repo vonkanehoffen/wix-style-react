@@ -134,6 +134,7 @@
     "@types/enzyme": "^3.9.1",
     "@types/react": "16.8.4",
     "@types/react-dom": "^16.0.5",
+    "@types/node": "^12.12.22",
     "@ui-autotools/registry": "^3.4.0",
     "@ui-autotools/sanity": "^2.8.2",
     "babel-loader": "^8.0.5",
