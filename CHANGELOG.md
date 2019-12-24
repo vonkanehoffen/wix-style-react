@@ -14,10 +14,9 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.26.0 - 2019-12-24
 
 ### Fixed
-
 - `<DataTable/>` - fixed header cell cursor css when not sortable [#4685](https://github.com/wix/wix-style-react/pull/4685)
 - `<Stepper/>` - Use transparent background for error step circle style [#4732](https://github.com/wix/wix-style-react/pull/4732)
 - `EllipsisHOC` - Optimize rerendering issue [#4734](https://github.com/wix/wix-style-react/pull/4734)
@@ -31,7 +30,7 @@ Types of changes:
 - `<MessageBoxFunctionalLayout/>` - Revert element hierarchy change [#4728](https://github.com/wix/wix-style-react/pull/4728)
 
 ### Docs
-Introducing Storybook version 5
+- Introducing Storybook version 5
 
 ## 7.24.0 - 2019-12-16
 
