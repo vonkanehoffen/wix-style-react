@@ -141,8 +141,11 @@ require('../src/MarketingLayout/docs/index.story');
 require('../src/Palette/docs/index.story');
 require('./WIP');
 
-// BETA
+// Next API
 require('../src/beta/PopoverMenu/docs/index.story');
+
+// Styling
+require('../src/Typography/docs/cssClasses.story');
 
 // 1. Foundations
 require('../src/Typography/docs/index.story'); // 1.2 Typography

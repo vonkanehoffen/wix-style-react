@@ -126,7 +126,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-google-analytics": "^5.1.0",
-    "@storybook/addon-links": "^5.1.0",
+    "@storybook/addon-links": "^5.2.8",
     "@storybook/addon-options": "^5.1.0",
     "@storybook/react": "^5.1.0",
     "@stylable/dom-test-kit": "^0.1.6",
