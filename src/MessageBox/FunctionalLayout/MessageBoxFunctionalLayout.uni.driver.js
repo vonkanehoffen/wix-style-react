@@ -1,6 +1,7 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import styles from './MessageBoxFunctionalLayout.scss';
 import { ReactBase, getElement } from '../../../test/utils/unidriver';
+import { buttonDriverFactory } from '../../Button/Button.uni.driver';
 
 export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
   const confirmationButton = () => base.$('[data-hook="confirmation-button"]');
@@ -8,8 +9,8 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
   const headerCloseButton = () => base.$('[data-hook="header-close-button"]');
   const body = () => base.$('[data-hook="message-box-body"]');
 
-  const confirmationButtonReactBase = ReactBase(confirmationButton());
-  const cancellationButtonReactBase = ReactBase(cancellationButton());
+  const confirmationButtonUniDriver = buttonDriverFactory(confirmationButton());
+  const cancellationButtonUniDriver = buttonDriverFactory(cancellationButton());
 
   return {
     ...baseUniDriverFactory(base),
@@ -34,14 +35,9 @@ export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
     getFooter: () => getElement(base.$('[data-hook="message-box-footer"]')),
     getTitle: () => base.$('[data-hook="header-layout-title"]').text(),
     getChildBySelector: selector => getElement(base.$(selector)),
-    isCancelEnable: async () =>
-      Array.from(
-        await cancellationButtonReactBase._DEPRECATED_getClassList(),
-      ).indexOf('disabled') === -1,
+    isCancelEnable: async () => !cancellationButtonUniDriver.isButtonDisabled,
     isConfirmationEnable: async () =>
-      Array.from(
-        await confirmationButtonReactBase._DEPRECATED_getClassList(),
-      ).indexOf('disabled') === -1,
+      !confirmationButtonUniDriver.isButtonDisabled,
     toHaveBodyPadding: async () =>
       !Array.from(await ReactBase(body())._DEPRECATED_getClassList()).includes(
         `${styles.noPadding}`,
