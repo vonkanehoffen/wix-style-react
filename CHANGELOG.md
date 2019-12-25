@@ -25,6 +25,7 @@ Types of changes:
 - `<DataTable/>` - fixed header cell cursor css when not sortable [#4685](https://github.com/wix/wix-style-react/pull/4685)
 - `<Stepper/>` - Use transparent background for error step circle style [#4732](https://github.com/wix/wix-style-react/pull/4732)
 - `EllipsisHOC` - Optimize rerendering issue [#4734](https://github.com/wix/wix-style-react/pull/4734)
+- `<NumberInput/>`- Fixing `defaultValue` logic [#4746](https://github.com/wix/wix-style-react/pull/4746)
 
 ### Added
 - `<InputArea/>` - adding `status` and `statusMessage` props [#4736](https://github.com/wix/wix-style-react/pull/4736)
