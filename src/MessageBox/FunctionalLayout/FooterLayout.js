@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../Button';
-import * as styles from './FooterLayout.scss';
+import styles from './FooterLayout.scss';
 import classNames from 'classnames';
 
 const FooterLayout = ({

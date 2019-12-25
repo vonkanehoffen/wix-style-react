@@ -38,9 +38,9 @@ const messageBoxFunctionalLayoutDriverFactory = ({ element }) => {
       element.querySelector('[data-hook="header-layout-title"]').textContent,
     getChildBySelector: selector => element.querySelector(selector),
     isCancelEnable: () =>
-      cancellationButton().className.indexOf('disabled') === -1,
+      cancellationButton().hasAttribute('disabled') !== true,
     isConfirmationEnable: () =>
-      confirmationButton().className.indexOf('disabled') === -1,
+      confirmationButton().hasAttribute('disabled') !== true,
     toHaveBodyPadding: () => !body().classList.contains(`${styles.noPadding}`),
   };
 };
