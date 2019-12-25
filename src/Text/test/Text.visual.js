@@ -63,7 +63,7 @@ tests.forEach(({ describe, its }) => {
     Object.keys(SIZES).forEach(size => {
       Object.keys(WEIGHTS).forEach(weight => {
         testStories.push(
-          <Cell span={4}>
+          <Cell span={4} key={testStories.length}>
             <div>
               <Text
                 size={size}
