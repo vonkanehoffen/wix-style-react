@@ -153,6 +153,7 @@ declare namespace EnzymeTestkit {
   export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;
   export const marketingLayoutTestkitFactory: any;
   export const paletteTestkitFactory: any;
+  export const warningIndicatorTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;
