@@ -613,6 +613,8 @@ DataTable.propTypes = {
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),
+  /** A callback function called on each column title click. Signature `onSortClick(colData, colNum)` */
+  onSortClick: PropTypes.func,
 };
 DataTable.displayName = 'DataTable';
 
