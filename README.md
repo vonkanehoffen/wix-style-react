@@ -8,7 +8,7 @@
 
 #### [Docs](https://wix-wix-style-react.surge.sh/) | [V6 Docs](https://wix-wix-style-react-v6.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
 
-## Installation [![npm version](https://img.shields.io/badge/wix--style--react-7-blue)](https://www.npmjs.com/package/react/v/16.8.6)
+## Installation [![npm version](https://img.shields.io/badge/wix--style--react-7-blue)](https://github.com/wix/wix-style-react)
 * Install with `npm` or `yarn`:
 ```sh
 npm i wix-style-react
