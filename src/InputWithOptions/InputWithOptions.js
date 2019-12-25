@@ -338,6 +338,7 @@ class InputWithOptions extends Component {
           : option,
       );
     }
+    onBlur && onBlur();
   }
 
   _onChange(event) {
