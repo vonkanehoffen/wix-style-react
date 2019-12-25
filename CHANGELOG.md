@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Docs
+- `<DataTable/>` - add propType for `onSortClick` [#4650](https://github.com/wix/wix-style-react/pull/4650)
+
 ## 7.26.0 - 2019-12-24
 
 ### Fixed
