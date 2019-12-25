@@ -488,20 +488,14 @@ describe('InputWithOptions', () => {
       expect(onBlur).toBeCalled();
     });
 
-    it('should call onBlur once', async () => {
-      const onBlur = jest.fn();
+    it('should call onSelect once', async () => {
       const onSelect = jest.fn();
-      const { driver, inputDriver, dropdownLayoutDriver } = createDriver(
-        <InputWithOptions
-          options={options}
-          onBlur={onBlur}
-          onSelect={onSelect}
-        />,
+      const { driver, dropdownLayoutDriver } = createDriver(
+        <InputWithOptions options={options} onSelect={onSelect} />,
       );
       await driver.focus();
       await dropdownLayoutDriver.clickAtOption(0);
       expect(onSelect).toBeCalledTimes(1);
-      expect(onBlur).toBeCalledTimes(1);
     });
 
     it('should not call onManuallyInput when composing text via external means', async () => {
