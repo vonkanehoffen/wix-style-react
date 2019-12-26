@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+## Docs
+- `<Popover/>`- adding detaHook prop to documentation [#4754](https://github.com/wix/wix-style-react/pull/4754)
+
 ## 7.27.0 - 2019-12-25
 
 ### Docs
