@@ -53,7 +53,7 @@ Enable font smoothing with browser specific css properties:
   ```
 
 Make sure that react and react-dom versions are not higher then:
-  ```json
+  ```html
     //package.json
    .
    .
