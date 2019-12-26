@@ -93,6 +93,9 @@ class PopoverMenu extends React.PureComponent {
 
     /** Whether to show the Popover's arrow */
     showArrow: PropTypes.bool,
+
+    /** Applied as data-hook HTML attribute that can be used in the tests*/
+    dataHook: PropTypes.string,
   };
 
   static defaultProps = {

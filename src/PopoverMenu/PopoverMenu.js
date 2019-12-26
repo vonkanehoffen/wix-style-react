@@ -65,6 +65,9 @@ class PopoverMenu extends Component {
       x: number,
       y: number,
     }),
+
+    /** Applied as data-hook HTML attribute that can be used in the tests*/
+    dataHook: string,
   };
 
   static defaultProps = {
