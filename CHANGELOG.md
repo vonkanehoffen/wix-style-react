@@ -16,8 +16,11 @@ Types of changes:
 
 ## Next
 
+## Fixed
+- `<PopoverMenu/>` - Fix SSR rendering [#4756](https://github.com/wix/wix-style-react/pull/4756)
+
 ## Docs
-- `<Popover/>`- adding detaHook prop to documentation [#4754](https://github.com/wix/wix-style-react/pull/4754)
+- `<Popover/>`- adding dataHook prop to documentation [#4754](https://github.com/wix/wix-style-react/pull/4754)
 
 ## 7.27.0 - 2019-12-25
 
