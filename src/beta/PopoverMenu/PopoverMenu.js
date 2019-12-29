@@ -65,15 +65,13 @@ class PopoverMenu extends React.PureComponent {
     ellipsis: PropTypes.bool,
 
     /**
-     * Menu items
-     *  * <PopoverMenu.MenuItem>
+     * `<PopoverMenu.MenuItem>` components that has these fields:
      *  * `text` - Item text
      *  * `onClick` - Callback to be triggered on item click
-     *  * `skin` - Item theme (dark, destructive)
+     *  * `skin` - Item theme (standard, dark, destructive)
      *  * `prefixIcon` - Prefix icon
      *  * `dataHook` - Hook for testing purposes
      *  * `disabled` - Disabled
-     *  * />
      */
     children: PropTypes.node,
 
