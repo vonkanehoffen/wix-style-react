@@ -14,12 +14,17 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+- `<Table/>` - enlarge checkbox click area [#4616](https://github.com/wix/wix-style-react/pull/4616)
+
 ## 7.28.0 - 2019-12-27
 
-## Fixed
+### Fixed
 - `<PopoverMenu/>` - Fix SSR rendering [#4756](https://github.com/wix/wix-style-react/pull/4756)
 
-## Docs
+### Docs
 - `<Popover/>`- adding dataHook prop to documentation [#4754](https://github.com/wix/wix-style-react/pull/4754)
 
 ## 7.27.0 - 2019-12-25
