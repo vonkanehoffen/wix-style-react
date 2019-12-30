@@ -19,6 +19,9 @@ Types of changes:
 ### Fixed
 - `<Table/>` - enlarge checkbox click area [#4616](https://github.com/wix/wix-style-react/pull/4616)
 
+## Infra
+- remove prepublishOnly from publish flow [#4768](https://github.com/wix/wix-style-react/pull/4768)
+
 ## 7.28.0 - 2019-12-27
 
 ### Fixed
