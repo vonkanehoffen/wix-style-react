@@ -69,7 +69,7 @@ describe('SortableList', () => {
       </DragDropContextProvider>,
     );
     const driver = sortableListTestkitFactory({ wrapper, dataHook });
-    expect(driver.exists()).toBeTruthy();
+    expect(driver.exists()).toBe(true);
   });
 
   it('should call onDragStart and onDragEnd', () => {
@@ -454,13 +454,13 @@ describe('SortableList', () => {
       elem
         .querySelector('[data-hook="1"]')
         .classList.contains('isListInDragState'),
-    ).toBeTruthy();
+    ).toBe(true);
     driver.endDrag();
     expect(
       elem
         .querySelector('[data-hook="1"]')
         .classList.contains('isListInDragState'),
-    ).toBeFalsy();
+    ).toBe(false);
   });
 
   describe('with delay prop', () => {

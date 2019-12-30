@@ -134,7 +134,7 @@ describe('Dropdown', () => {
           await Promise.all(options.map(option => option.isSelected()))
         ).some(val => val);
 
-        expect(isAnyOptionSelected).toBeFalsy();
+        expect(isAnyOptionSelected).toBe(false);
         expect(await inputDriver.getValue()).toBe('');
       });
 
@@ -149,7 +149,7 @@ describe('Dropdown', () => {
           await Promise.all(options.map(option => option.isSelected()))
         ).some(val => val);
 
-        expect(isAnyOptionSelected).toBeFalsy();
+        expect(isAnyOptionSelected).toBe(false);
         expect(await inputDriver.getValue()).toBe('');
 
         rerender(

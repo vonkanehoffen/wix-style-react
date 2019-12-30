@@ -56,9 +56,9 @@ describe('MessageBoxMarketerialLayout', () => {
           primaryButtonTheme: 'purple',
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(
-          await driver.isClassPresentInPrimaryButton('fullpurple'),
-        ).toBeTruthy();
+        expect(await driver.isClassPresentInPrimaryButton('fullpurple')).toBe(
+          true,
+        );
       });
 
       it('should not display the primary button if primary button label was not passed', async () => {
@@ -108,7 +108,7 @@ describe('MessageBoxMarketerialLayout', () => {
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
         await driver.clickOnPrimaryButton();
-        expect(props.onPrimaryButtonClick.calledOnce).toBeTruthy();
+        expect(props.onPrimaryButtonClick.calledOnce).toBe(true);
       });
 
       it(`should trigger the secondary button action upon clicking the secondary button`, async () => {
@@ -118,7 +118,7 @@ describe('MessageBoxMarketerialLayout', () => {
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
         await driver.clickOnSecondaryButton();
-        expect(props.onSecondaryButtonClick.calledOnce).toBeTruthy();
+        expect(props.onSecondaryButtonClick.calledOnce).toBe(true);
       });
 
       it(`should close the message dialog upon clicking the close button`, async () => {
@@ -127,7 +127,7 @@ describe('MessageBoxMarketerialLayout', () => {
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
         await driver.closeMessageBox();
-        expect(props.onClose.calledOnce).toBeTruthy();
+        expect(props.onClose.calledOnce).toBe(true);
       });
 
       it(`should theme the close button as dark when general theme is white`, async () => {
@@ -138,7 +138,7 @@ describe('MessageBoxMarketerialLayout', () => {
 
         expect(
           await driver.isClassPresentInHeaderCloseButton(styles.dark),
-        ).toBeTruthy();
+        ).toBe(true);
       });
     });
 
@@ -187,9 +187,9 @@ describe('MessageBoxMarketerialLayout', () => {
           primaryButtonLabel: 'primaryButtonLabel',
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(
-          await driver.isClassPresentInPrimaryButton('fullblue'),
-        ).toBeTruthy();
+        expect(await driver.isClassPresentInPrimaryButton('fullblue')).toBe(
+          true,
+        );
       });
 
       it(`should use color theme`, async () => {
@@ -198,9 +198,9 @@ describe('MessageBoxMarketerialLayout', () => {
           theme: 'purple',
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(
-          await driver.isClassPresentInPrimaryButton('fullpurple'),
-        ).toBeTruthy();
+        expect(await driver.isClassPresentInPrimaryButton('fullpurple')).toBe(
+          true,
+        );
       });
     });
 

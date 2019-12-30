@@ -333,7 +333,7 @@ describe('GoogleAddressInput', () => {
         .onManuallyInput('my addr');
 
       await eventually(() => {
-        expect(onSet.called).toBeFalsy();
+        expect(onSet.called).toBe(false);
       });
     });
 
@@ -351,7 +351,7 @@ describe('GoogleAddressInput', () => {
         .onManuallyInput('dontfind');
 
       await eventually(() => {
-        expect(onSet.called).toBeFalsy();
+        expect(onSet.called).toBe(false);
       });
     });
 

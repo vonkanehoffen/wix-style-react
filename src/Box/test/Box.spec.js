@@ -25,7 +25,7 @@ describe('Box', () => {
         <Box className={expectedClassName}>{children}</Box>,
       );
 
-      expect(await driver.hasClass(expectedClassName)).toBeTruthy();
+      expect(await driver.hasClass(expectedClassName)).toBe(true);
     });
 
     it('should render the passed children', async () => {

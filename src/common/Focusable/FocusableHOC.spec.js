@@ -298,7 +298,7 @@ describe('FocusableHOC', () => {
       const input = component.find('input');
 
       /* by default should not have focus and should not be disabled */
-      expect(button.getDOMNode().disabled).toBeFalsy();
+      expect(button.getDOMNode().disabled).toBe(false);
       expect(button.getDOMNode().attributes['data-focus']).toBeFalsy();
 
       /* become focused */
@@ -307,13 +307,13 @@ describe('FocusableHOC', () => {
 
       /* click on button after that, button should become disabled */
       button.simulate('click');
-      expect(button.getDOMNode().disabled).toBeTruthy();
+      expect(button.getDOMNode().disabled).toBe(true);
       /* bug was here, after button become disabled, focus should disappear */
       expect(button.getDOMNode().attributes['data-focus']).toBeFalsy();
 
       /* input change, after that should be disabled === false */
       input.simulate('change', { target: { value: '123' } });
-      expect(button.getDOMNode().disabled).toBeFalsy();
+      expect(button.getDOMNode().disabled).toBe(false);
 
       /* bug was here, after input change, button should become unfocused */
       expect(button.getDOMNode().attributes['data-focus']).toBeFalsy();

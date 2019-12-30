@@ -43,7 +43,7 @@ describe('Table', () => {
 
     it('should pass id prop to child', async () => {
       const driver = createDriver(<DataTable {...defaultProps} />);
-      expect(await driver.hasChildWithId(defaultProps.id)).toBeTruthy();
+      expect(await driver.hasChildWithId(defaultProps.id)).toBe(true);
     });
 
     describe('data is empty', () => {
@@ -65,7 +65,7 @@ describe('Table', () => {
 
       it('should display nothing', async () => {
         const driver = createDriver(<DataTable {...props} />);
-        expect(await driver.isDisplayingNothing()).toBeTruthy();
+        expect(await driver.isDisplayingNothing()).toBe(true);
       });
 
       it('should count 0 rows', async () => {
@@ -110,7 +110,7 @@ describe('Table', () => {
 
     it('should display something when data is non-empty', async () => {
       const driver = createDriver(<DataTable {...defaultProps} />);
-      expect(await driver.isDisplayingNothing()).toBeFalsy();
+      expect(await driver.isDisplayingNothing()).toBe(false);
     });
 
     it('should display header only when data is empty and showHeaderWhenEmpty is true', async () => {
@@ -121,7 +121,7 @@ describe('Table', () => {
       };
 
       const driver = createDriver(<DataTable {...props} />);
-      expect(await driver.isDisplayingHeaderOnly()).toBeTruthy();
+      expect(await driver.isDisplayingHeaderOnly()).toBe(true);
     });
 
     it('should render column titles', async () => {

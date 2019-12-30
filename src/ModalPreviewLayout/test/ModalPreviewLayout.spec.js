@@ -19,7 +19,7 @@ describe('ModalPreviewLayout', () => {
   it('should render', async () => {
     const { driver } = render(<ModalPreviewLayout {...requiredProps} />);
 
-    expect(await driver.exists()).toBeTruthy();
+    expect(await driver.exists()).toBe(true);
   });
 
   it('should call onClose when clicking outside by default', async () => {

@@ -151,12 +151,12 @@ describe('EditableSelector', () => {
       ];
       const driver = createDriver(<EditableSelector {...props} />);
       const newTitle = 'yo';
-      expect(await driver.isEditingRow()).toBeFalsy();
+      expect(await driver.isEditingRow()).toBe(false);
       await driver.startEditing(0, newTitle);
       expect(await driver.isEditingRow()).toBeTruthy();
       await driver.startAdding();
       expect(await driver.isEditingRow()).toBeFalsy();
-      expect(await driver.isAddingRow()).toBeTruthy();
+      expect(await driver.isAddingRow()).toBe(true);
     });
 
     it('should stop add when click edit row', async () => {
@@ -167,10 +167,10 @@ describe('EditableSelector', () => {
       const newTitle = 'yo';
       expect(await driver.startAdding()).toBeFalsy();
       await driver.startAdding();
-      expect(await driver.isAddingRow()).toBeTruthy();
+      expect(await driver.isAddingRow()).toBe(true);
       await driver.startEditing(0, newTitle);
       expect(await driver.isEditingRow()).toBeTruthy();
-      expect(await driver.isAddingRow()).toBeFalsy();
+      expect(await driver.isAddingRow()).toBe(false);
     });
   }
 });

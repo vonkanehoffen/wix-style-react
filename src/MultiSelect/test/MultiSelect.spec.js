@@ -65,8 +65,8 @@ describe('MultiSelect', () => {
       const { inputDriver, dropdownLayoutDriver } = createDriver(
         <MultiSelect options={options} autoFocus />,
       );
-      expect(await inputDriver.isFocus()).toBeTruthy();
-      expect(await dropdownLayoutDriver.isShown()).toBeFalsy();
+      expect(await inputDriver.isFocus()).toBe(true);
+      expect(await dropdownLayoutDriver.isShown()).toBe(false);
     });
 
     it('should remove options that were selected and became tags', async () => {
@@ -77,13 +77,13 @@ describe('MultiSelect', () => {
       );
       const { dropdownLayoutDriver } = multiSelectDriver;
       expect(await dropdownLayoutDriver.optionsLength()).toBe(options.length);
-      expect(await dropdownLayoutDriver.isOptionExists('Alabama')).toBeTruthy();
+      expect(await dropdownLayoutDriver.isOptionExists('Alabama')).toBe(true);
 
       rerender(<MultiSelect options={options} tags={tags} autoFocus />);
       expect(await dropdownLayoutDriver.optionsLength()).toBe(
         options.length - tags.length,
       );
-      expect(await dropdownLayoutDriver.isOptionExists('Alabama')).toBeFalsy();
+      expect(await dropdownLayoutDriver.isOptionExists('Alabama')).toBe(false);
     });
 
     it('should not filter anything without predicate function', async () => {
@@ -152,7 +152,7 @@ describe('MultiSelect', () => {
         );
         await driver.pressKey('ArrowDown');
         await driver.pressKey('ArrowDown');
-        expect(await dropdownLayoutDriver.isOptionHovered(0)).toBeTruthy();
+        expect(await dropdownLayoutDriver.isOptionHovered(0)).toBe(true);
         await driver.outsideClick();
         expect(onSelect).toHaveBeenCalledTimes(0);
       });
@@ -177,7 +177,7 @@ describe('MultiSelect', () => {
         const { driver } = createDriver(
           <MultiSelect error options={options} />,
         );
-        expect(await driver.inputWrapperHasError()).toBeTruthy();
+        expect(await driver.inputWrapperHasError()).toBe(true);
       });
 
       it('should have disabled attribute on input if disabled', async () => {
@@ -215,9 +215,9 @@ describe('MultiSelect', () => {
         const { driver, inputDriver } = createDriver(
           <MultiSelect options={options} />,
         );
-        expect(await inputDriver.isFocus()).toBeFalsy();
+        expect(await inputDriver.isFocus()).toBe(false);
         await driver.clickOnInputWrapper();
-        expect(await inputDriver.isFocus()).toBeTruthy();
+        expect(await inputDriver.isFocus()).toBe(true);
       });
 
       it('should check that wrapper has focus when the input element does', async () => {
@@ -226,7 +226,7 @@ describe('MultiSelect', () => {
         );
         await driver.clickOnInputWrapper();
         expect(inputDriver.isFocus()).toBeTruthy();
-        expect(await driver.inputWrapperHasFocus()).toBeTruthy();
+        expect(await driver.inputWrapperHasFocus()).toBe(true);
       });
 
       it('should contain specific tags', async () => {
@@ -559,8 +559,8 @@ describe('MultiSelect', () => {
           inputDriver.trigger('keyDown', { key: ',' });
           expect(onSelect).toHaveBeenCalledTimes(1);
           expect(onChange).toBeCalledWith({ target: { value: '' } });
-          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
-          expect(inputDriver.isFocus()).toBeTruthy();
+          expect(await dropdownLayoutDriver.isShown()).toBe(true);
+          expect(inputDriver.isFocus()).toBe(true);
         });
 
         it('should select option when custom delimiters pressed', async () => {
@@ -580,8 +580,8 @@ describe('MultiSelect', () => {
           expect(onSelect).toHaveBeenCalledTimes(1);
           expect(onSelect).toBeCalledWith(options[0]);
           expect(onChange).toBeCalledWith({ target: { value: '' } });
-          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
-          expect(inputDriver.isFocus()).toBeTruthy();
+          expect(await dropdownLayoutDriver.isShown()).toBe(true);
+          expect(inputDriver.isFocus()).toBe(true);
         });
       });
 
@@ -591,8 +591,8 @@ describe('MultiSelect', () => {
             <MultiSelect options={options} />,
           );
           await driver.selectOptionById(FIRST_OPTION_ID);
-          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
-          expect(await inputDriver.isFocus()).toBeTruthy();
+          expect(await dropdownLayoutDriver.isShown()).toBe(true);
+          expect(await inputDriver.isFocus()).toBe(true);
         });
 
         it('should not lose Focus or close the options when options selected by pressing Enter', async () => {
@@ -602,7 +602,7 @@ describe('MultiSelect', () => {
           await driver.focus();
           await driver.pressKey('ArrowDown');
           await driver.pressKey('Enter');
-          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          expect(await dropdownLayoutDriver.isShown()).toBe(true);
           expect(inputDriver.isFocus()).toBeTruthy();
         });
 
@@ -615,7 +615,7 @@ describe('MultiSelect', () => {
           await driver.pressKey('ArrowDown');
           await driver.pressKey('Tab');
           expect(onSelect).toHaveBeenCalledTimes(1);
-          expect(await dropdownLayoutDriver.isShown()).toBeTruthy();
+          expect(await dropdownLayoutDriver.isShown()).toBe(true);
           await eventually(() => expect(inputDriver.isFocus()).toBeTruthy()); // Limitation - covered with e2e test
         });
       });
