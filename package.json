@@ -65,7 +65,6 @@
     "build-puppeteer-testkit": "webpack --config ./testkit/webpack.config.js",
     "export-components": "import-path --path src --dts",
     "------publish": "",
-    "prepublishOnly": "npm run transpile",
     "postpublish": "if [ \"$NPM_PUBLISH_TYPE\" == \"re-publish\" ]; then npm install && npm run build && npm run storybook:build && npm run zeit-storybook-deploy; fi",
     "pr-storybook:publish": "if [  \"$agentType\" = \"pullrequest\" ]; then npm run storybook:build && npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease; fi;",
     "zeit-storybook-deploy": "node ./scripts/zeit-deploy.js ",
