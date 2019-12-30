@@ -281,6 +281,7 @@ class DropdownLayout extends React.PureComponent {
         rootRef={this.clickOutsideRef}
         onClickOutside={visible && onClickOutside}
         excludeClass={excludeClass ? excludeClass : styles.wrapper}
+        options={{ capture: true }}
       >
         <div
           data-hook={dataHook}
