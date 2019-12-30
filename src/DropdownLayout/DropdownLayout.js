@@ -2,11 +2,11 @@ import styles from './DropdownLayout.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import WixComponent from '../BaseComponents/WixComponent';
 import scrollIntoView from '../utils/scrollIntoView';
 import InfiniteScroll from '../utils/InfiniteScroll';
 import Loader from '../Loader/Loader';
 import * as DataAttr from './DataAttr';
+import { ClickOutside } from 'wix-ui-core/dist/src/components/click-outside';
 
 const modulu = (n, m) => {
   const remain = n % m;
@@ -23,7 +23,7 @@ const getUnit = value => {
 const NOT_HOVERED_INDEX = -1;
 export const DIVIDER_OPTION_VALUE = '-';
 
-class DropdownLayout extends WixComponent {
+class DropdownLayout extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -31,13 +31,13 @@ class DropdownLayout extends WixComponent {
       hovered: NOT_HOVERED_INDEX,
       selectedId: props.selectedId,
     };
+    this.clickOutsideRef = React.createRef();
 
     this._onSelect = this._onSelect.bind(this);
     this._onMouseLeave = this._onMouseLeave.bind(this);
     this._onMouseEnter = this._onMouseEnter.bind(this);
     this._onKeyDown = this._onKeyDown.bind(this);
     this._onClose = this._onClose.bind(this);
-    this.onClickOutside = this.onClickOutside.bind(this);
   }
 
   _isControlled() {
@@ -48,7 +48,6 @@ class DropdownLayout extends WixComponent {
   }
 
   componentDidMount() {
-    super.componentDidMount();
     if (this.props.focusOnSelectedOption) {
       this._focusOnSelectedOption();
     }
@@ -67,13 +66,6 @@ class DropdownLayout extends WixComponent {
   _setSelectedOptionNode(optionNode, option) {
     if (option.id === this.state.selectedId) {
       this.selectedOption = optionNode;
-    }
-  }
-
-  onClickOutside(event) {
-    const { visible, onClickOutside } = this.props;
-    if (visible && onClickOutside) {
-      onClickOutside(event);
     }
   }
 
@@ -263,6 +255,9 @@ class DropdownLayout extends WixComponent {
       fixedFooter,
       inContainer,
       overflow,
+      dataHook,
+      excludeClass,
+      onClickOutside,
     } = this.props;
 
     const renderedOptions = options.map((option, idx) =>
@@ -277,43 +272,60 @@ class DropdownLayout extends WixComponent {
       [styles.containerStyles]: !inContainer,
     });
     return (
-      <div
-        tabIndex={tabIndex}
-        className={classNames(
-          styles.wrapper,
-          styles[`theme-${this.props.theme}`],
-        )}
-        onKeyDown={this._onKeyDown}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+      /*
+       * Remove ClickOutside!
+       * This is not a good practice to use it in DropdownLayout
+       * Instead you should use any other dropdown that uses the layout, or a popover
+       */
+      <ClickOutside
+        rootRef={this.clickOutsideRef}
+        onClickOutside={visible && onClickOutside}
+        excludeClass={excludeClass ? excludeClass : styles.wrapper}
       >
         <div
-          {...this._getDataAttributes()}
-          className={contentContainerClassName}
-          style={{
-            overflow,
-            maxHeight: getUnit(this.props.maxHeightPixels),
-            minWidth: getUnit(this.props.minWidthPixels),
-          }}
+          data-hook={dataHook}
+          ref={this.clickOutsideRef}
+          tabIndex={tabIndex}
+          className={classNames(styles.wrapper)}
+          onKeyDown={this._onKeyDown}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
-          {this._renderNode(fixedHeader)}
           <div
-            className={styles.options}
+            {...this._getDataAttributes()}
+            className={contentContainerClassName}
             style={{
-              maxHeight: getUnit(parseInt(this.props.maxHeightPixels, 10) - 35),
               overflow,
+              maxHeight: getUnit(this.props.maxHeightPixels),
+              minWidth: getUnit(this.props.minWidthPixels),
             }}
-            ref={_options => (this.options = _options)}
-            data-hook={DataAttr.DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS}
           >
-            {this.props.infiniteScroll
-              ? this._wrapWithInfiniteScroll(renderedOptions)
-              : renderedOptions}
+            {/* Header */}
+            {this._renderNode(fixedHeader)}
+
+            {/* Options */}
+            <div
+              className={styles.options}
+              style={{
+                maxHeight: getUnit(
+                  parseInt(this.props.maxHeightPixels, 10) - 35,
+                ),
+                overflow,
+              }}
+              ref={_options => (this.options = _options)}
+              data-hook={DataAttr.DATA_HOOKS.DROPDOWN_LAYOUT_OPTIONS}
+            >
+              {this.props.infiniteScroll
+                ? this._wrapWithInfiniteScroll(renderedOptions)
+                : renderedOptions}
+            </div>
+
+            {/* Footer */}
+            {this._renderNode(fixedFooter)}
           </div>
-          {this._renderNode(fixedFooter)}
+          {this._renderTopArrow()}
         </div>
-        {this._renderTopArrow()}
-      </div>
+      </ClickOutside>
     );
   }
 
@@ -491,6 +503,8 @@ export function optionValidator(props, propName, componentName) {
 }
 
 DropdownLayout.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used to create driver in testing */
+  dataHook: PropTypes.string,
   dropDirectionUp: PropTypes.bool,
   focusOnSelectedOption: PropTypes.bool,
   onClose: PropTypes.func,
