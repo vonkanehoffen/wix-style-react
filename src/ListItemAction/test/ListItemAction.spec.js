@@ -72,14 +72,14 @@ describe('ListItemAction', () => {
       const { driver } = render(
         <ListItemAction title={'title'} prefixIcon={<Edit />} />,
       );
-      expect(await driver.isDisabled()).toBeFalsy();
+      expect(await driver.isDisabled()).toBe(false);
     });
 
     it('should be disabled', async () => {
       const { driver } = render(
         <ListItemAction disabled title={'title'} prefixIcon={<Edit />} />,
       );
-      expect(await driver.isDisabled()).toBeTruthy();
+      expect(await driver.isDisabled()).toBe(true);
     });
   });
 

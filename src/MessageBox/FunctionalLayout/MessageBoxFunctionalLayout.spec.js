@@ -165,7 +165,7 @@ describe('MessageBox', () => {
           closeButton: false,
         };
         const driver = createDriver(<MessageBoxFunctionalLayout {...props} />);
-        expect(await driver.getHeaderCloseButton()).toBeFalsy();
+        expect(await driver.getHeaderCloseButton()).toBe(null);
       });
 
       it(`should trigger the 'onCancel' action upon clicking the header close button`, async () => {

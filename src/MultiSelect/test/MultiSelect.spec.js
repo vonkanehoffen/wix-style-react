@@ -163,14 +163,14 @@ describe('MultiSelect', () => {
         const { inputDriver } = createDriver(
           <MultiSelect options={options} mode="select" />,
         );
-        expect(inputDriver.getReadOnly()).toBeTruthy();
+        expect(await inputDriver.getReadOnly()).toBe(true);
       });
 
       it('should render arrow on select mode', async () => {
         const { inputDriver } = createDriver(
           <MultiSelect options={options} mode="select" />,
         );
-        expect(inputDriver.hasMenuArrow()).toBeTruthy();
+        expect(await inputDriver.hasMenuArrow()).toBe(true);
       });
 
       it('should render input wrapper with error', async () => {
@@ -225,7 +225,7 @@ describe('MultiSelect', () => {
           <MultiSelect options={options} />,
         );
         await driver.clickOnInputWrapper();
-        expect(inputDriver.isFocus()).toBeTruthy();
+        expect(await inputDriver.isFocus()).toBe(true);
         expect(await driver.inputWrapperHasFocus()).toBe(true);
       });
 
@@ -603,7 +603,7 @@ describe('MultiSelect', () => {
           await driver.pressKey('ArrowDown');
           await driver.pressKey('Enter');
           expect(await dropdownLayoutDriver.isShown()).toBe(true);
-          expect(inputDriver.isFocus()).toBeTruthy();
+          expect(await inputDriver.isFocus()).toBe(true);
         });
 
         it.skip('should not lose Focus or close the options when options selected by pressing Tab', async () => {
@@ -616,7 +616,9 @@ describe('MultiSelect', () => {
           await driver.pressKey('Tab');
           expect(onSelect).toHaveBeenCalledTimes(1);
           expect(await dropdownLayoutDriver.isShown()).toBe(true);
-          await eventually(() => expect(inputDriver.isFocus()).toBeTruthy()); // Limitation - covered with e2e test
+          await eventually(async () =>
+            expect(await inputDriver.isFocus()).toBe(true),
+          ); // Limitation - covered with e2e test
         });
       });
     });
@@ -640,13 +642,13 @@ describe('MultiSelect', () => {
           <MultiSelect customSuffix={<div />} options={options} />,
         );
 
-        expect(await driver.customSuffixExists()).toBeTruthy();
+        expect(await driver.customSuffixExists()).toBe(true);
       });
 
       it('should not have custom node suffix when prop is not passed', async () => {
         const { driver } = createDriver(<MultiSelect options={options} />);
 
-        expect(await driver.customSuffixExists()).toBeFalsy();
+        expect(await driver.customSuffixExists()).toBe(false);
       });
     });
 

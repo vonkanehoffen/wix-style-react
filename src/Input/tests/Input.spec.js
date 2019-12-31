@@ -663,7 +663,7 @@ describe('Input', () => {
           );
           await driver.clickClear();
           expect(onClear).toHaveBeenCalledTimes(1);
-          expect(onClear.mock.calls[0][0]).toBeTruthy;
+          expect(onClear.mock.calls[0][0]).toBeTruthy();
         });
       });
 

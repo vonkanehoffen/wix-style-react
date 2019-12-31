@@ -153,9 +153,9 @@ describe('EditableSelector', () => {
       const newTitle = 'yo';
       expect(await driver.isEditingRow()).toBe(false);
       await driver.startEditing(0, newTitle);
-      expect(await driver.isEditingRow()).toBeTruthy();
+      expect(await driver.isEditingRow()).toBe(true);
       await driver.startAdding();
-      expect(await driver.isEditingRow()).toBeFalsy();
+      expect(await driver.isEditingRow()).toBe(false); // fails
       expect(await driver.isAddingRow()).toBe(true);
     });
 
@@ -165,11 +165,10 @@ describe('EditableSelector', () => {
       ];
       const driver = createDriver(<EditableSelector {...props} />);
       const newTitle = 'yo';
-      expect(await driver.startAdding()).toBeFalsy();
       await driver.startAdding();
       expect(await driver.isAddingRow()).toBe(true);
       await driver.startEditing(0, newTitle);
-      expect(await driver.isEditingRow()).toBeTruthy();
+      expect(await driver.isEditingRow()).toBe(true);
       expect(await driver.isAddingRow()).toBe(false);
     });
   }

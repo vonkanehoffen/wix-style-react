@@ -15,6 +15,7 @@ export const ListItemActionDriverFactory = base => {
     isPrefixIconExists: async () =>
       base.$('[data-hook="list-item-action-prefix-icon"]').exists(),
     getSkin: async () => stylableUtil.getStyleState(base, 'skin'),
-    isDisabled: async () => stylableUtil.getStyleState(base, 'disabled'),
+    isDisabled: async () =>
+      !!(await stylableUtil.getStyleState(base, 'disabled')),
   };
 };

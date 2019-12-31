@@ -844,14 +844,14 @@ describe('DropdownLayout', () => {
 
       it('should not mark any option by default', async () => {
         const { driver } = render(<DropdownLayout options={initialOptions} />);
-        expect(await driver.markedOption()).toBeFalsy();
+        expect(await driver.markedOption()).toBe(null);
       });
 
       it('should mark first option when equals true', async () => {
         const { driver } = render(
           <DropdownLayout options={initialOptions} markedOption />,
         );
-        expect(await driver.markedOption()).toBeTruthy();
+        expect(await driver.markedOption()).toBe('a 1');
       });
 
       it('should mark second option when providing id', async () => {

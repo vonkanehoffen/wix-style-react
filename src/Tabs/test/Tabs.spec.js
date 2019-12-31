@@ -100,7 +100,7 @@ describe('Tabs component', () => {
 
     it('does not show side content if it is not passed via props', async () => {
       const driver = createComponent({ items });
-      expect(await driver.getSideContent()).toBeFalsy();
+      expect(await driver.getSideContent()).toBe(null);
     });
 
     it('should have divider by default', async () => {

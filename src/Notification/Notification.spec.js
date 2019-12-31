@@ -428,7 +428,7 @@ describe('Notification', () => {
       });
 
       expect(enzymeNotificationTestkit.visible()).toBe(false);
-      expect(enzymeButtonTestkit.exists()).toBeTruthy();
+      expect(await enzymeButtonTestkit.exists()).toBe(true);
 
       await enzymeButtonTestkit.click();
 

@@ -32,7 +32,7 @@ describe('Box', () => {
       const children = <span>Children</span>;
       const driver = createDriver(<Box dataHook="box-child">{children}</Box>);
 
-      expect(await driver.hasChild()).toBeTruthy();
+      expect(await driver.hasChild()).toBe(true);
     });
 
     describe('Borders', () => {

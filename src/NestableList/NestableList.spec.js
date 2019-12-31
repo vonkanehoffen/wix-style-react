@@ -52,7 +52,7 @@ describe('NestableList', () => {
       dataHook,
       element: ReactDOM.findDOMNode(wrapper),
     });
-    expect(driver).toBeTruthy();
+    expect(driver.exists()).toBe(true);
   });
 
   it('should call onUpdate on drag and drop', () => {

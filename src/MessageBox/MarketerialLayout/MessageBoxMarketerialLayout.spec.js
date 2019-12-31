@@ -73,7 +73,7 @@ describe('MessageBoxMarketerialLayout', () => {
           primaryButtonDisabled: true,
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(await driver.isPrimaryButtonDisabled()).toBeTruthy();
+        expect(await driver.isPrimaryButtonDisabled()).toBe(true);
       });
 
       it('should display enabled primary button if primaryButtonDisabled is false', async () => {
@@ -82,7 +82,7 @@ describe('MessageBoxMarketerialLayout', () => {
           primaryButtonDisabled: false,
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(await driver.isPrimaryButtonDisabled()).toBeFalsy();
+        expect(await driver.isPrimaryButtonDisabled()).toBe(false);
       });
 
       it('should display the secondary button label text on top the secondary button', async () => {

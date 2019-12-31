@@ -11,6 +11,6 @@ export const messageBoxMarketerialLayoutPrivateUniDriverFactory = base => {
     isClassPresentInHeaderCloseButton: async className =>
       getCloseButtonBase().hasClass(className),
     isPrimaryButtonDisabled: async () =>
-      await getPrimaryButtonBase()._prop('disabled'),
+      !!(await getPrimaryButtonBase()._prop('disabled')),
   };
 };

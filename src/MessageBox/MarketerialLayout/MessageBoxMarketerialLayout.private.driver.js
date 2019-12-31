@@ -9,7 +9,7 @@ const messageBoxMarketerialLayoutPrivateDriverFactory = ({ element }) => {
     ...messageBoxMarketerialLayoutDriverFactory({ element }),
     isClassPresentInPrimaryButton: className =>
       primaryButton().classList.contains(className),
-    isPrimaryButtonDisabled: () => primaryButton().attributes.disabled,
+    isPrimaryButtonDisabled: () => !!primaryButton().attributes.disabled,
     isClassPresentInHeaderCloseButton: className =>
       closeButton().classList.contains(className),
   };

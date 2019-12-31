@@ -91,7 +91,7 @@ describe('GoogleAddressInput', () => {
         Client: GmapsTestClient,
         magnifyingGlass: false,
       }).getDOMNode();
-      expect(component.querySelector('[data-hook="search-icon"]')).toBeFalsy();
+      expect(component.querySelector('[data-hook="search-icon"]')).toBe(null);
     });
 
     it('should allow setting theme for the nested input', () => {
