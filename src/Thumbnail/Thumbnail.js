@@ -72,7 +72,7 @@ class Thumbnail extends React.PureComponent {
     return (
       <Text
         {...styles('bottomTitle', { selected, disabled }, this.props)}
-        data-hook="thumbnail-bottom-title"
+        dataHook="thumbnail-bottom-title"
         size={size}
         tagName="div"
         weight="thin"
@@ -112,7 +112,7 @@ class Thumbnail extends React.PureComponent {
         {title && (
           <Text
             className={styles.title}
-            data-hook="thumbnail-title"
+            dataHook="thumbnail-title"
             size={size}
             tagName="div"
             weight="normal"
@@ -123,7 +123,7 @@ class Thumbnail extends React.PureComponent {
         {description && (
           <Text
             className={styles.description}
-            data-hook="thumbnail-description"
+            dataHook="thumbnail-description"
             size={size}
             weight="thin"
             tagName="div"
@@ -201,6 +201,8 @@ class Thumbnail extends React.PureComponent {
             { selected, disabled, size, hasBackground, hasChildren },
             this.props,
           )}
+          data-selected={selected}
+          data-disabled={disabled}
           onFocus={focusableOnFocus}
           onBlur={focusableOnBlur}
           tabIndex={disabled ? null : 0}

@@ -1,7 +1,6 @@
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { testkit } from '../Input/Input.uni.driver';
 import { tickerDriverFactory } from '../Input/Ticker/Ticker.uni.driver';
-import styles from './TimeInput.scss';
 
 export const timeInputUniDriverFactory = base => {
   const amPmIndicator = () => base.$('[data-hook="am-pm-indicator"]');
@@ -17,7 +16,7 @@ export const timeInputUniDriverFactory = base => {
     isAmPmIndicatorExist: async () => amPmIndicator().exists(),
     toggleAmPmIndicator: async () => amPmIndicator().click(),
     getAmPmIndicatorText: async () => amPmIndicator().text(),
-    isRtl: async () => base.$(`.${styles.rtl}`).exists(),
+    isRtl: async () => base.$(`.rtl`).exists(),
     setValue: async value => input.enterText(value),
     blur: async () => input.blur(),
   };

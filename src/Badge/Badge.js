@@ -119,10 +119,16 @@ class Badge extends React.PureComponent {
         {...style('root', { clickable: !!onClick, ...rest }, this.getProps())}
       >
         {prefixIcon &&
-          React.cloneElement(prefixIcon, { className: style.prefix })}
+          React.cloneElement(prefixIcon, {
+            className: style.prefix,
+            'data-prefix-icon': true,
+          })}
         {this._renderContent(children)}
         {suffixIcon &&
-          React.cloneElement(suffixIcon, { className: style.suffix })}
+          React.cloneElement(suffixIcon, {
+            className: style.suffix,
+            'data-suffix-icon': true,
+          })}
       </div>
     );
   }

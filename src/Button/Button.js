@@ -78,7 +78,12 @@ class Button extends Component {
     const classNames = cx(styles.button, className, clsArray);
 
     return (
-      <ButtonNext {...rest} data-hook={dataHook} className={classNames}>
+      <ButtonNext
+        {...rest}
+        data-hook={dataHook}
+        className={classNames}
+        data-skin={skin}
+      >
         {children}
       </ButtonNext>
     );

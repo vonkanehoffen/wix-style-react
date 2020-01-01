@@ -1,13 +1,10 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
-import { StylableUnidriverUtil } from 'wix-ui-test-utils/unidriver';
-import stylesheet from './Thumbnail.st.css';
 import textDriverFactory from '../Text/Text.driver';
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
 const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
 
 export const thumbnailDriverFactory = base => {
-  const stylableUtil = new StylableUnidriverUtil(stylesheet);
   const byHook = hook => base.$(`[data-hook*="${hook}"]`);
   const getThumbnailWrapper = () => byHook('thumbnail-wrapper');
   const getStyle = async (element, rule) =>
@@ -34,22 +31,12 @@ export const thumbnailDriverFactory = base => {
     getBackgroundImage: () => byHook('thumbnail-background-image'),
 
     /** Is Thumbnail selected */
-    isSelected: async () => {
-      const stylableState = await stylableUtil.getStyleState(
-        getThumbnailWrapper(),
-        'selected',
-      );
-      return stylableState === 'true';
-    },
+    isSelected: async () =>
+      (await getThumbnailWrapper().attr('data-selected')) === 'true',
 
     /** Is Thumbnail disabled */
-    isDisabled: async () => {
-      const stylableState = await stylableUtil.getStyleState(
-        getThumbnailWrapper(),
-        'disabled',
-      );
-      return stylableState === 'true';
-    },
+    isDisabled: async () =>
+      (await getThumbnailWrapper().attr('data-disabled')) === 'true',
 
     /** Get thumbnail image */
     getImage: () => byHook('thumbnail-image'),
