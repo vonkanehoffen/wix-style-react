@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added 
+- `<ModalPreviewLayout/>`- support navigation [#4714](https://github.com/wix/wix-style-react/pull/4714)
+
 ### Fixed
 - `<Table/>` - enlarge checkbox click area [#4616](https://github.com/wix/wix-style-react/pull/4616)
 
