@@ -1,8 +1,5 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
-import textDriverFactory from '../Text/Text.driver';
-import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-
-const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
+import { textUniDriverFactory } from '../Text/Text.uni.driver';
 
 export const thumbnailDriverFactory = base => {
   const byHook = hook => base.$(`[data-hook*="${hook}"]`);
@@ -10,17 +7,12 @@ export const thumbnailDriverFactory = base => {
   const getStyle = async (element, rule) =>
     (await element.attr('style')).match(new RegExp(`${rule}: (.*?);`))[1];
 
-  const titleDriver = async () =>
-    textTestkitFactory({
-      wrapper: await byHook('thumbnail-title').getNative(), // eslint-disable-line no-restricted-properties
-      dataHook: 'thumbnail-title',
-    });
-
   return {
     ...baseUniDriverFactory(base),
 
     /** Get thumbnail title */
-    getTitle: async () => (await titleDriver()).getText(),
+    getTitle: async () =>
+      (await textUniDriverFactory(await byHook('thumbnail-title'))).getText(),
 
     /** Get thumbnail description */
     getDescription: () => byHook('thumbnail-description').text(),

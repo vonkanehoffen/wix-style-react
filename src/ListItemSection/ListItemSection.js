@@ -6,17 +6,13 @@ import Box from '../Box';
 import Divider from '../Divider';
 import Text from '../Text';
 import TextButton from '../TextButton';
+import DATAHOOKS from './DataHooks';
 
 export const TYPES = {
   WHITESPACE: 'whitespace',
   DIVIDER: 'divider',
   TITLE: 'title',
   SUBHEADER: 'subheader',
-};
-
-export const DATAHOOKS = {
-  SUFFIX: 'list-item-section-suffix',
-  TITLE: 'list-item-section-title',
 };
 
 /** ListItemSection description */
