@@ -304,6 +304,23 @@ describe('Table', () => {
       );
     });
 
+    it('should override default cell styles using function', async () => {
+      const clonedProps = Object.assign({}, defaultProps);
+      clonedProps.columns.push({
+        title: 'c',
+        render: () => 'c',
+        style: (_column, _row, rowNum) => ({
+          paddingLeft: rowNum + 'px',
+        }),
+      });
+      const driver = createDriver(<DataTable {...clonedProps} />);
+      expect(await driver.getCellStyle(1, 3)).toEqual(
+        jasmine.objectContaining({
+          'padding-left': '1px',
+        }),
+      );
+    });
+
     describe('clickableDataRow class', () => {
       it('should not assign the class to rows by default', async () => {
         const props = { ...defaultProps };
@@ -446,6 +463,36 @@ describe('Table', () => {
       });
     });
 
+    describe('onCellClick', () => {
+      it(`should call onCellClick with column data, row data and index`, async () => {
+        const columnClickHandler = jest.fn();
+        const props = {
+          ...defaultProps,
+          columns: [
+            {
+              title: 'Row Num',
+              render: (row, rowNum) => rowNum,
+              onCellClick: columnClickHandler,
+            },
+            { title: 'A', render: row => row.a },
+          ],
+        };
+
+        const driver = createDriver(<DataTable {...props} />);
+
+        await driver.clickColumn(0, 0);
+        expect(columnClickHandler).toBeCalledWith(
+          props.columns[0],
+          props.data[0],
+          0,
+          expect.anything(),
+        );
+
+        columnClickHandler.mockReset();
+        await driver.clickColumn(0, 1);
+        expect(columnClickHandler).not.toBeCalled();
+      });
+    });
     describe('Sortable column titles', () => {
       let props;
 
