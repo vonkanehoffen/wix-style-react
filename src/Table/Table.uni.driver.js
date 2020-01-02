@@ -5,8 +5,10 @@ import deprecationLog from '../utils/deprecationLog';
 
 export const tableUniDriverFactory = base => {
   const dataTableDriver = dataTablePrivateUniDriverFactory(base);
+  const getRowSelectionCell = async index =>
+    await dataTableDriver.getCell(index, 0);
   const getRowCheckbox = async index =>
-    (await dataTableDriver.getCell(index, 0)).$('[data-hook="row-select"]');
+    (await getRowSelectionCell(index)).$('[data-hook="row-select"]');
   const getRowCheckboxDriver = async index =>
     checkboxUniDriverFactory(await getRowCheckbox(index));
   const getBulkSelectionCheckboxDriver = async () => {
@@ -53,9 +55,9 @@ export const tableUniDriverFactory = base => {
       deprecationLog(
         '"clickRowChecbox" method is deprecated (because of typo) and will be removed in next major release, please use "clickRowCheckbox" driver method',
       );
-      return (await getRowCheckbox(index)).click();
+      return (await getRowSelectionCell(index)).click();
     },
-    clickRowCheckbox: async index => (await getRowCheckbox(index)).click(),
+    clickRowCheckbox: async index => (await getRowSelectionCell(index)).click(),
     /** Click the bulk-selection checkbox */
     clickBulkSelectionCheckbox: async () =>
       (await getBulkSelectionCheckboxDriver()).click(),
