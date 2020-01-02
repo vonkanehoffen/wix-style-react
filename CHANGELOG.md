@@ -14,12 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
-
-## Infra
-- fix incorrect drivers import [#4781](https://github.com/wix/wix-style-react/pull/4781)
-
-## 7.29.0 - 2019-01-02
+## 7.29.1 - 2019-01-02
 
 ### Added
 
@@ -35,6 +30,7 @@ Types of changes:
 
 - remove `prepublishOnly` from publish flow [#4768](https://github.com/wix/wix-style-react/pull/4768)
 - remove `.st.css` and `.scss` imports from drivers [#4773](https://github.com/wix/wix-style-react/pull/4773)
+- fix incorrect drivers import [#4781](https://github.com/wix/wix-style-react/pull/4781)
 
 ## 7.28.0 - 2019-12-27
 
