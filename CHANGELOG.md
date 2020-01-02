@@ -24,6 +24,7 @@ Types of changes:
 ### Fixed
 
 - `<Table/>` - enlarge checkbox click area [#4616](https://github.com/wix/wix-style-react/pull/4616)
+- `<SidebarSectionItem/>` - fix disabled state css [#4778](https://github.com/wix/wix-style-react/pull/4778)
 
 ## Infra
 
