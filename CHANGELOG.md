@@ -14,59 +14,70 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.29.0 - 2020-01-02
 
-### Added 
+### Added
+
 - `<ModalPreviewLayout/>`- support navigation [#4714](https://github.com/wix/wix-style-react/pull/4714)
 
 ### Fixed
+
 - `<Table/>` - enlarge checkbox click area [#4616](https://github.com/wix/wix-style-react/pull/4616)
 
 ## Infra
+
 - remove prepublishOnly from publish flow [#4768](https://github.com/wix/wix-style-react/pull/4768)
 
 ## 7.28.0 - 2019-12-27
 
 ### Fixed
+
 - `<PopoverMenu/>` - Fix SSR rendering [#4756](https://github.com/wix/wix-style-react/pull/4756)
 
 ### Docs
+
 - `<Popover/>`- adding dataHook prop to documentation [#4754](https://github.com/wix/wix-style-react/pull/4754)
 
 ## 7.27.0 - 2019-12-25
 
 ### Docs
+
 - Storybook - Add minimum requirements (React version 16.8) [#4748](https://github.com/wix/wix-style-react/pull/4748)
 - Storybook - Fix broken links [#4745](https://github.com/wix/wix-style-react/pull/4745)
 - `<DataTable/>` - add propType for `onSortClick` [#4650](https://github.com/wix/wix-style-react/pull/4650)
 - `<Box/>` - added a small explanation
 
 ## Fixed
+
 - `<NumberInput/>`- Fixing `defaultValue` logic [#4746](https://github.com/wix/wix-style-react/pull/4746)
 
 ## 7.26.0 - 2019-12-24
 
 ### Fixed
+
 - `<DataTable/>` - fixed header cell cursor css when not sortable [#4685](https://github.com/wix/wix-style-react/pull/4685)
 - `<Stepper/>` - Use transparent background for error step circle style [#4732](https://github.com/wix/wix-style-react/pull/4732)
 - `EllipsisHOC` - Optimize rerendering issue [#4734](https://github.com/wix/wix-style-react/pull/4734)
 
 ### Added
+
 - `<InputArea/>` - adding `status` and `statusMessage` props [#4736](https://github.com/wix/wix-style-react/pull/4736)
 
 ## 7.25.0 - 2019-12-19
 
 ### Fixed
+
 - `<MessageBoxFunctionalLayout/>` - Revert element hierarchy change [#4728](https://github.com/wix/wix-style-react/pull/4728)
 
 ### Docs
+
 - Introducing Storybook version 5
 
 ## 7.24.0 - 2019-12-16
 
 ### Added
-- `<Avatar/>`- updating person svg and adding bussiness svg for `square` shape. [#4705](https://github.com/wix/wix-style-react/pull/4705)
 
+- `<Avatar/>`- updating person svg and adding bussiness svg for `square` shape. [#4705](https://github.com/wix/wix-style-react/pull/4705)
 
 ## 7.23.1 - 2019-12-16
 
