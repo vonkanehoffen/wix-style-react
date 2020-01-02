@@ -354,6 +354,9 @@
           "**/*.uni.driver.js"
         ],
         "rules": {
+          "no-restricted-imports": ["error", {
+              "patterns": ["*.st.css", "*.scss"]
+          }],
           "no-restricted-properties": [
             "error",
             {
