@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<ModalPreviewLayout/>`- support navigation [#4714](https://github.com/wix/wix-style-react/pull/4714)
+- `<Table/>`- add `onCellClick` prop [#4759](https://github.com/wix/wix-style-react/pull/4759)
 
 ### Fixed
 
