@@ -2,15 +2,19 @@ import { baseUniDriverFactory, getElement } from '../../test/utils/unidriver';
 import { dataTablePrivateUniDriverFactory } from '../DataTable/DataTable.private.uni.driver';
 import { checkboxUniDriverFactory } from '../Checkbox/Checkbox.uni.driver';
 import deprecationLog from '../utils/deprecationLog';
+import { Simulate } from 'react-dom/test-utils';
 
 export const tableUniDriverFactory = base => {
   const dataTableDriver = dataTablePrivateUniDriverFactory(base);
-  const getRowSelectionCell = async index =>
-    await dataTableDriver.getCell(index, 0);
   const getRowCheckbox = async index =>
-    (await getRowSelectionCell(index)).$('[data-hook="row-select"]');
+    (await dataTableDriver.getCell(index, 0)).$('[data-hook="row-select"]');
   const getRowCheckboxDriver = async index =>
     checkboxUniDriverFactory(await getRowCheckbox(index));
+  const simulateClick =
+    base.type === 'react'
+      ? // eslint-disable-next-line no-restricted-properties
+        async element => Simulate.click(await element.getNative())
+      : async element => base.click();
   const getBulkSelectionCheckboxDriver = async () => {
     const cell = await dataTableDriver.getHeaderCell(0);
     return checkboxUniDriverFactory(await cell.$('[data-hook="table-select"]'));
@@ -55,9 +59,9 @@ export const tableUniDriverFactory = base => {
       deprecationLog(
         '"clickRowChecbox" method is deprecated (because of typo) and will be removed in next major release, please use "clickRowCheckbox" driver method',
       );
-      return (await getRowSelectionCell(index)).click();
+      return simulateClick(await getRowCheckbox(index));
     },
-    clickRowCheckbox: async index => (await getRowSelectionCell(index)).click(),
+    clickRowCheckbox: async index => simulateClick(await getRowCheckbox(index)),
     /** Click the bulk-selection checkbox */
     clickBulkSelectionCheckbox: async () =>
       (await getBulkSelectionCheckboxDriver()).click(),
