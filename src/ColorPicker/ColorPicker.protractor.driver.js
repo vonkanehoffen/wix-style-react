@@ -1,6 +1,8 @@
+import { DataHooks } from './ColorPicker.const';
+
 const colorPickerDriverFactory = component => {
   const getConverter = () =>
-    component.$(`[data-hook="color-picker-converter"]`);
+    component.$(`[data-hook="${DataHooks.converter}"]`);
   const getConverterTabs = () => getConverter().$$(`li`);
 
   return {
