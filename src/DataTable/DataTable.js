@@ -61,12 +61,6 @@ class DataTable extends React.Component {
     }
   }
 
-  shouldComponentUpdate() {
-    // DataTable extends WixComponent which is a PureComponent, but DataTable is not pure.
-    // returning true, disables the PureComponent optimization.
-    return true;
-  }
-
   createInitialScrollingState(props) {
     return { currentPage: 0, lastPage: this.calcLastPage(props) };
   }

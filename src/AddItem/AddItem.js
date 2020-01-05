@@ -44,7 +44,7 @@ class AddItem extends Component {
     /** click event handler  */
     onClick: PropTypes.func,
 
-    /** used for testing */
+    /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
 
     /** @deprecated do not use this prop. Check for other available props. */

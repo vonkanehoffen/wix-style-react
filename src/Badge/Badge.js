@@ -22,6 +22,7 @@ const EllipsedBadgeContent = ellipsisHOC(BadgeContent);
 
 class Badge extends React.PureComponent {
   static propTypes = {
+    /** Applied as data-hook HTML attribute that can be used to create driver in testing */
     dataHook: PropTypes.string,
     /** variation of the component structure */
     type: PropTypes.oneOf(['solid', 'outlined', 'transparent']),

@@ -9,7 +9,6 @@ import PropTypes, {
   node,
 } from 'prop-types';
 
-import WixComponent from '../BaseComponents/WixComponent';
 import ColorPickerHsb from './ColorPickerHsb';
 import ColorPickerHue from './ColorPickerHue';
 import ColorPickerHistory from './ColorPickerHistory';

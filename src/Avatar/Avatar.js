@@ -130,7 +130,7 @@ Avatar.propTypes = {
   shape: PropTypes.oneOf(['circle', 'square']),
   /** classes to be applied to the root element */
   className: PropTypes.string,
-  /** Applied as data-hook HTML attribute that can be used to create an Avatar driver in testing */
+  /** Applied as data-hook HTML attribute that can be used to create driver in testing */
   dataHook: PropTypes.string,
   /** Avatar presence. Options like 'online' mean that the conatct is online */
   presence: PropTypes.oneOf(['online', 'offline', 'busy']),
