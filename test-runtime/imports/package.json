@@ -15,7 +15,8 @@
     "entry": {
       "es": "./es",
       "es-named": "./es-named",
-      "cjs": "./cjs"
+      "cjs": "./cjs",
+      "puppeteer-testkit": "./puppeteer-testkit"
     },
     "externals": {
       "react": "React",
