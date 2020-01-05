@@ -2,7 +2,7 @@ import React from 'react';
 import { bool, func, object } from 'prop-types';
 
 import css from './ColorPickerHistory.scss';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 const ColorPickerHistory = ({ show, current, previous, onClick }) => {
   if (show) {

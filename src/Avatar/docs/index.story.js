@@ -4,7 +4,7 @@ import * as icons from 'wix-ui-icons-common';
 import Avatar from '..';
 import { storySettings } from './storySettings';
 
-import { avatarColorList } from '../Avatar.const';
+import { avatarColorList } from '../constants';
 
 import {
   api,

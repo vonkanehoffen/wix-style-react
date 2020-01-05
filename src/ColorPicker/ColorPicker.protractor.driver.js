@@ -1,4 +1,4 @@
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 const colorPickerDriverFactory = component => {
   const getConverter = () =>

@@ -6,7 +6,7 @@ import AddSmall from 'wix-ui-icons-common/AddSmall';
 import Color from 'color';
 import styles from './ColorPickerConverter.st.css';
 import Tooltip from '../Tooltip';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 function getContrastColor(bg, light = '#ffffff', dark = '#162d3d') {
   try {

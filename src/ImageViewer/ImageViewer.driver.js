@@ -1,6 +1,6 @@
 import addItemDriverFactory from '../AddItem/AddItem.driver';
 import { tooltipTestkitFactory } from 'wix-ui-core/dist/src/testkit';
-import { dataAttributes, dataHooks } from './ImageViewer.constants';
+import { dataAttributes, dataHooks } from './constants';
 
 const imageViewerDriverFactory = ({ element, eventTrigger }) => {
   const byHook = dataHook => element.querySelector(`[data-hook="${dataHook}"]`);

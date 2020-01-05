@@ -1,7 +1,7 @@
 import ReactTestUtils from 'react-dom/test-utils';
 
 import { colorPickerDriverFactory as publicDriver } from './ColorPicker.driver';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 export default ({ element }) => {
   const hexInput =

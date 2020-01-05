@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
 import deprecationLog from '../utils/deprecationLog';
-import { avatarColorList, avatarShapes, dataHooks } from './Avatar.const';
+import { avatarColorList, avatarShapes, dataHooks } from './constants';
 import { Avatar as CoreAvatar } from 'wix-ui-core/dist/src/components/avatar';
 import { placeholderSVGs } from './assets';
 import styles from './Avatar.st.css';

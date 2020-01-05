@@ -1,5 +1,5 @@
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 export const colorPickerUniDriverFactory = base => {
   const getConverter = () => base.$(`[data-hook="${DataHooks.converter}"]`);

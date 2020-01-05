@@ -10,7 +10,7 @@ import ColorPickerActions from './ColorPickerActions';
 
 import css from './ColorPicker.scss';
 import { safeColor, isTransparent } from './utils';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 const FALLBACK_COLOR = color('#86c6e5');
 
@@ -107,8 +107,10 @@ class ColorPicker extends React.PureComponent {
 
   UNSAFE_componentWillReceiveProps(props) {
     const _color = safeColor(props.value, props.allowEmpty);
+    if (!_color) return;
+
     if (
-      (_color && _color.hex() !== this.state.current.hex()) ||
+      _color.hex() !== this.state.current.hex() ||
       isTransparent(_color) !== isTransparent(this.state.current)
     ) {
       this.setState({ current: _color });

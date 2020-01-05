@@ -1,6 +1,6 @@
 import publicDriverFactory from './ColorPicker.uni.driver';
 import { ReactBase } from '../../test/utils/unidriver';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 export const colorPickerUniDriverFactory = base => ({
   ...publicDriverFactory(base),

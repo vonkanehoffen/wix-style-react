@@ -1,5 +1,5 @@
 import ReactTestUtils from 'react-dom/test-utils';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 export const colorPickerDriverFactory = ({ element }) => {
   return {

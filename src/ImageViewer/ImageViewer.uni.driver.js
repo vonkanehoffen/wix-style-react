@@ -2,7 +2,7 @@ import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { iconButtonDriverFactory } from '../IconButton/IconButton.uni.driver';
 import { addItemUniDriverFactory } from '../AddItem/AddItem.uni.driver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
-import { dataAttributes, dataHooks } from './ImageViewer.constants';
+import { dataAttributes, dataHooks } from './constants';
 
 export const imageViewerUniDriverFactory = (base, body) => {
   const find = dataHook => base.$(`[data-hook="${dataHook}"]`);

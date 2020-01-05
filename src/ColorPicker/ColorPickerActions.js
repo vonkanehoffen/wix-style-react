@@ -5,7 +5,7 @@ import Check from 'wix-ui-icons-common/Check';
 
 import IconButton from '../IconButton';
 import css from './ColorPickerActions.scss';
-import { DataHooks } from './ColorPicker.const';
+import { DataHooks } from './constants';
 
 const ColorPickerActions = ({ onCancel, onConfirm, disabled }) => (
   <div className={css.root}>
