@@ -139,6 +139,7 @@ require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('../src/MarketingLayout/docs/index.story');
 require('../src/Palette/docs/index.story');
+require('../src/VariableInput/docs/index.story');
 require('./WIP');
 
 // Next API

@@ -172,3 +172,4 @@ export {
 export { default as BrowserPreviewWidget } from './BrowserPreviewWidget';
 export { default as MarketingLayout } from './MarketingLayout';
 export { default as Palette } from './Palette';
+export { default as VariableInput } from './VariableInput';

@@ -1,0 +1,64 @@
+
+:import {
+    -st-from: "../Foundation/stylable/colors.st.css";
+    -st-named: D80, B30, B10, F00, B50
+}
+:import {
+  -st-from: '../Foundation/stylable/typography.st.css';
+  -st-named: sizeMedium, weightNormal;
+}
+
+.root {
+  position: relative;
+  text-align: left;
+  min-height: 36px;
+  background-color: value(D80);
+  border-radius: 6px;
+
+}
+.root :global(.public-DraftEditorPlaceholder-root) {
+  margin: 2px 0;
+  position: absolute;
+  pointer-events: none;
+  top: 4px;
+  left: 10px;
+}
+.root :global(.public-DraftEditor-content) {
+  -st-mixin: sizeMedium, weightNormal;
+  background-color: value(D80);;
+  min-height: 36px;
+  padding: 2px 7px;
+  border: 1px solid value(B30);
+  border-radius: 6px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.root :global(.public-DraftEditor-content):hover {
+  background-color: value(B50);
+  cursor: pointer;
+}
+.root :global(.public-DraftEditor-content):focus {
+  background-color: value(D80);
+  cursor: text;
+  border-color: value(B10);
+  box-shadow: 0 0 0 3px value(F00);
+}
+.tagWrapper {
+  padding-left: 2px;
+  padding-right: 2px;
+  vertical-align: baseline;
+  margin: 2px 0;
+}
+.tagEntity {
+  display: inline-block;
+  font-size: initial;
+  line-height: initial;
+  font-weight: initial;
+}
+.textWrapper {
+  -st-mixin: sizeMedium, weightNormal;
+  display: inline-block;
+  line-height: 24px;
+  vertical-align: baseline;
+  margin: 2px 0;
+}

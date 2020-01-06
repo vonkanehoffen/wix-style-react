@@ -451,5 +451,8 @@
     "missingFiles": [
       "docs"
     ]
+  },
+  "VariableInput": {
+    "path": "src/VariableInput"
   }
 }
