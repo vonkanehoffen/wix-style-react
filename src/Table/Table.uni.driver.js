@@ -2,7 +2,6 @@ import { baseUniDriverFactory, getElement } from '../../test/utils/unidriver';
 import { dataTablePrivateUniDriverFactory } from '../DataTable/DataTable.private.uni.driver';
 import { checkboxUniDriverFactory } from '../Checkbox/Checkbox.uni.driver';
 import deprecationLog from '../utils/deprecationLog';
-import { Simulate } from 'react-dom/test-utils';
 
 export const tableUniDriverFactory = base => {
   const dataTableDriver = dataTablePrivateUniDriverFactory(base);
