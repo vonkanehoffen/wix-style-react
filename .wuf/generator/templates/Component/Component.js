@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../Text';
 import Button from '../Button';
 import styles from './{%ComponentName%}.st.css';
+import { dataHooks } from './constants';
 
 /** {%description%} */
 class {%ComponentName%} extends React.PureComponent {
@@ -36,12 +37,10 @@ class {%ComponentName%} extends React.PureComponent {
     const isEven = count % 2 === 0;
 
     return (
-      <div className={styles.root} data-hook={dataHook}>
-        <Text dataHook="{%componentName%}-count">
+      <div {...styles('root', { even: isEven, odd: !isEven }, this.props)} data-hook={dataHook}>
+        <Text dataHook={dataHooks.{%componentName%}Count}>
           You clicked this button {isEven ? 'even' : 'odd'} number (
-          <span
-            {...styles('number', { even: isEven, odd: !isEven }, this.props)}
-          >
+          <span className={styles.number}>
             {count}
           </span>
           ) of times
@@ -50,7 +49,7 @@ class {%ComponentName%} extends React.PureComponent {
         <div className={styles.button}>
           <Button
             onClick={this._handleClick}
-            dataHook="{%componentName%}-button"
+            dataHook={dataHooks.{%componentName%}Button}
           >
             {buttonText}
           </Button>

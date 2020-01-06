@@ -4,18 +4,15 @@
 }
 
 .root {
+  -st-states: odd, even;
   text-align: center;
 }
 
-.number {
-  -st-states: odd, even;
-}
-
-.number:even {
+.root:even .number {
   background: value(G30);
 }
 
-.number:odd {
+.root:odd .number {
   background: value(R30);
 }
 
