@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Deprecated
+
+- `<PopoverMenu/>` - deprecate story [#4789](https://github.com/wix/wix-style-react/pull/4789)
+
 ## 7.29.1 - 2019-01-02
 
 ### Added
