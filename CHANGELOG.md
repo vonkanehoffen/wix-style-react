@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+
+- `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
+
 ## 7.30.0 - 2019-01-06
 
 ### Added
