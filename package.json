@@ -156,7 +156,6 @@
     "progress": "^2.0.3",
     "prompts": "^1.2.1",
     "protractor": "^5.4.1",
-    "protractor-browser-logs": "^1.0.351",
     "puppeteer": "^1.12.2",
     "query-string": "^6.1.0",
     "react": "~16.8.3",
