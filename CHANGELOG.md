@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Fixed
+- `<Table/>` - fix `clickRowCheckbox` in teskit [#4785](https://github.com/wix/wix-style-react/pull/4785)
+
 ### Deprecated
 
 - `<PopoverMenu/>` - deprecate story [#4789](https://github.com/wix/wix-style-react/pull/4789)
