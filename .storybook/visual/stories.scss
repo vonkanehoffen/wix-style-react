@@ -1,3 +1,12 @@
+/* Uncomment to use Madefor font in Storybook
+:root {
+  --wsr-font-family: Madefor;
+  --wsr-font-weight-thin: 400;
+  --wsr-font-weight-normal: 700;
+  --wsr-font-weight-bold: 800;
+}
+*/
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -5,7 +14,9 @@ html {
   margin: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   transition-delay: 0ms !important;
   transition-duration: 0ms !important;
   transition: none !important;

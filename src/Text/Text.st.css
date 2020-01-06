@@ -20,34 +20,52 @@
 /* Thin */
 .root:weight(thin):size(tiny) {
   -st-mixin: sizeTiny, weightNormal;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-thin, 400);
 }
 .root:weight(thin):size(small) {
   -st-mixin: sizeSmall, weightThin;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-thin, 400);
 }
 .root:weight(thin):size(medium) {
   -st-mixin: sizeMedium, weightThin;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-thin, 400);
 }
 
 /* Normal */
 .root:weight(normal):size(tiny) {
   -st-mixin: sizeTiny, weightBold;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-normal, 400);
 }
 .root:weight(normal):size(small) {
   -st-mixin: sizeSmall, weightNormal;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-normal, 400);
 }
 .root:weight(normal):size(medium) {
   -st-mixin: sizeMedium, weightNormal;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-normal, 400);
 }
 
 /* Bold */
 .root:weight(bold):size(tiny) {
   -st-mixin: sizeTiny, weightXBold;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-bold, 400);
 }
 .root:weight(bold):size(small) {
   -st-mixin: sizeSmall, weightBold;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-bold, 400);
 }
 .root:weight(bold):size(medium) {
   -st-mixin: sizeMedium, weightBold;
+  font-weight: 400; /* IE11 */
+  font-weight: var(--wsr-font-weight-bold, 400);
 }
 
 /******* Skins *******/
