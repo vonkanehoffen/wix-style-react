@@ -20,6 +20,10 @@ Types of changes:
 
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
 
+### Fixed
+
+- `<ImageViewer/>` - do not render img html at all when imageUrl prop is not defined [#4735](https://github.com/wix/wix-style-react/pull/4735)
+
 ## 7.30.0 - 2019-01-06
 
 ### Added
