@@ -75,20 +75,27 @@ const imageViewerDriverFactory = ({ element, eventTrigger }) => {
     isImageLoaded: () => hasDataAttribute(dataAttributes.imageLoaded, element),
     isImageVisible: () => {
       const image = getImageElement();
-      return isImageElementVisible(image) && isImagesContainerElementVisible();
+      return (
+        !!image &&
+        isImageElementVisible(image) &&
+        isImagesContainerElementVisible()
+      );
     },
     isPreviousImageVisible: () => {
       const previousImage = getPreviousImageElement();
       return (
+        !!previousImage &&
         isImageElementVisible(previousImage) &&
         isImagesContainerElementVisible()
       );
     },
-    getImageUrl: () =>
-      getImageElement() && getImageElement().getAttribute('src'),
+    getImageUrl: () => {
+      const imageUrl = getImageElement();
+      return imageUrl && imageUrl.getAttribute('src');
+    },
     getPreviousImageUrl: () => {
       const previousImage = getPreviousImageElement();
-      return previousImage.getAttribute('src');
+      return previousImage && previousImage.getAttribute('src');
     },
     hover: () => hoverElement(),
   };

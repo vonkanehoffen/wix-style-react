@@ -51,6 +51,7 @@ export const imageViewerUniDriverFactory = (base, body) => {
       const image = find(dataHooks.image);
 
       return (
+        (await image.exists()) &&
         !!(await image.attr('src')) &&
         (await isImageElementVisible(image)) &&
         (await isImagesContainerElementVisible())
@@ -60,13 +61,22 @@ export const imageViewerUniDriverFactory = (base, body) => {
       const previousImage = find(dataHooks.previousImage);
 
       return (
+        (await previousImage.exists()) &&
         !!(await previousImage.attr('src')) &&
         (await isImageElementVisible(previousImage)) &&
         (await isImagesContainerElementVisible())
       );
     },
-    getImageUrl: () => find(dataHooks.image).attr('src'),
-    getPreviousImageUrl: () => find(dataHooks.previousImage).attr('src'),
+    getImageUrl: async () => {
+      const image = find(dataHooks.image);
+      return (await image.exists()) && (await image.attr('src'));
+    },
+    getPreviousImageUrl: async () => {
+      const previousImage = find(dataHooks.previousImage);
+      return (
+        (await previousImage.exists()) && (await previousImage.attr('src'))
+      );
+    },
     hover: hoverElement,
   };
 };
