@@ -16,7 +16,12 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- `<Stepper/>`- new features (compact text style, stretched fit, animation) [#4786](https://github.com/wix/wix-style-react/pull/4786)
+
 ### Fixed
+
 - `<Table/>` - fix `clickRowCheckbox` in teskit [#4785](https://github.com/wix/wix-style-react/pull/4785)
 
 ### Deprecated
