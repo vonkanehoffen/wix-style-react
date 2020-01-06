@@ -62,10 +62,10 @@ const tableDriverFactory = ({ element, eventTrigger }) => {
       deprecationLog(
         '"clickRowChecbox" method is deprecated (because of typo) and will be removed in next major release, please use "clickRowCheckbox" driver method',
       );
-      return getRowCheckboxDriver(index).click();
+      return eventTrigger.click(getRowCheckbox(index));
     },
     /** Click the row selection checkbox */
-    clickRowCheckbox: index => getRowCheckbox(index).click(),
+    clickRowCheckbox: index => eventTrigger.click(getRowCheckbox(index)),
     /** Click the bulk-selection checkbox */
     clickBulkSelectionCheckbox: () => getBulkSelectionCheckboxDriver().click(),
     /** Is row selected by index */
