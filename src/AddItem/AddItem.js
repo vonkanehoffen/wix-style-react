@@ -12,6 +12,7 @@ import Tooltip from '../Tooltip';
 import Text from '../Text';
 import TooltipHOC from './components/TooltipHOC';
 import AddMedia from 'wix-ui-icons-common/system/AddMedia';
+import { dataHooks } from './constants';
 
 import style from './AddItem.st.css';
 
@@ -105,7 +106,12 @@ class AddItem extends Component {
 
     return (
       <div {...style('text', { size })}>
-        <Text weight="thin" size={textSize} dataHook="additem-text" ellipsis>
+        <Text
+          weight="thin"
+          size={textSize}
+          dataHook={dataHooks.itemText}
+          ellipsis
+        >
           {children}
         </Text>
       </div>
@@ -113,7 +119,14 @@ class AddItem extends Component {
   };
 
   _renderContent = () => {
-    const { theme, alignItems, size, disabled, showIcon } = this.props;
+    const {
+      theme,
+      alignItems,
+      size,
+      disabled,
+      showIcon,
+      tooltipContent,
+    } = this.props;
 
     const container = (
       <div {...style('content', { theme, size, alignItems, disabled })}>
@@ -122,7 +135,10 @@ class AddItem extends Component {
       </div>
     );
     return (
-      <TooltipHOC enabled={theme === 'image'} {...this.props}>
+      <TooltipHOC
+        enabled={theme === 'image' && tooltipContent !== ''}
+        {...this.props}
+      >
         {container}
       </TooltipHOC>
     );
