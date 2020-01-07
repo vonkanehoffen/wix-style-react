@@ -12,6 +12,11 @@ const PLACEMENT = {
   left: 'left',
 };
 
+const ALIGN = {
+  middle: 'middle',
+  top: 'top',
+};
+
 const asterisk = (
   <div
     data-hook="formfield-asterisk"
@@ -63,11 +68,15 @@ class FormField extends React.Component {
     /** setting label size (small, medium) */
     labelSize: PropTypes.oneOf(['small', 'medium']),
 
+    /** label placement (top, left, right) */
     labelPlacement: PropTypes.oneOf([
       PLACEMENT.top,
       PLACEMENT.right,
       PLACEMENT.left,
     ]),
+
+    /** label aligmnent  */
+    labelAlignment: PropTypes.oneOf([ALIGN.middle, ALIGN.top]),
 
     /** whether to display an asterisk (*) or not */
     required: PropTypes.bool,
@@ -97,6 +106,7 @@ class FormField extends React.Component {
     required: false,
     stretchContent: true,
     labelPlacement: PLACEMENT.top,
+    labelAlignment: ALIGN.middle,
   };
 
   state = {
@@ -177,7 +187,7 @@ class FormField extends React.Component {
         tagName={'label'}
         data-hook="formfield-label"
         ellipsis={trimLongText}
-        style={{ display: 'block' }} // allows the label to center vertically
+        style={{ display: 'block' }} // allows the label to middle vertically
         secondary
       >
         {label}
@@ -189,6 +199,7 @@ class FormField extends React.Component {
     const {
       label,
       labelPlacement,
+      labelAlignment,
       required,
       infoContent,
       dataHook,
@@ -203,6 +214,8 @@ class FormField extends React.Component {
           [styles.labelFromTop]: label && labelPlacement === PLACEMENT.top,
           [styles.labelFromLeft]: label && labelPlacement === PLACEMENT.left,
           [styles.labelFromRight]: label && labelPlacement === PLACEMENT.right,
+          [styles.labelAlignMiddle]: label && labelAlignment === ALIGN.middle,
+          [styles.labelAlignTop]: label && labelAlignment === ALIGN.top,
           [styles.stretchContent]: stretchContent,
         })}
       >

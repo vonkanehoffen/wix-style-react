@@ -76,6 +76,14 @@ $childrenMargin: 6px;
   }
 }
 
+.labelAlignMiddle {
+  align-items: center;
+}
+
+.labelAlignTop {
+  align-items: start;
+}
+
 @include withRTL {
   .labelFromRight {
     .childrenWithInlineSuffixes {
@@ -108,7 +116,6 @@ $childrenMargin: 6px;
 .suffixesInline {
   display: flex;
   align-items: center;
-
   &.inlineWithCharCounter {
     $charCounterHeight: 18px;
 

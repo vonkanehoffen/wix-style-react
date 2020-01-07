@@ -10,6 +10,29 @@ export const withTooltip = `
 </FormField>
 `;
 
+export const alignment = `
+<Layout>
+  <Cell>
+    <FormField 
+        label="Middle" 
+        labelPlacement="right" 
+        labelAlignment="middle"
+    >
+      <InputArea/>
+    </FormField>
+  </Cell>
+  <Cell>
+    <FormField
+      label="Top"
+      labelPlacement="left" 
+      labelAlignment="top"
+     >
+    <InputArea/>
+    </FormField>
+  </Cell>  
+</Layout>
+`;
+
 export const withLength = `
 <FormField label="Label">
   {({setCharactersLeft}) =>

@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import FormField from '../FormField';
 import Input from '../../Input';
+import InputArea from '../../InputArea';
 import ToggleSwitch from '../../ToggleSwitch';
 
 const testGroups = [
@@ -116,6 +117,27 @@ const testGroups = [
             label: 'Negative',
             children: [<Input />],
             charCount: -5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    describe: 'Label Alignment',
+    tests: [
+      {
+        describe: 'should render',
+        labelPlacements: ['top', 'right', 'left'],
+        its: [
+          {
+            label: 'Middle',
+            labelAlignment: 'middle',
+            children: [<InputArea />],
+          },
+          {
+            label: 'Top',
+            labelAlignment: 'top',
+            children: [<InputArea />],
           },
         ],
       },

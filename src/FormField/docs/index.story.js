@@ -101,6 +101,7 @@ export default {
     children: childrenExamples[0].value,
     label: 'This is an input:',
     labelPlacement: 'top',
+    labelAlignment: 'middle',
     required: true,
     infoContent: 'I help you to fill info',
     stretchContent: true,
@@ -156,6 +157,11 @@ export default {
           code({
             title: 'With tooltip',
             source: examples.withTooltip,
+          }),
+
+          code({
+            title: 'Label Alignment',
+            source: examples.alignment,
           }),
 
           description({
