@@ -27,6 +27,7 @@ Types of changes:
 ### Fixed
 
 - `<ImageViewer/>` - do not render img html at all when imageUrl prop is not defined [#4735](https://github.com/wix/wix-style-react/pull/4735)
+- `<Badge/>` - Added missing constants to TypeScript typings [#4807](https://github.com/wix/wix-style-react/pull/4807)
 
 ## 7.30.0 - 2019-01-06
 
