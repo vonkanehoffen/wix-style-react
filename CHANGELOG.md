@@ -22,6 +22,7 @@ Types of changes:
 - `<FormField/>` - add new prop labelAlignment [#4814](https://github.com/wix/wix-style-react/pull/4814)
 - `<RichTextInputArea/`> - Expose plain text value with onChange event [#4820](https://github.com/wix/wix-style-react/pull/4820)
 - `<VariableInput/>` - add `onChange` prop [#4801](https://github.com/wix/wix-style-react/pull/4801)
+- `<ListItemSelect/>`, `<ListItemSection/>` - added show tooltip delay of 300ms [#4816](https://github.com/wix/wix-style-react/pull/4816)
 
 ### Changed
 
@@ -39,6 +40,9 @@ Types of changes:
 - `<SocialButton/>` - Horizontally align text to center [#4808](https://github.com/wix/wix-style-react/pull/4808)
 - `<MultiSelectCheckbox/>` - fix missing cursor style [#4821](https://github.com/wix/wix-style-react/pull/4821)
 - `<Notification.ActionButton/>` - do not require noop `onClick` when `type="textLink"` [#4824](https://github.com/wix/wix-style-react/pull/4824)
+- `<ColorPicker/>` - Fix color tooltip was not centered [#4812](https://github.com/wix/wix-style-react/pull/4812)
+- `<ColorPicker/>` - Fix Transparent color swatch [#4815](https://github.com/wix/wix-style-react/pull/4815)
+- `<AddItem/>` - Remove tooltip when it's empty [#4822](https://github.com/wix/wix-style-react/pull/4822)
 
 ## 7.30.0 - 2019-01-06
 
