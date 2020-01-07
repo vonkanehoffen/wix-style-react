@@ -93,8 +93,10 @@ class ColorPicker extends React.PureComponent {
     const childrenInterface = {
       changeColor: _color => {
         try {
-          const colorObject =
-            typeof _color === 'object' ? _color : color(_color);
+          let colorObject = _color;
+          if (typeof _color !== 'object') {
+            colorObject = _color === '' ? color().fade(1) : color(_color);
+          }
           this.change(colorObject);
         } catch (err) {}
       },
