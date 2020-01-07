@@ -20,6 +20,10 @@ Types of changes:
 
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
 
+### Changed
+
+- `<Heading/>` - change text color to white for heading=H5, light [#4805](https://github.com/wix/wix-style-react/pull/4805)
+
 ### Fixed
 
 - `<ImageViewer/>` - do not render img html at all when imageUrl prop is not defined [#4735](https://github.com/wix/wix-style-react/pull/4735)
