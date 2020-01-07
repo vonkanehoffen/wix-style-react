@@ -1,9 +1,10 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { textUniDriverFactory } from '../Text/Text.uni.driver';
+import { dataHooks } from './constants';
 
 export const thumbnailDriverFactory = base => {
   const byHook = hook => base.$(`[data-hook*="${hook}"]`);
-  const getThumbnailWrapper = () => byHook('thumbnail-wrapper');
+  const getThumbnailWrapper = () => byHook(dataHooks.thumbnailWrapper);
   const getStyle = async (element, rule) =>
     (await element.attr('style')).match(new RegExp(`${rule}: (.*?);`))[1];
 
@@ -12,15 +13,17 @@ export const thumbnailDriverFactory = base => {
 
     /** Get thumbnail title */
     getTitle: async () =>
-      (await textUniDriverFactory(await byHook('thumbnail-title'))).getText(),
+      (
+        await textUniDriverFactory(await byHook(dataHooks.thumbnailTitle))
+      ).getText(),
 
     /** Get thumbnail description */
-    getDescription: () => byHook('thumbnail-description').text(),
+    getDescription: () => byHook(dataHooks.thumbnailDescription).text(),
 
     /** Get selected icon */
-    getSelectedIcon: () => byHook('thumbnail-selected-icon'),
+    getSelectedIcon: () => byHook(dataHooks.thumbnailSelectedIcon),
 
-    getBackgroundImage: () => byHook('thumbnail-background-image'),
+    getBackgroundImage: () => byHook(dataHooks.thumbnailBackgroundImage),
 
     /** Is Thumbnail selected */
     isSelected: async () =>
@@ -31,7 +34,7 @@ export const thumbnailDriverFactory = base => {
       (await getThumbnailWrapper().attr('data-disabled')) === 'true',
 
     /** Get thumbnail image */
-    getImage: () => byHook('thumbnail-image'),
+    getImage: () => byHook(dataHooks.thumbnailImage),
 
     /** Get thumbnail width, if it's set through `width` prop */
     getWidth: async () => await getStyle(base, 'width'),
