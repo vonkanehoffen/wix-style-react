@@ -1,4 +1,4 @@
-export default {
+export const dataHooks = {
   CHECKBOX: 'list-item-select-checkbox',
   PREFIX: 'list-item-select-prefix',
   SUFFIX: 'list-item-select-suffix',

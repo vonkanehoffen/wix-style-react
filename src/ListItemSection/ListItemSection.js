@@ -6,7 +6,7 @@ import Box from '../Box';
 import Divider from '../Divider';
 import Text from '../Text';
 import TextButton from '../TextButton';
-import DATAHOOKS from './DataHooks';
+import { dataHooks } from './constants';
 
 export const TYPES = {
   WHITESPACE: 'whitespace',
@@ -104,11 +104,12 @@ class ListItemSection extends React.PureComponent {
       >
         {/* Text */}
         <Text
-          dataHook={DATAHOOKS.TITLE}
+          dataHook={dataHooks.TITLE}
           tagName="div"
           size="small"
           className={styles.title}
           ellipsis={ellipsis}
+          showDelay="300"
         >
           {title}
         </Text>
@@ -118,7 +119,7 @@ class ListItemSection extends React.PureComponent {
           <TextButton
             onClick={onClick}
             {...styles(styles.suffix, { ellipsis })}
-            dataHook={DATAHOOKS.SUFFIX}
+            dataHook={dataHooks.SUFFIX}
             size="tiny"
           >
             {suffix}
