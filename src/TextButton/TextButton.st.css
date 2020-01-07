@@ -1,0 +1,189 @@
+:import {
+  -st-from: 'wix-ui-core/dist/src/components/button-next/button-next.st.css';
+  -st-default: Button;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: P10, P20,  D80,B10, B20, D10, D20, F00, D10-30, D80-70;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/typography.st.css";
+  -st-named: weightThin, sizeMedium, sizeSmall, sizeTiny, weightNormal, weightBold;
+}
+
+.root {
+  -st-extends: Button;
+  -st-states: skin(string), underline(string), weight(string), size(string);
+  
+  color: value(B10);
+  white-space: nowrap;
+
+  background-color: transparent;
+  border-color: transparent;
+ 
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+
+  transition-duration: 100ms;
+  transition-timing-function: linear;
+  transition-property: background-color, color, border-color;
+
+  -st-mixin: weightThin, sizeMedium;
+
+  outline: none;
+  padding: 0;
+  height: 24px;
+
+  user-select: none;
+}
+
+.root:hover {
+  color: value(B20);
+}
+
+.root:active {
+  color: value(B20);
+}
+
+.root:disabled {
+  color: value(D10-30);
+}
+
+.root:focus-visible {
+  box-shadow: 0 0 0 3px value(F00);
+}
+
+/* Underline: onHover */
+
+.root:underline(onHover):hover,
+.root:underline(onHover):active {
+  text-decoration: underline;
+}
+
+.root:underline(onHover):disabled {
+  text-decoration: none;
+}
+
+/* Underline: always */
+
+.root:underline(always),
+.root:underline(always):hover,
+.root:underline(always):active,
+.root:underline(always):disabled {
+  text-decoration: underline;
+}
+
+/* skin: premium */
+
+.root:skin(premium) {
+  color:value(P10);
+}
+
+.root:skin(premium):hover {
+  color:value(P20);
+}
+
+.root:skin(premium):active {
+  color:value(P10);
+}
+
+.root:skin(premium):disabled {
+  color:value(D10-30);
+}
+
+/* Skin: light */
+
+.root:skin(light) {
+  color:value(D80);
+}
+
+.root:skin(light):hover {
+  color:value(D80);
+}
+
+.root:skin(light):active {
+  color:value(D80);
+}
+
+.root:skin(light):disabled {
+  color:value(D80-70);
+}
+
+/* skin: dark */
+
+.root:skin(dark) {
+  color:value(D10);
+}
+
+.root:skin(dark):hover {
+  color:value(D20);
+}
+
+.root:skin(dark):active {
+  color:value(D10);
+}
+
+.root:skin(dark):disabled {
+  color:value(D10-30);
+}
+
+/* weight */
+
+.root:weight(normal) {
+  -st-mixin: weightNormal;
+}
+
+/* size */
+
+.root:size(small) {
+  -st-mixin: sizeSmall;
+  height: 18px;
+}
+
+.root:size(tiny):weight(thin) {
+  -st-mixin: sizeTiny, weightNormal;
+  height: 18px;
+}
+.root:size(tiny):weight(normal) {
+  -st-mixin: sizeTiny, weightBold;
+  height: 18px;
+}
+
+/* affixes */
+
+.root::prefix {
+  padding-right: 6px;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.root::suffix {
+  padding-left: 6px;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.root:size(small)::prefix {
+  width: 18px;
+  height: 18px;
+}
+
+.root:size(small)::suffix {
+  width: 18px;
+  height: 18px;
+}
+
+.root:size(tiny)::prefix {
+  width: 18px;
+  height: 18px;
+}
+
+.root:size(tiny)::suffix {
+  width: 18px;
+  height: 18px;
+}
