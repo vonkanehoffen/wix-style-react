@@ -21,6 +21,7 @@ Types of changes:
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
 - `<FormField/>` - add new prop labelAlignment [#4814](https://github.com/wix/wix-style-react/pull/4814)
 - `<RichTextInputArea/`> - Expose plain text value with onChange event [#4820](https://github.com/wix/wix-style-react/pull/4820)
+- `<VariableInput/>` - add `onChange` prop [#4801](https://github.com/wix/wix-style-react/pull/4801)
 
 ### Changed
 
