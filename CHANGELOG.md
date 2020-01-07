@@ -28,6 +28,7 @@ Types of changes:
 
 - `<ImageViewer/>` - do not render img html at all when imageUrl prop is not defined [#4735](https://github.com/wix/wix-style-react/pull/4735)
 - `<Badge/>` - Added missing constants to TypeScript typings [#4807](https://github.com/wix/wix-style-react/pull/4807)
+- `<IconButton/>` - migrate stylesheet && update disabled styles &&  fix inverted color [#4806](https://github.com/wix/wix-style-react/pull/4806)
 
 ## 7.30.0 - 2019-01-06
 
