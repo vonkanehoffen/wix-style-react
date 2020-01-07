@@ -66,7 +66,7 @@
 }
 
 .root:appearance(H5):light {
-  color: value(D50);
+  color: value(D80);
 }
 
 .root:appearance(H6):light {
