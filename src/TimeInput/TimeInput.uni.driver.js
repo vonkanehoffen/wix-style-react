@@ -1,9 +1,11 @@
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { testkit } from '../Input/Input.uni.driver';
 import { tickerDriverFactory } from '../Input/Ticker/Ticker.uni.driver';
+import { dataHooks } from './constants';
 
 export const timeInputUniDriverFactory = base => {
-  const amPmIndicator = () => base.$('[data-hook="am-pm-indicator"]');
+  const amPmIndicator = () =>
+    base.$(`[data-hook="${dataHooks.amPmIndicator}"]`);
   const input = testkit(base);
   const inputTicker = tickerDriverFactory(base);
 
