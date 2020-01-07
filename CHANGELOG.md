@@ -34,6 +34,7 @@ Types of changes:
 - `<Badge/>` - Added missing constants to TypeScript typings [#4807](https://github.com/wix/wix-style-react/pull/4807)
 - `<IconButton/>` - migrate stylesheet && update disabled styles &&  fix inverted color [#4806](https://github.com/wix/wix-style-react/pull/4806)
 - `<SocialButton/>` - Horizontally align text to center [#4808](https://github.com/wix/wix-style-react/pull/4808)
+- `<MultiSelectCheckbox/>` - fix missing cursor style [#4821](https://github.com/wix/wix-style-react/pull/4821)
 
 ## 7.30.0 - 2019-01-06
 
