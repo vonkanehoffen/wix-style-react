@@ -23,6 +23,7 @@ Types of changes:
 ### Changed
 
 - `<Heading/>` - change text color to white for heading=H5, light [#4805](https://github.com/wix/wix-style-react/pull/4805)
+- `<SegmentedToggle/>` - change disabled icon and border color to have more contrast [4811](https://github.com/wix/wix-style-react/pull/4811)
 
 ### Fixed
 
