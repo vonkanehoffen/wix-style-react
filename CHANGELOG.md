@@ -28,6 +28,7 @@ Types of changes:
 - `<SegmentedToggle/>` - change disabled icon and border color to have more contrast [4811](https://github.com/wix/wix-style-react/pull/4811)
 - `<FloatingNotification/>` - change `minWidth` [#4809](https://github.com/wix/wix-style-react/pull/4809)
 - `<Tooltip/>` - change `textAlign` default value [#4813](https://github.com/wix/wix-style-react/pull/4813)
+- `<TextButton/>` - migrate styesheet && update disabled styling && fix transition issues [#4818](https://github.com/wix/wix-style-react/pull/4818)
 
 ### Fixed
 
