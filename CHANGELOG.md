@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
+- `<FormField/>` - add new prop labelAlignment [#4814](https://github.com/wix/wix-style-react/pull/4814)
 
 ### Changed
 
