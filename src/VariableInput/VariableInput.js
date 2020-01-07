@@ -17,6 +17,9 @@ class VariableInput extends React.PureComponent {
     dataHook: string,
     /** Initial value to display in the editor */
     initialValue: string,
+    /** Callback function for changes while typing.
+     * `onChange(value: String): void` */
+    onChange: func,
     /** Callback funciton when focusing out. Also, after calling `insertVariable()`
      * `onSubmit(value: String): void` */
     onSubmit: func,
@@ -64,7 +67,7 @@ class VariableInput extends React.PureComponent {
         <Editor
           ref="editor"
           editorState={this.state.editorState}
-          onChange={this._setEditorState}
+          onChange={this._onEditorChange}
           onBlur={() => setTimeout(this._onBlur, 0)}
         />
       </div>
@@ -106,20 +109,28 @@ class VariableInput extends React.PureComponent {
     });
     onSubmit(value);
   };
+  _onChange = () => {
+    const {
+      onChange = () => {},
+      variableTemplate: { prefix, suffix },
+    } = this.props;
+    const { editorState } = this.state;
+    onChange(
+      EditorUtilities.convertToString({
+        editorState,
+        prefix,
+        suffix,
+      }),
+    );
+  };
+  _onEditorChange = editorState => {
+    this._setEditorState(editorState, () => {
+      this._onChange();
+    });
+  };
   _setEditorState = (editorState, onStateChanged = () => {}) => {
     const updateEditorState = EditorUtilities.moveToEdge(editorState);
     this.setState({ editorState: updateEditorState }, () => {
-      const {
-        onChange = () => {},
-        variableTemplate: { prefix, suffix },
-      } = this.props;
-      onChange(
-        EditorUtilities.convertToString({
-          editorState: updateEditorState,
-          prefix,
-          suffix,
-        }),
-      );
       onStateChanged();
     });
   };

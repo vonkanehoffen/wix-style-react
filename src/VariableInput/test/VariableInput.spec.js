@@ -146,4 +146,16 @@ describe('VariableInput', () => {
       expect(callback).toHaveBeenCalledWith(text);
     });
   });
+
+  describe('onChange', () => {
+    it('should invoke `onChange` with variable while typing', async () => {
+      const callback = jest.fn();
+      const expectedHtmlValue = `{{${variableEntity.value}}} `;
+      const driver = createDriver(
+        <VariableInput onChange={callback} variableParser={variableParser} />,
+      );
+      await driver.enterText(expectedHtmlValue);
+      expect(callback).toHaveBeenCalledWith(expectedHtmlValue);
+    });
+  });
 });

@@ -5,6 +5,7 @@ export interface VariableInputProps {
   className?: string,
   dataHook?: string;
   initialValue: string,
+  onChange: (value:string) => void,
   onSubmit: (value:string) => void,
   variableParser: (value:string) => string|boolean,
   variableTemplate: {
