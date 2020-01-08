@@ -76,6 +76,32 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'With Status',
+    its: [
+      {
+        it: 'error',
+        props: {
+          mode: 'select',
+          status: 'error',
+        },
+      },
+      {
+        it: 'warning',
+        props: {
+          mode: 'select',
+          status: 'warning',
+        },
+      },
+      {
+        it: 'loading',
+        props: {
+          mode: 'select',
+          status: 'loading',
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {
