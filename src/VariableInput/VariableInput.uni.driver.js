@@ -3,11 +3,14 @@ import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
 
 export const getContent = base => base.$('.public-DraftEditor-content');
+export const getPlaceholder = base =>
+  base.$('.public-DraftEditorPlaceholder-root');
 
 export default (base, body) => {
   return {
     ...baseUniDriverFactory(base, body),
     getContent: () => getContent(base).text(),
+    getPlaceholder: () => getPlaceholder(base).text(),
     enterText: async text => {
       const contentElement = await getContent(base).getNative(); // eslint-disable-line no-restricted-properties
 

@@ -22,6 +22,12 @@ const tests = [
           initialValue: 'Welcome to my {{page.name}} ',
         },
       },
+      {
+        it: 'placeholder',
+        props: {
+          placeholder: 'This is a placeholder',
+        },
+      },
     ],
   },
 ];

@@ -92,6 +92,19 @@ export default {
             />`,
             }),
           ]),
+
+          columns([
+            description({
+              title: 'Placeholder',
+              text:
+                'Use the `placeholder` prop to show a message to the user when component is empty',
+            }),
+
+            code({
+              compact: true,
+              source: `<VariableInput placeholder="This is a placeholder" />`,
+            }),
+          ]),
         ],
       }),
 

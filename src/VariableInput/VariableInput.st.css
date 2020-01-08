@@ -1,7 +1,7 @@
 
 :import {
     -st-from: "../Foundation/stylable/colors.st.css";
-    -st-named: D80, B30, B10, F00, B50
+    -st-named: D80, B30, B10, F00, B50, D40
 }
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
@@ -17,6 +17,8 @@
 
 }
 .root :global(.public-DraftEditorPlaceholder-root) {
+  -st-mixin: sizeMedium, weightNormal;
+  color: value(D40);
   margin: 2px 0;
   position: absolute;
   pointer-events: none;

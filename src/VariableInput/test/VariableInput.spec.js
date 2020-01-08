@@ -146,7 +146,17 @@ describe('VariableInput', () => {
       expect(callback).toHaveBeenCalledWith(text);
     });
   });
+  describe('placeholder', () => {
+    it('should render a placeholder', async () => {
+      const placeholderText = 'Placeholder';
+      const driver = createDriver(
+        <VariableInput placeholder={placeholderText} />,
+      );
 
+      expect(await driver.getContent()).toBe('');
+      expect(await driver.getPlaceholder()).toBe(placeholderText);
+    });
+  });
   describe('onChange', () => {
     it('should invoke `onChange` with variable while typing', async () => {
       const callback = jest.fn();

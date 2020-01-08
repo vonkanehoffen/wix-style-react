@@ -23,6 +23,8 @@ class VariableInput extends React.PureComponent {
     /** Callback funciton when focusing out. Also, after calling `insertVariable()`
      * `onSubmit(value: String): void` */
     onSubmit: func,
+    /** Placeholder to display in the editor */
+    placeholder: string,
     /** Component will parse the variable keys, and convert them to tag bubble on blur and while using insertVariable.
      * For each key variableParser will be called and should return a proper text for that key or false in case the key is invalid.
      * `variableParser(key: String): String|boolean` */
@@ -61,13 +63,14 @@ class VariableInput extends React.PureComponent {
     });
   }
   render() {
-    const { dataHook } = this.props;
+    const { dataHook, placeholder } = this.props;
     return (
       <div data-hook={dataHook} {...styles('root', {}, this.props)}>
         <Editor
           ref="editor"
           editorState={this.state.editorState}
           onChange={this._onEditorChange}
+          placeholder={placeholder}
           onBlur={() => setTimeout(this._onBlur, 0)}
         />
       </div>

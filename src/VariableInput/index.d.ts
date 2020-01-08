@@ -7,6 +7,7 @@ export interface VariableInputProps {
   initialValue: string,
   onChange: (value:string) => void,
   onSubmit: (value:string) => void,
+  placeholder?: string,
   variableParser: (value:string) => string|boolean,
   variableTemplate: {
     prefix: string,
