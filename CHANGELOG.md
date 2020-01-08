@@ -35,6 +35,7 @@ Types of changes:
 - `<FloatingNotification/>` - change `minWidth` [#4809](https://github.com/wix/wix-style-react/pull/4809)
 - `<Tooltip/>` - change `textAlign` default value [#4813](https://github.com/wix/wix-style-react/pull/4813)
 - `<TextButton/>` - migrate styesheet && update disabled styling && fix transition issues [#4818](https://github.com/wix/wix-style-react/pull/4818)
+- `<CloseButton/>` - migrate stylesheet && update disabled styling [#4834](https://github.com/wix/wix-style-react/pull/4834)
 
 ### Fixed
 
