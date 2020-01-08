@@ -29,6 +29,7 @@ Types of changes:
 - `<MultiSelect/>` - Add status and statusMessage props [#4828](https://github.com/wix/wix-style-react/pull/4828)
 - `<TextButton/>` - add destructive skin [#4836](https://github.com/wix/wix-style-react/pull/4836)
 - `<VariableInput/>` - add `rows` & `size` props [#4825](https://github.com/wix/wix-style-react/pull/4825)
+- `<Calendar/>` - introduce isDayActive testkit method [#4839](https://github.com/wix/wix-style-react/pull/4839)
 
 ### Changed
 
