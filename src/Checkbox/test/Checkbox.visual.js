@@ -4,7 +4,7 @@ import Checkbox from '../Checkbox';
 import FormField from 'wix-style-react/FormField';
 
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import { checkboxUniDriverFactory } from '../Checkbox.uni.driver';
+import { checkboxUniDriverFactory } from './Checkbox.private.uni.driver';
 import Box from '../../Box';
 
 const dataHook = 'storybook-checkbox';
@@ -139,20 +139,19 @@ const tests = [
 ];
 
 const interactiveTests = [
-  /* issue with error tooltip test: https://github.com/wix/wix-style-react/issues/3647 */
-  // {
-  //   describe: 'tooltip',
-  //   its: [
-  //     {
-  //       it: 'displayed on checkbox hover when error exists',
-  //       props: { hasError: true, errorMessage: 'error' },
-  //       componentDidMount: async () => {
-  //         const driver = createDriver();
-  //         await driver.getErrorMessage();
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    describe: 'tooltip',
+    its: [
+      {
+        it: 'displayed on checkbox hover when error exists',
+        props: { hasError: true, errorMessage: 'error' },
+        componentDidMount: async () => {
+          const driver = createDriver();
+          await driver.hoverInput();
+        },
+      },
+    ],
+  },
   {
     describe: 'focus',
     its: [

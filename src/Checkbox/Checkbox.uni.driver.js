@@ -12,9 +12,9 @@ export const checkboxUniDriverFactory = (base, body) => {
   const input = () => base.$('input');
   const isChecked = async () =>
     (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.CHECKED;
-  const labelDriver = async () =>
+  const getLabelDriver = async () =>
     labelUniDriverFactory(base.$('[data-hook="checkbox-label"]'));
-  const tooltipDriver = async () =>
+  const getTooltipDriver = async () =>
     tooltipDriverFactory(base.$('[data-hook="checkbox-box"]'), body);
 
   return {
@@ -45,12 +45,12 @@ export const checkboxUniDriverFactory = (base, body) => {
       (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.INDETERMINATE,
     hasError: async () =>
       (await base.attr(DATA_ATTR.DATA_HAS_ERROR)) === 'true',
-    getLabel: async () => (await labelDriver()).getLabelText(),
-    getLabelDriver: () => labelDriver(),
+    getLabel: async () => (await getLabelDriver()).getLabelText(),
+    getLabelDriver,
     getErrorMessage: async () => {
       try {
-        const newVar = await tooltipDriver();
-        return newVar.getTooltipText();
+        const tooltipDriver = await getTooltipDriver();
+        return tooltipDriver.getTooltipText();
       } catch (e) {
         throw new Error('Failed getting checkbox error message');
       }
