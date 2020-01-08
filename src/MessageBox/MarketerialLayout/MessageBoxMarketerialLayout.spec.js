@@ -13,7 +13,6 @@ import { mount } from 'enzyme';
 
 import { createRendererWithDriver, cleanup } from '../../../test/utils/react';
 import { createRendererWithUniDriver } from '../../../test/utils/unit';
-import styles from '../../Button/Button.st.css';
 
 describe('MessageBoxMarketerialLayout', () => {
   describe('[sync]', () => {
@@ -136,9 +135,7 @@ describe('MessageBoxMarketerialLayout', () => {
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
 
-        expect(
-          await driver.isClassPresentInHeaderCloseButton(styles.dark),
-        ).toBe(true);
+        expect(await driver.closeButtonHasSkin('dark')).toBeTruthy();
       });
     });
 
