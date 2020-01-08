@@ -26,6 +26,7 @@ Types of changes:
 - `<ListItemSelect/>`, `<ListItemSection/>` - added show tooltip delay of 300ms [#4816](https://github.com/wix/wix-style-react/pull/4816)
 - `<VariableInput/>` - add `placeholder` prop [#4802](https://github.com/wix/wix-style-react/pull/4802)
 - `<VariableInput/>` - add `disabled` prop [#4800](https://github.com/wix/wix-style-react/pull/4800)
+- `<MultiSelect/>` - Add status and statusMessage props [#4828](https://github.com/wix/wix-style-react/pull/4828)
 
 ### Changed
 
