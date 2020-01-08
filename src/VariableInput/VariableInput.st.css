@@ -1,7 +1,7 @@
 
 :import {
     -st-from: "../Foundation/stylable/colors.st.css";
-    -st-named: D80, B30, B10, F00, B50, D40
+    -st-named: D80, B30, B10, F00, B50, D40, D10-30, D60
 }
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
@@ -9,6 +9,7 @@
 }
 
 .root {
+  -st-states: disabled;
   position: relative;
   text-align: left;
   min-height: 36px;
@@ -44,6 +45,19 @@
   cursor: text;
   border-color: value(B10);
   box-shadow: 0 0 0 3px value(F00);
+}
+
+.root:disabled :global(.public-DraftEditorPlaceholder-root) {
+  color: value(D10-30);
+}
+
+.root:disabled :global(.public-DraftEditor-content) {
+    color: value(D10-30);;
+    border-color: value(D60);
+}
+.root:disabled :global(.public-DraftEditor-content):hover {
+  background-color: value(D80);
+  cursor: default;
 }
 .tagWrapper {
   padding-left: 2px;

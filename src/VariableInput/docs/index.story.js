@@ -92,17 +92,31 @@ export default {
             />`,
             }),
           ]),
-
           columns([
             description({
               title: 'Placeholder',
               text:
                 'Use the `placeholder` prop to show a message to the user when component is empty',
             }),
-
             code({
               compact: true,
               source: `<VariableInput placeholder="This is a placeholder" />`,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Disabled',
+              text: 'Use `disabled` attribute to disable the component',
+            }),
+            code({
+              compact: true,
+              source: `<VariableInput
+              disabled
+              initialValue="Example {{page.name}}"
+              variableParser={value => {
+                return value === 'page.name' ? 'Page name' : false;
+              }}
+            />`,
             }),
           ]),
         ],

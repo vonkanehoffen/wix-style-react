@@ -187,7 +187,8 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
               id={`variableinput-tag-${entityKey}`}
               className={styles.tagEntity}
               removable={false}
-              theme={disabled ? 'neutral' : 'dark'}
+              disabled={disabled}
+              theme={!disabled && 'dark'}
             >
               {text}
             </Tag>

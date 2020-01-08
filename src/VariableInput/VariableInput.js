@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func, shape } from 'prop-types';
+import { string, func, shape, bool } from 'prop-types';
 import { Editor, EditorState } from 'draft-js';
 
 import EditorUtilities from './EditorUtilities';
@@ -15,6 +15,8 @@ class VariableInput extends React.PureComponent {
     className: string,
     /** Applied as data-hook HTML attribute that can be used in the tests */
     dataHook: string,
+    /** When set to true this component is disabled */
+    disabled: bool,
     /** Initial value to display in the editor */
     initialValue: string,
     /** Callback function for changes while typing.
@@ -63,15 +65,16 @@ class VariableInput extends React.PureComponent {
     });
   }
   render() {
-    const { dataHook, placeholder } = this.props;
+    const { dataHook, disabled, placeholder } = this.props;
     return (
-      <div data-hook={dataHook} {...styles('root', {}, this.props)}>
+      <div data-hook={dataHook} {...styles('root', { disabled }, this.props)}>
         <Editor
           ref="editor"
           editorState={this.state.editorState}
           onChange={this._onEditorChange}
           placeholder={placeholder}
           onBlur={() => setTimeout(this._onBlur, 0)}
+          readOnly={disabled}
         />
       </div>
     );

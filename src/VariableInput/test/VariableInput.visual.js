@@ -23,6 +23,13 @@ const tests = [
         },
       },
       {
+        it: 'Disabled',
+        props: {
+          initialValue: 'Welcome to my {{page.name}} ',
+          disabled: true,
+        },
+      },
+      {
         it: 'placeholder',
         props: {
           placeholder: 'This is a placeholder',

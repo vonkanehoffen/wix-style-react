@@ -4,12 +4,13 @@ import * as React from 'react';
 export interface VariableInputProps {
   className?: string,
   dataHook?: string;
-  initialValue: string,
+  disabled?: boolean,
+  initialValue?: string,
   onChange: (value:string) => void,
-  onSubmit: (value:string) => void,
+  onSubmit?: (value:string) => void,
   placeholder?: string,
-  variableParser: (value:string) => string|boolean,
-  variableTemplate: {
+  variableParser?: (value:string) => string|boolean,
+  variableTemplate?: {
     prefix: string,
     suffix: string,
   },

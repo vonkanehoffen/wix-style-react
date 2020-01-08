@@ -146,13 +146,19 @@ describe('VariableInput', () => {
       expect(callback).toHaveBeenCalledWith(text);
     });
   });
+
+  describe('disabled', () => {
+    it('should disable component when passing `disabled` prop', async () => {
+      const driver = createDriver(<VariableInput disabled />);
+      expect(await driver.isDisabled()).toBe(true);
+    });
+  });
   describe('placeholder', () => {
     it('should render a placeholder', async () => {
       const placeholderText = 'Placeholder';
       const driver = createDriver(
         <VariableInput placeholder={placeholderText} />,
       );
-
       expect(await driver.getContent()).toBe('');
       expect(await driver.getPlaceholder()).toBe(placeholderText);
     });
