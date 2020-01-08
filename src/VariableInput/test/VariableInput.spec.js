@@ -1,10 +1,11 @@
 import React from 'react';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
-import publicDriverFactory from '../VariableInput.uni.driver';
+import privateDriverFactory from './VariableInput.private.uni.driver';
 import VariableInput from '../VariableInput';
+import { sizeTypes } from '../constants';
 
 describe('VariableInput', () => {
-  const createDriver = createUniDriverFactory(publicDriverFactory);
+  const createDriver = createUniDriverFactory(privateDriverFactory);
   const variableEntity = {
     text: 'Page name',
     value: 'page.name',
@@ -146,7 +147,41 @@ describe('VariableInput', () => {
       expect(callback).toHaveBeenCalledWith(text);
     });
   });
-
+  describe('size', () => {
+    it('should render a tag in small size', async () => {
+      const text = `Some text {{${variableEntity.value}}} `;
+      const driver = createDriver(
+        <VariableInput
+          initialValue={text}
+          size={sizeTypes.small}
+          variableParser={variableParser}
+        />,
+      );
+      expect(driver.isTagTiny()).toBeTruthy();
+    });
+    it('should render a tag in medium size', async () => {
+      const text = `Some text {{${variableEntity.value}}} `;
+      const driver = createDriver(
+        <VariableInput
+          initialValue={text}
+          size={sizeTypes.medium}
+          variableParser={variableParser}
+        />,
+      );
+      expect(driver.isTagSmall()).toBeTruthy();
+    });
+    it('should render a tag in large size', async () => {
+      const text = `Some text {{${variableEntity.value}}} `;
+      const driver = createDriver(
+        <VariableInput
+          initialValue={text}
+          size={sizeTypes.large}
+          variableParser={variableParser}
+        />,
+      );
+      expect(driver.isTagMedium()).toBeTruthy();
+    });
+  });
   describe('disabled', () => {
     it('should disable component when passing `disabled` prop', async () => {
       const driver = createDriver(<VariableInput disabled />);

@@ -4,6 +4,7 @@ export const sizeTypes = {
   large: 'large',
 };
 export const dataHooks = {
+  tag: 'variableinput-tag',
   error: 'variableinput-error-indicator',
   warning: 'variableinput-warning-indicator',
 };

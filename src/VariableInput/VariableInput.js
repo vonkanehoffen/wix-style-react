@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func, shape, bool } from 'prop-types';
+import { string, func, shape, number, oneOf, bool } from 'prop-types';
 import { Editor, EditorState } from 'draft-js';
 
 import EditorUtilities from './EditorUtilities';
@@ -27,6 +27,10 @@ class VariableInput extends React.PureComponent {
     onSubmit: func,
     /** Placeholder to display in the editor */
     placeholder: string,
+    /** Set height of component that fits the given number of rows */
+    rows: number,
+    /** Specifies the size of the input and variables*/
+    size: oneOf(['small', 'medium', 'large']),
     /** Component will parse the variable keys, and convert them to tag bubble on blur and while using insertVariable.
      * For each key variableParser will be called and should return a proper text for that key or false in case the key is invalid.
      * `variableParser(key: String): String|boolean` */
@@ -39,6 +43,7 @@ class VariableInput extends React.PureComponent {
   };
   static defaultProps = {
     initialValue: '',
+    rows: 1,
     size: sizeTypes.medium,
     variableParser: () => {},
     variableTemplate: {
@@ -65,9 +70,13 @@ class VariableInput extends React.PureComponent {
     });
   }
   render() {
-    const { dataHook, disabled, placeholder } = this.props;
+    const { dataHook, rows, size, disabled, placeholder } = this.props;
     return (
-      <div data-hook={dataHook} {...styles('root', { disabled }, this.props)}>
+      <div
+        data-hook={dataHook}
+        {...styles('root', { size, disabled }, this.props)}
+        style={{ '--rows': rows }}
+      >
         <Editor
           ref="editor"
           editorState={this.state.editorState}

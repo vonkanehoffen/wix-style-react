@@ -16,7 +16,7 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
+import * as examples from './examples';
 import VariableInput from '..';
 
 const code = config => baseCode({ components: allComponents, ...config });
@@ -45,7 +45,7 @@ export default {
         'https://github.com/wix/wix-style-react/tree/master/src/VariableInput/',
       component: (
         <VariableInput
-          initialValue="Example {{page.name}}"
+          initialValue="VariableInput will render known variables as {{page.name}} tags"
           variableParser={value => {
             return value === 'page.name' ? 'Page name' : false;
           }}
@@ -84,12 +84,30 @@ export default {
 
             code({
               compact: true,
-              source: `<VariableInput
-              initialValue="Example {{page.name}}"
-              variableParser={value => {
-                return value === 'page.name' ? 'Page name' : false;
-              }}
-            />`,
+              source: examples.simple,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Size',
+              text:
+                'Use the `size` prop to select between small, medium and large sizes',
+            }),
+
+            code({
+              compact: true,
+              source: examples.size,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Rows',
+              text:
+                'Use the `rows` prop to set the component height based on number of rows',
+            }),
+            code({
+              compact: true,
+              source: examples.rows,
             }),
           ]),
           columns([
@@ -100,7 +118,7 @@ export default {
             }),
             code({
               compact: true,
-              source: `<VariableInput placeholder="This is a placeholder" />`,
+              source: examples.placeholder,
             }),
           ]),
           columns([
@@ -110,13 +128,7 @@ export default {
             }),
             code({
               compact: true,
-              source: `<VariableInput
-              disabled
-              initialValue="Example {{page.name}}"
-              variableParser={value => {
-                return value === 'page.name' ? 'Page name' : false;
-              }}
-            />`,
+              source: examples.disabled,
             }),
           ]),
         ],

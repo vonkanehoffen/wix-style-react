@@ -5,17 +5,34 @@
 }
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
-  -st-named: sizeMedium, weightNormal;
+  -st-named: sizeSmall, sizeMedium, weightNormal;
 }
-
+:import {
+  -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
+  -st-named: defaultScrollBar;
+}
 .root {
-  -st-states: disabled;
+  -st-states: disabled, size(enum(small, medium, large));
+  --rows: 1;
+  --rowHeight: 24px;
+  --top: 3px;
   position: relative;
   text-align: left;
-  min-height: 36px;
   background-color: value(D80);
   border-radius: 6px;
-
+  width: 100%;
+}
+.root:size(small) {
+  --rowHeight: 18px;
+  --top: 3px;
+}
+.root:size(medium) {
+  --rowHeight: 24px;
+  --top: 4px;
+}
+.root:size(large) {
+  --rowHeight: 30px;
+  --top: 4px;
 }
 .root :global(.public-DraftEditorPlaceholder-root) {
   -st-mixin: sizeMedium, weightNormal;
@@ -23,14 +40,14 @@
   margin: 2px 0;
   position: absolute;
   pointer-events: none;
-  top: 4px;
+  top: var(--top);
   left: 10px;
 }
 .root :global(.public-DraftEditor-content) {
-  -st-mixin: sizeMedium, weightNormal;
+  -st-mixin: defaultScrollBar; /* TODO: hide will not hovering  */
   background-color: value(D80);;
-  min-height: 36px;
-  padding: 2px 7px;
+  height: calc(var(--rows) * var(--rowHeight) + 12px);
+  padding: var(--top) 7px;
   border: 1px solid value(B30);
   border-radius: 6px;
   overflow: auto;
@@ -46,11 +63,9 @@
   border-color: value(B10);
   box-shadow: 0 0 0 3px value(F00);
 }
-
 .root:disabled :global(.public-DraftEditorPlaceholder-root) {
   color: value(D10-30);
 }
-
 .root:disabled :global(.public-DraftEditor-content) {
     color: value(D10-30);;
     border-color: value(D60);
@@ -59,22 +74,19 @@
   background-color: value(D80);
   cursor: default;
 }
-.tagWrapper {
+.root .tagWrapper {
   padding-left: 2px;
   padding-right: 2px;
-  vertical-align: baseline;
-  margin: 2px 0;
+  vertical-align: middle;
 }
-.tagEntity {
-  display: inline-block;
-  font-size: initial;
-  line-height: initial;
-  font-weight: initial;
-}
-.textWrapper {
+.root .textWrapper {
   -st-mixin: sizeMedium, weightNormal;
-  display: inline-block;
-  line-height: 24px;
-  vertical-align: baseline;
-  margin: 2px 0;
+  display: inline;
+  vertical-align: middle;
+}
+.root:size(large) .textWrapper {
+  line-height: 30px;
+}
+.root:size(small) .textWrapper {
+  -st-mixin: sizeSmall;
 }

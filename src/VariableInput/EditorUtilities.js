@@ -9,7 +9,7 @@ import {
   Modifier,
 } from 'draft-js';
 import Tag from '../Tag';
-import { entityTypes } from './constants';
+import { entityTypes, dataHooks } from './constants';
 import styles from './VariableInput.st.css';
 
 /** Insert new entity in current cursor position, with the given text and value */
@@ -185,8 +185,10 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
             <span className={styles.textWrapper}> </span>
             <Tag
               id={`variableinput-tag-${entityKey}`}
+              dataHook={dataHooks.tag}
               className={styles.tagEntity}
               removable={false}
+              size={size}
               disabled={disabled}
               theme={!disabled && 'dark'}
             >
