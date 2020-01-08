@@ -27,6 +27,7 @@ Types of changes:
 - `<VariableInput/>` - add `placeholder` prop [#4802](https://github.com/wix/wix-style-react/pull/4802)
 - `<VariableInput/>` - add `disabled` prop [#4800](https://github.com/wix/wix-style-react/pull/4800)
 - `<MultiSelect/>` - Add status and statusMessage props [#4828](https://github.com/wix/wix-style-react/pull/4828)
+- `<TextButton/>` - add destructive skin [#4836](https://github.com/wix/wix-style-react/pull/4836)
 
 ### Changed
 
