@@ -3,6 +3,7 @@ export const SKINS = {
   premium: 'premium',
   dark: 'dark',
   light: 'light',
+  destructive: 'destructive',
 };
 
 export const SIZES = {

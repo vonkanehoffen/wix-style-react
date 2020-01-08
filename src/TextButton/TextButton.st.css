@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: P10, P20,  D80,B10, B20, D10, D20, F00, D10-30, D80-70;
+  -st-named: P10, P20,  D80,B10, B20, D10, D20, F00, D10-30, D80-70, R10, R20;
 }
 
 :import {
@@ -91,6 +91,24 @@
 }
 
 .root:skin(premium):disabled {
+  color:value(D10-30);
+}
+
+/* skin: premium */
+
+.root:skin(destructive) {
+  color:value(R10);
+}
+
+.root:skin(destructive):hover {
+  color:value(R20);
+}
+
+.root:skin(destructive):active {
+  color:value(R10);
+}
+
+.root:skin(destructive):disabled {
   color:value(D10-30);
 }
 
