@@ -28,7 +28,7 @@ const files = [
   ['CounterBadge.bundle.min.js', 8],
   ['DataTable.bundle.min.js', 57],
   ['DateInput.bundle.min.js', 75],
-  ['DatePicker.bundle.min.js', 94],
+  ['DatePicker.bundle.min.js', 96],
   ['Divider.bundle.min.js', 4],
   ['Dropdown.bundle.min.js', 78],
   ['DropdownBase.bundle.min.js', 50],

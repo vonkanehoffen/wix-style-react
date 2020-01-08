@@ -3,6 +3,7 @@ import Registry from '@ui-autotools/registry';
 
 const metadata = Registry.getComponentMetadata(Stepper);
 metadata.nonReactStrictModeCompliant = true;
+metadata.nonHydrationTestCompliant = true;
 
 metadata.exportedFrom({
   path: 'src/Stepper/Stepper.js',
