@@ -23,6 +23,7 @@ Types of changes:
 - `<RichTextInputArea/`> - Expose plain text value with onChange event [#4820](https://github.com/wix/wix-style-react/pull/4820)
 - `<VariableInput/>` - add `onChange` prop [#4801](https://github.com/wix/wix-style-react/pull/4801)
 - `<ListItemSelect/>`, `<ListItemSection/>` - added show tooltip delay of 300ms [#4816](https://github.com/wix/wix-style-react/pull/4816)
+- `<VariableInput/>` - add `placeholder` prop [#4802](https://github.com/wix/wix-style-react/pull/4802)
 
 ### Changed
 
