@@ -49,6 +49,7 @@ Types of changes:
 - `<ColorPicker/>` - Fix color tooltip was not centered [#4812](https://github.com/wix/wix-style-react/pull/4812)
 - `<ColorPicker/>` - Fix Transparent color swatch [#4815](https://github.com/wix/wix-style-react/pull/4815)
 - `<AddItem/>` - Remove tooltip when it's empty [#4822](https://github.com/wix/wix-style-react/pull/4822)
+- `<InputArea/>` - Use default scrollbar [#4827](https://github.com/wix/wix-style-react/pull/4827)
 
 ### Labs
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
