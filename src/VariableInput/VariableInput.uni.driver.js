@@ -1,9 +1,7 @@
-
 import { errorIndicatorDriverFactory } from '../ErrorIndicator/ErrorIndicator.uni.driver';
 import { warningIndicatorDriverFactory } from '../WarningIndicator/WarningIndicator.uni.driver';
 import { dataHooks } from './constants';
-import { Simulate } from 'react-dom/test-utils';
-import { baseUniDriverFactory } from '../../test/utils/unidriver';
+import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 
 export const getContent = base => base.$('.public-DraftEditor-content');
 export const getPlaceholder = base =>
@@ -27,8 +25,7 @@ export default (base, body) => {
 
       // TODO: implement for puppeteer. Throw error if type is not handled
       if (base.type === 'react') {
-        // TODO: replace with ReactBase(getContent(base)).beforeInput({ data: text });
-        Simulate.beforeInput(contentElement, { data: text });
+        return ReactBase(getContent(base)).beforeInput({ data: text });
       } else if (base.type === 'protractor') {
         contentElement.sendKeys(text);
       }
