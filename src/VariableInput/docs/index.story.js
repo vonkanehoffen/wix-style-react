@@ -112,6 +112,17 @@ export default {
           ]),
           columns([
             description({
+              title: 'Status',
+              text:
+                'Add an status (error/warning) indication with possible tooltip',
+            }),
+            code({
+              compact: true,
+              source: examples.status,
+            }),
+          ]),
+          columns([
+            description({
               title: 'Placeholder',
               text:
                 'Use the `placeholder` prop to show a message to the user when component is empty',

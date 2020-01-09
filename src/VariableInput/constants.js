@@ -16,3 +16,7 @@ export const inputToTagsSize = {
 export const entityTypes = {
   variable: 'VARIABLE',
 };
+export const statusTypes = {
+  error: 'error',
+  warning: 'warning',
+};

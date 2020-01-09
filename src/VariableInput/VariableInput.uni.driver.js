@@ -1,4 +1,7 @@
-// import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
+
+import { errorIndicatorDriverFactory } from '../ErrorIndicator/ErrorIndicator.uni.driver';
+import { warningIndicatorDriverFactory } from '../WarningIndicator/WarningIndicator.uni.driver';
+import { dataHooks } from './constants';
 import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
 
@@ -6,6 +9,12 @@ export const getContent = base => base.$('.public-DraftEditor-content');
 export const getPlaceholder = base =>
   base.$('.public-DraftEditorPlaceholder-root');
 
+const getErrorIndicator = base => base.$(`[data-hook=${dataHooks.error}]`);
+const errorIndicatorDriver = (base, body) =>
+  errorIndicatorDriverFactory(getErrorIndicator(base), body);
+const getWarningIndicator = base => base.$(`[data-hook=${dataHooks.warning}]`);
+const warningIndicatorDriver = (base, body) =>
+  warningIndicatorDriverFactory(getWarningIndicator(base), body);
 export default (base, body) => {
   return {
     ...baseUniDriverFactory(base, body),
@@ -24,5 +33,10 @@ export default (base, body) => {
         contentElement.sendKeys(text);
       }
     },
+    hasError: async () => await getErrorIndicator(base).exists(),
+    getErrorMessage: () => errorIndicatorDriver(base, body).getErrorMessage(),
+    hasWarning: async () => await getWarningIndicator(base).exists(),
+    getWarningMessage: () =>
+      warningIndicatorDriver(base, body).getWarningMessage(),
   };
 };

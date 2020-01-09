@@ -1,5 +1,7 @@
 import React from 'react';
 import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
+import { createRendererWithUniDriver } from '../../../test/utils/react';
+import publicDriverFactory from '../VariableInput.uni.driver';
 import privateDriverFactory from './VariableInput.private.uni.driver';
 import VariableInput from '../VariableInput';
 import { sizeTypes } from '../constants';
@@ -147,6 +149,40 @@ describe('VariableInput', () => {
       expect(callback).toHaveBeenCalledWith(text);
     });
   });
+  describe('Error', () => {
+    it('should render the error indicator', async () => {
+      const driver = createDriver(<VariableInput status="error" />);
+      expect(await driver.hasError()).toBe(true);
+    });
+
+    it('should render a tooltip with the error message', async () => {
+      const errorMessage = 'Some error';
+      const render = createRendererWithUniDriver(publicDriverFactory);
+      const { driver } = render(
+        <VariableInput status="error" statusMessage={errorMessage} />,
+      );
+
+      expect(await driver.hasError()).toBe(true);
+      expect(await driver.getErrorMessage()).toEqual(errorMessage);
+    });
+  });
+  describe('Warning', () => {
+    it('should render the warning indicator', async () => {
+      const driver = createDriver(<VariableInput status="warning" />);
+      expect(await driver.hasWarning()).toBe(true);
+    });
+
+    it('should render a tooltip with the error message', async () => {
+      const warningMessage = 'Some warning';
+      const render = createRendererWithUniDriver(publicDriverFactory);
+      const { driver } = render(
+        <VariableInput status="warning" statusMessage={warningMessage} />,
+      );
+
+      expect(await driver.hasWarning()).toBe(true);
+      expect(await driver.getWarningMessage()).toEqual(warningMessage);
+     });
+   });
   describe('size', () => {
     it('should render a tag in small size', async () => {
       const text = `Some text {{${variableEntity.value}}} `;

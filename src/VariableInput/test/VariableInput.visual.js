@@ -25,6 +25,20 @@ const tests = [
         },
       },
       {
+        it: 'Error indication',
+        props: {
+          initialValue: 'Welcome to my {{page.name}} ',
+          status: 'error',
+        },
+      },
+      {
+        it: 'Warning indication',
+        props: {
+          initialValue: 'Welcome to my {{page.name}} ',
+          status: 'warning',
+        }
+      },
+      {
         it: '3 Row',
         props: {
           initialValue: 'Welcome to my {{page.name}} ',

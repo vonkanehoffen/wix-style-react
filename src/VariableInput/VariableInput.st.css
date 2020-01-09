@@ -1,7 +1,7 @@
 
 :import {
     -st-from: "../Foundation/stylable/colors.st.css";
-    -st-named: D80, B30, B10, F00, B50, D40, D10-30, D60
+    -st-named: D80, B30, B10, F00, B50, R10, D40, R30, D10-30, D60
 }
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
@@ -12,7 +12,7 @@
   -st-named: defaultScrollBar;
 }
 .root {
-  -st-states: disabled, size(enum(small, medium, large));
+  -st-states: disabled, status(enum(error, warning)), size(enum(small, medium, large));
   --rows: 1;
   --rowHeight: 24px;
   --top: 3px;
@@ -89,4 +89,17 @@
 }
 .root:size(small) .textWrapper {
   -st-mixin: sizeSmall;
+}
+
+.root:status(error) :global(.public-DraftEditor-content) {
+    border-color: value(R10);
+}
+.root:status(error) :global(.public-DraftEditor-content):focus {
+    border-color: value(R10);
+    box-shadow: 0 0 0 3px value(R30);
+}
+.root .indicatorWrapper {
+  position: absolute;
+  top: 3px;
+  right: 5px;
 }

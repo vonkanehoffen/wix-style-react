@@ -190,7 +190,7 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
               removable={false}
               size={size}
               disabled={disabled}
-              theme={!disabled && 'dark'}
+              {...(!disabled && { theme: 'dark' })}
             >
               {text}
             </Tag>

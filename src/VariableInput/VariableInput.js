@@ -1,9 +1,16 @@
 import React from 'react';
-import { string, func, shape, number, oneOf, bool } from 'prop-types';
+import { string, func, shape, oneOf, node, bool, number } from 'prop-types';
 import { Editor, EditorState } from 'draft-js';
 
 import EditorUtilities from './EditorUtilities';
-import { sizeTypes, inputToTagsSize } from './constants';
+import {
+  sizeTypes,
+  inputToTagsSize,
+  statusTypes,
+  dataHooks,
+} from './constants';
+import ErrorIndicator from '../ErrorIndicator';
+import WarningIndicator from '../WarningIndicator';
 import styles from './VariableInput.st.css';
 
 /** Input with variables as tags */
@@ -25,6 +32,10 @@ class VariableInput extends React.PureComponent {
     /** Callback funciton when focusing out. Also, after calling `insertVariable()`
      * `onSubmit(value: String): void` */
     onSubmit: func,
+    /** Use to display a status indication for the user.*/
+    status: oneOf(['error', 'warning']),
+    /** The status (error/warning) message to display when hovering the status icon, if not given or empty there will be no tooltip*/
+    statusMessage: node,
     /** Placeholder to display in the editor */
     placeholder: string,
     /** Set height of component that fits the given number of rows */
@@ -45,6 +56,7 @@ class VariableInput extends React.PureComponent {
     initialValue: '',
     rows: 1,
     size: sizeTypes.medium,
+    statusMessage: '',
     variableParser: () => {},
     variableTemplate: {
       prefix: '{{',
@@ -69,12 +81,36 @@ class VariableInput extends React.PureComponent {
       });
     });
   }
+  _renderIndicator = (status, statusMessage) => {
+    switch (status) {
+      case statusTypes.error:
+        return (
+          <span className={styles.indicatorWrapper}>
+            <ErrorIndicator
+              dataHook={dataHooks.error}
+              errorMessage={statusMessage}
+            />
+          </span>
+        );
+      case statusTypes.warning:
+        return (
+          <span className={styles.indicatorWrapper}>
+            <WarningIndicator
+              dataHook={dataHooks.warning}
+              warningMessage={statusMessage}
+            />
+          </span>
+        );
+      default:
+        return;
+    }
+  };
   render() {
-    const { dataHook, rows, size, disabled, placeholder } = this.props;
+    const { dataHook, rows, size, disabled, placeholder, status, statusMessage } = this.props;
     return (
-      <div
-        data-hook={dataHook}
-        {...styles('root', { size, disabled }, this.props)}
+      <div 
+        data-hook={dataHook} 
+        {...styles('root', { disabled, size, status }, this.props)} 
         style={{ '--rows': rows }}
       >
         <Editor
@@ -85,6 +121,7 @@ class VariableInput extends React.PureComponent {
           onBlur={() => setTimeout(this._onBlur, 0)}
           readOnly={disabled}
         />
+        {this._renderIndicator(status, statusMessage)}
       </div>
     );
   }
