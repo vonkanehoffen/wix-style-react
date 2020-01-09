@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import ColorInput from '../ColorInput';
-import { Layout, Cell } from '../../Layout';
+import { Layout } from '../../Layout';
 
 const TestContainer = ({ children }) => (
   <div
