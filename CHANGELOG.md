@@ -36,7 +36,7 @@ Types of changes:
 - `<CloseButton/>` - migrate stylesheet && update disabled styling [#4834](https://github.com/wix/wix-style-react/pull/4834)
 - `<Button/>` - migrate Button stylesheet && update disabled styling && add new premium-light skin [#4833](https://github.com/wix/wix-style-react/pull/4833)
 - `<Slider/>` - make marks occupy space [#4837](https://github.com/wix/wix-style-react/pull/4837)
-- `<InputArea/>` - change InputArea background from transparent to white
+- `<InputArea/>` - change InputArea background from transparent to white [#4843](https://github.com/wix/wix-style-react/pull/4843)
 
 ### Fixed
 
