@@ -3,6 +3,11 @@
   -st-named: G30, R30, D10, D80;
 }
 
+:import{
+  -st-from: "../Tooltip/TooltipNext/Tooltip.st.css";
+  -st-default: Tooltip;
+}
+
 :vars {
   headerHeight: 66px;
   titleWidth: 20%;
@@ -83,4 +88,20 @@
 .root:hasRight .navigationButton.right-arrow{
   display: block;
   right: 36px;
+}
+
+.modalTooltip {
+  -st-extends: Tooltip;
+}
+
+.modalTooltip::popoverContent{
+  background: value(D80);
+}
+
+.modalTooltip::popover::arrow{
+  border-color: transparent value(D80) value(D80) transparent;
+}
+
+.modalTooltip::popover[data-placement]::arrow {
+  border-color: transparent value(D80) value(D80) transparent;
 }

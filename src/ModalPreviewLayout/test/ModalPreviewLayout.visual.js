@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react';
 import Box from '../../Box';
 import Button from '../../Button';
 import IconButton from '../../IconButton';
@@ -10,6 +9,7 @@ import ModalPreviewLayout from '..';
 import Modal from '../../Modal';
 import { modalPreviewLayoutPrivateDriverFactory } from './ModalPreviewLayout.private.uni.driver';
 import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
+import { snap, visualize, story } from 'storybook-snapper';
 
 const dataHook = 'storybook-modal-preview-layout';
 
@@ -95,32 +95,71 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'Tooltip',
+    its: [
+      {
+        it: 'right navigation button',
+        props: { children: multipleChildren },
+        componentDidMount: async () => {
+          const driver = createDriver();
+          await driver.hoverRightNavigationButton();
+        },
+      },
+      {
+        it: 'left navigation button',
+        props: { children: multipleChildren },
+        componentDidMount: async () => {
+          const driver = createDriver();
+          await driver.clickRightNavigationButton();
+          await driver.clickRightNavigationButton();
+          await driver.hoverLeftNavigationButton();
+        },
+      },
+      {
+        it: 'close button',
+        props: { children: multipleChildren },
+        componentDidMount: async () => {
+          const driver = createDriver();
+          await driver.hoverCloseButton();
+        },
+      },
+    ],
+  },
 ];
 
-const InteractiveModalPreviewLayout = ({ componentDidMount, ...props }) => {
+const InteractiveModalPreviewLayout = ({
+  componentDidMount,
+  onDone,
+  ...props
+}) => {
   const afterModalOpenCallback = () => {
     componentDidMount && componentDidMount();
+    /* waiting to tooltip animation to finish executing */
+    setTimeout(onDone, 500);
   };
 
   return (
     <Modal onAfterOpen={afterModalOpenCallback} isOpen>
-      <ModalPreviewLayout {...commonProps} {...props} />;
+      <ModalPreviewLayout {...commonProps} {...props} />
     </Modal>
   );
 };
 
-tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(
-      `ModalPreviewLayout${describe ? '/' + describe : ''}`,
-      module,
-    ).add(it, () => (
-      <InteractiveModalPreviewLayout
-        {...commonProps}
-        {...props}
-        dataHook={dataHook}
-        componentDidMount={componentDidMount}
-      />
-    ));
+visualize('ModalPreviewLayout', () => {
+  tests.forEach(({ describe, its }) => {
+    story(describe, () => {
+      its.forEach(({ it, props, componentDidMount }) => {
+        snap(it, done => (
+          <InteractiveModalPreviewLayout
+            {...commonProps}
+            {...props}
+            dataHook={dataHook}
+            componentDidMount={componentDidMount}
+            onDone={done}
+          />
+        ));
+      });
+    });
   });
 });

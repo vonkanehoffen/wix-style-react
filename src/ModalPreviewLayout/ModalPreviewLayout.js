@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import X from 'wix-ui-icons-common/X';
 import Text from '../Text';
 import IconButton from '../IconButton';
+import Tooltip from '../Tooltip';
 import styles from './ModalPreviewLayout.st.css';
 import { dataHooks, modalPreviewIDs, arrowsDirection } from './constants';
 import NavigationButton from './NavigationButton/NavigationButton';
@@ -100,15 +101,24 @@ class ModalPreviewLayout extends React.PureComponent {
             {actions}
           </div>
           <div className={styles.closeButton}>
-            <IconButton
-              as="button"
-              onClick={onClose}
-              priority="secondary"
-              skin="transparent"
-              dataHook={dataHooks.modalPreviewCloseButton}
+            <Tooltip
+              className={styles.modalTooltip}
+              dataHook={dataHooks.closeButtonTooltip}
+              upgrade
+              appendTo="scrollParent"
+              content={<Text>Close</Text>}
+              placement="bottom"
             >
-              <X />
-            </IconButton>
+              <IconButton
+                as="button"
+                onClick={onClose}
+                priority="secondary"
+                skin="transparent"
+                dataHook={dataHooks.modalPreviewCloseButton}
+              >
+                <X />
+              </IconButton>
+            </Tooltip>
           </div>
         </div>
         <div

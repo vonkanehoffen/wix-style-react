@@ -1,4 +1,5 @@
 const modalPrefix = 'preview-modal';
+const navigationButtonSuffix = `navigation-button-tooltip`;
 
 export const modalPreviewIDs = {
   overlay: `${modalPrefix}-overlay`,
@@ -17,5 +18,8 @@ export const dataHooks = {
   modalPreviewContent: `${modalPrefix}-content`,
   modalPreviewRightArrow: `${modalPrefix}-${arrowsDirection.rightArrow}`,
   modalPreviewLeftArrow: `${modalPrefix}-${arrowsDirection.leftArrow}`,
+  nextNavigationButtonTooltip: `next-${navigationButtonSuffix}`,
+  prevNavigationButtonTooltip: `prev-${navigationButtonSuffix}`,
+  closeButtonTooltip: `close-button-tooltip`,
   ...modalPreviewIDs,
 };
