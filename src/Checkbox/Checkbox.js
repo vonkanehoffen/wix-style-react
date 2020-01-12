@@ -5,61 +5,17 @@ import CheckboxChecked from 'wix-ui-icons-common/system/CheckboxChecked';
 import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndeterminate';
 import Label from '../Label';
 import styles from './Checkbox.scss';
+import textStyles from '../Text/Text.st.css';
 import { withFocusable, focusableStates } from '../common/Focusable';
 
 import { generateID } from '../utils/generateId';
 import Tooltip from '../Tooltip';
 import * as DATA_ATTR from './DataAttr';
+import { dataHooks } from './constants';
 
 /** a simple WixStyle checkbox */
 class Checkbox extends React.PureComponent {
-  static displayName = 'Checkbox';
-
-  constructor(props) {
-    super(props);
-
-    this.state = { isFocused: false };
-  }
-
-  static propTypes = {
-    /** Applied as data-hook HTML attribute that can be used in the tests */
-    dataHook: PropTypes.string,
-    /** used for automatic testing */
-    checked: PropTypes.bool,
-    children: PropTypes.node,
-    /** Is checkbox disabled */
-    disabled: PropTypes.bool,
-    /** Does checkbox has an error */
-    hasError: PropTypes.bool,
-    id: PropTypes.string,
-    /** Checkbox is in an indeterminate state */
-    indeterminate: PropTypes.bool,
-    /** The error message when there's an error */
-    errorMessage: PropTypes.string,
-    /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
-    selectionArea: PropTypes.oneOf(['none', 'hover', 'always']),
-    /** Positioning of the checkbox compared to the label */
-    vAlign: PropTypes.oneOf(['center', 'top']),
-    /** used for automatic testing */
-    hover: PropTypes.bool,
-    /** Size of the checkbox label */
-    size: PropTypes.oneOf(['small', 'medium']),
-    /** A callback function triggered when the checkbox state is changed */
-    onChange: PropTypes.func,
-    /** Define styles through a classname */
-    className: PropTypes.string,
-  };
-
-  static defaultProps = {
-    checked: false,
-    size: 'medium',
-    selectionArea: 'none',
-    vAlign: 'center',
-    onChange: e => e.stopPropagation(),
-    hasError: false,
-    disabled: false,
-    indeterminate: false,
-  };
+  state = { isFocused: false };
 
   //TODO fix me please. We need to get away from ids.
   _id = `${Checkbox.displayName}-${generateID()}`;
@@ -127,7 +83,7 @@ class Checkbox extends React.PureComponent {
         {...this._getDataAttributes()}
       >
         <input
-          data-hook="checkbox-input"
+          data-hook={dataHooks.input}
           type="checkbox"
           id={id}
           checked={checked}
@@ -138,7 +94,7 @@ class Checkbox extends React.PureComponent {
 
         <Label
           for={id}
-          dataHook="checkbox-label"
+          dataHook={dataHooks.label}
           className={classNames({
             [styles.vtop]: vAlign === 'top',
           })}
@@ -146,7 +102,7 @@ class Checkbox extends React.PureComponent {
         >
           <Tooltip
             upgrade
-            dataHook="checkbox-box"
+            dataHook={dataHooks.box}
             disabled={disabled || !hasError || !errorMessage}
             placement={'top'}
             textAlign="center"
@@ -171,7 +127,18 @@ class Checkbox extends React.PureComponent {
             </div>
           </Tooltip>
           {children && (
-            <div className={styles.children} data-hook="checkbox-children">
+            <div
+              {...textStyles(
+                'root',
+                {
+                  size,
+                  skin: disabled ? 'disabled' : 'standard',
+                  weight: 'thin',
+                },
+                { className: styles.children },
+              )}
+              data-hook={dataHooks.children}
+            >
               {children}
             </div>
           )}
@@ -180,5 +147,60 @@ class Checkbox extends React.PureComponent {
     );
   }
 }
+
+Checkbox.displayName = 'Checkbox';
+
+Checkbox.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
+
+  /** used for automatic testing */
+  checked: PropTypes.bool,
+
+  children: PropTypes.node,
+
+  /** Is checkbox disabled */
+  disabled: PropTypes.bool,
+
+  /** Does checkbox has an error */
+  hasError: PropTypes.bool,
+
+  id: PropTypes.string,
+
+  /** Checkbox is in an indeterminate state */
+  indeterminate: PropTypes.bool,
+
+  /** The error message when there's an error */
+  errorMessage: PropTypes.string,
+
+  /** Selection area emphasises the clickable area, none means no emphasis, hover is when the mouse is on the component, and always will show constantly */
+  selectionArea: PropTypes.oneOf(['none', 'hover', 'always']),
+
+  /** Positioning of the checkbox compared to the label */
+  vAlign: PropTypes.oneOf(['center', 'top']),
+
+  /** used for automatic testing */
+  hover: PropTypes.bool,
+
+  /** Size of the checkbox label */
+  size: PropTypes.oneOf(['small', 'medium']),
+
+  /** A callback function triggered when the checkbox state is changed */
+  onChange: PropTypes.func,
+
+  /** Define styles through a classname */
+  className: PropTypes.string,
+};
+
+Checkbox.defaultProps = {
+  checked: false,
+  size: 'medium',
+  selectionArea: 'none',
+  vAlign: 'center',
+  onChange: e => e.stopPropagation(),
+  hasError: false,
+  disabled: false,
+  indeterminate: false,
+};
 
 export default withFocusable(Checkbox);

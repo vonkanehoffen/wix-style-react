@@ -2,6 +2,7 @@ import { Simulate } from 'react-dom/test-utils';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { labelUniDriverFactory } from 'wix-ui-backoffice/dist/src/components/Label/Label.uni.driver';
 import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { dataHooks } from './constants';
 
 import * as DATA_ATTR from './DataAttr';
 
@@ -13,9 +14,9 @@ export const checkboxUniDriverFactory = (base, body) => {
   const isChecked = async () =>
     (await getDataCheckType(base)) === DATA_ATTR.CHECK_TYPES.CHECKED;
   const getLabelDriver = async () =>
-    labelUniDriverFactory(base.$('[data-hook="checkbox-label"]'));
+    labelUniDriverFactory(base.$(`[data-hook="${dataHooks.label}"]`));
   const getTooltipDriver = async () =>
-    tooltipDriverFactory(base.$('[data-hook="checkbox-box"]'), body);
+    tooltipDriverFactory(base.$(`[data-hook="${dataHooks.box}"]`), body);
 
   return {
     ...baseUniDriverFactory(base),

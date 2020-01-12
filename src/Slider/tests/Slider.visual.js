@@ -9,6 +9,7 @@ const commonProps = {
   max: 10,
   value: 4,
   displayMarks: false,
+  onChange: e => e,
 };
 
 const tests = [

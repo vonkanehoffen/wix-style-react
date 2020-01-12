@@ -1,5 +1,6 @@
 import { checkboxUniDriverFactory as publicUniDriverFactory } from '../Checkbox.uni.driver';
 import { tooltipDriverFactory } from '../../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { dataHooks } from '../constants';
 
 export const checkboxUniDriverFactory = (base, body) => {
   return {
@@ -7,7 +8,7 @@ export const checkboxUniDriverFactory = (base, body) => {
 
     hoverInput: async () => {
       const tooltipDriver = await tooltipDriverFactory(
-        base.$('[data-hook="checkbox-box"]'),
+        base.$(`[data-hook="${dataHooks.box}"]`),
         body,
       );
       return tooltipDriver.mouseEnter();

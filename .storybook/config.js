@@ -12,6 +12,7 @@ function loadStories() {
 }
 
 const theme = create({
+  base: 'light',
   brandTitle: `Wix Style React ${version}`,
   brandUrl: 'https://github.com/wix/wix-style-react',
 });
