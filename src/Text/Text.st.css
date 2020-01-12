@@ -1,6 +1,8 @@
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
-  -st-named: sizeTiny, sizeSmall, sizeMedium, weightThin, weightNormal, weightBold, weightXBold;
+  -st-named: text-tiny-thin, text-tiny-normal, text-tiny-bold, text-small-thin,
+  text-small-normal, text-small-bold, text-medium-thin, text-medium-normal,
+  text-medium-bold;
 }
 
 :import {
@@ -19,53 +21,35 @@
 /****** Weights ******/
 /* Thin */
 .root:weight(thin):size(tiny) {
-  -st-mixin: sizeTiny, weightNormal;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-thin, 400);
+  -st-mixin: text-tiny-thin;
 }
 .root:weight(thin):size(small) {
-  -st-mixin: sizeSmall, weightThin;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-thin, 400);
+  -st-mixin: text-small-thin;
 }
 .root:weight(thin):size(medium) {
-  -st-mixin: sizeMedium, weightThin;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-thin, 400);
+  -st-mixin: text-medium-thin;
 }
 
 /* Normal */
 .root:weight(normal):size(tiny) {
-  -st-mixin: sizeTiny, weightBold;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-normal, 400);
+  -st-mixin: text-tiny-normal;
 }
 .root:weight(normal):size(small) {
-  -st-mixin: sizeSmall, weightNormal;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-normal, 400);
+  -st-mixin: text-small-normal;
 }
 .root:weight(normal):size(medium) {
-  -st-mixin: sizeMedium, weightNormal;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-normal, 400);
+  -st-mixin: text-medium-normal;
 }
 
 /* Bold */
 .root:weight(bold):size(tiny) {
-  -st-mixin: sizeTiny, weightXBold;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-bold, 400);
+  -st-mixin: text-tiny-bold;
 }
 .root:weight(bold):size(small) {
-  -st-mixin: sizeSmall, weightBold;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-bold, 400);
+  -st-mixin: text-small-bold;
 }
 .root:weight(bold):size(medium) {
-  -st-mixin: sizeMedium, weightBold;
-  font-weight: 400; /* IE11 */
-  font-weight: var(--wsr-font-weight-bold, 400);
+  -st-mixin: text-medium-bold;
 }
 
 /******* Skins *******/
@@ -120,5 +104,3 @@
 .root > a:hover {
   color: value(B20);
 }
-
-

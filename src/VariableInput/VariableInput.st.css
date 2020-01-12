@@ -5,7 +5,7 @@
 }
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
-  -st-named: sizeSmall, sizeMedium, weightNormal;
+  -st-named: text-small-normal, text-medium-normal;
 }
 :import {
   -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
@@ -35,13 +35,16 @@
   --top: 4px;
 }
 .root :global(.public-DraftEditorPlaceholder-root) {
-  -st-mixin: sizeMedium, weightNormal;
+  -st-mixin: text-medium-normal;
   color: value(D40);
   margin: 2px 0;
   position: absolute;
   pointer-events: none;
   top: var(--top);
   left: 10px;
+}
+.root:size(small) :global(.public-DraftEditorPlaceholder-root) {
+  -st-mixin: text-small-normal;
 }
 .root :global(.public-DraftEditor-content) {
   -st-mixin: defaultScrollBar; /* TODO: hide will not hovering  */
@@ -80,7 +83,7 @@
   vertical-align: middle;
 }
 .root .textWrapper {
-  -st-mixin: sizeMedium, weightNormal;
+  -st-mixin: text-medium-normal;
   display: inline;
   vertical-align: middle;
 }
@@ -88,7 +91,7 @@
   line-height: 30px;
 }
 .root:size(small) .textWrapper {
-  -st-mixin: sizeSmall;
+  -st-mixin: text-small-normal;
 }
 
 .root:status(error) :global(.public-DraftEditor-content) {

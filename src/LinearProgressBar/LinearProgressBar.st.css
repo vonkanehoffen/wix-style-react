@@ -1,15 +1,15 @@
 :import {
-  -st-from: "wix-ui-core/index.st.css";
+  -st-from: 'wix-ui-core/index.st.css';
   -st-named: LinearProgressBar;
 }
 
 :import {
-  -st-from: "../Foundation/stylable/typography.st.css";
-  -st-named: weightBold;
+  -st-from: '../Foundation/stylable/typography.st.css';
+  -st-named: text-medium-bold;
 }
 
 :import {
-  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-from: '../Foundation/stylable/colors.st.css';
   -st-named:
           B05, R05, G05,
           D10, D20, D80,
@@ -64,7 +64,7 @@
 }
 
 .root::indicationContainer {
-  -st-mixin: weightBold;
+  -st-mixin: text-medium-bold;
   width: 18px;
   height: 18px;
   border-radius: 12px;
@@ -73,6 +73,7 @@
   align-items: center;
   color: value(D20);
   font-size: 10px;
+  line-height: unset;
 }
 
 .root:skin(standard):success::indicationContainer {
