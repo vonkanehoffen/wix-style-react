@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './ListItemSection.st.css';
-import Box from '../Box';
 import Divider from '../Divider';
 import Text from '../Text';
 import TextButton from '../TextButton';
@@ -58,28 +57,23 @@ class ListItemSection extends React.PureComponent {
   render() {
     const { type } = this.props;
 
-    if (type === TYPES.WHITESPACE) return this._renderWhitespace();
+    if (type === TYPES.WHITESPACE) return this._renderDivisionElements();
 
-    if (type === TYPES.DIVIDER) return this._renderDivider();
+    if (type === TYPES.DIVIDER)
+      return this._renderDivisionElements(<Divider />);
 
     return this._renderTitle();
   }
 
-  _renderWhitespace = () => {
-    return <Box className={styles.root} padding={1} />;
-  };
-
-  _renderDivider = () => {
+  _renderDivisionElements = children => {
+    const { dataHook, type } = this.props;
     return (
-      <Box
-        className={styles.root}
-        paddingTop={1}
-        paddingRight={4}
-        paddingBottom="5px"
-        paddingLeft={4}
-      >
-        <Divider />
-      </Box>
+      <div
+        {...styles(styles.root, { [type]: true })}
+        data-hook={dataHook}
+        onClick={e => e.stopPropagation()}
+        children={children}
+      />
     );
   };
 
