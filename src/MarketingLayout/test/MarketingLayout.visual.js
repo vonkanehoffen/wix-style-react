@@ -113,8 +113,9 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`MarketingLayout/${describe}`, module).add(it, () => (
-      <MarketingLayout {...commonProps} {...props} />
-    ));
+    storiesOf(
+      `MarketingLayout${describe ? '/' + describe : ''}`,
+      module,
+    ).add(it, () => <MarketingLayout {...commonProps} {...props} />);
   });
 });

@@ -112,7 +112,7 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`Input/${describe}`, module).add(it, () => (
+    storiesOf(`Input${describe ? '/' + describe : ''}`, module).add(it, () => (
       <Input {...defaultProps} {...props} />
     ));
   });

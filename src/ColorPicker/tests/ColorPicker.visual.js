@@ -80,8 +80,11 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`ColorPicker/${describe}`, module).add(it, () => (
-      <ColorPickerWrapper {...props} componentDidMount={componentDidMount} />
-    ));
+    storiesOf(`ColorPicker${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <ColorPickerWrapper {...props} componentDidMount={componentDidMount} />
+      ),
+    );
   });
 });

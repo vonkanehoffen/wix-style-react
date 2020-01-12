@@ -22,8 +22,9 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`{%ComponentName%}/${describe}`, module).add(it, () => (
-      <{%ComponentName%} {...commonProps} {...props} />
-    ));
+    storiesOf(`{%ComponentName%}${describe ? '/' + describe : ''}`, module)
+      .add(it, () => (
+        <{%ComponentName%} {...commonProps} {...props} />
+      ));
   });
 });

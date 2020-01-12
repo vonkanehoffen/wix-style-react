@@ -90,20 +90,24 @@ const interactiveTests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`AutoCompleteWithLabel/${describe}`, module).add(it, () => (
-      <AutoCompleteWithLabel {...commonProps} {...props} />
-    ));
+    storiesOf(
+      `AutoCompleteWithLabel${describe ? '/' + describe : ''}`,
+      module,
+    ).add(it, () => <AutoCompleteWithLabel {...commonProps} {...props} />);
   });
 });
 
 interactiveTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`InputWithLabel/${describe}`, module).add(it, () => (
-      <InteractiveEyeTest
-        {...commonProps}
-        {...props}
-        componentDidMount={componentDidMount}
-      />
-    ));
+    storiesOf(`InputWithLabel${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <InteractiveEyeTest
+          {...commonProps}
+          {...props}
+          componentDidMount={componentDidMount}
+        />
+      ),
+    );
   });
 });

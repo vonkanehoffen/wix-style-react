@@ -111,7 +111,10 @@ const InteractiveModalPreviewLayout = ({ componentDidMount, ...props }) => {
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`ModalPreviewLayout/${describe}`, module).add(it, () => (
+    storiesOf(
+      `ModalPreviewLayout${describe ? '/' + describe : ''}`,
+      module,
+    ).add(it, () => (
       <InteractiveModalPreviewLayout
         {...commonProps}
         {...props}

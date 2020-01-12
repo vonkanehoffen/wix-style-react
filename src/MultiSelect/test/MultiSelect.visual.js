@@ -106,11 +106,14 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, width }) => {
-    storiesOf(`MultiSelect/${describe}`, module).add(it, () => (
-      <div style={{ width }}>
-        <MultiSelect {...props} />
-      </div>
-    ));
+    storiesOf(`MultiSelect${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <div style={{ width }}>
+          <MultiSelect {...props} />
+        </div>
+      ),
+    );
   });
 });
 
@@ -172,12 +175,15 @@ const InteractiveEyeTest = ({ componentDidMount, rtl, ...props }) => {
 
 interactiveTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, rtl, componentDidMount }) => {
-    storiesOf(`MultiSelect/${describe}`, module).add(it, () => (
-      <InteractiveEyeTest
-        {...props}
-        componentDidMount={componentDidMount}
-        rtl={rtl}
-      />
-    ));
+    storiesOf(`MultiSelect${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <InteractiveEyeTest
+          {...props}
+          componentDidMount={componentDidMount}
+          rtl={rtl}
+        />
+      ),
+    );
   });
 });

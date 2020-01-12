@@ -36,7 +36,7 @@ const tests = [
         props: {
           initialValue: 'Welcome to my {{page.name}} ',
           status: 'warning',
-        }
+        },
       },
       {
         it: '3 Row',
@@ -64,14 +64,17 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`VariableInput/${describe}`, module).add(it, () => (
-      <Box direction={'vertical'}>
-        {Object.values(sizeTypes).map(size => (
-          <Box margin={1} width="330px">
-            <VariableInput {...commonProps} {...props} size={size} />
-          </Box>
-        ))}
-      </Box>
-    ));
+    storiesOf(`VariableInput${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <Box direction={'vertical'}>
+          {Object.values(sizeTypes).map(size => (
+            <Box margin={1} width="330px">
+              <VariableInput {...commonProps} {...props} size={size} />
+            </Box>
+          ))}
+        </Box>
+      ),
+    );
   });
 });

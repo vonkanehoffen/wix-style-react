@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Slider from '../Slider';
 import Box from '../../Box';
+import { Cell, Layout } from '../../Layout';
 
 const commonProps = {
   min: 0,
@@ -42,11 +43,17 @@ const tests = [
 ];
 
 tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
-    storiesOf(`Slider/${describe}`, module).add(it, () => (
-      <Box width="330px">
-        {[0, 4, 10].map(value => (
-          <Slider {...commonProps} {...props} value={value} />
+  its.forEach(({ it, props, container }) => {
+    storiesOf(`Slider${describe ? '/' + describe : ''}`, module).add(it, () => (
+      <Box direction={'vertical'}>
+        {[0, 4, 10].map((value, key) => (
+          <Box key={key} margin={4} {...container}>
+            <Layout>
+              <Cell>
+                <Slider {...commonProps} {...props} value={value} />
+              </Cell>
+            </Layout>
+          </Box>
         ))}
       </Box>
     ));

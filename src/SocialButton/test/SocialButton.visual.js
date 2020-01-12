@@ -24,10 +24,13 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`SocialButton/${describe}`, module).add(it, () => (
-      <div style={{ maxWidth: 100 }}>
-        <SocialButton {...props} />
-      </div>
-    ));
+    storiesOf(`SocialButton${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <div style={{ maxWidth: 100 }}>
+          <SocialButton {...props} />
+        </div>
+      ),
+    );
   });
 });

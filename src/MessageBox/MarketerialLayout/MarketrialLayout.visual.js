@@ -53,8 +53,9 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`MessageBox/MarketrialLayout/${describe}`, module).add(it, () => (
-      <MessageBoxMarketerialLayout {...props} />
-    ));
+    storiesOf(
+      `MessageBox/MarketrialLayout${describe ? '/' + describe : ''}`,
+      module,
+    ).add(it, () => <MessageBoxMarketerialLayout {...props} />);
   });
 });

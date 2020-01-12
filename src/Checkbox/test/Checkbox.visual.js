@@ -193,42 +193,43 @@ const interactiveTests = [
 ];
 
 tests.forEach(({ describe, its }) => {
-  let _describe = '';
-  if (describe) {
-    _describe += `/${describe}`;
-  }
-
   its.forEach(({ it, props }) => {
-    storiesOf(`Checkbox${_describe}`, module).add(it, () => (
-      <Box direction="vertical">
-        <Box margin={2}>
-          <Checkbox {...defaultProps} {...props} />
+    storiesOf(`Checkbox${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <Box direction="vertical">
+          <Box margin={2}>
+            <Checkbox {...defaultProps} {...props} />
+          </Box>
+          <Box margin={2}>
+            <Checkbox checked {...defaultProps} {...props} />
+          </Box>
+          <Box margin={2}>
+            <Checkbox indeterminate {...defaultProps} {...props} />
+          </Box>
+          <Box margin={2}>
+            <Checkbox disabled {...defaultProps} {...props} />
+          </Box>
+          <Box margin={2}>
+            <Checkbox checked disabled {...defaultProps} {...props} />
+          </Box>
+          <Box margin={2}>
+            <Checkbox indeterminate disabled {...defaultProps} {...props} />
+          </Box>
         </Box>
-        <Box margin={2}>
-          <Checkbox checked {...defaultProps} {...props} />
-        </Box>
-        <Box margin={2}>
-          <Checkbox indeterminate {...defaultProps} {...props} />
-        </Box>
-        <Box margin={2}>
-          <Checkbox disabled {...defaultProps} {...props} />
-        </Box>
-        <Box margin={2}>
-          <Checkbox checked disabled {...defaultProps} {...props} />
-        </Box>
-        <Box margin={2}>
-          <Checkbox indeterminate disabled {...defaultProps} {...props} />
-        </Box>
-      </Box>
-    ));
+      ),
+    );
   });
 });
 
 interactiveTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`Checkbox/${describe}`, module).add(it, () => (
-      <InteractiveCheckbox {...props} componentDidMount={componentDidMount} />
-    ));
+    storiesOf(`Checkbox${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <InteractiveCheckbox {...props} componentDidMount={componentDidMount} />
+      ),
+    );
   });
 });
 

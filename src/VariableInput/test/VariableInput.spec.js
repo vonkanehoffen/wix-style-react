@@ -181,8 +181,8 @@ describe('VariableInput', () => {
 
       expect(await driver.hasWarning()).toBe(true);
       expect(await driver.getWarningMessage()).toEqual(warningMessage);
-     });
-   });
+    });
+  });
   describe('size', () => {
     it('should render a tag in small size', async () => {
       const text = `Some text {{${variableEntity.value}}} `;

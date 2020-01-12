@@ -271,17 +271,20 @@ const interactiveTests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`${storyName}/${describe}`, module).add(it, () => (
-      <div
-        style={{
-          padding: 20,
-          width: 966,
-          border: '1px solid black',
-        }}
-      >
-        <Stepper {...props} />
-      </div>
-    ));
+    storiesOf(`${storyName}${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <div
+          style={{
+            padding: 20,
+            width: 966,
+            border: '1px solid black',
+          }}
+        >
+          <Stepper {...props} />
+        </div>
+      ),
+    );
   });
 });
 
@@ -295,12 +298,15 @@ const InteractiveStepperWrapper = ({ componentDidMount, ...props }) => {
 
 interactiveTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`${storyName}/${describe}`, module).add(it, () => (
-      <InteractiveStepperWrapper
-        dataHook={dataHook}
-        {...props}
-        componentDidMount={componentDidMount}
-      />
-    ));
+    storiesOf(`${storyName}${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <InteractiveStepperWrapper
+          dataHook={dataHook}
+          {...props}
+          componentDidMount={componentDidMount}
+        />
+      ),
+    );
   });
 });

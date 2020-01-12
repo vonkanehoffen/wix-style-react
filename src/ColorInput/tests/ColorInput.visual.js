@@ -52,6 +52,9 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`ColorInput/${describe}`, module).add(it, props.storyFunction);
+    storiesOf(`ColorInput${describe ? '/' + describe : ''}`, module).add(
+      it,
+      props.storyFunction,
+    );
   });
 });

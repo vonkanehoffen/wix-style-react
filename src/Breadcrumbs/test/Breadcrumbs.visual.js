@@ -55,9 +55,10 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
-    storiesOf(`Breadcrumbs/${describe}`, module).add(it, () => (
-      <Breadcrumbs items={items} {...props} />
-    ));
+    storiesOf(`Breadcrumbs${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => <Breadcrumbs items={items} {...props} />,
+    );
   });
 });
 
@@ -124,8 +125,11 @@ const interactiveTests = [
 
 interactiveTests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(`Breadcrumbs/${describe}`, module).add(it, () => (
-      <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
-    ));
+    storiesOf(`Breadcrumbs${describe ? '/' + describe : ''}`, module).add(
+      it,
+      () => (
+        <InteractiveEyeTest {...props} componentDidMount={componentDidMount} />
+      ),
+    );
   });
 });

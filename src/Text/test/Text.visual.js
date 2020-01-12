@@ -105,7 +105,7 @@ tests.forEach(({ describe, its }) => {
       });
     });
 
-    storiesOf(`Text/${describe}`, module).add(it, () => (
+    storiesOf(`Text${describe ? '/' + describe : ''}`, module).add(it, () => (
       <div style={{ backgroundColor: backgroundColor }}>
         <Layout>{testStories}</Layout>
       </div>

@@ -106,11 +106,19 @@ class VariableInput extends React.PureComponent {
     }
   };
   render() {
-    const { dataHook, rows, size, disabled, placeholder, status, statusMessage } = this.props;
+    const {
+      dataHook,
+      rows,
+      size,
+      disabled,
+      placeholder,
+      status,
+      statusMessage,
+    } = this.props;
     return (
-      <div 
-        data-hook={dataHook} 
-        {...styles('root', { disabled, size, status }, this.props)} 
+      <div
+        data-hook={dataHook}
+        {...styles('root', { disabled, size, status }, this.props)}
         style={{ '--rows': rows }}
       >
         <Editor
