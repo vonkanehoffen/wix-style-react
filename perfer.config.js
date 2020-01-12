@@ -67,7 +67,7 @@ const files = [
   ['Loader.bundle.min.js', 44],
   ['MediaOverlay.bundle.min.js', 14],
   ['Modal.bundle.min.js', 11],
-  ['ModalPreviewLayout.bundle.min.js', 20],
+  ['ModalPreviewLayout.bundle.min.js', 46],
   ['ModalSelectorLayout.bundle.min.js', 84],
   ['MultiSelect.bundle.min.js', 100],
   ['MultiSelectCheckbox.bundle.min.js', 74],
