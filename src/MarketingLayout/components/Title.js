@@ -5,8 +5,8 @@ import { isString } from '../../utils/StringUtils';
 import { MARKETING_LAYOUT_TITLE } from '../dataHooks';
 import PropTypes from 'prop-types';
 
-const HeadingContainer = ({ children, appearance }) => (
-  <div className={styles.headingContainer}>
+const Title = ({ children, appearance }) => (
+  <div className={styles.title}>
     {isString(children) ? (
       <Heading dataHook={MARKETING_LAYOUT_TITLE} appearance={appearance}>
         {children}
@@ -17,9 +17,9 @@ const HeadingContainer = ({ children, appearance }) => (
   </div>
 );
 
-HeadingContainer.propTypes = {
+Title.propTypes = {
   children: PropTypes.node,
   appearance: PropTypes.string,
 };
 
-export default HeadingContainer;
+export default Title;

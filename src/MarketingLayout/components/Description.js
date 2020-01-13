@@ -6,9 +6,9 @@ import styles from '../MarketingLayout.st.css';
 import PropTypes from 'prop-types';
 
 const Description = ({ children, size }) => (
-  <div className={styles.descriptionContainer}>
+  <div className={styles.description}>
     {isString(children) ? (
-      <Text dataHook={MARKETING_LAYOUT_DESCRIPTION} size={size}>
+      <Text dataHook={MARKETING_LAYOUT_DESCRIPTION} size={size} secondary>
         {children}
       </Text>
     ) : (
