@@ -1,12 +1,12 @@
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 
-import {%ComponentName%} from '../{%ComponentName%}';
-import { {%componentName%}PrivateDriverFactory } from './{%ComponentName%}.private.uni.driver';
+import <%= ComponentName %> from '../<%= ComponentName %>';
+import { <%= componentName %>PrivateDriverFactory } from './<%= ComponentName %>.private.uni.driver';
 
-describe('{%ComponentName%}', () => {
+describe('<%= ComponentName %>', () => {
   const render = createRendererWithUniDriver(
-    {%componentName%}PrivateDriverFactory,
+    <%= componentName %>PrivateDriverFactory,
   );
 
   afterEach(() => {
@@ -14,14 +14,14 @@ describe('{%ComponentName%}', () => {
   });
 
   it('should render', async () => {
-    const { driver } = render(<{%ComponentName%} />);
+    const { driver } = render(<<%= ComponentName %> />);
 
     expect(await driver.exists()).toBe(true);
     expect(await driver.getButtonText()).toEqual('Click me!');
   });
 
   it('should increment', async () => {
-    const { driver } = render(<{%ComponentName%} />);
+    const { driver } = render(<<%= ComponentName %> />);
 
     await driver.clickButton();
     await driver.clickButton();
@@ -32,7 +32,7 @@ describe('{%ComponentName%}', () => {
   });
 
   it('should allow changing the button text', async () => {
-    const { driver } = render(<{%ComponentName%} buttonText="Press me" />);
+    const { driver } = render(<<%= ComponentName %> buttonText="Press me" />);
 
     expect(await driver.getButtonText()).toEqual('Press me');
   });

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Text from '../Text';
 import Button from '../Button';
-import styles from './{%ComponentName%}.st.css';
+import styles from './<%= ComponentName %>.st.css';
 import { dataHooks } from './constants';
 
-/** {%description%} */
-class {%ComponentName%} extends React.PureComponent {
-  static displayName = '{%ComponentName%}';
+/** <%= description %> */
+class <%= ComponentName %> extends React.PureComponent {
+  static displayName = '<%= ComponentName %>';
 
   static propTypes = {
     dataHook: PropTypes.string,
@@ -38,7 +38,7 @@ class {%ComponentName%} extends React.PureComponent {
 
     return (
       <div {...styles('root', { even: isEven, odd: !isEven }, this.props)} data-hook={dataHook}>
-        <Text dataHook={dataHooks.{%componentName%}Count}>
+        <Text dataHook={dataHooks.<%= componentName %>Count}>
           You clicked this button {isEven ? 'even' : 'odd'} number (
           <span className={styles.number}>
             {count}
@@ -49,7 +49,7 @@ class {%ComponentName%} extends React.PureComponent {
         <div className={styles.button}>
           <Button
             onClick={this._handleClick}
-            dataHook={dataHooks.{%componentName%}Button}
+            dataHook={dataHooks.<%= componentName %>Button}
           >
             {buttonText}
           </Button>
@@ -59,4 +59,4 @@ class {%ComponentName%} extends React.PureComponent {
   }
 }
 
-export default {%ComponentName%};
+export default <%= ComponentName %>;

@@ -17,15 +17,15 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
-import {%ComponentName%} from '..';
+import <%= ComponentName %> from '..';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
-  storyName: '{%ComponentName%}',
+  storyName: '<%= ComponentName %>',
 
-  component: {%ComponentName%},
+  component: <%= ComponentName %>,
   componentPath: '..',
 
   componentProps: {
@@ -40,8 +40,8 @@ export default {
   sections: [
     header({
       sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/{%ComponentName%}/',
-      component: <{%ComponentName%} buttonText="Click me!" />,
+        'https://github.com/wix/wix-style-react/tree/master/src/<%= ComponentName %>/',
+      component: <<%= ComponentName %> buttonText="Click me!" />,
     }),
 
     tabs([
@@ -58,7 +58,7 @@ export default {
 
           columns([
             importExample(
-              "import {%ComponentName%} from 'wix-style-react/{%ComponentName%}';",
+              "import <%= ComponentName %> from 'wix-style-react/<%= ComponentName %>';",
             ),
           ]),
 
@@ -74,14 +74,14 @@ export default {
 
             code({
               compact: true,
-              source: '<{%ComponentName%} buttonText="Hello World!"/>',
+              source: '<<%= ComponentName %> buttonText="Hello World!"/>',
             }),
           ]),
 
           code({
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
-            source: '<{%ComponentName%} buttonText="Hello World!"/>',
+            source: '<<%= ComponentName %> buttonText="Hello World!"/>',
           }),
         ],
       }),
