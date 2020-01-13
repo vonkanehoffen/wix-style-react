@@ -16,6 +16,8 @@ Types of changes:
 
 ## Next
 
+## 7.30.0 - 2020-01-13
+
 ### Added
 
 - `<Text/>` - added default styling for nested `<ul>` lists [#4726](https://github.com/wix/wix-style-react/pull/4726)
@@ -62,7 +64,7 @@ Types of changes:
 - `<VariableInput/>` - add `rows` & `size` props [#4825](https://github.com/wix/wix-style-react/pull/4825)
 - `<VariableInput/>` - add `status` & `statusMessage` props [#4830](https://github.com/wix/wix-style-react/pull/4830)
 
-## 7.30.0 - 2019-01-06
+## 7.30.0 - 2020-01-06
 
 ### Added
 
@@ -76,7 +78,7 @@ Types of changes:
 
 - `<PopoverMenu/>` - deprecate story [#4789](https://github.com/wix/wix-style-react/pull/4789)
 
-## 7.29.1 - 2019-01-02
+## 7.29.1 - 2020-01-02
 
 ### Added
 
