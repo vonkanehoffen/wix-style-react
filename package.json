@@ -228,7 +228,7 @@
     "wix-eventually": "^2.2.0",
     "wix-ui-backoffice": "^1.0.339",
     "wix-ui-core": "^2.0.435",
-    "wix-ui-icons-common": "^2.0.68",
+    "wix-ui-icons-common": "^2.0.60",
     "wix-ui-test-utils": "^1.0.151"
   },
   "lint-staged": {
