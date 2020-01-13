@@ -35,7 +35,7 @@ Types of changes:
 - `<Tooltip/>` - change `textAlign` default value [#4813](https://github.com/wix/wix-style-react/pull/4813)
 - `<TextButton/>` - migrate styesheet && update disabled styling && fix transition issues [#4818](https://github.com/wix/wix-style-react/pull/4818)
 - `<CloseButton/>` - migrate stylesheet && update disabled styling [#4834](https://github.com/wix/wix-style-react/pull/4834)
-- `<Button/>` - migrate Button stylesheet && update disabled styling && add new premium-light skin [#4833](https://github.com/wix/wix-style-react/pull/4833)
+- `<Button/>` - add new premium-light skin [#4858](https://github.com/wix/wix-style-react/pull/4858)
 - `<Slider/>` - make marks occupy space [#4837](https://github.com/wix/wix-style-react/pull/4837)
 - `<InputArea/>` - change InputArea background from transparent to white [#4843](https://github.com/wix/wix-style-react/pull/4843)
 - `<ListItemSection/>` - Disable click propogation on divider ans whitespace [#4848](https://github.com/wix/wix-style-react/pull/4848)
