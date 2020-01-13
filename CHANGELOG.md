@@ -20,6 +20,10 @@ Types of changes:
 
 - `<MarketingLayout/>` - Use grid for responsive layout [#4850](https://github.com/wix/wix-style-react/pull/4850)
 
+### Fixed
+
+- Revert "`<Text/>` - add default styling for nested `<ul>` lists" [#4865](https://github.com/wix/wix-style-react/pull/4865)
+
 ### Docs
 
 - `<VariableInput/>` - improve docs with examples (including cheatsheet) [#4844](https://github.com/wix/wix-style-react/pull/4844)
