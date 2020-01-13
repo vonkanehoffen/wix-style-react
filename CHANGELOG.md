@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Docs
+
+- `<VariableInput/>` - improve docs with examples (including cheatsheet) [#4844](https://github.com/wix/wix-style-react/pull/4844)
+
 ## 7.32.0 - 2020-01-13
 
 ### Added
