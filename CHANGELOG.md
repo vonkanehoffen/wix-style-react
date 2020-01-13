@@ -52,6 +52,7 @@ Types of changes:
 - `<ColorPicker/>` - Fix Transparent color swatch [#4815](https://github.com/wix/wix-style-react/pull/4815)
 - `<AddItem/>` - Remove tooltip when it's empty [#4822](https://github.com/wix/wix-style-react/pull/4822)
 - `<InputArea/>` - Use default scrollbar [#4827](https://github.com/wix/wix-style-react/pull/4827)
+- `<Tag/>` - fix height when tiny and unremovable [#4857](https://github.com/wix/wix-style-react/pull/4857)
 
 ### Labs
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
