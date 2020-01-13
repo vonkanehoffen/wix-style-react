@@ -44,12 +44,14 @@ export default {
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/VariableInput/',
       component: (
-        <VariableInput
-          initialValue="VariableInput will render known variables as {{page.name}} tags"
-          variableParser={value => {
-            return value === 'page.name' ? 'Page name' : false;
-          }}
-        />
+        <div style={{ width: '50%' }}>
+          <VariableInput
+            initialValue="VariableInput will render known variables as {{page.name}} tags"
+            variableParser={value => {
+              return value === 'page.name' ? 'Page name' : false;
+            }}
+          />
+        </div>
       ),
     }),
 

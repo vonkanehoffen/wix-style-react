@@ -115,10 +115,11 @@ class VariableInput extends React.PureComponent {
       status,
       statusMessage,
     } = this.props;
+    const empty = this._isEmpty();
     return (
       <div
         data-hook={dataHook}
-        {...styles('root', { disabled, size, status }, this.props)}
+        {...styles('root', { disabled, size, status, empty }, this.props)}
         style={{ '--rows': rows }}
       >
         <Editor
@@ -133,6 +134,8 @@ class VariableInput extends React.PureComponent {
       </div>
     );
   }
+  _isEmpty = () =>
+    this.state.editorState.getCurrentContent().getPlainText().length === 0;
   _inputToTagSize = inputSize => {
     return inputToTagsSize[inputSize] || VariableInput.defaultProps.size;
   };
