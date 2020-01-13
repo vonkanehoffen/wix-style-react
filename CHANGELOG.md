@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Changed
+
+- `<MarketingLayout/>` - Use grid for responsive layout [#4850](https://github.com/wix/wix-style-react/pull/4850)
+
 ### Docs
 
 - `<VariableInput/>` - improve docs with examples (including cheatsheet) [#4844](https://github.com/wix/wix-style-react/pull/4844)
@@ -26,7 +30,7 @@ Types of changes:
 
 - `<Text/>` - added default styling for nested `<ul>` lists [#4726](https://github.com/wix/wix-style-react/pull/4726)
 - `<FormField/>` - add new prop labelAlignment [#4814](https://github.com/wix/wix-style-react/pull/4814)
-- `<RichTextInputArea/`> - Expose plain text value with onChange event [#4820](https://github.com/wix/wix-style-react/pull/4820)
+- `<RichTextInputArea/>` - Expose plain text value with onChange event [#4820](https://github.com/wix/wix-style-react/pull/4820)
 - `<ListItemSelect/>`, `<ListItemSection/>` - added show tooltip delay of 300ms [#4816](https://github.com/wix/wix-style-react/pull/4816)
 - `<MultiSelect/>` - Add status and statusMessage props [#4828](https://github.com/wix/wix-style-react/pull/4828)
 - `<TextButton/>` - add destructive skin [#4836](https://github.com/wix/wix-style-react/pull/4836)
