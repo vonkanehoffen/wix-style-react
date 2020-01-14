@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<VariableInput/>`- add `multiline` prop [#4864](https://github.com/wix/wix-style-react/pull/4864)
+
 ### Fixed
 - `<Input/>`- fix Affixes' margins [#4727](https://github.com/wix/wix-style-react/pull/4727)
 
