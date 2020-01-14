@@ -144,6 +144,17 @@ export default {
               source: examples.disabled,
             }),
           ]),
+          columns([
+            description({
+              title: 'Multiline',
+              text:
+                'Use `multiline` attribute to control the component scroll direction',
+            }),
+            code({
+              compact: true,
+              source: examples.multiline,
+            }),
+          ]),
         ],
       }),
 

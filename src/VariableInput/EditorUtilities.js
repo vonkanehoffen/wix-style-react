@@ -12,6 +12,16 @@ import Tag from '../Tag';
 import { entityTypes, dataHooks } from './constants';
 import styles from './VariableInput.st.css';
 
+/** Insert text in current cursor position */
+const insertText = (editorState, text) => {
+  const newContent = Modifier.insertText(
+    editorState.getCurrentContent(),
+    editorState.getSelection(),
+    text,
+  );
+  // update our state with the new editor content
+  return EditorState.push(editorState, newContent, 'insert-characters');
+};
 /** Insert new entity in current cursor position, with the given text and value */
 const insertEntity = (editorState, { text, value }) => {
   let contentState = editorState.getCurrentContent();
@@ -287,6 +297,7 @@ const _findEntityEdgeIndex = (
   return afterOffset;
 };
 export default {
+  insertText,
   insertEntity,
   getMatchesInString,
   convertToString,

@@ -26,6 +26,8 @@ class VariableInput extends React.PureComponent {
     disabled: bool,
     /** Initial value to display in the editor */
     initialValue: string,
+    /** When set to true, component will allow multiple lines, otherwise will scroll horizontaly and ignore return key*/
+    multiline: bool,
     /** Callback function for changes while typing.
      * `onChange(value: String): void` */
     onChange: func,
@@ -54,6 +56,7 @@ class VariableInput extends React.PureComponent {
   };
   static defaultProps = {
     initialValue: '',
+    multiline: true,
     rows: 1,
     size: sizeTypes.medium,
     statusMessage: '',
@@ -108,6 +111,7 @@ class VariableInput extends React.PureComponent {
   render() {
     const {
       dataHook,
+      multiline,
       rows,
       size,
       disabled,
@@ -115,11 +119,18 @@ class VariableInput extends React.PureComponent {
       status,
       statusMessage,
     } = this.props;
-    const empty = this._isEmpty();
+    const singleLineProps = {
+      handlePastedText: this._handlePastedText,
+      handleReturn: () => 'handled',
+    };
     return (
       <div
         data-hook={dataHook}
-        {...styles('root', { disabled, size, status, empty }, this.props)}
+        {...styles(
+          'root',
+          { disabled, size, status, singleLine: !multiline },
+          this.props,
+        )}
         style={{ '--rows': rows }}
       >
         <Editor
@@ -129,11 +140,22 @@ class VariableInput extends React.PureComponent {
           placeholder={placeholder}
           onBlur={() => setTimeout(this._onBlur, 0)}
           readOnly={disabled}
+          {...(!multiline && singleLineProps)}
         />
         {this._renderIndicator(status, statusMessage)}
       </div>
     );
   }
+  _handlePastedText = (text, html, editorState) => {
+    /** We need to prevent new line when `multilne` is false,
+     * here we are removing any new lines while pasting text   */
+    if (/\r|\n/.exec(text)) {
+      text = text.replace(/(\r\n|\n|\r)/gm, '');
+      this._onEditorChange(EditorUtilities.insertText(editorState, text));
+      return true;
+    }
+    return false;
+  };
   _isEmpty = () =>
     this.state.editorState.getCurrentContent().getPlainText().length === 0;
   _inputToTagSize = inputSize => {

@@ -12,7 +12,7 @@
   -st-named: defaultScrollBar;
 }
 .root {
-  -st-states: disabled, status(enum(error, warning)), size(enum(small, medium, large)), empty;
+  -st-states: disabled, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
   --rows: 1;
   --rowHeight: 24px;
   --contentHeight: 7px;
@@ -102,3 +102,13 @@
   top: 3px;
   right: 5px;
 }
+
+
+.root:singleLine :global(.public-DraftEditor-content) {
+  overflow-x: auto;
+  white-space: pre !important;
+  -ms-overflow-style: none;
+}
+.root:singleLine :global(.public-DraftEditor-content)::-webkit-scrollbar {
+   display: none;
+ }
