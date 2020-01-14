@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+- `<Input/>`- fix Affixes' margins [#4727](https://github.com/wix/wix-style-react/pull/4727)
+
 ## 7.33.0 - 2020-01-13
 
 ### Changed
