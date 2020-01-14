@@ -1,0 +1,11 @@
+{
+  "name": "Add shadow to the ComposerHeader",
+  "tests": [
+    "npm run test:visual"
+  ],
+  "hints": [
+    "Run the tests, see what happens...",
+    "Changed files: ComposerHeader.js"
+  ],
+  "diff": "ZGlmZiAtLWdpdCBhLy5zdG9yeWJvb2svdmlzdWFsL2NvbmZpZy5qcyBiLy5zdG9yeWJvb2svdmlzdWFsL2NvbmZpZy5qcwppbmRleCBlMzI0MTc1YzcuLjY3MmY2MjM3NCAxMDA2NDQKLS0tIGEvLnN0b3J5Ym9vay92aXN1YWwvY29uZmlnLmpzCisrKyBiLy5zdG9yeWJvb2svdmlzdWFsL2NvbmZpZy5qcwpAQCAtOCw3ICs4LDcgQEAgaW1wb3J0ICcuLi8uLi9zcmMvYXNzZXRzL2hlbHZldGljYS5zY3NzJzsKIGltcG9ydCAnLi9zdG9yaWVzLnNjc3MnOwogCiBmdW5jdGlvbiBsb2FkU3RvcmllcygpIHsKLSAgY29uc3QgcmVxID0gcmVxdWlyZS5jb250ZXh0KCcuLi8uLi9zcmMnLCB0cnVlLCAvXC52aXN1YWxcLmpzJC8pOworICBjb25zdCByZXEgPSByZXF1aXJlLmNvbnRleHQoJy4uLy4uL3NyYycsIHRydWUsIC9cQ29tcG9zZXJIZWFkZXIudmlzdWFsXC5qcyQvKTsKICAgcmVxLmtleXMoKS5mb3JFYWNoKGZpbGVuYW1lID0+IHJlcShmaWxlbmFtZSkpOwogfQogY29uc3QgdGhlbWUgPSBjcmVhdGUoewo="
+}
