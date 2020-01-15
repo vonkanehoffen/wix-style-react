@@ -84,6 +84,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
     const {
       primaryButtonLabel,
       primaryButtonTheme,
+      primaryButtonNode,
       theme,
       onPrimaryButtonClick,
       primaryButtonDisabled,
@@ -93,7 +94,10 @@ class MessageBoxMarketerialLayout extends WixComponent {
     } = this.props;
     return (
       <div className={styles.buttonsContainer}>
-        {primaryButtonLabel ? (
+        {!!primaryButtonNode && (
+          <div data-hook="primary-button-node">{primaryButtonNode}</div>
+        )}
+        {!primaryButtonNode && primaryButtonLabel && (
           <Button
             theme={`full${primaryButtonTheme || theme}`}
             onClick={onPrimaryButtonClick}
@@ -102,8 +106,8 @@ class MessageBoxMarketerialLayout extends WixComponent {
           >
             {primaryButtonLabel}
           </Button>
-        ) : null}
-        {secondaryButtonLabel && !footerBottomChildren ? (
+        )}
+        {secondaryButtonLabel && !footerBottomChildren && (
           <div className={styles.secondaryButtonContainer}>
             <TextButton
               size="small"
@@ -113,7 +117,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
               {secondaryButtonLabel}
             </TextButton>
           </div>
-        ) : null}
+        )}
       </div>
     );
   };
@@ -124,6 +128,7 @@ MessageBoxMarketerialLayout.propTypes = {
   content: PropTypes.node.isRequired,
   primaryButtonLabel: PropTypes.string,
   primaryButtonDisabled: PropTypes.bool,
+  primaryButtonNode: PropTypes.node,
   secondaryButtonLabel: PropTypes.string,
   onPrimaryButtonClick: PropTypes.func,
   onSecondaryButtonClick: PropTypes.func,
