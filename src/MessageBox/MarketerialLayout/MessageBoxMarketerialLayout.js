@@ -24,6 +24,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
       imageComponent,
       footerBottomChildren,
       removeButtonsPadding,
+      width,
     } = this.props;
 
     const headerClasses = classNames({
@@ -37,7 +38,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
       removeButtonsPadding && !primaryButtonLabel & !secondaryButtonLabel;
 
     return (
-      <div className={styles.root}>
+      <div className={styles.root} style={{ width }}>
         <div className={headerClasses}>
           <div className={styles.close}>
             <CloseButton
@@ -139,11 +140,13 @@ MessageBoxMarketerialLayout.propTypes = {
   theme: PropTypes.oneOf(['blue', 'purple', 'white']),
   primaryButtonTheme: PropTypes.oneOf(['blue', 'purple']),
   removeButtonsPadding: PropTypes.bool,
+  width: PropTypes.string,
 };
 
 MessageBoxMarketerialLayout.defaultProps = {
   theme: 'blue',
   removeButtonsPadding: false,
+  width: '600px',
 };
 
 export default MessageBoxMarketerialLayout;

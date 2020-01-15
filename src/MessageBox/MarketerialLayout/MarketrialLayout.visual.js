@@ -47,6 +47,16 @@ const tests = [
           primaryButtonLabel: 'Button',
         },
       },
+      {
+        it: 'custom width',
+        props: {
+          title: 'Custom width',
+          content: 'Some content to show you',
+          theme: 'white',
+          width: '800px',
+          primaryButtonLabel: 'Button',
+        },
+      },
     ],
   },
 ];
