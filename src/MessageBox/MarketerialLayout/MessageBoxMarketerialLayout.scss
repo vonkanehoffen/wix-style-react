@@ -64,15 +64,17 @@ $headerImageHeight: 185px;
   z-index: 10;
 }
 
-.title {
+.body-padding {
   padding: 0 108px;
+}
+
+.title {
   margin-bottom: 19px;
   text-align: center;
   color: $D10;
 }
 
 .content {
-  padding: 0 108px;
   text-align: center;
   color: $D10;
   margin-bottom: 48px;

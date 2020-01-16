@@ -21,6 +21,7 @@
 | theme | string | blue | - | theme of the message box (blue, purple or white) |
 | footerBottomChildren | node | - | - | custom node for footer bottom content |
 | removeButtonsPadding | bool | false | - | remove default padding for buttons when no buttons are provided |
+| noBodyPadding | bool | false | - | Should the body of the layout will have surrounding padding |
 | width | string | 600px | - | set custom message box width |
 
 ## MessageBoxFunctionalLayout Properties

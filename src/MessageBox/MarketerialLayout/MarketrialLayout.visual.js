@@ -57,6 +57,17 @@ const tests = [
           primaryButtonLabel: 'Button',
         },
       },
+      {
+        it: 'no body padding',
+        props: {
+          title: 'No Body Padding - long text in title',
+          content:
+            'Some content to show you Some content to show you Some content to show you',
+          noBodyPadding: true,
+          theme: 'white',
+          primaryButtonLabel: 'Button',
+        },
+      },
     ],
   },
 ];

@@ -25,6 +25,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
       footerBottomChildren,
       removeButtonsPadding,
       width,
+      noBodyPadding,
     } = this.props;
 
     const headerClasses = classNames({
@@ -36,6 +37,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
     // instead of introducing a breaking change for padding removal for non buttons existence, we add this prop
     const shouldRemoveButtonsPadding =
       removeButtonsPadding && !primaryButtonLabel && !secondaryButtonLabel;
+    const shouldDisplayBodyPadding = !noBodyPadding;
 
     return (
       <div className={styles.root} style={{ width }}>
@@ -56,10 +58,19 @@ class MessageBoxMarketerialLayout extends WixComponent {
             </div>
           ) : null}
         </div>
-        <div className={styles.title} data-hook="message-box-title">
+        <div
+          className={classNames(styles.title, {
+            [styles.bodyPadding]: shouldDisplayBodyPadding,
+          })}
+          data-hook="message-box-title"
+        >
           <Heading appearance="H1">{title}</Heading>
         </div>
-        <div className={styles.content}>
+        <div
+          className={classNames(styles.content, {
+            [styles.bodyPadding]: shouldDisplayBodyPadding,
+          })}
+        >
           <Text size="medium" weight="thin">
             {content}
           </Text>
@@ -141,12 +152,14 @@ MessageBoxMarketerialLayout.propTypes = {
   primaryButtonTheme: PropTypes.oneOf(['blue', 'purple']),
   removeButtonsPadding: PropTypes.bool,
   width: PropTypes.string,
+  noBodyPadding: PropTypes.bool,
 };
 
 MessageBoxMarketerialLayout.defaultProps = {
   theme: 'blue',
   removeButtonsPadding: false,
   width: '600px',
+  noBodyPadding: false,
 };
 
 export default MessageBoxMarketerialLayout;
