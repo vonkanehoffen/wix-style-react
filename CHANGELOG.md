@@ -21,6 +21,7 @@ Types of changes:
 - `<VariableInput/>` - add `multiline` prop [#4864](https://github.com/wix/wix-style-react/pull/4864)
 - `<MessageBoxMarketerialLayout/>` - add `primaryButtonNode` prop [#4676](https://github.com/wix/wix-style-react/pull/4676)
 - `<MessageBoxMarketerialLayout/>` - add `width` prop [#4878](https://github.com/wix/wix-style-react/pull/4878)
+- `<MessageBoxMarketerialLayout/>` - add `noBodyPadding` prop [#4882](https://github.com/wix/wix-style-react/pull/4882)
 
 ### Fixed
 
