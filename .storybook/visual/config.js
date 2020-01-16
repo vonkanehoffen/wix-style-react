@@ -9,7 +9,6 @@ import './stories.scss';
 
 function loadStories() {
   const req = require.context('../../src', true, /\.visual\.js$/);
-  require('../../.wuf/generator/tests/GeneratedTestComponent.visual.js');
   req.keys().forEach(filename => req(filename));
 }
 const theme = create({
