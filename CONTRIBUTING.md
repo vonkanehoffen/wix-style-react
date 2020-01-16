@@ -39,7 +39,3 @@ For components test drivers and TestKits [Read here](./docs/contribution/TEST_DR
 ## Adding Icons
 
 [Read here](./docs/contribution/ADDING_ICONS.md)
-
-## Cheatsheet Contribution
-
-[Read here](./docs/contribution/CHEATSHEET_GUIDLINES.md)
