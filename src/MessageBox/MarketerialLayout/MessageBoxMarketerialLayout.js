@@ -35,7 +35,7 @@ class MessageBoxMarketerialLayout extends WixComponent {
 
     // instead of introducing a breaking change for padding removal for non buttons existence, we add this prop
     const shouldRemoveButtonsPadding =
-      removeButtonsPadding && !primaryButtonLabel & !secondaryButtonLabel;
+      removeButtonsPadding && !primaryButtonLabel && !secondaryButtonLabel;
 
     return (
       <div className={styles.root} style={{ width }}>
