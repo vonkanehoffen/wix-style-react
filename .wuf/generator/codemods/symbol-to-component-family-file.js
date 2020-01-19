@@ -1,11 +1,12 @@
 
-module.exports = (file, api) => {
+module.exports = (file, api, options) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
   const exports = root.find(j.ExportNamedDeclaration).paths();
+  const { ComponentName } = options;
 
-  j(exports[exports.length - 1]).insertBefore(
+  j(exports[exports.length - 1]).insertAfter(
     `
 /**
  * TODO: move to the relevant family file
@@ -15,7 +16,13 @@ module.exports = (file, api) => {
   notClassifiedComponentsNames as componentsNames,
   sharedComponentsNames,
  } from '../components';
-};
+
+ export const notClassifiedSymbolsToComponents = {
+    [notClassifiedSymbols.${ComponentName}]: [
+        componentsNames.${ComponentName} ,
+        sharedComponentsNames.FormField
+    ]
+ };
     `,
   );
 
