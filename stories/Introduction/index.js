@@ -35,5 +35,3 @@ storiesOf(Category.TROUBLESHOOTING, module).add('Troubleshooting', () => (
     <Markdown source={TroubleshootingReadme} />
   </div>
 ));
-
-//TODO - add contribution docs links here somehow
