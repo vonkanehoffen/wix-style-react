@@ -5,7 +5,7 @@ module.exports = (file, api) => {
 
   const exports = root.find(j.ExportNamedDeclaration).paths();
 
-  j(exports[0]).insertAfter(
+  j(exports[exports.length - 1]).insertBefore(
     `
 /**
  * TODO: move to the relevant family file
