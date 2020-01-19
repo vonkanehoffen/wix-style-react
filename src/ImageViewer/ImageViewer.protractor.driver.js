@@ -1,4 +1,4 @@
-import imageViewerPrivateDriver from './ImageViewer.private.driver';
+import imageViewerPrivateDriver from './test/ImageViewer.private.driver';
 
 const { addItemDataHook, imageDataHook } = imageViewerPrivateDriver;
 
