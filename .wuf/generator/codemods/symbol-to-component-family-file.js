@@ -1,4 +1,3 @@
-
 module.exports = (file, api, options) => {
   const j = api.jscodeshift;
   const root = j(file.source);
@@ -6,7 +5,7 @@ module.exports = (file, api, options) => {
   const exports = root.find(j.ExportNamedDeclaration).paths();
   const { ComponentName } = options;
 
-  j(exports[exports.length - 1]).insertAfter(
+  j(exports[exports.length - 1]).insertBefore(
     `
 /**
  * TODO: move to the relevant family file
