@@ -12,12 +12,12 @@ module.exports = [
   {
     codemod: 'components-index-file.js',
     dist: 'stories/symbolsComponentsMapping/components.js',
-    description : 'Add component to components index file'
+    description : 'Add component to components mapping file'
   },
   {
     codemod: 'symbols-file.js',
     dist: 'stories/symbolsComponentsMapping/symbols.js',
-    description: 'Add UX symbol to symbols index file'
+    description: 'Add UX symbol to symbols mapping file'
   },
   {
     codemod: 'symbol-to-component-family-file.js',
