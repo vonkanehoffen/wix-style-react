@@ -9,4 +9,9 @@ module.exports = [
     dist: 'src/index.js',
     description: 'Add component export to the index file',
   },
+  {
+    codemod: 'components-cheatsheet-file.js',
+    dist: 'stories/symbolsComponentsMapping/components.js',
+    description : 'Add component to cheatsheet components index file'
+  },
 ];
