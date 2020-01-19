@@ -10,8 +10,13 @@ module.exports = [
     description: 'Add component export to the index file',
   },
   {
-    codemod: 'components-cheatsheet-file.js',
+    codemod: 'components-index-file.js',
     dist: 'stories/symbolsComponentsMapping/components.js',
-    description : 'Add component to cheatsheet components index file'
+    description : 'Add component to components index file'
   },
+  {
+    codemod: 'symbols-file.js',
+    dist: 'stories/symbolsComponentsMapping/symbols.js',
+    description: 'Add UX symbol to symbols index file'
+  }
 ];
