@@ -21,7 +21,7 @@ module.exports = [
   },
   {
     codemod: 'symbol-to-component-family-file.js',
-    dist: 'stories/symbolsComponentsMapping/families/notClassifiedFamily.js',
+    dist: 'stories/symbolsComponentsMapping/families/unclassifiedFamily.js',
     description: 'Add symbol to component mapping',
   }
 ];

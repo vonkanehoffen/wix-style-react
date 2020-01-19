@@ -1,0 +1,1 @@
+/* Placeholder file for unclassified family when generating a new component */
