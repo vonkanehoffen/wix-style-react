@@ -102,63 +102,6 @@ const tests = [
       },
     ],
   },
-  {
-    describe: 'Navigation Buttons',
-    its: [
-      {
-        it: 'Right Arrow button on initial render',
-        props: { children: multipleChildren, actions },
-      },
-      // {
-      //   it: 'Right & Left Arrow buttons of middle child node',
-      //   props: { children: multipleChildren, actions },
-      //   componentDidMount: async () => {
-      //     const driver = createDriver();
-      //     await driver.clickRightNavigationButton();
-      //   },
-      // },
-      // {
-      //   it: 'Left Arrow button of last child node',
-      //   props: { children: multipleChildren, actions },
-      //   componentDidMount: async () => {
-      //     const driver = createDriver();
-      //     await driver.clickRightNavigationButton();
-      //     await driver.clickRightNavigationButton();
-      //   },
-      // },
-    ],
-  },
-  // {
-  //   describe: 'Tooltip',
-  //   its: [
-  //     {
-  //       it: 'right navigation button',
-  //       props: { children: multipleChildren, actions },
-  //       componentDidMount: async () => {
-  //         const driver = createDriver();
-  //         await driver.hoverRightNavigationButton();
-  //       },
-  //     },
-  //     {
-  //       it: 'left navigation button',
-  //       props: { children: multipleChildren, actions },
-  //       componentDidMount: async () => {
-  //         const driver = createDriver();
-  //         await driver.clickRightNavigationButton();
-  //         await driver.clickRightNavigationButton();
-  //         await driver.hoverLeftNavigationButton();
-  //       },
-  //     },
-  //     {
-  //       it: 'close button',
-  //       props: { children: multipleChildren, actions },
-  //       componentDidMount: async () => {
-  //         const driver = createDriver();
-  //         await driver.hoverCloseButton();
-  //       },
-  //     },
-  //   ],
-  // },
 ];
 
 const InteractiveModalPreviewLayout = ({
