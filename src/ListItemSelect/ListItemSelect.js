@@ -31,7 +31,7 @@ class ListItemSelect extends React.PureComponent {
     prefix: PropTypes.node,
 
     /** Title of the list item */
-    title: PropTypes.string,
+    title: PropTypes.node,
 
     /** Text of the list item subtitle */
     subtitle: PropTypes.string,
