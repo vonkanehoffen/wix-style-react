@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<Search/>` - Add support for right to left expansion [#4841](https://github.com/wix/wix-style-react/pull/4841)
+- `<Text/>` - add default styling for nested `<ul>` lists [#4876](https://github.com/wix/wix-style-react/pull/4876)
 
 ### Fixed
 
