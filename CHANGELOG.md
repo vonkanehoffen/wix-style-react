@@ -18,6 +18,7 @@ Types of changes:
 
 ### Changed
 - `<Checkbox>` - Stopped propagation on children
+- `<Button/>` - migrate to new disabled color [#4886](https://github.com/wix/wix-style-react/pull/4886)
 
 ### Docs
 - `<MultiSelectCheckbox/>` - Upgraded story page to be more informative
