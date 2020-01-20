@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.35.0 - 2020-01-20
 
 ### Changed
 - `<Checkbox>` - Stopped propagation on children
