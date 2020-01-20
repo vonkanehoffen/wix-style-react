@@ -20,7 +20,7 @@ module.exports = [
     description: 'Add UX symbol to symbols mapping file'
   },
   {
-    codemod: 'symbol-to-component-family-file.js',
+    codemod: 'symbol-to-component-file.js',
     dist: 'stories/symbolsComponentsMapping/families/unclassifiedFamily.js',
     description: 'Add symbol to component mapping',
   }
