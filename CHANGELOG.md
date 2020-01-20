@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<FormField/>` - add `suffix` prop [#4887](https://github.com/wix/wix-style-react/pull/4887)
+
 ### Fixed
 - `<VariableInput/>` - fix `onBlur` and `onChange` issues [#4894](https://github.com/wix/wix-style-react/pull/4894)
 
