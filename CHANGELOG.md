@@ -22,6 +22,9 @@ Types of changes:
 ### Fixed
 - `<VariableInput/>` - fix `onBlur` and `onChange` issues [#4894](https://github.com/wix/wix-style-react/pull/4894)
 
+### Docs
+- `<VariableInput/>` - change composition to use FormField's suffix [#4901](https://github.com/wix/wix-style-react/pull/4901)
+
 ## 7.36.0
 
 ### Added
