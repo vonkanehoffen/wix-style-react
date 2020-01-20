@@ -24,6 +24,7 @@ Types of changes:
 ### Fixed
 
 - infrastructure: fix named-importing issues [#4788](https://github.com/wix/wix-style-react/pull/4788)
+- `<Button/>` - fix standard secondary disabled color [#4897](https://github.com/wix/wix-style-react/pull/4897)
 
 ## 7.35.0 - 2020-01-20
 
