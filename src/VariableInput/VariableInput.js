@@ -138,7 +138,6 @@ class VariableInput extends React.PureComponent {
           editorState={this.state.editorState}
           onChange={this._onEditorChange}
           placeholder={placeholder}
-          onBlur={() => setTimeout(this._onBlur, 0)}
           readOnly={disabled}
           {...(!multiline && singleLineProps)}
         />
@@ -161,38 +160,19 @@ class VariableInput extends React.PureComponent {
   _inputToTagSize = inputSize => {
     return inputToTagsSize[inputSize] || VariableInput.defaultProps.size;
   };
-  _onBlur = () => {
-    const { editorState } = this.state;
-    const {
-      variableTemplate: { prefix, suffix },
-    } = this.props;
-    if (EditorUtilities.hasUnparsedEntity(editorState, prefix, suffix)) {
-      this._setStringValue(
-        EditorUtilities.convertToString({
-          editorState,
-          prefix,
-          suffix,
-        }),
-        () => {
-          this._onSubmit();
-        },
-      );
-    } else {
-      this._onSubmit();
-    }
-  };
   _onSubmit = () => {
     const {
       onSubmit = () => {},
       variableTemplate: { prefix, suffix },
     } = this.props;
     const { editorState } = this.state;
-    const value = EditorUtilities.convertToString({
-      editorState,
-      prefix,
-      suffix,
-    });
-    onSubmit(value);
+    onSubmit(
+      EditorUtilities.convertToString({
+        editorState,
+        prefix,
+        suffix,
+      }),
+    );
   };
   _onChange = () => {
     const {
@@ -209,17 +189,41 @@ class VariableInput extends React.PureComponent {
     );
   };
   _onEditorChange = editorState => {
-    this._setEditorState(editorState, () => {
-      this._onChange();
-    });
+    this._setEditorState(editorState);
   };
   _setEditorState = (editorState, onStateChanged = () => {}) => {
-    const updateEditorState = EditorUtilities.moveToEdge(editorState);
+    const { editorState: editorStateBefore } = this.state;
+    const {
+      variableTemplate: { prefix, suffix },
+    } = this.props;
+    let updateEditorState = EditorUtilities.moveToEdge(editorState);
+    let triggerCallback = () => {};
+    if (EditorUtilities.isBlured(editorStateBefore, updateEditorState)) {
+      // onChange is called after the editor blur handler
+      // and we can't reflect the changes there, we moved the logic here.
+      triggerCallback = this._onSubmit;
+      if (
+        EditorUtilities.hasUnparsedEntity(updateEditorState, prefix, suffix)
+      ) {
+        updateEditorState = this._stringToContentState(
+          EditorUtilities.convertToString({
+            editorState: updateEditorState,
+            prefix,
+            suffix,
+          }),
+        );
+      }
+    } else if (
+      EditorUtilities.isContentChanged(editorStateBefore, updateEditorState)
+    ) {
+      triggerCallback = this._onChange;
+    }
     this.setState({ editorState: updateEditorState }, () => {
+      triggerCallback();
       onStateChanged();
     });
   };
-  _setStringValue = (str, afterUpdated = () => {}) => {
+  _stringToContentState = str => {
     const {
       variableParser = () => {},
       variableTemplate: { prefix, suffix },
@@ -231,10 +235,13 @@ class VariableInput extends React.PureComponent {
       prefix,
       suffix,
     });
-    const updatedEditorState = EditorUtilities.pushAndKeepSelection({
+    return EditorUtilities.pushAndKeepSelection({
       editorState,
       content,
     });
+  };
+  _setStringValue = (str, afterUpdated = () => {}) => {
+    const updatedEditorState = this._stringToContentState(str);
     this._setEditorState(updatedEditorState, () => {
       afterUpdated(updatedEditorState);
     });

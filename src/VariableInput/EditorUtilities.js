@@ -296,6 +296,14 @@ const _findEntityEdgeIndex = (
   }
   return afterOffset;
 };
+/** Returns true if content has changed */
+const isContentChanged = (editorStateBefore, editorStateAfter) =>
+  editorStateBefore.getCurrentContent().getPlainText() !==
+  editorStateAfter.getCurrentContent().getPlainText();
+/** Returns true if state lost focus */
+const isBlured = (editorStateBefore, editorStateAfter) =>
+  editorStateBefore.getSelection().getHasFocus() &&
+  !editorStateAfter.getSelection().getHasFocus();
 export default {
   insertText,
   insertEntity,
@@ -306,4 +314,6 @@ export default {
   pushAndKeepSelection,
   hasUnparsedEntity,
   moveToEdge,
+  isContentChanged,
+  isBlured,
 };
