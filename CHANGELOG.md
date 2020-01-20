@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.36.0
 
 ### Added
 
@@ -29,10 +29,12 @@ Types of changes:
 ## 7.35.0 - 2020-01-20
 
 ### Changed
+
 - `<Checkbox>` - Stopped propagation on children
 - `<Button/>` - migrate to new disabled color [#4886](https://github.com/wix/wix-style-react/pull/4886)
 
 ### Docs
+
 - `<MultiSelectCheckbox/>` - Upgraded story page to be more informative
 
 ## 7.34.0 - 2020-01-16
@@ -92,7 +94,7 @@ Types of changes:
 
 - `<ImageViewer/>` - do not render img html at all when imageUrl prop is not defined [#4735](https://github.com/wix/wix-style-react/pull/4735)
 - `<Badge/>` - Added missing constants to TypeScript typings [#4807](https://github.com/wix/wix-style-react/pull/4807)
-- `<IconButton/>` - migrate stylesheet && update disabled styles &&  fix inverted color [#4806](https://github.com/wix/wix-style-react/pull/4806)
+- `<IconButton/>` - migrate stylesheet && update disabled styles && fix inverted color [#4806](https://github.com/wix/wix-style-react/pull/4806)
 - `<SocialButton/>` - Horizontally align text to center [#4808](https://github.com/wix/wix-style-react/pull/4808)
 - `<MultiSelectCheckbox/>` - fix missing cursor style [#4821](https://github.com/wix/wix-style-react/pull/4821)
 - `<Notification.ActionButton/>` - do not require noop `onClick` when `type="textLink"` [#4824](https://github.com/wix/wix-style-react/pull/4824)
@@ -103,6 +105,7 @@ Types of changes:
 - `<Tag/>` - fix height when tiny and unremovable [#4857](https://github.com/wix/wix-style-react/pull/4857)
 
 ### Labs
+
 - `<VariableInput/>` - create new component [#4791](https://github.com/wix/wix-style-react/pull/4791)
 - `<VariableInput/>` - add `onChange` prop [#4801](https://github.com/wix/wix-style-react/pull/4801)
 - `<VariableInput/>` - add `placeholder` prop [#4802](https://github.com/wix/wix-style-react/pull/4802)
