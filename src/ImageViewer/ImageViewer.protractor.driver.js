@@ -1,12 +1,10 @@
-import imageViewerPrivateDriver from './test/ImageViewer.private.driver';
-
-const { addItemDataHook, imageDataHook } = imageViewerPrivateDriver;
+import { dataHooks } from './constants';
 
 const imageViewerDriverFactory = component => ({
   click: () => component.click(),
   element: () => component,
-  isImageVisible: () => component.$(imageDataHook).isPresent(),
-  isAddItemVisible: () => component.$(addItemDataHook).isPresent(),
+  isImageVisible: () => component.$(dataHooks.image).isPresent(),
+  isAddItemVisible: () => component.$(dataHooks.addItem).isPresent(),
 });
 
 export default imageViewerDriverFactory;
