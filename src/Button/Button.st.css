@@ -96,9 +96,9 @@
 }
 
 .root:priority(secondary):disabled {
-  color: value(D80);
-  background-color: value(D10-30);
-  border-color: transparent;
+  color: value(D10-30);
+  background-color: transparent;
+  border-color: value(D10-30);
 }
 
 /* Skin: inverted */
