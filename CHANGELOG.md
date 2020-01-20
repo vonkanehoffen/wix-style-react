@@ -16,6 +16,10 @@ Types of changes:
 
 ## Next
 
+### Added
+
+- `<Search/>` - Add support for right to left expansion [#4841](https://github.com/wix/wix-style-react/pull/4841)
+
 ### Fixed
 
 - infrastructure: fix named-importing issues [#4788](https://github.com/wix/wix-style-react/pull/4788)
