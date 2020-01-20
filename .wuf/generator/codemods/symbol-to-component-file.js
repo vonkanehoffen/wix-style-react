@@ -2,6 +2,9 @@ module.exports = (file, api, options) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
+  console.log('Yayyyy')
+
+
   const exports = root.find(j.ExportNamedDeclaration).paths();
   const { ComponentName } = options;
 
