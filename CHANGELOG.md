@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed
+- `<VariableInput/>` - fix `onBlur` and `onChange` issues [#4894](https://github.com/wix/wix-style-react/pull/4894)
+
 ## 7.36.0
 
 ### Added
