@@ -46,8 +46,7 @@ export default {
     columns([
       description({
         title: 'Description',
-        text: `Variable Input enables the user to insert given tags (variables) as well as free text inside an input. This component can be used to build various forms.
-        Variable Input is a composition of 3 individual components: FormField, VariableInput. It might include Dropdown to insert new variables`,
+        text: `Variable Input enables the user to insert given tags (variables) as well as free text inside an input. This component can be used to build various forms.`,
       }),
     ]),
 
@@ -68,6 +67,13 @@ export default {
               story="TextButton"
             >{`<TextButton/>`}</LinkTo>,
             'Component to trigger the action',
+          ],
+          [
+            <LinkTo
+              kind={Category.BETA}
+              story="PopoverMenu"
+            >{`<PopoverMenu/>`}</LinkTo>,
+            'Component to insert new variables',
           ],
           [
             <LinkTo
