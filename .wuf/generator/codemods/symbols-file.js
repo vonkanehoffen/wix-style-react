@@ -3,6 +3,8 @@ module.exports = (file, api, options) => {
   const root = j(file.source);
   const { ComponentName } = options;
 
+  console.log('root: ', root);
+
   const exports = root.find(j.ExportNamedDeclaration).paths();
 
   j(exports[exports.length - 1]).insertAfter(
