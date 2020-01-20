@@ -21,14 +21,12 @@ const _actionExample = ({
   required = false,
   labelPlacement = false,
 } = {}) => `
-<div style={{position: 'relative', ${
-  labelPlacement ? `minHeight: '66px', paddingTop: '30px',` : ''
-}}}>
   <FormField
     ${labelPlacement === 'right' ? '' : 'label="Variable Input"'}
     ${info ? 'infoContent="I help you to fill info"' : ''}
     ${required ? 'required' : ''}
     ${labelPlacement ? `labelPlacement="${labelPlacement}"` : ''}
+    ${action ? `suffix={${dropDown}}` : ''}
     >
       <VariableInput
         initialValue="${initialValue}"
@@ -38,12 +36,6 @@ const _actionExample = ({
         ${action ? `ref={ref => {this._ref = ref}}` : ''}
       />
   </FormField>
-  <Box position="absolute" top={3} right={${
-    labelPlacement === 'right' ? 40 : 0
-  }}>
-      ${action ? dropDown : ''}
-  </Box>
-</div>
 `;
 const _cellWrapper = (title, content) => {
   return `<Cell>
