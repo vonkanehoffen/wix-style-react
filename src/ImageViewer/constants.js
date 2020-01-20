@@ -1,3 +1,4 @@
+// component internal data-hooks
 export const dataHooks = {
   addItem: 'add-image',
   overlay: 'image-viewer-overlay',
@@ -12,6 +13,10 @@ export const dataHooks = {
   remove: 'remove-image',
 };
 
+/**
+ * We use data-attributes to write css-states to the DOM for tests.
+ * We can't use StylableDOMUtil (the standard solution) since it's not behaving well.
+ */
 export const dataAttributes = {
   imageLoaded: 'data-image-loaded',
   imageVisible: 'data-image-visible',

@@ -9,8 +9,7 @@ import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import AddItem from '../AddItem/AddItem';
 import Box from '../Box';
-import classNames from 'classnames';
-import { dataHooks } from './constants';
+import classnames from 'classnames';
 
 class ImageViewer extends Component {
   constructor(props) {
@@ -42,7 +41,7 @@ class ImageViewer extends Component {
       <AddItem
         onClick={onAddImage}
         theme="image"
-        dataHook={dataHooks.addItem}
+        dataHook="add-image"
         disabled={disabled}
         tooltipContent={addImageInfo}
         tooltipProps={{ ...tooltipProps, content: addImageInfo }}
@@ -66,7 +65,7 @@ class ImageViewer extends Component {
 
     return (
       <img
-        className={classNames([
+        className={classnames([
           styles.image,
           styles.stretch,
           shouldDisplay && styles.imageVisible,
@@ -129,7 +128,7 @@ class ImageViewer extends Component {
           shouldDisplay: shouldDisplayContainer,
         })}
         data-container-visible={shouldDisplayContainer}
-        data-hook={dataHooks.imagesContainer}
+        data-hook="images-container"
       >
         {/** current image */}
         {this._renderImageElement({
@@ -161,11 +160,11 @@ class ImageViewer extends Component {
         {...tooltipProps}
         upgrade
         timeout={0}
-        dataHook={dataHooks.updateTooltip}
+        dataHook="update-image-tooltip"
         content={updateImageInfo}
       >
         <IconButton
-          dataHook={dataHooks.update}
+          dataHook="update-image"
           onClick={onUpdateImage}
           skin="light"
           priority="secondary"
@@ -185,11 +184,11 @@ class ImageViewer extends Component {
         {...tooltipProps}
         upgrade
         timeout={0}
-        dataHook={dataHooks.removeTooltip}
+        dataHook="remove-image-tooltip"
         content={removeImageInfo}
       >
         <IconButton
-          dataHook={dataHooks.remove}
+          dataHook="remove-image"
           skin="light"
           priority="secondary"
           onClick={e => {
@@ -214,7 +213,7 @@ class ImageViewer extends Component {
             content={errorMessage}
             timeout={0}
             appendTo="window"
-            dataHook={dataHooks.errorTooltip}
+            dataHook="error-image-tooltip"
             placement="top"
           >
             <div className={styles.error}>
@@ -231,7 +230,7 @@ class ImageViewer extends Component {
       align="center"
       verticalAlign="middle"
       height="100%"
-      dataHook={dataHooks.loader}
+      dataHook="image-viewer-loader"
     >
       <Loader size="small" />
     </Box>
@@ -259,7 +258,7 @@ class ImageViewer extends Component {
           this.props,
         )}
         data-remove-radius={removeRoundedBorders}
-        data-hook={dataHooks.overlay}
+        data-hook="image-viewer-overlay"
       >
         {content}
         <span />
