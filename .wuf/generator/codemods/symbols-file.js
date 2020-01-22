@@ -1,7 +1,7 @@
 module.exports = (file, api, options) => {
   const j = api.jscodeshift;
   const root = j(file.source);
-  const { ComponentName } = options;
+  const { componentName, ComponentName } = options;
 
   console.log('root: ', root);
 
@@ -14,7 +14,7 @@ module.exports = (file, api, options) => {
  * TODO: move to the relevant family
  */
 export const notClassifiedSymbols = {
-  ${ComponentName}: '13.1 ${ComponentName}',
+  ${componentName}: '13.1 ${ComponentName}',
 };
     `,
   );
