@@ -1,14 +1,10 @@
 module.exports = (file, api, options) => {
   const j = api.jscodeshift;
   const root = j(file.source);
-  console.error('root: ',JSON.stringify(root));
-
-  const exports = root.find(j.ExportNamedDeclaration).paths();
-  console.error('exportNamedDeclaration: ',j.ExportNamedDeclaration);
 
   const { ComponentName } = options;
 
-  j(exports[exports.length - 1]).insertAfter(
+  root.get().node.program.body.push(
     `
 /**
  * TODO: move to the relevant family file
@@ -25,7 +21,7 @@ module.exports = (file, api, options) => {
         sharedComponentsNames.FormField
     ]
  };
-    `,
+    `
   );
 
   return root.toSource();
