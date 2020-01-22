@@ -15,7 +15,7 @@ module.exports = [
     description : 'Add component to components mapping file'
   },
   {
-    codemod: 'symbols-file.js',
+    codemod: 'symbols-index-file.js',
     dist: 'stories/symbolsComponentsMapping/symbols.js',
     description: 'Add UX symbol to symbols mapping file'
   },
