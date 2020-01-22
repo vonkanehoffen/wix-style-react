@@ -8,10 +8,10 @@ module.exports = (file, api, options) => {
   j(exports[exports.length - 1]).insertAfter(
     `
 /**
- * Not classified UX symbol.
+ * Unclassified UX symbol.
  * TODO: move to the relevant family
  */
-export const notClassifiedSymbols = {
+export const unclassifiedSymbols = {
   ${componentName}: '13.1 ${ComponentName}',
 };
     `,

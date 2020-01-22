@@ -11,14 +11,14 @@ module.exports = (file, api, options) => {
 /**
  * TODO: move to the relevant family file
  */
- import { notClassifiedSymbols } from '../symbols';
+ import { unclassifiedSymbols } from '../symbols';
  import {
-  notClassifiedComponentsNames as componentsNames,
+  unclassifiedComponentsNames as componentsNames,
   sharedComponentsNames,
  } from '../components';
 
- export const notClassifiedSymbolsToComponents = {
-    [notClassifiedSymbols.${ComponentName}]: [
+ export const unclassifiedSymbolsToComponents = {
+    [unclassifiedSymbols.${ComponentName}]: [
         componentsNames.${ComponentName} ,
         sharedComponentsNames.FormField
     ]

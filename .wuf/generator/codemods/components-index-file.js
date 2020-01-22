@@ -8,10 +8,10 @@ module.exports = (file, api, options) => {
   j(exports[exports.length - 1]).insertAfter(
     `
 /**
- * Not classified Components.
+ * Unclassified Components.
  * TODO: move to the relevant family
  */
-export const notClassifiedComponentsNames = {
+export const unclassifiedComponentsNames = {
    ${ComponentName}: ' ${ComponentName}',
 };
     `,
