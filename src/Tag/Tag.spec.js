@@ -128,6 +128,7 @@ describe('Tag', () => {
     });
 
     it('should call onClick function on click', async () => {
+      const expectedMouseEvent = expect.any(Object);
       const onClick = jest.fn();
       const driver = createDriver(
         <Tag id={id} onClick={onClick}>
@@ -136,7 +137,7 @@ describe('Tag', () => {
       );
 
       await driver.click();
-      expect(onClick).toBeCalledWith(id);
+      expect(onClick).toBeCalledWith(id, expectedMouseEvent);
     });
 
     it('should not have pointer cursor when not passed onClick', async () => {
