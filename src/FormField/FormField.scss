@@ -101,7 +101,7 @@ $childrenMargin: 6px;
 }
 
 .asterisk {
-  @extend .text.sizeMedium.weightThin;
+  @extend .text, .sizeMedium, .weightThin;
   display: inline-block;
   color: $B20;
   font-size: 22px;
