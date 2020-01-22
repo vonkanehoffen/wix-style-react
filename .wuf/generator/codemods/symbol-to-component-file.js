@@ -6,6 +6,8 @@ module.exports = (file, api, options) => {
 
   root.get().node.program.body.push(
     `
+/* Placeholder file when generating a new component */
+
 /**
  * TODO: move to the relevant family file
  */
