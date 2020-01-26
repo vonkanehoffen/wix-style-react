@@ -37,6 +37,12 @@ yarn add wix-style-react
 
 If 🐉yoshi build runner is used for your application then all required loaders are already defined. If you'd rather set up your project manually, take a look at our [webpack guide](https://github.com/wix/wix-style-react/blob/master/docs/usage-without-yoshi.md).
 
+Minimal Yoshi version to be used with wix-style-react:
+
+`Version 4 - ^4.1.0`
+
+`Version 3 - ^3.31.2`
+
 Load Wix fonts from CDN:
   ```html
   <link
