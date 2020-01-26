@@ -209,3 +209,23 @@ export const overflow = `
   />
 </div>
 `;
+
+export const clearValue = `
+  () => {
+  const [val,setVal] = React.useState(-1);
+
+  return <Dropdown
+  updateControlledOnClear
+    clearButton
+    selectedId={val}
+    onClear={()=> setVal(-1)}
+    onSelect={({id}) => setVal(id)}
+    placeholder="Select an option"
+    options={[
+      { id: 0, value: 'Option 1' },
+      { id: 1, value: 'Option 2' },
+      { id: 2, value: 'Option 3' },
+    ]}
+  />
+}
+`;

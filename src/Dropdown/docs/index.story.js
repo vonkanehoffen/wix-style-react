@@ -132,6 +132,12 @@ export default {
               source: examples.states,
             },
             {
+              title: 'Clear value',
+              subtitle:
+                'An example of a controlled dropdown with a clear button.',
+              source: examples.clearValue,
+            },
+            {
               title: 'Native support',
               subtitle:
                 'For mobile usage the component can switch to native dropdown.',
