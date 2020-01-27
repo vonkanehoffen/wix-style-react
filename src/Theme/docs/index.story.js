@@ -16,10 +16,13 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
+import { themedExample, customExample } from './example';
 
 import Theme from '..';
+import GallerySidepanel from '../GallerySidepanel';
 
-const code = config => baseCode({ components: allComponents, ...config });
+const code = config =>
+  baseCode({ components: { ...allComponents, GallerySidepanel }, ...config });
 
 export default {
   category: storySettings.category,
@@ -66,33 +69,25 @@ export default {
 
           columns([
             description({
-              title: 'Red',
+              title: 'Use a prepared theme',
             }),
 
             code({
               compact: true,
-              source: `
-                <Theme theme="red">
-                    <Button>Click Me!</Button>
-                </Theme>
-              `,
+              source: themedExample,
             }),
           ]),
 
-          columns([
-            description({
-              title: 'Green',
-            }),
-
-            code({
-              compact: true,
-              source: `
-                <Theme theme="green">
-                    <Button>Click Me!</Button>
-                </Theme>
-              `,
-            }),
-          ]),
+          // columns([
+          //   description({
+          //     title: 'Create a custom theme',
+          //   }),
+          //
+          //   code({
+          //     compact: true,
+          //     source: customExample,
+          //   }),
+          // ]),
         ],
       }),
 
