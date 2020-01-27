@@ -14,6 +14,11 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Fixed:
+- `<Sidebar/>`- Fixing scrollbar for both light and dark skins [#4925](https://github.com/wix/wix-style-react/pull/4925)
+
 ## 7.38.0 - 2020-01-27
 
 ### Fixed
