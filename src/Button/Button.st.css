@@ -37,7 +37,7 @@
   border-radius: 18px;
   padding: 0 23px;
 
-  background-color: value(B10);
+  background-color: var(--primary-color, value(B10));
   border-color: value(B10);
   color: value(D80);
 

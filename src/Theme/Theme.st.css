@@ -1,0 +1,16 @@
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: R10,B10;
+}
+
+.root {
+  -st-states: theme(enum(red, green));
+}
+
+.root:theme(red) {
+  --primary-color: red;
+}
+
+.root:theme(green) {
+  --primary-color: green;
+}
