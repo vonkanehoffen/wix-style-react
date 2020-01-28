@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+
+## Next
+
+### Fixed:
+- `<Tag/>` - changed onClick callback call to pass 'event' as second parameter [#4915](https://github.com/wix/wix-style-react/pull/4915)
+
 ## 7.38.1 - 2020-01-28
 
 ### Fixed:
