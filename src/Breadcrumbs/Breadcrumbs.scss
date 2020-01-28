@@ -42,7 +42,7 @@
 }
 
 .onDarkBackground {
-  @include breadcrumbsHover($D60, transparentize($D80, .9));
+  @include breadcrumbsHover($D60, $D80-90);
 
   .item {
     color: $D60;

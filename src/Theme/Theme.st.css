@@ -1,16 +1,30 @@
 :import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: R10,B10;
+  -st-from: '../Foundation/stylable/colors.st.css';
+  -st-named: R00, R05, R10, R20, R30, R40, R50, R60, G00, G05, G10, G20, G30, G40, G50, G60;
 }
 
 .root {
-  -st-states: theme(enum(red, green));
+  -st-states: theme(enum(reds, greens));
 }
 
-.root:theme(red) {
-  --primary-color: red;
+.root:theme(reds) {
+  --wsr-theme-color-00: value(R00);
+  --wsr-theme-color-05: value(R05);
+  --wsr-theme-color-10: value(R10);
+  --wsr-theme-color-20: value(R20);
+  --wsr-theme-color-30: value(R30);
+  --wsr-theme-color-40: value(R40);
+  --wsr-theme-color-50: value(R50);
+  --wsr-theme-color-60: value(R60);
 }
 
-.root:theme(green) {
-  --primary-color: green;
+.root:theme(greens) {
+  --wsr-theme-color-00: value(G00);
+  --wsr-theme-color-05: value(G05);
+  --wsr-theme-color-10: value(G10);
+  --wsr-theme-color-20: value(G20);
+  --wsr-theme-color-30: value(G30);
+  --wsr-theme-color-40: value(G40);
+  --wsr-theme-color-50: value(G50);
+  --wsr-theme-color-60: value(G60);
 }

@@ -9,7 +9,6 @@ function loadStories() {
   }
 
   require('./stories.scss');
-  require('../../stories/e2e');
 }
 
 configure(loadStories, module);

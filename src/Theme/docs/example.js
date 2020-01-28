@@ -2,19 +2,21 @@ export const themedExample = `
 class ColorInputWithState extends React.Component {
   state = {
     value: 0,
+    theme: 'standard',
     options: [
-      { id: 0, value: 'standard' },
-      { id: 1, value: 'reds' },
-      { id: 2, value: 'greens' },
+      { id: 0, value: 'standard', palette: '#2B81CB' },
+      { id: 1, value: 'reds', palette: '#D6453D' },
+      { id: 2, value: 'greens', palette: '#44823F' },
     ],
   };
 
   onSelect = value => {
     this.setState({ value: value.id });
+    this.setState({ theme: value.value });
   };
 
   render() {
-    const { value, options } = this.state;
+    const { value, options, theme } = this.state;
     return (
       <Layout>
         <Cell>
@@ -26,8 +28,8 @@ class ColorInputWithState extends React.Component {
           />
         </Cell>
         <Cell>
-          <Theme theme={value}>
-            <GallerySidepanel/>
+          <Theme theme={theme}>
+            <GallerySidepanel palette={Object.values(calc_theme(options[value].palette))}/>
           </Theme>
         </Cell>
       </Layout>
@@ -52,8 +54,8 @@ class ColorInputWithState extends React.Component {
           <ColorInput value={value} onChange={this.change} />
         </Cell>
         <Cell>
-          <Theme theme={value}>
-            <GallerySidepanel/>
+          <Theme color={value}>
+            <GallerySidepanel palette={Object.values(calc_theme(value))}/>
           </Theme>
         </Cell>
       </Layout>

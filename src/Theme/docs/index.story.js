@@ -20,9 +20,13 @@ import { themedExample, customExample } from './example';
 
 import Theme from '..';
 import GallerySidepanel from '../GallerySidepanel';
+import calc_theme from '../calc_theme';
 
 const code = config =>
-  baseCode({ components: { ...allComponents, GallerySidepanel }, ...config });
+  baseCode({
+    components: { ...allComponents, GallerySidepanel, calc_theme },
+    ...config,
+  });
 
 export default {
   category: storySettings.category,
@@ -78,16 +82,16 @@ export default {
             }),
           ]),
 
-          // columns([
-          //   description({
-          //     title: 'Create a custom theme',
-          //   }),
-          //
-          //   code({
-          //     compact: true,
-          //     source: customExample,
-          //   }),
-          // ]),
+          columns([
+            description({
+              title: 'Create a custom theme',
+            }),
+
+            code({
+              compact: true,
+              source: customExample,
+            }),
+          ]),
         ],
       }),
 

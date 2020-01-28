@@ -14,20 +14,22 @@ $D10-10: rgba($D10, 0.1);
 $D10-20: rgba($D10, 0.2);
 $D10-30: rgba($D10, 0.3);
 $D80-70: rgba($D80, 0.7);
+$D80-90: rgba($D80, 0.9);
 
-$B00: #2B81CB;   // Buttons
-$B05: #308DDD;   // CTA
-$B10: #3899EC;   // Main action color, active, buttons
-$B20: #4EB7F5;   // Hover for elements with B10, buttons
+$B00: var(--wsr-theme-color-00, #2B81CB);
+$B05: var(--wsr-theme-color-05, #308DDD);
+$B10: var(--wsr-theme-color-10, #3899EC);
+$B20: var(--wsr-theme-color-20, #4EB7F5);
 $B25: #A1D7FB;
 $B27: #B3E0FB;
-$B30: #C1E4FE;   // Notifications
-$B40: #DAEFFE;   // Dividers, table selected, table headers
-$B50: #EAF7FF;   // Dividers
-$B60: #F4FAFE;   // Table hover
+$B30: var(--wsr-theme-color-30, #C1E4FE);
+$B40: var(--wsr-theme-color-40, #DAEFFE);
+$B50: var(--wsr-theme-color-50, #EAF7FF);
+$B60: var(--wsr-theme-color-60, #F4FAFE);
 
 $B00-24: rgba($B00, 0.24);
 $B00-42: rgba($B00, 0.42);
+$B30-20: rgba($B30, 0.2);
 
 $F00:  #AADBFC;  // Focus Outline
 
@@ -109,16 +111,16 @@ $Shadow40: 0 8px 8px 0 $S10, 0 3px 24px 0 $S40;
   D70: $D70;
   D80: $D80;
 
-  B00: $B00;
-  B05: $B05;
-  B10: $B10;
-  B20: $B20;
+  B00: var(--wsr-theme-color-00, $B00);
+  B05: var(--wsr-theme-color-05, $B05);
+  B10: var(--wsr-theme-color-10, $B10);
+  B20: var(--wsr-theme-color-20, $B20);
   B25: $B25;
   B27: $B27;
-  B30: $B30;
-  B40: $B40;
-  B50: $B50;
-  B60: $B60;
+  B30: var(--wsr-theme-color-30, $B30);
+  B40: var(--wsr-theme-color-40, $B40);
+  B50: var(--wsr-theme-color-50, $B50);
+  B60: var(--wsr-theme-color-60, $B60);
 
   F00: $F00;
 
