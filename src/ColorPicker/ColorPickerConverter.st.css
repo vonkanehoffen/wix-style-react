@@ -28,7 +28,7 @@
   height: 30px;
   flex: 0 0 30px;
   margin-left: 12px;
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   border: solid 1px value(B00-24);
 }
 

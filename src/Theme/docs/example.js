@@ -18,20 +18,27 @@ class ColorInputWithState extends React.Component {
   render() {
     const { value, options, theme } = this.state;
     return (
-      <Layout>
-        <Cell>
-          Theme:
-          <Dropdown
-            selectedId={value}
-            options={options}
-            onSelect={this.onSelect}
-          />
-        </Cell>
-        <Cell>
+      <Layout gap="50px">
+        <Row>
+          <FormField label="Theme">
+            <Dropdown
+              selectedId={value}
+              options={options}
+              onSelect={this.onSelect}
+            />
+          </FormField>
+
+          <Box marginTop={4} marginBottom={4}>
+            <Divider />
+          </Box>
+
+          <Text>A pre-made theme includes all sort of properties, like colors, borders styles, etc.</Text>
+        </Row>
+        <Row>
           <Theme theme={theme}>
             <GallerySidepanel palette={Object.values(calc_theme(options[value].palette))}/>
           </Theme>
-        </Cell>
+        </Row>
       </Layout>
     );
   }
@@ -41,23 +48,44 @@ class ColorInputWithState extends React.Component {
 export const customExample = `
 class ColorInputWithState extends React.Component {
   state = {
-    value: '#FF0000',
+    color: '#FF0000',
+    radius: 20,
   };
 
-  change = value => this.setState({ value });
+  change = color => this.setState({ color });
 
   render() {
-    const { value } = this.state;
+    const { color, radius } = this.state;
     return (
-      <Layout>
-        <Cell>
-          <ColorInput value={value} onChange={this.change} />
-        </Cell>
-        <Cell>
-          <Theme color={value}>
-            <GallerySidepanel palette={Object.values(calc_theme(value))}/>
+      <Layout gap="50px">
+        <Row>
+          <Text>Custom theme</Text>
+
+          <Divider />
+
+          <Box marginTop={4}>
+            <FormField label="Colors">
+              <ColorInput value={color} onChange={this.change} />
+            </FormField>
+          </Box>
+
+          <Box marginTop={4} direction="vertical">
+            <FormField label="Border radius">
+              <Slider
+                onChange={radius => this.setState({ radius })}
+                min={0}
+                max={100}
+                value={radius}
+                displayMarks={false}
+              />
+            </FormField>
+          </Box>
+        </Row>
+        <Row>
+          <Theme custom={{color, radius}}>
+            <GallerySidepanel palette={Object.values(calc_theme(color))}/>
           </Theme>
-        </Cell>
+        </Row>
       </Layout>
     );
   }

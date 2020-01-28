@@ -39,7 +39,7 @@
   &.selectionAreaAlways,
   &.selectionAreaHover {
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
 
     .children {
       padding: 12px 16px 12px 12px;

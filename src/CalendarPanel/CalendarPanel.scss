@@ -4,7 +4,7 @@ $DIVIDER: $D60 1px solid;
 
 .root {
   background-color: $D80;
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   max-width: 775px;
   display: inline-block;
 }

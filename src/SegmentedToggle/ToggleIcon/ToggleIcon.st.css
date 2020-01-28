@@ -46,7 +46,7 @@
   border: 1px solid transparent;
   box-shadow: 0 0 0 1px transparent;
   padding: 0 6px;
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   margin: 0;
 
   /* Disable native focus */

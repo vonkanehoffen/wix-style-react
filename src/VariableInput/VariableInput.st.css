@@ -19,7 +19,7 @@
   position: relative;
   text-align: left;
   background-color: value(D80);
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   width: 100%;
 }
 .root:size(small) {
@@ -50,7 +50,7 @@
   height: calc(var(--rows) * var(--rowHeight) + var(--contentHeight));
   padding: 2px 12px;
   border: 1px solid value(B30);
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   overflow: auto;
   box-sizing: border-box;
 }

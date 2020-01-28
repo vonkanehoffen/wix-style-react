@@ -52,7 +52,7 @@
 .inputWithTagsContainer {
   width: 100%;
   border: 1px solid var(--wsr-theme-color-30, $B30);
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   display: flex;
   flex-wrap: wrap;
   align-items: center;

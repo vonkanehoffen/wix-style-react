@@ -7,7 +7,7 @@
   width: 54px;
   padding: 0;
   border: 0;
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   outline: none;
 
   &:not(.disabled):hover {

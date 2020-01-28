@@ -177,7 +177,7 @@ button.radioButton {
 
 .buttonType {
   border: solid 1px $B40;
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
 }
 
 .radio-button-wrapper {
@@ -230,7 +230,7 @@ button.radioButton {
 .selectionAreaAlways,
 .selectionAreaHover {
   .radio-wrapper {
-    border-radius: 8px;
+    border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
     cursor: pointer;
 
     &:not(.disabled).checked {

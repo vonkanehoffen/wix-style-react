@@ -6,7 +6,7 @@ $minimum-modal-margin: 48px;
 
 .content {
   box-shadow: $Shadow40;
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   background-color: white;
   width: 600px;
 }

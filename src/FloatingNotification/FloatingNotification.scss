@@ -4,7 +4,7 @@
 $buttonMaxWidth: 25%;
 
 .root {
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   border-width: 1px;
   border-style: solid;
   display: inline-flex;

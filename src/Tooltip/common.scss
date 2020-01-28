@@ -2,5 +2,5 @@
 
 @mixin popoverTheme {
   box-shadow: $Shadow30;
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
 }

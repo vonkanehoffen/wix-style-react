@@ -34,7 +34,7 @@
 
   height: 36px;
   min-width: 84px;
-  border-radius: 18px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 18px / 100);
   padding: 0 23px;
 
   background-color: var(--primary-color, value(B10));

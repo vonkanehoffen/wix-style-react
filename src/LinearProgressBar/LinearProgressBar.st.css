@@ -67,7 +67,7 @@
   -st-mixin: text-medium-bold;
   width: 18px;
   height: 18px;
-  border-radius: 12px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 12px / 100);
   display: flex;
   justify-content: center;
   align-items: center;

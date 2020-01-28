@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   width: 450px;
   height: 60px;
   border: 1px solid #7a92a5;

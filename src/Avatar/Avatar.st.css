@@ -283,13 +283,13 @@
 .avatarContainer:size(size24) .avatar {
   height: 24px;
   width: 24px;
-  border-radius: 12px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 12px / 100);
 }
 
 .avatarContainer:size(size18) .avatar {
   height: 18px;
   width: 18px;
-  border-radius: 12px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 12px / 100);
 }
 
 /* Shapes */
@@ -299,7 +299,7 @@
 
 .avatarContainer:size(size72):shape(square) .avatar,
 .avatarContainer:size(size90):shape(square) .avatar {
-    border-radius: 6px;
+    border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
 }
 
 /* Sizes text */

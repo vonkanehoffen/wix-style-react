@@ -47,7 +47,7 @@
 
 .smallSize {
   padding: 3px 12px;
-  border-radius: 12px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 12px / 100);
 
   &.withThumb {
     padding-left: 3px;

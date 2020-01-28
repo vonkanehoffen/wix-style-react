@@ -71,27 +71,15 @@ export default {
 
           title('Examples'),
 
-          columns([
-            description({
-              title: 'Use a prepared theme',
-            }),
+          code({
+            compact: true,
+            source: themedExample,
+          }),
 
-            code({
-              compact: true,
-              source: themedExample,
-            }),
-          ]),
-
-          columns([
-            description({
-              title: 'Create a custom theme',
-            }),
-
-            code({
-              compact: true,
-              source: customExample,
-            }),
-          ]),
+          code({
+            compact: true,
+            source: customExample,
+          }),
         ],
       }),
 

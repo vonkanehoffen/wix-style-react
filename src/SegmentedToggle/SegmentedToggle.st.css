@@ -10,7 +10,7 @@
   /* Sizing */
   box-sizing: border-box;
   /* Border & Spacing */
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   box-shadow: 0 0 0 1px value(B30);
   /* Styles */
   background: value(D80);

@@ -25,7 +25,7 @@
 }
 
 .item {
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   min-width: 210px;
   height: 60px;
   background-color: white;

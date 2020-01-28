@@ -4,7 +4,7 @@
 .root {
   box-shadow: $Shadow40;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
 }
 
 $no-header-height: 54px;

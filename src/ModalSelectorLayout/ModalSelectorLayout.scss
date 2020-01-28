@@ -6,7 +6,7 @@
   width: 600px;
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   background: $D80;
 }
 

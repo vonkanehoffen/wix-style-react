@@ -11,7 +11,7 @@ $material-gap: 8px;
   display: flex;
   align-items: center;
   border: solid 1px;
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   @include BoxSizing();
   @include FontRoman();
   &.readOnly {
@@ -580,7 +580,7 @@ $material-gap: 8px;
 .clear-button {
   line-height: 0;
   background: $B50;
-  border-radius: 12px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 12px / 100);
 }
 
 //needs display:block to fix inputs with prefix in ie11

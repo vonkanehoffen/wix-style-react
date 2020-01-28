@@ -44,7 +44,7 @@
 .root::popoverContent {
   border: none;
 
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   box-sizing: border-box;
   box-shadow: value(shadow30);
   -webkit-font-smoothing: antialiased;
@@ -61,7 +61,7 @@
 .root:size(small)::popoverContent {
   border: none;
 
-  border-radius: 8px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   box-sizing: border-box;
   box-shadow: value(shadow30);
   -webkit-font-smoothing: antialiased;

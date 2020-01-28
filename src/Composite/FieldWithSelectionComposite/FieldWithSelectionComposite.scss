@@ -92,7 +92,7 @@ $borderColor: $B30;
 // This is separately on root scope on purpose, since this could be extracted in the future
 // as a generic border theme.
 .borderWrapper {
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   border:solid 1px $borderColor;
   &.error {
     border:solid $R10 1px;

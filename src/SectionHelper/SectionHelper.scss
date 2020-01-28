@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   padding: 18px 24px;
-  border-radius: 6px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 6px / 100);
   border: 1px solid;
   box-sizing: border-box;
 

@@ -76,7 +76,7 @@
 .root:theme(dashes) {
   border: dashed 1px value(B20);
   background-color: value(opacity48);
-  border-radius: value(radius08);
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
 }
 
 .root:theme(dashes):hover {
@@ -103,7 +103,7 @@
 
 .root:theme(filled) {
   background-color: value(B50);
-  border-radius: value(radius08);
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
   border: none;
 }
 
@@ -132,7 +132,7 @@
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   background-color: value(B50);
-  border-radius: value(radius08);
+  border-radius: calc(var(--wsr-theme-radius, 100) * 8px / 100);
 }
 
 .root:theme(image):hover {
