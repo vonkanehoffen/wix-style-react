@@ -1,7 +1,6 @@
 import * as React from 'react';
-
+export { default as PopoverMenuNext } from './beta/PopoverMenu';
 export { IconElement, InjectedFocusableProps, Omit } from './common';
-
 export { default as AddItem } from './AddItem';
 export { default as Avatar, AvatarProps } from './Avatar';
 export { default as Button } from './Button';
@@ -124,3 +123,7 @@ export { default as GooglePreview } from './GooglePreview';
 export { default as SocialButton } from './SocialButton';
 export { default as ListItemSelect, ListItemSelectProps } from './ListItemSelect';
 export { default as ListItemSection, ListItemSectionProps } from './ListItemSection';
+export { default as StatisticsWidget } from './StatisticsWidget'
+export { default as Divider } from './Divider'
+export { default as Collapse } from './Collapse'
+export { default as Selector } from './Selector'
