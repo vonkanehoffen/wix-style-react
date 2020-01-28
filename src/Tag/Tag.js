@@ -111,7 +111,7 @@ class Tag extends React.PureComponent {
         className={this._getClassName()}
         data-hook={dataHook}
         id={id}
-        onClick={() => onClick(id)}
+        onClick={event => onClick(id, event)}
         style={{ maxWidth: `${maxWidth}px` }}
       >
         {this._renderThumb()}
@@ -135,7 +135,8 @@ Tag.propTypes = {
   /** The id of the Tag  */
   id: PropTypes.string.isRequired,
 
-  /** Callback function that pass `id` property as parameter when clicking on Tag */
+  /** Callback function that pass `id` property as first parameter
+   * and mouse event as second parameter when clicking on Tag */
   onClick: PropTypes.func,
 
   /** Callback function that pass `id` property as parameter when removing the Tag  */
