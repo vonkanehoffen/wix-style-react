@@ -35,18 +35,6 @@
   margin-right: 20px;
 }
 
-.ratios {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 18px 0;
-}
-
-.ratio {
-  width: 60px;
-  height: 60px;
-  margin: auto;
-}
-
 .buttons {
   justify-content: flex-end;
 }

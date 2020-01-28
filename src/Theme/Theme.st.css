@@ -3,6 +3,11 @@
   -st-named: R00, R05, R10, R20, R30, R40, R50, R60, G00, G05, G10, G20, G30, G40, G50, G60;
 }
 
+:import {
+  -st-from: "../Foundation/stylable/mixins/calc_rgba";
+  -st-default: calc_rgba;
+}
+
 .root {
   -st-states: theme(enum(reds, greens));
 }
@@ -16,6 +21,9 @@
   --wsr-theme-color-40: value(R40);
   --wsr-theme-color-50: value(R50);
   --wsr-theme-color-60: value(R60);
+  --wsr-theme-color-00-24: calc_rgba(value(R00), 0.24);
+  --wsr-theme-color-00-42: calc_rgba(value(R00), 0.42);
+  --wsr-theme-color-30-20: calc_rgba(value(R30), 0.2);
 }
 
 .root:theme(greens) {
@@ -27,4 +35,7 @@
   --wsr-theme-color-40: value(G40);
   --wsr-theme-color-50: value(G50);
   --wsr-theme-color-60: value(G60);
+  --wsr-theme-color-00-24: calc_rgba(value(G00), 0.24);
+  --wsr-theme-color-00-42: calc_rgba(value(G00), 0.42);
+  --wsr-theme-color-30-20: calc_rgba(value(G30), 0.2);
 }

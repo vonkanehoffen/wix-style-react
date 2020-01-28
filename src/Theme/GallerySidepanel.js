@@ -13,6 +13,9 @@ import FormField from '../FormField';
 import Palette from '../Palette';
 import ToggleSwitch from '../ToggleSwitch';
 import MultiSelectCheckbox from '../MultiSelectCheckbox';
+import DatePicker from '../DatePicker';
+import Loader from '../Loader';
+import AddItem from '../AddItem';
 
 class GallerySidepanel extends React.PureComponent {
   state = {
@@ -20,7 +23,6 @@ class GallerySidepanel extends React.PureComponent {
     activeTab: 2,
     sliderValue1: 3,
     sliderValue2: 20,
-    ratio: 2,
     toggleSwitchValue: true,
   };
 
@@ -30,7 +32,6 @@ class GallerySidepanel extends React.PureComponent {
       selectedLayout,
       sliderValue1,
       sliderValue2,
-      ratio,
       toggleSwitchValue,
     } = this.state;
     return (
@@ -75,13 +76,26 @@ class GallerySidepanel extends React.PureComponent {
             </FormField>
           </Box>
 
+          <Box marginLeft={4} marginRight={4}>
+            <Divider />
+          </Box>
+
           <Box margin={4}>
-            <MultiSelectCheckbox
-              options={Array(4)
-                .fill(0)
-                .map((_, id) => ({ id, value: id + 1 }))}
-              selectedOptions={[0, 1]}
-            />
+            <FormField label="How many pages">
+              <Box direction="horizontal">
+                <Box>
+                  <MultiSelectCheckbox
+                    options={Array(4)
+                      .fill(0)
+                      .map((_, id) => ({ id, value: id + 1 }))}
+                    selectedOptions={[0, 1]}
+                  />
+                </Box>
+                <Box width="50px" marginLeft={4}>
+                  <AddItem size="tiny" />
+                </Box>
+              </Box>
+            </FormField>
           </Box>
 
           <Box marginLeft={4} marginRight={4}>
@@ -143,13 +157,15 @@ class GallerySidepanel extends React.PureComponent {
                 <RadioGroup.Radio value={2}>Fit</RadioGroup.Radio>
               </RadioGroup>
             </FormField>
-            <ToggleSwitch
-              size="large"
-              checked={toggleSwitchValue}
-              onChange={e =>
-                this.setState({ toggleSwitchValue: e.target.checked })
-              }
-            />
+            <FormField label="Responsive">
+              <ToggleSwitch
+                size="large"
+                checked={toggleSwitchValue}
+                onChange={e =>
+                  this.setState({ toggleSwitchValue: e.target.checked })
+                }
+              />
+            </FormField>
           </Box>
 
           <Box marginLeft={4} marginRight={4}>
@@ -157,22 +173,10 @@ class GallerySidepanel extends React.PureComponent {
           </Box>
 
           <Box margin={4}>
-            <FormField label="Image ratio">
-              <div className={styles.ratios}>
-                {Array(5)
-                  .fill(0)
-                  .map((_, i) => (
-                    <Thumbnail
-                      className={styles.ratio}
-                      key={i}
-                      hideSelectedIcon
-                      onClick={() => this.setState({ ratio: i })}
-                      selected={ratio === i}
-                      title={i + 1}
-                    />
-                  ))}
-              </div>
+            <FormField label="Date">
+              <DatePicker value={new Date('08/07/1986')} onChange={() => {}} />
             </FormField>
+            <Loader />
           </Box>
 
           <Box marginLeft={4} marginRight={4}>

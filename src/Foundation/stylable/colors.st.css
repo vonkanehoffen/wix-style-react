@@ -22,14 +22,23 @@
   D80: #FFFFFF; /* Content box background */
 
   /* Primary */
-  B00: var(--wsr-theme-color-00, #2B81CB); /* Loader, Progress Bar */
-  B05: var(--wsr-theme-color-05, #308DDD);
-  B10: var(--wsr-theme-color-10, #3899EC); /* Button, TextButton */
-  B20: var(--wsr-theme-color-20, #4EB7F5); /* Hover for elements with B10, buttons, Notifications */
-  B30: var(--wsr-theme-color-30, #C1E4FE); /* Tag(Hover), Floating Notification Border */
-  B40: var(--wsr-theme-color-40, #DAEFFE); /* Tag(Default), Badge */
-  B50: var(--wsr-theme-color-50, #EAF7FF); /* Floating Notification */
-  B60: var(--wsr-theme-color-60, #F4FAFE);
+  BB00: #2B81CB; /* Loader, Progress Bar */
+  BB05: #308DDD;
+  BB10: #3899EC; /* Button, TextButton */
+  BB20: #4EB7F5; /* Hover for elements with B10, buttons, Notifications */
+  BB30: #C1E4FE; /* Tag(Hover), Floating Notification Border */
+  BB40: #DAEFFE; /* Tag(Default), Badge */
+  BB50: #EAF7FF; /* Floating Notification */
+  BB60: #F4FAFE;
+
+  B00: var(--wsr-theme-color-00, value(BB00)); /* Loader, Progress Bar */
+  B05: var(--wsr-theme-color-05, value(BB05));
+  B10: var(--wsr-theme-color-10, value(BB10)); /* Button, TextButton */
+  B20: var(--wsr-theme-color-20, value(BB20)); /* Hover for elements with B10, buttons, Notifications */
+  B30: var(--wsr-theme-color-30, value(BB30)); /* Tag(Hover), Floating Notification Border */
+  B40: var(--wsr-theme-color-40, value(BB40)); /* Tag(Default), Badge */
+  B50: var(--wsr-theme-color-50, value(BB50)); /* Floating Notification */
+  B60: var(--wsr-theme-color-60, value(BB60));
 
   /* Destructive */
   R00: #D6453D;
@@ -109,8 +118,8 @@
   D80-30: calc_rgba(value(D80), 0.3);
   D80-70: calc_rgba(value(D80), 0.7);
 
-  B00-24: var(--wsr-theme-color-00-24, calc_rgba(value(B00), 0.24));
-  B00-42: var(--wsr-theme-color-00-42, calc_rgba(value(B00), 0.42));
-  B00-48: var(--wsr-theme-color-00-48, calc_rgba(value(B00), 0.48));
-  B30-20: var(--wsr-theme-color-30-20, calc_rgba(value(B30), 0.2));
+  B00-24: var(--wsr-theme-color-00-24, calc_rgba(value(BB00), 0.24));
+  B00-42: var(--wsr-theme-color-00-42, calc_rgba(value(BB00), 0.42));
+  B00-48: var(--wsr-theme-color-00-48, calc_rgba(value(BB00), 0.48));
+  B30-20: var(--wsr-theme-color-30-20, calc_rgba(value(BB30), 0.2));
 }
