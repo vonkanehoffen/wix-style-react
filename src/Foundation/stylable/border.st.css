@@ -4,4 +4,5 @@
   radius06: 6px;
   radius08: 8px;
   radiusround: 50%;
+  radius: var(--wsr-theme-radius, 50%);
 }

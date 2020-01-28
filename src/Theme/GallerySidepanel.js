@@ -12,6 +12,7 @@ import RadioGroup from '../RadioGroup';
 import FormField from '../FormField';
 import Palette from '../Palette';
 import ToggleSwitch from '../ToggleSwitch';
+import MultiSelectCheckbox from '../MultiSelectCheckbox';
 
 class GallerySidepanel extends React.PureComponent {
   state = {
@@ -52,13 +53,13 @@ class GallerySidepanel extends React.PureComponent {
           />
 
           <Box margin={4} height="40px">
-            <Palette fill={this.props.palette} />
+            <Palette fill={this.props.palette.slice(0, 7)} />
           </Box>
 
           <Box margin={4}>
             <FormField label="Choose a gallery layout">
               <div className={styles.layouts}>
-                {Array(8)
+                {Array(4)
                   .fill(0)
                   .map((_, i) => (
                     <Thumbnail
@@ -72,6 +73,15 @@ class GallerySidepanel extends React.PureComponent {
                   ))}
               </div>
             </FormField>
+          </Box>
+
+          <Box margin={4}>
+            <MultiSelectCheckbox
+              options={Array(4)
+                .fill(0)
+                .map((_, id) => ({ id, value: id + 1 }))}
+              selectedOptions={[0, 1]}
+            />
           </Box>
 
           <Box marginLeft={4} marginRight={4}>
