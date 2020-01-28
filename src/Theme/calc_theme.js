@@ -50,5 +50,9 @@ module.exports = function calc_theme(color) {
     '--wsr-theme-color-40': `hsl(${h}, ${s}%, ${l + 40}%)`,
     '--wsr-theme-color-50': `hsl(${h}, ${s}%, ${l + 50}%)`,
     '--wsr-theme-color-60': `hsl(${h}, ${s}%, ${l + 60}%)`,
+    '--wsr-theme-color-00-24': `hsla(${h}, ${s}%, ${l}%, 0.24)`,
+    '--wsr-theme-color-00-42': `hsla(${h}, ${s}%, ${l}%, 0.42)`,
+    '--wsr-theme-color-00-48': `hsla(${h}, ${s}%, ${l}%, 0.48)`,
+    '--wsr-theme-color-30-20': `hsla(${h}, ${s}%, ${l + 30}%, 0.2)`,
   };
 };

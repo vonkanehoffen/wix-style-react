@@ -109,7 +109,8 @@
   D80-30: calc_rgba(value(D80), 0.3);
   D80-70: calc_rgba(value(D80), 0.7);
 
-  B00-24: calc_rgba(value(B00), 0.24);
-  B00-42: calc_rgba(value(B00), 0.42);
-  B00-48: calc_rgba(value(B00), 0.48);
+  B00-24: var(--wsr-theme-color-00-24, calc_rgba(value(B00), 0.24));
+  B00-42: var(--wsr-theme-color-00-42, calc_rgba(value(B00), 0.42));
+  B00-48: var(--wsr-theme-color-00-48, calc_rgba(value(B00), 0.48));
+  B30-20: var(--wsr-theme-color-30-20, calc_rgba(value(B30), 0.2));
 }

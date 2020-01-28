@@ -27,9 +27,9 @@ $B40: var(--wsr-theme-color-40, #DAEFFE);
 $B50: var(--wsr-theme-color-50, #EAF7FF);
 $B60: var(--wsr-theme-color-60, #F4FAFE);
 
-$B00-24: rgba($B00, 0.24);
-$B00-42: rgba($B00, 0.42);
-$B30-20: rgba($B30, 0.2);
+$B00-24: var(--wsr-theme-color-00-24, rgba($B00, 0.24));
+$B00-42: var(--wsr-theme-color-00-42, rgba($B00, 0.42));
+$B30-20: var(--wsr-theme-color-30-20, rgba($B30, 0.2));
 
 $F00:  #AADBFC;  // Focus Outline
 
@@ -111,16 +111,20 @@ $Shadow40: 0 8px 8px 0 $S10, 0 3px 24px 0 $S40;
   D70: $D70;
   D80: $D80;
 
-  B00: var(--wsr-theme-color-00, $B00);
-  B05: var(--wsr-theme-color-05, $B05);
-  B10: var(--wsr-theme-color-10, $B10);
-  B20: var(--wsr-theme-color-20, $B20);
+  B00: $B00;
+  B05: $B05;
+  B10: $B10;
+  B20: $B20;
   B25: $B25;
   B27: $B27;
-  B30: var(--wsr-theme-color-30, $B30);
-  B40: var(--wsr-theme-color-40, $B40);
-  B50: var(--wsr-theme-color-50, $B50);
-  B60: var(--wsr-theme-color-60, $B60);
+  B30: $B30;
+  B40: $B40;
+  B50: $B50;
+  B60: $B60;
+
+  B00-24: $B00-24;
+  B00-42: $B00-42;
+  B30-20: $B30-20;
 
   F00: $F00;
 
