@@ -14,9 +14,10 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.38.1 - 2020-01-28
 
 ### Fixed:
+
 - `<Sidebar/>`- Fixing scrollbar for both light and dark skins [#4925](https://github.com/wix/wix-style-react/pull/4925)
 - named-imports - implement missing exports [#4930](https://github.com/wix/wix-style-react/pull/4930)
 
@@ -41,12 +42,15 @@ Types of changes:
 ## 7.37.0 - 2020-01-21
 
 ### Added
+
 - `<FormField/>` - add `suffix` prop [#4887](https://github.com/wix/wix-style-react/pull/4887)
 
 ### Fixed
+
 - `<VariableInput/>` - fix `onBlur` and `onChange` issues [#4894](https://github.com/wix/wix-style-react/pull/4894)
 
 ### Docs
+
 - `<VariableInput/>` - change composition to use FormField's suffix [#4901](https://github.com/wix/wix-style-react/pull/4901)
 
 ## 7.36.0
