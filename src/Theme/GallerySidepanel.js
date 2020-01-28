@@ -85,6 +85,7 @@ class GallerySidepanel extends React.PureComponent {
               <Box direction="horizontal">
                 <Box>
                   <MultiSelectCheckbox
+                    popoverProps={{ appendTo: 'parent' }}
                     options={Array(4)
                       .fill(0)
                       .map((_, id) => ({ id, value: id + 1 }))}
