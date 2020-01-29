@@ -53,6 +53,7 @@ const files = [
   ['Heading.bundle.min.js', 8],
   ['Highlighter.bundle.min.js', 4],
   ['IconButton.bundle.min.js', 14],
+  ['Image.bundle.min.js', 5],
   ['ImageViewer.bundle.min.js', 58],
   ['InfoIcon.bundle.min.js', 41],
   ['Input.bundle.min.js', 62],

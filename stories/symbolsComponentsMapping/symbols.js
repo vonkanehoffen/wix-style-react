@@ -145,6 +145,7 @@ export const otherSymbols = {
   loader: '11.6 Loader',
   linearProgressBar: '11.7 Linear Progress Bar',
   circularProgressBar: '11.8 Circular Progress Bar',
+  image: '11.9 Image',
 };
 
 /**

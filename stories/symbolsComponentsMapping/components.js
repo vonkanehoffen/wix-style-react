@@ -145,6 +145,7 @@ export const otherComponentsNames = {
   Loader: 'Loader',
   LinearProgressBar: 'LinearProgressBar',
   CircularProgressBar: 'CircularProgressBar',
+  Image: 'Image',
 };
 
 /**
