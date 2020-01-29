@@ -27,6 +27,7 @@ class GallerySidepanel extends React.PureComponent {
   };
 
   render() {
+    const { disabled, palette } = this.props;
     const {
       activeTab,
       selectedLayout,
@@ -56,7 +57,7 @@ class GallerySidepanel extends React.PureComponent {
           <Box margin={4} direction="vertical">
             <FormField label="Palette">
               <Box height="40px">
-                <Palette fill={this.props.palette.slice(0, 7)} />
+                <Palette fill={palette.slice(0, 7)} />
               </Box>
             </FormField>
           </Box>
@@ -68,6 +69,7 @@ class GallerySidepanel extends React.PureComponent {
                   .fill(0)
                   .map((_, i) => (
                     <Thumbnail
+                      disabled={disabled}
                       className={styles.layout}
                       key={i}
                       hideSelectedIcon
@@ -89,6 +91,7 @@ class GallerySidepanel extends React.PureComponent {
               <Box direction="horizontal">
                 <Box>
                   <MultiSelectCheckbox
+                    disabled={disabled}
                     popoverProps={{ appendTo: 'parent' }}
                     options={Array(4)
                       .fill(0)
@@ -97,7 +100,7 @@ class GallerySidepanel extends React.PureComponent {
                   />
                 </Box>
                 <Box width="50px" marginLeft={4}>
-                  <AddItem size="tiny" />
+                  <AddItem disabled={disabled} size="tiny" />
                 </Box>
               </Box>
             </FormField>
@@ -112,6 +115,7 @@ class GallerySidepanel extends React.PureComponent {
               <Box direction="vertical" className={styles.slider}>
                 <FormField label="Images per row">
                   <Slider
+                    disabled={disabled}
                     onChange={value => this.setState({ sliderValue1: value })}
                     min={1}
                     max={4}
@@ -122,6 +126,7 @@ class GallerySidepanel extends React.PureComponent {
               </Box>
 
               <NumberInput
+                disabled={disabled}
                 value={sliderValue1}
                 min={1}
                 max={4}
@@ -133,6 +138,7 @@ class GallerySidepanel extends React.PureComponent {
               <Box direction="vertical" className={styles.slider}>
                 <FormField label="Spacing">
                   <Slider
+                    disabled={disabled}
                     onChange={value => this.setState({ sliderValue2: value })}
                     min={0}
                     max={30}
@@ -143,6 +149,7 @@ class GallerySidepanel extends React.PureComponent {
               </Box>
 
               <NumberInput
+                disabled={disabled}
                 value={sliderValue2}
                 min={0}
                 max={30}
@@ -157,13 +164,14 @@ class GallerySidepanel extends React.PureComponent {
 
           <Box margin={4}>
             <FormField label="Thumbnail Resize">
-              <RadioGroup display="horizontal" value={1}>
+              <RadioGroup display="horizontal" value={1} disabled={disabled}>
                 <RadioGroup.Radio value={1}>Crop</RadioGroup.Radio>
                 <RadioGroup.Radio value={2}>Fit</RadioGroup.Radio>
               </RadioGroup>
             </FormField>
             <FormField label="Responsive">
               <ToggleSwitch
+                disabled={disabled}
                 size="large"
                 checked={toggleSwitchValue}
                 onChange={e =>
@@ -179,7 +187,11 @@ class GallerySidepanel extends React.PureComponent {
 
           <Box margin={4}>
             <FormField label="Date">
-              <DatePicker value={new Date('08/07/1986')} onChange={() => {}} />
+              <DatePicker
+                value={new Date('08/07/1986')}
+                onChange={() => {}}
+                disabled={disabled}
+              />
             </FormField>
             <Loader />
           </Box>
@@ -191,10 +203,12 @@ class GallerySidepanel extends React.PureComponent {
 
         <Box className={styles.buttons} margin={4}>
           <Box>
-            <Button priority="secondary">Cancel</Button>
+            <Button disabled={disabled} priority="secondary">
+              Cancel
+            </Button>
           </Box>
           <Box marginLeft={2}>
-            <Button>Done</Button>
+            <Button disabled={disabled}>Done</Button>
           </Box>
         </Box>
       </Box>

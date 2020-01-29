@@ -53,6 +53,7 @@ class ColorInputWithState extends React.Component {
     fontFamily: 0,
     fontSize: 100,
     borders: [0, 1, 2, 3],
+    disabled: false,
   };
 
   fontFamilies = [
@@ -72,7 +73,7 @@ class ColorInputWithState extends React.Component {
   ]
 
   render() {
-    const { color, radius, fontFamily, fontSize, borders } = this.state;
+    const { color, radius, fontFamily, fontSize, borders, disabled } = this.state;
     return (
       <Layout gap="50px">
         <Row>
@@ -134,6 +135,17 @@ class ColorInputWithState extends React.Component {
             </FormField>
           </Box>
 
+          <Box marginTop={4} direction="vertical">
+            <FormField label="Disabled">
+              <ToggleSwitch
+                size="large"
+                checked={disabled}
+                onChange={e => this.setState({ disabled: e.target.checked })
+                }
+              />
+            </FormField>
+          </Box>
+
         </Row>
         <Row>
           <Theme custom={{
@@ -143,7 +155,7 @@ class ColorInputWithState extends React.Component {
             fontSize,
             borders: this.state.borders.map(index => this.borders[index].toLowerCase()),
           }}>
-            <GallerySidepanel palette={Object.values(calc_theme(color))}/>
+            <GallerySidepanel palette={Object.values(calc_theme(color))} disabled={disabled} />
           </Theme>
         </Row>
       </Layout>

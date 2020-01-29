@@ -38,7 +38,7 @@
   padding: 0 23px;
 
   background-color: var(--primary-color, value(B10));
-  border-color: value(B10);
+  border-color: var(--wsr-theme-borders-top, value(B10)) var(--wsr-theme-borders-left, value(B10)) var(--wsr-theme-borders-bottom, value(B10)) var(--wsr-theme-borders-right, value(B10));
   color: value(D80);
 
   /* render as anchor overrides */
@@ -53,13 +53,13 @@
 
 .root:hover {
   background-color: value(B20);
-  border-color: value(B20);
+  border-color: var(--wsr-theme-borders-top, value(B20)) var(--wsr-theme-borders-left, value(B20)) var(--wsr-theme-borders-bottom, value(B20)) var(--wsr-theme-borders-right, value(B20));
   color: value(D80);
 }
 
 .root:active {
   background-color: value(B10);
-  border-color: value(B10);
+  border-color: var(--wsr-theme-borders-top, value(B10)) var(--wsr-theme-borders-left, value(B10)) var(--wsr-theme-borders-bottom, value(B10)) var(--wsr-theme-borders-right, value(B10));
   color: value(D80);
 }
 
@@ -79,7 +79,7 @@
 
 .root:priority(secondary) {
   background-color: transparent;
-  border-color: value(B10);
+  border-color: var(--wsr-theme-borders-top, value(B10)) var(--wsr-theme-borders-left, value(B10)) var(--wsr-theme-borders-bottom, value(B10)) var(--wsr-theme-borders-right, value(B10));
   color: value(B10);
 }
 
@@ -91,7 +91,7 @@
 
 .root:priority(secondary):active {
   background-color: value(B10);
-  border-color: value(B10);
+  border-color: var(--wsr-theme-borders-top, value(B10)) var(--wsr-theme-borders-left, value(B10)) var(--wsr-theme-borders-bottom, value(B10)) var(--wsr-theme-borders-right, value(B10));
   color: value(D80);
 }
 
@@ -117,7 +117,7 @@
 
 .root:skin(inverted):active {
   background-color: value(B10);
-  border-color: value(B10);
+  border-color: var(--wsr-theme-borders-top, value(B10)) var(--wsr-theme-borders-left, value(B10)) var(--wsr-theme-borders-bottom, value(B10)) var(--wsr-theme-borders-right, value(B10));
   color: value(D80);
 }
 
