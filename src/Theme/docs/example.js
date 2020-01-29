@@ -56,7 +56,11 @@ class ColorInputWithState extends React.Component {
 
   fontFamilies = [
     'Madefor',
-    'Helvetica Neue'
+    'Helvetica Neue',
+    'cursive',
+    'fantasy',
+    'monospace',
+    'Comic Sans MS',
   ];
 
   render() {
@@ -103,8 +107,8 @@ class ColorInputWithState extends React.Component {
             <FormField label="Font size">
               <Slider
                 onChange={fontSize => this.setState({ fontSize })}
-                min={0}
-                max={200}
+                min={50}
+                max={150}
                 value={fontSize}
                 displayMarks={false}
               />

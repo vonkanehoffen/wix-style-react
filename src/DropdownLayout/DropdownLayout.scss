@@ -200,7 +200,7 @@ a[data-hook=link-item] {
     .option {
       @include FontLight();
       color: #8090a2;
-      font-size: 16px;
+      font-size: calc(var(--wsr-theme-font-size, 100) * 16px / 100);
     }
 
     .option.selected {

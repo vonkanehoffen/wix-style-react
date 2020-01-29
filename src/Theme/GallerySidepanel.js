@@ -53,8 +53,12 @@ class GallerySidepanel extends React.PureComponent {
             ]}
           />
 
-          <Box margin={4} height="40px">
-            <Palette fill={this.props.palette.slice(0, 7)} />
+          <Box margin={4} direction="vertical">
+            <FormField label="Palette">
+              <Box height="40px">
+                <Palette fill={this.props.palette.slice(0, 7)} />
+              </Box>
+            </FormField>
           </Box>
 
           <Box margin={4}>
