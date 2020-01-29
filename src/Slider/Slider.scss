@@ -19,7 +19,7 @@
   width: 100%;
   background-color: $B40;
   height: 6px;
-  border-radius: 10px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 10px / 100);
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-track) {
@@ -27,7 +27,7 @@
   left: 0;
   background-color: $B10;
   height: 6px;
-  border-radius: 10px;
+  border-radius: calc(var(--wsr-theme-radius, 100) * 10px / 100);
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-mark) {

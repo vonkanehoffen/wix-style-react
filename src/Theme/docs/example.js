@@ -50,12 +50,17 @@ class ColorInputWithState extends React.Component {
   state = {
     color: '#FF0000',
     radius: 20,
+    fontFamily: 0,
+    fontSize: 100,
   };
 
-  change = color => this.setState({ color });
+  fontFamilies = [
+    'Madefor',
+    'Helvetica Neue'
+  ];
 
   render() {
-    const { color, radius } = this.state;
+    const { color, radius, fontFamily, fontSize } = this.state;
     return (
       <Layout gap="50px">
         <Row>
@@ -65,7 +70,10 @@ class ColorInputWithState extends React.Component {
 
           <Box marginTop={4}>
             <FormField label="Colors">
-              <ColorInput value={color} onChange={this.change} />
+              <ColorInput
+                value={color}
+                onChange={color => this.setState({ color })}
+              />
             </FormField>
           </Box>
 
@@ -80,9 +88,37 @@ class ColorInputWithState extends React.Component {
               />
             </FormField>
           </Box>
+
+          <Box marginTop={4} direction="vertical">
+            <FormField label="Font family">
+              <Dropdown
+                onSelect={({id}) => this.setState({ fontFamily: id })}
+                selectedId={fontFamily}
+                options={this.fontFamilies.map((value, id) => ({id, value}))}
+              />
+            </FormField>
+          </Box>
+
+          <Box marginTop={4} direction="vertical">
+            <FormField label="Font size">
+              <Slider
+                onChange={fontSize => this.setState({ fontSize })}
+                min={0}
+                max={200}
+                value={fontSize}
+                displayMarks={false}
+              />
+            </FormField>
+          </Box>
+
         </Row>
         <Row>
-          <Theme custom={{color, radius}}>
+          <Theme custom={{
+            color,
+            radius,
+            fontFamily: this.fontFamilies[fontFamily],
+            fontSize,
+          }}>
             <GallerySidepanel palette={Object.values(calc_theme(color))}/>
           </Theme>
         </Row>

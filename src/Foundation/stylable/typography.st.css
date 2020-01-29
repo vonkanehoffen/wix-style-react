@@ -9,22 +9,22 @@
 
 .font {
   font-family: family, value(fontsFallback); /* IE11 */
-  font-family: var(--wsr-font-family, value(family)), value(fontsFallback);
+  font-family: var(--wsr-theme-font-family, --wsr-font-family), var(--wsr-font-family, value(family)), value(fontsFallback);
 }
 
 /* Sizes */
 .tiny {
-  font-size: 12px;
+  font-size: calc(var(--wsr-theme-font-size, 100) * 12px / 100);
   line-height: 15px;
 }
 
 .small {
-  font-size: 14px;
+  font-size: calc(var(--wsr-theme-font-size, 100) * 14px / 100);
   line-height: 18px;
 }
 
 .medium {
-  font-size: 16px;
+  font-size: calc(var(--wsr-theme-font-size, 100) * 16px / 100);
   line-height: 24px;
 }
 
