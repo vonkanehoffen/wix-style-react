@@ -9,10 +9,10 @@
 }
 
 .root {
-  -st-states: theme(enum(reds, greens));
+  -st-states: theme(enum(roses, grass));
 }
 
-.root:theme(reds) {
+.root:theme(roses) {
   --wsr-theme-color-00: value(R00);
   --wsr-theme-color-05: value(R05);
   --wsr-theme-color-10: value(R10);
@@ -24,9 +24,11 @@
   --wsr-theme-color-00-24: calc_rgba(value(R00), 0.24);
   --wsr-theme-color-00-42: calc_rgba(value(R00), 0.42);
   --wsr-theme-color-30-20: calc_rgba(value(R30), 0.2);
+  --wsr-theme-font-family: cursive;
+  --wsr-theme-font-size: 125;
 }
 
-.root:theme(greens) {
+.root:theme(grass) {
   --wsr-theme-color-00: value(G00);
   --wsr-theme-color-05: value(G05);
   --wsr-theme-color-10: value(G10);
@@ -38,4 +40,10 @@
   --wsr-theme-color-00-24: calc_rgba(value(G00), 0.24);
   --wsr-theme-color-00-42: calc_rgba(value(G00), 0.42);
   --wsr-theme-color-30-20: calc_rgba(value(G30), 0.2);
+  --wsr-theme-font-family: Comic Sans MS;
+  --wsr-theme-font-size: 115;
+  --wsr-theme-radius: 0;
+  --wsr-theme-borders-top: transparent;
+  --wsr-theme-borders-left: transparent;
+  --wsr-theme-borders-right: transparent;
 }

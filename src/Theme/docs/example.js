@@ -5,8 +5,8 @@ class ColorInputWithState extends React.Component {
     theme: 'standard',
     options: [
       { id: 0, value: 'standard', palette: '#2B81CB' },
-      { id: 1, value: 'reds', palette: '#D6453D' },
-      { id: 2, value: 'greens', palette: '#44823F' },
+      { id: 1, value: 'roses', palette: '#D6453D' },
+      { id: 2, value: 'grass', palette: '#44823F' },
     ],
   };
 
