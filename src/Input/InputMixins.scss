@@ -31,7 +31,7 @@
 }
 
 @mixin ThemeDefault($borderColor, $backgroundColor, $color) {
-  border-color: $borderColor;
+  border-color: var(--wsr-theme-borders-top, $borderColor) var(--wsr-theme-borders-left, $borderColor) var(--wsr-theme-borders-bottom, $borderColor) var(--wsr-theme-borders-right, $borderColor);
   background-color: $backgroundColor;
   color: $color;
   .input {

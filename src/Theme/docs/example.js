@@ -52,6 +52,7 @@ class ColorInputWithState extends React.Component {
     radius: 20,
     fontFamily: 0,
     fontSize: 100,
+    borders: [0, 1, 2, 3],
   };
 
   fontFamilies = [
@@ -63,8 +64,15 @@ class ColorInputWithState extends React.Component {
     'Comic Sans MS',
   ];
 
+  borders = [
+    'Top',
+    'Left',
+    'Bottom',
+    'Right',
+  ]
+
   render() {
-    const { color, radius, fontFamily, fontSize } = this.state;
+    const { color, radius, fontFamily, fontSize, borders } = this.state;
     return (
       <Layout gap="50px">
         <Row>
@@ -89,6 +97,17 @@ class ColorInputWithState extends React.Component {
                 max={100}
                 value={radius}
                 displayMarks={false}
+              />
+            </FormField>
+          </Box>
+
+          <Box marginTop={4} direction="vertical">
+            <FormField label="Borders">
+              <MultiSelectCheckbox
+                options={this.borders.map((value, id) => ({id, value}))}
+                onSelect={option => this.setState({ borders: [...borders, option] })}
+                onDeselect={option => this.setState({ borders: borders.filter(item => item !== option) })}
+                selectedOptions={borders}
               />
             </FormField>
           </Box>
@@ -122,6 +141,7 @@ class ColorInputWithState extends React.Component {
             radius,
             fontFamily: this.fontFamilies[fontFamily],
             fontSize,
+            borders: this.state.borders.map(index => this.borders[index].toLowerCase()),
           }}>
             <GallerySidepanel palette={Object.values(calc_theme(color))}/>
           </Theme>

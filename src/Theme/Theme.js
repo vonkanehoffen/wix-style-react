@@ -21,6 +21,14 @@ class Theme extends React.PureComponent {
 
       if (custom.hasOwnProperty('fontSize'))
         style['--wsr-theme-font-size'] = custom.fontSize;
+
+      if (custom.hasOwnProperty('borders')) {
+        ['top', 'left', 'bottom', 'right'].forEach(
+          border =>
+            (style[`--wsr-theme-borders-${border}`] =
+              !custom.borders.includes(border) && 'transparent'),
+        );
+      }
     }
 
     return (
