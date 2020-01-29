@@ -13,13 +13,13 @@ import {
   title,
 } from 'wix-storybook-utils/Sections';
 import Tooltip from '..';
-import { baseScope } from '../../../../stories/utils/LiveCodeExample';
-import AddItem from '../../../AddItem';
-import { Cell, Layout } from '../../../Layout';
-import { placements } from '../../../Popover/Popover';
-import SectionHelper from '../../../SectionHelper';
-import Text from '../../../Text';
-import TextButton from '../../../TextButton';
+import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import AddItem from '../../AddItem';
+import { Cell, Layout } from '../../Layout';
+import { placements } from '../../Popover/Popover';
+import SectionHelper from '../../SectionHelper';
+import Text from '../../Text';
+import TextButton from '../../TextButton';
 import { storySettings } from '../test/storySettings';
 import * as examples from './examples';
 import Readme from './README.TESTKIT.md';
