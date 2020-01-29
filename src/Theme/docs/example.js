@@ -4,15 +4,15 @@ class ColorInputWithState extends React.Component {
     value: 0,
     theme: 'standard',
     options: [
-      { id: 0, value: 'standard', palette: '#2B81CB' },
-      { id: 1, value: 'roses', palette: '#D6453D' },
-      { id: 2, value: 'grass', palette: '#44823F' },
+      { id: 0, value: 'Standard', theme: 'standard', palette: '#2B81CB' },
+      { id: 1, value: 'Roses 🌹', theme: 'roses', palette: '#D6453D' },
+      { id: 2, value: 'Stiff Grass 🌱', theme: 'grass', palette: '#44823F' },
     ],
   };
 
   onSelect = value => {
     this.setState({ value: value.id });
-    this.setState({ theme: value.value });
+    this.setState({ theme: value.theme });
   };
 
   render() {
