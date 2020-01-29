@@ -17,7 +17,12 @@ Types of changes:
 
 ## Next
 
+### Added:
+
+- `<Image/>` - new component [#4927](https://github.com/wix/wix-style-react/pull/4927)
+
 ### Fixed:
+
 - `<Tag/>` - changed onClick callback call to pass 'event' as second parameter [#4915](https://github.com/wix/wix-style-react/pull/4915)
 
 ## 7.38.1 - 2020-01-28
