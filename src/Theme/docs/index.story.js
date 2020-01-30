@@ -84,6 +84,9 @@ export default {
           }),
 
           title('Technology'),
+          description(
+            'CSS variables - useful for reducing repetition in CSS and also for powerful runtime effects like theme switching.',
+          ),
 
           code({
             compact: true,

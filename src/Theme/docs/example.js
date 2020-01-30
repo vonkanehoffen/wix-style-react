@@ -52,7 +52,7 @@ class ColorInputWithState extends React.Component {
   state = {
     customizationLevel: 0,
     color: '#2b80cb',
-    radius: 20,
+    radius: 100,
     fontFamily: 0,
     fontSize: 100,
     borders: [0, 1, 2, 3],
@@ -292,10 +292,12 @@ class ColorInputWithState extends React.Component {
   state = {
     color: '#2b80cb',
     fontFamily: 'Helvetica Neue',
+    sliderThickness: 6,
+    sliderHandle: 8,
   };
 
   render() {
-    const { color, fontFamily } = this.state;
+    const { color, fontFamily, sliderThickness, sliderHandle } = this.state;
     const palette = Object.entries(calc_theme(color)).slice(0, 7);
 
     return (
@@ -308,6 +310,11 @@ class ColorInputWithState extends React.Component {
 
           <Box marginTop={4} direction="vertical">
           <Text>HSL (Hue, Saturation, Luminosity) allows us to describe meaningful relationships between colors.</Text>
+
+            <Box marginTop={4}>
+              <Text>Global component variables</Text>
+            </Box>
+            <Divider />
             {palette.map((k, id) => (
               <div key={id}>
                 <Text>--wsr-theme-color-</Text>
@@ -316,38 +323,92 @@ class ColorInputWithState extends React.Component {
               </div>
             ))}
           </Box>
+
           <Box marginTop={4} direction="vertical">
             <Text>--wsr-theme-font-family: {fontFamily}</Text>
             <Input value={fontFamily} onChange={e => this.setState({fontFamily: e.target.value})} />
           </Box>
+
+
+          <Box marginTop={4}>
+            <Text>Specific component variables (Slider)</Text>
+          </Box>
+          <Divider />
+          <Box marginTop={4} verticalAlign="space-between">
+            <Text>--wsr-theme-slider-thickness: {sliderThickness}</Text>
+            <NumberInput min={0} value={sliderThickness} onChange={sliderThickness => this.setState({sliderThickness})} />
+          </Box>
+          <Box verticalAlign="space-between">
+            <Text>--wsr-theme-slider-handle: {sliderHandle}</Text>
+            <NumberInput min={0} value={sliderHandle} onChange={sliderHandle => this.setState({sliderHandle})} />
+          </Box>
+
         </Col>
         <Col span={6}>
           <Theme
             custom={{
               color,
               fontFamily: fontFamily || 'Times New Roman',
-              // radius,
-              // fontSize,
-              // borders: borders.map(index => this.borders[index].toLowerCase()),
-              // slider: {
-              //   thickness: sliderThickness + 'px',
-              //   handle: sliderHandle + 'px',
-              // },
-              // tabs: {
-              //   thickness: tabsThickness + 'px',
-              // },
+               slider: {
+                 thickness: sliderThickness + 'px',
+                 handle: sliderHandle + 'px',
+               },
             }}
           >
             <Text>Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn. Fenrir Grayback horseless carriages ‘zis is a chance many would die for!</Text>
 
-            <Box marginTop={4} direction="vertical">
+            <Box marginTop={6} direction="vertical">
               <FormField label="Palette">
                 <Box height="40px">
                   <Palette fill={palette.map(x => x[1])} />
                 </Box>
               </FormField>
             </Box>
+
+            <Box marginTop={4} direction="vertical">
+              <Box marginTop={1}>
+                <Divider />
+              </Box>
+              <Box marginTop={1}>
+                <Divider />
+              </Box>
+              <Box marginTop={1}>
+                <Divider />
+              </Box>
+              <Box marginTop={1}>
+                <Divider />
+              </Box>
+            </Box>
+
+
+            <Box marginTop={8} direction="vertical">
+              <Text>{'<Theme>    <-- This slider is affected by the theme'}</Text>
+              <Box margin={4} direction="vertical">
+                <FormField label="Slider - affected by theme">
+                  <Slider
+                    onChange={() => {}}
+                    min={0}
+                    max={10}
+                    value={6}
+                    displayMarks={false}
+                  />
+                </FormField>
+              </Box>
+            </Box>
+              <Text>{'</Theme>'}</Text>
           </Theme>
+
+            <Box marginTop={10} direction="vertical">
+              <FormField label="Slider - NOT affected by theme">
+                <Slider
+                  onChange={() => {}}
+                  min={0}
+                  max={10}
+                  value={6}
+                  displayMarks={false}
+                />
+              </FormField>
+            </Box>
         </Col>
       </Container>
     );
