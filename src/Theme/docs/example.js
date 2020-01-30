@@ -364,6 +364,15 @@ class ColorInputWithState extends React.Component {
                 </Box>
               </FormField>
             </Box>
+            <Box verticalAlign="space-between">
+              <Box width="100%"><Text style={{margin: 'auto'}}>00</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>05</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>10</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>20</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>30</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>40</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>50</Text></Box>
+            </Box>
 
             <Box marginTop={4} direction="vertical">
               <Box marginTop={1}>
@@ -382,7 +391,7 @@ class ColorInputWithState extends React.Component {
 
 
             <Box marginTop={8} direction="vertical">
-              <Text>{'<Theme>    <-- This slider is affected by the theme'}</Text>
+              <Text>{'<Theme> ------ This slider is affected by the theme'}</Text>
               <Box margin={4} direction="vertical">
                 <FormField label="Slider - affected by theme">
                   <Slider
