@@ -17,7 +17,9 @@ class Theme extends React.PureComponent {
         style['--wsr-theme-radius'] = custom.radius;
 
       if (custom.hasOwnProperty('fontFamily'))
-        style['--wsr-theme-font-family'] = custom.fontFamily;
+        style[
+          '--wsr-theme-font-family'
+        ] = `${custom.fontFamily}, 'Times New Roman'`;
 
       if (custom.hasOwnProperty('fontSize'))
         style['--wsr-theme-font-size'] = custom.fontSize;

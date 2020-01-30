@@ -286,3 +286,71 @@ class ColorInputWithState extends React.Component {
   }
 }
 `;
+
+export const technology = `
+class ColorInputWithState extends React.Component {
+  state = {
+    color: '#FF0000',
+    fontFamily: 'Helvetica Neue',
+  };
+
+  render() {
+    const { color, fontFamily } = this.state;
+    const palette = Object.entries(calc_theme(color)).slice(0, 7);
+
+    return (
+      <Container>
+        <Col span={6}>
+          <ColorInput
+            value={color}
+            onChange={color => this.setState({ color })}
+          />
+
+          <Box marginTop={4} direction="vertical">
+          <Text>HSL (Hue, Saturation, Luminosity) allows us to describe meaningful relationships between colors.</Text>
+            {palette.map((k, id) => (
+              <div key={id}>
+                <Text>--wsr-theme-color-</Text>
+                <Text weight="bold" style={{marginRight: '25px'}}>{k[0].substring(18)}:</Text>
+                <Text>{k[1]}</Text>
+              </div>
+            ))}
+          </Box>
+          <Box marginTop={4} direction="vertical">
+            <Text>--wsr-theme-font-family: {fontFamily}</Text>
+            <Input value={fontFamily} onChange={e => this.setState({fontFamily: e.target.value})} />
+          </Box>
+        </Col>
+        <Col span={6}>
+          <Theme
+            custom={{
+              color,
+              fontFamily: fontFamily || 'Times New Roman',
+              // radius,
+              // fontSize,
+              // borders: borders.map(index => this.borders[index].toLowerCase()),
+              // slider: {
+              //   thickness: sliderThickness + 'px',
+              //   handle: sliderHandle + 'px',
+              // },
+              // tabs: {
+              //   thickness: tabsThickness + 'px',
+              // },
+            }}
+          >
+            <Text>Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn. Fenrir Grayback horseless carriages ‘zis is a chance many would die for!</Text>
+
+            <Box marginTop={4} direction="vertical">
+              <FormField label="Palette">
+                <Box height="40px">
+                  <Palette fill={palette.map(x => x[1])} />
+                </Box>
+              </FormField>
+            </Box>
+          </Theme>
+        </Col>
+      </Container>
+    );
+  }
+}
+`;
