@@ -29,6 +29,23 @@ class Theme extends React.PureComponent {
               !custom.borders.includes(border) && 'transparent'),
         );
       }
+
+      if (custom.slider) {
+        const slider = custom.slider;
+        if (slider.thickness) {
+          style['--wsr-theme-slider-thickness'] = slider.thickness;
+        }
+        if (slider.handle) {
+          style['--wsr-theme-slider-handle'] = slider.handle;
+        }
+      }
+
+      if (custom.tabs) {
+        const tabs = custom.tabs;
+        if (tabs.thickness) {
+          style['--wsr-theme-tabs-thickness'] = tabs.thickness;
+        }
+      }
     }
 
     return (

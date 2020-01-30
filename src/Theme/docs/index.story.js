@@ -69,12 +69,14 @@ export default {
 
           divider(),
 
-          title('Examples'),
+          title('Theme'),
 
           code({
             compact: true,
             source: themedExample,
           }),
+
+          title('Theme Customization'),
 
           code({
             compact: true,

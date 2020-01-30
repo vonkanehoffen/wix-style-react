@@ -18,7 +18,7 @@
   position: absolute;
   width: 100%;
   background-color: $B40;
-  height: 6px;
+  height: var(--wsr-theme-slider-thickness, 6px);
   border-radius: calc(var(--wsr-theme-radius, 100) * 10px / 100);
 }
 
@@ -26,7 +26,7 @@
   position: absolute;
   left: 0;
   background-color: $B10;
-  height: 6px;
+  height: var(--wsr-theme-slider-thickness, 6px);
   border-radius: calc(var(--wsr-theme-radius, 100) * 10px / 100);
 }
 
@@ -73,7 +73,7 @@
 .mark-line {
   position: relative;
   margin: auto;
-  top: 6px;
+  top: var(--wsr-theme-slider-thickness, 6px);
   width: 1px;
   height: 7px;
   background-color: $D50;

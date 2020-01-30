@@ -10,6 +10,7 @@
 
 .root {
   -st-states: theme(enum(roses, grass));
+  --wsr-theme-font-family: Helvetica Neue;
 }
 
 .root:theme(roses) {
