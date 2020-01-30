@@ -403,7 +403,7 @@ class ColorInputWithState extends React.Component {
                   />
                 </FormField>
               </Box>
-            </Box>
+            </Box>s
               <Text>{'</Theme>'}</Text>
           </Theme>
 
