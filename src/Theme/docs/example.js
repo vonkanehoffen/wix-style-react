@@ -51,7 +51,7 @@ export const customExample = `
 class ColorInputWithState extends React.Component {
   state = {
     customizationLevel: 0,
-    color: '#FF0000',
+    color: '#2b80cb',
     radius: 20,
     fontFamily: 0,
     fontSize: 100,
@@ -290,7 +290,7 @@ class ColorInputWithState extends React.Component {
 export const technology = `
 class ColorInputWithState extends React.Component {
   state = {
-    color: '#FF0000',
+    color: '#2b80cb',
     fontFamily: 'Helvetica Neue',
   };
 
