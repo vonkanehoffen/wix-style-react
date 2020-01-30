@@ -2,7 +2,7 @@
 @import './InputMixins.scss';
 @import '../typography-helpers.scss';
 
-$gap: 6px;
+$gap: var(--wsr-theme-spacing, 6px);
 $double-gap: 12px;
 $material-gap: 8px;
 
@@ -139,7 +139,7 @@ $material-gap: 8px;
   // `medium` is the new `normal` by Zeplin. For now supporting both
   &-normal,
   &-medium {
-    @include Size($height: 36px, $fontSize: calc(var(--wsr-theme-font-size, 100) * 16px / 100));
+    @include Size($height: calc(24px + var(--wsr-theme-spacing, 6px) * 2), $fontSize: calc(var(--wsr-theme-font-size, 100) * 16px / 100));
   }
   // `medium` is the new `normal` by Zeplin. For now supporting both
   &-normal-with-selection,

@@ -16,6 +16,9 @@ class Theme extends React.PureComponent {
       if (custom.hasOwnProperty('radius'))
         style['--wsr-theme-radius'] = custom.radius;
 
+      if (custom.hasOwnProperty('spacing'))
+        style['--wsr-theme-spacing'] = custom.spacing + 'px';
+
       if (custom.hasOwnProperty('fontFamily'))
         style[
           '--wsr-theme-font-family'

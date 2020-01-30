@@ -53,6 +53,7 @@ class ColorInputWithState extends React.Component {
     customizationLevel: 0,
     color: '#2b80cb',
     radius: 100,
+    spacing: 6,
     fontFamily: 0,
     fontSize: 100,
     borders: [0, 1, 2, 3],
@@ -74,7 +75,7 @@ class ColorInputWithState extends React.Component {
   borders = ['Top', 'Left', 'Bottom', 'Right'];
 
   _renderGlobalParameters = () => {
-    const { color, radius, fontFamily, fontSize } = this.state;
+    const { color, radius, fontFamily, fontSize, spacing } = this.state;
     return (
       <>
         <Text>Global parameters will affect most if not all components</Text>
@@ -118,6 +119,18 @@ class ColorInputWithState extends React.Component {
               min={0}
               max={100}
               value={radius}
+              displayMarks={false}
+            />
+          </FormField>
+        </Box>
+
+        <Box marginTop={4} direction="vertical">
+          <FormField label="Spacing">
+            <Slider
+              onChange={spacing => this.setState({ spacing })}
+              min={2}
+              max={10}
+              value={spacing}
               displayMarks={false}
             />
           </FormField>
@@ -225,6 +238,7 @@ class ColorInputWithState extends React.Component {
       customizationLevel,
       color,
       radius,
+      spacing,
       fontFamily,
       fontSize,
       borders,
@@ -263,6 +277,7 @@ class ColorInputWithState extends React.Component {
             custom={{
               color,
               radius,
+              spacing,
               fontFamily: this.fontFamilies[fontFamily],
               fontSize,
               borders: borders.map(index => this.borders[index].toLowerCase()),

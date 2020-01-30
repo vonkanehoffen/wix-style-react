@@ -32,10 +32,10 @@
   transition-timing-function: linear;
   transition-property: background-color, color, border-color;
 
-  height: 36px;
+  height: calc(24px + var(--wsr-theme-spacing, 6px) * 2);
   min-width: 84px;
   border-radius: calc(var(--wsr-theme-radius, 100) * 18px / 100);
-  padding: 0 23px;
+  padding: 0 calc(var(--wsr-theme-spacing, 6px) * 4 - 1px);
 
   background-color: var(--primary-color, value(B10));
   border-color: var(--wsr-theme-borders-top, value(B10)) var(--wsr-theme-borders-left, value(B10)) var(--wsr-theme-borders-bottom, value(B10)) var(--wsr-theme-borders-right, value(B10));
