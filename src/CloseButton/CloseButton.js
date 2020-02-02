@@ -29,7 +29,7 @@ class CloseButton extends PureComponent {
       'transparent',
     ]),
     /** size of closebutton */
-    size: oneOf(['small', 'medium']),
+    size: oneOf(['small', 'medium', 'large']),
     /** Click event handler  */
     onClick: func,
     /** applies disabled styles */
@@ -44,6 +44,19 @@ class CloseButton extends PureComponent {
     disabled: false,
   };
 
+  getCloseIcon(size) {
+    let CloseIcon;
+    if (size === SIZES.small) {
+      // fallback to Close icon if children not provided (current behavior)
+      CloseIcon = <Close data-hook="close" />;
+    } else if (size === SIZES.medium) {
+      CloseIcon = <CloseLarge data-hook="close-medium" />;
+    } else {
+      CloseIcon = <CloseLarge data-hook="close-large" size="12" />;
+    }
+    return CloseIcon;
+  }
+
   render() {
     const {
       skin,
@@ -53,9 +66,6 @@ class CloseButton extends PureComponent {
       children,
       ...rest
     } = this.props;
-
-    const CloseIcon = <Close data-hook="close" />;
-    const CloseLargeIcon = <CloseLarge data-hook="close-large" />;
 
     const childSize = '18px';
 
@@ -76,9 +86,7 @@ class CloseButton extends PureComponent {
               width: childSize,
               height: childSize,
             })
-          : size === SIZES.small // fallback to Close icon if children not provided (current behavior)
-          ? CloseIcon
-          : CloseLargeIcon}
+          : this.getCloseIcon(size)}
       </ButtonNext>
     );
   }

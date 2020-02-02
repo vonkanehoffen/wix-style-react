@@ -26,7 +26,7 @@
 
   border: none;
   outline: none;
-  
+
   transition-duration: 100ms;
   transition-timing-function: linear;
   transition-property: background-color, color, border-color;
@@ -169,4 +169,9 @@
 .root:size(medium) {
   width: 24px;
   height: 24px;
+}
+
+.root:size(large) {
+  width: 30px;
+  height: 30px;
 }
