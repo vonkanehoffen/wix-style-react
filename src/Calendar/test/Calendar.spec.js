@@ -445,7 +445,11 @@ describe('Calendar', () => {
 
       it('past dates should not be active', async () => {
         const { driver } = render(
-          <Calendar {...defaultProps} value={new Date()} excludePastDates />,
+          <Calendar
+            {...defaultProps}
+            value={new Date(2020, 0, 17)}
+            excludePastDates
+          />,
         );
         expect(await driver.isDayActive(new Date(2020, 0, 7))).toBe(false);
       });
