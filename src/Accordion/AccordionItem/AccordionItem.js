@@ -109,25 +109,23 @@ class AccordionItem extends React.PureComponent {
           this.props,
         )}
       >
-        <div
-          data-hook={dataHooks.item}
-          onMouseEnter={this._onMouseEnter}
-          onMouseLeave={this._onMouseLeave}
-        >
+        <div data-hook={dataHooks.item}>
           <div
             onClick={!disabled ? onToggle : null}
             className={style.header}
-            data-hook={dataHooks.header}
+            data-hook="header"
+            onMouseEnter={this._onMouseEnter}
+            onMouseLeave={this._onMouseLeave}
           >
             {icon && (
-              <div className={style.icon} data-hook={dataHooks.icon}>
+              <div className={style.icon} data-hook="icon">
                 {icon}
               </div>
             )}
             {title && (
-              <div className={style.title} data-hook={dataHooks.titleContainer}>
+              <div className={style.title} data-hook="titleContainer">
                 {typeof title === 'string' ? (
-                  <Text data-hook={dataHooks.title} ellipsis weight="normal">
+                  <Text data-hook="title" ellipsis weight="normal">
                     {title}
                   </Text>
                 ) : (
@@ -137,7 +135,7 @@ class AccordionItem extends React.PureComponent {
             )}
             <div
               className={style.toggleButton}
-              data-hook={dataHooks.toggleAccordionWrapper}
+              data-hook="toggle-accordion-wrapper"
               children={
                 open ? this._renderCloseButton() : this._renderOpenButton()
               }
@@ -145,7 +143,7 @@ class AccordionItem extends React.PureComponent {
           </div>
 
           <Animator show={open} height>
-            <div data-hook={dataHooks.children} className={style.children}>
+            <div data-hook="children" className={style.children}>
               {children}
             </div>
           </Animator>
