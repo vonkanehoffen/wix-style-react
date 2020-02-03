@@ -1,5 +1,5 @@
 import * as React from 'react';
-export { default as PopoverMenuNext } from './beta/PopoverMenu';
+export { default as PopoverMenuNext, PopoverMenuProps as PopoverMenuNextProps } from './beta/PopoverMenu';
 export { IconElement, InjectedFocusableProps, Omit } from './common';
 export { default as AddItem } from './AddItem';
 export { default as Avatar, AvatarProps } from './Avatar';
@@ -120,11 +120,11 @@ export { default as EditableTitle } from './EditableTitle';
 export { default as Accordion } from './Accordion';
 export { default as SocialPreview } from './SocialPreview';
 export { default as GooglePreview } from './GooglePreview';
-export { default as SocialButton } from './SocialButton';
+export { default as SocialButton, SocialButtonProps } from './SocialButton';
 export { default as ListItemSelect, ListItemSelectProps } from './ListItemSelect';
 export { default as ListItemSection, ListItemSectionProps } from './ListItemSection';
 export { default as Image, ImageProps } from './Image';
 export { default as StatisticsWidget } from './StatisticsWidget'
-export { default as Divider } from './Divider'
+export { default as Divider, DividerProps } from './Divider'
 export { default as Collapse } from './Collapse'
 export { default as Selector } from './Selector'
