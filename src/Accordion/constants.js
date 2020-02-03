@@ -6,4 +6,10 @@ export const buttonTypes = {
 export const dataHooks = {
   item: 'accordion-item',
   toggleButton: 'accordion-toggle-button',
+  title: 'title',
+  icon: 'icon',
+  children: 'children',
+  toggleAccordionWrapper: 'toggle-accordion-wrapper',
+  header: 'header',
+  titleContainer: 'title-container',
 };

@@ -10,6 +10,8 @@
 
 .root { 
   -st-states: hover, disabled, open;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .header {
@@ -26,11 +28,6 @@
 .root:not(:disabled):hover .header {
   background-color: value(B60);
   cursor: pointer;
-}
-
-.itemWrapper{
-  overflow: hidden;
-  background-color: transparent;
 }
 
 .root:open .header {

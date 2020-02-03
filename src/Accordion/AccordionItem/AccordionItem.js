@@ -102,31 +102,32 @@ class AccordionItem extends React.PureComponent {
     const { icon, title, open, children, onToggle, disabled } = this.props;
 
     return (
-      <div className={style.itemWrapper}>
+      <div
+        {...style(
+          'root',
+          { disabled, hover: this.state.hover, open },
+          this.props,
+        )}
+      >
         <div
           data-hook={dataHooks.item}
           onMouseEnter={this._onMouseEnter}
           onMouseLeave={this._onMouseLeave}
-          {...style(
-            'root',
-            { disabled, hover: this.state.hover, open },
-            this.props,
-          )}
         >
           <div
             onClick={!disabled ? onToggle : null}
             className={style.header}
-            data-hook="header"
+            data-hook={dataHooks.header}
           >
             {icon && (
-              <div className={style.icon} data-hook="icon">
+              <div className={style.icon} data-hook={dataHooks.icon}>
                 {icon}
               </div>
             )}
             {title && (
-              <div className={style.title} data-hook="title-container">
+              <div className={style.title} data-hook={dataHooks.titleContainer}>
                 {typeof title === 'string' ? (
-                  <Text data-hook="title" ellipsis weight="normal">
+                  <Text data-hook={dataHooks.title} ellipsis weight="normal">
                     {title}
                   </Text>
                 ) : (
@@ -136,7 +137,7 @@ class AccordionItem extends React.PureComponent {
             )}
             <div
               className={style.toggleButton}
-              data-hook="toggle-accordion-wrapper"
+              data-hook={dataHooks.toggleAccordionWrapper}
               children={
                 open ? this._renderCloseButton() : this._renderOpenButton()
               }
@@ -144,7 +145,7 @@ class AccordionItem extends React.PureComponent {
           </div>
 
           <Animator show={open} height>
-            <div data-hook="children" className={style.children}>
+            <div data-hook={dataHooks.children} className={style.children}>
               {children}
             </div>
           </Animator>

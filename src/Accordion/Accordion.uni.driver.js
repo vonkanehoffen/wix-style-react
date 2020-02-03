@@ -7,33 +7,33 @@ const accordionDriverFactory = base => ({
 
   getItemTitleAt: idx =>
     getItemAt(idx, base)
-      .$('[data-hook="title"]')
+      .$(`[data-hook=${dataHooks.title}]`)
       .text(),
 
   isIconExistsAt: idx =>
     getItemAt(idx, base)
-      .$('[data-hook="icon"]')
+      .$(`[data-hook=${dataHooks.icon}]`)
       .exists(),
 
   isItemExpandedAt: idx =>
     getItemAt(idx, base)
-      .$('[data-hook="children"]')
+      .$(`[data-hook=${dataHooks.children}]`)
       .exists(),
 
   clickToggleButtonAt: idx =>
     getItemAt(idx, base)
-      .$('[data-hook="toggle-accordion-wrapper"]')
+      .$(`[data-hook=${dataHooks.toggleAccordionWrapper}]`)
       .click(),
 
   clickHeaderAt: idx =>
     getItemAt(idx, base)
-      .$('[data-hook="header"]')
+      .$(`[data-hook=${dataHooks.header}]`)
       .click(),
 
   getToggleButtonLabelAt: idx =>
     getItemAt(idx, base)
       .$(
-        `[data-hook="toggle-accordion-wrapper"] [data-hook="${dataHooks.toggleButton}"]`,
+        `[data-hook=${dataHooks.toggleAccordionWrapper}] [data-hook="${dataHooks.toggleButton}"]`,
       )
       .text(),
 });
