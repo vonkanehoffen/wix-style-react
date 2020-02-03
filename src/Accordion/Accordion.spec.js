@@ -109,7 +109,7 @@ describe('Accordion', () => {
       await driver.clickHeaderAt(0);
       expect(await driver.isItemExpandedAt(0)).toBe(true);
       await driver.clickHeaderAt(0);
-      return eventually(
+      await eventually(
         async () => {
           expect(await driver.isItemExpandedAt(0)).toBe(false);
         },
