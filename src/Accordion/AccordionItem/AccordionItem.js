@@ -100,15 +100,10 @@ class AccordionItem extends React.PureComponent {
 
   render() {
     const { icon, title, open, children, onToggle, disabled } = this.props;
+    const { hover } = this.state;
 
     return (
-      <div
-        {...style(
-          'root',
-          { disabled, hover: this.state.hover, open },
-          this.props,
-        )}
-      >
+      <div {...style('root', { disabled, hover, open }, this.props)}>
         <div data-hook={dataHooks.item}>
           <div
             onClick={!disabled ? onToggle : null}
