@@ -12,7 +12,7 @@ const accordionDriverFactory = base => ({
 
   isIconExistsAt: idx =>
     getItemAt(idx, base)
-      .$('[data-hook="dataHooks.icon"]')
+      .$('[data-hook="icon"]')
       .exists(),
 
   isItemExpandedAt: idx =>
