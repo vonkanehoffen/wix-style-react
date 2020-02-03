@@ -21,6 +21,10 @@ Types of changes:
 
 - `<Image/>` - new component [#4927](https://github.com/wix/wix-style-react/pull/4927)
 
+### Changed:
+
+- `<MarketingLayout/>` - adjusted paddings, added image background [#4936](https://github.com/wix/wix-style-react/pull/4936)
+
 ### Fixed:
 
 - `<Tag/>` - changed onClick callback call to pass 'event' as second parameter [#4915](https://github.com/wix/wix-style-react/pull/4915)
