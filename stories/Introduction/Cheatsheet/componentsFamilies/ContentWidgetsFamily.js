@@ -28,6 +28,7 @@ import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import Card from 'wix-style-react/Card';
 import DropdownBase from 'wix-style-react/DropdownBase';
 import TextButton from 'wix-style-react/TextButton';
+import Button from 'wix-style-react/Button';
 
 // 12. Content Widgets
 import EmptyState from 'wix-style-react/EmptyState';
@@ -37,6 +38,7 @@ import Accordion from 'wix-style-react/Accordion';
 import PreviewWidget from 'wix-style-react/PreviewWidget';
 import MobilePreviewWidget from 'wix-style-react/MobilePreviewWidget';
 import BrowserPreviewWidget from 'wix-style-react/BrowserPreviewWidget';
+import MarketingLayout from 'wix-style-react/MarketingLayout';
 
 const groupSymbol = symbolsGroup.contentWidgets;
 
@@ -67,7 +69,7 @@ const EmptyStateExample = () => {
 
   return (
     <SingleComponentStacked {...singleComponentProps}>
-      <Preview wrapWithCard stretch>
+      <Preview wrapWithCardContent stretch>
         <EmptyState
           image={
             <Box
@@ -487,6 +489,30 @@ const OmniSetupExample = () => {
   );
 };
 
+const MarketingLayoutCardExample = () => {
+  const symbol = contentWidgetsSymbols.marketingCardLayout;
+  const components = contentWidgetsSymbolsToComponents[symbol];
+
+  const singleComponentProps = {
+    name: symbol,
+    componentsNames: createLinkedComponentsNames(components),
+  };
+
+  return (
+    <SingleComponentStacked {...singleComponentProps}>
+      <Preview wrapWithCard stretch>
+        <MarketingLayout
+          title="Marketing Card Title"
+          description="Description text for Marketing Card."
+          size="medium"
+          actions={<Button size="medium">Action</Button>}
+          image="https://static.parastorage.com/services/promote-seo/1.980.0/assets/task-list/ic-connect-to-google-icon.svg"
+        />
+      </Preview>
+    </SingleComponentStacked>
+  );
+};
+
 const ContentWidgetsFamily = () => (
   <FamilyStructure title={groupSymbol}>
     <ImageWidgetExample />
@@ -497,6 +523,7 @@ const ContentWidgetsFamily = () => (
     <CardGalleryItemExample />
     <PreviewExample />
     <OmniSetupExample />
+    <MarketingLayoutCardExample />
   </FamilyStructure>
 );
 

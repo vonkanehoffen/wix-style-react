@@ -160,4 +160,5 @@ export const contentWidgetsSymbols = {
   cardGalleryItem: '12.6 Card Gallery Item',
   preview: '12.7 Preview',
   omniSetup: '12.8 Omni Setup',
+  marketingCardLayout: '12.9 Marketing Card Layout',
 };

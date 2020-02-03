@@ -35,53 +35,57 @@ export const sizeLarge = `
 
 export const inverted = `
   <MarketingLayout
-    title="Customize Your Own Automated Emails"
-    description="Design customized emails and set the automated triggers. Remember to disabled the relevant default email above if you're creating your own branded emails."
     inverted
-    actions={<Button size="small" priority="secondary">Create Automations</Button>}
-    image={<img src="https://static.parastorage.com/services/promote-seo/1.980.0/assets/task-list/ic-connect-to-google-icon.svg" width="100%" />}
+    title="Inverted Layout"
+    description="This layout has an image on the left side."
+    actions={<Button size="medium">Get Started</Button>}
+    size="medium"
+  />
+`;
+
+export const imageBackgroundColor = `
+  <MarketingLayout
+    title="Image Background"
+    description="This layout has a background color set for the image area."
+    actions={<Button size="medium">Get Started</Button>}
+    size="medium"
+    imageBackgroundColor="B50"
   />
 `;
 
 export const advanced = `
-  <MarketingLayout
-    inverted
-    title={
-      <Layout cols={1} gap="6px">
-        <Heading appearance="H5">STEP 1</Heading>
-        <Heading appearance="H2">Get Your Site Listed on Google</Heading>
-      </Layout>
-    }
-    description={
-      <Layout cols={1} gap="0px">
-        <Text>Complete this checklist to connect your site to Google.</Text>
-        <div><TextButton>Learn More</TextButton></div>
-      </Layout>
-    }
-    size="medium"
-    actions={<Button size="medium" priority="secondary" prefixIcon={<Icons.Google/>}>Connect to Google</Button>}
-    image={<img src="https://static.parastorage.com/services/promote-seo/1.980.0/assets/task-list/ic-connect-to-google-icon.svg" width="100%" />}
-  />
+  <Card>
+    <MarketingLayout
+      inverted
+      title={
+        <Box direction="vertical">
+          <Heading appearance="H5">STEP 1</Heading>
+          <Heading appearance="H2">Get Your Site Listed on Google</Heading>
+        </Box>
+      }
+      description={
+        <Box direction="vertical" align="left">
+          <Text>Complete this checklist to connect your site to Google.</Text>
+          <TextButton>Learn More</TextButton>
+        </Box>
+      }
+      size="medium"
+      actions={<Button size="medium" priority="secondary" prefixIcon={<Icons.Google/>}>Connect to Google</Button>}
+      image="https://static.parastorage.com/services/promote-seo/1.980.0/assets/task-list/ic-connect-to-google-icon.svg"
+    />
+  </Card>
 `;
 
 export const images = [
   {
     label: 'GIF',
-    value: (
-      <img
-        src="https://static.wixstatic.com/media/25125b_fde50458cc6746c79267182c4b4592e0~mv2.gif"
-        width="100%"
-      />
-    ),
+    value:
+      'https://static.wixstatic.com/media/25125b_fde50458cc6746c79267182c4b4592e0~mv2.gif',
   },
   {
     label: 'SVG',
-    value: (
-      <img
-        src="https://static.parastorage.com/services/promote-seo/1.980.0/assets/task-list/ic-connect-to-google-icon.svg"
-        width="100%"
-      />
-    ),
+    value:
+      'https://static.parastorage.com/services/promote-seo/1.980.0/assets/task-list/ic-connect-to-google-icon.svg',
   },
 ];
 

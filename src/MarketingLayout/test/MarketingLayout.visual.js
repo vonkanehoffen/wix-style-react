@@ -4,14 +4,9 @@ import MarketingLayout from '../MarketingLayout';
 import Button from '../../Button';
 import Box from '../../Box';
 
-const images = [
-  <Box backgroundColor="lightgrey" width="126px" height="126px"></Box>,
-  <Box backgroundColor="lightgrey" width="282px" height="188px"></Box>,
-  <Box backgroundColor="lightgrey" width="360px" height="240px"></Box>,
-];
+const customImage = <Box backgroundColor="R00" width="100%" height="200px" />;
 
 const commonProps = {
-  image: images[0],
   title: 'Marketing Card Title',
   description:
     'Connect to Google and get indexed in seconds so people can easily find your site.',
@@ -41,14 +36,38 @@ const tests = [
         it: 'Medium',
         props: {
           size: 'medium',
-          image: images[1],
         },
       },
       {
         it: 'Large',
         props: {
           size: 'large',
-          image: images[2],
+        },
+      },
+    ],
+  },
+  {
+    describe: 'Image',
+    its: [
+      {
+        it: 'Small',
+        props: {
+          size: 'small',
+          image: customImage,
+        },
+      },
+      {
+        it: 'Medium',
+        props: {
+          size: 'medium',
+          image: customImage,
+        },
+      },
+      {
+        it: 'Large',
+        props: {
+          size: 'large',
+          image: customImage,
         },
       },
     ],
@@ -68,7 +87,6 @@ const tests = [
         props: {
           inverted: true,
           size: 'medium',
-          image: images[1],
         },
       },
       {
@@ -76,7 +94,6 @@ const tests = [
         props: {
           inverted: true,
           size: 'large',
-          image: images[2],
         },
       },
     ],
@@ -96,7 +113,6 @@ const tests = [
         props: {
           size: 'medium',
           actions: null,
-          image: images[1],
         },
       },
       {
@@ -104,7 +120,30 @@ const tests = [
         props: {
           size: 'large',
           actions: null,
-          image: images[2],
+        },
+      },
+    ],
+  },
+  {
+    describe: 'Image Background Color',
+    its: [
+      {
+        it: 'Custom Color',
+        props: {
+          imageBackgroundColor: '#D6453D',
+        },
+      },
+      {
+        it: 'Palette Color',
+        props: {
+          imageBackgroundColor: 'R00',
+        },
+      },
+      {
+        it: 'Inverted Layout',
+        props: {
+          inverted: true,
+          imageBackgroundColor: 'R00',
         },
       },
     ],

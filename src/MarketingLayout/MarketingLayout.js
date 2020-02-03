@@ -6,6 +6,7 @@ import { Layout, Cell } from '../Layout';
 import Proportion from '../Proportion';
 import { SIZES } from './constants';
 import styles from './MarketingLayout.st.css';
+import colors from '../colors.scss';
 
 const cellSpansBySize = {
   [SIZES.small]: {
@@ -37,19 +38,21 @@ class MarketingLayout extends React.PureComponent {
   static displayName = 'MarketingLayout';
 
   static propTypes = {
-    /** DataHook for the marketing layout component */
+    /** Hook for testing purposes. */
     dataHook: PropTypes.string,
-    /** Image for the marketing layout */
+    /** Image URL or custom element. */
     image: PropTypes.node,
-    /** Size of the marketing layout */
+    /** Image area background color. Can be a keyword from color palette or any supported CSS color value (Hex, RGB, etc.) */
+    imageBackgroundColor: PropTypes.string,
+    /** Size of the marketing layout. */
     size: PropTypes.oneOf(['small', 'medium', 'large']),
-    /** Invert marketing layout */
+    /** Invert marketing layout (with image displayed on the left). */
     inverted: PropTypes.bool,
-    /** Marketing layout actions */
+    /** Marketing layout actions. */
     actions: PropTypes.node,
-    /** Marketing layout title */
+    /** Title as a string or custom element. */
     title: PropTypes.node,
-    /** Marketing layout description */
+    /** Description as a string or custom element. */
     description: PropTypes.node,
   };
 
@@ -70,11 +73,26 @@ class MarketingLayout extends React.PureComponent {
   };
 
   _renderImageCell = span => {
-    const { image } = this.props;
+    const { image, imageBackgroundColor } = this.props;
     return (
       <Cell key="image" span={span}>
-        <div className={styles.imageContainer}>
-          {image || this._renderImagePlaceholder()}
+        <div className={styles.imageWrapper}>
+          {imageBackgroundColor && (
+            <div
+              className={styles.imageBackground}
+              style={{
+                backgroundColor:
+                  colors[imageBackgroundColor] || imageBackgroundColor,
+              }}
+            />
+          )}
+          <div className={styles.imageContainer}>
+            {typeof image === 'string' ? (
+              <img src={image} width="100%" />
+            ) : (
+              image || this._renderImagePlaceholder()
+            )}
+          </div>
         </div>
       </Cell>
     );
@@ -111,13 +129,24 @@ class MarketingLayout extends React.PureComponent {
   };
 
   render() {
-    const { size, inverted, actions, dataHook } = this.props;
+    const {
+      size,
+      inverted,
+      actions,
+      dataHook,
+      imageBackgroundColor,
+    } = this.props;
 
     return (
       <div
         {...styles(
           'root',
-          { size, inverted, withActions: !!actions },
+          {
+            size,
+            inverted,
+            withActions: !!actions,
+            withImageBackground: !!imageBackgroundColor,
+          },
           this.props,
         )}
         data-hook={dataHook}

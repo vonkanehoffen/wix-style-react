@@ -118,7 +118,7 @@ class EditableSelectorExample extends PureComponent {
     const { options } = this.state;
 
     return (
-      <Preview wrapWithCard>
+      <Preview wrapWithCardContent>
         <EditableSelector
           onOptionAdded={this.onOptionAdded}
           onOptionEdit={this.onOptionEdit}

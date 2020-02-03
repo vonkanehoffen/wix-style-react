@@ -427,6 +427,7 @@ const VariableInputExample = () => {
             {['First', 'Second', 'Third', 'Fourth'].map(v => (
               <PopoverMenu.MenuItem
                 text={`${v} Option`}
+                key={v}
                 onClick={() => myRef.insertVariable(`${v} Option`)}
               />
             ))}
