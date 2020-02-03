@@ -44,7 +44,7 @@ class CloseButton extends PureComponent {
     disabled: false,
   };
 
-  getCloseIcon(size) {
+  _renderCloseIcon(size) {
     let CloseIcon;
     if (size === SIZES.small) {
       // fallback to Close icon if children not provided (current behavior)
@@ -86,7 +86,7 @@ class CloseButton extends PureComponent {
               width: childSize,
               height: childSize,
             })
-          : this.getCloseIcon(size)}
+          : this._renderCloseIcon(size)}
       </ButtonNext>
     );
   }
