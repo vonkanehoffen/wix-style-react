@@ -15,6 +15,12 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
+## Next
+
+### Fixed
+
+- fixed missing types for named imports [#4945](https://github.com/wix/wix-style-react/pull/4945)
+
 ## 7.39.0 - 2020-02-03
 
 ### Added:
