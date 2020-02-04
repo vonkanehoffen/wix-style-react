@@ -302,7 +302,7 @@ class ColorInputWithState extends React.Component {
 }
 `;
 
-export const technology = `
+export const technology1 = `
 class ColorInputWithState extends React.Component {
   state = {
     color: '#2b80cb',
@@ -338,6 +338,77 @@ class ColorInputWithState extends React.Component {
               </div>
             ))}
           </Box>
+        </Col>
+        <Col span={6}>
+          <Theme
+            custom={{
+              color,
+              fontFamily: fontFamily || 'Times New Roman',
+               slider: {
+                 thickness: sliderThickness + 'px',
+                 handle: sliderHandle + 'px',
+               },
+            }}
+          >
+
+            <Box marginTop={6} direction="vertical">
+              <FormField label="Palette">
+                <Box height="40px">
+                  <Palette fill={palette.map(x => x[1])} />
+                </Box>
+              </FormField>
+            </Box>
+            <Box verticalAlign="space-between">
+              <Box width="100%"><Text style={{margin: 'auto'}}>00</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>05</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>10</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>20</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>30</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>40</Text></Box>
+              <Box width="100%"><Text style={{margin: 'auto'}}>50</Text></Box>
+            </Box>
+
+            <Box marginTop={8} direction="vertical">
+              <Box margin={4} direction="vertical">
+                <FormField label="Slider - affected by theme">
+                  <Slider
+                    onChange={() => {}}
+                    min={0}
+                    max={10}
+                    value={6}
+                    displayMarks={false}
+                  />
+                </FormField>
+              </Box>
+            </Box>
+          </Theme>
+        </Col>
+      </Container>
+    );
+  }
+}
+`;
+
+export const technology2 = `
+class ColorInputWithState extends React.Component {
+  state = {
+    color: '#2b80cb',
+    fontFamily: 'Helvetica Neue',
+    sliderThickness: 6,
+    sliderHandle: 8,
+  };
+
+  render() {
+    const { color, fontFamily, sliderThickness, sliderHandle } = this.state;
+    const palette = Object.entries(calc_theme(color)).slice(0, 7);
+
+    return (
+      <Container>
+        <Col span={6}>
+          <ColorInput
+            value={color}
+            onChange={color => this.setState({ color })}
+          />
 
           <Box marginTop={4} direction="vertical">
             <Text>--wsr-theme-font-family: {fontFamily}</Text>
@@ -371,39 +442,6 @@ class ColorInputWithState extends React.Component {
             }}
           >
             <Text>Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn. Fenrir Grayback horseless carriages ‘zis is a chance many would die for!</Text>
-
-            <Box marginTop={6} direction="vertical">
-              <FormField label="Palette">
-                <Box height="40px">
-                  <Palette fill={palette.map(x => x[1])} />
-                </Box>
-              </FormField>
-            </Box>
-            <Box verticalAlign="space-between">
-              <Box width="100%"><Text style={{margin: 'auto'}}>00</Text></Box>
-              <Box width="100%"><Text style={{margin: 'auto'}}>05</Text></Box>
-              <Box width="100%"><Text style={{margin: 'auto'}}>10</Text></Box>
-              <Box width="100%"><Text style={{margin: 'auto'}}>20</Text></Box>
-              <Box width="100%"><Text style={{margin: 'auto'}}>30</Text></Box>
-              <Box width="100%"><Text style={{margin: 'auto'}}>40</Text></Box>
-              <Box width="100%"><Text style={{margin: 'auto'}}>50</Text></Box>
-            </Box>
-
-            <Box marginTop={4} direction="vertical">
-              <Box marginTop={1}>
-                <Divider />
-              </Box>
-              <Box marginTop={1}>
-                <Divider />
-              </Box>
-              <Box marginTop={1}>
-                <Divider />
-              </Box>
-              <Box marginTop={1}>
-                <Divider />
-              </Box>
-            </Box>
-
 
             <Box marginTop={8} direction="vertical">
               <Text>{'<Theme> ------ This slider is affected by the theme'}</Text>

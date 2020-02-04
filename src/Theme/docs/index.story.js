@@ -16,7 +16,12 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-import { themedExample, customExample, technology } from './example';
+import {
+  themedExample,
+  customExample,
+  technology1,
+  technology2,
+} from './example';
 
 import Theme from '..';
 import GallerySidepanel from '../GallerySidepanel';
@@ -90,7 +95,12 @@ export default {
 
           code({
             compact: true,
-            source: technology,
+            source: technology1,
+          }),
+
+          code({
+            compact: true,
+            source: technology2,
           }),
         ],
       }),
