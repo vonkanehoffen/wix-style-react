@@ -4,7 +4,11 @@ import MarketingLayout from '../MarketingLayout';
 import Button from '../../Button';
 import Box from '../../Box';
 
-const customImage = <Box backgroundColor="R00" width="100%" height="200px" />;
+const customImageNode = (
+  <Box backgroundColor="R00" width="100%" height="200px" />
+);
+const customImageUrl =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8Exv7FAAF8AJtZv8v8wAAAABJRU5ErkJggg==';
 
 const commonProps = {
   title: 'Marketing Card Title',
@@ -53,21 +57,27 @@ const tests = [
         it: 'Small',
         props: {
           size: 'small',
-          image: customImage,
+          image: customImageNode,
         },
       },
       {
         it: 'Medium',
         props: {
           size: 'medium',
-          image: customImage,
+          image: customImageNode,
         },
       },
       {
         it: 'Large',
         props: {
           size: 'large',
-          image: customImage,
+          image: customImageNode,
+        },
+      },
+      {
+        it: 'URL',
+        props: {
+          image: customImageUrl,
         },
       },
     ],
@@ -144,6 +154,13 @@ const tests = [
         props: {
           inverted: true,
           imageBackgroundColor: 'R00',
+        },
+      },
+      {
+        it: 'With Custom Image',
+        props: {
+          imageBackgroundColor: 'B20',
+          image: customImageNode,
         },
       },
     ],
