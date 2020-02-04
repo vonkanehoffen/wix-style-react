@@ -18,7 +18,7 @@
   position: absolute;
   width: 100%;
   background-color: $B40;
-  height: 6px;
+  height: 3px;
   border-radius: 10px;
 }
 
@@ -26,7 +26,7 @@
   position: absolute;
   left: 0;
   background-color: $B10;
-  height: 6px;
+  height: 3px;
   border-radius: 10px;
 }
 
@@ -63,11 +63,11 @@
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-disabled .rc-slider-track) {
-  background-color: $D10-20;
+  background-color: $D10-30;
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-disabled .rc-slider-handle) {
-  color: $D10-20;
+  color: $D50;
 }
 
 .mark-line {

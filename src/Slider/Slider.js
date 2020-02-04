@@ -96,6 +96,8 @@ Slider.displayName = 'Slider';
 Slider.propTypes = {
   /** Allows the slider's handles to cross. */
   allowCross: PropTypes.bool,
+
+  /** Applied as data-hook HTML attribute that can be used in the tests. */
   dataHook: PropTypes.string,
 
   /** Controls the visibility of the marks. */
@@ -103,6 +105,8 @@ Slider.propTypes = {
 
   /** Controls visibility of slide handle tooltip */
   displayTooltip: PropTypes.bool,
+
+  /** Applied as id HTML attribute. */
   id: PropTypes.string,
 
   /** The absolute maximum of the slider's range */
