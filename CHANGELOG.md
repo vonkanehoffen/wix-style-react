@@ -15,6 +15,12 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
+## Next
+
+### Fixed
+
+- `<MarketingLayout/>` - Fixed issue where background color would hide an image [#4949](https://github.com/wix/wix-style-react/pull/4949)
+
 ## 7.39.1 - 2020-02-03
 
 ### Fixed
