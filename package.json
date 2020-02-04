@@ -78,7 +78,7 @@
     "test5:types": "npm run test:types",
     "test6:sanity": "npm run lint && npm run sanity",
     "test7:performance": "npm run test:performance",
-    "test8:chromatic": "if [  \"$agentType\" = \"pullrequest\" ]; then npm run test:chromatic fi;",
+    "test8:chromatic": "if [  \"$agentType\" = \"pullrequest\" ]; then npm run test:chromatic; fi;",
     "------performance analysis tools": "",
     "bundles:analyse": "npm run analyse --prefix .perfer",
     "------can be removed?": "",
