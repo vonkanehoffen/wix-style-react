@@ -100,15 +100,15 @@ describe('Accordion', () => {
 
     it('should expand an item on click', async () => {
       const driver = createDriver(<Accordion items={singleItem} />);
-      await driver.clickHeaderAt(0);
+      await driver.clickItemAt(0);
       expect(await driver.isItemExpandedAt(0)).toBe(true);
     });
 
     it('should collapse an expanded item on click', async () => {
       const driver = createDriver(<Accordion items={singleItem} />);
-      await driver.clickHeaderAt(0);
+      await driver.clickItemAt(0);
       expect(await driver.isItemExpandedAt(0)).toBe(true);
-      await driver.clickHeaderAt(0);
+      await driver.clickItemAt(0);
       await eventually(async () => {
         expect(await driver.isItemExpandedAt(0)).toBe(false);
       });
