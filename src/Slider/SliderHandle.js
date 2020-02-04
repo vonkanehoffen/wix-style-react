@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-
+import Tooltip from '../Tooltip';
+import { dataHooks } from './constants';
 import styles from './SliderHandle.st.css';
 
 class SliderHandle extends Component {
@@ -69,11 +70,14 @@ class SliderHandle extends Component {
       focusableOnFocus,
       focusableOnBlur,
     } = this.props;
+
     const { showTooltip } = this.state;
 
     return (
       <div
+        data-hook={dataHooks.sliderHandle}
         {...styles('root', { disabled }, this.props)}
+        style={{ left: `${offset}%` }}
         onBlur={focusableOnBlur}
         onFocus={focusableOnFocus}
         tabIndex="0"
@@ -81,14 +85,17 @@ class SliderHandle extends Component {
         onMouseLeave={this.handleMouseLeave}
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
-        data-hook="slider-handle"
-        style={{ left: `${offset}%` }}
       >
-        {showTooltip && (
-          <div data-hook="slider-tooltip" className={styles.tooltip}>
-            {value}
-          </div>
-        )}
+        <Tooltip
+          disabled={!showTooltip}
+          appendTo={elm =>
+            elm.getAttribute('data-hook') === dataHooks.sliderHandle
+          }
+          content={value}
+          upgrade
+        >
+          <div className={styles.sliderHandler} />
+        </Tooltip>
       </div>
     );
   }

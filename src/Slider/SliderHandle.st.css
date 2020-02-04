@@ -19,13 +19,17 @@
   rootSizeWithState: 18px;
   railHeight: 3px;
 }
-
-.root {
+.root{
   -st-extends: Focusable;
   -st-states: disabled;
   position: absolute;
+  outline: none; /* prevent browser default focus for wrapper div*/
+}
+
+.sliderHandler {
   margin-left: calc(value(rootSize)/ -2);
   margin-top: calc((value(rootSize) - value(railHeight)) / -2);
+  padding: calc((value(rootSizeWithState) - value(rootSize))/2);
   width: value(rootSize);
   height:  value(rootSize);
   box-sizing:border-box;
@@ -36,48 +40,32 @@
   outline: none;
 }
 
-.root:disabled {
+.root:disabled .sliderHandler {
   background-color: value(D50);
 }
 
-.root:not(:disabled):hover,
-.root:not(:disabled):active {
+.root:not(:disabled):hover .sliderHandler {
   width: value(rootSizeWithState);
   height: value(rootSizeWithState);
   margin-left: calc(value(rootSizeWithState)/ -2);
   margin-top: calc((value(rootSizeWithState) - value(railHeight)) / -2);
 }
 
-.root:not(:active):not(:hover):not(:disabled):focus-visible {
+.root:not(:disabled):active .sliderHandler{
+  width: value(rootSizeWithState);
+  height: value(rootSizeWithState);
+  margin-left: calc(value(rootSizeWithState)/ -2);
+  margin-top: calc((value(rootSizeWithState) - value(railHeight)) / -2);
+}
+
+.root:not(:active):not(:hover):not(:disabled):focus-visible .sliderHandler{
   box-shadow: 0 0 0 3px value(F00);
   z-index: 2;
 }
 
-.root:not(:disabled):focus {
+.root:not(:disabled):focus .sliderHandler{
   box-shadow: 0 0 0 3px transparent;
   /** rc-slider focus overwrite */
   border: 1px solid transparent;
   z-index: 2;
-}
-
-.tooltip {
-  position: absolute;
-  background-color: white;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 5px;
-  padding: 10px 15px;
-  bottom: 25px;
-  left: -15px;
-  box-shadow: value(shadow30);
-  user-select: none;
-}
-
-.tooltip::after {
-  position: absolute;
-  content: "";
-  border-top: 5px solid white;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  bottom: -5px;
-  left: calc(50% - 5px);
 }
