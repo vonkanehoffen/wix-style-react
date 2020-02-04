@@ -75,9 +75,7 @@ class SliderHandle extends Component {
 
     return (
       <div
-        data-hook={dataHooks.sliderHandle}
         {...styles('root', { disabled }, this.props)}
-        style={{ left: `${offset}%` }}
         onBlur={focusableOnBlur}
         onFocus={focusableOnFocus}
         tabIndex="0"
@@ -85,6 +83,8 @@ class SliderHandle extends Component {
         onMouseLeave={this.handleMouseLeave}
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
+        data-hook={dataHooks.sliderHandle}
+        style={{ left: `${offset}%` }}
       >
         <Tooltip
           disabled={!showTooltip}
