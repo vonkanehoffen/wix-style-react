@@ -17,6 +17,10 @@ Types of changes:
 
 ## Next
 
+### Added:
+
+- `<CloseButton/>` - add large size support [#4941](https://github.com/wix/wix-style-react/pull/4941)
+
 ### Fixed
 
 - `<MarketingLayout/>` - Fixed issue where background color would hide an image [#4949](https://github.com/wix/wix-style-react/pull/4949)
