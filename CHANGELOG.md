@@ -20,6 +20,7 @@ Types of changes:
 ### Fixed
 
 - `<MarketingLayout/>` - Fixed issue where background color would hide an image [#4949](https://github.com/wix/wix-style-react/pull/4949)
+- `<Slider/>`- Fixed Slider css [#4932](https://github.com/wix/wix-style-react/pull/4932)
 
 ## 7.39.1 - 2020-02-03
 
