@@ -65,7 +65,7 @@ class Checkbox extends React.PureComponent {
               ? 'checked'
               : 'unchecked',
             indeterminate,
-            checkboxHover: hover,
+            checkboxhover: hover,
           },
           this.props,
         )}

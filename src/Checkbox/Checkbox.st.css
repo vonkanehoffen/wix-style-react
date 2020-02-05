@@ -12,7 +12,7 @@
   -st-extends: Focusable;
   -st-states: valign(enum(center, top)),
     selectionarea(enum(none, always, hover)), disabled,
-    selection(enum(unchecked, checked, indeterminate)), checkboxHover, error;
+    selection(enum(unchecked, checked, indeterminate)), checkboxhover, error;
   display: inline-flex;
   outline: none;
 
