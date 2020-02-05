@@ -457,5 +457,8 @@
   },
   "Image": {
     "path": "src/Image"
+  },
+  "SidePanel": {
+    "path": "src/SidePanel"
   }
 }

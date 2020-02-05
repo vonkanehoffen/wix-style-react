@@ -113,6 +113,7 @@ require('../src/SidebarHeader/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
 require('../src/SidebarBackButton/docs/index.story');
+require('../src/SidePanel/docs/index.story');
 require('../src/Skeleton/docs/index.story');
 require('../src/Slider/docs/index.story');
 require('../src/SocialButton/docs/index.story');
@@ -186,3 +187,5 @@ require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 require('./FieldWithSelectionComposite');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');
+
+require('../src/SidePanel/docs/index.story');
