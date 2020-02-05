@@ -17,6 +17,7 @@ import {ImageDriver} from '../src/Image/Image.uni.driver';
 import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
 import {ListItemSectionDriver} from '../src/ListItemSection/ListItemSection.uni.driver';
 import {ListItemSelectDriver} from '../src/ListItemSelect/ListItemSelect.uni.driver';
+import {SidePanelDriver} from '../src/SidePanel/SidePanel.uni.driver';
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
@@ -153,7 +154,7 @@ declare namespace VanillaTestkit {
   export const warningIndicatorTestkitFactory: any;
   export const variableInputTestkitFactory: any;
   export const imageTestkitFactory: VanillaUniTestkitFactory<ImageDriver>;
-  export const sidePanelTestkitFactory: any;
+  export const sidePanelTestkitFactory: VanillaUniTestkitFactory<SidePanelDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

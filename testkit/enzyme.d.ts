@@ -21,6 +21,7 @@ import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
 import {ImageDriver} from '../src/Image/Image.uni.driver';
 import {ListItemSectionDriver} from '../src/ListItemSection/ListItemSection.uni.driver';
 import {ListItemSelectDriver} from '../src/ListItemSelect/ListItemSelect.uni.driver';
+import {SidePanelDriver} from '../src/SidePanel/SidePanel.uni.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -157,7 +158,7 @@ declare namespace EnzymeTestkit {
   export const warningIndicatorTestkitFactory: any;
   export const variableInputTestkitFactory: any;
   export const imageTestkitFactory: EnzymeUniTestkitFactory<ImageDriver>;
-  export const sidePanelTestkitFactory: any;
+  export const sidePanelTestkitFactory: EnzymeUniTestkitFactory<SidePanelDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;
