@@ -89,7 +89,7 @@ const files = [
   ['Search.bundle.min.js', 74],
   ['SectionHelper.bundle.min.js', 24],
   ['SegmentedToggle.bundle.min.js', 43],
-  ['Selector.bundle.min.js', 47],
+  ['Selector.bundle.min.js', 48],
   ['Sidebar.bundle.min.js', 7],
   ['SidebarDivider.bundle.min.js', 7],
   ['SidebarHeader.bundle.min.js', 11],

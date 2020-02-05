@@ -1,14 +1,14 @@
-import styles from './Checkbox.scss';
 import focusableDriverFactory from '../common/Focusable/Focusable.protractor.driver';
 import { mergeDrivers } from '../../test/utils/private-drivers';
-import { hasAttribute, hasClass } from '../../test/utils/protractor-helpers';
+import { hasAttribute } from '../../test/utils/protractor-helpers';
 import { dataHooks } from './constants';
+import * as DATA_ATTR from './DataAttr';
 
 /**
  * @return <T extends InternalFocusableDriver>
  */
 export const internalDriverFactory = element => {
-  const getBox = () => element.$(`[data-hook="${dataHooks.box}"]`);
+  const getBox = () => element.$(`[data-hook="${dataHooks.boxTooltip}"]`);
   const getTextChildren = () =>
     element.$(`[data-hook="${dataHooks.children}"]`);
 
@@ -20,7 +20,7 @@ export const internalDriverFactory = element => {
 };
 
 const checkboxDriverFactory = element => {
-  const checkboxElement = element.$(`[data-hook="${dataHooks.box}"]`);
+  const checkboxElement = element.$(`[data-hook="${dataHooks.boxTooltip}"]`);
   const childrenElement = element.$(`[data-hook="${dataHooks.children}"]`);
 
   const focusableDriver = focusableDriverFactory({
@@ -37,7 +37,7 @@ const checkboxDriverFactory = element => {
     isChecked: () => element.$(`[data-hook="${dataHooks.input}"]`).isSelected(),
     isDisabled: () =>
       hasAttribute(element.$(`[data-hook="${dataHooks.input}"]`), 'disabled'),
-    hasError: () => hasClass(element, styles.hasError),
+    hasError: () => element.getAttribute(DATA_ATTR.DATA_HAS_ERROR) === 'true',
   };
 
   return mergeDrivers(publicDriver, focusableDriver);

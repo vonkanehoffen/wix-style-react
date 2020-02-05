@@ -16,7 +16,7 @@ export const checkboxUniDriverFactory = (base, body) => {
   const getLabelDriver = async () =>
     labelUniDriverFactory(base.$(`[data-hook="${dataHooks.label}"]`));
   const getTooltipDriver = async () =>
-    tooltipDriverFactory(base.$(`[data-hook="${dataHooks.box}"]`), body);
+    tooltipDriverFactory(base.$(`[data-hook="${dataHooks.boxTooltip}"]`), body);
 
   return {
     ...baseUniDriverFactory(base),
@@ -34,11 +34,6 @@ export const checkboxUniDriverFactory = (base, body) => {
     focus: reactBase.focus,
     /** trigger blur on the element */
     blur: reactBase.blur,
-    /**
-     * Focus related testing is done in e2e tests only.
-     * @deprecated
-     */
-    hasFocusState: () => base.attr('data-focus'),
     isChecked,
     isDisabled: async () =>
       (await base.attr(DATA_ATTR.DATA_DISABLED)) === 'true',

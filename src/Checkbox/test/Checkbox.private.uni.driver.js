@@ -8,7 +8,7 @@ export const checkboxUniDriverFactory = (base, body) => {
 
     hoverInput: async () => {
       const tooltipDriver = await tooltipDriverFactory(
-        base.$(`[data-hook="${dataHooks.box}"]`),
+        base.$(`[data-hook="${dataHooks.boxTooltip}"]`),
         body,
       );
       return tooltipDriver.mouseEnter();
