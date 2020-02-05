@@ -15,11 +15,15 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 
-## Next
+## 7.40.0 - 2020-02-05
 
 ### Added:
 
+- `<SidePanel/>` - new Component [#4935](https://github.com/wix/wix-style-react/pull/4935)
 - `<CloseButton/>` - add large size support [#4941](https://github.com/wix/wix-style-react/pull/4941)
+
+### Changed
+- `<Slider/>`- changing tooltip color [#4955](https://github.com/wix/wix-style-react/pull/4955)
 
 ### Fixed
 
