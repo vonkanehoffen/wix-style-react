@@ -14,10 +14,14 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.41.0 - 2020-02-09
+
+### Fixed
+- `<Layout/>` - Fixed a bug discovered when Chrome 80 was released [#4964](https://github.com/wix/wix-style-react/pull/4964)
 
 ### Added:
 
+- `<FontUpgrade/>` - New provider component [#4963](https://github.com/wix/wix-style-react/pull/4963)
 - `<Accordion/>` - Added skin prop [#4803](https://github.com/wix/wix-style-react/pull/4803)
 
 ### Docs
