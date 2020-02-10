@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Slide from 'rc-slider';
-
+import { dataHooks } from './constants';
 import { generateID } from '../utils/generateId';
 import SliderHandle from './SliderHandle';
 import styles from './Slider.scss';
@@ -19,35 +19,77 @@ const range = ({ min, max, step }) => {
  */
 export default class Slider extends Component {
   _getMarks() {
-    const { min, max, step } = this.props;
+    const marksLabels = {};
 
-    return range({ min, max, step }).reduce((acc, curr) => {
-      acc[curr] = {
-        label: (
-          <div>
-            <div className={styles.markLine} />
-            <div className={styles.markValue}>
-              {(curr === min || curr === max) && (
-                <div className={styles.markText}>{curr}</div>
-              )}
+    if (this._isCustomMarks()) {
+      const { marks } = this.props;
+
+      Object.entries(marks).map(([key, value]) => {
+        marksLabels[key] = {
+          label: this._createMarkNode(value, true),
+        };
+      });
+    } else {
+      const { min, max, step } = this.props;
+
+      range({ min, max, step }).map(entry => {
+        const shouldRenderMarkLabel = entry === min || entry === max;
+
+        marksLabels[entry] = {
+          label: this._createMarkNode(entry, shouldRenderMarkLabel),
+        };
+      });
+    }
+
+    return marksLabels;
+  }
+
+  _isCustomMarks() {
+    const { marks } = this.props;
+    return Object.entries(marks).length > 0;
+  }
+
+  _createMarkNode(value, shouldRenderMarkLabel) {
+    return (
+      <div>
+        <div className={styles.markLine} />
+        <div className={styles.markValue}>
+          {shouldRenderMarkLabel && (
+            <div
+              data-hook={dataHooks.sliderMarkLabel}
+              className={styles.markText}
+            >
+              {value}
             </div>
-          </div>
-        ),
-      };
-
-      return acc;
-    }, {});
+          )}
+        </div>
+      </div>
+    );
   }
 
   _renderHandle = props => {
     const { displayTooltip, disabled } = this.props;
+    const { index } = props;
+    let tooltipValue;
+
+    if (this._isCustomMarks()) {
+      const { marks } = this.props;
+      const { value: key } = props;
+      if (marks.hasOwnProperty(key)) {
+        tooltipValue = marks[key].toString();
+      }
+    } else {
+      const { value } = props;
+      tooltipValue = value.toString();
+    }
 
     return (
       <SliderHandle
-        key={props.index}
+        key={index}
         displayTooltip={displayTooltip}
         disabled={disabled}
         {...props}
+        value={tooltipValue}
       />
     );
   };
@@ -115,6 +157,11 @@ Slider.propTypes = {
   /** The absolute minimum of the slider's range */
   min: PropTypes.number,
 
+  /** slider marks. The key determines the position, and the value determines what will show. The object structure should be either
+   * ```{ number : number}``` / ```{ number : string }```
+   * */
+  marks: PropTypes.object,
+
   /** Called after every value change */
   onAfterChange: PropTypes.func,
 
@@ -149,6 +196,7 @@ Slider.defaultProps = {
   id: generateID(),
   displayTooltip: true,
   displayMarks: true,
+  marks: {},
   rtl: false,
   disabled: false,
 };
