@@ -161,7 +161,7 @@ class InputWithOptions extends Component {
 
     return (
       <ThemeContext.Consumer>
-        {context => (
+        {(context = {}) => (
           <div
             className={this.dropdownClasses()}
             style={{ ...customStyle, ...context.style }}
