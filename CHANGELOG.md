@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 - `<TableActionCell/>` - add `divider` field for the secondary actions [#4954](https://github.com/wix/wix-style-react/pull/4954)
+- `<Slider/>`- add `custom marks` feature [#4962](https://github.com/wix/wix-style-react/pull/4962)
 
 ## 7.41.0 - 2020-02-09
 
