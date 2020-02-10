@@ -21,7 +21,15 @@ describe('Avatar', () => {
     );
 
     await driver.clickIndication();
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should invoke onClick prop', async () => {
+    const onClick = jest.fn();
+    const { driver } = createDriver(<Avatar onClick={onClick} />);
+
+    await driver.click();
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should render indication', async () => {

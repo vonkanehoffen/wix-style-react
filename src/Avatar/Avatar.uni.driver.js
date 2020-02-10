@@ -7,7 +7,7 @@ export default base => {
     iconButtonDriverFactory(base.$(`[data-hook="${dataHooks.indication}"]`));
 
   return {
-    ...avatarDriverFactory(base),
+    ...avatarDriverFactory(base.$(`[data-hook="${dataHooks.avatarCore}"]`)),
     clickIndication: () => getIndication().click(),
     indicationExists: () => getIndication().exists(),
   };
