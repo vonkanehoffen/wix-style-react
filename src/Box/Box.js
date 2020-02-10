@@ -4,9 +4,7 @@ import classNames from 'classnames';
 
 import colors from '../colors.scss';
 import styles from './Box.scss';
-
-/** Defined according to the design system */
-export const spacingUnit = 6;
+import { ThemeContext } from '../Theme/context';
 
 const directions = {
   horizontal: styles.horizontal,
@@ -24,22 +22,6 @@ const verticalAlignmentValues = {
   bottom: styles.bottom,
   'space-between': styles.spaceBetween,
 };
-const spacingValues = {
-  tiny: `${spacingUnit}px`,
-  small: `${spacingUnit * 2}px`,
-  medium: `${spacingUnit * 3}px`,
-  large: `${spacingUnit * 4}px`,
-};
-
-/** In case the value is a number, it's multiplied by the defined spacing unit.
- *  Otherwise - there're two options:
- *   1. A predefined spacing value with semantic name (tiny, small, etc.)
- *   2. Space-separated values that are represented by a string (for example: "3px 3px")
- * */
-const formatSpacingValue = value =>
-  isFinite(value)
-    ? `${value * spacingUnit}px`
-    : spacingValues[value] || `${value}`;
 
 const Box = ({
   dataHook,
@@ -91,59 +73,91 @@ const Box = ({
     [horizontalAlignmentValues[align]]: align,
     [verticalAlignmentValues[verticalAlign]]: verticalAlign,
   });
-  const rootStyles = {
-    ...style,
 
-    // Spacing
-    padding: formatSpacingValue(padding),
-    paddingTop: formatSpacingValue(paddingTop),
-    paddingRight: formatSpacingValue(paddingRight),
-    paddingBottom: formatSpacingValue(paddingBottom),
-    paddingLeft: formatSpacingValue(paddingLeft),
-    margin: formatSpacingValue(margin),
-    marginTop: formatSpacingValue(marginTop),
-    marginRight: formatSpacingValue(marginRight),
-    marginBottom: formatSpacingValue(marginBottom),
-    marginLeft: formatSpacingValue(marginLeft),
+  function rootStyles(styles = {}) {
+    let spacingUnit = styles['--wsr-theme-spacing'] || 6;
+    if (typeof spacingUnit === 'string')
+      spacingUnit = Number(spacingUnit.replace('px', ''));
+    /** In case the value is a number, it's multiplied by the defined spacing unit.
+     *  Otherwise - there're two options:
+     *   1. A predefined spacing value with semantic name (tiny, small, etc.)
+     *   2. Space-separated values that are represented by a string (for example: "3px 3px")
+     * */
+    const formatSpacingValue = value => {
+      const spacingValues = {
+        tiny: `${spacingUnit}px`,
+        small: `${spacingUnit * 2}px`,
+        medium: `${spacingUnit * 3}px`,
+        large: `${spacingUnit * 4}px`,
+      };
 
-    // Sizing
-    minWidth: `${minWidth}`,
-    maxWidth: `${maxWidth}`,
-    width: `${width}`,
-    minHeight: `${minHeight}`,
-    maxHeight: `${maxHeight}`,
-    height: `${height}`,
+      return isFinite(value)
+        ? `${value * spacingUnit}px`
+        : spacingValues[value] || `${value}`;
+    };
 
-    // Styling
-    color: colors[color] || color,
-    backgroundColor: colors[backgroundColor] || backgroundColor,
-    border, // Must be assigned before the border color props (otherwise it would override them)
+    return {
+      ...style,
 
-    // Props which are spread just in case these are actually defined
-    ...(borderColor && {
-      borderColor: colors[borderColor] || borderColor,
-    }),
-    ...(borderTopColor && {
-      borderTopColor: colors[borderTopColor] || borderTopColor,
-    }),
-    ...(borderRightColor && {
-      borderRightColor: colors[borderRightColor] || borderRightColor,
-    }),
-    ...(borderBottomColor && {
-      borderBottomColor: colors[borderBottomColor] || borderBottomColor,
-    }),
-    ...(borderLeftColor && {
-      borderLeftColor: colors[borderLeftColor] || borderLeftColor,
-    }),
+      // Spacing
+      padding: formatSpacingValue(padding),
+      paddingTop: formatSpacingValue(paddingTop),
+      paddingRight: formatSpacingValue(paddingRight),
+      paddingBottom: formatSpacingValue(paddingBottom),
+      paddingLeft: formatSpacingValue(paddingLeft),
+      margin: formatSpacingValue(margin),
+      marginTop: formatSpacingValue(marginTop),
+      marginRight: formatSpacingValue(marginRight),
+      marginBottom: formatSpacingValue(marginBottom),
+      marginLeft: formatSpacingValue(marginLeft),
 
-    // All other props which are passed (without those that are specified above)
-    ...nativeStyles,
-  };
+      // Sizing
+      minWidth: `${minWidth}`,
+      maxWidth: `${maxWidth}`,
+      width: `${width}`,
+      minHeight: `${minHeight}`,
+      maxHeight: `${maxHeight}`,
+      height: `${height}`,
+
+      // Styling
+      color: colors[color] || color,
+      backgroundColor: colors[backgroundColor] || backgroundColor,
+      border, // Must be assigned before the border color props (otherwise it would override them)
+
+      // Props which are spread just in case these are actually defined
+      ...(borderColor && {
+        borderColor: colors[borderColor] || borderColor,
+      }),
+      ...(borderTopColor && {
+        borderTopColor: colors[borderTopColor] || borderTopColor,
+      }),
+      ...(borderRightColor && {
+        borderRightColor: colors[borderRightColor] || borderRightColor,
+      }),
+      ...(borderBottomColor && {
+        borderBottomColor: colors[borderBottomColor] || borderBottomColor,
+      }),
+      ...(borderLeftColor && {
+        borderLeftColor: colors[borderLeftColor] || borderLeftColor,
+      }),
+
+      // All other props which are passed (without those that are specified above)
+      ...nativeStyles,
+    };
+  }
 
   return (
-    <div data-hook={dataHook} className={rootClassNames} style={rootStyles}>
-      {children}
-    </div>
+    <ThemeContext.Consumer>
+      {(context = {}) => (
+        <div
+          data-hook={dataHook}
+          className={rootClassNames}
+          style={rootStyles(context.style)}
+        >
+          {children}
+        </div>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 
