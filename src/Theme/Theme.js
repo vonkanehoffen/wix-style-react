@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Theme.st.css';
 import calc_theme from './calc_theme';
+import { ThemeContext } from './context';
 
 /** Customize colors */
 class Theme extends React.PureComponent {
@@ -54,11 +55,13 @@ class Theme extends React.PureComponent {
     }
 
     return (
-      <span
-        {...styles('root', { theme }, this.props)}
-        children={children}
-        style={style}
-      />
+      <ThemeContext.Provider value={{ style }}>
+        <span
+          {...styles('root', { theme }, this.props)}
+          children={children}
+          style={style}
+        />
+      </ThemeContext.Provider>
     );
   }
 }

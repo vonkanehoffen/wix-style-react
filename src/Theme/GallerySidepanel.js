@@ -92,7 +92,7 @@ class GallerySidepanel extends React.PureComponent {
                 <Box>
                   <MultiSelectCheckbox
                     disabled={disabled}
-                    popoverProps={{ appendTo: 'parent' }}
+                    popoverProps={{ appendTo: 'window' }}
                     options={Array(4)
                       .fill(0)
                       .map((_, id) => ({ id, value: id + 1 }))}

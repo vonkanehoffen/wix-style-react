@@ -13,6 +13,7 @@ import nativeStyles from './InputWithOptions.scss';
 import { placements } from '../Popover/constants';
 
 import Popover from '../Popover';
+import { ThemeContext } from '../Theme/context';
 
 export const DEFAULT_VALUE_PARSER = option => option.value;
 
@@ -159,25 +160,29 @@ class InputWithOptions extends Component {
     const customStyle = { marginLeft: this.props.dropdownOffsetLeft };
 
     return (
-      <div
-        className={this.dropdownClasses()}
-        style={customStyle}
-        data-hook="dropdown-layout-wrapper"
-      >
-        <DropdownLayout
-          ref={dropdownLayout => (this.dropdownLayout = dropdownLayout)}
-          {...dropdownProps}
-          dataHook="inputwithoptions-dropdownlayout"
-          options={this._processOptions(dropdownProps.options)}
-          theme={this.props.theme}
-          visible
-          onClose={this.hideOptions}
-          onSelect={this._onSelect}
-          isComposing={this.state.isComposing}
-          inContainer
-          tabIndex={-1}
-        />
-      </div>
+      <ThemeContext.Consumer>
+        {context => (
+          <div
+            className={this.dropdownClasses()}
+            style={{ ...customStyle, ...context.style }}
+            data-hook="dropdown-layout-wrapper"
+          >
+            <DropdownLayout
+              ref={dropdownLayout => (this.dropdownLayout = dropdownLayout)}
+              {...dropdownProps}
+              dataHook="inputwithoptions-dropdownlayout"
+              options={this._processOptions(dropdownProps.options)}
+              theme={this.props.theme}
+              visible
+              onClose={this.hideOptions}
+              onSelect={this._onSelect}
+              isComposing={this.state.isComposing}
+              inContainer
+              tabIndex={-1}
+            />
+          </div>
+        )}
+      </ThemeContext.Consumer>
     );
   }
 
