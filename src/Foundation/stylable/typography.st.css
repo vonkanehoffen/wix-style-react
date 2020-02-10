@@ -45,7 +45,7 @@
 }
 
 .bold {
-  -st-mixin: weight-mixin(weight --wsr-font-weight-xbold);
+  -st-mixin: weight-mixin(weight --wsr-font-weight-bold);
 }
 
 /* Typography API */
