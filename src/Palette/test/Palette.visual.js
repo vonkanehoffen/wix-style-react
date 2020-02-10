@@ -56,7 +56,7 @@ const tests = [
 visualize('Palette', () => {
   story('should render', () => {
     tests.forEach(({ it, props }) => {
-      snap(it, done => (
+      snap(it, () => (
         <Box width={'100px'} height={'40px'}>
           <Palette {...props} />
         </Box>
