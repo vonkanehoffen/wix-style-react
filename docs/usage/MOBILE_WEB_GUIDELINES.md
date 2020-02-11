@@ -289,7 +289,7 @@ const isMobile = ['mobile', 'tablet'].some(deviceType =>
 
 - Use react-responsive's Context to manually prepare the viewport measurements for the initial render.
 
-> Why? Why? It allows passing the `value` prop through the responsive components thereby matching the server-rendered markup before the hydration process.
+> Why? It allows passing the `value` prop through the responsive components thereby matching the server-rendered markup before the hydration process.
 
 ```jsx
 import React from 'react';
