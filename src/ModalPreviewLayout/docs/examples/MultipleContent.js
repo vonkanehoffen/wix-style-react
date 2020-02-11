@@ -28,6 +28,9 @@ class MultipleContentExample extends React.Component {
         <Button onClick={() => this.openModal()}>Open</Button>
         <Modal isOpen={isModalOpened}>
           <ModalPreviewLayout
+            closeButtonTooltipText='Close'
+            prevButtonTooltipText='Previous'
+            nextButtonTooltipText='Next'
             title="Modal with Multiple Content"
             actions={
               <Box verticalAlign="middle">

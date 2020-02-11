@@ -25,6 +25,12 @@ class ModalPreviewLayout extends React.PureComponent {
     onClose: PropTypes.func.isRequired,
     /** boolean to determine whether closing the overlay on click */
     shouldCloseOnOverlayClick: PropTypes.bool,
+    /** Tooltip close button text */
+    closeButtonTooltipText: PropTypes.string,
+    /** Tooltip prev button text */
+    prevButtonTooltipText: PropTypes.string,
+    /** Tooltip next button text */
+    nextButtonTooltipText: PropTypes.string,
   };
 
   static defaultProps = {
@@ -55,26 +61,40 @@ class ModalPreviewLayout extends React.PureComponent {
     };
   }
 
-  _renderNavigationButtons() {
+  _renderNavigationButtons(hasLeft, hasRight) {
+    const { prevButtonTooltipText, nextButtonTooltipText } = this.props;
+
     return (
       <React.Fragment>
-        <NavigationButton
-          dataHook={dataHooks.modalPreviewLeftArrow}
-          direction={arrowsDirection.leftArrow}
-          onClick={() => this._onArrowClick(arrowsDirection.leftArrow)}
-        />
-
-        <NavigationButton
-          dataHook={dataHooks.modalPreviewRightArrow}
-          direction={arrowsDirection.rightArrow}
-          onClick={() => this._onArrowClick(arrowsDirection.rightArrow)}
-        />
+        {hasLeft && (
+          <NavigationButton
+            tooltipText={prevButtonTooltipText}
+            dataHook={dataHooks.modalPreviewLeftArrow}
+            direction={arrowsDirection.leftArrow}
+            onClick={() => this._onArrowClick(arrowsDirection.leftArrow)}
+          />
+        )}
+        {hasRight && (
+          <NavigationButton
+            tooltipText={nextButtonTooltipText}
+            dataHook={dataHooks.modalPreviewRightArrow}
+            direction={arrowsDirection.rightArrow}
+            onClick={() => this._onArrowClick(arrowsDirection.rightArrow)}
+          />
+        )}
       </React.Fragment>
     );
   }
 
   render() {
-    const { dataHook, actions, title, children, onClose } = this.props;
+    const {
+      dataHook,
+      actions,
+      title,
+      children,
+      onClose,
+      closeButtonTooltipText,
+    } = this.props;
     const { childIndexDisplayed } = this.state;
 
     const childrenArr = React.Children.toArray(children);
@@ -85,7 +105,7 @@ class ModalPreviewLayout extends React.PureComponent {
       <div
         id={modalPreviewIDs.overlay}
         data-hook={dataHook}
-        {...styles('root', { hasLeft, hasRight }, this.props)}
+        {...styles('root', {}, this.props)}
         onClick={this._onOverlayClick(onClose)}
       >
         <div className={styles.header}>
@@ -101,14 +121,26 @@ class ModalPreviewLayout extends React.PureComponent {
             {actions}
           </div>
           <div className={styles.closeButton}>
-            <Tooltip
-              className={styles.modalTooltip}
-              dataHook={dataHooks.closeButtonTooltip}
-              upgrade
-              appendTo="scrollParent"
-              content={<Text>Close</Text>}
-              placement="bottom"
-            >
+            {closeButtonTooltipText ? (
+              <Tooltip
+                className={styles.modalTooltip}
+                dataHook={dataHooks.closeButtonTooltip}
+                upgrade
+                appendTo="scrollParent"
+                content={<Text>{closeButtonTooltipText}</Text>}
+                placement="bottom"
+              >
+                <IconButton
+                  as="button"
+                  onClick={onClose}
+                  priority="secondary"
+                  skin="transparent"
+                  dataHook={dataHooks.modalPreviewCloseButton}
+                >
+                  <X />
+                </IconButton>
+              </Tooltip>
+            ) : (
               <IconButton
                 as="button"
                 onClick={onClose}
@@ -118,7 +150,7 @@ class ModalPreviewLayout extends React.PureComponent {
               >
                 <X />
               </IconButton>
-            </Tooltip>
+            )}
           </div>
         </div>
         <div
@@ -133,7 +165,7 @@ class ModalPreviewLayout extends React.PureComponent {
           >
             {childrenArr[childIndexDisplayed]}
           </div>
-          {this._renderNavigationButtons()}
+          {this._renderNavigationButtons(hasLeft, hasRight)}
         </div>
       </div>
     );

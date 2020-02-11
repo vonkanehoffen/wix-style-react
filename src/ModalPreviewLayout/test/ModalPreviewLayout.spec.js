@@ -60,6 +60,19 @@ describe('ModalPreviewLayout', () => {
     expect(props.onClose).toHaveBeenCalled();
   });
 
+  it('should render tooltip text when given "closeButtonTooltipText"', async () => {
+    const closeButtonTooltipText = 'Cerrado';
+    const { driver } = render(
+      <ModalPreviewLayout
+        {...requiredProps}
+        closeButtonTooltipText={closeButtonTooltipText}
+      />,
+    );
+    expect(await driver.getCloseButtonTooltipText()).toBe(
+      closeButtonTooltipText,
+    );
+  });
+
   it('should render the preview content', async () => {
     const previewContent = 'preview-content';
     const props = {
@@ -130,6 +143,40 @@ describe('ModalPreviewLayout', () => {
       expect(await driver.getCurrentChildIndex()).toBe(1);
       await driver.clickLeftNavigationButton();
       expect(await driver.getCurrentChildIndex()).toBe(0);
+    });
+
+    describe('Tooltips', () => {
+      const nextButtonTooltipText = 'Siguiente';
+      const prevButtonTooltipText = 'Previo';
+
+      it('should render tooltip text when given "nextButtonTooltipText"', async () => {
+        const { driver } = render(
+          <ModalPreviewLayout
+            {...requiredProps}
+            {...props}
+            nextButtonTooltipText={nextButtonTooltipText}
+          />,
+        );
+
+        expect(await driver.getRightNavigationButtonTooltipText()).toBe(
+          nextButtonTooltipText,
+        );
+      });
+
+      it('should render tooltip text when given "prevButtonTooltipText"', async () => {
+        const { driver } = render(
+          <ModalPreviewLayout
+            {...requiredProps}
+            {...props}
+            prevButtonTooltipText={prevButtonTooltipText}
+          />,
+        );
+
+        await driver.clickRightNavigationButton();
+        expect(await driver.getLeftNavigationButtonTooltipText()).toBe(
+          prevButtonTooltipText,
+        );
+      });
     });
   });
 });

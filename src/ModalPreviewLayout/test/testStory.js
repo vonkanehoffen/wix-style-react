@@ -25,6 +25,9 @@ storiesOf(kind, module).add(
   () => (
     <Modal isOpen>
       <ModalPreviewLayout
+        closeButtonTooltipText="Close"
+        prevButtonTooltipText="Previous"
+        nextButtonTooltipText="Next"
         dataHook={storySettings.dataHook}
         title="Basic Website Design"
         onClose={() => null}
