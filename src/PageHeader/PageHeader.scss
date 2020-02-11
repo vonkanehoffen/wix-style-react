@@ -1,7 +1,7 @@
 @import '../common';
 
-// Allow flex-child to shrink when there is a truncated descendant
-// See: https://css-tricks.com/flexbox-truncated-text/#article-header-id-3
+/* Allow flex-child to shrink when there is a truncated descendant
+See: https://css-tricks.com/flexbox-truncated-text/#article-header-id-3 */
 @mixin truncatedFlexChild {
   min-width: 0;
 }
@@ -91,7 +91,7 @@
     margin-left: auto;
 
     &.animationEnabled {
-      transition: margin .2s cubic-bezier(0.4, 0.0, 0.2, 1);
+      transition: margin 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     &.withBreadcrumbs {

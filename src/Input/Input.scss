@@ -30,7 +30,7 @@ $material-gap: 8px;
 .size-large {
   .input-wrapper {
     padding: 0 $double-gap;
-    .input{
+    .input {
       padding: 18px $gap;
     }
   }
@@ -461,7 +461,7 @@ $material-gap: 8px;
   .suffixes {
     direction: rtl;
     .loaderContainer,
-    .warningExclamation{
+    .warningExclamation {
       margin-right: 0;
       margin-left: $gap;
     }
@@ -473,8 +473,8 @@ $material-gap: 8px;
     .menu-arrow {
       padding: 0 $gap 0 $double-gap;
     }
-    &.size-small{
-      .menu-arrow{
+    &.size-small {
+      .menu-arrow {
         padding: 0 $gap;
       }
     }
@@ -487,7 +487,7 @@ $material-gap: 8px;
   .suffixes {
     direction: rtl;
     .loaderContainer,
-    .warningExclamation{
+    .warningExclamation {
       margin-right: 0;
       margin-left: $gap;
     }
@@ -499,8 +499,8 @@ $material-gap: 8px;
     .menu-arrow {
       padding: 0 $gap 0 $double-gap;
     }
-    &.size-small{
-      .menu-arrow{
+    &.size-small {
+      .menu-arrow {
         padding: 0 $gap;
       }
     }
@@ -583,8 +583,8 @@ $material-gap: 8px;
   border-radius: 12px;
 }
 
-//needs display:block to fix inputs with prefix in ie11
-//https://github.com/wix/wix-style-react/issues/1691
+/** needs display:block to fix inputs with prefix in ie11
+https://github.com/wix/wix-style-react/issues/1691 */
 .unit {
   padding: 0 $gap;
   color: $paletteD3;
