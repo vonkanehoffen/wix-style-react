@@ -14,6 +14,16 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## 7.42.0 - 2020-02-11
+
+### Added
+
+- `<TimePicker/>` - Add dynamic minutes step [#4972](https://github.com/wix/wix-style-react/pull/4972)
+
+### Fixed
+
+- `<SidePanel/>` - Update types [#4979](https://github.com/wix/wix-style-react/pull/4979)
+
 ## 7.42.0 - 2020-02-10
 
 ### Added
