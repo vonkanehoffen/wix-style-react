@@ -14,7 +14,7 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## 7.42.0 - 2020-02-11
+## 7.43.0 - 2020-02-11
 
 ### Added
 
