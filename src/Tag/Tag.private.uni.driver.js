@@ -6,7 +6,8 @@ export const tagPrivateUniDriverFactory = base => {
   const removeButton = base.$(`[data-hook="${dataHooks.removeButton}"]`);
   const text = base.$(`[data-hook="${dataHooks.text}"]`);
   const textDriver = textUniDriverFactory(text);
-  const isCloseButtonLarge = () => removeButton.hasClass('heightlarge');
+  const isCloseButtonLarge = async () =>
+    (await removeButton.attr('data-size')) === 'medium';
 
   return {
     ...tagUniDriverFactory(base),

@@ -1,21 +1,10 @@
 import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import buttonLayoutDriverFactory from '../Deprecated/ButtonLayout/ButtonLayout.driver';
 import { dataHooks } from './Tag.helpers';
 import textDriverFactory from '../Text/Text.driver';
 import tagDriverFactory from './Tag.driver';
 import { isClassExists } from '../../test/utils';
 
-const buttonLayoutTestkitFactory = testkitFactoryCreator(
-  buttonLayoutDriverFactory,
-);
 const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
-
-const getRemoveButtonLayoutDriver = element => {
-  return buttonLayoutTestkitFactory({
-    wrapper: element,
-    dataHook: dataHooks.removeButton,
-  });
-};
 
 const getTextDriver = element => {
   return textTestkitFactory({
@@ -26,7 +15,9 @@ const getTextDriver = element => {
 
 const tagPrivateDriverFactory = ({ element }) => {
   const isCloseButtonLarge = () =>
-    getRemoveButtonLayoutDriver(element).doesComponentHasClass('heightlarge');
+    element
+      .querySelector(`[data-hook="${dataHooks.removeButton}"]`)
+      .getAttribute('data-size') === 'medium';
 
   return {
     ...tagDriverFactory({ element }),

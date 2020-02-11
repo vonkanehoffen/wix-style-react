@@ -1,12 +1,12 @@
 import React from 'react';
-import Tag from './Tag';
-import tagPrivateDriverFactory from './Tag.private.driver';
-import { tagPrivateUniDriverFactory } from './Tag.private.uni.driver';
-import { SIZES, WEIGHTS } from '../Text/constants';
+import Tag from '../Tag';
+import tagPrivateDriverFactory from '../Tag.private.driver';
+import { tagPrivateUniDriverFactory } from '../Tag.private.uni.driver';
+import { SIZES, WEIGHTS } from '../../Text/constants';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
-} from '../../test/utils/unit';
+} from '../../../test/utils/unit';
 
 describe('Tag', () => {
   describe('[sync]', () => {
@@ -71,6 +71,7 @@ describe('Tag', () => {
           </Tag>,
         );
         expect(await driver.isLarge()).toBe(true);
+        expect(await driver.isCloseButtonLarge()).toBe(true);
         expect(await driver.getTextSize()).toBe(SIZES.medium);
         expect(await driver.getTextWeight()).toBe(WEIGHTS.normal);
       });
