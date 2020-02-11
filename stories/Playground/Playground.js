@@ -17,6 +17,6 @@ This playground is a great way to play with the \`wix-style-react\` components a
 storiesOf(Category.PLAYGROUND, module).add('Playground', () => (
   <div>
     <Markdown source={playgroundExplanation} />
-    <LiveCodeExample compact initialCode={exampleCode} />
+    <LiveCodeExample compact initiallyOpen initialCode={exampleCode} />
   </div>
 ));
