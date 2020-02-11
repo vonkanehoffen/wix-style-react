@@ -2,6 +2,8 @@
 
 This document describes best practices to create a mobile-friendly web application using wix-style-react.
 
+Here's a [demo application](https://apps.wix.com/wix-style-react-mobile) that follows the practices below (also rendered with [SSR](https://apps.wix.com/wix-style-react-mobile/ssr)).
+
 ## Table of Contents
 
 - [Fluid Design](#fluid-design)
