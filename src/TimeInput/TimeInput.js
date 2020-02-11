@@ -36,6 +36,9 @@ export default class TimePicker extends Component {
     rtl: PropTypes.bool,
 
     style: PropTypes.object,
+
+    /** Number of minutes to be changed on arrow click */
+    minutesStep: PropTypes.number,
   };
 
   static defaultProps = {
@@ -45,6 +48,7 @@ export default class TimePicker extends Component {
     disableAmPm: false,
     disabled: false,
     dashesWhenDisabled: false,
+    minutesStep: 20,
   };
 
   constructor(props) {
@@ -120,7 +124,7 @@ export default class TimePicker extends Component {
   timeStep(direction) {
     const time = this.momentizeState();
     const timeUnit = this.state.lastFocusedTimeUnit || 'minutes';
-    const amount = timeUnit === 'hours' ? 1 : 20;
+    const amount = timeUnit === 'hours' ? 1 : this.props.minutesStep;
     time.add(direction * amount, timeUnit);
     const am = time.hours() < 12;
     this.updateDate({ am, time });

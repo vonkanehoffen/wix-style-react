@@ -139,6 +139,32 @@ describe('TimeInput', () => {
         );
       });
 
+      it(`should increase input value by given minutesStep in minutes upon clicking the input's up ticker`, async () => {
+        const minutesStep = 30;
+        const props = {
+          defaultValue: defaultMoment,
+          minutesStep,
+        };
+        const { driver } = render(<TimePicker {...props} />);
+        await driver.clickTickerUp();
+        expect(await driver.getValue()).toBe(
+          format12Hours(props.defaultValue.add(minutesStep, 'minutes')),
+        );
+      });
+
+      it(`should decrease input value by given minutesStep upon clicking the input's down ticker`, async () => {
+        const minutesStep = 30;
+        const props = {
+          defaultValue: defaultMoment,
+          minutesStep,
+        };
+        const { driver } = render(<TimePicker {...props} />);
+        await driver.clickTickerDown();
+        expect(await driver.getValue()).toBe(
+          format12Hours(props.defaultValue.subtract(minutesStep, 'minutes')),
+        );
+      });
+
       it(`should allow to change time using keyboard's input`, async () => {
         const props = {
           defaultValue: defaultMoment,
