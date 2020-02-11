@@ -6,6 +6,7 @@ export interface HeaderProps {
   className?: string;
   title?: string | React.ReactNode;
   infoTooltipProps?: Partial<TooltipNewProps>;
+  infoTooltipContent?: string;
   showDivider?: boolean;
 }
 export default class Header extends React.PureComponent<HeaderProps> {}
