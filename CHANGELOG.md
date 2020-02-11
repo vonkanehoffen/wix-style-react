@@ -18,6 +18,7 @@ Types of changes:
 
 ### Added
 
+- `<ModalPreviewLayout/>`- Adding tooltip props for close button & navigation buttons [#4965](https://github.com/wix/wix-style-react/pull/4965)
 - `<TimePicker/>` - Add dynamic minutes step [#4972](https://github.com/wix/wix-style-react/pull/4972)
 
 ### Fixed
