@@ -14,6 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
+## Next
+
+### Added
+
+- `<Avatar/>` - Added `showIndicationOnHover` prop [#4993](https://github.com/wix/wix-style-react/pull/4993)
+
 ## 7.43.0 - 2020-02-11
 
 ### Added
