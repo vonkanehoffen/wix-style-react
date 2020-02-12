@@ -4,6 +4,7 @@ import { Container, AutoAdjustedRow } from 'wix-style-react/Grid';
 import Button from 'wix-style-react/Button';
 import Card from 'wix-style-react/Card';
 import Tooltip from 'wix-style-react/Tooltip';
+import Text from 'wix-style-react/Text';
 
 export default () => (
   <div style={{ background: '#F0F4F7', padding: 30 }}>
@@ -24,8 +25,10 @@ export default () => (
             }
           />
           <Card.Content>
-            Here comes some AMAZING content that will blow your mind. Or just
-            show you that the card next to me got my height.
+            <Text>
+              Here comes some AMAZING content that will blow your mind. Or just
+              show you that the card next to me got my height.
+            </Text>
           </Card.Content>
         </Card>
 
