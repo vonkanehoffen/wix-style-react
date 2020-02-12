@@ -1,22 +1,20 @@
 import ReactTestUtils from 'react-dom/test-utils';
+
 import { isClassExists } from '../../test/utils';
-
-import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver';
 import { dataHooks } from './Tag.helpers';
-
-const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
 
 const getThumb = element => element.querySelector('span');
 
-const getRemoveButtonDriver = element => {
-  return buttonTestkitFactory({
-    wrapper: element,
-    dataHook: dataHooks.removeButton,
-  });
-};
-
 const tagDriverFactory = ({ element }) => {
+  const getRemoveButton = () =>
+    element.querySelector(`[data-hook="${dataHooks.removeButton}"]`);
+  const removeTag = () => {
+    const removeButton = getRemoveButton();
+    if (removeButton) {
+      ReactTestUtils.Simulate.click(removeButton);
+    }
+  };
+
   return {
     exists: () => !!element,
     isTiny: () => isClassExists(element, 'tinySize'),
@@ -27,8 +25,8 @@ const tagDriverFactory = ({ element }) => {
     isWarningTheme: () => isClassExists(element, 'warningTheme'),
     isErrorTheme: () => isClassExists(element, 'errorTheme'),
     isDarkTheme: () => isClassExists(element, 'darkTheme'),
-    isRemovable: () => getRemoveButtonDriver(element).exists(),
-    removeTag: () => getRemoveButtonDriver(element).click(),
+    isRemovable: () => !!getRemoveButton(),
+    removeTag,
     click: () => ReactTestUtils.Simulate.click(element),
     isThumbExists: () => isClassExists(getThumb(element), 'thumb'),
     isDisabled: () => isClassExists(element, 'disabled'),
