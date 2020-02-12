@@ -19,6 +19,7 @@ Types of changes:
 ### Added
 
 - `<Avatar/>` - Added `showIndicationOnHover` prop [#4993](https://github.com/wix/wix-style-react/pull/4993)
+- `<RichTextInputArea/>` - fix extra empty line-breaks [#4968](https://github.com/wix/wix-style-react/pull/4968)
 
 ## 7.43.0 - 2020-02-11
 
