@@ -32,6 +32,7 @@ const Avatar = props => {
     placeholder,
     name,
     onClick,
+    showIndicationOnHover,
     ...rest
   } = props;
 
@@ -57,6 +58,7 @@ const Avatar = props => {
           presence,
           presenceType: presence,
           clickable: !!onClick,
+          showIndicationOnHover,
         })}
       >
         <div className={styles.coreAvatar}>
@@ -160,6 +162,8 @@ Avatar.propTypes = {
   indication: PropTypes.node,
   /** Function which triggers on indication click. */
   onIndicationClick: PropTypes.func,
+  /** Show indication on hover. */
+  showIndicationOnHover: PropTypes.bool,
 };
 
 const AvatarDefaultPlaceholder = ({ shape, size }) =>
@@ -170,6 +174,7 @@ const AvatarDefaultPlaceholder = ({ shape, size }) =>
 Avatar.defaultProps = {
   size: 'size48',
   shape: 'circle',
+  showIndicationOnHover: false,
 };
 
 export default Avatar;

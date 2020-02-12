@@ -41,6 +41,7 @@ function AvatarWithAllProps() {
       indication={<div />}
       onIndicationClick={() => {}}
       onClick={() => {}}
+      showIndicationOnHover
     />
   );
 }

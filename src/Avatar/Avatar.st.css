@@ -46,7 +46,8 @@
       shape(enum(circle,square)),
       presenceType(enum(busy, online, offline)),
       presence,
-      clickable;
+      clickable,
+      showIndicationOnHover;
   position: relative;
   display: inline-block;
 }
@@ -71,6 +72,14 @@
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.avatarContainer:showIndicationOnHover .indication {
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+.avatarContainer:showIndicationOnHover:hover .indication {
+  opacity: 1;
 }
 
 .iconButtonShadow{
