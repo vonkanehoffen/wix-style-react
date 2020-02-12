@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-export type ListItemSelectSizes =
-  | 'small'
-  | 'medium';
+export type ListItemSelectSizes = 'small' | 'medium';
 
 export interface ListItemSelectProps {
   size?: ListItemSelectSizes;
@@ -20,5 +18,24 @@ export interface ListItemSelectProps {
 }
 
 declare const ListItemSelect: React.ComponentClass<ListItemSelectProps>;
+
+export const listItemSelectBuilder: (data: {
+  id: string | number;
+  className?: string;
+  checkbox?: boolean;
+  prefix?: React.ReactNode;
+  title?: string;
+  subtitle?: string;
+  suffix?: React.ReactNode;
+  selected?: boolean;
+  disabled?: boolean;
+  size?: ListItemSelectSizes;
+  ellipsis?: boolean;
+}) => {
+  id: string | number;
+  disabled: boolean | undefined;
+  overrideStyle: true;
+  value: (props?: Partial<ListItemSelectProps>) => React.ReactNode;
+};
 
 export default ListItemSelect;

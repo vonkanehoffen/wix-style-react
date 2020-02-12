@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
-import ListItemSelect from '../../src/ListItemSelect';
+import ListItemSelect, {
+  listItemSelectBuilder,
+} from '../../src/ListItemSelect';
 import { listItemSelectTestkitFactory } from '../../testkit';
 import { listItemSelectTestkitFactory as listItemSelectEnzymeTestkitFactory } from '../../testkit/enzyme';
 
@@ -20,6 +22,22 @@ async function testkits() {
 
 function ListItemSelectWithMandatoryProps() {
   return <ListItemSelect />;
+}
+
+function listItemSelectBuilderWithAllProps() {
+  const { disabled, id, overrideStyle, value } = listItemSelectBuilder({
+    id: '1',
+    checkbox: true,
+    className: 'cls',
+    disabled: true,
+    ellipsis: true,
+    prefix: <div />,
+    selected: true,
+    size: 'medium',
+    subtitle: 'subtitle',
+    suffix: <div />,
+    title: 'title',
+  });
 }
 
 function ListItemSelectWithAllProps() {
