@@ -136,18 +136,22 @@ class Col extends Component {
       dataHook,
     } = this.props;
 
-    const columnClasses = classNames(className, styles.col, {
-      [styles.rtl]: rtl,
+    const colClesses = {
       [styles[`colXs${span}`]]: this.isLegalCol(span),
       [styles[`colXs${xs}`]]: this.isLegalCol(xs),
       [styles[`colSm${sm}`]]: this.isLegalCol(sm),
       [styles[`colMd${md}`]]: this.isLegalCol(md),
       [styles[`colLg${lg}`]]: this.isLegalCol(lg),
       [styles[`colXl${xl}`]]: this.isLegalCol(xl),
+    };
+    const columnClasses = classNames(className, styles.col, {
+      [styles.rtl]: rtl,
       [styles[`${xs}Xs`]]: this.isVisibleHidden(xs),
       [styles[`${sm}Sm`]]: this.isVisibleHidden(sm),
       [styles[`${md}Md`]]: this.isVisibleHidden(md),
       [styles[`${lg}Lg`]]: this.isVisibleHidden(lg),
+      ...colClesses,
+      [styles.legalCol]: Object.values(colClesses).includes(true),
     });
 
     return (
