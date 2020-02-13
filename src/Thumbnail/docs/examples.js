@@ -5,7 +5,8 @@ export const getImageUrl = (w, h) =>
 
 export const image = <img src={getImageUrl(300, 200)} />;
 
-export const exampleDefault = `<Layout gap="12px">
+export const exampleDefault = `
+<Layout gap="12px">
   <Cell span={6}>
     <Thumbnail title="Thumbnail" />
   </Cell>
@@ -16,29 +17,35 @@ export const exampleDefault = `<Layout gap="12px">
       selected
     />
   </Cell>
-</Layout>`;
+</Layout>
+`;
 
-export const selectedWithImage = `<Thumbnail
+export const selectedWithImage = `
+<Thumbnail
   title="Thumbnail Title"
   description="Description about this thumbnail option goes here"
   image="${getImageUrl(234, 72)}"
   width={270}
-  />`;
+  />
+`;
 
-export const selectedWithBackgroundImage = `<Thumbnail
+export const selectedWithBackgroundImage = `
+<Thumbnail
   backgroundImage="${getImageUrl(270, 270)}"
   width={270}
   height={270}
   title="Thumbnail Title"
-  />`;
+  />
+`;
 
-export const withCustomChildren = `<Thumbnail title="Thumbnail Title" width="250px">
+export const withCustomChildren = `
+<Thumbnail title="Thumbnail Title" width="250px">
   <Box padding="3">
-    <Layout gap="12px" col={2} alignItems="center">
+    <Layout gap="12px" cols={4} alignItems="center">
       <Cell span={1}>
         <Avatar size="size48" />
       </Cell>
-      <Cell span={11}>
+      <Cell span={3}>
         <Text size="medium" weight="bold">Jon Doe</Text>
         <Box>
           <Text size="small" weight="thin">Description goes here</Text>
@@ -46,9 +53,11 @@ export const withCustomChildren = `<Thumbnail title="Thumbnail Title" width="250
       </Cell>
     </Layout>
   </Box>
-</Thumbnail>`;
+</Thumbnail>
+`;
 
-export const listOfSmall = `<Layout gap="12px">
+export const listOfSmall = `
+<Layout gap="12px" cols={4}>
   { [1,2,3,4].map(n =>
     <Cell key={n} span={1}>
       <Thumbnail
@@ -60,9 +69,11 @@ export const listOfSmall = `<Layout gap="12px">
         />
     </Cell>
   ) }
-</Layout>`;
+</Layout>
+`;
 
-export const disabledWithImage = `<Layout>
+export const disabledWithImage = `
+<Layout>
   <Cell>
     <Text>Disabled: with image</Text>
     <Thumbnail
@@ -83,4 +94,5 @@ export const disabledWithImage = `<Layout>
       title="Thumbnail Title"
     />
   </Cell>
-</Layout>`;
+</Layout>
+`;
