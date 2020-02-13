@@ -17,8 +17,10 @@ Types of changes:
 ## Next
 
 ### Fixed
+
 - `<Search/>` - Fix lose expansion with falsy value [#4995](https://github.com/wix/wix-style-react/pull/4995)
 - `<Grid/>` - Fix StretchViewsVertically rows break in production [#4992](https://github.com/wix/wix-style-react/pull/4992)
+- `<SectionHelper/>` - Fixed testkit methods and migrated from deprecated button [#4996](https://github.com/wix/wix-style-react/pull/4996)
 
 ## 7.44.0 - 2020-02-12
 
@@ -27,6 +29,7 @@ Types of changes:
 - `<Avatar/>` - Added `showIndicationOnHover` prop [#4993](https://github.com/wix/wix-style-react/pull/4993)
 
 ### Fixed
+
 - `<RichTextInputArea/>` - fix extra empty line-breaks [#4968](https://github.com/wix/wix-style-react/pull/4968)
 
 ## 7.43.0 - 2020-02-11
