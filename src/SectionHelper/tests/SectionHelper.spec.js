@@ -3,11 +3,12 @@ import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
-import sectionHelperDriverFactory from './SectionHelper.driver';
-import { sectionHelperUniDriverFactory } from './SectionHelper.uni.driver';
-import SectionHelper, { HELPER_APPEARANCE } from '.';
+import sectionHelperDriverFactory from '../SectionHelper.driver';
+import { sectionHelperUniDriverFactory } from '../SectionHelper.uni.driver';
+import { Appearance } from '../constants';
+import SectionHelper from '..';
 
 const createSectionHelper = (props = {}) => {
   const dataHook = 'section-helper';
@@ -90,7 +91,7 @@ describe('SectionHelper', () => {
         expect(await driver.isWarning()).toBe(true);
       });
 
-      Object.keys(HELPER_APPEARANCE).map(appearance =>
+      Object.values(Appearance).map(appearance =>
         it(`should support ${appearance} appearance`, async () => {
           const { driver } = render(createSectionHelper({ appearance }));
           expect(

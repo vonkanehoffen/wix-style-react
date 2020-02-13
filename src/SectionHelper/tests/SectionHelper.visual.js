@@ -1,18 +1,21 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Layout, Cell } from '../Layout';
-
-import SectionHelper, { HELPER_APPEARANCE } from '.';
+import { Layout, Cell } from '../../Layout';
+import { Appearance } from '../constants';
+import SectionHelper from '..';
 
 storiesOf('SectionHelper', module).add('Appearances', () => (
   <Layout>
-    {Object.keys(HELPER_APPEARANCE).map(appearance => (
+    {Object.values(Appearance).map(appearance => (
       <Cell key={appearance}>
         <SectionHelper
           appearance={appearance}
           actionText="I understand the consequences"
           title="Look at this important message!"
           children="This is a very important message"
+          onAction={() => undefined}
+          showCloseButton
+          onClose={() => undefined}
         />
       </Cell>
     ))}

@@ -1,40 +1,31 @@
-import { testkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver';
-
-import styles from './SectionHelper.scss';
-
-const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
+import ReactTestUtils from 'react-dom/test-utils';
+import { Appearance } from './constants';
 
 const sectionHelperDriverFactory = ({ element }) => {
-  const classExists = className => element.classList.contains(className);
-  const actionButtonDriver = () =>
-    buttonTestkitFactory({
-      wrapper: element,
-      dataHook: 'sectionhelper-action-btn',
-    });
-
-  const closeButtonDriver = () =>
-    buttonTestkitFactory({
-      wrapper: element,
-      dataHook: 'sectionhelper-close-btn',
-    });
+  const hasAppearance = appearance => element.dataset.appearance === appearance;
+  const byHook = hook => element.querySelector(`[data-hook="${hook}"]`);
+  const getCloseButton = () => byHook('sectionhelper-close-btn');
+  const getActionButton = () => byHook('sectionhelper-action-btn');
 
   return {
     exists: () => !!element,
-    titleText: () =>
-      element.querySelector('[data-hook="sectionhelper-title"]').textContent,
-    actionText: () => actionButtonDriver().getButtonTextContent(),
-    clickAction: () => actionButtonDriver().click(),
-    clickClose: () => closeButtonDriver().click(),
-    isCloseButtonDisplayed: () => closeButtonDriver().exists(),
+    titleText: () => byHook('sectionhelper-title').textContent,
+    actionText: () => getActionButton().textContent,
+    clickAction: () => {
+      ReactTestUtils.Simulate.click(getActionButton());
+    },
+    clickClose: () => {
+      ReactTestUtils.Simulate.click(getCloseButton());
+    },
+    isCloseButtonDisplayed: () => !!getCloseButton(),
     textContent: () => element.textContent,
-    isWarning: () => classExists(styles.warning),
-    isStandard: () => classExists(styles.standard),
-    isDanger: () => classExists(styles.danger),
-    isExperimentalDark: () => classExists(styles.experimentalDark),
-    isSuccess: () => classExists(styles.success),
-    isPremium: () => classExists(styles.premium),
-    isPreview: () => classExists(styles.preview),
+    isWarning: () => hasAppearance(Appearance.Warning),
+    isStandard: () => hasAppearance(Appearance.Standard),
+    isDanger: () => hasAppearance(Appearance.Danger),
+    isExperimentalDark: () => hasAppearance(Appearance.ExperimentalDark),
+    isSuccess: () => hasAppearance(Appearance.Success),
+    isPremium: () => hasAppearance(Appearance.Premium),
+    isPreview: () => hasAppearance(Appearance.Preview),
   };
 };
 

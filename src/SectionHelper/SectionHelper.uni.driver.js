@@ -1,11 +1,14 @@
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
 import { buttonDriverFactory } from '../Button/Button.uni.driver';
+import { Appearance } from './constants';
 
 export const sectionHelperUniDriverFactory = base => {
   const actionButtonDriver = () =>
     buttonDriverFactory(base.$('[data-hook="sectionhelper-action-btn"]'));
   const closeButtonDriver = () =>
     buttonDriverFactory(base.$('[data-hook="sectionhelper-close-btn"]'));
+  const hasAppearance = async appearance =>
+    (await base.attr('data-appearance')) === appearance;
 
   return {
     ...baseUniDriverFactory(base),
@@ -15,12 +18,12 @@ export const sectionHelperUniDriverFactory = base => {
     clickClose: () => closeButtonDriver().click(),
     isCloseButtonDisplayed: () => closeButtonDriver().exists(),
     textContent: () => base.text(),
-    isWarning: () => base.hasClass('warning'),
-    isStandard: () => base.hasClass('standard'),
-    isDanger: () => base.hasClass('danger'),
-    isExperimentalDark: () => base.hasClass('experimentalDark'),
-    isSuccess: () => base.hasClass('success'),
-    isPremium: () => base.hasClass('premium'),
-    isPreview: () => base.hasClass('preview'),
+    isWarning: () => hasAppearance(Appearance.Warning),
+    isStandard: () => hasAppearance(Appearance.Standard),
+    isDanger: () => hasAppearance(Appearance.Danger),
+    isExperimentalDark: () => hasAppearance(Appearance.ExperimentalDark),
+    isSuccess: () => hasAppearance(Appearance.Success),
+    isPremium: () => hasAppearance(Appearance.Premium),
+    isPreview: () => hasAppearance(Appearance.Preview),
   };
 };
