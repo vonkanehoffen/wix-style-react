@@ -17,7 +17,8 @@ Types of changes:
 ## Next
 
 ### Fixed
-- `<Grid/>` - Fix StretchViewsVertically rows break in production[#4992](https://github.com/wix/wix-style-react/pull/4992)
+- `<Search/>` - Fix lose expansion with falsy value [#4995](https://github.com/wix/wix-style-react/pull/4995)
+- `<Grid/>` - Fix StretchViewsVertically rows break in production [#4992](https://github.com/wix/wix-style-react/pull/4992)
 
 ## 7.44.0 - 2020-02-12
 
