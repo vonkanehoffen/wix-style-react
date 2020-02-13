@@ -1,62 +1,129 @@
 import React from 'react';
-import Markdown from 'wix-storybook-utils/Markdown';
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  importExample,
+  title,
+  columns,
+  divider,
+  code as baseCode,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
+
+import { storySettings } from '../test/storySettings';
+import allComponents from '../../../stories/utils/allComponents';
+import * as examples from './examples';
 
 import Search from '..';
-import { Predicate, Expandable } from './examples';
 
-import { storySettings } from './storySettings';
+const code = config => baseCode({ components: allComponents, ...config });
 
-const createOption = (value, id = 0) => ({ id, value });
-
-const options = [
-  'The quick',
-  'brown',
-  'fox',
-  'jumps over',
-  'the lazy',
-  'dog',
-  'Option1',
-  'Option2',
-  'Option3',
-  'Option4',
-  'Option5',
-  'last Option',
-].map(createOption);
+const options = Array(26)
+  .fill(0)
+  .map((_, id) => ({
+    id,
+    value: `Option ${String.fromCharCode(97 + id)}`,
+  }));
 
 export default {
   category: storySettings.category,
-  storyName: storySettings.storyName,
+  storyName: 'Search',
+
   component: Search,
   componentPath: '..',
 
-  componentProps: setState => ({
-    dataHook: storySettings.dataHook,
-    value: '',
+  componentProps: {
     options,
-    showOptionsIfEmptyInput: false,
-    closeOnSelect: false,
-
-    onChange: e => setState({ value: e.target.value }),
-
-    onSelect: option => setState({ value: option.value }),
-  }),
+  },
 
   exampleProps: {
     onSelect: option => option.value,
     onChange: e => e.target.value,
     options: [
-      { label: 'One option', value: [createOption('Just me :)')] },
-      { label: `${options.length} options`, value: options },
+      { label: 'Without options', value: [] },
+      {
+        label: 'With options',
+        value: options,
+      },
     ],
   },
 
-  examples: (
-    <div>
-      <Markdown source="## Expandable" />
-      <Expandable />
+  sections: [
+    header({
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/Search/',
+      component: <Search buttonText="Click me!" />,
+    }),
 
-      <Markdown source="## Predicate" />
-      <Predicate />
-    </div>
-  ),
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+            }),
+          ]),
+
+          columns([
+            importExample("import Search from 'wix-style-react/Search';"),
+          ]),
+
+          divider(),
+
+          title('Examples'),
+
+          columns([
+            description({
+              title: 'Simple Usage',
+              text: 'Search component has a basic debounce functionality',
+            }),
+
+            code({
+              compact: true,
+              source: examples.simple,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'predicate',
+              text:
+                'When options are given, a predicate function can be used to filter the search in a way other than the default. In this case the predicate makes the search be case sensitive.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.predicate,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'expandable',
+              text:
+                'Search component can start as an icon and expanded when clicked.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.expandable,
+            }),
+          ]),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };

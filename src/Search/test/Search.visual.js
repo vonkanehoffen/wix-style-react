@@ -4,7 +4,7 @@ import { uniTestkitFactoryCreator } from 'wix-ui-test-utils/vanilla';
 
 import Search from '../Search';
 import { searchUniDriverFactory } from '../Search.uni.driver';
-import { storySettings } from '../docs/storySettings';
+import { storySettings } from './storySettings';
 
 const { dataHook, storyName } = storySettings;
 

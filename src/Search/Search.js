@@ -29,12 +29,16 @@ class Search extends Component {
 
   static propTypes = {
     ...InputWithOptions.propTypes,
+
     /** Will display the search icon only until clicked */
     expandable: PropTypes.bool,
+
     /** Width used for expanded state */
     expandWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
     /** Custom function for filtering options */
     predicate: PropTypes.func,
+
     /** onChange debounce in milliseconds */
     debounceMs: PropTypes.number,
   };
@@ -60,7 +64,7 @@ class Search extends Component {
 
     this.state = {
       inputValue: initialValue,
-      collapsed: props.expandable && initialValue === '' && !props.autoFocus,
+      collapsed: props.expandable && !initialValue && !props.autoFocus,
     };
   }
 

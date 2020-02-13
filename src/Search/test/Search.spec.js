@@ -162,13 +162,14 @@ describe('Search', () => {
 
       // TODO: enhance Input component
       // eslint-disable-next-line jest/no-disabled-tests
-      it.skip('should focus search input if click on magnifying glass', () => {
+      it.skip('should focus search input if click on magnifying glass', async () => {
         const driver = createDriver(
           <ControlledSearch options={options} value="fox" />,
         );
 
-        driver.inputDriver.clickSuffix();
-        expect(driver.inputDriver.isFocus()).toBe(true);
+        expect(await driver.inputDriver.hasPrefix()).toBe(true);
+        // driver.inputDriver.clickPrefix();    <--- Does not exist
+        expect(await driver.inputDriver.isFocus()).toBe(true);
       });
 
       it('should allow filtering options by predicate', async () => {
@@ -372,6 +373,21 @@ describe('Search', () => {
         expect(onChangeSpy.mock.calls[0][0].target.value).toBe('f');
         expect(onChangeSpy.mock.calls[1][0].target.value).toBe('fo');
         expect(onChangeSpy.mock.calls[2][0].target.value).toBe('foo');
+      });
+
+      // TODO - need to implement a logic in InputWithOptions
+      it.skip('dropdown should not open until debounce finishes', async () => {
+        jest.useFakeTimers();
+
+        const onChangeSpy = jest.fn();
+        const driver = createDriver(
+          <Search options={options} onChange={onChangeSpy} debounceMs={100} />,
+        );
+
+        await driver.inputDriver.enterText('z');
+        expect(await driver.dropdownLayoutDriver.isShown()).toBe(false);
+        jest.advanceTimersByTime(100);
+        expect(await driver.dropdownLayoutDriver.isShown()).toBe(true);
       });
     });
   }

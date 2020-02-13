@@ -2,32 +2,22 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
-import { testStories, storySettings } from './storySettings';
+import { testStories, storySettings } from '../test/storySettings';
 import Search from '..';
 
 const kind = getTestStoryKind(storySettings);
-
-const options = [
-  'The quick',
-  'brown',
-  'fox',
-  'jumps over',
-  'the lazy',
-  'dog',
-  'Option1',
-  'Option2',
-  'Option3',
-  'Option4',
-  'Option5',
-  'last Option',
-].map((value, id) => ({ id, value }));
 
 const StatefulSearch = () => {
   const [value, setValue] = useState('');
   return (
     <Search
       dataHook={storySettings.dataHook}
-      options={options}
+      options={Array(26)
+        .fill(0)
+        .map((_, id) => ({
+          id,
+          value: `Option ${String.fromCharCode(97 + id)}`,
+        }))}
       showOptionsIfEmptyInput={false}
       closeOnSelect={false}
       value={value}
