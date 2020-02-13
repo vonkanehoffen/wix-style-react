@@ -117,11 +117,13 @@ export const Accordion: any;
 export const SocialPreview: any;
 export const GooglePreview: any;
 export { default as SocialButton, SocialButtonProps } from './SocialButton';
-export { default as ListItemSelect, ListItemSelectProps } from './ListItemSelect';
-export { listItemSelectBuilder } from './ListItemSelect';
-export { default as ListItemSection, ListItemSectionProps } from './ListItemSection';
-export { listItemSectionBuilder } from './ListItemSection';
-export const ListItemSectionTypes: any;
+export { default as ListItemSelect, ListItemSelectProps, listItemSelectBuilder } from './ListItemSelect';
+export {
+  default as ListItemSection,
+  ListItemSectionProps,
+  listItemSectionBuilder,
+  TYPES as ListItemSectionTypes,
+} from './ListItemSection';
 export { default as Image, ImageProps } from './Image';
 export const StatisticsWidget: any;
 export { default as Divider, DividerProps } from './Divider';
