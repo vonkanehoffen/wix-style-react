@@ -97,10 +97,10 @@ class CardGalleryItem extends React.PureComponent {
       <>
         <Card.Divider />
         <div className={styles.footer}>
-          <Heading appearance="H3" ellipsis data-hook={DataHook.Title}>
+          <Heading appearance="H3" ellipsis dataHook={DataHook.Title}>
             {title}
           </Heading>
-          <Text size="small" secondary ellipsis data-hook={DataHook.Subtitle}>
+          <Text size="small" secondary ellipsis dataHook={DataHook.Subtitle}>
             {subtitle}
           </Text>
         </div>
