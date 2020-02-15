@@ -124,7 +124,11 @@ const Box = ({
     marginTop: formatSpacingValue(marginTop),
     marginRight: formatSpacingValue(marginRight),
     marginBottom: gap
-      ? `-${formatSpacingValue(gap)}`
+      ? marginBottom
+        ? `calc(-${formatSpacingValue(gap)} + ${formatSpacingValue(
+            marginBottom,
+          )}`
+        : `-${formatSpacingValue(gap)}`
       : formatSpacingValue(marginBottom),
     marginLeft: formatSpacingValue(marginLeft),
 
