@@ -41,6 +41,20 @@ const formatSpacingValue = value =>
     ? `${value * spacingUnit}px`
     : spacingValues[value] || `${value}`;
 
+/**
+ *  In order for gap to have similar functionality as css-grid:
+ *  we need to apply negative margin to containers bottom. Also if
+ *  user wants his margin bottom applied we need merge those gap and
+ *  marginBottom values.
+ */
+const normalizeMarginBottom = (gap, marginBottom) => {
+  return gap
+    ? marginBottom
+      ? `calc(-${formatSpacingValue(gap)} + ${formatSpacingValue(marginBottom)}`
+      : `-${formatSpacingValue(gap)}`
+    : formatSpacingValue(marginBottom);
+};
+
 const Box = ({
   dataHook,
   gap,
@@ -123,13 +137,7 @@ const Box = ({
     margin: formatSpacingValue(margin),
     marginTop: formatSpacingValue(marginTop),
     marginRight: formatSpacingValue(marginRight),
-    marginBottom: gap
-      ? marginBottom
-        ? `calc(-${formatSpacingValue(gap)} + ${formatSpacingValue(
-            marginBottom,
-          )}`
-        : `-${formatSpacingValue(gap)}`
-      : formatSpacingValue(marginBottom),
+    marginBottom: normalizeMarginBottom(gap, marginBottom),
     marginLeft: formatSpacingValue(marginLeft),
 
     // Sizing
