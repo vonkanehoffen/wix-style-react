@@ -429,13 +429,6 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  CounterBadge: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
-  },
-
   FloatingHelper: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
@@ -610,7 +603,7 @@ module.exports = {
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
   },
-  
+
   AutoCompleteWithLabel: {
     namedProtractorTestkitExport: true,
     namedPuppeteerTestkitExport: true,

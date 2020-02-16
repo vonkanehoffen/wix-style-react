@@ -81,10 +81,7 @@
     ]
   },
   "CounterBadge": {
-    "path": "src/CounterBadge",
-    "missingFiles": [
-      "CounterBadge.js"
-    ]
+    "path": "src/CounterBadge"
   },
   "DataTable": {
     "path": "src/DataTable",
@@ -279,10 +276,7 @@
     "path": "src/Search"
   },
   "SectionHelper": {
-    "path": "src/SectionHelper",
-    "missingFiles": [
-      "SectionHelper.js"
-    ]
+    "path": "src/SectionHelper"
   },
   "SegmentedToggle": {
     "path": "src/SegmentedToggle"

@@ -1,97 +1,134 @@
 import React from 'react';
+import {
+  header,
+  tabs,
+  tab,
+  description,
+  importExample,
+  title,
+  columns,
+  divider,
+  code as baseCode,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
 
-import { SKIN } from 'wix-ui-backoffice/dist/src/components/StylableCounterBadge/constants';
-import { Email } from 'wix-ui-icons-common';
+import { storySettings } from '../test/storySettings';
+import allComponents from '../../../stories/utils/allComponents';
+import Star from 'wix-ui-icons-common/Star';
+import * as examples from './examples';
 
-import { storySettings } from './storySettings';
-import { CounterBadge, Layout, Cell } from '../..';
-import LiveCodeExample, {
-  createPropsArray,
-} from '../../../stories/utils/LiveCodeExample';
+import CounterBadge from '..';
 
-const createCounterWithBadge = props => `
-<CounterBadge ${createPropsArray(props).join('\n       ')}>${
-  props.value
-}</CounterBadge>`;
-
-const counterBadgeSkinExample = `
-<div>
-  ${Object.keys(SKIN)
-    .map(skin => {
-      return `
-      <div style={{ 
-        display: 'flex',
-         padding: '5px 5px',
-        }}>${createCounterWithBadge({
-          skin,
-          value: 1,
-        })} - ${skin}
-      </div>`;
-    })
-    .join('\n       ')}
-</div>
-`;
-
-const exampleValues = [
-  { label: 'Single digit', value: 1 },
-  { label: '2 digits', value: 56 },
-  { label: 'Icon', value: '<Icons.Hint />' },
-];
-
-const iconValuesExample = `
-    <div>
-    ${exampleValues
-      .map(example => {
-        return `
-        <div style={{ 
-          display: 'flex',
-           padding: '5px 5px',
-          }}>${createCounterWithBadge({
-            value: example.value,
-          })} - ${example.label}
-        </div>`;
-      })
-      .join('\n       ')}
-    </div>
-`;
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
-  storyName: storySettings.storyName,
+  storyName: 'CounterBadge',
+
   component: CounterBadge,
   componentPath: '..',
 
   componentProps: {
-    children: '1',
-    skin: SKIN.general,
+    children: 1,
+    skin: 'general',
   },
+
   exampleProps: {
     children: [
-      { label: '12', value: '12' },
-      { label: '1', value: '1' },
-      { label: 'Icon (Email)', value: <Email /> },
+      { label: 'number', value: 1 },
+      { label: 'string', value: 'New!' },
+      { label: 'node', value: <Star /> },
     ],
-    skin: Object.keys(SKIN).map(value => ({ label: value, value })),
   },
-  hiddenProps: ['dataHook'],
-  examples: (
-    <div>
-      <Layout>
-        <Cell span={3}>
-          <LiveCodeExample
-            compact
-            title="Skins"
-            initialCode={counterBadgeSkinExample}
-          />
-        </Cell>
-        <Cell span={3}>
-          <LiveCodeExample
-            compact
-            title="Content"
-            initialCode={iconValuesExample}
-          />
-        </Cell>
-      </Layout>
-    </div>
-  ),
+
+  sections: [
+    header({
+      sourceUrl:
+        'https://github.com/wix/wix-style-react/tree/master/src/CounterBadge/',
+      component: <CounterBadge>1</CounterBadge>,
+    }),
+
+    tabs([
+      tab({
+        title: 'Description',
+        sections: [
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'CounterBadge gives you a quick preview to indicate more action is required.',
+            }),
+          ]),
+
+          columns([
+            importExample(
+              "import CounterBadge from 'wix-style-react/CounterBadge';",
+            ),
+          ]),
+
+          divider(),
+
+          title('Examples'),
+
+          columns([
+            description({
+              title: 'Number counter',
+              text:
+                'The most common use of CounterBadge is with a number value truncated to 99.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.numbers,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Skins',
+              text:
+                'Background color can be one of the following: `general`, `danger`, `urgent`, `standard`, `warning` and `success`.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.skins,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Custom node',
+              text: 'CounterBadge can display a custom node, like an icon.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.custom,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Advanced',
+              text: 'An example for a CounterBadge counting items in cart.',
+            }),
+
+            code({
+              compact: true,
+              source: examples.advanced,
+            }),
+          ]),
+        ],
+      }),
+
+      ...[
+        { title: 'API', sections: [api()] },
+        { title: 'Testkit', sections: [testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
+    ]),
+  ],
 };
