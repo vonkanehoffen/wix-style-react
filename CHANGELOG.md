@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Changed
+- `<CounterBadge/>` - Migrate to uni drivers and story page face facelift [#5007](https://github.com/wix/wix-style-react/pull/5007)
+
 ### Fixed
 
 - `<Search/>` - Fix lose expansion with falsy value [#4995](https://github.com/wix/wix-style-react/pull/4995)
