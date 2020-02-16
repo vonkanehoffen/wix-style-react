@@ -4,7 +4,7 @@ import {DropdownLayoutValueOption} from '../DropdownLayout';
 export interface MultiSelectCheckboxProps
   extends InputWithOptionsProps<
     ManualInputFnSignature,
-    OnSelectFnSignature
+    MultiSelectOnSelectFnSignature
   > {
   selectedOptions?: DropdownLayoutValueOption[];
   onDeselect?: (
@@ -16,11 +16,11 @@ export interface MultiSelectCheckboxProps
 
 export default class MultiSelectCheckbox extends InputWithOptions<
   ManualInputFnSignature,
-  OnSelectFnSignature,
+  MultiSelectOnSelectFnSignature,
   MultiSelectCheckboxProps
 > {}
 
-export type OnSelectFnSignature = (
+export type MultiSelectOnSelectFnSignature = (
   id: DropdownLayoutValueOption['id'],
   option: DropdownLayoutValueOption,
 ) => void;

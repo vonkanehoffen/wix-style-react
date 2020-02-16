@@ -1,4 +1,4 @@
-import { WixComponent, WixComponentProps } from '../BaseComponents';
+import WixComponent, { WixComponentProps } from '../BaseComponents/WixComponent';
 import { DraggableProps } from '../DragAndDrop/Draggable';
 
 export interface SortableListProps extends WixComponentProps, DraggableProps {

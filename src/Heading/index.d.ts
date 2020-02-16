@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { EllipsisHOCProps } from '../BaseComponents';
+import { EllipsisHOCProps } from '../common/EllipsisHOC';
 
 export interface HeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement>,

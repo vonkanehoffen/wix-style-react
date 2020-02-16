@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { EllipsisHOCProps, IconElement } from '../BaseComponents';
+import { IconElement } from '../common';
+import { EllipsisHOCProps } from '../common/EllipsisHOC';
 import { ButtonWithAsProp } from '../Button';
 
 export type ListItemActionProps = ButtonWithAsProp<{

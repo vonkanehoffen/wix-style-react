@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IconElement, OmitPolyfill } from '../BaseComponents';
-
+import {OmitPolyfill} from '../common';
+import {IconElement} from '../common';
 export interface SegmentedToggleProps {
   dataHook?: string;
   defaultSelected?: React.ReactNode;

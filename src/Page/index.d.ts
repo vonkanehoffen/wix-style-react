@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { WixComponent, WixComponentProps } from '../BaseComponents';
+import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
 import PageHeader from '../PageHeader';
 
 export type PagePropsNew = WixComponentProps & {

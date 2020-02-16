@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {EllipsisHOCProps} from '../baseComponents';
+import {EllipsisHOCProps} from '../common/EllipsisHOC';
 
 export interface TextProps extends EllipsisHOCProps {
   dataHook?: string;

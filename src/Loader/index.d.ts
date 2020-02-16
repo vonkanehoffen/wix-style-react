@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { WixComponent, WixComponentProps } from '../BaseComponents';
+import WixComponent, {
+  WixComponentProps,
+} from '../BaseComponents/WixComponent';
 
 export interface LoaderProps extends WixComponentProps {
   size?: LoaderSize;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {OmitPolyfill} from '../BaseComponents';
+import {OmitPolyfill} from '../common';
 
 import InputWithOptions, {InputWithOptionsProps, OnSelectFnSignature} from '../InputWithOptions';
 import {DropdownLayoutProps, DropdownLayoutValueOption} from '../DropdownLayout';

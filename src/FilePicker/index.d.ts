@@ -1,4 +1,4 @@
-import {WixComponent, WixComponentProps,} from '../BaseComponents';
+import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
 
 export interface FilePickerProps extends WixComponentProps {
   header?: string;

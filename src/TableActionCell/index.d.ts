@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IconElement} from '../BaseComponents';
+import {IconElement} from '../common';
 
 export interface TableActionCellProps {
   dataHook?: string;

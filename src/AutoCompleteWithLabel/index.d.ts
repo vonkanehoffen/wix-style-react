@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {InputStatus} from '../Input';
+import {DropdownLayoutOption, DropdownLayoutValueOption} from '../DropdownLayout';
 
 export interface AutoCompleteWithLabelProps {
   dataHook?: string;
@@ -28,26 +29,3 @@ export default class AutoCompleteWithLabel extends React.Component<
   AutoCompleteWithLabelProps
 > {}
 
-export type DropdownLayoutOption =
-  | DropdownLayoutValueOption
-  | DropdownLayoutDividerOption;
-
-export type DropdownLayoutValueOption = {
-  id: string | number;
-  value: React.ReactNode | string | RenderOptionFn;
-  disabled?: boolean;
-  title?: boolean;
-  linkTo?: string;
-  overrideStyle?: boolean;
-};
-
-export type RenderOptionFn = (options: {
-  selected: boolean;
-  hovered: boolean;
-  disabled: boolean;
-}) => JSX.Element;
-
-export type DropdownLayoutDividerOption = {
-  value: '-';
-  id?: string | number;
-};

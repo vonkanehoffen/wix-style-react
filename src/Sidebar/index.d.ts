@@ -1,4 +1,5 @@
 import * as React from 'react';
+import SidebarBackButton from "../SidebarBackButton";
 
 export interface SidebarProps {
   classNames?: SidebarClassNames;
@@ -45,12 +46,6 @@ export class SidebarPersistentFooter extends React.Component<
   SidebarPersistentFooterProps
 > {}
 interface SidebarPersistentFooterProps {}
-
-export class SidebarBackButton extends React.Component<SidebarBackButtonProps> {}
-interface SidebarBackButtonProps {
-  disable?: boolean;
-  onClick?: React.MouseEventHandler<HTMLElement>;
-}
 
 export class SidebarContextConsumer extends React.Component<
   SidebarContextConsumerProps

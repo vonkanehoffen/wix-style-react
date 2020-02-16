@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { WixComponent, WixComponentProps } from '../BaseComponents';
+import WixComponent, { WixComponentProps } from '../BaseComponents/WixComponent';
 
 export type ModalSelectorLayoutSingleProps = {
   onOk?: (selectedItem: ModalSelectorLayoutItem) => void;

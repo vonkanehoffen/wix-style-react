@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { OmitPolyfill } from '../BaseComponents';
+import {OmitPolyfill} from '../common';
 import {DropdownLayoutValueOption, DropdownLayoutProps} from '../DropdownLayout';
 import {InputProps} from '../Input';
 import {PopoverProps} from '../Popover';

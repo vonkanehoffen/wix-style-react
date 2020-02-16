@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {
-  IconElement,
-  WixComponent,
+import WixComponent, {
   WixComponentProps,
-} from '../../BaseComponents';
+} from '../../BaseComponents/WixComponent';
+import { IconElement } from '../../common';
 import { ButtonSize } from '../../Button';
 
 export interface MessageBoxFunctionalLayoutProps extends WixComponentProps {

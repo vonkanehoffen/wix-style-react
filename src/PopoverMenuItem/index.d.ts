@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {
-  IconElement,
-  WixComponent,
+
+import WixComponent, {
   WixComponentProps,
-} from '../BaseComponents';
+} from '../BaseComponents/WixComponent';
+import { IconElement } from '../common';
 
 export interface PopoverMenuItemProps extends WixComponentProps {
   icon?: IconElement;

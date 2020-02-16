@@ -1,4 +1,4 @@
-import { WixComponent, WixComponentProps } from '../baseComponents';
+import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
 
 export interface CheckboxProps extends WixComponentProps {
   checked?: boolean;
