@@ -23,7 +23,7 @@ export default () => (
         ]}
       >
         {({ toggle, selectedOption = {} }) => (
-          <Button upgrade onClick={toggle} suffixIcon={<ChevronDown />}>
+          <Button onClick={toggle} suffixIcon={<ChevronDown />}>
             {selectedOption.value || 'Click Me!'}
           </Button>
         )}
@@ -31,5 +31,6 @@ export default () => (
     }
     secondaryButtonLabel="Secondary action"
     dataHook="announcement-standard"
+    onClose={() => undefined}
   />
 );

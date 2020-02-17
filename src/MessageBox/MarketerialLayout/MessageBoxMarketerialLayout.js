@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
 import WixComponent from '../../BaseComponents/WixComponent';
 import Heading from '../../Heading';
 import Text from '../../Text';
 import TextButton from '../../TextButton';
-import classNames from 'classnames';
 import CloseButton from '../../CloseButton';
-
-import Button from '../../Deprecated/Button';
+import Button from '../../Button';
 
 import * as styles from './MessageBoxMarketerialLayout.scss';
+
+const buttonSkinByTheme = {
+  blue: 'standard',
+  purple: 'premium',
+  white: 'dark',
+};
 
 class MessageBoxMarketerialLayout extends WixComponent {
   render() {
@@ -111,7 +117,10 @@ class MessageBoxMarketerialLayout extends WixComponent {
         )}
         {!primaryButtonNode && primaryButtonLabel && (
           <Button
-            theme={`full${primaryButtonTheme || theme}`}
+            skin={buttonSkinByTheme[primaryButtonTheme || theme]}
+            priority={
+              !primaryButtonTheme && theme === 'white' ? 'secondary' : 'primary'
+            }
             onClick={onPrimaryButtonClick}
             dataHook="primary-button"
             disabled={primaryButtonDisabled}

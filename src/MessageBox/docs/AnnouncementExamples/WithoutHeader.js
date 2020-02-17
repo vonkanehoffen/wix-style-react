@@ -15,5 +15,6 @@ export default () => (
     primaryButtonLabel="Share Your Achievement"
     primaryButtonTheme="blue"
     dataHook="next-level-modal-content"
+    onClose={() => undefined}
   />
 );

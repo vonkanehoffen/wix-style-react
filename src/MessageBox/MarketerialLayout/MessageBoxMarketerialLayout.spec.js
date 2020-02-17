@@ -56,9 +56,7 @@ describe('MessageBoxMarketerialLayout', () => {
           primaryButtonTheme: 'purple',
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(await driver.isClassPresentInPrimaryButton('fullpurple')).toBe(
-          true,
-        );
+        expect(await driver.hasPrimaryButtonSkin('premium')).toBe(true);
       });
 
       it('should not display the primary button if primary button label was not passed', async () => {
@@ -211,9 +209,7 @@ describe('MessageBoxMarketerialLayout', () => {
           primaryButtonLabel: 'primaryButtonLabel',
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(await driver.isClassPresentInPrimaryButton('fullblue')).toBe(
-          true,
-        );
+        expect(await driver.hasPrimaryButtonSkin('standard')).toBe(true);
       });
 
       it(`should use color theme`, async () => {
@@ -222,9 +218,7 @@ describe('MessageBoxMarketerialLayout', () => {
           theme: 'purple',
         });
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(await driver.isClassPresentInPrimaryButton('fullpurple')).toBe(
-          true,
-        );
+        expect(await driver.hasPrimaryButtonSkin('premium')).toBe(true);
       });
     });
 
