@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Changed
+
 - `<CounterBadge/>` - Migrate to uni drivers and story page face facelift [#5007](https://github.com/wix/wix-style-react/pull/5007)
 
 ### Fixed
@@ -24,6 +25,7 @@ Types of changes:
 - `<Search/>` - Fix lose expansion with falsy value [#4995](https://github.com/wix/wix-style-react/pull/4995)
 - `<Grid/>` - Fix StretchViewsVertically rows break in production [#4992](https://github.com/wix/wix-style-react/pull/4992)
 - `<SectionHelper/>` - Fixed testkit methods and migrated from deprecated button [#4996](https://github.com/wix/wix-style-react/pull/4996)
+- `<PageHeader/>` - Migrate back button from deprecated Button component [#4998](https://github.com/wix/wix-style-react/pull/4998)
 
 ## 7.44.0 - 2020-02-12
 
