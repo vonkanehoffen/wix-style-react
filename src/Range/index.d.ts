@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default interface RangeProps {
+export interface RangeProps {
   required?: boolean;
   info?: string;
   dataHook?: string;
@@ -8,4 +8,4 @@ export default interface RangeProps {
   appendToParent?: boolean;
 }
 
-export class Range extends React.Component<RangeProps> {}
+export default class Range extends React.Component<RangeProps> {}
