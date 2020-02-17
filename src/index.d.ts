@@ -136,6 +136,9 @@ export * from './FillButton'
 export { default as FillPreview } from './FillPreview'
 export * from './FillPreview'
 
+export { default as FloatingHelper } from './FloatingHelper'
+export * from './FloatingHelper'
+
 export { default as FloatingNotification } from './FloatingNotification'
 export * from './FloatingNotification'
 
@@ -410,8 +413,6 @@ export * from './VerticalTabs'
 
 export { default as VerticalTabsItem } from './VerticalTabsItem'
 export * from './VerticalTabsItem'
-
-export { default as WarningIndicator } from './WarningIndicator'
 
 export { default as clients } from './clients'
 export * from './clients'

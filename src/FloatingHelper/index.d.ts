@@ -2,7 +2,7 @@ import * as React from 'react';
 export type FloatingHelperProps = import('wix-ui-core/dist/src/createHOC').WixComponentProps &
   FloatingHelperPropsInner;
 
-export class FloatingHelper extends React.PureComponent<FloatingHelperProps> {}
+export default class FloatingHelper extends React.PureComponent<FloatingHelperProps> {}
 
 export enum Appearance {
   dark = 'dark',
@@ -38,9 +38,9 @@ export interface PickedClosablePopoverPropsHack {
        'left-end',
        'left',
        'left-start' */
-  placement: Placement;
+  placement: FloatingHelperPopoverPlacement;
   /** Enables calculations in relation to a dom element. possible values: 'scrollParent', 'viewport', 'window' or an Element. See PopperJs docs: https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.boundariesElement */
-  appendTo?: AppendTo;
+  appendTo?: FloatingHelperPopoverAppendTo;
   /** Callback to call when the popover content is requested to be opened (Uncontrolled mode only)*/
   onOpen?: Function;
 }
@@ -61,10 +61,10 @@ export type FloatingHelperPropsInner = PickedClosablePopoverProps &
   PickedClosablePopoverPropsHack;
 
 /* Closable Popover */
-export type Popover = import('wix-ui-core/dist/src/components/popover').Popover;
-export type PopoverProps = import('wix-ui-core/dist/src/components/popover').PopoverProps;
-export type Placement = import('wix-ui-core/dist/src/components/popover').Placement;
-export type AppendTo = import('wix-ui-core/dist/src/components/popover').AppendTo;
+export type FloatingHelperPopover = import('wix-ui-core/dist/src/components/popover').Popover;
+export type FloatingHelperPopoverProps = import('wix-ui-core/dist/src/components/popover').PopoverProps;
+export type FloatingHelperPopoverPlacement = import('wix-ui-core/dist/src/components/popover').Placement;
+export type FloatingHelperPopoverAppendTo = import('wix-ui-core/dist/src/components/popover').AppendTo;
 
 export interface ClosablePopoverState {
   open?: boolean;
@@ -82,7 +82,7 @@ export interface ClosablePopoverState {
 }
 
 export type PickedPopoverProps = Pick<
-  PopoverProps,
+  FloatingHelperPopoverProps,
   | 'className'
   | 'placement'
   | 'showArrow'
