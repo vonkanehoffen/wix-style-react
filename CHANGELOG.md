@@ -27,7 +27,7 @@ Types of changes:
 - `<SectionHelper/>` - Fixed testkit methods and migrated from deprecated button [#4996](https://github.com/wix/wix-style-react/pull/4996)
 - `<PageHeader/>` - Migrate back button from deprecated Button component [#4998](https://github.com/wix/wix-style-react/pull/4998)
 - `<MessageBoxMarketerialLayout/>` - Migrate from deprecated Button component [#5018](https://github.com/wix/wix-style-react/pull/5018)
-- `<MessageBoxFunctionalLayout/>`- - Migrate from deprecated Button component [#5014](https://github.com/wix/wix-style-react/pull/5014)
+- `<MessageBoxFunctionalLayout/>` - Migrate from deprecated Button component [#5014](https://github.com/wix/wix-style-react/pull/5014)
 
 ## 7.44.0 - 2020-02-12
 
