@@ -80,10 +80,6 @@ export * from './ColorPicker'
 export { default as ComposerHeader } from './ComposerHeader'
 export * from './ComposerHeader'
 
-export * from './Composite'
-
-// todo: check composite
-
 export { default as ContactItemBuilder } from './ContactItemBuilder'
 export * from './ContactItemBuilder'
 
@@ -228,7 +224,6 @@ export { default as MediaOverlay } from './MediaOverlay'
 export * from './MediaOverlay'
 
 export * from './MessageBox'
-// handle: layout1,layout2, footer, header, etc'...
 
 export { default as MobilePreviewWidget } from './MobilePreviewWidget'
 export * from './MobilePreviewWidget'
