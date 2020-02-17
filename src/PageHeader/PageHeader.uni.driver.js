@@ -1,5 +1,5 @@
 import { baseUniDriverFactory } from '../../test/utils/unidriver';
-import { buttonDriverFactory } from '../Button/Button.uni.driver';
+import { iconButtonDriverFactory } from '../IconButton/IconButton.uni.driver';
 
 export const pageHeaderUniDriverFactory = base => {
   const titleElement = () => base.$('[data-hook="page-header-title"] h1');
@@ -22,6 +22,6 @@ export const pageHeaderUniDriverFactory = base => {
     breadcrumbsText: () => breadcrumbsElement().text(),
     isActionBarExists: () => actionBarElement().exists(),
     isBackButtonExists: () => backButtonElement().exists(),
-    clickBackButton: () => buttonDriverFactory(backButtonElement()).click(),
+    clickBackButton: () => iconButtonDriverFactory(backButtonElement()).click(),
   };
 };

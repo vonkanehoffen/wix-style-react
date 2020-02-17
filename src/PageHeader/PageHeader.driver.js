@@ -1,5 +1,5 @@
+import ReactTestUtils from 'react-dom/test-utils';
 import { isClassExists } from '../../test/utils';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver.js';
 
 const titleElement = element =>
   element.querySelector('[data-hook="page-header-title"] h1');
@@ -23,7 +23,5 @@ export default ({ element }) => ({
   isActionBarExists: () => !!actionBarElement(element),
   isBackButtonExists: () => !!backButtonElement(element),
   clickBackButton: () =>
-    buttonDriverFactory({
-      element: backButtonElement(element),
-    }).click(),
+    ReactTestUtils.Simulate.click(backButtonElement(element)),
 });

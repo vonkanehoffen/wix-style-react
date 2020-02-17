@@ -78,7 +78,7 @@ const files = [
   ['Notification.bundle.min.js', 29],
   ['NumberInput.bundle.min.js', 63],
   ['Page.bundle.min.js', 36],
-  ['PageHeader.bundle.min.js', 26],
+  ['PageHeader.bundle.min.js', 28],
   ['Popover.bundle.min.js', 29],
   ['PopoverMenu.bundle.min.js', 45],
   ['PopoverMenuItem.bundle.min.js', 10],

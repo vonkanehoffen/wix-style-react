@@ -8,7 +8,7 @@ import Breadcrumbs from '../Breadcrumbs';
 import Text from '../Text';
 import Heading from '../Heading';
 import { Animator } from 'wix-animations';
-import Button from '../Deprecated/Button';
+import IconButton from '../IconButton';
 
 const isDarkTheme = (hasBackgroundImage, minimized) =>
   !minimized && hasBackgroundImage;
@@ -157,13 +157,12 @@ export default class PageHeader extends WixComponent {
                     [s.darkTheme]: isDarkTheme(hasBackgroundImage, minimized),
                   })}
                 >
-                  <Button
+                  <IconButton
                     dataHook="page-header-backbutton"
                     onClick={onBackClicked}
-                    theme="icon-white"
                   >
                     <ChevronLeft className={s.backButtonIcon} />
-                  </Button>
+                  </IconButton>
                 </div>,
               )}
             <div className={s.titleColumn}>
