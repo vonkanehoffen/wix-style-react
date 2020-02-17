@@ -185,7 +185,7 @@ Slider.propTypes = {
     PropTypes.number,
   ]),
 
-  /** Make it disabled */
+  /** Make it disabled  */
   disabled: PropTypes.bool,
 
   /** Track starts from this value. If undefined, min is used. */
