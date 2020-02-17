@@ -1,3 +1,5 @@
+export * from './common'
+
 export { default as Accordion } from './Accordion'
 export * from './Accordion'
 
@@ -417,5 +419,4 @@ export * from './VerticalTabsItem'
 export { default as clients } from './clients'
 export * from './clients'
 
-export * from './common'
 
