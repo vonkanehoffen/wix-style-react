@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderLayout from './HeaderLayout';
-import FooterLayout from './FooterLayout';
-import WixComponent from '../../BaseComponents/WixComponent';
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
 
+import { generateDataAttr } from '../../utils/generateDataAttr';
+import deprecationLog from '../../utils/deprecationLog';
+import HeaderLayout from './HeaderLayout';
+import FooterLayout from './FooterLayout';
+import WixComponent from '../../BaseComponents/WixComponent';
 import styles from './MessageBoxFunctionalLayout.scss';
 
 class MessageBoxFunctionalLayout extends WixComponent {
@@ -87,6 +89,7 @@ class MessageBoxFunctionalLayout extends WixComponent {
   };
 
   render() {
+    let { theme } = this.props;
     const {
       title,
       onCancel,
@@ -101,7 +104,6 @@ class MessageBoxFunctionalLayout extends WixComponent {
       buttonsHeight,
       hideFooter,
       footerBottomChildren,
-      theme,
       closeButton,
       disableConfirmation,
       disableCancel,
@@ -114,6 +116,13 @@ class MessageBoxFunctionalLayout extends WixComponent {
       image,
     } = this.props;
 
+    if (theme === 'green') {
+      theme = undefined;
+      deprecationLog(
+        `MessageBoxFunctionalLayout component prop "theme" with the value "green" is deprecated.`,
+      );
+    }
+
     const contentClassName = classNames(styles.content, {
       [styles.fullscreenContent]: fullscreen,
     });
@@ -124,7 +133,11 @@ class MessageBoxFunctionalLayout extends WixComponent {
     });
 
     return (
-      <div className={contentClassName} style={{ width, margin }}>
+      <div
+        className={contentClassName}
+        style={{ width, margin }}
+        {...generateDataAttr(this.props, ['noBodyPadding', 'theme'])}
+      >
         <HeaderLayout
           title={title}
           onCancel={onClose ? onClose : onCancel}
@@ -219,6 +232,7 @@ MessageBoxFunctionalLayout.propTypes = {
 };
 
 MessageBoxFunctionalLayout.defaultProps = {
+  theme: 'blue',
   buttonsHeight: 'small',
   disableCancel: false,
   disableConfirmation: false,

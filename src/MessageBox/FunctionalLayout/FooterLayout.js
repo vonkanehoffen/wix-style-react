@@ -1,8 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../Deprecated/Button';
-import * as styles from './FooterLayout.scss';
 import classNames from 'classnames';
+
+import Button from '../../Button';
+import * as styles from './FooterLayout.scss';
+
+const buttonSkinByTheme = {
+  blue: 'standard',
+  green: 'standard',
+  purple: 'premium',
+  red: 'destructive',
+};
+
+const buttonSizeByHeight = {
+  'x-small': 'tiny',
+  tiny: 'tiny',
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+  'x-large': 'large',
+};
 
 const FooterLayout = ({
   bottomChildren,
@@ -35,8 +52,9 @@ const FooterLayout = ({
               prefixIcon={cancelPrefixIcon}
               suffixIcon={cancelSuffixIcon}
               disabled={!enableCancel}
-              height={buttonsHeight}
-              theme={'empty' + theme}
+              size={buttonSizeByHeight[buttonsHeight]}
+              priority="secondary"
+              skin={buttonSkinByTheme[theme]}
               onClick={onCancel}
               dataHook="cancellation-button"
               children={cancelText}
@@ -47,8 +65,9 @@ const FooterLayout = ({
               prefixIcon={confirmPrefixIcon}
               suffixIcon={confirmSuffixIcon}
               disabled={!enableOk}
-              height={buttonsHeight}
-              theme={'full' + theme}
+              size={buttonSizeByHeight[buttonsHeight]}
+              priority="primary"
+              skin={buttonSkinByTheme[theme]}
               onClick={onOk}
               dataHook="confirmation-button"
               children={confirmText}

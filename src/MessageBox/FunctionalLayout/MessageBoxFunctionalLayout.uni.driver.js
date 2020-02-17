@@ -1,49 +1,41 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
-import { ReactBase, getElement } from '../../../test/utils/unidriver';
+import { getElement } from '../../../test/utils/unidriver';
+import { buttonDriverFactory } from '../../Button/Button.uni.driver';
 
 export const MessageBoxFunctionalLayoutUniDriverFactory = base => {
   const confirmationButton = () => base.$('[data-hook="confirmation-button"]');
   const cancellationButton = () => base.$('[data-hook="cancellation-button"]');
   const headerCloseButton = () => base.$('[data-hook="header-close-button"]');
-  const body = () => base.$('[data-hook="message-box-body"]');
 
-  const confirmationButtonReactBase = ReactBase(confirmationButton());
-  const cancellationButtonReactBase = ReactBase(cancellationButton());
+  const confirmButtonDriver = buttonDriverFactory(confirmationButton());
+  const cancelButtonDriver = buttonDriverFactory(cancellationButton());
 
   return {
     ...baseUniDriverFactory(base),
     exists: () => base.exists(),
-    getConfirmationButtonText: () => confirmationButton().text(),
+    getConfirmationButtonText: () => confirmButtonDriver.getButtonTextContent(),
     isConfirmationButtonPrefixIconExists: async () =>
       (await confirmationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isConfirmationButtonSuffixIconExists: async () =>
       (await confirmationButton()._prop('innerHTML')).indexOf('suffix') !== -1,
-    clickOnConfirmationButton: () => confirmationButton().click(),
+    clickOnConfirmationButton: () => confirmButtonDriver.click(),
     getConfirmationButton: () => getElement(confirmationButton()),
     getCancellationButton: () => getElement(cancellationButton()),
     getHeaderCloseButton: () => getElement(headerCloseButton()),
-    getCancellationButtonText: () => cancellationButton().text(),
+    getCancellationButtonText: () => cancelButtonDriver.getButtonTextContent(),
     isCancellationButtonPrefixIconExists: async () =>
       (await cancellationButton()._prop('innerHTML')).indexOf('prefix') !== -1,
     isCancellationButtonSuffixIconExists: async () =>
       (await cancellationButton()._prop('innerHTML')).indexOf('suffix') !== -1,
-    clickOnCancellationButton: () => cancellationButton().click(),
+    clickOnCancellationButton: () => cancelButtonDriver.click(),
     clickOnHeaderCloseButton: () => headerCloseButton().click(),
-    isThemeExist: theme => base.$(`.${theme}`).exists(),
+    isThemeExist: async theme => (await base.attr('data-theme')) === theme,
     getFooter: () => getElement(base.$('[data-hook="message-box-footer"]')),
     getTitle: () => base.$('[data-hook="header-layout-title"]').text(),
     getChildBySelector: selector => getElement(base.$(selector)),
-    isCancelEnable: async () =>
-      Array.from(
-        await cancellationButtonReactBase._DEPRECATED_getClassList(),
-      ).indexOf('disabled') === -1,
-    isConfirmationEnable: async () =>
-      Array.from(
-        await confirmationButtonReactBase._DEPRECATED_getClassList(),
-      ).indexOf('disabled') === -1,
+    isCancelEnable: () => !cancelButtonDriver.isButtonDisabled(),
+    isConfirmationEnable: () => !confirmButtonDriver.isButtonDisabled(),
     toHaveBodyPadding: async () =>
-      !Array.from(await ReactBase(body())._DEPRECATED_getClassList()).includes(
-        `noPadding`,
-      ),
+      (await base.attr('data-nobodypadding')) !== 'true',
   };
 };

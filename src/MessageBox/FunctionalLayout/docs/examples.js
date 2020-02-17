@@ -90,13 +90,6 @@ export const themes = `
       theme="purple"
     />
   </Cell>
-  <Cell>
-    <MessageBoxFunctionalLayout
-      title="Green"
-      confirmText="Success"
-      theme="green"
-    />
-  </Cell>
 </Layout>`;
 
 export const scrollbar = `

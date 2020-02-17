@@ -34,4 +34,11 @@ describe('generateDataAttr', () => {
 
     expect(result).toEqual({ 'data-disabled': false });
   });
+
+  it('should return lowercased data attributes', () => {
+    const props = { testProp: 'test' };
+    const result = generateDataAttr(props, ['testProp']);
+
+    expect(result).toEqual({ 'data-testprop': 'test' });
+  });
 });
