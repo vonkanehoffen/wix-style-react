@@ -36,6 +36,10 @@ export interface MessageBoxFunctionalLayoutProps extends WixComponentProps {
 export default class MessageBoxFunctionalLayout extends WixComponent<
   MessageBoxFunctionalLayoutProps
 > {}
+export class MessageBoxLayout2 extends WixComponent<
+  MessageBoxFunctionalLayoutProps
+  > {}
+
 
 export type MessageBoxFunctionalLayoutTheme =
   | 'red'
@@ -44,6 +48,7 @@ export type MessageBoxFunctionalLayoutTheme =
   | 'green';
 
 export const HeaderLayout: React.SFC<HeaderLayoutProps>;
+export const HeaderLayout1: React.SFC<HeaderLayoutProps>;
 export interface HeaderLayoutProps {
   title?: React.ReactNode;
   onCancel?: React.MouseEventHandler<HTMLButtonElement>;
@@ -58,6 +63,7 @@ export type HeaderLayoutTheme =
   | 'purple';
 
 export const FooterLayout: React.SFC<FooterLayoutProps>;
+export const FooterLayout1: React.SFC<FooterLayoutProps>;
 export interface FooterLayoutProps {
   confirmText?: React.ReactNode;
   confirmPrefixIcon?: IconElement;

@@ -24,9 +24,11 @@ export interface MessageBoxMarketerialLayoutProps extends WixComponentProps {
 export class MessageBoxMarketerialLayout extends WixComponent<
   MessageBoxMarketerialLayoutProps
 > {}
+export class MessageBoxLayout1 extends WixComponent<
+  MessageBoxMarketerialLayoutProps
+  > {}
 
 export default MessageBoxMarketerialLayout;
-
 export type MessageBoxMarketerialLayoutTheme = 'blue' | 'purple' | 'white';
 export type MessageBoxMarketerialLayoutThemePrimaryButtonTheme =
   | 'blue'
