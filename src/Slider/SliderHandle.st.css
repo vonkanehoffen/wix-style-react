@@ -31,7 +31,7 @@
   touch-action: pan-x;
   cursor: pointer;
   outline: none;
-  transition: transform .1s; /* Animation */
+  transition: transform .2s; /* Animation */
 }
 
 /* extending clickable area */
@@ -88,6 +88,7 @@
   box-shadow: value(shadow30);
   user-select: none;
   transform: translateX(-50%);
+  transition: transform .4s;
 }
 
 .tooltip::after {
