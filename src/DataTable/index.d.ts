@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { OmitPolyfill } from '../common';
+import { TooltipNewProps } from '../Tooltip';
+
 export interface DataTableProps {
   dataHook?: string;
   id?: string;
@@ -81,6 +84,9 @@ export type DataTableColumn = {
   sortable?: boolean;
   sortDescending?: boolean;
   style?: React.CSSProperties;
-  infoTooltipProps?: any; // TODO: replace with OmitPolyfill<TooltipProps, 'dataHook' | 'moveBy'>
+  infoTooltipProps?: OmitPolyfill<
+    Partial<TooltipNewProps>,
+    'dataHook' | 'moveBy'
+  >;
   align?: DataTableColumnAlign;
 };

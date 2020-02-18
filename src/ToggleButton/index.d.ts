@@ -1,5 +1,7 @@
 import * as React from 'react';
-import {ButtonWithAsProp} from '../Button';
+import { ButtonWithAsProp } from '../Button';
+import { TooltipNewProps } from '../Tooltip';
+import { OmitPolyfill } from '../common';
 
 export type ToggleButtonProps = ButtonWithAsProp<{
   skin?: ToggleButtonSkin;
@@ -7,8 +9,7 @@ export type ToggleButtonProps = ButtonWithAsProp<{
   disabled?: boolean;
   dataHook?: string;
   tooltipContent?: React.ReactNode;
-  // TODO: replace with TooltipProps once merged into WSR
-  tooltipProps?: object;
+  tooltipProps?: OmitPolyfill<TooltipNewProps, 'size' | 'content' | 'dataHook' | 'upgrade'>;
 }>;
 
 export default class ToggleButton extends React.Component<ToggleButtonProps> {}

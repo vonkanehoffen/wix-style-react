@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { OmitPolyfill } from '../common';
+import { TooltipNewProps } from '../Tooltip';
+
 export interface FillButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -6,7 +9,7 @@ export interface FillButtonProps
   disabled?: boolean;
   tooltipContent?: React.ReactNode;
   fill?: string;
-  tooltipProps?: any; // TODO: replace with TooltipProps once merged to WSR
+  tooltipProps?: OmitPolyfill<TooltipNewProps, 'dataHook' | 'content' | 'size' | 'upgrade'>;
 }
 
 export default class FillButton extends React.PureComponent<FillButtonProps> {}

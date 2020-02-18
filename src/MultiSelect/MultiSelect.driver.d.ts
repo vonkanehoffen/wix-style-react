@@ -1,5 +1,6 @@
 import { InputWithOptionsDriver } from '../InputWithOptions/InputWithOptions.driver';
 import { TagDriver } from '../Tag/Tag.driver';
+import { OmitPolyfill } from '../common';
 
 export interface MultiSelectDriver
   extends OmitPolyfill<InputWithOptionsDriver, 'driver'> {

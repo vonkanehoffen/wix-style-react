@@ -1,20 +1,15 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { SyntheticEventData } from 'react-dom/test-utils';
-
+import { FocusOptionsPolyfill } from '../common';
+import { InputTheme, InputSize } from './index';
 export interface InputDriver extends BaseDriver {
-  // TODO: can trigger be more strict?
-  trigger: (
-    trigger: string,
-    event: SyntheticEventData,
-  ) => void;
-  focus: (options: __WSR.BaseComponents.FocusOptionsPolyfill) => void; // todo
+  trigger: (trigger: string, event: SyntheticEventData) => void;
+  focus: (options: FocusOptionsPolyfill) => FocusOptionsPolyfill;
   blur: () => void;
   getName: () => string | null;
   getMaxLength: () => string | null;
   getType: () => string | null;
-  keyDown: (
-    key: SyntheticEventData['key'],
-  ) => void;
+  keyDown: (key: SyntheticEventData['key']) => void;
   click: () => void;
   clickSuffix: () => void;
   clickUnit: () => void;
@@ -66,8 +61,8 @@ export interface InputDriver extends BaseDriver {
   isFocusedStyle: () => boolean;
   isHoveredStyle: () => boolean;
   isDisabled: () => boolean;
-  isOfStyle: (style: __WSR.Input.InputTheme) => boolean;
-  isOfSize: (size: __WSR.Input.InputSize) => boolean;
+  isOfStyle: (style: InputTheme) => boolean;
+  isOfSize: (size: InputSize) => boolean;
   getSize: () => string | null;
   isFocus: () => boolean;
   startComposing: () => void;

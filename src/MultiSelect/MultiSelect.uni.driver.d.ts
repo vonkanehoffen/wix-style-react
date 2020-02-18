@@ -1,13 +1,11 @@
-import { InputWithOptionsUniDriver } from '../InputWithOptions/InputWithOptions.private.uni.driver';
+import { InputWithOptionsUniDriver } from '../InputWithOptions/InputWithOptions.uni.driver';
 import { TextSize, TextWeight } from '../Text';
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
-import { TagUniDriver } from '../Tag/Tag.private.uni.driver';
+import { TagUniDriver } from '../Tag/Tag.uni.driver';
+import { OmitPolyfill } from '../common';
 
 export interface MultiSelectUniDriver
-  extends __WSR.BaseComponents.OmitPolyfill<
-    InputWithOptionsUniDriver,
-    'driver'
-  > {
+  extends OmitPolyfill<InputWithOptionsUniDriver, 'driver'> {
   driver: {
     getMaxHeight: () => Promise<any>;
     clickOnInputWrapper: () => Promise<void>;

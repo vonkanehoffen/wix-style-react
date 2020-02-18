@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { OmitPolyfill } from '../common';
+import { TooltipNewProps } from '../Tooltip';
 
 export interface ImageViewerProps {
   imageUrl?: string;
@@ -8,8 +10,8 @@ export interface ImageViewerProps {
    * @deprecated
    * @see tooltipProps
    */
-  tooltipPlacement?: any; // TODO: replace with TooltipProps["placement"];
-  tooltipProps?: any; // TODO: replace with OmitPolyfill<TooltipProps, "content">;
+  tooltipPlacement?: TooltipNewProps['placement'];
+  tooltipProps?: OmitPolyfill<TooltipNewProps, 'content' | 'upgrade'>;
   showUpdateButton?: boolean;
   showRemoveButton?: boolean;
   onAddImage?: React.MouseEventHandler<HTMLElement>;

@@ -1,18 +1,19 @@
-import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
+import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
+import { DropdownLayoutDriver } from '../DropdownLayout/DropdownLayout.driver';
 
 export interface CalendarDriver extends BaseDriver {
   close: () => any;
   isVisible: () => boolean;
   getCurrentMonthWithYear: () => string | null;
-  getMonthAndYear:() => Array<string | null>;
-  getNthWeekDayName: (n:number) => HTMLElement;
-  clickOnNthDay: (n:number) => any;
+  getMonthAndYear: () => Array<string | null>;
+  getNthWeekDayName: (n: number) => HTMLElement;
+  clickOnNthDay: (n: number) => any;
   clickDay: (date: Date) => any;
   isDayActive: (date: Date) => boolean;
   clickOnNthDayOfTheMonth: (n: number) => any;
   clickOnSelectedDay: () => any;
   clickOnYearDropdown: () => any;
-  clickOnMonthDropdown: () =>  any;
+  clickOnMonthDropdown: () => any;
   clickOnNthYear: (n: number) => any;
   clickOnPrevMonthButton: () => any;
   clickOnNextMonthButton: () => any;
@@ -33,8 +34,8 @@ export interface CalendarDriver extends BaseDriver {
   triggerKeyDown: () => any;
   isFocusedDayVisuallyUnfocused: () => boolean;
   isTwoMonthsLayout: () => boolean;
-  // getMonthDropdownDriver: () => dropdownUniDriverFactory;
-  // getYearDropdownDriver: () => ;
+  getMonthDropdownDriver: () => DropdownLayoutDriver;
+  getYearDropdownDriver: () => DropdownLayoutDriver;
   getNumOfVisibleMonths: () => number;
   getNumOfSelectedDays: () => number;
   getSelectedDays: () => number;

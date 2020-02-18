@@ -3,7 +3,7 @@ import { SyntheticEventData, Simulate } from 'react-dom/test-utils';
 import { InputAreaTheme } from './index';
 
 export interface InputAreaDriver<T> extends BaseDriver {
-  trigger: (trigger: Simulate, event: SyntheticEventData) => void;
+  trigger: (trigger: keyof typeof Simulate, event: SyntheticEventData) => void;
   focus: () => void;
   enterText: (text: string) => void;
   getValue: () => string;

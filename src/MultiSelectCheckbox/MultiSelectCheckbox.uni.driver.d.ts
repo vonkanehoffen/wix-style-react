@@ -1,11 +1,9 @@
-import { InputWithOptionsUniDriver } from '../InputWithOptions/InputWithOptions.private.uni.driver';
+import { InputWithOptionsUniDriver } from '../InputWithOptions/InputWithOptions.uni.driver';
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
+import { OmitPolyfill } from '../common';
 
 export interface MultiSelectCheckboxUniDriver
-  extends __WSR.BaseComponents.OmitPolyfill<
-    InputWithOptionsUniDriver,
-    'driver'
-  > {
+  extends OmitPolyfill<InputWithOptionsUniDriver, 'driver'> {
   driver: {
     getNumOfLabels: () => Promise<number>;
     getLabels: () => Promise<string[]>;

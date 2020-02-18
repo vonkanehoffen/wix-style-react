@@ -93,7 +93,7 @@ function MultiSelectWithAllProps() {
       textOverflow="clip"
       theme="amaterial"
       title="title"
-      tooltipPlacement="auto"
+      tooltipPlacement="bottom"
       type="text"
       updateControlledOnClear
       value="value"

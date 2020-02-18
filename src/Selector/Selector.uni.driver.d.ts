@@ -14,8 +14,8 @@ export interface SelectorUniDriver extends BaseUniDriver {
   isChecked: () => Promise<boolean>;
   hasImage: () => Promise<boolean>;
   getImage: () => Promise<HTMLElement>;
-  titleTextDriver: () => Promise<TextUniDriver>; // TODO: is this a promise?
-  subtitleTextDriver: () => Promise<TextUniDriver>; // TODO: is this a promise?
+  titleTextDriver: () => TextUniDriver;
+  subtitleTextDriver: () => TextUniDriver;
   hasExtraNode: () => Promise<boolean>;
   getExtraNode: () => Promise<HTMLElement>;
   toggle: () => Promise<void>;

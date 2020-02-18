@@ -37,13 +37,11 @@ function InputAreaWithAllProps() {
       name="name"
       onBlur={_ev => {}}
       onChange={_ev => {}}
-      onClear={() => {}}
       onEnterPressed={() => {}}
       onEscapePressed={() => {}}
       onFocus={_ev => {}}
       onKeyDown={_ev => {}}
       onKeyUp={_ev => {}}
-      onTooltipShow={() => {}}
       placeholder="placeholder"
       readOnly
       resizable

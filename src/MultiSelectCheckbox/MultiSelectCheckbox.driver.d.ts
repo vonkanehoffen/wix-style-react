@@ -1,7 +1,8 @@
 import { InputWithOptionsDriver } from '../InputWithOptions/InputWithOptions.driver';
+import { OmitPolyfill } from '../common';
 
 export interface MultiSelectCheckboxDriver
-  extends __WSR.BaseComponents.OmitPolyfill<InputWithOptionsDriver, 'driver'> {
+  extends OmitPolyfill<InputWithOptionsDriver, 'driver'> {
   driver: {
     getNumOfLabels: () => number;
     getLabels: () => string[];

@@ -1,6 +1,9 @@
 import * as React from 'react';
-import WixComponent, {WixComponentProps } from '../BaseComponents/WixComponent';
-import {InputStatusError, InputStatusWarning} from '../Input';
+import WixComponent, {
+  WixComponentProps,
+} from '../BaseComponents/WixComponent';
+import { InputStatusError, InputStatusWarning } from '../Input';
+import { TooltipOldProps } from '../Tooltip';
 
 export interface InputAreaProps extends WixComponentProps {
   ariaControls?: string;
@@ -25,15 +28,11 @@ export interface InputAreaProps extends WixComponentProps {
   minHeight?: string;
   onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
-  // TODO: is this needed? - I think it is deprecated
-  onClear?: Function;
   onEnterPressed?: () => void;
   onEscapePressed?: () => void;
   onFocus?: (e?: React.FocusEvent<HTMLTextAreaElement>) => void;
   onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   onKeyUp?: React.KeyboardEventHandler<HTMLTextAreaElement>;
-  // TODO: is this needed? - I think it is deprecated
-  onTooltipShow?: Function;
   placeholder?: string;
   readOnly?: boolean;
   resizable?: boolean;
@@ -43,7 +42,7 @@ export interface InputAreaProps extends WixComponentProps {
   style?: InputAreaTheme;
   tabIndex?: number;
   theme?: InputAreaTheme;
-  tooltipPlacement?: string; // TODO: replace with TooltipProps['placement']
+  tooltipPlacement?: TooltipOldProps['placement'];
   value?: string;
   status?: InputStatusError | InputStatusWarning;
   statusMessage?: string;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TooltipOldProps } from '../Tooltip';
 
 export interface PopoverMenuProps {
   dataHook?: string;
@@ -8,7 +9,7 @@ export interface PopoverMenuProps {
   buttonHeight?: PopoverMenuHeight;
   maxWidth?: string | number;
   appendToParent?: boolean;
-  appendTo?: any; // TODO: replace with TooltipProps['appendTo']
+  appendTo?: TooltipOldProps['appendTo'];
   zIndex?: number;
   showArrow?: boolean;
   onShow?: () => void;

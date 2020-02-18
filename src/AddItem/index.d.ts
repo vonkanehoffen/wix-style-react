@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { TooltipNewProps } from '../Tooltip';
+import { OmitPolyfill } from '../common';
 
 export interface AddItemProps {
   disabled?: boolean;
@@ -8,7 +10,7 @@ export interface AddItemProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   dataHook?: string;
   /** @deprecated do not use this prop. Check for other available props. */
-  tooltipProps?: any; // TODO: replace with TooltipProps once merged into wsr
+  tooltipProps?: OmitPolyfill<Partial<TooltipNewProps>, 'upgrade' | 'dataHook'>;
   tooltipAppendTo?: AddItemAppendTo;
   tooltipFlip?: boolean;
   tooltipFixed?: boolean;

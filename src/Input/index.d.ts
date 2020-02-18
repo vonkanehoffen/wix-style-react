@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TooltipOldProps } from '../Tooltip';
 
 export interface InputProps {
   ariaControls?: string;
@@ -59,8 +60,7 @@ export interface InputProps {
   textOverflow?: string;
   theme?: InputTheme;
   title?: string;
-  // TODO: replace with TooltipProps['placement'] once merged into WSR
-  tooltipPlacement?: import('wix-ui-core/popover').Placement;
+  tooltipPlacement?: TooltipOldProps['placement'];
   type?: string;
   value?: string | number;
   withSelection?: boolean;

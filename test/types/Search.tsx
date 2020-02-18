@@ -73,7 +73,7 @@ function SearchWithAllProps() {
       textOverflow="clip"
       theme="amaterial"
       title="title"
-      tooltipPlacement="auto"
+      tooltipPlacement="left"
       type="text"
       updateControlledOnClear
       value="value"

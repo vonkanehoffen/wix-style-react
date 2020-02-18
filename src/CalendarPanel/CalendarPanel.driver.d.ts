@@ -1,9 +1,10 @@
 import { BaseDriver } from 'wix-ui-test-utils';
 import { DropdownLayoutDriver } from '../DropdownLayout/DropdownLayout.driver';
+import { CalendarDriver } from '../Calendar/Calendar.driver';
 
 export interface CalendarPanelDriver extends BaseDriver {
   exists: () => boolean;
-  calendarDriver: () => any; // todo: change to calendar driver when type is added
+  calendarDriver: () => CalendarDriver;
   presetsDropdownLayoutDriver: () => DropdownLayoutDriver;
   isDropdownExists: () => boolean;
   findByDataHook: (dataHook: string) => boolean;

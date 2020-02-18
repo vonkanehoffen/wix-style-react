@@ -1,15 +1,28 @@
 import * as React from 'react';
-import {IconElement} from '../common';
+import { IconElement } from '../common';
+import { PopoverMenuProps as PopoverMenuPropsNew } from '../../beta/PopoverMenu';
+import { PopoverMenuProps as PopoverMenuPropsOld } from '../PopoverMenu';
+import {OmitPolyfill} from '../common';
 
-export interface TableActionCellProps {
+type CommonTableActionCellProps = {
   dataHook?: string;
   primaryAction?: TableActionCellPrimaryAction;
   secondaryActions?: TableActionCellSecondaryAction[];
   numOfVisibleSecondaryActions?: number;
   alwaysShowSecondaryActions?: boolean;
-  popoverMenuProps?: any; // TODO: replace with PopoverMenuProps
-  upgrade?: boolean;
-}
+};
+
+type TableActionCellOld = CommonTableActionCellProps & {
+  upgrade?: false;
+  popoverMenuProps?: PopoverMenuPropsOld;
+};
+
+type TableActionCellNew = CommonTableActionCellProps & {
+  upgrade: true;
+  popoverMenuProps?: OmitPolyfill<PopoverMenuPropsNew, 'triggerElement'>;
+};
+
+export type TableActionCellProps = TableActionCellOld | TableActionCellNew;
 
 export const TableActionCell: React.SFC<TableActionCellProps>;
 export default TableActionCell;

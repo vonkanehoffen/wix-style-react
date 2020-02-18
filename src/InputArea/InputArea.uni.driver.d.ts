@@ -4,7 +4,7 @@ import { InputAreaTheme } from './index';
 import { UniDriver } from 'wix-ui-test-utils/unidriver';
 
 export interface InputAreaUniDriver extends BaseUniDriver {
-  trigger: (trigger: Simulate, event: SyntheticEventData) => Promise<void>;
+  trigger: (trigger: keyof typeof Simulate, event: SyntheticEventData) => Promise<void>;
   focus: () => Promise<void>;
   enterText: (text: string) => Promise<string>;
   getValue: () => Promise<string>;

@@ -9,7 +9,7 @@ export interface ColorPickerUniDriver extends BaseUniDriver {
   historyCurrentColor: () => Promise<string>;
   historyPreviousColor: () => Promise<string>;
   clickAddColor: () => Promise<void>;
-  getChildren: () => Promise<UniDriver | null>; // TODO: is this is not a promise
+  getChildren: () => UniDriver;
   selectRgbTab: () => Promise<void>;
   selectHsbTab: () => Promise<void>;
 }

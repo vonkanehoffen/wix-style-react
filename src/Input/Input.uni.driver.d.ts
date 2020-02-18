@@ -1,5 +1,6 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/base-driver';
 import { SyntheticEventData } from 'react-dom/test-utils';
+import { InputTheme, InputSize } from './index';
 
 export interface InputUniDriver extends BaseUniDriver {
   click: () => Promise<void>;
@@ -26,9 +27,9 @@ export interface InputUniDriver extends BaseUniDriver {
   getValue: () => Promise<string>;
   getText: () => Promise<string>;
   getPlaceholder: () => Promise<string | null>;
-  isOfStyle: (style: __WSR.Input.InputTheme) => Promise<boolean>;
-  isOfSize: (size: __WSR.Input.InputSize) => Promise<boolean>;
-  getSize: () => Promise<__WSR.Input.InputSize | null>;
+  isOfStyle: (style: InputTheme) => Promise<boolean>;
+  isOfSize: (size: InputSize) => Promise<boolean>;
+  getSize: () => Promise<InputSize | null>;
   isDisabled: () => Promise<boolean>;
   isHoveredStyle: () => Promise<boolean>;
   isFocusedStyle: () => Promise<boolean>;
@@ -49,19 +50,14 @@ export interface InputUniDriver extends BaseUniDriver {
   focus: () => Promise<void>;
   blur: () => Promise<void>;
   keyUp: () => Promise<void>;
-  keyDown: (
-    eventData: SyntheticEventData,
-  ) => Promise<void>;
+  keyDown: (eventData: SyntheticEventData) => Promise<void>;
   paste: () => Promise<void>;
   trigger(value: 'focus'): Promise<void>;
   trigger(value: 'blur'): Promise<void>;
   trigger(value: 'keyUp'): Promise<void>;
   trigger(value: 'paste'): Promise<void>;
   trigger(value: 'change'): Promise<void>;
-  trigger(
-    value: 'keyDown',
-    event: SyntheticEventData,
-  ): Promise<void>;
+  trigger(value: 'keyDown', event: SyntheticEventData): Promise<void>;
   isFocus: () => Promise<boolean>;
   hasHelp: () => Promise<boolean>;
   clickUnit: () => Promise<void>;

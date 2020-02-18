@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { TooltipNewProps } from '../Tooltip';
+import { OmitPolyfill } from '../common';
+
 export interface FormFieldProps {
   children?:
     | React.ReactNode
@@ -11,7 +14,7 @@ export interface FormFieldProps {
   labelPlacement?: FormFieldLabelPlacement;
   required?: boolean;
   infoContent?: React.ReactNode;
-  infoTooltipProps?: any; // TODO: replace with TooltipProps onces in WSR
+  infoTooltipProps?: OmitPolyfill<TooltipNewProps, 'content' | 'dataHook' | 'upgrade'>;
   suffix?: React.ReactNode;
   id?: string;
   dataHook?: string;
