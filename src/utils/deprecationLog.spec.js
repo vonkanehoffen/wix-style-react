@@ -2,6 +2,8 @@ import deprecationLog from './deprecationLog';
 
 const cachedConsoleWarn = global.console.warn;
 
+jest.unmock('./deprecationLog');
+
 describe('deprecationLog', () => {
   beforeEach(() => {
     global.console.warn = jest.fn();
