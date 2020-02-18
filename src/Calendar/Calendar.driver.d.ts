@@ -1,11 +1,10 @@
-import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
-import {dropdownLayoutDriverFactory} from "../DropdownLayout/DropdownLayout.driver";
+import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 
 export interface CalendarDriver extends BaseDriver {
   close: () => any;
   isVisible: () => boolean;
   getCurrentMonthWithYear: () => string | null;
-  getMonthAndYear:() => Array[string | null];
+  getMonthAndYear:() => Array<string | null>;
   getNthWeekDayName: (n:number) => HTMLElement;
   clickOnNthDay: (n:number) => any;
   clickDay: (date: Date) => any;
