@@ -31,9 +31,12 @@ class VariableInput extends React.PureComponent {
     /** Callback function for changes while typing.
      * `onChange(value: String): void` */
     onChange: func,
-    /** Callback funciton when focusing out. Also, after calling `insertVariable()`
+    /** Callback funciton after calling `insertVariable()` and `setValue()`
      * `onSubmit(value: String): void` */
     onSubmit: func,
+    /** Callback funciton when focusing out.`
+     * `onBlur(value: String): void` */
+    onBlur: func,
     /** Use to display a status indication for the user.*/
     status: oneOf(['error', 'warning']),
     /** The status (error/warning) message to display when hovering the status icon, if not given or empty there will be no tooltip*/
@@ -78,11 +81,7 @@ class VariableInput extends React.PureComponent {
   }
   componentDidMount() {
     const { initialValue } = this.props;
-    this._setStringValue(initialValue, editorState => {
-      this.setState({
-        editorState: EditorState.moveSelectionToEnd(editorState),
-      });
-    });
+    this._setStringValue(initialValue);
   }
   _renderIndicator = (status, statusMessage) => {
     switch (status) {
@@ -160,33 +159,28 @@ class VariableInput extends React.PureComponent {
   _inputToTagSize = inputSize => {
     return inputToTagsSize[inputSize] || VariableInput.defaultProps.size;
   };
-  _onSubmit = () => {
+  _toString = () => {
     const {
-      onSubmit = () => {},
       variableTemplate: { prefix, suffix },
     } = this.props;
     const { editorState } = this.state;
-    onSubmit(
-      EditorUtilities.convertToString({
-        editorState,
-        prefix,
-        suffix,
-      }),
-    );
+    return EditorUtilities.convertToString({
+      editorState,
+      prefix,
+      suffix,
+    });
+  };
+  _onBlur = () => {
+    const { onBlur = () => {} } = this.props;
+    onBlur(this._toString());
+  };
+  _onSubmit = () => {
+    const { onSubmit = () => {} } = this.props;
+    onSubmit(this._toString());
   };
   _onChange = () => {
-    const {
-      onChange = () => {},
-      variableTemplate: { prefix, suffix },
-    } = this.props;
-    const { editorState } = this.state;
-    onChange(
-      EditorUtilities.convertToString({
-        editorState,
-        prefix,
-        suffix,
-      }),
-    );
+    const { onChange = () => {} } = this.props;
+    onChange(this._toString());
   };
   _onEditorChange = editorState => {
     this._setEditorState(editorState);
@@ -201,7 +195,7 @@ class VariableInput extends React.PureComponent {
     if (EditorUtilities.isBlured(editorStateBefore, updateEditorState)) {
       // onChange is called after the editor blur handler
       // and we can't reflect the changes there, we moved the logic here.
-      triggerCallback = this._onSubmit;
+      triggerCallback = this._onBlur;
       if (
         EditorUtilities.hasUnparsedEntity(updateEditorState, prefix, suffix)
       ) {
@@ -241,7 +235,9 @@ class VariableInput extends React.PureComponent {
     });
   };
   _setStringValue = (str, afterUpdated = () => {}) => {
-    const updatedEditorState = this._stringToContentState(str);
+    const updatedEditorState = EditorState.moveSelectionToEnd(
+      this._stringToContentState(str),
+    );
     this._setEditorState(updatedEditorState, () => {
       afterUpdated(updatedEditorState);
     });

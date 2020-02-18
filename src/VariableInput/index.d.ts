@@ -9,8 +9,9 @@ export interface VariableInputProps {
   multiline?: boolean,
   rows?: number,
   size?: VariableInputSize,
-  onChange: (value:string) => void,
+  onChange?: (value:string) => void,
   onSubmit?: (value:string) => void,
+  onBlur?: (value:string) => void,
   placeholder?: string,
   variableParser?: (value:string) => string|boolean,
   variableTemplate?: {

@@ -221,18 +221,23 @@ const pushAndKeepSelection = ({ editorState, content }) => {
       .toJS(),
   ).indexOf(selectionStateBefore.getAnchorKey());
   const updatedEditorState = EditorState.push(editorState, content);
-  const blockKey = Object.keys(
-    updatedEditorState
-      .getCurrentContent()
-      .getBlockMap()
-      .toJS(),
-  )[blockIndex];
+  const blockMap = updatedEditorState
+    .getCurrentContent()
+    .getBlockMap()
+    .toJS();
+  const blockKeys = Object.keys(blockMap);
+  const blockKey = blockKeys[blockIndex];
+  const blockOffset = selectionStateBefore.getAnchorOffset();
+  if (!blockKey || blockOffset > blockMap[blockKey].text.length) {
+    // Block not exists in new array, getting the last block and move to end
+    return EditorState.moveSelectionToEnd(updatedEditorState);
+  }
   // Keep selection in the same location after updating content, keys are updating
   const selectionAfter = updatedEditorState.getSelection().merge({
     anchorKey: blockKey,
-    anchorOffset: selectionStateBefore.getAnchorOffset(),
+    anchorOffset: blockOffset,
     focusKey: blockKey,
-    focusOffset: selectionStateBefore.getFocusOffset(),
+    focusOffset: blockOffset,
     hasFocus: false,
   });
   return EditorState.acceptSelection(updatedEditorState, selectionAfter);

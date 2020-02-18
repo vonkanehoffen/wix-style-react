@@ -5,6 +5,7 @@ import publicDriverFactory from '../VariableInput.uni.driver';
 import privateDriverFactory from './VariableInput.private.uni.driver';
 import VariableInput from '../VariableInput';
 import { sizeTypes } from '../constants';
+import { selectionBehaviorPolyfill } from '../../../testkit/polyfills';
 
 describe('VariableInput', () => {
   const createDriver = createUniDriverFactory(privateDriverFactory);
@@ -14,7 +15,13 @@ describe('VariableInput', () => {
   };
   const variableParser = value =>
     value === variableEntity.value ? variableEntity.text : false;
+  beforeAll(() => {
+    selectionBehaviorPolyfill.install();
+  });
 
+  afterAll(() => {
+    selectionBehaviorPolyfill.uninstall();
+  });
   describe('initialValue', () => {
     it('should render the text when `initialValue` prop is plain text', async () => {
       const text = 'Some text';
@@ -242,6 +249,19 @@ describe('VariableInput', () => {
         <VariableInput onChange={callback} variableParser={variableParser} />,
       );
       await driver.enterText(expectedHtmlValue);
+      expect(callback).toHaveBeenCalledWith(expectedHtmlValue);
+    });
+  });
+  describe('onBlur', () => {
+    it('should invoke `onBlur` with string while blur', async () => {
+      const callback = jest.fn();
+      const expectedHtmlValue = `{{${variableEntity.value}}} `;
+      const driver = createDriver(
+        <VariableInput onBlur={callback} variableParser={variableParser} />,
+      );
+      await driver.focus();
+      await driver.enterText(expectedHtmlValue);
+      await driver.blur();
       expect(callback).toHaveBeenCalledWith(expectedHtmlValue);
     });
   });

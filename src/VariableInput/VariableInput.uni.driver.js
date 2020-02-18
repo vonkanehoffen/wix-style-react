@@ -30,6 +30,13 @@ export default (base, body) => {
         contentElement.sendKeys(text);
       }
     },
+    blur: async () => {
+      if (base.type === 'react') {
+        return ReactBase(getContent(base)).blur();
+      } else if (base.type === 'puppeteer') {
+        await page.$eval('.public-DraftEditor-content', e => e.blur());
+      }
+    },
     hasError: async () => await getErrorIndicator(base).exists(),
     getErrorMessage: () => errorIndicatorDriver(base, body).getErrorMessage(),
     hasWarning: async () => await getWarningIndicator(base).exists(),
