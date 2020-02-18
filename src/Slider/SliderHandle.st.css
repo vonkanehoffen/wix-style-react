@@ -15,7 +15,6 @@
 
 :vars {
   rootSize: 12px;
-  rootSizeWithState: 18px;
   railHeight: 3px;
 }
 
@@ -32,6 +31,7 @@
   touch-action: pan-x;
   cursor: pointer;
   outline: none;
+  transition: transform .1s; /* Animation */
 }
 
 /* extending clickable area */
@@ -61,10 +61,8 @@
 
 .root:not(:disabled):hover,
 .root:not(:disabled):active {
-  width: value(rootSizeWithState);
-  height: value(rootSizeWithState);
-  margin-left: calc(value(rootSizeWithState)/ -2);
-  margin-top: -3px;
+  transform: scale(1.5);
+  margin-left: calc(value(rootSize)/ -2);
 }
 
 .root:not(:active):not(:hover):not(:disabled):focus-visible {
