@@ -13,7 +13,7 @@ const files = [
   ['Button.bundle.min.js', 10],
   ['Calendar.bundle.min.js', 74],
   ['CalendarPanel.bundle.min.js', 75],
-  ['CalendarPanelFooter.bundle.min.js', 79],
+  ['CalendarPanelFooter.bundle.min.js', 81],
   ['Card.bundle.min.js', 23],
   ['CardGalleryItem.bundle.min.js', 65],
   ['Carousel.bundle.min.js', 68],
