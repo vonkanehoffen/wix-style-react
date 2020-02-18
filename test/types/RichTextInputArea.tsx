@@ -5,7 +5,6 @@ import { richTextInputAreaTestkitFactory as richTextInputAreaEnzymeTestkitFactor
 import { richTextInputAreaTestkitFactory as richTextInputAreaPuppeteerTestkitFactory } from '../../dist/testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
-import { EditorState } from 'draft-js';
 
 function RichTextInputAreaWithMandatoryProps() {
   return <RichTextInputArea onChange={() => {}} />;
@@ -20,7 +19,7 @@ function RichTextInputAreaWithAllProps() {
       disabled={true}
       status="error"
       statusMessage="value"
-      onChange={(value: EditorState) => {}}
+      onChange={(value:any) => {}}
       maxHeight="value"
       texts={{
         toolbarButtons: {

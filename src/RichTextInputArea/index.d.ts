@@ -7,7 +7,7 @@ export interface RichTextInputAreaProps {
   disabled?: boolean;
   status?: 'error';
   statusMessage?: string;
-  onChange?: import('draft-js').EditorProps['onChange'];
+  onChange?: Function;
   maxHeight?: string;
   texts?: texts;
 }

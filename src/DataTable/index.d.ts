@@ -66,7 +66,7 @@ export interface DataTableProps {
   virtualized?: boolean;
   virtualizedTableHeight?: number;
   virtualizedLineHeight?: number;
-  virtualizedListRef?: React.LegacyRef<import('react-window').VariableSizeList>;
+  virtualizedListRef?: React.LegacyRef<any>;
   selectedRowsIds?: (string | number)[];
 }
 
