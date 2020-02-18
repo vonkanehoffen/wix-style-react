@@ -42,6 +42,10 @@ $sliderMarkTextSize: 18px;
     left: 0;
     right: 0;
   }
+
+  &:global(.rc-slider-disabled) {
+    cursor: default;
+  }
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-rail) {
@@ -74,7 +78,6 @@ $sliderMarkTextSize: 18px;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  cursor: pointer;
   color: $D10;
 }
 
