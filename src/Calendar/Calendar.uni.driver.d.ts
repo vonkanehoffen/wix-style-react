@@ -1,0 +1,43 @@
+import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
+
+export interface CalendarUniDriver extends BaseUniDriver {
+  exists: () => Promise<boolean>;
+  close: () => Promise<any>;
+  isVisible: () => Promise<boolean>;
+  getCurrentMonthWithYear: () => Promise<string>;
+  getMonthAndYear:() => Promise<Array<string>>;
+  getNthWeekDayName: (n:number) => Promise<HTMLElement>;
+  clickOnNthDay: (n:number) => Promise<any>;
+  clickDay: (date: Date) => Promise<any>;
+  isDayActive: (date: Date) => Promise<boolean>;
+  clickOnNthDayOfTheMonth: (n: number) => Promise<any>;
+  clickOnSelectedDay: () => Promise<any>;
+  clickOnYearDropdown: () => Promise<any>;
+  clickOnMonthDropdown: () =>  Promise<any>;
+  clickOnNthYear: (n: number) => Promise<any>;
+  clickOnPrevMonthButton: () => Promise<any>;
+  clickOnNextMonthButton: () => Promise<any>;
+  isHeaderVisible: () => Promise<boolean>;
+  isYearDropdownExists: () => Promise<boolean>;
+  isYearCaptionExists: () => Promise<boolean>;
+  isMonthDropdownExists: () => Promise<boolean>;
+  isMonthCaptionExists: () => Promise<boolean>;
+  getMonthCaption: () => Promise<string>;
+  getMonthDropdownLabel: () => Promise<string>;
+  getSelectedYear: () => Promise<string>;
+  getFocusedDay: () => Promise<string | null>;
+  getFocusedDayElement: () => Promise<HTMLElement>;
+  pressLeftArrow: () => Promise<any>;
+  pressRightArrow: () => Promise<any>;
+  getSelectedDay: () => Promise<string>;
+  getWidth: () => () => Promise<string | null>;
+  triggerKeyDown: () => Promise<any>;
+  isFocusedDayVisuallyUnfocused: () => Promise<boolean>;
+  isTwoMonthsLayout: () => Promise<boolean>;
+  // getMonthDropdownDriver: () => Promise<dropdownUniDriverFactory>;
+  // getYearDropdownDriver: () => >;
+  getNumOfVisibleMonths: () => Promise<number>;
+  getNumOfSelectedDays: () => Promise<number>;
+  getSelectedDays: () => Promise<number>;
+  mouseClickOutside: () => Promise<boolean>;
+}
