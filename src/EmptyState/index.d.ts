@@ -6,9 +6,10 @@ export interface EmptyStateProps {
   image?: string | JSX.Element;
   classNames?: { imageContainer?: string };
   dataHook?: string;
-  align?: 'start' | 'center' | 'end';
+  align?: EmptyStateAlign;
 }
 
 export const EmptyState: React.SFC<EmptyStateProps>;
 export default EmptyState;
 export type EmptyStateTheme = 'page' | 'page-no-border' | 'section';
+export type EmptyStateAlign = 'start' | 'center' | 'end';

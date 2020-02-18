@@ -5,12 +5,16 @@ import CloseButton from '../CloseButton';
 export interface NotificationProps {
   dataHook?: string;
   show?: boolean;
-  theme?: 'standard' | 'error' | 'success' | 'warning' | 'premium';
-  type?: 'local' | 'global' | 'sticky';
+  theme?: NotificationTheme;
+  type?: NotificationType;
   autoHideTimeout?: number;
   zIndex?: number;
   onClose?: (source: string) => void;
 }
+
+export type NotificationTheme = 'standard' | 'error' | 'success' | 'warning' | 'premium';
+
+export type NotificationType = 'local' | 'global' | 'sticky';
 
 export default class Notification extends React.Component<NotificationProps> {
   static ActionButton: typeof ActionButton;
