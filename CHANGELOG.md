@@ -17,6 +17,7 @@ Types of changes:
 ## Next
 
 ### Added
+- `<StatusIndicator/>` - New component [#5024](https://github.com/wix/wix-style-react/pull/5024)
 - `<VariableInput/>` - add `onBlur` prop [#5009](https://github.com/wix/wix-style-react/pull/5009)
 
 ### Changed
