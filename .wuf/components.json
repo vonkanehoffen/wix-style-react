@@ -460,5 +460,8 @@
   },
   "CustomModal": {
     "path": "src/CustomModal"
+  },
+  "StatusIndicator": {
+    "path": "src/StatusIndicator"
   }
 }
