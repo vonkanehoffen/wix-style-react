@@ -16,16 +16,16 @@ $sliderMarkTextSize: 18px;
   touch-action: none;
   box-sizing: border-box;
   margin: $sliderMarginTop 0 $sliderMarginBottom 0;
-  cursor: pointer;
 
   // extending clickable area
-  &::before {
+  &:not(:global(.rc-slider-disabled))::before {
     content: '';
     position: absolute;
     top: -12px;
     bottom: -12px;
     left: 0;
     right: 0;
+    cursor: pointer;
   }
 }
 
@@ -34,7 +34,7 @@ $sliderMarkTextSize: 18px;
   margin-bottom: 0;
 
   // extending clickable area
-  &::before {
+  &:not(:global(.rc-slider-disabled))::before {
     content: '';
     position: absolute;
     top: -12px;
