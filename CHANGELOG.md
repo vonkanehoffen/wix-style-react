@@ -16,6 +16,9 @@ Types of changes:
 
 ## Next
 
+### Added
+- `<VariableInput/>` - add `onBlur` prop [#5009](https://github.com/wix/wix-style-react/pull/5009)
+
 ### Changed
 
 - `<CounterBadge/>` - Migrate to uni drivers and story page face facelift [#5007](https://github.com/wix/wix-style-react/pull/5007)
