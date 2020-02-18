@@ -290,6 +290,12 @@ export default {
     },
   },
 
+  CustomModal: {
+    props: {
+      children: <div />,
+    },
+  },
+
   ModalSelectorLayout: {
     props: {
       dataSource: () =>

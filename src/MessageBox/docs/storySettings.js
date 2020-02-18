@@ -12,7 +12,7 @@ export const storySettings = {
   },
   custom: {
     kind,
-    story: '9.3 Custom Modal',
+    story: '9.3 Deprecated Custom Modal',
   },
   announcement: {
     kind,
