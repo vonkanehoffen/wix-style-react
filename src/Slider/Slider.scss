@@ -17,15 +17,18 @@ $sliderMarkTextSize: 18px;
   box-sizing: border-box;
   margin: $sliderMarginTop 0 $sliderMarginBottom 0;
 
+  &:not(:global(.rc-slider-disabled)){
+    cursor: pointer;
+  }
+
   // extending clickable area
-  &:not(:global(.rc-slider-disabled))::before {
+  &::before {
     content: '';
     position: absolute;
     top: -12px;
     bottom: -12px;
     left: 0;
     right: 0;
-    cursor: pointer;
   }
 }
 
@@ -34,17 +37,13 @@ $sliderMarkTextSize: 18px;
   margin-bottom: 0;
 
   // extending clickable area
-  &:not(:global(.rc-slider-disabled))::before {
+  &::before {
     content: '';
     position: absolute;
     top: -12px;
     bottom: 0;
     left: 0;
     right: 0;
-  }
-
-  &:global(.rc-slider-disabled) {
-    cursor: default;
   }
 }
 
