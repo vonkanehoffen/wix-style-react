@@ -13,6 +13,7 @@ import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {BadgeDriver} from '../src/Badge/Badge.driver';
 import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
+import {CustomModalDriver} from '../src/CustomModal/CustomModal.uni.driver';
 import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {TimeTableDriver} from '../src/TimeTable/TimeTable.uni.driver';
@@ -160,7 +161,7 @@ declare namespace EnzymeTestkit {
   export const imageTestkitFactory: EnzymeUniTestkitFactory<ImageDriver>;
   export const sidePanelTestkitFactory: EnzymeUniTestkitFactory<SidePanelDriver>;
   export const fontUpgradeTestkitFactory: any;
-  export const customModalTestkitFactory: any;
+  export const customModalTestkitFactory: EnzymeUniTestkitFactory<CustomModalDriver>;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;
