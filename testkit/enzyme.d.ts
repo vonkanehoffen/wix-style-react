@@ -147,7 +147,7 @@ type DeprecatedTestkit = any;
 export const accordionTestkitFactory: EnzymeUniTestkitFactory<AccordionUniDriver>;
 export const addItemTestkitFactory: EnzymeTestkitFactory<AddItemDriver<ReactWrapper>>;
 export const autoCompleteTestkitFactory: EnzymeTestkitFactory<AutoCompleteDriver>;
-export const autoCompleteCompositeTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const autoCompleteCompositeTestkitFactory: DeprecatedTestkit;
 export const avatarTestkitFactory: EnzymeUniTestkitFactory<AvatarDriver>;
 export const badgeTestkitFactory: EnzymeTestkitFactory<BadgeDriver>;
 export const badgeSelectTestkitFactory: EnzymeTestkitFactory<BadgeSelectDriver>;
@@ -162,13 +162,13 @@ export const carouselTestkitFactory: EnzymeTestkitFactory<CarouselDriver>;
 export const checkboxTestkitFactory: EnzymeTestkitFactory<CheckboxDriver>;
 export const circularProgressBarTestkitFactory: EnzymeTestkitFactory<CircularProgressBarDriver>;
 export const closeButtonTestkitFactory: EnzymeUniTestkitFactory<CloseButtonUniDriver>;
-export const colorInputTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const colorInputTestkitFactory: any; // TODO: write type
 export const colorPickerTestkitFactory: EnzymeTestkitFactory<ColorPickerDriver>;
 export const contactItemBuilderTestkitFactory: EnzymeTestkitFactory<ContactItemBuilderDriver>;
 export const counterBadgeTestkitFactory: EnzymeTestkitFactory<CounterBadgeDriver>;
 export const dataTableTestkitFactory: EnzymeTestkitFactory<DataTableDriver>;
 export const dateInputTestkitFactory:  EnzymeUniTestkitFactory<DateInputUniDriver>;
-export const datePickerTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const datePickerTestkitFactory: any; // TODO: write types
 export const dropdownTestkitFactory: EnzymeTestkitFactory<DropdownDriver>;
 export const dropdownBaseTestkitFactory: EnzymeUniTestkitFactory<DropdownBaseUniDriver>;
 export const dropdownLayoutTestkitFactory: EnzymeTestkitFactory<DropdownLayoutDriver>;
@@ -181,7 +181,7 @@ export const floatingHelperTestkitFactory: EnzymeTestkitFactory<FloatingHelperDr
 export const floatingNotificationTestkitFactory: EnzymeUniTestkitFactory<FloatingNotificationUniDriver>;
 export const formFieldTestkitFactory:  EnzymeTestkitFactory<FormFieldDriver>;
 export const genericModalLayoutTestkitFactory: EnzymeTestkitFactory<GenericModalLayoutDriver>;
-export const googleAddressInputWithLabelTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const googleAddressInputWithLabelTestkitFactory: DeprecatedTestkit;
 export const googlePreviewTestkitFactory: EnzymeUniTestkitFactory<GooglePreviewUniDriver>;
 export const headingTestkitFactory: EnzymeTestkitFactory<HeadingDriver>;
 export const highlighterTestkitFactory:  EnzymeTestkitFactory<HighlighterDriver<ReactWrapper>>;
@@ -199,7 +199,7 @@ export const modalTestkitFactory: EnzymeTestkitFactory<ModalDriver<ReactWrapper>
 export const modalSelectorLayoutTestkitFactory: EnzymeTestkitFactory<ModalSelectorLayoutDriver>;
 export const multiSelectTestkitFactory: EnzymeTestkitFactory<MultiSelectDriver>;
 export const multiSelectCheckboxTestkitFactory: EnzymeTestkitFactory<MultiSelectCheckboxDriver>;
-export const multiSelectCompositeTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const multiSelectCompositeTestkitFactory: DeprecatedTestkit;
 export const nestableListTestkitFactory: EnzymeTestkitFactory<NestableListDriver>;
 export const noBorderInputTestkitFactory: EnzymeTestkitFactory<NoBorderInputDriver>;
 export const notificationTestkitFactory: EnzymeTestkitFactory<NotificationDriver>;
@@ -222,7 +222,7 @@ export const skeletonTestkitFactory: EnzymeTestkitFactory<SkeletonDriver>;
 export const sliderTestkitFactory:  EnzymeTestkitFactory<SliderDriver>;
 export const socialPreviewTestkitFactory: EnzymeUniTestkitFactory<SocialPreviewUniDriver>;
 export const sortableListTestkitFactory: EnzymeTestkitFactory<SortableListDriver>;
-export const statsWidgetTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const statsWidgetTestkitFactory: DeprecatedTestkit;
 export const stepperTestkitFactory: EnzymeUniTestkitFactory<StepperUniDriver>;
 export const swatchesTestkitFactory: EnzymeUniTestkitFactory<SwatchesUniDriver>;
 export const tableTestkitFactory: EnzymeTestkitFactory<TableDriver<ReactWrapper>>;
@@ -257,7 +257,7 @@ export const verticalTabsTestkitFactory: EnzymeUniTestkitFactory<VerticalTabsUni
 export const verticalTabsItemTestkitFactory: EnzymeUniTestkitFactory<VerticalTabsItemUniDriver>;
 export const mobilePreviewWidgetTestkitFactory: EnzymeUniTestkitFactory<MobilePreviewWidgetUniDriver>;
 export const listItemSectionTestkitFactory: EnzymeUniTestkitFactory<ListItemSectionDriver>;
-export const browserPreviewWidgetTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const browserPreviewWidgetTestkitFactory: any; // TODO: write types
 export const listItemSelectTestkitFactory: EnzymeUniTestkitFactory<ListItemSelectDriver>;
 export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;
 export const marketingLayoutTestkitFactory: EnzymeTestkitFactory<MessageBoxMarketerialLayoutDriver>;
@@ -267,13 +267,13 @@ export const variableInputTestkitFactory: EnzymeUniTestkitFactory<VariableInputU
 export const imageTestkitFactory: EnzymeUniTestkitFactory<ImageDriver>;
 export const sidePanelTestkitFactory: EnzymeUniTestkitFactory<SidePanelDriver>;
 export const fontUpgradeTestkitFactory: EnzymeUniTestkitFactory<FontUpgradeUniDriver>;
-export const sideMenuDrillTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const sideMenuDrillTestkitFactory: DeprecatedTestkit;
 export const headerTestkitFactory: EnzymeTestkitFactory<HeaderDriver>;
-export const sideMenuTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
-export const draggableTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
-export const editableRowTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
-export const fieldLabelAttributesTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
-export const fieldWithSelectionCompositeTestkitFactory: any; // TODO: write types or replace with DeprecatedTestkit type
+export const sideMenuTestkitFactory: DeprecatedTestkit;
+export const draggableTestkitFactory: DeprecatedTestkit;
+export const editableRowTestkitFactory: any; // TODO: write types
+export const fieldLabelAttributesTestkitFactory: DeprecatedTestkit;
+export const fieldWithSelectionCompositeTestkitFactory: DeprecatedTestkit;
 export const radioButtonTestkitFactory: EnzymeTestkitFactory<RadioButtonDriver>;
 export const messageBoxMarketerialLayoutTestkitFactory: EnzymeTestkitFactory<MessageBoxMarketerialLayoutDriver>;
 export const messageBoxFunctionalLayoutTestkitFactory: EnzymeTestkitFactory<MessageBoxFunctionalLayoutDriver<ReactWrapper>>;
