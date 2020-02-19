@@ -154,7 +154,7 @@ type DeprecatedVanillaTestkit = any;
 export const accordionTestkitFactory: VanillaUniTestkitFactory<AccordionUniDriver>;
 export const addItemTestkitFactory: VanillaTestkitFactory<AddItemDriver<HTMLElement>>;
 export const autoCompleteTestkitFactory: VanillaTestkitFactory<AutoCompleteDriver>;
-export const autoCompleteCompositeTestkitFactory: DeprecatedVanillaTestkit; 
+export const autoCompleteCompositeTestkitFactory: DeprecatedVanillaTestkit;
 export const avatarTestkitFactory: VanillaUniTestkitFactory<AvatarUniDriver>;
 export const badgeTestkitFactory: VanillaTestkitFactory<BadgeDriver>;
 export const badgeSelectTestkitFactory: VanillaTestkitFactory<BadgeSelectDriver>;

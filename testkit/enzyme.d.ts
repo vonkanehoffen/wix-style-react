@@ -176,7 +176,7 @@ export const contactItemBuilderTestkitFactory: EnzymeTestkitFactory<ContactItemB
 export const counterBadgeTestkitFactory: EnzymeTestkitFactory<CounterBadgeDriver>;
 export const dataTableTestkitFactory: EnzymeTestkitFactory<DataTableDriver>;
 export const dateInputTestkitFactory:  EnzymeUniTestkitFactory<DateInputUniDriver>;
-export const datePickerTestkitFactory: EnzymeTestkitFactory<DatePickerDriver>; 
+export const datePickerTestkitFactory: EnzymeTestkitFactory<DatePickerDriver>;
 export const dropdownTestkitFactory: EnzymeTestkitFactory<DropdownDriver>;
 export const dropdownBaseTestkitFactory: EnzymeUniTestkitFactory<DropdownBaseUniDriver>;
 export const dropdownLayoutTestkitFactory: EnzymeTestkitFactory<DropdownLayoutDriver>;
