@@ -31,6 +31,7 @@ export const listItemSelectBuilder: (data: {
   disabled?: boolean;
   size?: ListItemSelectSizes;
   ellipsis?: boolean;
+  dataHook?: string;
 }) => {
   id: string | number;
   disabled: boolean | undefined;

@@ -199,12 +199,14 @@ export const listItemSelectBuilder = ({
   disabled,
   size,
   ellipsis,
+  dataHook,
 }) => ({
   id,
   disabled,
   overrideStyle: true,
   value: props => (
     <ListItemSelect
+      dataHook={dataHook}
       className={className}
       checkbox={checkbox}
       prefix={prefix}
