@@ -21,7 +21,7 @@
 
 
 .root {
-  -st-states: skin(enum(standard, dark, destructive)), disabled;
+  -st-states: skin(enum(standard, dark, destructive)), disabled, hovered;
   -st-extends: Focusable;
 
   display: inline-flex;
@@ -34,7 +34,7 @@
 
   /* not supported in IE11 & Edge; 'left' as fallback */
   text-align: left;
-  text-align: start;  
+  text-align: start;
 
   outline:none;
   border: none;
@@ -59,6 +59,10 @@
 }
 
 .root:skin(standard):hover {
+  background-color: value(B50);
+}
+
+.root:skin(standard):hovered {
   background-color: value(B50);
 }
 
@@ -89,6 +93,11 @@
 
 .root:skin(dark):hover .text,
 .root:skin(dark):hover .prefixIcon {
+  color: value(B10)
+}
+
+.root:skin(dark):hovered .text,
+.root:skin(dark):hovered .prefixIcon {
   color: value(B10)
 }
 
