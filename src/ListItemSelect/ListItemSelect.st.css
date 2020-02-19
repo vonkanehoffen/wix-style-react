@@ -4,7 +4,7 @@
 }
 
 .root {
-  -st-states: checkbox, selected, disabled;
+  -st-states: checkbox, selected, disabled, hovered;
 
   background-color: white;
   display: inline-flex;
@@ -23,6 +23,10 @@
 }
 
 .root:not(:disabled):not(:selected):hover {
+  background-color: value(B50);
+}
+
+.root:not(:disabled):not(:selected):hovered {
   background-color: value(B50);
 }
 

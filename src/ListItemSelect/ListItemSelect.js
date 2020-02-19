@@ -42,6 +42,9 @@ class ListItemSelect extends React.PureComponent {
     /** If true, the item is selected */
     selected: PropTypes.bool,
 
+    /** If true, the item is hovered */
+    hovered: PropTypes.bool,
+
     /** If true, the item is disabled */
     disabled: PropTypes.bool,
 
@@ -58,6 +61,7 @@ class ListItemSelect extends React.PureComponent {
   static defaultProps = {
     checkbox: false,
     selected: false,
+    hovered: false,
     ellipsis: false,
     size: SIZES.medium,
     dataHook: 'list-item-select',
@@ -71,6 +75,7 @@ class ListItemSelect extends React.PureComponent {
       className,
       checkbox,
       selected,
+      hovered,
       disabled,
       onClick,
       size,
@@ -78,7 +83,11 @@ class ListItemSelect extends React.PureComponent {
 
     return (
       <div
-        {...styles(styles.root, { checkbox, selected, disabled }, className)}
+        {...styles(
+          styles.root,
+          { checkbox, selected, hovered, disabled },
+          className,
+        )}
         data-hook={dataHook}
         data-selected={selected}
         onClick={disabled ? undefined : onClick}
