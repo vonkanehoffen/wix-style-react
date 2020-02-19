@@ -18,6 +18,10 @@ Types of changes:
 ## Added
 - `<Slider/>`- added new feature of `Start Point` [#5011](https://github.com/wix/wix-style-react/pull/5011)
 
+### Fixed
+
+- `<AutoCompleteWithLabel />`, `<InputWithLabel />` - long error message UI fix https://github.com/wix/wix-style-react/pull/5006
+
 ## 7.45.0 - 2020-02-19
 
 ### Added
