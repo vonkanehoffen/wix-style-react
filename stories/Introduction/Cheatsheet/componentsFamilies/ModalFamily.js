@@ -25,6 +25,7 @@ import {
 import Modal from 'wix-style-react/Modal';
 import ModalPreviewLayout from 'wix-style-react/ModalPreviewLayout';
 import ModalMobileLayout from 'wix-style-react/ModalMobileLayout';
+import CustomModal from 'wix-style-react/CustomModal';
 
 //Assets
 import Button from 'wix-style-react/Button';
@@ -142,7 +143,7 @@ const AlertExamples = () => {
   );
 };
 
-class CustomModalExample extends PureComponent {
+class ContentModalExample extends PureComponent {
   render() {
     const symbol = modalsSymbols.content;
     const components = modalsSymbolsToComponents[symbol];
@@ -194,6 +195,51 @@ class CustomModalExample extends PureComponent {
             </Row>
           </Container>
         </MessageBoxFunctionalLayout>
+      </SingleComponentSideBySide>
+    );
+  }
+}
+
+class CustomModalExample extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+  }
+
+  openModal = () => this.setState({ isOpen: true });
+  closeModal = () => this.setState({ isOpen: false });
+
+  render() {
+    const symbol = modalsSymbols.custom;
+    const components = modalsSymbolsToComponents[symbol];
+
+    const singleComponentProps = {
+      name: createLinkedSymbolName({ groupSymbol: Category.MODALS, symbol }),
+      componentsNames: createLinkedComponentsNames(components),
+    };
+
+    return (
+      <SingleComponentSideBySide {...singleComponentProps}>
+        <Button onClick={this.openModal}>Open Modal</Button>
+        <Modal isOpen={this.state.isOpen} onRequestClose={this.closeModal}>
+          <CustomModal
+            primaryButtonText="Save"
+            primaryButtonOnClick={this.closeModal}
+            secondaryButtonText="Cancel"
+            secondaryButtonOnClick={this.closeModal}
+            onCloseButtonClick={this.closeModal}
+            title="Create New Coupon"
+            subtitle="Make customers come back to your store with coupons"
+            sideActions={<Checkbox>Checkbox</Checkbox>}
+          >
+            <Text>
+              If you leave now, changes you have made here won't be saved. Are
+              you sure you want to leave?
+            </Text>
+          </CustomModal>
+        </Modal>
       </SingleComponentSideBySide>
     );
   }
@@ -409,6 +455,7 @@ const ModalMobileLayoutExample = () => {
 const ModalFamily = () => (
   <FamilyStructure title={groupSymbol} showPreview>
     <AlertExamples />
+    <ContentModalExample />
     <CustomModalExample />
     <MarketingExample />
     <ModalPreviewLayoutExample />
