@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { PopoverProps } from '../Popover';
 import { OmitPolyfill } from '../common';
-export interface ColorInputProps {
+import { InputProps } from '../Input';
+
+export type ColorInputProps = OmitPolyfill<InputProps, 'onChange'> & {
   value: string;
   placeholder?: string;
   disabled?: boolean;
@@ -26,7 +28,7 @@ export interface ColorInputProps {
     | 'appendTo'
     | 'onClickOutside'
   >;
-}
+};
 
 export type ColorInputSize = 'small' | 'medium' | 'large';
 

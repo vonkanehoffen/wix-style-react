@@ -2,7 +2,6 @@ import * as React from "react";
 import Highlighter from "../../src/Highlighter";
 import { highlighterTestkitFactory } from "../../dist/testkit";
 import { highlighterTestkitFactory as highlighterEnzymeTestkitFactory } from "../../dist/testkit/enzyme";
-import { highlighterTestkitFactory as highlighterPuppeteerTestkitFactory } from "../../dist/testkit/puppeteer";
 import * as enzyme from "enzyme";
 
 function HighlighterWithMandatoryProps() {
