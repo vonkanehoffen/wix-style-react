@@ -14,12 +14,12 @@ Types of changes:
 1. **Docs** for documentation changes
 1. **Lab** components and features that are still in a work in progress
 
-## Next
+## 7.45.0 - 2020-02-19
 
 ### Added
 
 - `<StatusIndicator/>` - New component [#5024](https://github.com/wix/wix-style-react/pull/5024)
-- `<VariableInput/>` - add `onBlur` prop [#5009](https://github.com/wix/wix-style-react/pull/5009)
+- `<VariableInput/>` - Added `onBlur` prop [#5009](https://github.com/wix/wix-style-react/pull/5009)
 - `listItemSelectBuilder` - Added `dataHook` param [#5027](https://github.com/wix/wix-style-react/pull/5027)
 
 ### Changed
