@@ -113,6 +113,7 @@ import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.dri
 import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver';
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
+import {ColorInputUniDriver} from '../src/ColorInput/ColorInput.uni.driver';
 
 type PuppeteerTestkitFactory<T> = (
   params: PuppeteerTestkitParams
@@ -147,12 +148,11 @@ export const carouselTestkitFactory: PuppeteerUniTestkitFactory<CarouselUniDrive
 export const checkboxTestkitFactory: PuppeteerUniTestkitFactory<CheckboxUniDriver>;
 export const circularProgressBarTestkitFactory: PuppeteerUniTestkitFactory<CircularProgressBarUniDriver>;
 export const closeButtonTestkitFactory: PuppeteerUniTestkitFactory<CloseButtonUniDriver>;
-export const colorInputTestkitFactory: any; // TODO: write types
+export const colorInputTestkitFactory: PuppeteerUniTestkitFactory<ColorInputUniDriver>;
 export const colorPickerTestkitFactory: PuppeteerUniTestkitFactory<ColorPickerUniDriver>;
 export const contactItemBuilderTestkitFactory: PuppeteerUniTestkitFactory<ContactItemBuilderUniDriver>;
 export const dataTableTestkitFactory: PuppeteerUniTestkitFactory<DataTableUniDriver>;
 export const dateInputTestkitFactory: PuppeteerUniTestkitFactory<DateInputUniDriver>;
-export const datePickerTestkitFactory: any; // TODO: write types
 export const dropdownTestkitFactory: PuppeteerUniTestkitFactory<DropdownUniDriver>;
 export const dropdownBaseTestkitFactory: PuppeteerUniTestkitFactory<DropdownBaseUniDriver>;
 export const dropdownLayoutTestkitFactory: PuppeteerUniTestkitFactory<DropdownLayoutUniDriver>;

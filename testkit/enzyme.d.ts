@@ -30,6 +30,7 @@ import {CarouselDriver} from '../src/Carousel/Carousel.driver';
 import {CheckboxDriver} from '../src/Checkbox/Checkbox.driver';
 import {CircularProgressBarDriver} from '../src/CircularProgressBar/CircularProgressBar.driver';
 import {CloseButtonUniDriver} from '../src/CloseButton/CloseButton.uni.driver';
+import {ColorInputUniDriver} from '../src/ColorInput/ColorInput.uni.driver';
 import {ColorPickerDriver} from '../src/ColorPicker/ColorPicker.driver';
 import {ComposerHeaderUniDriver} from '../src/ComposerHeader/ComposerHeader.uni.driver';
 import {ContactItemBuilderDriver} from '../src/ContactItemBuilder/ContactItemBuilder.driver';
@@ -132,6 +133,7 @@ import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.dri
 import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver';
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
+import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
 
 type EnzymeTestkitFactory<T extends BaseDriver> = (
   params: EnzymeTestkitParams
@@ -166,13 +168,13 @@ export const carouselTestkitFactory: EnzymeTestkitFactory<CarouselDriver>;
 export const checkboxTestkitFactory: EnzymeTestkitFactory<CheckboxDriver>;
 export const circularProgressBarTestkitFactory: EnzymeTestkitFactory<CircularProgressBarDriver>;
 export const closeButtonTestkitFactory: EnzymeUniTestkitFactory<CloseButtonUniDriver>;
-export const colorInputTestkitFactory: any; // TODO: write type
+export const colorInputTestkitFactory: EnzymeUniTestkitFactory<ColorInputUniDriver>;
 export const colorPickerTestkitFactory: EnzymeTestkitFactory<ColorPickerDriver>;
 export const contactItemBuilderTestkitFactory: EnzymeTestkitFactory<ContactItemBuilderDriver>;
 export const counterBadgeTestkitFactory: EnzymeTestkitFactory<CounterBadgeDriver>;
 export const dataTableTestkitFactory: EnzymeTestkitFactory<DataTableDriver>;
 export const dateInputTestkitFactory:  EnzymeUniTestkitFactory<DateInputUniDriver>;
-export const datePickerTestkitFactory: any; // TODO: write types
+export const datePickerTestkitFactory: EnzymeTestkitFactory<DatePickerDriver>; 
 export const dropdownTestkitFactory: EnzymeTestkitFactory<DropdownDriver>;
 export const dropdownBaseTestkitFactory: EnzymeUniTestkitFactory<DropdownBaseUniDriver>;
 export const dropdownLayoutTestkitFactory: EnzymeTestkitFactory<DropdownLayoutDriver>;
