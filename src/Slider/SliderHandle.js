@@ -68,7 +68,7 @@ class SliderHandle extends Component {
 
   render() {
     const { value, offset, disabled } = this.props;
-    const { showTooltip } = this.state;
+    const { showTooltip, hovered } = this.state;
 
     return (
       <div
@@ -80,7 +80,7 @@ class SliderHandle extends Component {
         onMouseUp={this.handleMouseUp}
         data-hook={dataHooks.sliderHandle}
       >
-        <SliderThumb disabled={disabled} hovered={showTooltip} />
+        <SliderThumb disabled={disabled} hovered={hovered} />
         {showTooltip && value && (
           <div data-hook={dataHooks.sliderTooltip} className={styles.tooltip}>
             {value}
