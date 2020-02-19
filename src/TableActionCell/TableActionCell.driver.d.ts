@@ -1,7 +1,7 @@
 import { BaseDriver } from 'wix-ui-test-utils/driver-factory';
 import { DeprecatedButtonDriver } from '../Deprecated/Button/Button.driver';
 import { PopoverMenuDriver } from '../PopoverMenu/PopoverMenu.driver';
-import { TooltipDriver } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { TooltipDriver } from '../Tooltip/Tooltip.driver';
 
 export interface TableActionCellDriver<T> extends BaseDriver {
   element: () => T;

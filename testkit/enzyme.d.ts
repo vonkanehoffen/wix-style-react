@@ -19,6 +19,7 @@ import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BarChartUniDriver} from '../src/BarChart/BarChart.uni.driver';
 import {BoxUniDriver} from '../src/Box/Box.uni.driver';
 import {BreadcrumbsDriver} from '../src/Breadcrumbs/Breadcrumbs.driver';
+import {BrowserPreviewWidgetUniDriver} from '../src/BrowserPreviewWidget/BrowserPreviewWidget.uni.driver';
 import {ButtonUniDriver} from '../src/Button/Button.uni.driver';
 import {CalendarDriver} from '../src/Calendar/Calendar.driver';
 import {CalendarPanelDriver} from '../src/CalendarPanel/CalendarPanel.driver';
@@ -37,10 +38,12 @@ import {ContactItemBuilderDriver} from '../src/ContactItemBuilder/ContactItemBui
 import {CounterBadgeDriver} from '../src/CounterBadge/CounterBadge.driver';
 import {DataTableDriver} from '../src/DataTable/DataTable.driver';
 import {DateInputUniDriver} from '../src/DateInput/DateInput.uni.driver';
+import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
 import {DividerUniDriver} from '../src/Divider/Divider.uni.driver';
 import {DropdownDriver} from '../src/Dropdown/Dropdown.driver';
 import {DropdownBaseUniDriver} from '../src/DropdownBase/DropdownBase.uni.driver';
 import {DropdownLayoutDriver} from '../src/DropdownLayout/DropdownLayout.driver';
+import {EditableRowDriver} from '../src/EditableSelector/EditableRow/EditableRow.driver';
 import {EditableSelectorDriver} from '../src/EditableSelector/EditableSelector.driver';
 import {EditableTitleUniDriver} from '../src/EditableTitle/EditableTitle.uni.driver';
 import {EmptyStateDriver} from '../src/EmptyState/EmptyState.driver';
@@ -128,12 +131,11 @@ import {TimeTableUniDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {ToggleButtonUniDriver} from '../src/ToggleButton/ToggleButton.uni.driver';
 import {ToggleSwitchDriver} from '../src/ToggleSwitch/ToggleSwitch.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
-import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import {TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.driver';
 import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver';
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
-import {DatePickerDriver} from '../src/DatePicker/DatePicker.driver';
 
 type EnzymeTestkitFactory<T extends BaseDriver> = (
   params: EnzymeTestkitParams
@@ -263,7 +265,7 @@ export const verticalTabsTestkitFactory: EnzymeUniTestkitFactory<VerticalTabsUni
 export const verticalTabsItemTestkitFactory: EnzymeUniTestkitFactory<VerticalTabsItemUniDriver>;
 export const mobilePreviewWidgetTestkitFactory: EnzymeUniTestkitFactory<MobilePreviewWidgetUniDriver>;
 export const listItemSectionTestkitFactory: EnzymeUniTestkitFactory<ListItemSectionUniDriver>;
-export const browserPreviewWidgetTestkitFactory: any; // TODO: write types
+export const browserPreviewWidgetTestkitFactory: EnzymeUniTestkitFactory<BrowserPreviewWidgetUniDriver>;
 export const listItemSelectTestkitFactory: EnzymeUniTestkitFactory<ListItemSelectUniDriver>;
 export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableUniDriver>;
 export const marketingLayoutTestkitFactory: EnzymeUniTestkitFactory<MarketingLayoutUniDriver>;
@@ -277,7 +279,7 @@ export const sideMenuDrillTestkitFactory: DeprecatedEnzymeTestkit;
 export const headerTestkitFactory: EnzymeTestkitFactory<HeaderDriver>;
 export const sideMenuTestkitFactory: DeprecatedEnzymeTestkit;
 export const draggableTestkitFactory: DeprecatedEnzymeTestkit;
-export const editableRowTestkitFactory: any; // TODO: write types
+export const editableRowTestkitFactory: EnzymeTestkitFactory<EditableRowDriver>;
 export const fieldLabelAttributesTestkitFactory: DeprecatedEnzymeTestkit;
 export const fieldWithSelectionCompositeTestkitFactory: DeprecatedEnzymeTestkit;
 export const radioButtonTestkitFactory: EnzymeTestkitFactory<RadioButtonDriver>;

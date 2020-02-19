@@ -19,6 +19,7 @@ import {BadgeUniDriver} from '../src/Badge/Badge.uni.driver';
 import {BarChartUniDriver} from '../src/BarChart/BarChart.uni.driver';
 import {BoxUniDriver} from '../src/Box/Box.uni.driver';
 import {BreadcrumbsUniDriver} from '../src/Breadcrumbs/Breadcrumbs.uni.driver';
+import {BrowserPreviewWidgetUniDriver} from '../src/BrowserPreviewWidget/BrowserPreviewWidget.uni.driver';
 import {ButtonUniDriver} from '../src/Button/Button.uni.driver';
 import {CalendarUniDriver} from '../src/Calendar/Calendar.uni.driver';
 import {CalendarPanelUniDriver} from '../src/CalendarPanel/CalendarPanel.uni.driver';
@@ -30,6 +31,7 @@ import {CarouselUniDriver} from '../src/Carousel/Carousel.uni.driver';
 import {CheckboxUniDriver} from '../src/Checkbox/Checkbox.uni.driver';
 import {CircularProgressBarUniDriver} from '../src/CircularProgressBar/CircularProgressBar.uni.driver';
 import {CloseButtonUniDriver} from '../src/CloseButton/CloseButton.uni.driver';
+import {ColorInputUniDriver} from '../src/ColorInput/ColorInput.uni.driver';
 import {ColorPickerUniDriver} from '../src/ColorPicker/ColorPicker.uni.driver';
 import {ComposerHeaderUniDriver} from '../src/ComposerHeader/ComposerHeader.uni.driver';
 import {ContactItemBuilderUniDriver} from '../src/ContactItemBuilder/ContactItemBuilder.uni.driver';
@@ -39,6 +41,7 @@ import {DividerUniDriver} from '../src/Divider/Divider.uni.driver';
 import {DropdownUniDriver} from '../src/dropdown/Dropdown.uni.driver';
 import {DropdownBaseUniDriver} from '../src/DropdownBase/DropdownBase.uni.driver';
 import {DropdownLayoutUniDriver} from '../src/DropdownLayout/DropdownLayout.uni.driver';
+import {EditableRowUniDriver} from '../src/EditableSelector/EditableRow/EditableRow.uni.driver';
 import {EditableSelectorUniDriver} from '../src/EditableSelector/EditableSelector.uni.driver';
 import {EditableTitleUniDriver} from '../src/EditableTitle/EditableTitle.uni.driver';
 import {EmptyStateUniDriver} from '../src/EmptyState/EmptyState.uni.driver';
@@ -109,11 +112,12 @@ import {ThumbnailUniDriver} from '../src/Thumbnail/Thumbnail.uni.driver';
 import {TimeInputUniDriver} from '../src/TimeInput/TimeInput.uni.driver';
 import {TimeTableUniDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {ToggleButtonUniDriver} from '../src/ToggleButton/ToggleButton.uni.driver';
+import {TooltipPuppeteerDriver} from '../src/Tooltip/Tooltip.puppeteer.driver';
+import {TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
 import {VariableInputUniDriver} from '../src/VariableInput/VariableInput.uni.driver';
 import {VerticalTabsUniDriver} from '../src/VerticalTabs/VerticalTabs.uni.driver';
 import {VerticalTabsItemUniDriver} from '../src/VerticalTabsItem/VerticalTabsItem.uni.driver';
 import {WarningIndicatorUniDriver} from '../src/WarningIndicator/WarningIndicator.uni.driver';
-import {ColorInputUniDriver} from '../src/ColorInput/ColorInput.uni.driver';
 
 type PuppeteerTestkitFactory<T> = (
   params: PuppeteerTestkitParams
@@ -130,7 +134,8 @@ interface PuppeteerTestkitParams {
 
 type DeprecatedPuppeteerTestkit = any;
 
-export const tooltipTestkitFactory: any; // todo: ../src/Tooltip/Tooltip.puppeteer.driver
+export const tooltipTestkitFactory: PuppeteerTestkitFactory<TooltipPuppeteerDriver>;
+export const TooltipTestkit: PuppeteerUniTestkitFactory<TooltipUniDriver>;
 export const accordionTestkitFactory: PuppeteerUniTestkitFactory<AccordionUniDriver>;
 export const addItemTestkitFactory: PuppeteerUniTestkitFactory<AddItemUniDriver>;
 export const autoCompleteTestkitFactory: PuppeteerUniTestkitFactory<AutoCompleteUniDriver>;
@@ -228,7 +233,7 @@ export const verticalTabsTestkitFactory: PuppeteerUniTestkitFactory<VerticalTabs
 export const verticalTabsItemTestkitFactory: PuppeteerUniTestkitFactory<VerticalTabsItemUniDriver>;
 export const mobilePreviewWidgetTestkitFactory: PuppeteerUniTestkitFactory<MobilePreviewWidgetUniDriver>;
 export const listItemSectionTestkitFactory: PuppeteerUniTestkitFactory<ListItemSectionUniDriver>;
-export const browserPreviewWidgetTestkitFactory: any; // TODO: write types
+export const browserPreviewWidgetTestkitFactory: PuppeteerUniTestkitFactory<BrowserPreviewWidgetUniDriver>;
 export const listItemSelectTestkitFactory: PuppeteerUniTestkitFactory<ListItemSelectUniDriver>;
 export const timeTableTestkitFactory: PuppeteerUniTestkitFactory<TimeTableUniDriver>;
 export const marketingLayoutTestkitFactory: PuppeteerUniTestkitFactory<MarketingLayoutUniDriver>;
@@ -242,7 +247,7 @@ export const drillViewTestkitFactory: DeprecatedPuppeteerTestkit;
 export const cardHeaderTestkitFactory: PuppeteerUniTestkitFactory<HeaderUniDriver>;
 export const sideMenuTestkitFactory: DeprecatedPuppeteerTestkit;
 export const draggableTestkitFactory: DeprecatedPuppeteerTestkit;
-export const editableRowTestkitFactory: any; // TODO: write types
+export const editableRowTestkitFactory: PuppeteerUniTestkitFactory<EditableRowUniDriver>;
 export const fieldLabelAttributesTestkitFactory: DeprecatedPuppeteerTestkit;
 export const fieldWithSelectionCompositeTestkitFactory: DeprecatedPuppeteerTestkit;
 export const messageBoxMarketerialLayoutTestkitFactory: PuppeteerUniTestkitFactory<MessageBoxMarketerialLayoutUniDriver>;
