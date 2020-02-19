@@ -34,6 +34,7 @@ Types of changes:
 - `<PageHeader/>` - Migrate back button from deprecated Button component [#4998](https://github.com/wix/wix-style-react/pull/4998)
 - `<MessageBoxMarketerialLayout/>` - Migrate from deprecated Button component [#5018](https://github.com/wix/wix-style-react/pull/5018)
 - `<MessageBoxFunctionalLayout/>` - Migrate from deprecated Button component [#5014](https://github.com/wix/wix-style-react/pull/5014)
+- `<IconButton/>` - Fix large size [#5028](https://github.com/wix/wix-style-react/pull/5028)
 
 ## 7.44.0 - 2020-02-12
 
