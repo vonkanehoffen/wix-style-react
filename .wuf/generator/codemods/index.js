@@ -14,4 +14,9 @@ module.exports = [
     dist: 'src/index.d.ts',
     description: 'Add component export to the index.d.ts file',
   },
+  {
+    codemod: 'perfer-config-file.js',
+    dist: 'perfer.config.js',
+    description: 'Add new threshold for new component',
+  },
 ];
