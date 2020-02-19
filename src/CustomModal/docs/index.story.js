@@ -22,6 +22,7 @@ import FootnoteExample from '!raw-loader!./examples/FootnoteExample';
 import ModalExample from '!raw-loader!./examples/ModalExample';
 import PageExample from '!raw-loader!./examples/PageExample';
 import TableExmaple from '!raw-loader!./examples/TableExample';
+import MarketingExample from '!raw-loader!./examples/MarketingExample';
 import CustomModal from '..';
 import Checkbox from '../../Checkbox';
 
@@ -116,6 +117,17 @@ export default {
             code({
               compact: true,
               source: TableExmaple,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Marketing Layout example',
+              text: 'A custom modal example with a marketing layout',
+            }),
+
+            code({
+              compact: true,
+              source: MarketingExample,
             }),
           ]),
           columns([

@@ -36,6 +36,7 @@
   overflow-y: auto;
   -st-mixin: defaultScrollBar;
   padding: 0 value(modalPadding);
+  border-radius: value(radius08);
 }
 
 
