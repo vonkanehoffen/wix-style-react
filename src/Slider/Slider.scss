@@ -63,6 +63,7 @@ $sliderMarkTextSize: 18px;
   height: $sliderRailHeight;
   border-radius: 10px;
   margin: $sliderPadding 0;
+  transition: width 80ms; /* Animation */
 }
 
 :global(.wix-style-react-slider) :global(.rc-slider-mark) {

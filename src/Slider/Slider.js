@@ -101,10 +101,15 @@ export default class Slider extends Component {
       value,
       displayMarks,
       startPoint,
+      offset,
       dataHook,
       id,
       ...rest
     } = this.props;
+
+    /* should be used within an Array as described in the Slider API */
+    const trackStyle = { transform: `scaleX(${offset / 100})` };
+
     return Array.isArray(value) && value.length > 1 ? (
       <Slide.Range
         {...rest}
@@ -113,6 +118,7 @@ export default class Slider extends Component {
         value={value}
         pushable={pushable}
         allowCros={allowCross}
+        trackStyle={[trackStyle]}
       />
     ) : (
       <Slide
@@ -121,6 +127,7 @@ export default class Slider extends Component {
         handle={this._renderHandle}
         marks={displayMarks ? this._getMarks() : {}}
         value={Array.isArray(value) ? value[0] : value}
+        trackStyle={[trackStyle]}
       />
     );
   };
