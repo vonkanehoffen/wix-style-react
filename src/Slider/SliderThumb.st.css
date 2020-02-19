@@ -42,4 +42,6 @@
   /** rc-slider focus overwrite */
   border: 0 solid transparent;
   z-index: 2;
+  /* removing native browser focus */
+  outline: none;
 }
