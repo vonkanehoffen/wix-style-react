@@ -6,7 +6,7 @@ import Tooltip from '../Tooltip/TooltipNext';
 import FormFieldWarningFilled from 'wix-ui-icons-common/system/FormFieldWarningFilled';
 import FormFieldErrorFilled from 'wix-ui-icons-common/system/FormFieldErrorFilled';
 import Loader from '../Loader';
-import { dataHooks, STATUS, TOOLTIP_PLACEMENT } from './constants';
+import { dataHooks, STATUS } from './constants';
 
 /** StatusIndicator */
 class StatusIndicator extends React.PureComponent {
@@ -26,7 +26,11 @@ class StatusIndicator extends React.PureComponent {
     const { dataHook, status, message, tooltipPlacement } = this.props;
 
     return (
-      <div {...styles('root', { status }, this.props)} data-hook={dataHook}>
+      <div
+        {...styles('root', { status }, this.props)}
+        data-hook={dataHook}
+        data-status={status}
+      >
         {message ? (
           <Tooltip
             dataHook={dataHooks.tooltip}

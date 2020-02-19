@@ -6,7 +6,11 @@ export const statusIndicatorDriverFactory = (base, body) => {
   return {
     ...baseUniDriverFactory(base, body),
 
-    hasTooltip: async () => {
+    /** Returns the type of the status oneOf(error, warning, loading) */
+    getStatus: async () => base.attr('data-status'),
+
+    /** Returns true iff a message was provided */
+    hasMessage: async () => {
       const tooltipDriver = tooltipDriverFactory(
         base.$(`[data-hook="${dataHooks.tooltip}"]`),
         body,
@@ -14,7 +18,8 @@ export const statusIndicatorDriverFactory = (base, body) => {
       return await tooltipDriver.exists();
     },
 
-    getTooltipText: async () => {
+    /** Returns the message text */
+    getMessage: async () => {
       const tooltipDriver = tooltipDriverFactory(
         base.$(`[data-hook="${dataHooks.tooltip}"]`),
         body,
@@ -24,7 +29,7 @@ export const statusIndicatorDriverFactory = (base, body) => {
         await tooltipDriver.mouseEnter();
         return await tooltipDriver.getTooltipText();
       } else {
-        throw new Error(`Tooltip doesn't exist`);
+        throw new Error(`Message was not provided`);
       }
     },
   };

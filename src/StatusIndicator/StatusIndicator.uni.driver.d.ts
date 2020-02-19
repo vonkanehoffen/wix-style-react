@@ -1,6 +1,8 @@
 import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
+import { StatusIndicatorState } from './index';
 
 export interface StatusIndicatorDriver extends BaseUniDriver {
-  hasTooltip(): Promise<boolean>;
-  getTooltipText(): Promise<string>;
+  getStatus(): Promise<StatusIndicatorState>;
+  hasMessage(): Promise<boolean>;
+  getMessage(): Promise<string>;
 }
