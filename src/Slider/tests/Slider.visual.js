@@ -55,7 +55,7 @@ const tests = [
       },
       {
         it: 'start point',
-        props: { startPoint: 4 },
+        props: { startPoint: 4, displayMarks: true },
       },
     ],
   },

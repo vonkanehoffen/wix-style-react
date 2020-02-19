@@ -30,10 +30,11 @@ export default class Slider extends Component {
         };
       });
     } else {
-      const { min, max, step } = this.props;
+      const { min, max, step, startPoint } = this.props;
 
       range({ min, max, step }).map(entry => {
-        const shouldRenderMarkLabel = entry === min || entry === max;
+        const shouldRenderMarkLabel =
+          entry === min || entry === max || entry === startPoint;
 
         marksLabels[entry] = {
           label: this._createMarkNode(entry, shouldRenderMarkLabel),
