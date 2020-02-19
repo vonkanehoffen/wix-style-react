@@ -68,6 +68,12 @@ function tableWithAllProps() {
   );
 }
 
+function testInstanceMethods() {
+  const instance = new Table({columns: []});
+  instance.setSelectedIds([1,2,3]);
+
+}
+
 async function testkits() {
   const testkit = tableTestkitFactory({
     dataHook: "hook",

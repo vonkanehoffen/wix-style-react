@@ -38,4 +38,7 @@ export interface GoogleAddressInputProps
 
 export default class GoogleAddressInput extends React.Component<
   GoogleAddressInputProps
-> {}
+> {
+  select: () => void;
+  focus: () => void;
+}

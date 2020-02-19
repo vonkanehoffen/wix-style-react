@@ -50,6 +50,10 @@ export interface InputAreaProps extends WixComponentProps {
 
 export default class InputArea extends WixComponent<InputAreaProps> {
   static MIN_ROWS: 2;
+
+  focus: () => void;
+  blur: () => void;
+  select: () => void;
 }
 
 export type InputAreaSize = 'small' | 'normal';

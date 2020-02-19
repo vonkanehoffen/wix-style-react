@@ -82,6 +82,12 @@ export default class Input extends React.Component<InputProps> {
   static StatusError: InputStatusError;
   static StatusLoading: InputStatusLoading;
   static StatusWarning: InputStatusWarning;
+
+  clear: (event: any) => void;
+  blur: () => void;
+  focus: (options: any) => void;
+  handleSuffixOnClear: (event: any) => void;
+  select: () => void;
 }
 
 export type InputStatus =

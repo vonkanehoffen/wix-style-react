@@ -28,6 +28,12 @@ function FloatingHelperWithAllProps() {
   );
 }
 
+function testInstanceMethods() {
+  const instance = new FloatingHelper({target: null, content: null, placement: 'auto'});
+  instance.open();
+  instance.close();
+}
+
 async function testkits() {
   const testkit = floatingHelperTestkitFactory({
     dataHook: 'hook',

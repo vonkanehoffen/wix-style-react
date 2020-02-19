@@ -23,6 +23,8 @@ export default class Table extends React.Component<TableProps> {
   static Content: typeof Content;
   static EmptyState: typeof EmptyState;
   static BulkSelectionCheckbox: typeof BulkSelectionCheckbox;
+
+  setSelectedIds: (selectedIds: any) => void;
 }
 
 declare const ToolbarContainer: React.SFC;

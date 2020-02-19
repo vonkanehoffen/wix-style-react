@@ -58,4 +58,8 @@ type SelectionModeType = 'day' | 'range';
 
 export default class CalendarPanel extends React.Component<
   CalendarPanelProps
-> {}
+> {
+  getSelectedPresetId: () => string | number;
+  onSelectPreset: () => void;
+  isSubmitDisabled: () => boolean;
+}

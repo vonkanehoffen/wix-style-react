@@ -30,6 +30,13 @@ function CalendarPanelWithAllProps() {
   );
 }
 
+function testInstanceMethods() {
+  const instance = new CalendarPanel({onChange:()=>{}});
+  const id: number | string = instance.getSelectedPresetId();
+  instance.onSelectPreset();
+  const bool: boolean = instance.isSubmitDisabled();
+}
+
 async function testkits() {
   const testkit = calendarPanelTestkitFactory({
     dataHook: 'hook',

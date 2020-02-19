@@ -35,3 +35,8 @@ function GoogleAddressInputWithAllProps() {
     />
   );
 }
+function testInstanceMethods() {
+  const instance = new GoogleAddressInput({});
+  instance.select();
+  instance.focus();
+}

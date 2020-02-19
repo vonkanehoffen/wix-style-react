@@ -2,7 +2,10 @@ import * as React from 'react';
 export type FloatingHelperProps = import('wix-ui-core/dist/src/createHOC').WixComponentProps &
   FloatingHelperPropsInner;
 
-export default class FloatingHelper extends React.PureComponent<FloatingHelperProps> {}
+export default class FloatingHelper extends React.PureComponent<FloatingHelperProps> {
+  open: () => void;
+  close: () => void;
+}
 
 export enum Appearance {
   dark = 'dark',

@@ -43,6 +43,11 @@ function RichTextInputAreaWithAllProps() {
   );
 }
 
+function testInstanceMethods() {
+  const instance = new RichTextInputArea({});
+  instance.setValue('some value');
+}
+
 async function testkits() {
   const testkit = richTextInputAreaTestkitFactory({
     dataHook: 'hook',

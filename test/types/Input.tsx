@@ -90,6 +90,15 @@ function InputWithAllProps() {
   );
 }
 
+function testInstanceMethods() {
+  const instance = new Input({});
+  instance.blur();
+  instance.clear(null);
+  instance.focus(null);
+  instance.select();
+  instance.handleSuffixOnClear(null);
+}
+
 async function testkits() {
   const testkit = inputTestkitFactory({
     dataHook: 'hook',

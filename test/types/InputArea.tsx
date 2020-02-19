@@ -58,6 +58,13 @@ function InputAreaWithAllProps() {
   );
 }
 
+function testInstanceMethods() {
+  const instance = new InputArea({});
+  instance.blur();
+  instance.focus();
+  instance.select();
+}
+
 async function testkits() {
   const testkit = inputAreaTestkitFactory({
     dataHook: "hook",

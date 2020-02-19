@@ -33,4 +33,6 @@ export type texts = {
 
 export default class RichTextInputArea extends React.PureComponent<
   RichTextInputAreaProps
-> {}
+> {
+  setValue: (value: string) => void;
+}
