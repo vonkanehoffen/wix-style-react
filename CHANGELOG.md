@@ -21,7 +21,7 @@ Types of changes:
 ### Fixed
 
 - `<AutoCompleteWithLabel />`, `<InputWithLabel />` - long error message UI fix [#5006](https://github.com/wix/wix-style-react/pull/5006)
-- `<Slider/>`- fixing issue with displaying `startPoint` label (https://github.com/wix/wix-style-react/pull/5036)
+- `<Slider/>`- fixing issue with displaying `startPoint` label [#5036](https://github.com/wix/wix-style-react/pull/5036)
 
 ## 7.45.0 - 2020-02-19
 
