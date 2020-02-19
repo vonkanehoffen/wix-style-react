@@ -48,6 +48,10 @@ const tests = [
         props: { selected: true },
       },
       {
+        it: 'hovered',
+        props: { hovered: true },
+      },
+      {
         it: 'selected with subtitle',
         props: {
           selected: true,

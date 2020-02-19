@@ -14,6 +14,10 @@ const tests = [
       {
         it: 'default',
       },
+      {
+        it: 'hovered',
+        props: { hovered: true },
+      },
     ],
   },
   {
@@ -44,6 +48,14 @@ const tests = [
         it: 'dark',
         props: {
           skin: 'dark',
+          prefixIcon: <Edit />,
+        },
+      },
+      {
+        it: 'dark hovered',
+        props: {
+          skin: 'dark',
+          hovered: true,
           prefixIcon: <Edit />,
         },
       },
