@@ -1,9 +1,4 @@
 :import {
-  -st-from: "wix-ui-core/hocs.st.css";
-  -st-named: Focusable;
-}
-
-:import {
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: F00,B00, B10, D10, D50, D80;
 }
@@ -16,65 +11,26 @@
 :vars {
   rootSize: 12px;
   railHeight: 3px;
+  clickableAreaSize: 24px;
 }
 
 .root {
-  -st-extends: Focusable;
   -st-states: disabled;
   position: absolute;
   margin-left: calc(value(rootSize)/ -2);
-  width: value(rootSize);
-  height:  value(rootSize);
   box-sizing:border-box;
-  border-radius: 50%;
-  background-color: value(B10);
   touch-action: pan-x;
   cursor: pointer;
   outline: none;
-  transition: transform 80ms, left 80ms; /* Animation */
-}
-
-/* extending clickable area */
-.root:not(:hover):not(:active)::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  bottom: -6px;
-  left: -6px;
-  right: -6px;
-}
-
-/* extending clickable area for hover and active states */
-.root:hover::before , .root:active::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  bottom: -3px;
-  left: -3px;
-  right: -3px;
+  transition: transform 80ms, left 80ms;
+  width: value(clickableAreaSize);
+  height: value(clickableAreaSize);
+  transform: translate(-6px, -6px);
+  display: flex;
 }
 
 .root:disabled {
-  background-color: value(D50);
   cursor: default;
-}
-
-.root:not(:disabled):hover,
-.root:not(:disabled):active {
-  transform: scale(1.5);
-  margin-left: calc(value(rootSize)/ -2);
-}
-
-.root:not(:active):not(:hover):not(:disabled):focus-visible {
-  box-shadow: 0 0 0 3px value(F00);
-  z-index: 2;
-}
-
-.root:not(:disabled):focus {
-  box-shadow: 0 0 0 3px transparent;
-  /** rc-slider focus overwrite */
-  border: 1px solid transparent;
-  z-index: 2;
 }
 
 .tooltip {
@@ -84,11 +40,11 @@
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 8px;
   padding: 10px 15px;
-  top: -44px;
+  top: -38px;
   box-shadow: value(shadow30);
   user-select: none;
   transform: translateX(-50%);
-  transition: transform 80ms;
+  left: 12px;
 }
 
 .tooltip::after {
