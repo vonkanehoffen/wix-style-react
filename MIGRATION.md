@@ -13,6 +13,7 @@
 - `<TextLink/>` - Use `<TextButton as="a"/>` instead.
 - `<SideMenu/>` - Use `<Sidebar/>` instead.
 - `<SideMenuDrill/>` - Use `<Sidebar/>` instead.
+- `<StatsWidget/>` - Use `<StatisticsWidget/>` instead. See [migration guide](./docs/migration/StatsWidget.md).
 
 ## Changed
 

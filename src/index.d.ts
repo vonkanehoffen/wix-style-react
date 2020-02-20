@@ -57,7 +57,6 @@ export { default as BadgeSelect, BadgeSelectProps } from './BadgeSelect';
 export const badgeSelectItemBuilder: any;
 export const contactItemBuilder: any;
 export const EditableSelector: any;
-export const StatsWidget: any;
 export { default as Card, CardProps } from './Card';
 export const ColorPicker: any;
 export const CounterBadge: any;

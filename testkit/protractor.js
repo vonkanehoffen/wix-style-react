@@ -119,7 +119,6 @@ export const sidebarTestkitFactory = protractorUniTestkitFactoryCreator(load(req
 export const sidebarSectionTitleTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver')));
 export const sliderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Slider/Slider.protractor.driver')));
 export const socialPreviewTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/SocialPreview/SocialPreview.uni.driver')));
-export const statsWidgetTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/StatsWidget/StatsWidget.protractor.driver')));
 export const stepperTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
 export const swatchesTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
 export const tableTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Table/Table.protractor.driver')));

@@ -105,7 +105,6 @@ export const sidebarTestkitFactory = puppeteerUniTestkitFactoryCreator(load(requ
 export const sidebarSectionTitleTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SidebarSectionTitle/SidebarSectionTitle.uni.driver')));
 export const sliderTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Slider/Slider.uni.driver')));
 export const socialPreviewTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/SocialPreview/SocialPreview.uni.driver')));
-export const statsWidgetTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/StatsWidget/StatsWidget.uni.driver')));
 export const stepperTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Stepper/Stepper.uni.driver')));
 export const swatchesTestkitFactory = puppeteerUniTestkitFactoryCreator(load(require('../src/Swatches/Swatches.uni.driver')));
 export const tableTestkitFactory = puppeteerTestkitFactoryCreator(load(require('../src/Table/Table.puppeteer.driver')));

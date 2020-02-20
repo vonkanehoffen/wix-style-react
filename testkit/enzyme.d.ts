@@ -112,7 +112,6 @@ declare namespace EnzymeTestkit {
   export const sliderTestkitFactory: any;
   export const socialPreviewTestkitFactory: any;
   export const sortableListTestkitFactory: any;
-  export const statsWidgetTestkitFactory: any;
   export const stepperTestkitFactory: any;
   export const swatchesTestkitFactory: any;
   export const tableTestkitFactory: any;

@@ -484,12 +484,6 @@ module.exports = {
     protractorLegacyTestkit: true,
   },
 
-  StatsWidget: {
-    vanillaLegacyTestkit: true,
-    enzymeLegacyTestkit: true,
-    protractorLegacyTestkit: true,
-  },
-
   AddItem: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
