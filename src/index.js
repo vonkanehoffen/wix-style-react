@@ -42,8 +42,6 @@ export { default as Page } from './Page';
 export { default as SectionHelper } from './SectionHelper';
 export { default as PageHeader } from './PageHeader';
 export { default as Popover } from './Popover';
-export { default as SideMenu } from './Deprecated/SideMenu';
-export { default as SideMenuDrill } from './Deprecated/SideMenu/DrillView';
 export { default as DropdownLayout } from './DropdownLayout';
 export { default as Dropdown } from './Dropdown';
 export { default as AutoComplete } from './AutoComplete';

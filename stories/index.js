@@ -182,7 +182,3 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 require('../src/CustomModal/docs/design.story'); // 9.3 Custom Modal
 require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 require('../src/MessageBox/docs');
-
-// DEPRECATED
-require('../src/Deprecated/SideMenu/docs');
-require('../src/Deprecated/SideMenu/docs/SideMenu');

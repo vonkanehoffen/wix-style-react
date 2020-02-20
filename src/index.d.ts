@@ -38,8 +38,6 @@ export const Page: any;
 export const SectionHelper: any;
 export const PageHeader: any;
 export const Popover: any;
-export const SideMenu: any;
-export const SideMenuDrill: any;
 export const DropdownLayout: any;
 export const Dropdown: any;
 export const AutoComplete: any;
