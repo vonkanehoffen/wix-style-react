@@ -1,4 +1,4 @@
-import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
+import { BaseUniDriver, UniDriver } from 'wix-ui-test-utils/unidriver';
 import { DropdownLayoutUniDriver } from '../DropdownLayout/DropdownLayout.uni.driver';
 
 export interface CalendarUniDriver extends BaseUniDriver {
@@ -7,7 +7,7 @@ export interface CalendarUniDriver extends BaseUniDriver {
   isVisible: () => Promise<boolean>;
   getCurrentMonthWithYear: () => Promise<string>;
   getMonthAndYear: () => Promise<Array<string>>;
-  getNthWeekDayName: (n: number) => Promise<HTMLElement>;
+  getNthWeekDayName: (n: number) => UniDriver;
   clickOnNthDay: (n: number) => Promise<any>;
   clickDay: (date: Date) => Promise<any>;
   isDayActive: (date: Date) => Promise<boolean>;
@@ -27,7 +27,7 @@ export interface CalendarUniDriver extends BaseUniDriver {
   getMonthDropdownLabel: () => Promise<string>;
   getSelectedYear: () => Promise<string>;
   getFocusedDay: () => Promise<string | null>;
-  getFocusedDayElement: () => Promise<HTMLElement>;
+  getFocusedDayElement: () => UniDriver;
   pressLeftArrow: () => Promise<any>;
   pressRightArrow: () => Promise<any>;
   getSelectedDay: () => Promise<string>;

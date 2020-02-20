@@ -1,7 +1,8 @@
-import { BaseUniDriver } from 'wix-ui-test-utils/unidriver';
+import { BaseUniDriver, UniDriver } from 'wix-ui-test-utils/unidriver';
+import {UniDriverFactory} from "wix-ui-test-utils/uni-driver-factory";
 
 export interface SubheaderUniDriver extends BaseUniDriver {
   title(): Promise<string>;
-  titleNode(): Promise<HTMLElement>;
-  suffixNode(): Promise<HTMLElement>;
+  titleNode(): UniDriver;
+  suffixNode(): UniDriver;
 }

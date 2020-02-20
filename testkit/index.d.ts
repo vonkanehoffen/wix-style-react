@@ -257,7 +257,7 @@ export const dividerTestkitFactory: VanillaUniTestkitFactory<DividerUniDriver>;
 export const labelledElementTestkitFactory: VanillaUniTestkitFactory<LabelledElementUniDriver>;
 export const previewWidgetTestkitFactory: VanillaUniTestkitFactory<PreviewWidgetUniDriver>;
 export const modalMobileLayoutTestkitFactory: VanillaUniTestkitFactory<ModalMobileLayoutUniDriver>;
-export const mediaOverlayTestkitFactory: VanillaUniTestkitFactory<MediaOverlayUniDriver>;
+export const mediaOverlayTestkitFactory: VanillaUniTestkitFactory<MediaOverlayUniDriver<HTMLElement>>;
 export const infoIconTestkitFactory: VanillaUniTestkitFactory<InfoIconUniDriver>;
 export const socialButtonTestkitFactory: VanillaUniTestkitFactory<SocialButtonUniDriver>;
 export const verticalTabsTestkitFactory: VanillaUniTestkitFactory<VerticalTabsUniDriver>;

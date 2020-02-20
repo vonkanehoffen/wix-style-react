@@ -258,7 +258,7 @@ export const dividerTestkitFactory: EnzymeUniTestkitFactory<DividerUniDriver>;
 export const labelledElementTestkitFactory: EnzymeUniTestkitFactory<LabelledElementUniDriver>;
 export const previewWidgetTestkitFactory: EnzymeUniTestkitFactory<PreviewWidgetUniDriver>;
 export const modalMobileLayoutTestkitFactory:  EnzymeUniTestkitFactory<ModalMobileLayoutUniDriver>;
-export const mediaOverlayTestkitFactory: EnzymeUniTestkitFactory<MediaOverlayUniDriver>;
+export const mediaOverlayTestkitFactory: EnzymeUniTestkitFactory<MediaOverlayUniDriver<ReactWrapper>>;
 export const infoIconTestkitFactory: EnzymeUniTestkitFactory<InfoIconUniDriver>;
 export const socialButtonTestkitFactory: EnzymeUniTestkitFactory<SocialButtonUniDriver>;
 export const verticalTabsTestkitFactory: EnzymeUniTestkitFactory<VerticalTabsUniDriver>;

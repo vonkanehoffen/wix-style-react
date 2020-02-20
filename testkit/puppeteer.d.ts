@@ -226,7 +226,7 @@ export const dividerTestkitFactory: PuppeteerUniTestkitFactory<DividerUniDriver>
 export const labelledElementTestkitFactory: PuppeteerUniTestkitFactory<LabelledElementUniDriver>;
 export const previewWidgetTestkitFactory: PuppeteerUniTestkitFactory<PreviewWidgetUniDriver>;
 export const modalMobileLayoutTestkitFactory: PuppeteerUniTestkitFactory<ModalMobileLayoutUniDriver>;
-export const mediaOverlayTestkitFactory: PuppeteerUniTestkitFactory<MediaOverlayUniDriver>;
+export const mediaOverlayTestkitFactory: PuppeteerUniTestkitFactory<MediaOverlayUniDriver<HTMLElement>>;
 export const infoIconTestkitFactory: PuppeteerUniTestkitFactory<InfoIconUniDriver>;
 export const socialButtonTestkitFactory: PuppeteerUniTestkitFactory<SocialButtonUniDriver>;
 export const verticalTabsTestkitFactory: PuppeteerUniTestkitFactory<VerticalTabsUniDriver>;
