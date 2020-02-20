@@ -10,6 +10,7 @@
 - `<FieldWithSelectionComposite/>` - Use `<FormField/>` instead.
 - `<GoogleAddressInputWithLabel/>` - Use `<FormField/>` instead.
 - Icons from `wix-style-react/new-icons` import path were removed. Please install and use icons from `wix-ui-icons-common` package directly. You can migrate your existing codebase using provided codemod, please see [migration guide](./docs/migration/ICONS.md) for more details.
+- `<TextLink/>` - Use `<TextButton as="a"/>` instead.
 
 ## Changed
 

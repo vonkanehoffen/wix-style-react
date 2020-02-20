@@ -70,7 +70,6 @@ export const Highlighter: any;
 export const Search: any;
 export const Tabs: any;
 export const Tag: any;
-export const TextLink: any;
 export const LinearProgressBar: any;
 export const CircularProgressBar: any;
 export const EmptyState: any;
