@@ -15,7 +15,7 @@ export default class BadgeSelect extends React.Component<BadgeSelectProps> {
   hideDropdown: () => void;
   showDropdown: () => void;
   toggleDropdown: () => void;
-  getSelectedOption: (any) => BadgeSelectOption;
+  getSelectedOption: (props: any) => BadgeSelectOption;
 }
 
 export interface BadgeSelectOption {

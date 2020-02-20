@@ -11,7 +11,7 @@ export interface ImageViewerProps {
    * @see tooltipProps
    */
   tooltipPlacement?: TooltipNewProps['placement'];
-  tooltipProps?: OmitPolyfill<TooltipNewProps, 'content' | 'upgrade'>;
+  tooltipProps?: OmitPolyfill<TooltipNewProps, 'content' | 'upgrade' | 'dataHook'>;
   showUpdateButton?: boolean;
   showRemoveButton?: boolean;
   onAddImage?: React.MouseEventHandler<HTMLElement>;

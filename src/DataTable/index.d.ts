@@ -86,7 +86,7 @@ export type DataTableColumn = {
   style?: React.CSSProperties;
   infoTooltipProps?: OmitPolyfill<
     Partial<TooltipNewProps>,
-    'dataHook' | 'moveBy'
+    'dataHook' | 'moveBy' | 'upgrade'
   >;
   align?: DataTableColumnAlign;
 };
