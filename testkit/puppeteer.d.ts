@@ -20,6 +20,7 @@ import {CalendarPanelUniDriver} from '../src/CalendarPanel/CalendarPanel.uni.dri
 import {CalendarPanelFooterUniDriver} from '../src/CalendarPanelFooter/CalendarPanelFooter.uni.driver';
 import {HeaderUniDriver} from '../src/Card/Header/Header.uni.driver';
 import {SubheaderUniDriver} from '../src/Card/Subheader/Subheader.uni.driver';
+import {ToggleSwitchUniDriver} from '../src/ToggleSwitch/ToggleSwitch.uni.driver';
 import {CardGalleryItemUniDriver} from '../src/CardGalleryItem/CardGalleryItem.uni.driver';
 import {CarouselUniDriver} from '../src/Carousel/Carousel.uni.driver';
 import {CheckboxUniDriver} from '../src/Checkbox/Checkbox.uni.driver';
@@ -247,4 +248,4 @@ export const fieldWithSelectionCompositeTestkitFactory: DeprecatedPuppeteerTestk
 export const messageBoxMarketerialLayoutTestkitFactory: PuppeteerUniTestkitFactory<MessageBoxMarketerialLayoutUniDriver>;
 export const messageBoxFunctionalLayoutTestkitFactory: PuppeteerUniTestkitFactory<MessageBoxFunctionalLayoutUniDriver>;
 export const subheaderTestkitFactory: PuppeteerUniTestkitFactory<SubheaderUniDriver>;
-
+export const toggleSwitchTestkitFactory: PuppeteerUniTestkitFactory<ToggleSwitchUniDriver>;

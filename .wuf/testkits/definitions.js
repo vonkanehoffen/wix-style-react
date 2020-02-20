@@ -454,7 +454,6 @@ module.exports = {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
-    noPuppeteerTestkit: true,
   },
 
   Label: {
@@ -610,7 +609,7 @@ module.exports = {
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
   },
-  
+
   AutoCompleteWithLabel: {
     namedProtractorTestkitExport: true,
     namedPuppeteerTestkitExport: true,
